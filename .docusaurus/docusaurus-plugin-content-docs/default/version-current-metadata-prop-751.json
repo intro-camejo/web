@@ -1,0 +1,67 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": null,
+  "badge": false,
+  "noIndex": false,
+  "className": "docs-version-current",
+  "isLast": true,
+  "docsSidebars": {
+    "tutorialSidebar": [
+      {
+        "type": "category",
+        "label": "Material",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+          {
+            "type": "link",
+            "label": "Clases grabadas",
+            "href": "/docs/Material/Clases",
+            "docId": "Material/Clases"
+          },
+          {
+            "type": "link",
+            "label": "Diapos",
+            "href": "/docs/Material/Diapos",
+            "docId": "Material/Diapos"
+          },
+          {
+            "type": "link",
+            "label": "Material",
+            "href": "/docs/Material/Material complementario",
+            "docId": "Material/Material complementario"
+          }
+        ],
+        "href": "/docs/Material/"
+      }
+    ]
+  },
+  "docs": {
+    "Material/Clases": {
+      "id": "Material/Clases",
+      "title": "Clases grabadas",
+      "description": "* Clase 1",
+      "sidebar": "tutorialSidebar"
+    },
+    "Material/Diapos": {
+      "id": "Material/Diapos",
+      "title": "Diapos",
+      "description": "* Lorem ipsum dolor sit amet",
+      "sidebar": "tutorialSidebar"
+    },
+    "Material/index": {
+      "id": "Material/index",
+      "title": "Material",
+      "description": "En esta sección vas a encontrar todo el material necesario para la cursada. Ya sea para prepararte para las clases presenciales o para poder repasarlas de forma asincrónica.",
+      "sidebar": "tutorialSidebar"
+    },
+    "Material/Material complementario": {
+      "id": "Material/Material complementario",
+      "title": "Material",
+      "description": "* Lorem ipsum dolor sit amet",
+      "sidebar": "tutorialSidebar"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Material/index",
+  "id": "Material/index",
+  "title": "Material",
+  "description": "En esta sección vas a encontrar todo el material necesario para la cursada. Ya sea para prepararte para las clases presenciales o para poder repasarlas de forma asincrónica.",
+  "source": "@site/docs/Material/index.md",
+  "sourceDirName": "Material",
+  "slug": "/Material/",
+  "permalink": "/docs/Material/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Clases grabadas",
+    "permalink": "/docs/Material/Clases"
+  }
+}

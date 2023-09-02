@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Material",
+  "id": "Material",
+  "title": "Material",
+  "description": "",
+  "source": "@site/docs/Material.md",
+  "sourceDirName": ".",
+  "slug": "/Material",
+  "permalink": "/docs/Material",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Translate your site",
+    "permalink": "/docs/tutorial-extras/translate-your-site"
+  }
+}

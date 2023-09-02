@@ -1,0 +1,19 @@
+{
+  "unversionedId": "Material/Material complementario",
+  "id": "Material/Material complementario",
+  "title": "Material",
+  "description": "* Lorem ipsum dolor sit amet",
+  "source": "@site/docs/Material/Material complementario.md",
+  "sourceDirName": "Material",
+  "slug": "/Material/Material complementario",
+  "permalink": "/docs/Material/Material complementario",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Diapos",
+    "permalink": "/docs/Material/Diapos"
+  }
+}

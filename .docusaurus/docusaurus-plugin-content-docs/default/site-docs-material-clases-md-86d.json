@@ -1,0 +1,23 @@
+{
+  "unversionedId": "Material/Clases",
+  "id": "Material/Clases",
+  "title": "Clases grabadas",
+  "description": "* Clase 1",
+  "source": "@site/docs/Material/Clases.md",
+  "sourceDirName": "Material",
+  "slug": "/Material/Clases",
+  "permalink": "/docs/Material/Clases",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Material",
+    "permalink": "/docs/Material/"
+  },
+  "next": {
+    "title": "Diapos",
+    "permalink": "/docs/Material/Diapos"
+  }
+}

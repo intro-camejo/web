@@ -1,0 +1,23 @@
+{
+  "unversionedId": "Material/Diapos",
+  "id": "Material/Diapos",
+  "title": "Diapos",
+  "description": "* Lorem ipsum dolor sit amet",
+  "source": "@site/docs/Material/Diapos.md",
+  "sourceDirName": "Material",
+  "slug": "/Material/Diapos",
+  "permalink": "/docs/Material/Diapos",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Clases grabadas",
+    "permalink": "/docs/Material/Clases"
+  },
+  "next": {
+    "title": "Material",
+    "permalink": "/docs/Material/Material complementario"
+  }
+}

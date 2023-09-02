@@ -1,0 +1,8 @@
+{
+  "type": "mdx",
+  "permalink": "/cronograma",
+  "source": "@site/src/pages/cronograma.md",
+  "title": "Cronograma del Cuatrimestre",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed ac ex vel quam tristique volutpat.",
+  "frontMatter": {}
+}
