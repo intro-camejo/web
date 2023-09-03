@@ -1,51 +1,33 @@
 # Cronograma del Cuatrimestre
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed ac ex vel quam tristique volutpat.
+A continuación se presenta el horario de clases y el desgloce del cronograma semana a semana.
 
 ## Horario de Clases
 
-| Día        | Hora            | Materias                                      | Aula    |
-|------------|-----------------|-----------------------------------------------|---------|
-| Lunes      | 09:00 AM - 11:00 AM | Materia 1 (Profesor A)  | Aula 101 |
-| Martes     | 10:00 AM - 12:00 PM | Materia 2 (Profesor B)  | Aula 102 |
-| Miércoles  | 01:00 PM - 03:00 PM | Materia 3 (Profesor C)  | Aula 103 |
-| Jueves     | 02:00 PM - 04:00 PM | Materia 4 (Profesor D)  | Aula 104 |
-| Viernes    | 03:00 PM - 05:00 PM | Materia 5 (Profesor E)  | Aula 105 |
+Las clases se dictarán los días jueves de 17:00 a 23:00 hs.
+
+La modalidad será virtual sincrónica a excepción de las fechas de parcial y recuperatorios, que serán presenciales.
 
 ## Cronograma Semanal
 
 A continuación, se muestra el cronograma de actividades para todo el cuatrimestre. Las clases se realizan una vez por semana en el día y horario especificados anteriormente.
 
-| Semana | Fecha       | Tema                            |
-|--------|-------------|---------------------------------|
-| 1      | 3 de enero  | Introducción al curso           |
-| 2      | 10 de enero | Presentación del programa de estudio |
-| 3      | 17 de enero | Tema 1                          |
-| 4      | 24 de enero | Tema 1                          |
-| 5      | 31 de enero | Tema 1                          |
-| 6      | 7 de febrero | Tema 2                          |
-| 7      | 14 de febrero | Tema 2                        |
-| 8      | 21 de febrero | Tema 2                        |
-| 9      | 28 de febrero | Tema 2                        |
-| 10     | 7 de marzo  | Examen Parcial                  |
-| 11     | 14 de marzo | Tema 3                          |
-| 12     | 21 de marzo | Tema 3                          |
-| 13     | 28 de marzo | Tema 3                          |
-| 14     | 4 de abril  | Tema 4                          |
-| 15     | 11 de abril | Examen Parcial                  |
-| 16     | 18 de abril | Tema 4                          |
-| 17     | 25 de abril | Tema 4                          |
-| 18     | 2 de mayo   | Tema 4                          |
-| 19     | 9 de mayo   | Tema 5                          |
-| 20     | 16 de mayo  | Tema 5                          |
-| 21     | 23 de mayo  | Examen Final                    |
-| 22     | 30 de mayo  | Tema 5                          |
-| 23     | 6 de junio  | Tema 5                          |
-| 24     | 13 de junio | Cierre del curso                |
+| Semana |    Fecha    | Temas                                                                                                                  | Modalidad |
+|:------:|-------------| ---------------------------------------------------------------------------------------------------------------------- |:---------:|
+|   1    | 7 de septiembre | <li> Introducción a la materia <li> Introducción a la ingeniería de software <li> Etapas de la ingeniería de software |  Virtual  |
+|   2    | 14 de septiembre | <li> Ingeniería de requerimientos/requisitos <li> Relevamiento de requisitos. Exploración <li> Formas de especificar requisitos |  Virtual  |
+|   3    | 21 de septiembre | <b>Día del estudiante</b> |  :sunglasses:  |
+|   4    | 28 de septiembre | <li> Consultas sobre clase de requisitos <li> Enfoques del desarrollo de software <li> Manifiesto Ágil <li> Distintas metodologías de desarrollo |  Virtual  |
+|   5    | 5 de octubre   | <li> Primeros pasos en un proyecto ágil <li> Prototipado <li> MVP |  Virtual  |
+|   6    | 12 de octubre  | <li> Software de control de versiones (Git) <li> Software de gestión de proyectos (GH Projects) <li> Presentación del Trabajo Práctico |  Virtual  |
+|   7    | 19 de octubre  | <b> Examen Parcial</b> |  Presencial  |
+|   8    | 26 de octubre  | Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
+|   9    | 2 de noviembre  | Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
+|   10   | 9 de noviembre | Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
+|   11   | 16 de noviembre | <li> <b>Primer Recuperatorio</b></li> <li> Consultas y seguimiento sobre Trabajo Práctico |  Presencial / Virtual  |
+|   12   | 23 de noviembre | Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
+|   13   | 30 de noviembre | Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
+|   14   | 7 de diciembre | <li> Consultas y seguimiento sobre Trabajo Práctico <li> <b>Cierre de cursada</b></li>  |  Virtual  |
 
-## Recursos
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed ac ex vel quam tristique volutpat.
-
-- [Enlace a recursos adicionales](https://www.example.com/recursos)
-- [Plataforma de Aprendizaje en Línea](https://www.example.com/learning-platform): Acceso a material de estudio y tareas.
+**Aclaración:**
+El 2do recuperatorio del parcial se tomará junto con la *1<sup>ra</sup> fecha de final*. No se tomará en una fecha que no sea esa.
