@@ -42,13 +42,13 @@
     "Material/Clases": {
       "id": "Material/Clases",
       "title": "Clases grabadas",
-      "description": "* Clase 1",
+      "description": "* Aca vamos a estar colgando los videos a las clases",
       "sidebar": "tutorialSidebar"
     },
     "Material/Diapos": {
       "id": "Material/Diapos",
       "title": "Diapos",
-      "description": "* Lorem ipsum dolor sit amet",
+      "description": "* En esta parte vamos a estar colgando las diapos!",
       "sidebar": "tutorialSidebar"
     },
     "Material/index": {
