@@ -103,6 +103,11 @@ export default [
     exact: true
   },
   {
+    path: '/playlist',
+    component: ComponentCreator('/playlist', '1ed'),
+    exact: true
+  },
+  {
     path: '/regimen-cursada',
     component: ComponentCreator('/regimen-cursada', 'ae2'),
     exact: true

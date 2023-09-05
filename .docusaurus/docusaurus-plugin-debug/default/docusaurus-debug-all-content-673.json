@@ -501,6 +501,14 @@
       },
       {
         "type": "mdx",
+        "permalink": "/playlist",
+        "source": "@site/src/pages/playlist.md",
+        "title": "Playlist colaborativa 2c-2023",
+        "description": "Esta playlist la armaron ustedes!",
+        "frontMatter": {}
+      },
+      {
+        "type": "mdx",
         "permalink": "/regimen-cursada",
         "source": "@site/src/pages/regimen-cursada.md",
         "title": "Régimen de Cursada",

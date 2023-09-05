@@ -79,6 +79,11 @@ const config = {
             label: 'Material',
           },
           {
+            to:"/playlist",
+            position: 'left',
+            label: 'Playlist',
+          },
+          {
             href: 'https://github.com/RiedelNicolas/aninfo-web',
             label: 'GitHub',
             position: 'right',
