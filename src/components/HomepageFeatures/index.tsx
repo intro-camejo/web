@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import { Redirect } from '@docusaurus/router';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
@@ -44,20 +45,17 @@ const FeatureList: FeatureItem[] = [
 ];
 
 function Feature({ title, Svg, description, link }: FeatureItem) {
-  const [linkText, setLinkText] = useState('');
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center fake-link" onClick={ ()=>{setLinkText(link)} }>
+      <Link to={link} className="fake-link">
+      <div className="text--center fake-link">
         <Svg className={styles.featureSvg} role="img"/>
       </div>
+      </Link>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-      {
-        linkText !== '' &&
-        <Redirect to={linkText} />
-      }
     </div>
   );
 }
