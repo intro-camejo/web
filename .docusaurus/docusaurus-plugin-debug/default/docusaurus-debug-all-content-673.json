@@ -86,7 +86,7 @@
               "unversionedId": "Material/Material complementario",
               "id": "Material/Material complementario",
               "title": "Material",
-              "description": "* Lorem ipsum dolor sit amet",
+              "description": "* The Mythical Man-Month - Brooks",
               "source": "@site/docs/Material/Material complementario.md",
               "sourceDirName": "Material",
               "slug": "/Material/Material complementario",
@@ -504,7 +504,7 @@
         "permalink": "/regimen-cursada",
         "source": "@site/src/pages/regimen-cursada.md",
         "title": "Régimen de Cursada",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed ac ex vel quam tristique volutpat.",
+        "description": "Aprobación de cursada",
         "frontMatter": {}
       }
     ]

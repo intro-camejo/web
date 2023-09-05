@@ -60,7 +60,7 @@
     "Material/Material complementario": {
       "id": "Material/Material complementario",
       "title": "Material",
-      "description": "* Lorem ipsum dolor sit amet",
+      "description": "* The Mythical Man-Month - Brooks",
       "sidebar": "tutorialSidebar"
     }
   }
