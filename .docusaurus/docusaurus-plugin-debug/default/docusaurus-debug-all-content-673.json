@@ -481,7 +481,7 @@
         "permalink": "/cronograma",
         "source": "@site/src/pages/cronograma.md",
         "title": "Cronograma del Cuatrimestre",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed ac ex vel quam tristique volutpat.",
+        "description": "A continuación se presenta el horario de clases y el desglose del cronograma semana a semana.",
         "frontMatter": {}
       },
       {
