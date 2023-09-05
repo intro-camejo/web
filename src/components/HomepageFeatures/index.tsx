@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_terms_re_6ak4.svg').default,
     description: (
       <>
-        Reglas claras desde un principio, en búsqueda de una cursada justa para todos y todas.
+        En búsqueda de una cursada justa para todos y todas.
       </>
     ),
     link: '/regimen-cursada',
