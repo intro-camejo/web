@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
+            to="https://anlisisdelain-xa84348.slack.com/">
             Canal de comunicación - Slack
           </Link>
         </div>
