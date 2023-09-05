@@ -4,4 +4,4 @@
 
 
 ### Meet
-Recorda que el meet para las clases es [meet.google.com/dsw-dwyp-fke](meet.google.com/dsw-dwyp-fke)
+[Meet para las clases](https://meet.google.com/dsw-dwyp-fke?pli=1)
