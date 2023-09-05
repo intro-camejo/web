@@ -92,7 +92,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Nico Riedel. Built with Docusaurus.`,
+        copyright: `Nico Riedel (${new Date().getFullYear()}). Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
