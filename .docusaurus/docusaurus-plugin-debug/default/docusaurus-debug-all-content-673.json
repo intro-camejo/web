@@ -44,7 +44,7 @@
               "unversionedId": "Material/Diapos",
               "id": "Material/Diapos",
               "title": "Diapos",
-              "description": "* En esta parte vamos a estar colgando las diapos!",
+              "description": "Primera clase",
               "source": "@site/docs/Material/Diapos.md",
               "sourceDirName": "Material",
               "slug": "/Material/Diapos",

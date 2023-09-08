@@ -77,7 +77,7 @@ export default {
     },
     "footer": {
       "style": "dark",
-      "copyright": "Copyright © 2023 Nico Riedel. Built with Docusaurus.",
+      "copyright": "Nico Riedel (2023). Built with Docusaurus.",
       "links": []
     },
     "prism": {
