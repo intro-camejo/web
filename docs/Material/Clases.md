@@ -1,6 +1,6 @@
 # Clases grabadas
 
-* Aca vamos a estar colgando los videos a las clases
+1. [Primera clase](https://drive.google.com/file/d/1cCU9xTZLj90jkx29RxSK7vsSENJm9aS5/view)
 
 
 ### Meet
