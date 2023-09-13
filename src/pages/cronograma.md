@@ -15,7 +15,7 @@ A continuación, se muestra el cronograma de actividades para todo el cuatrimest
 | Semana | Fecha | Temas | Modalidad |
 |:------:|-------------| ---------------------------------------------------------------------------------------------------------------------- |:---------:|
 |   1    | 7 de septiembre | - Introducción a la materia<br/>- Introducción a la ingeniería de software<br/>- Etapas de la ingeniería de software |  Virtual  |
-|   2    | 14 de septiembre | - Ingeniería de requerimientos<br/>- Relevamiento de requerimientos. Exploración<br/>- Formas de especificar requisitos |  Virtual  |
+|   2    | 14 de septiembre | - Ingeniería de requerimientos<br/>- Relevamiento de requerimientos. Exploración<br/>- Formas de especificar requerimientos |  Virtual  |
 |   3    | 21 de septiembre | **Día del estudiante** |  😎  |
 |   4    | 28 de septiembre | - Consultas sobre clase de requerimientos<br/>- Enfoques del desarrollo de software<br/>- Manifiesto Ágil<br/>- Distintas metodologías de desarrollo |  Virtual  |
 |   5    | 5 de octubre   | - Primeros pasos en un proyecto ágil<br/>- Prototipado<br/>- MVP |  Virtual  |
