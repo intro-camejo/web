@@ -19,9 +19,9 @@ A continuación, se muestra el cronograma de actividades para todo el cuatrimest
 |   3    | 21 de septiembre | **Día del estudiante** |  😎  |
 |   4    | 28 de septiembre | - Consultas sobre clase de requerimientos<br/>- Enfoques del desarrollo de software<br/>- Manifiesto Ágil<br/>- Distintas metodologías de desarrollo |  Virtual  |
 |   5    | 5 de octubre   | - Primeros pasos en un proyecto ágil<br/>- Prototipado<br/>- MVP |  Virtual  |
-|   6    | 12 de octubre  | - Software de control de versiones (Git)<br/>- Software de gestión de proyectos (GH Projects)<br/>- Presentación del Trabajo Práctico |  Virtual  |
+|   6    | 12 de octubre  | - Consultas parcial |  Virtual  |
 |   7    | 19 de octubre  | **Examen Parcial** |  Presencial  |
-|   8    | 26 de octubre  | - Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
+|   6    | 26 de octubre  | - Software de control de versiones (Git)<br/>- Software de gestión de proyectos (GH Projects)<br/>- Presentación del Trabajo Práctico |  Virtual  |
 |   9    | 2 de noviembre  | - Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
 |   10   | 9 de noviembre | - Consultas y seguimiento sobre Trabajo Práctico |  Virtual  |
 |   11   | 16 de noviembre | - **Primer Recuperatorio**<br/>- Consultas y seguimiento sobre Trabajo Práctico |  Presencial / Virtual  |
