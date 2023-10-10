@@ -18,3 +18,7 @@
 * [Metodologías de desarrollo](https://drive.google.com/file/d/1BOtfCnOlgURphGMhvBD0fGEUuyrz_WVc/view?usp=sharing)
 * [Especificación de requerimientos](https://docs.google.com/spreadsheets/d/1dsVL9u3b4qNYiX1x23yELZkE_NcQSmHlI-T6IW9IlAA/edit?usp=sharing)
 * [Modelo de parcial](https://youtu.be/vdfCUkJRfxg)
+
+### Cuarta Clase
+* [Prototipado](https://drive.google.com/file/d/1IRlkn8HDpW0TjjjkauqoB7220VqwTeHP/view?usp=drive_link)
+* [MVP](https://drive.google.com/file/d/1KIbYRtLjpzf1QoEwiyiIi-wvSRMBylkP/view?usp=drive_link)
