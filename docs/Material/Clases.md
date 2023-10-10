@@ -5,5 +5,5 @@
 3. [Tercer clase](https://drive.google.com/file/d/1fq-m59ok3zGaj4BcVthKjYsms88JSgbu/view?usp=drive_link)
 4. [Cuarta clase](https://drive.google.com/file/d/1XZzFy61syg2ujo3FCeGpZgfXArPtIJ85/view)
 
-### Meetx
+### Meet
 [Meet para las clases](https://meet.google.com/dsw-dwyp-fke?pli=1)
