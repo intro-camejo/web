@@ -7,6 +7,7 @@
 5. [Quinta Clase](https://www.youtube.com/watch?v=qXYK90L85p4)
 6. [Sexta Clase](https://drive.google.com/file/d/1hidazGLNjsKUlffVrkAKZUNifRvOLBe9/view?usp=sharing)
 7. [Septiman't Clase](https://drive.google.com/file/d/1dWOceWcbHzUE0ta2yFFz_NegZ2XlsKc_/view?usp=drive_link)
+8. [Octava Clase](https://drive.google.com/file/d/1Cm5odl8flWVxO77frop-gVNpXJWwUk0n/view?usp=drive_link)
 
 ### Meet
 [Meet para las clases](https://meet.google.com/dsw-dwyp-fke?pli=1)
