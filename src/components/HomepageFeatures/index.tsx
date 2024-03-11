@@ -27,7 +27,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_online_calendar_re_wk3t.svg').default,
     description: (
       <>
-        Cronograma de la materia para este segundo cuatrimestre 2023
+        Cronograma de la materia para este primer cuatrimestre 2024
       </>
     ),
     link: '/cronograma',

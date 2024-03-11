@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Análisis de la Información [75.09]',
-  tagline: 'Camejo - Riedel - Martínez Sastre',
+  title: 'Introducción al Desarrollo de Software',
+  tagline: 'Camejo - Bilbao - Diaz Real - Riedel',
   favicon: 'img/tron.svg',
 
   // Set the production url of your site here
