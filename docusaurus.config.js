@@ -85,7 +85,7 @@ const config = {
             label: 'Playlist',
           },
           {
-            href: 'https://github.com/RiedelNicolas/aninfo-web',
+            href: 'https://github.com/intro-camejo/web',
             label: 'GitHub',
             position: 'right',
           },
