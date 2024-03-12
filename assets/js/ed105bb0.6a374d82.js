@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkaninfo_web_catedra=self.webpackChunkaninfo_web_catedra||[]).push([[615],{2632:a=>{a.exports=JSON.parse('{"label":"docusaurus","permalink":"/web/blog/tags/docusaurus","allTagsPath":"/web/blog/tags","count":4}')}}]);

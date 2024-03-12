@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkaninfo_web_catedra=self.webpackChunkaninfo_web_catedra||[]).push([[396],{7864:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/web/blog/tags/facebook","allTagsPath":"/web/blog/tags","count":1}')}}]);
