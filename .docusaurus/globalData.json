@@ -1,33 +1,33 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/docs",
+      "path": "/web/docs",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/docs",
+          "path": "/web/docs",
           "mainDocId": "Material/index",
           "docs": [
             {
               "id": "Material/Clases",
-              "path": "/docs/Material/Clases",
+              "path": "/web/docs/Material/Clases",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "Material/Diapos",
-              "path": "/docs/Material/Diapos",
+              "path": "/web/docs/Material/Diapos",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "Material/index",
-              "path": "/docs/Material/",
+              "path": "/web/docs/Material/",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "Material/Material complementario",
-              "path": "/docs/Material/Material complementario",
+              "path": "/web/docs/Material/Material complementario",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -35,7 +35,7 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/Material/",
+                "path": "/web/docs/Material/",
                 "label": "Material"
               }
             }

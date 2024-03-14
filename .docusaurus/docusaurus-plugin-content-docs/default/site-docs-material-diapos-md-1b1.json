@@ -6,7 +6,7 @@
   "source": "@site/docs/Material/Diapos.md",
   "sourceDirName": "Material",
   "slug": "/Material/Diapos",
-  "permalink": "/docs/Material/Diapos",
+  "permalink": "/web/docs/Material/Diapos",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -14,10 +14,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Clases grabadas",
-    "permalink": "/docs/Material/Clases"
+    "permalink": "/web/docs/Material/Clases"
   },
   "next": {
     "title": "Material",
-    "permalink": "/docs/Material/Material complementario"
+    "permalink": "/web/docs/Material/Material complementario"
   }
 }

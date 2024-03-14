@@ -4,13 +4,14 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Análisis de la Información [75.09]",
-  "tagline": "Camejo - Riedel - Martínez Sastre",
+  "title": "Introducción al Desarrollo de Software",
+  "tagline": "Camejo - Bilbao - Diaz Real - Riedel",
   "favicon": "img/tron.svg",
   "url": "https://your-docusaurus-test-site.com",
-  "baseUrl": "/",
-  "organizationName": "facebook",
-  "projectName": "docusaurus",
+  "baseUrl": "/web/",
+  "organizationName": "intro-camejo",
+  "projectName": "web",
+  "trailingSlash": false,
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "i18n": {
@@ -26,13 +27,13 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "/home/riedel/Documents/aninfo-web/sidebars.js"
+          "sidebarPath": "/home/riedel/FIUBA/web/sidebars.js"
         },
         "blog": {
           "showReadingTime": true
         },
         "theme": {
-          "customCss": "/home/riedel/Documents/aninfo-web/src/css/custom.css"
+          "customCss": "/home/riedel/FIUBA/web/src/css/custom.css"
         }
       }
     ]
@@ -40,9 +41,9 @@ export default {
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "navbar": {
-      "title": "AnInfo",
+      "title": "Intro",
       "logo": {
-        "alt": "Tron Aninfo",
+        "alt": "Tron Intro",
         "src": "img/tron.svg"
       },
       "items": [
@@ -68,7 +69,7 @@ export default {
           "label": "Playlist"
         },
         {
-          "href": "https://github.com/RiedelNicolas/aninfo-web",
+          "href": "https://github.com/intro-camejo/web",
           "label": "GitHub",
           "position": "right"
         }
@@ -77,7 +78,7 @@ export default {
     },
     "footer": {
       "style": "dark",
-      "copyright": "Nico Riedel (2023). Built with Docusaurus.",
+      "copyright": "Nico Riedel (2024). Built with Docusaurus.",
       "links": []
     },
     "prism": {

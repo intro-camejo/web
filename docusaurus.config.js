@@ -57,9 +57,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'AnInfo',
+        title: 'Intro',
         logo: {
-          alt: 'Tron Aninfo',
+          alt: 'Tron Intro',
           src: 'img/tron.svg',
         },
         items: [

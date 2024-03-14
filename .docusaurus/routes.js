@@ -3,148 +3,148 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/__docusaurus/debug',
-    component: ComponentCreator('/__docusaurus/debug', '109'),
+    path: '/web/__docusaurus/debug',
+    component: ComponentCreator('/web/__docusaurus/debug', '586'),
     exact: true
   },
   {
-    path: '/__docusaurus/debug/config',
-    component: ComponentCreator('/__docusaurus/debug/config', '0d4'),
+    path: '/web/__docusaurus/debug/config',
+    component: ComponentCreator('/web/__docusaurus/debug/config', '9ce'),
     exact: true
   },
   {
-    path: '/__docusaurus/debug/content',
-    component: ComponentCreator('/__docusaurus/debug/content', '181'),
+    path: '/web/__docusaurus/debug/content',
+    component: ComponentCreator('/web/__docusaurus/debug/content', '964'),
     exact: true
   },
   {
-    path: '/__docusaurus/debug/globalData',
-    component: ComponentCreator('/__docusaurus/debug/globalData', '4b2'),
+    path: '/web/__docusaurus/debug/globalData',
+    component: ComponentCreator('/web/__docusaurus/debug/globalData', 'f62'),
     exact: true
   },
   {
-    path: '/__docusaurus/debug/metadata',
-    component: ComponentCreator('/__docusaurus/debug/metadata', '573'),
+    path: '/web/__docusaurus/debug/metadata',
+    component: ComponentCreator('/web/__docusaurus/debug/metadata', 'fec'),
     exact: true
   },
   {
-    path: '/__docusaurus/debug/registry',
-    component: ComponentCreator('/__docusaurus/debug/registry', 'eb6'),
+    path: '/web/__docusaurus/debug/registry',
+    component: ComponentCreator('/web/__docusaurus/debug/registry', 'b07'),
     exact: true
   },
   {
-    path: '/__docusaurus/debug/routes',
-    component: ComponentCreator('/__docusaurus/debug/routes', '90a'),
+    path: '/web/__docusaurus/debug/routes',
+    component: ComponentCreator('/web/__docusaurus/debug/routes', 'b77'),
     exact: true
   },
   {
-    path: '/blog',
-    component: ComponentCreator('/blog', '202'),
+    path: '/web/blog',
+    component: ComponentCreator('/web/blog', '0e8'),
     exact: true
   },
   {
-    path: '/blog/archive',
-    component: ComponentCreator('/blog/archive', '8d2'),
+    path: '/web/blog/archive',
+    component: ComponentCreator('/web/blog/archive', '01d'),
     exact: true
   },
   {
-    path: '/blog/first-blog-post',
-    component: ComponentCreator('/blog/first-blog-post', '3a0'),
+    path: '/web/blog/first-blog-post',
+    component: ComponentCreator('/web/blog/first-blog-post', 'dc8'),
     exact: true
   },
   {
-    path: '/blog/long-blog-post',
-    component: ComponentCreator('/blog/long-blog-post', '670'),
+    path: '/web/blog/long-blog-post',
+    component: ComponentCreator('/web/blog/long-blog-post', 'c55'),
     exact: true
   },
   {
-    path: '/blog/mdx-blog-post',
-    component: ComponentCreator('/blog/mdx-blog-post', '37b'),
+    path: '/web/blog/mdx-blog-post',
+    component: ComponentCreator('/web/blog/mdx-blog-post', '422'),
     exact: true
   },
   {
-    path: '/blog/tags',
-    component: ComponentCreator('/blog/tags', '543'),
+    path: '/web/blog/tags',
+    component: ComponentCreator('/web/blog/tags', '0ed'),
     exact: true
   },
   {
-    path: '/blog/tags/docusaurus',
-    component: ComponentCreator('/blog/tags/docusaurus', 'ca8'),
+    path: '/web/blog/tags/docusaurus',
+    component: ComponentCreator('/web/blog/tags/docusaurus', '65b'),
     exact: true
   },
   {
-    path: '/blog/tags/facebook',
-    component: ComponentCreator('/blog/tags/facebook', 'a43'),
+    path: '/web/blog/tags/facebook',
+    component: ComponentCreator('/web/blog/tags/facebook', 'a2c'),
     exact: true
   },
   {
-    path: '/blog/tags/hello',
-    component: ComponentCreator('/blog/tags/hello', '475'),
+    path: '/web/blog/tags/hello',
+    component: ComponentCreator('/web/blog/tags/hello', '64b'),
     exact: true
   },
   {
-    path: '/blog/tags/hola',
-    component: ComponentCreator('/blog/tags/hola', '000'),
+    path: '/web/blog/tags/hola',
+    component: ComponentCreator('/web/blog/tags/hola', '8fb'),
     exact: true
   },
   {
-    path: '/blog/welcome',
-    component: ComponentCreator('/blog/welcome', '0be'),
+    path: '/web/blog/welcome',
+    component: ComponentCreator('/web/blog/welcome', '56e'),
     exact: true
   },
   {
-    path: '/cronograma',
-    component: ComponentCreator('/cronograma', '93a'),
+    path: '/web/cronograma',
+    component: ComponentCreator('/web/cronograma', '659'),
     exact: true
   },
   {
-    path: '/markdown-page',
-    component: ComponentCreator('/markdown-page', '007'),
+    path: '/web/markdown-page',
+    component: ComponentCreator('/web/markdown-page', 'e32'),
     exact: true
   },
   {
-    path: '/playlist',
-    component: ComponentCreator('/playlist', '1ed'),
+    path: '/web/playlist',
+    component: ComponentCreator('/web/playlist', 'b02'),
     exact: true
   },
   {
-    path: '/regimen-cursada',
-    component: ComponentCreator('/regimen-cursada', 'ae2'),
+    path: '/web/regimen-cursada',
+    component: ComponentCreator('/web/regimen-cursada', '074'),
     exact: true
   },
   {
-    path: '/docs',
-    component: ComponentCreator('/docs', '007'),
+    path: '/web/docs',
+    component: ComponentCreator('/web/docs', '4d7'),
     routes: [
       {
-        path: '/docs/Material/',
-        component: ComponentCreator('/docs/Material/', '136'),
+        path: '/web/docs/Material',
+        component: ComponentCreator('/web/docs/Material', '319'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/Material/Clases',
-        component: ComponentCreator('/docs/Material/Clases', '760'),
+        path: '/web/docs/Material/Clases',
+        component: ComponentCreator('/web/docs/Material/Clases', 'f08'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/Material/Diapos',
-        component: ComponentCreator('/docs/Material/Diapos', '2c0'),
+        path: '/web/docs/Material/Diapos',
+        component: ComponentCreator('/web/docs/Material/Diapos', 'b94'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/Material/Material complementario',
-        component: ComponentCreator('/docs/Material/Material complementario', '8bc'),
+        path: '/web/docs/Material/Material complementario',
+        component: ComponentCreator('/web/docs/Material/Material complementario', '21a'),
         exact: true,
         sidebar: "tutorialSidebar"
       }
     ]
   },
   {
-    path: '/',
-    component: ComponentCreator('/', 'a68'),
+    path: '/web/',
+    component: ComponentCreator('/web/', '019'),
     exact: true
   },
   {

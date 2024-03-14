@@ -4,15 +4,17 @@ A continuación se presenta el horario de clases y el desglose del cronograma se
 
 ## Horario de Clases
 
-Las clases se dictarán los días jueves de 17:00 a 23:00 hs.
+Las clases se dictarán los días Lunes y viernes de 19:00 a 22:00 hs.
 
-La modalidad será virtual sincrónica, excepto en las fechas de parcial y recuperatorios, que serán presenciales.
+La modalidad será virtual sincrónica, excepto en casos particulares con el aviso suficiente, que serán presenciales.
 
 ## Cronograma Semanal
 
-A continuación, se muestra el cronograma de actividades para todo el cuatrimestre. Las clases se realizan una vez por semana en el día y horario especificados anteriormente.
+Lo estamos terminando de Armar ...
 
-| Semana | Fecha | Temas | Modalidad |
+<!-- A continuación, se muestra el cronograma de actividades para todo el cuatrimestre. Las clases se realizan una vez por semana en el día y horario especificados anteriormente. -->
+
+<!-- | Semana | Fecha | Temas | Modalidad |
 |:------:|-------------| ---------------------------------------------------------------------------------------------------------------------- |:---------:|
 |   1    | 7 de septiembre | - Introducción a la materia<br/>- Introducción a la ingeniería de software<br/>- Etapas de la ingeniería de software |  Virtual  |
 |   2    | 14 de septiembre | - Ingeniería de requerimientos<br/>- Relevamiento de requerimientos. Exploración<br/>- Formas de especificar requerimientos |  Virtual  |
@@ -30,4 +32,4 @@ A continuación, se muestra el cronograma de actividades para todo el cuatrimest
 |   14   | 7 de diciembre | - Consultas y seguimiento sobre Trabajo Práctico<br/>- **Cierre de cursada**  |  Virtual  |
 
 **Aclaración:**
-El 2do recuperatorio del parcial se tomará junto con la *1<sup>ra</sup> fecha de final*. No se tomará en una fecha que no sea esa.
+El 2do recuperatorio del parcial se tomará junto con la *1<sup>ra</sup> fecha de final*. No se tomará en una fecha que no sea esa. -->

@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="https://anlisisdelain-xa84348.slack.com/">
+            to="https://introaldesarr-pun2471.slack.com//">
             Canal de comunicación - Slack
           </Link>
         </div>
@@ -30,7 +30,7 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`AnInfo Camejo`}
+      title={`Intro Camejo`}
       description="Página de cátedra">
       <HomepageHeader />
       <main>

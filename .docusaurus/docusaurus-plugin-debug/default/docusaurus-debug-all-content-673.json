@@ -9,23 +9,23 @@
           "badge": false,
           "noIndex": false,
           "className": "docs-version-current",
-          "path": "/docs",
-          "tagsPath": "/docs/tags",
+          "path": "/web/docs",
+          "tagsPath": "/web/docs/tags",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/home/riedel/Documents/aninfo-web/sidebars.js",
-          "contentPath": "/home/riedel/Documents/aninfo-web/docs",
-          "contentPathLocalized": "/home/riedel/Documents/aninfo-web/i18n/en/docusaurus-plugin-content-docs/current",
+          "sidebarFilePath": "/home/riedel/FIUBA/web/sidebars.js",
+          "contentPath": "/home/riedel/FIUBA/web/docs",
+          "contentPathLocalized": "/home/riedel/FIUBA/web/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
               "unversionedId": "Material/Clases",
               "id": "Material/Clases",
               "title": "Clases grabadas",
-              "description": "* Aca vamos a estar colgando los videos a las clases",
+              "description": "1. Clase 1 - 11/03",
               "source": "@site/docs/Material/Clases.md",
               "sourceDirName": "Material",
               "slug": "/Material/Clases",
-              "permalink": "/docs/Material/Clases",
+              "permalink": "/web/docs/Material/Clases",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -33,11 +33,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Material",
-                "permalink": "/docs/Material/"
+                "permalink": "/web/docs/Material/"
               },
               "next": {
                 "title": "Diapos",
-                "permalink": "/docs/Material/Diapos"
+                "permalink": "/web/docs/Material/Diapos"
               }
             },
             {
@@ -48,7 +48,7 @@
               "source": "@site/docs/Material/Diapos.md",
               "sourceDirName": "Material",
               "slug": "/Material/Diapos",
-              "permalink": "/docs/Material/Diapos",
+              "permalink": "/web/docs/Material/Diapos",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -56,22 +56,22 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Clases grabadas",
-                "permalink": "/docs/Material/Clases"
+                "permalink": "/web/docs/Material/Clases"
               },
               "next": {
                 "title": "Material",
-                "permalink": "/docs/Material/Material complementario"
+                "permalink": "/web/docs/Material/Material complementario"
               }
             },
             {
               "unversionedId": "Material/index",
               "id": "Material/index",
               "title": "Material",
-              "description": "En esta sección vas a encontrar todo el material necesario para la cursada. Ya sea para prepararte para las clases presenciales o para poder repasarlas de forma asincrónica.",
+              "description": "En esta sección vas a encontrar todo el material necesario para la cursada. Ya sea para prepararte para las clases o para poder repasarlas de forma asincrónica.",
               "source": "@site/docs/Material/index.md",
               "sourceDirName": "Material",
               "slug": "/Material/",
-              "permalink": "/docs/Material/",
+              "permalink": "/web/docs/Material/",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -79,18 +79,18 @@
               "sidebar": "tutorialSidebar",
               "next": {
                 "title": "Clases grabadas",
-                "permalink": "/docs/Material/Clases"
+                "permalink": "/web/docs/Material/Clases"
               }
             },
             {
               "unversionedId": "Material/Material complementario",
               "id": "Material/Material complementario",
               "title": "Material",
-              "description": "* The Mythical Man-Month - Brooks",
+              "description": "* The Linux Command Line (Capítulos 1, 2 y 3)",
               "source": "@site/docs/Material/Material complementario.md",
               "sourceDirName": "Material",
               "slug": "/Material/Material complementario",
-              "permalink": "/docs/Material/Material complementario",
+              "permalink": "/web/docs/Material/Material complementario",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -98,7 +98,7 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Diapos",
-                "permalink": "/docs/Material/Diapos"
+                "permalink": "/web/docs/Material/Diapos"
               }
             }
           ],
@@ -142,7 +142,7 @@
         {
           "id": "welcome",
           "metadata": {
-            "permalink": "/blog/welcome",
+            "permalink": "/web/blog/welcome",
             "source": "@site/blog/2021-08-26-welcome/index.md",
             "title": "Welcome",
             "description": "Docusaurus blogging features are powered by the blog plugin.",
@@ -151,15 +151,15 @@
             "tags": [
               {
                 "label": "facebook",
-                "permalink": "/blog/tags/facebook"
+                "permalink": "/web/blog/tags/facebook"
               },
               {
                 "label": "hello",
-                "permalink": "/blog/tags/hello"
+                "permalink": "/web/blog/tags/hello"
               },
               {
                 "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
+                "permalink": "/web/blog/tags/docusaurus"
               }
             ],
             "readingTime": 0.405,
@@ -195,7 +195,7 @@
             },
             "nextItem": {
               "title": "MDX Blog Post",
-              "permalink": "/blog/mdx-blog-post"
+              "permalink": "/web/blog/mdx-blog-post"
             }
           },
           "content": "[Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).\n\nSimply add Markdown files (or folders) to the `blog` directory.\n\nRegular blog authors can be added to `authors.yml`.\n\nThe blog post date can be extracted from filenames, such as:\n\n- `2019-05-30-welcome.md`\n- `2019-05-30-welcome/index.md`\n\nA blog post folder can be convenient to co-locate blog post images:\n\n![Docusaurus Plushie](./docusaurus-plushie-banner.jpeg)\n\nThe blog supports tags as well!\n\n**And if you don't want a blog**: just delete this directory, and use `blog: false` in your Docusaurus config."
@@ -203,7 +203,7 @@
         {
           "id": "mdx-blog-post",
           "metadata": {
-            "permalink": "/blog/mdx-blog-post",
+            "permalink": "/web/blog/mdx-blog-post",
             "source": "@site/blog/2021-08-01-mdx-blog-post.mdx",
             "title": "MDX Blog Post",
             "description": "Blog posts support Docusaurus Markdown features, such as MDX.",
@@ -212,7 +212,7 @@
             "tags": [
               {
                 "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
+                "permalink": "/web/blog/tags/docusaurus"
               }
             ],
             "readingTime": 0.175,
@@ -238,11 +238,11 @@
             },
             "prevItem": {
               "title": "Welcome",
-              "permalink": "/blog/welcome"
+              "permalink": "/web/blog/welcome"
             },
             "nextItem": {
               "title": "Long Blog Post",
-              "permalink": "/blog/long-blog-post"
+              "permalink": "/web/blog/long-blog-post"
             }
           },
           "content": "Blog posts support [Docusaurus Markdown features](https://docusaurus.io/docs/markdown-features), such as [MDX](https://mdxjs.com/).\n\n:::tip\n\nUse the power of React to create interactive blog posts.\n\n```js\n<button onClick={() => alert('button clicked!')}>Click me!</button>\n```\n\n<button onClick={() => alert('button clicked!')}>Click me!</button>\n\n:::"
@@ -250,7 +250,7 @@
         {
           "id": "long-blog-post",
           "metadata": {
-            "permalink": "/blog/long-blog-post",
+            "permalink": "/web/blog/long-blog-post",
             "source": "@site/blog/2019-05-29-long-blog-post.md",
             "title": "Long Blog Post",
             "description": "This is the summary of a very long blog post,",
@@ -259,11 +259,11 @@
             "tags": [
               {
                 "label": "hello",
-                "permalink": "/blog/tags/hello"
+                "permalink": "/web/blog/tags/hello"
               },
               {
                 "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
+                "permalink": "/web/blog/tags/docusaurus"
               }
             ],
             "readingTime": 2.05,
@@ -288,11 +288,11 @@
             },
             "prevItem": {
               "title": "MDX Blog Post",
-              "permalink": "/blog/mdx-blog-post"
+              "permalink": "/web/blog/mdx-blog-post"
             },
             "nextItem": {
               "title": "First Blog Post",
-              "permalink": "/blog/first-blog-post"
+              "permalink": "/web/blog/first-blog-post"
             }
           },
           "content": "This is the summary of a very long blog post,\n\nUse a `<!--` `truncate` `-->` comment to limit blog post size in the list view.\n\n<!--truncate-->\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet"
@@ -300,7 +300,7 @@
         {
           "id": "first-blog-post",
           "metadata": {
-            "permalink": "/blog/first-blog-post",
+            "permalink": "/web/blog/first-blog-post",
             "source": "@site/blog/2019-05-28-first-blog-post.md",
             "title": "First Blog Post",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet",
@@ -309,11 +309,11 @@
             "tags": [
               {
                 "label": "hola",
-                "permalink": "/blog/tags/hola"
+                "permalink": "/web/blog/tags/hola"
               },
               {
                 "label": "docusaurus",
-                "permalink": "/blog/tags/docusaurus"
+                "permalink": "/web/blog/tags/docusaurus"
               }
             ],
             "readingTime": 0.12,
@@ -344,7 +344,7 @@
             },
             "prevItem": {
               "title": "Long Blog Post",
-              "permalink": "/blog/long-blog-post"
+              "permalink": "/web/blog/long-blog-post"
             }
           },
           "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet"
@@ -359,7 +359,7 @@
             "first-blog-post"
           ],
           "metadata": {
-            "permalink": "/blog",
+            "permalink": "/web/blog",
             "page": 1,
             "postsPerPage": 10,
             "totalPages": 1,
@@ -370,19 +370,19 @@
         }
       ],
       "blogTags": {
-        "/blog/tags/facebook": {
+        "/web/blog/tags/facebook": {
           "label": "facebook",
           "items": [
             "welcome"
           ],
-          "permalink": "/blog/tags/facebook",
+          "permalink": "/web/blog/tags/facebook",
           "pages": [
             {
               "items": [
                 "welcome"
               ],
               "metadata": {
-                "permalink": "/blog/tags/facebook",
+                "permalink": "/web/blog/tags/facebook",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,
@@ -393,13 +393,13 @@
             }
           ]
         },
-        "/blog/tags/hello": {
+        "/web/blog/tags/hello": {
           "label": "hello",
           "items": [
             "welcome",
             "long-blog-post"
           ],
-          "permalink": "/blog/tags/hello",
+          "permalink": "/web/blog/tags/hello",
           "pages": [
             {
               "items": [
@@ -407,7 +407,7 @@
                 "long-blog-post"
               ],
               "metadata": {
-                "permalink": "/blog/tags/hello",
+                "permalink": "/web/blog/tags/hello",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,
@@ -418,7 +418,7 @@
             }
           ]
         },
-        "/blog/tags/docusaurus": {
+        "/web/blog/tags/docusaurus": {
           "label": "docusaurus",
           "items": [
             "welcome",
@@ -426,7 +426,7 @@
             "long-blog-post",
             "first-blog-post"
           ],
-          "permalink": "/blog/tags/docusaurus",
+          "permalink": "/web/blog/tags/docusaurus",
           "pages": [
             {
               "items": [
@@ -436,7 +436,7 @@
                 "first-blog-post"
               ],
               "metadata": {
-                "permalink": "/blog/tags/docusaurus",
+                "permalink": "/web/blog/tags/docusaurus",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,
@@ -447,19 +447,19 @@
             }
           ]
         },
-        "/blog/tags/hola": {
+        "/web/blog/tags/hola": {
           "label": "hola",
           "items": [
             "first-blog-post"
           ],
-          "permalink": "/blog/tags/hola",
+          "permalink": "/web/blog/tags/hola",
           "pages": [
             {
               "items": [
                 "first-blog-post"
               ],
               "metadata": {
-                "permalink": "/blog/tags/hola",
+                "permalink": "/web/blog/tags/hola",
                 "page": 1,
                 "postsPerPage": 10,
                 "totalPages": 1,
@@ -471,14 +471,14 @@
           ]
         }
       },
-      "blogTagsListPath": "/blog/tags"
+      "blogTagsListPath": "/web/blog/tags"
     }
   },
   "docusaurus-plugin-content-pages": {
     "default": [
       {
         "type": "mdx",
-        "permalink": "/cronograma",
+        "permalink": "/web/cronograma",
         "source": "@site/src/pages/cronograma.md",
         "title": "Cronograma del Cuatrimestre",
         "description": "A continuación se presenta el horario de clases y el desglose del cronograma semana a semana.",
@@ -486,12 +486,12 @@
       },
       {
         "type": "jsx",
-        "permalink": "/",
+        "permalink": "/web/",
         "source": "@site/src/pages/index.tsx"
       },
       {
         "type": "mdx",
-        "permalink": "/markdown-page",
+        "permalink": "/web/markdown-page",
         "source": "@site/src/pages/markdown-page.md",
         "title": "Markdown page example",
         "description": "You don't need React to write simple standalone pages.",
@@ -501,7 +501,7 @@
       },
       {
         "type": "mdx",
-        "permalink": "/playlist",
+        "permalink": "/web/playlist",
         "source": "@site/src/pages/playlist.md",
         "title": "Playlist colaborativa 2c-2023",
         "description": "Esta playlist la armaron ustedes!",
@@ -509,7 +509,7 @@
       },
       {
         "type": "mdx",
-        "permalink": "/regimen-cursada",
+        "permalink": "/web/regimen-cursada",
         "source": "@site/src/pages/regimen-cursada.md",
         "title": "Régimen de Cursada",
         "description": "Aprobación de cursada",

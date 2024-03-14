@@ -18,23 +18,23 @@
           {
             "type": "link",
             "label": "Clases grabadas",
-            "href": "/docs/Material/Clases",
+            "href": "/web/docs/Material/Clases",
             "docId": "Material/Clases"
           },
           {
             "type": "link",
             "label": "Diapos",
-            "href": "/docs/Material/Diapos",
+            "href": "/web/docs/Material/Diapos",
             "docId": "Material/Diapos"
           },
           {
             "type": "link",
             "label": "Material",
-            "href": "/docs/Material/Material complementario",
+            "href": "/web/docs/Material/Material complementario",
             "docId": "Material/Material complementario"
           }
         ],
-        "href": "/docs/Material/"
+        "href": "/web/docs/Material/"
       }
     ]
   },
@@ -42,7 +42,7 @@
     "Material/Clases": {
       "id": "Material/Clases",
       "title": "Clases grabadas",
-      "description": "* Aca vamos a estar colgando los videos a las clases",
+      "description": "1. Clase 1 - 11/03",
       "sidebar": "tutorialSidebar"
     },
     "Material/Diapos": {
@@ -54,13 +54,13 @@
     "Material/index": {
       "id": "Material/index",
       "title": "Material",
-      "description": "En esta sección vas a encontrar todo el material necesario para la cursada. Ya sea para prepararte para las clases presenciales o para poder repasarlas de forma asincrónica.",
+      "description": "En esta sección vas a encontrar todo el material necesario para la cursada. Ya sea para prepararte para las clases o para poder repasarlas de forma asincrónica.",
       "sidebar": "tutorialSidebar"
     },
     "Material/Material complementario": {
       "id": "Material/Material complementario",
       "title": "Material",
-      "description": "* The Mythical Man-Month - Brooks",
+      "description": "* The Linux Command Line (Capítulos 1, 2 y 3)",
       "sidebar": "tutorialSidebar"
     }
   }
