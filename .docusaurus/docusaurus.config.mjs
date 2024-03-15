@@ -27,13 +27,13 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "/home/riedel/FIUBA/web/sidebars.js"
+          "sidebarPath": "/Users/denisedallacqua/Desktop/web/sidebars.js"
         },
         "blog": {
           "showReadingTime": true
         },
         "theme": {
-          "customCss": "/home/riedel/FIUBA/web/src/css/custom.css"
+          "customCss": "/Users/denisedallacqua/Desktop/web/src/css/custom.css"
         }
       }
     ]

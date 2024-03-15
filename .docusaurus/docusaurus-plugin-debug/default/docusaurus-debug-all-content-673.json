@@ -13,9 +13,9 @@
           "tagsPath": "/web/docs/tags",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/home/riedel/FIUBA/web/sidebars.js",
-          "contentPath": "/home/riedel/FIUBA/web/docs",
-          "contentPathLocalized": "/home/riedel/FIUBA/web/i18n/en/docusaurus-plugin-content-docs/current",
+          "sidebarFilePath": "/Users/denisedallacqua/Desktop/web/sidebars.js",
+          "contentPath": "/Users/denisedallacqua/Desktop/web/docs",
+          "contentPathLocalized": "/Users/denisedallacqua/Desktop/web/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
               "unversionedId": "Material/Clases",
@@ -504,7 +504,7 @@
         "permalink": "/web/playlist",
         "source": "@site/src/pages/playlist.md",
         "title": "Playlist colaborativa 2c-2023",
-        "description": "Esta playlist la armaron ustedes!",
+        "description": "Agrega una canción//open.spotify.com/playlist/4hbIkmfwwGUVv02w9aQA21?si=ab80cc3f654f4b4b&pt=90c47f3b108071cc44d0740e565caad9",
         "frontMatter": {}
       },
       {

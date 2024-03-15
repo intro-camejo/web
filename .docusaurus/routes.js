@@ -4,117 +4,117 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 export default [
   {
     path: '/web/__docusaurus/debug',
-    component: ComponentCreator('/web/__docusaurus/debug', '586'),
+    component: ComponentCreator('/web/__docusaurus/debug', 'f3f'),
     exact: true
   },
   {
     path: '/web/__docusaurus/debug/config',
-    component: ComponentCreator('/web/__docusaurus/debug/config', '9ce'),
+    component: ComponentCreator('/web/__docusaurus/debug/config', 'eef'),
     exact: true
   },
   {
     path: '/web/__docusaurus/debug/content',
-    component: ComponentCreator('/web/__docusaurus/debug/content', '964'),
+    component: ComponentCreator('/web/__docusaurus/debug/content', '353'),
     exact: true
   },
   {
     path: '/web/__docusaurus/debug/globalData',
-    component: ComponentCreator('/web/__docusaurus/debug/globalData', 'f62'),
+    component: ComponentCreator('/web/__docusaurus/debug/globalData', '0f6'),
     exact: true
   },
   {
     path: '/web/__docusaurus/debug/metadata',
-    component: ComponentCreator('/web/__docusaurus/debug/metadata', 'fec'),
+    component: ComponentCreator('/web/__docusaurus/debug/metadata', '3b7'),
     exact: true
   },
   {
     path: '/web/__docusaurus/debug/registry',
-    component: ComponentCreator('/web/__docusaurus/debug/registry', 'b07'),
+    component: ComponentCreator('/web/__docusaurus/debug/registry', '6ff'),
     exact: true
   },
   {
     path: '/web/__docusaurus/debug/routes',
-    component: ComponentCreator('/web/__docusaurus/debug/routes', 'b77'),
+    component: ComponentCreator('/web/__docusaurus/debug/routes', 'cb7'),
     exact: true
   },
   {
     path: '/web/blog',
-    component: ComponentCreator('/web/blog', '0e8'),
+    component: ComponentCreator('/web/blog', '7fc'),
     exact: true
   },
   {
     path: '/web/blog/archive',
-    component: ComponentCreator('/web/blog/archive', '01d'),
+    component: ComponentCreator('/web/blog/archive', 'dd9'),
     exact: true
   },
   {
     path: '/web/blog/first-blog-post',
-    component: ComponentCreator('/web/blog/first-blog-post', 'dc8'),
+    component: ComponentCreator('/web/blog/first-blog-post', 'f0e'),
     exact: true
   },
   {
     path: '/web/blog/long-blog-post',
-    component: ComponentCreator('/web/blog/long-blog-post', 'c55'),
+    component: ComponentCreator('/web/blog/long-blog-post', '1ac'),
     exact: true
   },
   {
     path: '/web/blog/mdx-blog-post',
-    component: ComponentCreator('/web/blog/mdx-blog-post', '422'),
+    component: ComponentCreator('/web/blog/mdx-blog-post', '0b2'),
     exact: true
   },
   {
     path: '/web/blog/tags',
-    component: ComponentCreator('/web/blog/tags', '0ed'),
+    component: ComponentCreator('/web/blog/tags', 'd3b'),
     exact: true
   },
   {
     path: '/web/blog/tags/docusaurus',
-    component: ComponentCreator('/web/blog/tags/docusaurus', '65b'),
+    component: ComponentCreator('/web/blog/tags/docusaurus', '6bc'),
     exact: true
   },
   {
     path: '/web/blog/tags/facebook',
-    component: ComponentCreator('/web/blog/tags/facebook', 'a2c'),
+    component: ComponentCreator('/web/blog/tags/facebook', '34d'),
     exact: true
   },
   {
     path: '/web/blog/tags/hello',
-    component: ComponentCreator('/web/blog/tags/hello', '64b'),
+    component: ComponentCreator('/web/blog/tags/hello', '757'),
     exact: true
   },
   {
     path: '/web/blog/tags/hola',
-    component: ComponentCreator('/web/blog/tags/hola', '8fb'),
+    component: ComponentCreator('/web/blog/tags/hola', '56e'),
     exact: true
   },
   {
     path: '/web/blog/welcome',
-    component: ComponentCreator('/web/blog/welcome', '56e'),
+    component: ComponentCreator('/web/blog/welcome', '996'),
     exact: true
   },
   {
     path: '/web/cronograma',
-    component: ComponentCreator('/web/cronograma', '659'),
+    component: ComponentCreator('/web/cronograma', '3b2'),
     exact: true
   },
   {
     path: '/web/markdown-page',
-    component: ComponentCreator('/web/markdown-page', 'e32'),
+    component: ComponentCreator('/web/markdown-page', '166'),
     exact: true
   },
   {
     path: '/web/playlist',
-    component: ComponentCreator('/web/playlist', 'b02'),
+    component: ComponentCreator('/web/playlist', '893'),
     exact: true
   },
   {
     path: '/web/regimen-cursada',
-    component: ComponentCreator('/web/regimen-cursada', '074'),
+    component: ComponentCreator('/web/regimen-cursada', 'a8f'),
     exact: true
   },
   {
     path: '/web/docs',
-    component: ComponentCreator('/web/docs', '4d7'),
+    component: ComponentCreator('/web/docs', '016'),
     routes: [
       {
         path: '/web/docs/Material',
@@ -144,7 +144,7 @@ export default [
   },
   {
     path: '/web/',
-    component: ComponentCreator('/web/', '019'),
+    component: ComponentCreator('/web/', '0eb'),
     exact: true
   },
   {
