@@ -13,9 +13,9 @@
           "tagsPath": "/web/docs/tags",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/Users/denisedallacqua/Desktop/web/sidebars.js",
-          "contentPath": "/Users/denisedallacqua/Desktop/web/docs",
-          "contentPathLocalized": "/Users/denisedallacqua/Desktop/web/i18n/en/docusaurus-plugin-content-docs/current",
+          "sidebarFilePath": "/Users/manu/Documents/Facultad/Intro/web/sidebars.js",
+          "contentPath": "/Users/manu/Documents/Facultad/Intro/web/docs",
+          "contentPathLocalized": "/Users/manu/Documents/Facultad/Intro/web/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
               "unversionedId": "Material/Clases",

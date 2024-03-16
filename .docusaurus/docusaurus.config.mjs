@@ -27,13 +27,13 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "/Users/denisedallacqua/Desktop/web/sidebars.js"
+          "sidebarPath": "/Users/manu/Documents/Facultad/Intro/web/sidebars.js"
         },
         "blog": {
           "showReadingTime": true
         },
         "theme": {
-          "customCss": "/Users/denisedallacqua/Desktop/web/src/css/custom.css"
+          "customCss": "/Users/manu/Documents/Facultad/Intro/web/src/css/custom.css"
         }
       }
     ]
