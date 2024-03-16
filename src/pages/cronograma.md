@@ -13,10 +13,10 @@ La modalidad será virtual sincrónica, excepto en casos particulares con el avi
 
 A continuación, se muestra el cronograma de actividades para todo el cuatrimestre. Las clases se realizan una vez por semana en el día y horario especificados anteriormente.
 
- | Fecha | Temas | Modalidad | 
-|:------:|-------------| ---------------------------------------------------------------------------------------------------------------------- |
+ | Fecha | Temas | Modalidad | Lectura |
+|:------:|-------------| ---------------------------------------------------------------------------------------------------------------------- | ---- |
 | 11 de Marzo | - Presentación de la materia<br/>- Introducción a Linux <ul> <li>¿Qué es Linux? ¿Para qué se usa? Historia</li> <li> Árbol del FileSystem. Carpetas más usadas</li> </ul>- Terminal <ul><li>¿Qué es? ¿Para qué se usa?</li> <li> Comandos útiles (cd, ls, cat, pwd, cp, mv, rm, mkdir, sudo)</li></ul> |  Virtual  | 
-| 15 de Marzo | - Opciones de instalación de Linux <ul><li> WSL </li><li> VM </li> <li> Dual Boot </li></ul>- Editores de lectura<br/>- Charla sobre la lectura: The Linux Command Line (Capítulos 1, 2 y 3) |  Virtual  | 
+| 15 de Marzo | - Opciones de instalación de Linux <ul><li> WSL </li><li> VM </li> <li> Dual Boot </li></ul>- Editores de texto |  Virtual  | [The Linux Command Line](https://linuxcommand.org/tlcl.php)<br />Capítulos 1, 2 y 3
 | 18 de Marzo | - Bash <ul> <li>¿Qué es Bash? (Terminal y lenguaje)</li> <li>Estructuras condicionales e iterativas</li> <li> Pipelines, redirecciones, listas (&&, \| \|, ;) </li> </ul> - Editores de terminal   |  Virtual | 
 | 22 de Marzo | - Bash <ul> <li> Scripts </li> <li>Estructuras condicionales e iterativas</li> <li> Pipelines, redirecciones, listas (&&, \| \|, ;) </li> </ul> |  Virtual  | 
 | 25 de Marzo  | - Git <ul> <li>¿Qué es Git? ¿Para qué sirve?</li> <li>Repositorio y Estados</li> <li> Comandos básicos (status, add, commit, push, pull, clone) </li> </ul> - Github <ul> <li> ¿Qué es Github? Diferencia con Git</li> <li>Asociar SSH</li> <li>Crear y subir repositorio</li></ul> |   Virtual  | 
