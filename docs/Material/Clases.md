@@ -9,6 +9,8 @@
 7. Clase 7 - 08/04 (Asincrónica)
     - [Parte 1](https://youtu.be/9L3TpDIc12M?si=yMSDKmjFcBKDIjdI)
     - [Parte 2](https://youtu.be/VNQBeiwMb-E?si=B7vlIdbnj_tvFnNy)
+8. [Clase 8 - 12/04](https://youtu.be/ko0MYHfk7h0?si=Fbc9s2LU6TgYb7MD)
+9. [Clase 9 - 15/04](https://youtu.be/sqEB4nS3T_w?si=b0Hs0PmMyIXqI7y4)
 
 ### Meet
 [Meet para las clases](http://meet.google.com/cjo-fcsf-qag)
