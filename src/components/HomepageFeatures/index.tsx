@@ -1,72 +1,94 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import { Redirect } from '@docusaurus/router';
-import Link from '@docusaurus/Link';
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
-  link: string;
+
+// Si, esto es horrible pero los assets estaticos parece que docusarus los quiere prevcar
+import PekeImg from '@site/static/img/peke.jpeg';
+import NicoImg from '@site/static/img/nico.jpg';
+import GonzaImg from '@site/static/img/hasbulla.jpg';
+import EmmaImg from '@site/static/img/emma.jpeg'
+import ManuBImg from '@site/static/img/hasbulla.jpg';
+import ManuCImg from '@site/static/img/hasbulla.jpg';
+import ArielImg from '@site/static/img/hasbulla.jpg';
+import NicoHImg from '@site/static/img/nicoh.png';
+import SofiImg from '@site/static/img/sofi.jpeg';
+import ConraIMG from '@site/static/img/conra.jpeg'
+
+
+type ColabItem = {
+  name : string,
+  picture : string
 };
 
-const FeatureList: FeatureItem[] = [
+const ColabList: ColabItem[] = [
   {
-    title: 'Régimen de cursada',
-    Svg: require('@site/static/img/undraw_terms_re_6ak4.svg').default,
-    description: (
-      <>
-        En búsqueda de una cursada justa para todos y todas.
-      </>
-    ),
-    link: '/regimen-cursada',
+    name: 'Peke',
+    picture: PekeImg,
   },
   {
-    title: 'Cronograma',
-    Svg: require('@site/static/img/undraw_online_calendar_re_wk3t.svg').default,
-    description: (
-      <>
-        Cronograma de la materia para este primer cuatrimestre 2024
-      </>
-    ),
-    link: '/cronograma',
+    name: 'Nico R',
+    picture: NicoImg,
   },
   {
-    title: 'Material',
-    Svg: require('@site/static/img/undraw_online_learning_re_qw08.svg').default,
-    description: (
-      <>
-        Clases grabadas, diapositivas y material que iremos utilizando a lo largo de la cursada.
-      </>
-    ),
-    link: '/docs/material',
+    name: 'Gonza',
+    picture: GonzaImg,
   },
+  {
+    name: 'Emma',
+    picture: EmmaImg,
+  },
+  {
+    name: 'Manu B',
+    picture: ManuBImg,
+  },
+  {
+    name: 'Manu C',
+    picture: ManuCImg,
+  },
+  {
+    name: 'Ariel',
+    picture: ArielImg,
+  },
+  {
+    name: 'Nico H',
+    picture: NicoHImg,
+  },
+  {
+    name: 'Sofi',
+    picture: SofiImg,
+  },
+  {
+    name: 'Conra',
+    picture : ConraIMG
+  }
 ];
 
-function Feature({ title, Svg, description, link }: FeatureItem) {
+function Colab({ name, picture }: ColabItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <Link to={link} className="fake-link">
-      <div className="text--center fake-link">
-        <Svg className={styles.featureSvg} role="img"/>
+    <div className={clsx('col col--3')}>
+      <div className="text--center">
+          <img className={styles.featureIMG} alt="Foto del colaborador" src={picture}/>
       </div>
-      </Link>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3>{name}</h3>
       </div>
     </div>
   );
 }
 
 export default function HomepageFeatures(): JSX.Element {
+
+  const sortedColabs = ColabList.sort( (a,b) => a.name.localeCompare(b.name) );
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.colabsTitle}>
+          <h1>{"Docentes"}</h1>
+        </div>
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {sortedColabs.map((props, idx) => (
+            <Colab key={idx} {...props} />
           ))}
         </div>
       </div>

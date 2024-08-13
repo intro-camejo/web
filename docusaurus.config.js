@@ -4,11 +4,11 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Introducción al Desarrollo de Software',
-  tagline: 'Camejo - Bilbao - Diaz Real - Riedel',
+  title: 'Intro al Desarrollo de Software',
+  tagline: 'Curso Camejo - 2c 2024',
   favicon: 'img/tron.svg',
+  staticDirectories: ['public', 'static'],
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -54,7 +54,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Intro',
@@ -93,7 +92,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Nico Riedel (${new Date().getFullYear()}). Built with Docusaurus.`,
+        copyright: `Introducción al Desarrollo de Software - Nico Riedel (${new Date().getFullYear()})`,
       },
       prism: {
         theme: lightCodeTheme,

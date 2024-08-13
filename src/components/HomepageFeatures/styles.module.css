@@ -5,7 +5,16 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureIMG {
+  height: 350px;
+  width: 250px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.colabsTitle{
+  text-align: center;
+  h1 {
+    font-size: 3rem;
+  }
 }
