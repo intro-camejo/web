@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkaninfo_web_catedra=self.webpackChunkaninfo_web_catedra||[]).push([[713],{7631:e=>{e.exports=JSON.parse('{"label":"hello","permalink":"/web/blog/tags/hello","allTagsPath":"/web/blog/tags","count":2}')}}]);
