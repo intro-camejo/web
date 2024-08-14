@@ -6,11 +6,11 @@ import styles from './styles.module.css';
 // Si, esto es horrible pero los assets estaticos parece que docusarus los quiere prevcar
 import PekeImg from '@site/static/img/peke.jpeg';
 import NicoImg from '@site/static/img/nico.jpg';
-import GonzaImg from '@site/static/img/hasbulla.jpg';
+import GonzaImg from '@site/static/img/gonza.jpeg';
 import EmmaImg from '@site/static/img/emma.jpeg'
-import ManuBImg from '@site/static/img/hasbulla.jpg';
-import ManuCImg from '@site/static/img/hasbulla.jpg';
-import ArielImg from '@site/static/img/hasbulla.jpg';
+import ManuBImg from '@site/static/img/manub.jpg';
+import ManuCImg from '@site/static/img/manuc.jpg';
+import ArielImg from '@site/static/img/ariel.jpeg';
 import NicoHImg from '@site/static/img/nicoh.png';
 import SofiImg from '@site/static/img/sofi.jpeg';
 import ConraIMG from '@site/static/img/conra.jpeg'
