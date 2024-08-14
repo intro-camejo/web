@@ -13,8 +13,8 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <h2 style={{fontSize:"2.3rem"}}>{siteConfig.tagline}</h2>
+        <h1 className="hero__title" style={{textAlign:'center'}}>{siteConfig.title}</h1>
+        <h2 style={{fontSize:"2.3rem", textAlign:'center'}}>{siteConfig.tagline}</h2>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
