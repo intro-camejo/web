@@ -13,10 +13,10 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title" style={{textAlign:'center'}}>{siteConfig.title}</h1>
+        <h1 style={{textAlign:'center',fontSize:"3rem"}}>{siteConfig.title}</h1>
         <h2 style={{fontSize:"2.3rem", textAlign:'center'}}>{siteConfig.tagline}</h2>
         <div className={styles.buttons}>
-          <Link
+          <Link    
             className="button button--secondary button--lg"
             to="https://introaldesarr-pun2471.slack.com//">
             Canal de comunicación - Slack
