@@ -13,8 +13,9 @@ import ManuCImg from '@site/static/img/manuc.jpg';
 import ArielImg from '@site/static/img/ariel.jpeg';
 import NicoHImg from '@site/static/img/nicoh.png';
 import SofiImg from '@site/static/img/sofi.jpeg';
-import ConraIMG from '@site/static/img/conra.jpeg'
-
+import ConraIMG from '@site/static/img/conra.jpeg';
+import PedroIMG from '@site/static/img/pedroimg.jpeg';
+import LaraIMG from '@site/static/img/lara.jpeg';
 
 type ColabItem = {
   name : string,
@@ -61,6 +62,14 @@ const ColabList: ColabItem[] = [
   {
     name: 'Conra',
     picture : ConraIMG
+  },
+  {
+    name: 'Pedro',
+    picture : PedroIMG
+  },
+  {
+    name: 'Lara',
+    picture : LaraIMG
   }
 ];
 
