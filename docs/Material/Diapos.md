@@ -2,6 +2,6 @@
 
 ### Primera clase
 
-* No tuvimos diapos esta clase :)
-<!-- * [Intro a la materia](https://drive.google.com/file/d/1PO4p2h4IYh6aMXNpraK2zYxC2rq1Ge_q/view?usp=drive_link) -->
+* [Intro a la materia](https://docs.google.com/presentation/d/11q_kUsdCt_-DVdMO5H604OeIyPs3CLMsYfPjeU60EL0/edit?usp=sharing)
+* [Intro a Linux](https://drive.google.com/file/d/18zQ8EG1K3PvUq6M24VQy3eYI_SH4Sq5X/view?usp=sharing)
 
