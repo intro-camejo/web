@@ -1,5 +1,5 @@
 # Clases grabadas
 
-1. [Clase 1 - 22/08](https://www.youtube.com/watch?v=49h0kcZRGso&ab_channel=IntroalDesarrollodeSoftware)
+1. [Clase 1 - 22/08](https://youtu.be/lnChrkTLeZE?si=hVjZZKqLPj5UU-F8)
 
 
