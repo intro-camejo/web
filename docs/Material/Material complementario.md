@@ -5,7 +5,7 @@
 ### Linux/Unix
 
 * [The Linux Command Line (Capítulos 1, 2 y 3)](https://linuxcommand.org/tlcl.php)
-*[Vim CheatSheet](https://vim.rtorr.com/)
+* [Vim CheatSheet](https://vim.rtorr.com/)
 * [Descarga Ubuntu](https://ubuntu.com/download/desktop)
 * [instalación WSL](https://learn.microsoft.com/es-es/windows/wsl/install)
 * [Top Linux Commands](https://www.digitalocean.com/community/tutorials/linux-commands)
