@@ -9,8 +9,13 @@
 * [Descarga Ubuntu](https://ubuntu.com/download/desktop)
 * [instalación WSL](https://learn.microsoft.com/es-es/windows/wsl/install)
 * [Top Linux Commands](https://www.digitalocean.com/community/tutorials/linux-commands)
+* [Is Android Linux Based?](https://www.scaler.com/topics/is-android-linux-based/)
+* [What is Linux Used For?](https://www.lenovo.com/za/en/faqs/operating-systems/what-is-linux-used-for)
+
+
 * [Historia de Linux (Video)](https://youtu.be/s7u7jBwIocU)
 * [Why I Code on Linux Instead of Windows (Video)](https://www.youtube.com/watch?v=HrYtwz0Xe2Q)
 * [Linux in 100 Seconds (Video)](https://youtu.be/rrB13utjYV4)
 * [Why so many distros? The Weird History of Linux (Video)](https://youtu.be/ShcR4Zfc6Dw)
 * [Mainframes and the Unix Revolution (Video)](https://youtu.be/-rPPqm44xLs)
+* [The mind behind Linux | Linus Torvalds | TED (Video)](https://www.youtube.com/watch?v=o8NPllzkFhE)
