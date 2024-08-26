@@ -1,5 +1,7 @@
 # Bash
 
+#### Gracias Sofi!!!!!!
+
 **Bash (Bourne Again Shell)** es un intérprete de comandos y un lenguaje de scripting muy popular en sistemas operativos basados en Unix, como Linux y macOS. Su nombre, "Bourne Again Shell", es un guiño al Bourne Shell (`sh`), el shell original creado por Stephen Bourne en los años 70, al que Bash mejora con varias características nuevas y útiles.
 
 # Características claves de Bash
