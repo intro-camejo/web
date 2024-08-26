@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Git & Github
 
 #### Gracias Nicolas Hatzidimitriou
