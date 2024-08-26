@@ -97,7 +97,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['bash', 'sh', 'shell', 'c', 'regex', 'docker'],
+        additionalLanguages: ['bash', 'c', 'regex', 'docker'],
       },
     }),
 };
