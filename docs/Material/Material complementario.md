@@ -19,3 +19,8 @@
 * [Why so many distros? The Weird History of Linux (Video)](https://youtu.be/ShcR4Zfc6Dw)
 * [Mainframes and the Unix Revolution (Video)](https://youtu.be/-rPPqm44xLs)
 * [The mind behind Linux | Linus Torvalds | TED (Video)](https://www.youtube.com/watch?v=o8NPllzkFhE)
+
+### Bash
+* [Online Bash Shell](https://www.onlinegdb.com/online_bash_shell)
+* [Tutorial Bash - freeCodeCamp](https://youtu.be/tK9Oc6AEnR4)
+* [Bash scripting Geeks for Geeks](https://www.geeksforgeeks.org/bash-scripting-introduction-to-bash-and-bash-scripting/)
