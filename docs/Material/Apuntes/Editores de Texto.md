@@ -1,4 +1,4 @@
-# **Editores de texto**
+# Editores de texto
 
 **Qué son los editores de texto?**
 
