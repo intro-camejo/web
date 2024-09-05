@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.5.1">
 <title data-rh="true">Guías de ejercicios | Intro al Desarrollo de Software</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-test-site.com/web/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-test-site.com/web/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-test-site.com/web/docs/Material/Guias"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Guías de ejercicios | Intro al Desarrollo de Software"><meta data-rh="true" name="description" content="Ejercicios introductorios"><meta data-rh="true" property="og:description" content="Ejercicios introductorios"><link data-rh="true" rel="icon" href="/web/img/tron.svg"><link data-rh="true" rel="canonical" href="https://your-docusaurus-test-site.com/web/docs/Material/Guias"><link data-rh="true" rel="alternate" href="https://your-docusaurus-test-site.com/web/docs/Material/Guias" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-docusaurus-test-site.com/web/docs/Material/Guias" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/web/blog/rss.xml" title="Intro al Desarrollo de Software RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/web/blog/atom.xml" title="Intro al Desarrollo de Software Atom Feed"><link rel="stylesheet" href="/web/assets/css/styles.932d57af.css">
-<script src="/web/assets/js/runtime~main.30a01f4c.js" defer="defer"></script>
+<script src="/web/assets/js/runtime~main.7e31a714.js" defer="defer"></script>
 <script src="/web/assets/js/main.51dda7b6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -105,6 +105,67 @@
 -Materia preferida
 Luego imprimir en un archivo “datos_alumno.txt” toda la información.</p>
 </li>
-</ol></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/web/docs/Material/Diapos"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Diapos</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/web/docs/Material/Material complementario"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Material complemetario</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_IS5x thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ejercicios-introductorios" class="table-of-contents__link toc-highlight">Ejercicios introductorios</a></li><li><a href="#condicionales" class="table-of-contents__link toc-highlight">Condicionales</a></li><li><a href="#iteraciones" class="table-of-contents__link toc-highlight">Iteraciones</a></li><li><a href="#lectura-y-escritura-de-archivos--redirección" class="table-of-contents__link toc-highlight">Lectura y escritura de archivos / Redirección</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Introducción al Desarrollo de Software - Nico Riedel (2024)</div></div></div></footer></div>
+</ol>
+<h1 id="guía-2---regex">Guía 2 - Regex</h1>
+<p><em><u><strong>Nota</strong></u>: si aún no tienen bien asentada la utilización de los <code>tokens</code> o de los comandos de expresiones regulares con los que venimos trabajando, recomendamos que se ayuden con la presentación <a href="https://drive.google.com/file/d/1r44hko1kdqOjxsM7MhDOyG5yQH3HMmtB/view">Intro a Regex</a></em>.</p>
+<h3 id="introducción---básicos">Introducción - Básicos</h3>
+<p>Tenemos un archivo <strong>oraciones.txt</strong>, cuyo contenido es:</p>
+<pre><code class="language-txt">El perro corre rapido por el parque.
+Maria compro manzanas, peras y bananas en el mercado.
+La computadora tiene 16 GB de RAM y 512 GB de almacenamiento.
+Que dia tan bonito para un paseo por la montana!
+Cuantas palabras puede contener esta oracion?
+El gato salto sobre la mesa para atrapar el raton.
+Las clases de Intro comienzan a las 7:30 AM.
+Juan y Martina juegan al futbol todos los viernes.
+</code></pre>
+<p>Encontrar la expresión regular de Regex que devuelve:</p>
+<ol>
+<li>Las ocurrencias de la letra <code>s</code>.</li>
+<li>Las ocurrencias de un caracter, seguido de la letra <code>o</code> (ej. <code>to</code>).</li>
+<li>Todos los dígitos en el archivo.</li>
+<li>Las ocurrencias del punto (<code>.</code>).</li>
+<li>Las ocurrencias de la letra <code>c</code> <strong>al comienzo de la palabra</strong>.</li>
+<li>Las palabras que comienzan con la letra <code>p</code> (no es necesario incluir las mayúsculas).</li>
+</ol>
+<p>¿Qué devuelven las siguientes expresiones regulares?</p>
+<ol start="7">
+<li><code>^L</code></li>
+<li><code>!$</code></li>
+<li><code>‎ </code> ‎  <em>(espacio)</em></li>
+<li><code>[A-Z1-3]</code></li>
+</ol>
+<h3 id="avanzados">Avanzados</h3>
+<h4 id="usuarios-y-contraseñas">Usuarios y Contraseñas</h4>
+<pre><code class="language-csv">cool_cat123,BananaSplit99
+xXx_panda_xXx,unicornu
+spacetraveler42,42isTheAnswer!
+flower_power,RedRoses
+shadow_ninja,!ninjaWarrior22
+_bubblegumqueen,candyLand2024
+the_real_hero,p@ssw0rd!
+pirateKing777,G0ld&amp;Silver$$?
+coffee_addict,latteLover123
+bookworm89,openSesame!
+pepeMaquina,Ave7#0
+</code></pre>
+<p>Se tiene el archivo <strong>contraseñas.csv</strong>, el cual almacena las contraseñas de distintos usuarios en una plataforma. La estructura es <code>nombre_usuario,contraseña</code>. Se pide extraer, del archivo:</p>
+<ol start="11">
+<li>Los nombres de usuario que <strong>contienen números</strong>.</li>
+<li>Los nombres de usuario con al menos un <strong>guión bajo</strong> (<code>_</code>).</li>
+<li>Las contraseñas alfanúmericas.</li>
+<li>Los nombres de usuario alfanuméricos.</li>
+<li>Las contraseñas que comienzen y terminen con el <strong>mismo caracter</strong>.</li>
+<li>Las contraseñas con <strong>exactamente 14 caracteres</strong> (de cualquier tipo).</li>
+<li>Las <strong>contraseñas seguras</strong>; son las que contienen al menos:<!-- -->
+<ul>
+<li>1 letra minúscula</li>
+<li>1 letra mayúscula</li>
+<li>1 número</li>
+<li>1 caracter especial (@$!%*?&amp;#)</li>
+</ul>
+</li>
+</ol>
+<p><em><strong>Aclaraciones</strong>: el caracter <code>,</code> debe ser omitido en las devoluciones de contraseñas o usuarios (buscar <a href="https://medium.com/@NALSengineering/regex-for-dummies-lookaround-assertions-lookaheads-and-lookbehinds-408c94eacaf7"><u>lookahead</u>/<u>lookbehind</u></a>). Comprobá que el resultado de la expresión contenga a todos los campos esperados (para esto, pueden buscar de antemano cuáles serían los usuarios/contraseñas que cumplen con la condición pedida.)</em></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/web/docs/Material/Diapos"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Diapos</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/web/docs/Material/Material complementario"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Material complemetario</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_IS5x thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ejercicios-introductorios" class="table-of-contents__link toc-highlight">Ejercicios introductorios</a></li><li><a href="#condicionales" class="table-of-contents__link toc-highlight">Condicionales</a></li><li><a href="#iteraciones" class="table-of-contents__link toc-highlight">Iteraciones</a></li><li><a href="#lectura-y-escritura-de-archivos--redirección" class="table-of-contents__link toc-highlight">Lectura y escritura de archivos / Redirección</a></li><li><a href="#introducción---básicos" class="table-of-contents__link toc-highlight">Introducción - Básicos</a></li><li><a href="#avanzados" class="table-of-contents__link toc-highlight">Avanzados</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Introducción al Desarrollo de Software - Nico Riedel (2024)</div></div></div></footer></div>
 </body>
 </html>
