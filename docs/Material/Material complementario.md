@@ -1,9 +1,6 @@
 # Material complemetario
 
-
-
 ### Linux/Unix
-
 * [The Linux Command Line (Capítulos 1, 2 y 3)](https://linuxcommand.org/tlcl.php)
 * [Vim CheatSheet](https://vim.rtorr.com/)
 * [Descarga Ubuntu](https://ubuntu.com/download/desktop)
@@ -11,8 +8,6 @@
 * [Top Linux Commands](https://www.digitalocean.com/community/tutorials/linux-commands)
 * [Is Android Linux Based?](https://www.scaler.com/topics/is-android-linux-based/)
 * [What is Linux Used For?](https://www.lenovo.com/za/en/faqs/operating-systems/what-is-linux-used-for)
-
-
 * [Historia de Linux (Video)](https://youtu.be/s7u7jBwIocU)
 * [Why I Code on Linux Instead of Windows (Video)](https://www.youtube.com/watch?v=HrYtwz0Xe2Q)
 * [Linux in 100 Seconds (Video)](https://youtu.be/rrB13utjYV4)
