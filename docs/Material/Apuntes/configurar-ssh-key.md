@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Git & Github
+# Cómo configurar tu SSH Key
 
 #### Gracias Nicolas Hatzidimitriou
 
