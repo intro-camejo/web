@@ -19,3 +19,7 @@
 * [Online Bash Shell](https://www.onlinegdb.com/online_bash_shell)
 * [Tutorial Bash - freeCodeCamp](https://youtu.be/tK9Oc6AEnR4)
 * [Bash scripting Geeks for Geeks](https://www.geeksforgeeks.org/bash-scripting-introduction-to-bash-and-bash-scripting/)
+
+### Git / Github
+* [Pro Git](https://git-scm.com/book/es/v2)
+* [Ciclo de vida](https://codecabulary.launchacademy.com/learn-git/git-lifecycle)
