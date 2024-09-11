@@ -5,3 +5,4 @@
 3. [Clase 3 - 29/08 - Bash](https://youtu.be/MEYpghQSGoM)
 4. [Clase 4 - 03/09 - ReGex](https://youtu.be/Zh64TsJke6I?si=O43aViHgM12zX6K7)
 5. [Clase 5- 05/09 - Regex & Bash](https://youtu.be/-ece8EJdtIE)
+6. [Clase 6- 10/09 - Git](https://youtu.be/2zYC18ChYpI)
