@@ -7,3 +7,4 @@
 5. [Clase 5- 05/09 - Regex & Bash](https://youtu.be/-ece8EJdtIE)
 6. [Clase 6- 10/09 - Git](https://youtu.be/2zYC18ChYpI)
 7. [Clase 7- 12/09 - Git](https://youtu.be/9uwxsS6NHHk)
+8. [Clase 8 - 17/09 - Ing. de Soft](https://youtu.be/FV6C7GeV0vQ)
