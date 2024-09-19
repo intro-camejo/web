@@ -79,6 +79,11 @@ const config = {
             label: 'Material',
           },
           {
+            to:"/trabajos-practicos",
+            position: 'left',
+            label: 'Trabajos Prácticos',
+          },
+          {
             to:"/playlist",
             position: 'left',
             label: 'Playlist',
