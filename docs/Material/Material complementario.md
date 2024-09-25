@@ -23,3 +23,6 @@
 ### Git / Github
 * [Pro Git](https://git-scm.com/book/es/v2)
 * [Ciclo de vida](https://codecabulary.launchacademy.com/learn-git/git-lifecycle)
+
+### Docker
+* [Docker - Pelado Nerd](https://www.youtube.com/watch?v=CV_Uf3Dq-EU)
