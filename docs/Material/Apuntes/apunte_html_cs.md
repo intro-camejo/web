@@ -1,4 +1,4 @@
-<h1>HTML y CSS</h1>
+# HTML y CSS
 
 ## Introducción a HTML
 HTML (Hyper Text Markup Language) **es el lenguaje estándar usado para la estructura de páginas web y la organización de su contenid**o. A través de HTML, los desarrolladores pueden definir la manera en que los distintos elementos de una página web aparecerán y se comportarán en un navegador. Este lenguaje permite estructurar el contenido de **forma jerárquica y lógica**, utilizando etiquetas que delimitan las partes del documento.
@@ -224,8 +224,8 @@ Existen tres formas principales de incluir CSS en un documento HTML:
 Además de los selectores y las propiedades básicas, CSS te permite crear diseños complejos y organizados para tus páginas web. Existen diferentes técnicas y métodos para organizar el contenido en columnas, filas y secciones. A continuación, explicaremos algunas de las más importantes:
 
 #### 1. **Modelo de caja (Box model)**
-<div style="text-align: center;">
-    <img src="https://i.imgur.com/kPV82Sm.png" alt="Box_model">
+<div>
+    <img src="https://i.imgur.com/kPV82Sm.png" alt="Box_model"/>
 </div>
 
 En CSS, cada elemento se representa como una caja rectangular que está compuesta por las siguientes partes:
