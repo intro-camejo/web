@@ -11,3 +11,8 @@
 9. [Clase 9 - 19/09 - Ing. de Soft](https://www.youtube.com/watch?v=jLO-oZjQR4o)
 10. [Clase 10 - 24/09 - Intro. a Docker](https://youtu.be/rbgwr4OTl44)
 11. [Clase 11 - 01/10 - Docker II](https://youtu.be/f489GoGcl8o)
+12. [Clase 12 - 03/10 - HTML](https://youtu.be/w29hZGuAwbg?si=w_-FboA4X8-DEogR)
+13. [Clase 13 (parte 1) - 08/10 - HTML + CSS](https://www.youtube.com/watch?v=KqID5_5jJ8E&t=2140s)
+14. [Clase 13 (parte 2) - 08/10 - HTML + CSS](https://www.youtube.com/watch?v=aSm9fWssCoo)
+15. [Clase 14 - 15/10 - Javascript](https://www.youtube.com/watch?v=ODA3JZwu4So)
+16. [Clase 15 - 24/10 - Javascript](https://www.youtube.com/watch?v=wWy_TWfcApU&t=7848s)
