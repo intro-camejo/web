@@ -16,3 +16,5 @@
 14. [Clase 13 (parte 2) - 08/10 - HTML + CSS](https://www.youtube.com/watch?v=aSm9fWssCoo)
 15. [Clase 14 - 15/10 - Javascript](https://www.youtube.com/watch?v=ODA3JZwu4So)
 16. [Clase 15 - 24/10 - Javascript](https://www.youtube.com/watch?v=wWy_TWfcApU&t=7848s)
+17. [Clase 16 - 29/10 - Backend (HTTP)](https://youtu.be/BwiCSSgN-JQ)
+18. [Clase 17 - 31/10 - Backend (REST API)](https://www.youtube.com/watch?v=T1II-bEJVOM)
