@@ -18,3 +18,5 @@
 16. [Clase 15 - 24/10 - Javascript](https://www.youtube.com/watch?v=wWy_TWfcApU&t=7848s)
 17. [Clase 16 - 29/10 - Backend (HTTP)](https://youtu.be/BwiCSSgN-JQ)
 18. [Clase 17 - 31/10 - Backend (REST API)](https://www.youtube.com/watch?v=T1II-bEJVOM)
+19. [Clase 18 - 05-11 - SQL](https://www.youtube.com/watch?v=kpzxMXpkx8c)
+20. [Clase 19 - 07-11 - SQL](https://www.youtube.com/watch?v=zfEunrrC7Mo)
