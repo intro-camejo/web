@@ -43,3 +43,10 @@ jobs:
           # You can swap them out with your own user credentials.
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Notify Slack
+        if: success()
+        run: |
+          curl -d "text=🚀 Nuevo despliegue! <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|Ver commit: ${{ github.event.head_commit.message }}>" \
+               -d "channel=${{ secrets.SLACK_CHANNEL }}" \
+               -H "Authorization: Bearer ${{ secrets.SLACK_TOKEN }}" \
+               -X POST https://slack.com/api/chat.postMessage
