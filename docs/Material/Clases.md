@@ -20,3 +20,4 @@
 18. [Clase 17 - 31/10 - Backend (REST API)](https://www.youtube.com/watch?v=T1II-bEJVOM)
 19. [Clase 18 - 05-11 - SQL](https://www.youtube.com/watch?v=kpzxMXpkx8c)
 20. [Clase 19 - 07-11 - SQL](https://www.youtube.com/watch?v=zfEunrrC7Mo)
+21. [Clase 20 - 12-11 - Integracion](https://youtu.be/I46tsiSHlTw)
