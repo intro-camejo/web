@@ -10,4 +10,6 @@
 * [Ingeniería de Software](https://drive.google.com/file/d/1UkKXmoJDin3a309fpRMe72W6cwOoQ_LF/view?usp=drive_link)
 * [Etapas de la Ingeniería de Software](https://drive.google.com/file/d/1eP4hohnco9Ku7eki3cjULH_lQaCS2uMa/view?usp=drive_link)
 * [Intro a Docker](https://drive.google.com/file/d/1w-hRlexnWFfFHFuzVGZDtPEyZLkfJUR6/view)
-* [SLQ](https://drive.google.com/file/d/1VOQmw7KNJZq8KVV3bF7sdiVS7o0MNXap/view?usp=sharing)
+* [HTML + CSS (parte II)](https://drive.google.com/file/d/1nGe6MjfEXks76u1V50HtiV-t4zvTH2nU/view?usp=drive_link)
+* [Consultas sobre HTML + CSS](https://drive.google.com/file/d/1lg1V85XTBt8GcRjN9gFyHtX_6pUqn463/view?usp=drive_link)
+* [SQL](https://drive.google.com/file/d/1VOQmw7KNJZq8KVV3bF7sdiVS7o0MNXap/view?usp=sharing)
