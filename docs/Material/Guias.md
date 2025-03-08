@@ -131,4 +131,4 @@ Se tiene el archivo **contraseñas.csv**, el cual almacena las contraseñas de d
 	- 1 número
 	- 1 caracter especial (@$!%\*?&#)
 
-*__Aclaraciones__: el caracter `,` debe ser omitido en las devoluciones de contraseñas o usuarios (buscar [<u>lookahead</u>/<u>lookbehind</u>](https://medium.com/@NALSengineering/regex-for-dummies-lookaround-assertions-lookaheads-and-lookbehinds-408c94eacaf7)). Comprobá que el resultado de la expresión contenga a todos los campos esperados (para esto, pueden buscar de antemano cuáles serían los usuarios/contraseñas que cumplen con la condición pedida.)*
+*__Aclaraciones__: el caracter `,` debe ser omitido en las devoluciones de contraseñas o usuarios. Comprobá que el resultado de la expresión contenga a todos los campos esperados (para esto, pueden buscar de antemano cuáles serían los usuarios/contraseñas que cumplen con la condición pedida.)*
