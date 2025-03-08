@@ -151,7 +151,7 @@ export const cronograma = [
         "martes": {
             "fecha": "06/05/2025",
             "actividades": [
-                { "name": "Parcial (Presencial)" }
+                { "name": "Parcial (Presencial)", "bg": "#0070a7", "color": "#f7f7f7" },
             ]
         },
         "jueves": {
@@ -213,7 +213,8 @@ export const cronograma = [
         "martes": {
             "fecha": "03/06/2025",
             "actividades": [
-                { "name": "Integración Parte 1" }
+                { "name": "Integración Parte 1" },
+                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         },
         "jueves": {
@@ -228,8 +229,7 @@ export const cronograma = [
         "martes": {
             "fecha": "10/06/2025",
             "actividades": [
-                { "name": "Integración Parte 3" },
-                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
+                { "name": "Integración Parte 3" }
             ]
         },
         "jueves": {
