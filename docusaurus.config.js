@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const config = {
   title: 'Intro al Desarrollo de Software',
-  tagline: 'Curso Camejo - 2c 2024',
+  tagline: 'Curso Camejo - 1c 2025',
   favicon: 'img/tron.svg',
   staticDirectories: ['public', 'static'],
 
