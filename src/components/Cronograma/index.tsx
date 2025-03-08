@@ -31,7 +31,6 @@ export const Cronograma = () => {
             </ul>
         )
     }
-    return (<></>);
 
     return (
         <table>

@@ -2,13 +2,7 @@ export const cronograma = [
     {
         "semana": 1,
         "martes": {
-            "fecha": "20/08/2024",
-            "actividades": [
-                { "name": "Paro Docente" }
-            ]
-        },
-        "jueves": {
-            "fecha": "22/08/2024",
+            "fecha": "11/03/2025",
             "actividades": [
                 { "name": "Presentación de la materia" },
                 { "name": "Opciones de instalación de Linux" },
@@ -16,21 +10,30 @@ export const cronograma = [
                 { "name": "Introducción a Linux" },
                 { "name": "Terminal" }
             ]
-        }
-    },
-    {
-        "semana": 2,
-        "martes": {
-            "fecha": "27/08/2024",
+        },
+        "jueves": {
+            "fecha": "13/03/2025",
             "actividades": [
                 { "name": "Bash" },
                 { "name": "¿Qué es Bash?" },
                 { "name": "Estructuras condicionales e iterativas" },
                 { "name": "Pipelines, redirecciones, listas" }
             ]
+        }
+    },
+    {
+        "semana": 2,
+        "martes": {
+            "fecha": "18/03/2025",
+            "actividades": [
+                { "name": "Bash" },
+                { "name": "Estructuras condicionales e iterativas" },
+                { "name": "Pipelines, redirecciones, listas" },
+                { "name": "Editores de terminal" }
+            ]
         },
         "jueves": {
-            "fecha": "29/08/2024",
+            "fecha": "20/03/2025",
             "actividades": [
                 { "name": "Bash" },
                 { "name": "Estructuras condicionales e iterativas" },
@@ -42,22 +45,23 @@ export const cronograma = [
     {
         "semana": 3,
         "martes": {
-            "fecha": "03/09/2024",
+            "fecha": "25/03/2025",
             "actividades": [
                 { "name": "Regex" }
             ]
         },
         "jueves": {
-            "fecha": "05/09/2024",
+            "fecha": "27/03/2025",
             "actividades": [
-                { "name": "Ejercicios integradores de bash y regex" }
+                { "name": "Ejercicios integradores de bash y regex" },
+                { "name": "Presentación TP0", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         }
     },
     {
         "semana": 4,
         "martes": {
-            "fecha": "10/09/2024",
+            "fecha": "01/04/2025",
             "actividades": [
                 { "name": "Git" },
                 { "name": "¿Qué es Git? ¿Para qué sirve?" },
@@ -67,118 +71,123 @@ export const cronograma = [
             ]
         },
         "jueves": {
-            "fecha": "12/09/2024",
+            "fecha": "03/04/2025",
             "actividades": [
-                { "name": "Git" }
+                { "name": "Git" },
+                { "name": "Ramas" },
+                { "name": "Comandos avanzados" },
             ]
         }
     },
     {
         "semana": 5,
         "martes": {
-            "fecha": "17/09/2024",
+            "fecha": "08/04/2025",
             "actividades": [
                 { "name": "Ingeniería de Software" }
             ]
         },
         "jueves": {
-            "fecha": "19/09/2024",
+            "fecha": "10/04/2025",
             "actividades": [
                 { "name": "Ingeniería de Software" },
-                { "name": "Presentación TP1", "bg": "#0070a7", "color": "#f7f7f7" }
+                { "name": "Entrega TP0", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         }
     },
     {
         "semana": 6,
         "martes": {
-            "fecha": "24/09/2024",
+            "fecha": "15/04/2025",
             "actividades": [
                 { "name": "Docker" }
             ]
         },
         "jueves": {
-            "fecha": "26/09/2024",
+            "fecha": "17/04/2025",
             "actividades": [
-                { "name": "Paro Docente" }
+                { "name": "Docker Avanzado" },
+                { "name": "Docker Compose" }
             ]
         }
     },
     {
         "semana": 7,
         "martes": {
-            "fecha": "01/10/2024",
+            "fecha": "22/04/2025",
             "actividades": [
-                { "name": "Docker" },
-                { "name": "Consultas TP1" }
+                { "name": "SQL" },
+                { "name": "¿Qué es una BDD? ¿Qué es SQL?" },
+                { "name": "Estructura de las BDD relacionales" },
+                { "name": "Instrucciones Básicas" }
             ]
         },
         "jueves": {
-            "fecha": "03/10/2024",
+            "fecha": "24/04/2025",
             "actividades": [
-                { "name": "HTML" },
-                { "name": "¿Qué es HTML? ¿Para qué se usa?" },
-                { "name": "CSS" },
-                { "name": "¿Qué es CSS? ¿Para qué se usa?" }
+                { "name": "SQL" },
+                { "name": "SQL no tan básico y JOINs" }
             ]
         }
     },
     {
         "semana": 8,
         "martes": {
-            "fecha": "08/10/2024",
+            "fecha": "29/05/2025",
             "actividades": [
-                { "name": "HTML" },
-                { "name": "CSS" }
+                { "name": "Ejercicios SQL" },
+                { "name": "Consultas" }
             ]
         },
         "jueves": {
-            "fecha": "10/10/2024",
+            "fecha": "01/05/2025",
             "actividades": [
-                { "name": "Paro Docente" }
+                { "name": "Feriado", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         }
     },
     {
         "semana": 9,
         "martes": {
-            "fecha": "15/10/2024",
+            "fecha": "06/05/2025",
             "actividades": [
-                { "name": "Javascript" }
+                { "name": "Parcial (Presencial)" }
             ]
         },
         "jueves": {
-            "fecha": "17/10/2024",
+            "fecha": "08/05/2025",
             "actividades": [
-                { "name": "Paro Docente" }
+                { "name": "Introducción a HTML" },
+                { "name": "Introducción a CSS" }
             ]
         }
     },
     {
         "semana": 10,
         "martes": {
-            "fecha": "22/10/2024",
+            "fecha": "13/05/2025",
             "actividades": [
-                { "name": "Javascript" }
+                { "name": "HTML" },
+                { "name": "CSS" }
             ]
         },
         "jueves": {
-            "fecha": "24/10/2024",
+            "fecha": "15/05/2025",
             "actividades": [
-                { "name": "Javascript" }
+                { "name": "Javascript" },
             ]
         }
     },
     {
         "semana": 11,
         "martes": {
-            "fecha": "29/10/2024",
+            "fecha": "20/05/2025",
             "actividades": [
-                { "name": "Backend" }
+                { "name": "Javascript" }
             ]
         },
         "jueves": {
-            "fecha": "31/10/2024",
+            "fecha": "22/05/2025",
             "actividades": [
                 { "name": "Backend" }
             ]
@@ -187,76 +196,75 @@ export const cronograma = [
     {
         "semana": 12,
         "martes": {
-            "fecha": "05/11/2024",
+            "fecha": "27/05/2025",
             "actividades": [
                 { "name": "Backend" }
             ]
         },
         "jueves": {
-            "fecha": "07/11/2024",
+            "fecha": "29/05/2025",
             "actividades": [
-                { "name": "SQL" },
-                { "name": "¿Qué es una BDD? ¿Qué es SQL?" },
-                { "name": "Estructura de las BDD relacionales" },
-                { "name": "Presentación TP2", "bg": "#0070a7", "color": "#f7f7f7" }
+                { "name": "Backend" },
             ]
         }
     },
     {
         "semana": 13,
         "martes": {
-            "fecha": "12/11/2024",
+            "fecha": "03/06/2025",
             "actividades": [
-                { "name": "SQL" }
+                { "name": "Integración Parte 1" }
             ]
         },
         "jueves": {
-            "fecha": "14/11/2024",
+            "fecha": "05/06/2025",
             "actividades": [
-                { "name": "Integración Parte 1"}
+                { "name": "Integración Parte 2" }
             ]
         }
     },
     {
         "semana": 14,
         "martes": {
-            "fecha": "19/11/2024",
+            "fecha": "10/06/2025",
             "actividades": [
-                { "name": "Integración Parte 2"}
+                { "name": "Integración Parte 3" },
+                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         },
         "jueves": {
-            "fecha": "21/11/2024",
+            "fecha": "12/06/2025",
             "actividades": [
-                { "name": "Integración Parte 3: Despliegue de proyecto"}
+                { "name": "Integración Parte 4: Despliegue de proyecto" }
             ]
         }
     },
     {
         "semana": 15,
         "martes": {
-            "fecha": "26/11/2024",
+            "fecha": "17/06/2025",
             "actividades": [
-                { "name": "Consultas de parcial" }
+                { "name": "Clase con invitado" },
+                { "name" : "Consultas"}
             ]
         },
         "jueves": {
-            "fecha": "28/11/2024",
+            "fecha": "19/06/2025",
             "actividades": [
-                { "name": "PARCIAL", "bg": "#0070a7", "color": "#f7f7f7" }
+                { "name": "Primer recuperatorio (Presencial)" }
             ]
         }
     },
     {
         "semana": 16,
         "martes": {
-            "fecha": "03/12/2024",
+            "fecha": "24/06/2025",
             "actividades": [
-                { "name": "Clase de consultas TP integrador" }
+                { "name": "Buffer" }
             ]
         },
         "jueves": {
-            "fecha": "05/12/2024",
+            "fecha": "26/06/2025",
             "actividades": [
                 { "name": "Retrospectiva" }
             ]
