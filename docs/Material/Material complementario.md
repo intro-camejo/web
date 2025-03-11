@@ -13,7 +13,6 @@
 
 #### Referencias
 * [The Linux Command Line (Capítulos 1, 2 y 3)](https://linuxcommand.org/tlcl.php)
-* [Vim CheatSheet](https://vim.rtorr.com/)
 * [Top Linux Commands](https://www.digitalocean.com/community/tutorials/linux-commands)
 * [Unix Specification](https://en.wikipedia.org/wiki/Single_UNIX_Specification)
 
@@ -24,6 +23,7 @@
 
 #### Editores
 * [Descarga VSCode](https://code.visualstudio.com/download)
+* [Vim CheatSheet](https://vim.rtorr.com/)
 
 
 ### Bash
