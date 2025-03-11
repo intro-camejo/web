@@ -5,9 +5,9 @@ export const cronograma = [
             "fecha": "11/03/2025",
             "actividades": [
                 { "name": "Presentación de la materia" },
+                { "name": "Introducción a Linux" },
                 { "name": "Opciones de instalación de Linux" },
                 { "name": "Editores de texto" },
-                { "name": "Introducción a Linux" },
                 { "name": "Terminal" }
             ]
         },
