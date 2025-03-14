@@ -132,7 +132,7 @@ export const cronograma = [
     {
         "semana": 8,
         "martes": {
-            "fecha": "29/05/2025",
+            "fecha": "29/04/2025",
             "actividades": [
                 { "name": "SQL" },
                 { "name": "SQL no tan básico y JOINs" }
