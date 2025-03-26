@@ -5,9 +5,9 @@ export const cronograma = [
             "fecha": "11/03/2025",
             "actividades": [
                 { "name": "Presentación de la materia" },
+                { "name": "Introducción a Linux" },
                 { "name": "Opciones de instalación de Linux" },
                 { "name": "Editores de texto" },
-                { "name": "Introducción a Linux" },
                 { "name": "Terminal" }
             ]
         },
@@ -106,8 +106,7 @@ export const cronograma = [
         "jueves": {
             "fecha": "17/04/2025",
             "actividades": [
-                { "name": "Docker Avanzado" },
-                { "name": "Docker Compose" }
+                { "name": "Feriado", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         }
     },
@@ -116,27 +115,27 @@ export const cronograma = [
         "martes": {
             "fecha": "22/04/2025",
             "actividades": [
-                { "name": "SQL" },
-                { "name": "¿Qué es una BDD? ¿Qué es SQL?" },
-                { "name": "Estructura de las BDD relacionales" },
-                { "name": "Instrucciones Básicas" }
+                { "name": "Docker Avanzado" },
+                { "name": "Docker Compose" }
             ]
         },
         "jueves": {
             "fecha": "24/04/2025",
             "actividades": [
                 { "name": "SQL" },
-                { "name": "SQL no tan básico y JOINs" }
+                { "name": "¿Qué es una BDD? ¿Qué es SQL?" },
+                { "name": "Estructura de las BDD relacionales" },
+                { "name": "Instrucciones Básicas" }
             ]
         }
     },
     {
         "semana": 8,
         "martes": {
-            "fecha": "29/05/2025",
+            "fecha": "29/04/2025",
             "actividades": [
-                { "name": "Ejercicios SQL" },
-                { "name": "Consultas" }
+                { "name": "SQL" },
+                { "name": "SQL no tan básico y JOINs" }
             ]
         },
         "jueves": {
@@ -151,14 +150,14 @@ export const cronograma = [
         "martes": {
             "fecha": "06/05/2025",
             "actividades": [
-                { "name": "Parcial (Presencial)", "bg": "#0070a7", "color": "#f7f7f7" },
+                { "name": "Ejercicios SQL" },
+                { "name": "Consultas" }
             ]
         },
         "jueves": {
             "fecha": "08/05/2025",
             "actividades": [
-                { "name": "Introducción a HTML" },
-                { "name": "Introducción a CSS" }
+                { "name": "Parcial (Presencial)", "bg": "#0070a7", "color": "#f7f7f7" },
             ]
         }
     },
@@ -167,14 +166,15 @@ export const cronograma = [
         "martes": {
             "fecha": "13/05/2025",
             "actividades": [
-                { "name": "HTML" },
-                { "name": "CSS" }
+                { "name": "Introducción a HTML" },
+                { "name": "Introducción a CSS" }
             ]
         },
         "jueves": {
             "fecha": "15/05/2025",
             "actividades": [
-                { "name": "Javascript" },
+                { "name": "HTML" },
+                { "name": "CSS" }
             ]
         }
     },
@@ -189,7 +189,7 @@ export const cronograma = [
         "jueves": {
             "fecha": "22/05/2025",
             "actividades": [
-                { "name": "Backend" }
+                { "name": "Javascript" }
             ]
         }
     },
@@ -204,7 +204,7 @@ export const cronograma = [
         "jueves": {
             "fecha": "29/05/2025",
             "actividades": [
-                { "name": "Backend" },
+                { "name": "Backend" }
             ]
         }
     },
@@ -213,14 +213,14 @@ export const cronograma = [
         "martes": {
             "fecha": "03/06/2025",
             "actividades": [
-                { "name": "Integración Parte 1" },
-                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
+                { "name": "Backend" },
             ]
         },
         "jueves": {
             "fecha": "05/06/2025",
             "actividades": [
-                { "name": "Integración Parte 2" }
+                { "name": "Integración Parte 1" },
+                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
             ]
         }
     },
@@ -229,13 +229,13 @@ export const cronograma = [
         "martes": {
             "fecha": "10/06/2025",
             "actividades": [
-                { "name": "Integración Parte 3" }
+                { "name": "Integración Parte 2" }
             ]
         },
         "jueves": {
             "fecha": "12/06/2025",
             "actividades": [
-                { "name": "Integración Parte 4: Despliegue de proyecto" }
+                { "name": "Integración Parte 3" }
             ]
         }
     },
@@ -244,14 +244,14 @@ export const cronograma = [
         "martes": {
             "fecha": "17/06/2025",
             "actividades": [
-                { "name": "Clase con invitado" },
-                { "name" : "Consultas"}
+                { "name": "Integración Parte 4: Despliegue de proyecto" }
             ]
         },
         "jueves": {
             "fecha": "19/06/2025",
             "actividades": [
-                { "name": "Primer recuperatorio (Presencial)" }
+                { "name": "Clase con invitado" },
+                { "name" : "Consultas"}
             ]
         }
     },
@@ -260,7 +260,7 @@ export const cronograma = [
         "martes": {
             "fecha": "24/06/2025",
             "actividades": [
-                { "name": "Buffer" }
+                { "name": "Primer recuperatorio (Presencial)" }
             ]
         },
         "jueves": {
