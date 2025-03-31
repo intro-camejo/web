@@ -108,7 +108,6 @@ Secuencia de Fibonacci:
 **Ejemplos**:
 - Número recibido: **10** | Respuesta: **8** (n° 13)
 - Número recibido: **3**  | Respuesta: **6** (n° 5)
-- Número recibido: **3**  | Respuesta: **6** (n° 5)
 - Número recibido: **0**  | Respuesta: **2** (n° 1)
 
 #### ¿Cómo utilizar el script?
@@ -128,7 +127,7 @@ Secuencia de Fibonacci:
 
 Bulma ha logrado acceder a los registros secretos de Freezer a través de un moderno dispositivo desarrollado por la Corporación Cápsula. A través de la conexión remota, Bulma descubre que los archivos están fuertemente protegidos por una contraseña. Sin embargo, al examinar los registros previos, se da cuenta de que una palabra clave se repite constantemente: Cold, el nombre del padre de Freezer, y se plantea si la contraseña puede ser la cantidad de menciones al soberano.
 
-Escribir un programa que **reciba un archivo** como parámetro e imprima <UnderlinedText>**cuántas veces aparece la palabra**</UnderlinedText> `Cold` <UnderlinedText>**en su contenido**</UnderlinedText>, sin importar si está en mayúsculas o minúsculas, o en una combinación de ellas.
+Escribir un programa que **reciba la ruta de un archivo** como parámetro e imprima <UnderlinedText>**cuántas veces aparece la palabra**</UnderlinedText> `Cold` <UnderlinedText>**en su contenido**</UnderlinedText>, sin importar si está en mayúsculas o minúsculas, o en una combinación de ellas.
 
 Ejemplos: `Cold` - `cOld` - `coLD` - `COLd` - `COLD` - *etc...*
 
@@ -149,7 +148,7 @@ Ejemplos: `Cold` - `cOld` - `coLD` - `COLd` - `COLD` - *etc...*
 Después de que Piccolo se encuentra con Nail en Namek, ambos deciden fusionarse para aumentar sus poderes y tener una oportunidad de enfrentar a Freezer. Para realizar la fusión correctamente, deben asegurarse de que todas las condiciones de energía y poder estén registradas en el archivo de datos de la casa del Gran Patriarca (o lo que queda de ella), ya que cualquier error podría afectar la fusión y su capacidad para luchar.
 Picollo necesita revisar el archivo donde se almacenan los registros de energía, y debe asegurarse de que cada línea del archivo **contenga al menos un número**, ya que eso indicaría que la información de poder de ambos namekianos está correctamente registrada y lista para la fusión.
 
-Escribir un programa que **reciba un archivo** como parámetro y cuente <UnderlinedText>**cuántas líneas contienen al menos un número**</UnderlinedText>. De esta forma, Picollo y Nail sabrán que tan seguro es realizar la fusión.
+Escribir un programa que **reciba la ruta de un archivo** como parámetro y cuente <UnderlinedText>**cuántas líneas contienen al menos un número**</UnderlinedText>. De esta forma, Picollo y Nail sabrán que tan seguro es realizar la fusión.
 
 #### ¿Cómo utilizar el script?
 
@@ -181,6 +180,23 @@ Escribir un programa que reciba un *path* a un directorio e imprima la <Underlin
 
 </div>
 
+
+
+## Formato de entrega
+
+Para que la entrega del trabajo práctico en la plataforma Algotron sea válida, deben cumplirse los siguientes requisitos:
+
+- Cada script debe nombrarse siguiendo el formato indicado en los ejemplos al final de cada consigna: `ejercicio<num_de_ejercicio>.sh`
+- Todos los scripts deben comprimirse en un archivo `.zip` con un nombre arbitrario.
+  - Dicho archivo `.zip` debe contener **únicamente** los scripts solicitados, sin archivos ni directorios adicionales.
+  - No debe comprimirse el directorio que contiene los archivos, sino **el conjunto de archivos en sí**.
+
+<div style={{ textAlign: 'center' }}>
+
+![Ejemplo](https://i.imgur.com/I1IytcS.png)
+
+ </div>
+
 ---
 
 ## Consideraciones generales
@@ -191,6 +207,16 @@ Se require lo siguiente en la implementación de todos los ejercicios del trabaj
 - Con el objetivo de lograr un mejor entendimiento de la resolución, **alojar los valores recibidos en nuevas variables**, cuyos nombres hagan referencia a lo que aportan al problema.
 - **Moduralizar el código** si se considera necesario.
 - En caso de querer utilizar algún comando o herramienta nueva, **explicar brevemente para qué sirve en ese contexto, y por qué se desea usarla**. Esto se recomienda más que nada para que, en el momento de las correcciones, se vea que saben qué es lo que están usando, y por qué.
+- Si el enunciado pide recibir un número (sea por parámetro o dentro de un archivo), **se refiere a un número entero, mayor o igual a 0**.
+
+---
+## Ajustes de enunciado
+- 31/03/2025:
+  - Se cambia "recibe un archivo" por "recibe la ruta de un archivo" en los enunciados que lo requieren.
+  - Se aclara que todos los ejercicios que piden recibir un número, se refiere a un número entero, mayor o igual a 0.
+  - Se elimina ejemplo duplicado en enunciado del ejercicio 3.
+  - Se agrega formato de entrega esperado.
+
 
 export const UnderlinedText = ({children}) => (
   <span style={{ textDecoration: 'underline' }}>{children}</span>
