@@ -8,3 +8,6 @@
 
 ### Quinta y Sexta Clase
 * [Intro a Regex](https://drive.google.com/file/d/1tdOL1RAn-2xXICmfBDNx5K_DBuGOCpk6/view?usp=sharing)
+
+### Séptima Clase
+* [Intro a Git/Github](https://drive.google.com/file/d/1UPJywYaSSOro8Dgw7annqE-G1tUFID3n/view?usp=drive_link)
