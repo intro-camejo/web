@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.5.1">
 <title data-rh="true">TP 0 - Bash/Regex | Intro al Desarrollo de Software</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-test-site.com/web/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-test-site.com/web/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-test-site.com/web/trabajos-practicos"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="TP 0 - Bash/Regex | Intro al Desarrollo de Software"><meta data-rh="true" name="description" content="En este trabajo práctico se busca evaluar los conceptos adquiridos en las clases sobre el uso de Bash y Regex."><meta data-rh="true" property="og:description" content="En este trabajo práctico se busca evaluar los conceptos adquiridos en las clases sobre el uso de Bash y Regex."><link data-rh="true" rel="icon" href="/web/img/tron.svg"><link data-rh="true" rel="canonical" href="https://your-docusaurus-test-site.com/web/trabajos-practicos"><link data-rh="true" rel="alternate" href="https://your-docusaurus-test-site.com/web/trabajos-practicos" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-docusaurus-test-site.com/web/trabajos-practicos" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/web/blog/rss.xml" title="Intro al Desarrollo de Software RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/web/blog/atom.xml" title="Intro al Desarrollo de Software Atom Feed"><link rel="stylesheet" href="/web/assets/css/styles.932d57af.css">
-<script src="/web/assets/js/runtime~main.6c0e5a97.js" defer="defer"></script>
+<script src="/web/assets/js/runtime~main.fd72e830.js" defer="defer"></script>
 <script src="/web/assets/js/main.27c052db.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -30,6 +30,20 @@
 <p>Escribir un programa que <strong>reciba una cantidad variable de semillas del ermitaño por parámetro</strong> e <span style="text-decoration:underline"><strong>imprima la suma de todas ellas</strong></span>.</p>
 <h4 id="cómo-utilizar-el-script-1">¿Cómo utilizar el script?</h4>
 <pre><code>./ejercicio1.sh &lt;num1&gt; &lt;num2&gt; &lt;num3&gt; ...
+</code></pre>
+<h4 id="ejemplos-de-uso">Ejemplos de uso:</h4>
+<p>Entrada:</p>
+<pre><code>./ejercicio1.sh 1 2 3
+</code></pre>
+<p>Salida esperada:</p>
+<pre><code>6
+</code></pre>
+<hr>
+<p>Entrada</p>
+<pre><code>./ejercicio1.sh 10
+</code></pre>
+<p>Salida esperada:</p>
+<pre><code>10
 </code></pre>
 <div style="text-align:center"><p><img src="https://i.imgur.com/7tlIuQr.png" alt="Krillin y Gohan"></p></div>
 <h3 id="ejercicio-2">Ejercicio 2</h3>
@@ -72,7 +86,7 @@ Cantidad a devolver (recibiendo el path de &#x27;directorio1&#x27;) = 4
 <div style="text-align:center"><p><img src="https://i.imgur.com/yYOETCZ.jpeg" alt="Fuerzas Espaciales Ginyu"></p></div>
 <h3 id="ejercicio-4">Ejercicio 4</h3>
 <p>Bulma ha logrado acceder a los registros secretos de Freezer a través de un moderno dispositivo desarrollado por la Corporación Cápsula. A través de la conexión remota, Bulma descubre que los archivos están fuertemente protegidos por una contraseña. Sin embargo, al examinar los registros previos, se da cuenta de que una palabra clave se repite constantemente: Cold, el nombre del padre de Freezer, y se plantea si la contraseña puede ser la cantidad de menciones al soberano.</p>
-<p>Escribir un programa que <strong>reciba la ruta de un archivo</strong> como parámetro e imprima <span style="text-decoration:underline"><strong>cuántas veces aparece la palabra</strong></span> <code>Cold</code> <span style="text-decoration:underline"><strong>en su contenido</strong></span>, sin importar si está en may úsculas o minúsculas, o en una combinación de ellas.</p>
+<p>Escribir un programa que <strong>reciba la ruta de un archivo</strong> como parámetro e imprima <span style="text-decoration:underline"><strong>cuántas veces aparece la palabra</strong></span> <code>Cold</code> <span style="text-decoration:underline"><strong>en su contenido</strong></span>, sin importar si está en mayúsculas o minúsculas, o en una combinación de ellas.</p>
 <p>Ejemplos: <code>Cold</code> - <code>cOld</code> - <code>coLD</code> - <code>COLd</code> - <code>COLD</code> - <em>etc...</em></p>
 <h4 id="cómo-utilizar-el-script-4">¿Cómo utilizar el script?</h4>
 <pre><code>./ejercicio4.sh &lt;archivo&gt;
@@ -124,6 +138,11 @@ Picollo necesita revisar el archivo donde se almacenan los registros de energía
 <li>Se aclara que todos los ejercicios que piden recibir un número, se refiere a un número entero, mayor o igual a 0.</li>
 <li>Se elimina ejemplo duplicado en enunciado del ejercicio 3.</li>
 <li>Se agrega formato de entrega esperado.</li>
+</ul>
+</li>
+<li>02/04/2025:<!-- -->
+<ul>
+<li>Se agregan ejemplos de uso en el ejercicio 1.</li>
 </ul>
 </li>
 </ul></article></div><div class="col col--2"><div class="tableOfContents_IS5x thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introducción" class="table-of-contents__link toc-highlight">Introducción</a></li><li><a href="#ejercicios" class="table-of-contents__link toc-highlight">Ejercicios</a><ul><li><a href="#ejercicio-0" class="table-of-contents__link toc-highlight">Ejercicio 0</a></li><li><a href="#ejercicio-1" class="table-of-contents__link toc-highlight">Ejercicio 1</a></li><li><a href="#ejercicio-2" class="table-of-contents__link toc-highlight">Ejercicio 2</a></li><li><a href="#ejercicio-3" class="table-of-contents__link toc-highlight">Ejercicio 3</a></li><li><a href="#ejercicio-4" class="table-of-contents__link toc-highlight">Ejercicio 4</a></li><li><a href="#ejercicio-5" class="table-of-contents__link toc-highlight">Ejercicio 5</a></li><li><a href="#ejercicio-6" class="table-of-contents__link toc-highlight">Ejercicio 6</a></li></ul></li><li><a href="#formato-de-entrega" class="table-of-contents__link toc-highlight">Formato de entrega</a></li><li><a href="#consideraciones-generales" class="table-of-contents__link toc-highlight">Consideraciones generales</a></li><li><a href="#ajustes-de-enunciado" class="table-of-contents__link toc-highlight">Ajustes de enunciado</a></li></ul></div></div></div></main></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Introducción al Desarrollo de Software - Nico Riedel (2025)</div></div></div></footer></div>
