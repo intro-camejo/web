@@ -97,7 +97,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Introducción al Desarrollo de Software - Nico Riedel (${new Date().getFullYear()})`,
+        copyright: `Introducción al Desarrollo de Software - (${new Date().getFullYear()})`,
       },
       prism: {
         theme: lightCodeTheme,
