@@ -6,7 +6,7 @@
 4. [Bash parte III](https://youtu.be/mwzN8Cw8bZ4)
 5. [Regex](https://youtu.be/tGhEuIBKNik)
 6. [Ejercicios integradores](https://youtu.be/WR3_bg4w4Y8)
-7. [Intro Git] (https://youtu.be/g7IEnpTzGqU)
+7. [Intro Git](https://youtu.be/g7IEnpTzGqU)
 
 ## Extras
 
