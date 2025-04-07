@@ -7,6 +7,7 @@
 5. [Regex](https://youtu.be/tGhEuIBKNik)
 6. [Ejercicios integradores](https://youtu.be/WR3_bg4w4Y8)
 7. [Intro Git](https://youtu.be/g7IEnpTzGqU)
+8. [Git parte II](https://youtu.be/8nQUgFrUhmg)
 
 ## Extras
 
