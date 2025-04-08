@@ -20,7 +20,6 @@ npm run start
 ```sh
 docker-compose up --build
 ```
-Se expone en el puerto 3000
 -----
 #### Notificaciones:
 * Todos los commits en main generan una notificacion en el canal de slack.
