@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkaninfo_web_catedra=self.webpackChunkaninfo_web_catedra||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/web/blog","blogTitle":"Blog","authorsListPath":"/web/blog/authors"}')}}]);
