@@ -8,7 +8,7 @@ Pagina para colgar material relacionado a la materia, cualquier issue/PR es supe
 Para levantarlo local :
 
 ```sh
-npm install --force
+npm install
 ```
 
 ```sh
