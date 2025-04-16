@@ -10,6 +10,7 @@
 8. [Git parte II](https://youtu.be/8nQUgFrUhmg)
 9. [Ing. De software (Presencial)](https://youtu.be/B0sRLlfqklQ?list=RDEML5Xi5MnZ0EuOmaGbRXCxsw)
 10. [Ing. de Software parte II](https://youtu.be/2qOPcTsyI24)
+11. [Intro a Docker](https://youtu.be/uR0utFCo6Nc)
 
 ## Extras
 
