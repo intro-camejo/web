@@ -12,6 +12,7 @@
 10. [Ing. de Software parte II](https://youtu.be/2qOPcTsyI24)
 11. [Intro a Docker](https://youtu.be/uR0utFCo6Nc)
 12. [Docker parte II](https://www.youtube.com/watch?v=Tz7BsP0erXI&t=33s)
+13. [SQL](https://youtu.be/NkC7ibX3lQY)
 
 ## Extras
 
