@@ -12,6 +12,9 @@
 ### Séptima Clase
 * [Intro a Git/Github](https://drive.google.com/file/d/1UPJywYaSSOro8Dgw7annqE-G1tUFID3n/view?usp=drive_link)
 
+### Octava Clase
+* [Manejo de ramas en Git](https://drive.google.com/file/d/13NpC6n9pifNY1RFYULejsGwCTFbvDhaY/view?usp=sharing)
+
 ### Novena Clase
 * [Ingeniería de Software](https://drive.google.com/file/d/1rLdUQaUkgypQ0vT9xp2P9ct2xaugBbn3/view?usp=drive_link)
 * [Etapas de la Ingeniería de Software](https://drive.google.com/file/d/1kMYbUcfXbvJLGePJGVHiySqW7w37324Y/view?usp=sharing)
