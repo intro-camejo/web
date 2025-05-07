@@ -14,6 +14,7 @@
 12. [Docker parte II](https://www.youtube.com/watch?v=Tz7BsP0erXI&t=33s)
 13. [SQL](https://youtu.be/NkC7ibX3lQY)
 14. [SQL parteII](https://youtu.be/YUvoEyDNMxc)
+15. [Preparandonos para el parcial](https://youtu.be/1VY738e-st0)
 
 ## Extras
 
