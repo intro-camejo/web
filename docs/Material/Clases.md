@@ -19,3 +19,4 @@
 ## Extras
 
 - [Presentación TP0](https://youtu.be/jeZloBnyfPc)
+- [Enunciado Parcial](https://drive.google.com/file/d/1JWlpReKWECahVukP0WceSr1drQ-d2o1p/view?usp=sharing)
