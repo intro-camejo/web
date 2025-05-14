@@ -13,8 +13,9 @@
 11. [Intro a Docker](https://youtu.be/uR0utFCo6Nc)
 12. [Docker parte II](https://www.youtube.com/watch?v=Tz7BsP0erXI&t=33s)
 13. [SQL](https://youtu.be/NkC7ibX3lQY)
-14. [SQL parteII](https://youtu.be/YUvoEyDNMxc)
+14. [SQL parte II](https://youtu.be/YUvoEyDNMxc)
 15. [Preparandonos para el parcial](https://youtu.be/1VY738e-st0)
+16. [HTML/CSS](https://youtu.be/n7-BgriTC0M)
 
 ## Extras
 
