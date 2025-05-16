@@ -25,3 +25,6 @@
 
 ### Clase SQL II
 * [Material clase SQL II](https://drive.google.com/file/d/1WIw04bZJyj4IHQqLBZAxwQMmPio48Uo0/view?usp=sharing)
+
+### Clase HTML + CSS II
+* [Position y Display](https://drive.google.com/file/d/1AMa5BbiXxmcevsS7KCBnK_e2tmc-ChFj/view?usp=sharing)
