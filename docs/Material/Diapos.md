@@ -28,3 +28,6 @@
 
 ### Clase HTML + CSS II
 * [Position y Display](https://drive.google.com/file/d/1AMa5BbiXxmcevsS7KCBnK_e2tmc-ChFj/view?usp=sharing)
+
+### Clase JavaScript I
+* [Intro a Javascript](https://docs.google.com/presentation/d/1WbQemQMFR-6hguffkXiBTwRXHE9GH9Uu3yN44v_0jjM/edit?usp=sharing)
