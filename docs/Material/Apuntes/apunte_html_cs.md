@@ -128,7 +128,7 @@ Para aplicar estilos personalizados con CSS o manipular elementos con JavaScript
 CSS se encarga de la parte de apariencia y funcionamiento de una página web. Con CSS, podemos controlar el color del texto, el estilo de las fuentes, el espaciado entre párrafos, el tamaño y la disposición de las columnas, las imágenes o colores de fondo que se utilizan, así como una variedad de otros efectos.
 
 ### Ventajas de CSS
-- **CSS ahorra tiempo**: Podes escribir CSS una vez y reutilizar la misma pagina en varias páginas HTML. Podes definir un estilo para cada elemento HTML y aplicarlo a tantas páginas web como quieras.
+- **CSS ahorra tiempo**: Podés escribir CSS una vez y reutilizar la misma página en varias páginas HTML. Podés definir un estilo para cada elemento HTML y aplicarlo a tantas páginas web como quieras.
 - **Fácil mantenimiento**: Para realizar un cambio global, simplemente cambie el estilo y todos los elementos en todas las páginas web se actualizarán automáticamente.
 - **Estilos superiores a HTML**: CSS tiene una gama mucho más amplia de atributos que HTML, por lo que puede darle una apariencia mucho mejor a su página HTML en comparación con los atributos HTML.
 
@@ -171,7 +171,7 @@ Existen tres formas principales de incluir CSS en un documento HTML:
 	border : 1px solid red;
     }
     ```
-    Aca la tabla es un selector y el borde una propiedad, y el valor seria 1px solid red. Se pueden definir selectores en varias maneras, depende de cada uno. Vamos a explicar estos selectores uno por uno.
+    Acá la tabla es un selector y el borde una propiedad, y el valor sería 1px solid red. Se pueden definir selectores en varias maneras, depende de cada uno. Vamos a explicar estos selectores uno por uno.
 
 ### Selectores
 - **Selectores de tipo**: Es como el selector del ejemplo, una vez más le daremos color a todos los headings de nivel 1 (h1).

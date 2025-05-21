@@ -91,7 +91,7 @@ ssh-add ~/.ssh/id_ed25519
 
 #### En `Título`, le pones un nombre descriptivo, por ejemplo, ‘Laptop Trabajo’:
 
-#### Dejamos la opción `Authenticacion Key`:
+#### Dejamos la opción `Autenticación Key`:
 
 #### En el campo `Key`, pegamos lo que nos había mostrado el comando:
 
