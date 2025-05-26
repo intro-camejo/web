@@ -18,6 +18,7 @@
 16. [HTML/CSS](https://youtu.be/n7-BgriTC0M)
 17. [HTML/CSS II](https://youtu.be/wJ7p4RZNoNY)
 18. [Intro a Javascript](https://youtu.be/txps0chEbas)
+19. [Javascript en el navegador] (https://youtu.be/TJDY203VoMA)
 
 ## Extras
 
