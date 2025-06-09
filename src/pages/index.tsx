@@ -32,7 +32,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Intro Camejo`}
-      description="Página de cátedra">
+      description="Introducción al Desarrollo de Software - Cátedra Camejo - FIUBA.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

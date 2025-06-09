@@ -1,17 +1,17 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer').themes.github;
-const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const config = {
   title: 'Intro al Desarrollo de Software',
-  tagline: 'Curso Camejo - 1c 2025',
+  tagline: 'Página de la cátedra de Introducción al Desarrollo de Software (Camejo) de la Facultad de Ingeniería de la Universidad de Buenos Aires (FIUBA).',
   favicon: 'img/tron.svg',
   staticDirectories: ['public', 'static'],
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://intro-camejo.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/web/',
@@ -29,8 +29,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'es',
+    locales: ['es'],
   },
 
   presets: [
@@ -47,6 +47,12 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       }),
     ],
   ],
@@ -54,6 +60,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'keywords', content: 'Introducción al Desarrollo de Software, 75.18, FIUBA, UBA, Cátedra Camejo, Programación, Algoritmos'},
+      ],
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Intro',
