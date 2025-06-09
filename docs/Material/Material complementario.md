@@ -40,3 +40,10 @@
 
 ### SQL 
 * [SQL - Material de clases](https://drive.google.com/drive/folders/1fFFvkRCKR0TLXFI2RCWLqj0kECyUeGpX?usp=sharing)
+
+
+### Javascript
+* [Ejercicios clases node](https://github.com/RiedelNicolas/introJS)
+
+### Backend
+* [Archivos clase API REST](https://intro-camejo.github.io/web/files/lilo_stitch.zip)
