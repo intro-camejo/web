@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 const config = {
   title: 'Intro al Desarrollo de Software',
-  tagline: 'Página de la cátedra de Introducción al Desarrollo de Software (Camejo) de la Facultad de Ingeniería de la Universidad de Buenos Aires (FIUBA).',
+  tagline: 'Introducción al Desarrollo de Software (Camejo) - FIUBA',
   favicon: 'img/tron.svg',
   staticDirectories: ['public', 'static'],
 
