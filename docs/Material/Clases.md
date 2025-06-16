@@ -22,6 +22,7 @@
 20. [Backend I (HTTP)](https://youtu.be/UGK_kBHnF88)
 21. [Backend II (API REST)](https://youtu.be/WUc1RHFs3q8)
 22. [Backend III (Node + SQL)](https://www.youtube.com/watch?v=1Y4CTp65ED4)
+23. [Clase Integraciones I](https://youtu.be/JUqhX1WfMBU)
 
 ## Extras
 
