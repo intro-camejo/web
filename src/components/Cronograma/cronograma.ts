@@ -235,7 +235,7 @@ export const cronograma = [
         "jueves": {
             "fecha": "12/06/2025",
             "actividades": [
-                { "name": "Integración Parte 3" }
+                { "name": "Sin clase - Paro docente" }
             ]
         }
     },
@@ -244,14 +244,13 @@ export const cronograma = [
         "martes": {
             "fecha": "17/06/2025",
             "actividades": [
-                { "name": "Integración Parte 4: Despliegue de proyecto" }
+                { "name": "Integración Parte 3" }
             ]
         },
         "jueves": {
             "fecha": "19/06/2025",
             "actividades": [
-                { "name": "Clase con invitado" },
-                { "name" : "Consultas"}
+                { "name": "Integración Parte 4: Despliegue de proyecto" },
             ]
         }
     },
