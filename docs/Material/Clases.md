@@ -24,6 +24,8 @@
 22. [Backend III (Node + SQL)](https://www.youtube.com/watch?v=1Y4CTp65ED4)
 23. [Clase Integraciones I](https://youtu.be/JUqhX1WfMBU)
 24. [Clase Integraciones II](https://youtu.be/5UKYoNhBLA8)
+25. [Clase Integraciones III (Despliegue)](https://youtu.be/dbdvoLsR-jA)
+26. [Clase extra integraciones](https://youtu.be/yPACEyxxWeU)
 
 ## Extras
 
