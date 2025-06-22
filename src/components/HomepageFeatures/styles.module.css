@@ -34,6 +34,6 @@
 .colabName h3 {
   font-size: 1.25rem; /* Adjusted font size */
   margin-top: 1rem; /* Added margin for spacing */
-  color: #333; /* Darker color for better readability */
+  color: var(--ifm-font-color-base); /* Use Docusaurus CSS variable for theme-adaptive color */
 }
 
