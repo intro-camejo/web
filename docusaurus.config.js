@@ -67,7 +67,7 @@ const config = {
       navbar: {
         title: 'Intro',
         logo: {
-          alt: 'Tron Intro',
+          alt: 'Logo del curso Introducción al Desarrollo de Software',
           src: 'img/tron.svg',
         },
         items: [
