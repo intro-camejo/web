@@ -6,16 +6,34 @@
 }
 
 .featureIMG {
-  height: 350px;
-  width: 250px;
+  height: 200px; /* Reduced height for a more balanced look */
+  width: 200px; /* Equal width and height for a circle */
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 50%; /* Makes the image circular */
+  border: 3px solid #f0f0f0; /* Adds a light border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.colabsTitle{
+.featureIMG:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.colabsTitle {
   text-align: center;
-  h1 {
-    font-size: 3rem;
-  }
+  margin-bottom: 2rem; /* Added margin for better spacing */
+}
+
+.colabsTitle h1 {
+  font-size: 2.5rem; /* Adjusted font size for better hierarchy */
+  font-weight: bold; /* Added font weight for emphasis */
+}
+
+/* Style for the teacher's name */
+.colabName h3 {
+  font-size: 1.25rem; /* Adjusted font size */
+  margin-top: 1rem; /* Added margin for spacing */
+  color: #333; /* Darker color for better readability */
 }
 

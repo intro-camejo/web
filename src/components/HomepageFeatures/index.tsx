@@ -96,7 +96,7 @@ function Colab({ name, pictures }: ColabItem) {
           style={{ cursor: pictures.length > 1 ? 'pointer' : 'default' }}
         />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className={clsx("text--center padding-horiz--md", styles.colabName)}>
         <h3>{name}</h3>
       </div>
     </div>
