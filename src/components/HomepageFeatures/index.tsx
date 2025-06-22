@@ -90,7 +90,7 @@ function Colab({ name, pictures }: ColabItem) {
       <div className="text--center">
         <img
           className={styles.featureIMG}
-          alt="Foto del colaborador"
+          alt={`Foto de ${name}, docente del curso`}
           src={pictures[currentImage]}
           onClick={handleClick}
           style={{ cursor: pictures.length > 1 ? 'pointer' : 'default' }}

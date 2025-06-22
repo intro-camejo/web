@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://intro-camejo.github.io/web/sitemap.xml
