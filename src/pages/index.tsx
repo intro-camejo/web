@@ -35,12 +35,6 @@ export default function Home(): JSX.Element {
       description="Introducción al Desarrollo de Software - Cátedra Camejo - FIUBA.">
       <HomepageHeader />
       <main>
-        <div className="container" style={{paddingTop: '2rem', paddingBottom: '2rem', textAlign: 'center'}}>
-          <p style={{fontSize: '1.2rem'}}>
-            Bienvenidos al curso de Introducción al Desarrollo de Software de la cátedra Camejo en FIUBA.
-            Aquí encontrarás todo el material necesario, cronograma, guías y más para comenzar tu camino en el mundo de la programación y el desarrollo de software.
-          </p>
-        </div>
         <HomepageFeatures />
       </main>
     </Layout>
