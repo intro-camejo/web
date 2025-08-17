@@ -7,19 +7,17 @@ import styles from './styles.module.css';
 import PekeImg from '@site/static/img/peke.jpeg';
 import NicoImg from '@site/static/img/nico.jpg';
 import GonzaImg from '@site/static/img/gonza.jpeg';
-import EmmaImg from '@site/static/img/emma.jpeg'
 import ManuBImg from '@site/static/img/manub.jpg';
 import ManuCImg from '@site/static/img/manu1.jpeg';
 import ManuC2Img from '@site/static/img/manu2.jpeg';
 import ManuC3Img from '@site/static/img/image.png';
-import ArielImg from '@site/static/img/ariel.jpeg';
-import NicoHImg from '@site/static/img/nicoh.png';
 import SofiImg from '@site/static/img/sofi.jpeg';
 import Sofi2Img from '@site/static/img/sofi2.jpeg';
 import ConraIMG from '@site/static/img/conra.jpeg';
 import PedroIMG from '@site/static/img/pedroimg.jpeg';
 import LaraIMG from '@site/static/img/lara.jpeg';
 import Nico2 from '@site/static/img/nico2.jpg';
+import ManuRImg from '@site/static/img/manur.jpeg';
 
 type ColabItem = {
   name : string,
@@ -32,16 +30,12 @@ const ColabList: ColabItem[] = [
     pictures: [PekeImg],
   },
   {
-    name: 'Nico R',
+    name: 'Nico',
     pictures: [NicoImg, Nico2],
   },
   {
     name: 'Gonza',
     pictures: [GonzaImg],
-  },
-  {
-    name: 'Emma',
-    pictures: [EmmaImg],
   },
   {
     name: 'Manu B',
@@ -50,14 +44,6 @@ const ColabList: ColabItem[] = [
   {
     name: 'Manu C',
     pictures: [ManuCImg, ManuC2Img, ManuC3Img],
-  },
-  {
-    name: 'Ariel',
-    pictures: [ArielImg],
-  },
-  {
-    name: 'Nico H',
-    pictures: [NicoHImg],
   },
   {
     name: 'Sofi',
@@ -74,6 +60,10 @@ const ColabList: ColabItem[] = [
   {
     name: 'Lara',
     pictures : [LaraIMG]
+  },
+  {
+    name: 'Manu R',
+    pictures: [ManuRImg]
   }
 ];
 
@@ -112,7 +102,7 @@ export default function HomepageFeatures(): JSX.Element {
         <div className={styles.colabsTitle}>
           <h1>{"Docentes"}</h1>
         </div>
-        <div className="row">
+        <div className="row" style={{ justifyContent: 'center' }}>
           {sortedColabs.map((props, idx) => (
             <Colab key={idx} {...props} />
           ))}
