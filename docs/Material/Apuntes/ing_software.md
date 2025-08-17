@@ -105,7 +105,7 @@ Ambos tipos son esenciales para construir un sistema que no solo funcione, sino 
 
 A partir de los requerimientos funcionales y no funcionales, se escoge la arquitectura de software más adecuada.
 
-> "Si creés que una buena arquitectura es cara, intentá con una mala."
+> "Si crees que una buena arquitectura es cara, intentá con una mala."
 > — Brian Foote & Joseph Yoder
 
 Un diseño correcto permite construir un sistema escalable, mantenible y confiable.
