@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Material/Apuntes/ing_software" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Ingeniería de Software | Intro al Desarrollo de Software</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://intro-camejo.github.io/web/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://intro-camejo.github.io/web/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://intro-camejo.github.io/web/docs/Material/Apuntes/ing_software"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="keywords" content="Introducción al Desarrollo de Software, 75.18, FIUBA, UBA, Cátedra Camejo, Programación, Algoritmos"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Ingeniería de Software | Intro al Desarrollo de Software"><meta data-rh="true" name="description" content="¿Qué es la Ingeniería?"><meta data-rh="true" property="og:description" content="¿Qué es la Ingeniería?"><link data-rh="true" rel="icon" href="/web/img/tron.svg"><link data-rh="true" rel="canonical" href="https://intro-camejo.github.io/web/docs/Material/Apuntes/ing_software"><link data-rh="true" rel="alternate" href="https://intro-camejo.github.io/web/docs/Material/Apuntes/ing_software" hreflang="es"><link data-rh="true" rel="alternate" href="https://intro-camejo.github.io/web/docs/Material/Apuntes/ing_software" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/web/blog/rss.xml" title="Intro al Desarrollo de Software RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/web/blog/atom.xml" title="Intro al Desarrollo de Software Atom Feed"><link rel="stylesheet" href="/web/assets/css/styles.00d75a42.css">
+<script src="/web/assets/js/runtime~main.a772f1e5.js" defer="defer"></script>
+<script src="/web/assets/js/main.8018feec.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/web/img/tron.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/web/"><div class="navbar__logo"><img src="/web/img/tron.svg" alt="Logo del curso Introducción al Desarrollo de Software" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/web/img/tron.svg" alt="Logo del curso Introducción al Desarrollo de Software" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Intro</b></a><a class="navbar__item navbar__link" href="/web/regimen-cursada">Régimen de cursada</a><a class="navbar__item navbar__link" href="/web/cronograma">Cronograma</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/web/docs/Material">Material</a><a class="navbar__item navbar__link" href="/web/trabajos-practicos">Trabajos Prácticos</a><a class="navbar__item navbar__link" href="/web/playlist">Playlist</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/intro-camejo/web" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/web/docs/Material">Material</a><button aria-label="Colapsar categoría &#x27;Material&#x27; de la barra lateral" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/web/docs/Material/Apuntes">Apuntes</a><button aria-label="Colapsar categoría &#x27;Apuntes&#x27; de la barra lateral" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/Introduccion-a-Linux">Introducción a Linux</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/bash">Bash</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/configurar-ssh-key">Cómo configurar tu SSH Key</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/Editores-de-Texto">Editores de texto</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/apunte_html_cs">HTML y CSS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/apunte_sql">SQL</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/docker">Introducción a Docker</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Apuntes/git">Git y GitHub</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/web/docs/Material/Apuntes/ing_software">Ingeniería de Software</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Clases">Clases grabadas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Diapos">Diapos</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/web/docs/Material/Guias/Bash">Guias</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/web/docs/Material/Material-complementario">Material complemetario</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/web/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/web/docs/Material"><span itemprop="name">Material</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/web/docs/Material/Apuntes"><span itemprop="name">Apuntes</span></a><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Ingeniería de Software</span><meta itemprop="position" content="3"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Ingeniería de Software</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="qué-es-la-ingeniería">¿Qué es la Ingeniería?<a href="#qué-es-la-ingeniería" class="hash-link" aria-label="Enlace directo al ¿Qué es la Ingeniería?" title="Enlace directo al ¿Qué es la Ingeniería?">​</a></h2>
+<p>El término ingeniería proviene del latín <em>ingenium</em>, que significa engendrar o producir. En términos generales, se puede definir como el &quot;estudio y aplicación de tecnología&quot;, entendida esta última como la suma de técnicas, habilidades, métodos y procesos utilizados para producir bienes, servicios o alcanzar objetivos.</p>
+<p>Distintas definiciones coinciden en que la ingeniería aplica conocimientos científicos, técnicos y empíricos a acciones como la invención, diseño, desarrollo, construcción, optimización y mantenimiento de sistemas, estructuras, procesos y materiales con el fin de resolver problemas prácticos.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="patrón-en-la-definición-de-ingeniería">Patrón en la definición de Ingeniería:<a href="#patrón-en-la-definición-de-ingeniería" class="hash-link" aria-label="Enlace directo al Patrón en la definición de Ingeniería:" title="Enlace directo al Patrón en la definición de Ingeniería:">​</a></h3>
+<ul>
+<li>
+<p>Conjunto de <strong>[conocimientos]</strong> aplicados en <strong>[acciones]</strong> sobre <strong>[áreas]</strong> con un <strong>[fin]</strong>.</p>
+<ul>
+<li>Conocimientos: científicos, técnicos y empíricos.</li>
+<li>Acciones: invención, desarrollo, optimización, validación, mantenimiento.</li>
+<li>Áreas: maquinaria, equipos, procesos, sistemas.</li>
+<li>Fin: satisfacer una necesidad o resolver un problema.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="qué-es-el-software">¿Qué es el Software?<a href="#qué-es-el-software" class="hash-link" aria-label="Enlace directo al ¿Qué es el Software?" title="Enlace directo al ¿Qué es el Software?">​</a></h2>
+<p>Tradicionalmente, se dice que el software es la parte intangible de una computadora. Sin embargo, esta definición es incompleta. El software está presente en prácticamente todos los aspectos de la vida cotidiana.</p>
+<p><strong>Definición técnica:</strong>
+Según el estándar IEEE 729, el software es el conjunto de programas de cómputo, procedimientos, reglas, documentación y datos asociados que forman parte de la operación de un sistema de computación.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="algunos-tipos-de-software">Algunos tipos de Software:<a href="#algunos-tipos-de-software" class="hash-link" aria-label="Enlace directo al Algunos tipos de Software:" title="Enlace directo al Algunos tipos de Software:">​</a></h3>
+<ul>
+<li><strong>De sistema:</strong> Brinda servicios a otros programas.</li>
+<li><strong>De aplicación:</strong> Resuelve necesidades específicas del usuario.</li>
+<li><strong>Científico o de ingeniería:</strong> Para simulaciones, cálculos o investigación.</li>
+<li><strong>Embebido:</strong> Integrado en dispositivos (autos, electrodomésticos, etc.).</li>
+<li><strong>De inteligencia artificial:</strong> Para toma de decisiones y aprendizaje.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="qué-hace-a-un-buen-software">¿Qué hace a un buen software?<a href="#qué-hace-a-un-buen-software" class="hash-link" aria-label="Enlace directo al ¿Qué hace a un buen software?" title="Enlace directo al ¿Qué hace a un buen software?">​</a></h3>
+<ul>
+<li>Cumple su <strong>objetivo funcional</strong>.</li>
+<li>Es <strong>usable</strong> y accesible.</li>
+<li>Tiene <strong>buena performance</strong>.</li>
+<li>Es <strong>mantenible</strong> en el tiempo.</li>
+<li>Es <strong>confiable</strong> y <strong>seguro</strong>.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="qué-es-la-ingeniería-de-software">¿Qué es la Ingeniería de Software?<a href="#qué-es-la-ingeniería-de-software" class="hash-link" aria-label="Enlace directo al ¿Qué es la Ingeniería de Software?" title="Enlace directo al ¿Qué es la Ingeniería de Software?">​</a></h2>
+<p>Es la aplicación de la ingeniería al proceso completo de creación de software. Va desde que se identifica una necesidad hasta el despliegue y mantenimiento del sistema.</p>
+<p><strong>Incluye:</strong></p>
+<ul>
+<li>Comprensión de la necesidad.</li>
+<li>Organización del desarrollo.</li>
+<li>Diseño del software.</li>
+<li>Implementación.</li>
+<li>Pruebas y validación.</li>
+<li>Despliegue.</li>
+<li>Mantenimiento.</li>
+</ul>
+<p>Actualmente, la ingeniería de software se concibe como un proceso <strong>iterativo e incremental</strong>.</p>
+<p><strong>Importancia:</strong></p>
+<ul>
+<li>Gobiernos y empresas dependen de sistemas software.</li>
+<li>Sistemas críticos deben ser robustos y tolerantes a fallos.</li>
+<li>Se requieren sistemas que puedan ser mantenidos y escalados con facilidad.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="etapas-de-la-ingeniería-de-software">Etapas de la Ingeniería de Software<a href="#etapas-de-la-ingeniería-de-software" class="hash-link" aria-label="Enlace directo al Etapas de la Ingeniería de Software" title="Enlace directo al Etapas de la Ingeniería de Software">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-análisis-de-requerimientos">1. Análisis de Requerimientos<a href="#1-análisis-de-requerimientos" class="hash-link" aria-label="Enlace directo al 1. Análisis de Requerimientos" title="Enlace directo al 1. Análisis de Requerimientos">​</a></h3>
+<p>Su objetivo es <strong>entender qué necesita el cliente o el usuario final</strong>. Esto permite construir el producto adecuado en lugar de simplemente construir bien un producto que no sirve.</p>
+<p><strong>Preguntas clave:</strong></p>
+<ul>
+<li>¿Cuál es el objetivo del sistema?</li>
+<li>¿Cómo se adaptará a las necesidades del usuario?</li>
+<li>¿Cómo se utilizará?</li>
+</ul>
+<p><strong>Actividades de Ingeniería de Requerimientos:</strong></p>
+<ul>
+<li>Indagación.</li>
+<li>Negociación.</li>
+<li>Especificación.</li>
+<li>Validación.</li>
+</ul>
+<p><strong>Objetivos:</strong></p>
+<ul>
+<li>Describir qué quiere el cliente.</li>
+<li>Establecer la base del diseño.</li>
+<li>Definir requerimientos verificables.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="requerimientos-funcionales-y-no-funcionales">Requerimientos funcionales y no funcionales<a href="#requerimientos-funcionales-y-no-funcionales" class="hash-link" aria-label="Enlace directo al Requerimientos funcionales y no funcionales" title="Enlace directo al Requerimientos funcionales y no funcionales">​</a></h4>
+<ul>
+<li>
+<p><strong>Requerimientos funcionales:</strong> especifican <strong>lo que el sistema debe hacer</strong>. Incluyen funcionalidades, servicios y tareas que el software debe realizar. Ejemplos: registrar usuarios, enviar correos, calcular resultados.</p>
+</li>
+<li>
+<p><strong>Requerimientos no funcionales:</strong> describen <strong>cómo debe comportarse el sistema</strong>, incluyendo restricciones y propiedades de calidad. Ejemplos: tiempo de respuesta, escalabilidad, seguridad, usabilidad.</p>
+</li>
+</ul>
+<p>Ambos tipos son esenciales para construir un sistema que no solo funcione, sino que sea útil, eficiente y sostenible.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-diseño">2. Diseño<a href="#2-diseño" class="hash-link" aria-label="Enlace directo al 2. Diseño" title="Enlace directo al 2. Diseño">​</a></h3>
+<p>A partir de los requerimientos funcionales y no funcionales, se escoge la arquitectura de software más adecuada.</p>
+<blockquote>
+<p>&quot;Si crees que una buena arquitectura es cara, intentá con una mala.&quot;
+— Brian Foote &amp; Joseph Yoder</p>
+</blockquote>
+<p>Un diseño correcto permite construir un sistema escalable, mantenible y confiable.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-implementación">3. Implementación<a href="#3-implementación" class="hash-link" aria-label="Enlace directo al 3. Implementación" title="Enlace directo al 3. Implementación">​</a></h3>
+<p>Consiste en transformar los requerimientos en un producto funcional mediante la escritura de código.</p>
+<blockquote>
+<p>Pero <strong>no basta con programar</strong>. El proceso debe ser organizado para evitar problemas de calidad y escalabilidad.</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-testing-y-validación">4. Testing y Validación<a href="#4-testing-y-validación" class="hash-link" aria-label="Enlace directo al 4. Testing y Validación" title="Enlace directo al 4. Testing y Validación">​</a></h3>
+<blockquote>
+<p>&quot;El fracaso es, a veces, más fructífero que el éxito.&quot;
+— Henry Ford</p>
+</blockquote>
+<p><strong>Objetivos:</strong></p>
+<ul>
+<li><strong>Validación</strong>: demostrar que el software cumple los requerimientos del cliente.</li>
+<li><strong>Verificación</strong>: encontrar errores de funcionamiento.</li>
+</ul>
+<p><strong>Tipos de pruebas:</strong></p>
+<ul>
+<li><strong>Pruebas unitarias:</strong> verifican el correcto funcionamiento de componentes o funciones individuales del software.</li>
+<li><strong>Pruebas de integración:</strong> evalúan la interacción entre varios módulos o componentes.</li>
+<li><strong>Pruebas de aceptación del usuario (UAT):</strong> realizadas por los usuarios finales para validar que el sistema cumple con sus expectativas.</li>
+<li><strong>Pruebas de usabilidad:</strong> evalúan la experiencia del usuario, accesibilidad, navegabilidad y facilidad de uso del sistema.</li>
+</ul>
+<blockquote>
+<p>Tener un equipo de QA <strong>no exime</strong> a los desarrolladores de probar su propio código.</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-despliegue">5. Despliegue<a href="#5-despliegue" class="hash-link" aria-label="Enlace directo al 5. Despliegue" title="Enlace directo al 5. Despliegue">​</a></h3>
+<p>El software pasa por diferentes entornos antes de llegar a producción:</p>
+<ul>
+<li><strong>Development (desarrollo):</strong> ambiente donde los programadores escriben y prueban su código de manera inicial.</li>
+<li><strong>QA (aseguramiento de calidad):</strong> entorno donde se realizan pruebas exhaustivas para detectar errores antes de liberar el sistema.</li>
+<li><strong>Preproducción / Staging:</strong> replica el entorno de producción y se utiliza para realizar validaciones finales antes del lanzamiento.</li>
+<li><strong>Producción:</strong> entorno donde el software está disponible para los usuarios finales. Debe ser estable, seguro y supervisado.</li>
+</ul>
+<p>Cada entorno cumple un rol en la validación progresiva del sistema.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="6-mantenimiento">6. Mantenimiento<a href="#6-mantenimiento" class="hash-link" aria-label="Enlace directo al 6. Mantenimiento" title="Enlace directo al 6. Mantenimiento">​</a></h3>
+<p>Una vez desplegado, el software sigue evolucionando:</p>
+<ul>
+<li>Surgen nuevos requerimientos.</li>
+<li>Se descubren errores.</li>
+<li>Cambia el negocio o el contexto.</li>
+</ul>
+<blockquote>
+<p>El proceso no siempre es lineal: puede requerirse volver a etapas previas.</p>
+</blockquote>
+<p>El mantenimiento busca que el software continúe siendo útil y relevante a lo largo del tiempo.</p>
+<hr>
+<p><strong>Bibliografía sugerida:</strong></p>
+<ul>
+<li>Pressman, &quot;Software Engineering: A Practitioner&#x27;s Approach&quot;</li>
+<li>Sommerville, &quot;Software Engineering&quot;</li>
+<li>SWEBOK - Software Engineering Body of Knowledge</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/web/docs/Material/Apuntes/git"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Git y GitHub</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/web/docs/Material/Clases"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Clases grabadas</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#qué-es-la-ingeniería" class="table-of-contents__link toc-highlight">¿Qué es la Ingeniería?</a><ul><li><a href="#patrón-en-la-definición-de-ingeniería" class="table-of-contents__link toc-highlight">Patrón en la definición de Ingeniería:</a></li></ul></li><li><a href="#qué-es-el-software" class="table-of-contents__link toc-highlight">¿Qué es el Software?</a><ul><li><a href="#algunos-tipos-de-software" class="table-of-contents__link toc-highlight">Algunos tipos de Software:</a></li><li><a href="#qué-hace-a-un-buen-software" class="table-of-contents__link toc-highlight">¿Qué hace a un buen software?</a></li></ul></li><li><a href="#qué-es-la-ingeniería-de-software" class="table-of-contents__link toc-highlight">¿Qué es la Ingeniería de Software?</a></li><li><a href="#etapas-de-la-ingeniería-de-software" class="table-of-contents__link toc-highlight">Etapas de la Ingeniería de Software</a><ul><li><a href="#1-análisis-de-requerimientos" class="table-of-contents__link toc-highlight">1. Análisis de Requerimientos</a></li><li><a href="#2-diseño" class="table-of-contents__link toc-highlight">2. Diseño</a></li><li><a href="#3-implementación" class="table-of-contents__link toc-highlight">3. Implementación</a></li><li><a href="#4-testing-y-validación" class="table-of-contents__link toc-highlight">4. Testing y Validación</a></li><li><a href="#5-despliegue" class="table-of-contents__link toc-highlight">5. Despliegue</a></li><li><a href="#6-mantenimiento" class="table-of-contents__link toc-highlight">6. Mantenimiento</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Introducción al Desarrollo de Software - (2025)</div></div></div></footer></div>
+</body>
+</html>
