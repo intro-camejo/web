@@ -38,22 +38,22 @@ export const Cronograma = () => {
                 <tr>
                     <th>Semana</th>
                     <th>Fecha</th>
-                    <th>Martes</th>
+                    <th>Lunes</th>
                     <th>Fecha</th>
-                    <th>Jueves</th>
+                    <th>Viernes</th>
                 </tr>
             </thead>
             <tbody>
                 {cronograma.map((semana) => (
                     <tr key={semana.semana}>
                         <td>{semana.semana}</td>
-                        <td>{semana.martes.fecha}</td>
+                        <td>{semana.lunes.fecha}</td>
                         <td>
-                            {renderActividades(semana.martes.actividades)}
+                            {renderActividades(semana.lunes.actividades)}
                         </td>
-                        <td>{semana.jueves.fecha}</td>
+                        <td>{semana.viernes.fecha}</td>
                         <td>
-                            {renderActividades(semana.jueves.actividades)}
+                            {renderActividades(semana.viernes.actividades)}
                         </td>
                     </tr>
                 ))}

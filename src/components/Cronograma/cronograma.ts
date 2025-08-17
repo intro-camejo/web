@@ -1,272 +1,271 @@
 export const cronograma = [
     {
         "semana": 1,
-        "martes": {
-            "fecha": "11/03/2025",
+        "lunes": {
+            "fecha": "18/08/2025",
             "actividades": [
                 { "name": "Presentación de la materia" },
                 { "name": "Introducción a Linux" },
                 { "name": "Opciones de instalación de Linux" },
-                { "name": "Editores de texto" },
-                { "name": "Terminal" }
-            ]
+                { "name": "Uso de terminal y editores de texto" },
+            ],
         },
-        "jueves": {
-            "fecha": "13/03/2025",
+        "viernes": {
+            "fecha": "22/08/2025",
             "actividades": [
                 { "name": "Bash" },
-                { "name": "¿Qué es Bash?" },
+                { "name": "¿Qué es Bash?"},
                 { "name": "Estructuras condicionales e iterativas" },
-                { "name": "Pipelines, redirecciones, listas" }
-            ]
+                { "name": "Ejercicios" }
+            ],
         }
     },
     {
         "semana": 2,
-        "martes": {
-            "fecha": "18/03/2025",
+        "lunes": {
+            "fecha": "25/08/2025",
             "actividades": [
                 { "name": "Bash" },
-                { "name": "Estructuras condicionales e iterativas" },
-                { "name": "Pipelines, redirecciones, listas" },
-                { "name": "Editores de terminal" }
-            ]
+                { "name": "Pipelines, redirecciones, listas (&&, ||, ;)" },
+                { "name": "Regex" }
+            ],
         },
-        "jueves": {
-            "fecha": "20/03/2025",
+        "viernes": {
+            "fecha": "29/08/2025",
             "actividades": [
-                { "name": "Bash" },
-                { "name": "Estructuras condicionales e iterativas" },
-                { "name": "Pipelines, redirecciones, listas" },
-                { "name": "Editores de terminal" }
-            ]
+                { "name": "Bash y Regex - Ejercitación" },
+                { "name": "Presentación TP0", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
         }
     },
     {
         "semana": 3,
-        "martes": {
-            "fecha": "25/03/2025",
+        "lunes": {
+            "fecha": "01/09/2025",
             "actividades": [
-                { "name": "Regex" }
-            ]
+                { "name": "Consultas TP0" }
+            ],
         },
-        "jueves": {
-            "fecha": "27/03/2025",
+        "viernes": {
+            "fecha": "05/09/2025",
             "actividades": [
-                { "name": "Ejercicios integradores de bash y regex" },
-                { "name": "Presentación TP0", "bg": "#0070a7", "color": "#f7f7f7" }
-            ]
+                { "name": "Ingeniería de Software" },
+                { "name": "Issues" }
+            ],
         }
     },
     {
         "semana": 4,
-        "martes": {
-            "fecha": "01/04/2025",
+        "lunes": {
+            "fecha": "08/09/2025",
             "actividades": [
                 { "name": "Git" },
                 { "name": "¿Qué es Git? ¿Para qué sirve?" },
                 { "name": "Repositorio y Estados" },
                 { "name": "Comandos básicos" },
                 { "name": "Github" }
-            ]
+            ],
         },
-        "jueves": {
-            "fecha": "03/04/2025",
+        "viernes": {
+            "fecha": "12/09/2025",
             "actividades": [
-                { "name": "Git" },
-                { "name": "Ramas" },
-                { "name": "Comandos avanzados" },
-            ]
+                { "name": "Git - Ramas (checkout, branch)" },
+                { "name": "git restore" },
+                { "name": "Staging" },
+                { "name": "git log y git diff" },
+                { "name": "Entrega TP0", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
         }
     },
     {
         "semana": 5,
-        "martes": {
-            "fecha": "08/04/2025",
+        "lunes": {
+            "fecha": "15/09/2025",
             "actividades": [
-                { "name": "Ingeniería de Software" }
-            ]
+                { "name": "Docker" },
+                { "name": "Nociones básicas de puertos y servicios" },
+                { "name": "¿Qué es Docker? ¿Para qué se usa?" },
+            ],
         },
-        "jueves": {
-            "fecha": "10/04/2025",
+        "viernes": {
+            "fecha": "19/09/2025",
             "actividades": [
-                { "name": "Ingeniería de Software" },
-                { "name": "Entrega TP0", "bg": "#0070a7", "color": "#f7f7f7" }
-            ]
+                { "name": "Docker" },
+                { "name": "¿Qué es un container? ¿Qué es una imagen?" },
+                { "name": "Comandos básicos" }
+            ],
         }
     },
     {
         "semana": 6,
-        "martes": {
-            "fecha": "15/04/2025",
+        "lunes": {
+            "fecha": "22/09/2025",
             "actividades": [
-                { "name": "Docker" }
-            ]
+                { "name": "Docker compose" }
+            ],
         },
-        "jueves": {
-            "fecha": "17/04/2025",
+        "viernes": {
+            "fecha": "26/09/2025",
             "actividades": [
-                { "name": "Feriado", "bg": "#0070a7", "color": "#f7f7f7" }
-            ]
+                { "name": "Armado de imágenes custom" },
+                { "name": "Ejercicios" }
+            ],
         }
     },
     {
         "semana": 7,
-        "martes": {
-            "fecha": "22/04/2025",
-            "actividades": [
-                { "name": "Docker Avanzado" },
-                { "name": "Docker Compose" }
-            ]
-        },
-        "jueves": {
-            "fecha": "24/04/2025",
+        "lunes": {
+            "fecha": "29/09/2025",
             "actividades": [
                 { "name": "SQL" },
                 { "name": "¿Qué es una BDD? ¿Qué es SQL?" },
                 { "name": "Estructura de las BDD relacionales" },
-                { "name": "Instrucciones Básicas" }
-            ]
+            ],
+        },
+        "viernes": {
+            "fecha": "03/10/2025",
+            "actividades": [
+                { "name": "Ejercicios SQL" }
+            ],
         }
     },
     {
         "semana": 8,
-        "martes": {
-            "fecha": "29/04/2025",
+        "lunes": {
+            "fecha": "06/10/2025",
             "actividades": [
-                { "name": "SQL" },
-                { "name": "SQL no tan básico y JOINs" }
-            ]
+                { "name": "SQL" }
+            ],
         },
-        "jueves": {
-            "fecha": "01/05/2025",
+        "viernes": {
+            "fecha": "10/10/2025",
             "actividades": [
-                { "name": "Feriado", "bg": "#0070a7", "color": "#f7f7f7" }
-            ]
+                { "name": "Consultas de Parcial" }
+            ],
         }
     },
     {
         "semana": 9,
-        "martes": {
-            "fecha": "06/05/2025",
+        "lunes": {
+            "fecha": "13/10/2025",
             "actividades": [
-                { "name": "Ejercicios SQL" },
-                { "name": "Consultas" }
-            ]
+                { "name": "Parcial", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
         },
-        "jueves": {
-            "fecha": "08/05/2025",
+        "viernes": {
+            "fecha": "17/10/2025",
             "actividades": [
-                { "name": "Parcial (Presencial)", "bg": "#0070a7", "color": "#f7f7f7" },
-            ]
+                { "name": "HTML" },
+                { "name": "CSS" },
+                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
         }
     },
     {
         "semana": 10,
-        "martes": {
-            "fecha": "13/05/2025",
+        "lunes": {
+            "fecha": "20/10/2025",
             "actividades": [
-                { "name": "Introducción a HTML" },
-                { "name": "Introducción a CSS" }
-            ]
+                { "name": "HTML + CSS" },
+                { "name": "Armado de una página web que contenga las cosas que vamos a usar en el tp" }
+            ],
         },
-        "jueves": {
-            "fecha": "15/05/2025",
+        "viernes": {
+            "fecha": "24/10/2025",
             "actividades": [
-                { "name": "HTML" },
-                { "name": "CSS" }
-            ]
+                { "name": "Javascript" },
+                { "name": "Javascript en el navegador" }
+            ],
         }
     },
     {
         "semana": 11,
-        "martes": {
-            "fecha": "20/05/2025",
+        "lunes": {
+            "fecha": "27/10/2025",
             "actividades": [
-                { "name": "Javascript" }
-            ]
+                { "name": "Backend" }
+            ],
         },
-        "jueves": {
-            "fecha": "22/05/2025",
+        "viernes": {
+            "fecha": "31/10/2025",
             "actividades": [
-                { "name": "Javascript" }
-            ]
+                { "name": "Backend" }
+            ],
         }
     },
     {
         "semana": 12,
-        "martes": {
-            "fecha": "27/05/2025",
+        "lunes": {
+            "fecha": "03/11/2025",
             "actividades": [
                 { "name": "Backend" }
-            ]
+            ],
         },
-        "jueves": {
-            "fecha": "29/05/2025",
+        "viernes": {
+            "fecha": "07/11/2025",
             "actividades": [
                 { "name": "Backend" }
-            ]
+            ],
         }
     },
     {
         "semana": 13,
-        "martes": {
-            "fecha": "03/06/2025",
+        "lunes": {
+            "fecha": "10/11/2025",
             "actividades": [
-                { "name": "Backend" },
-            ]
+                { "name": "Integración Parte 1" }
+            ],
         },
-        "jueves": {
-            "fecha": "05/06/2025",
+        "viernes": {
+            "fecha": "14/11/2025",
             "actividades": [
-                { "name": "Integración Parte 1" },
-                { "name": "Presentación TP Final", "bg": "#0070a7", "color": "#f7f7f7" }
-            ]
+                { "name": "RECUPERATORIO 1", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
         }
     },
     {
         "semana": 14,
-        "martes": {
-            "fecha": "10/06/2025",
+        "lunes": {
+            "fecha": "17/11/2025",
             "actividades": [
                 { "name": "Integración Parte 2" }
-            ]
+            ],
         },
-        "jueves": {
-            "fecha": "12/06/2025",
+        "viernes": {
+            "fecha": "21/11/2025",
             "actividades": [
-                { "name": "Sin clase - Paro docente" }
-            ]
+                { "name": "FERIADO", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
         }
     },
     {
         "semana": 15,
-        "martes": {
-            "fecha": "17/06/2025",
+        "lunes": {
+            "fecha": "24/11/2025",
+            "actividades": [
+                { "name": "FERIADO", "bg": "#0070a7", "color": "#f7f7f7" }
+            ],
+        },
+        "viernes": {
+            "fecha": "28/11/2025",
             "actividades": [
                 { "name": "Integración Parte 3" }
-            ]
-        },
-        "jueves": {
-            "fecha": "19/06/2025",
-            "actividades": [
-                { "name": "Integración Parte 4: Despliegue de proyecto" },
-            ]
+            ],
         }
     },
     {
         "semana": 16,
-        "martes": {
-            "fecha": "24/06/2025",
+        "lunes": {
+            "fecha": "01/12/2025",
             "actividades": [
-                { "name": "Primer recuperatorio (Presencial)" }
-            ]
+                { "name": "Buffer" }
+            ],
         },
-        "jueves": {
-            "fecha": "26/06/2025",
+        "viernes": {
+            "fecha": "05/12/2025",
             "actividades": [
                 { "name": "Retrospectiva" }
-            ]
+            ],
         }
     }
 ] as Semana[];
@@ -284,6 +283,6 @@ export type Dia = {
 
 export type Semana = {
     semana: number;
-    martes: Dia;
-    jueves: Dia;
+    lunes: Dia;
+    viernes: Dia;
 }
