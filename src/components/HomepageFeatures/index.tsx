@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 
 // Si, esto es horrible pero los assets estaticos parece que docusarus los quiere prevcar
 import PekeImg from '@site/static/img/peke.jpeg';
+import Peke2Img from '@site/static/img/peke2.jpeg';
 import NicoImg from '@site/static/img/nico.jpg';
 import GonzaImg from '@site/static/img/gonza.jpeg';
 import ManuBImg from '@site/static/img/manub.jpg';
@@ -27,7 +28,7 @@ type ColabItem = {
 const ColabList: ColabItem[] = [
   {
     name: 'Peke',
-    pictures: [PekeImg],
+    pictures: [PekeImg, Peke2Img],
   },
   {
     name: 'Nico',
