@@ -63,7 +63,7 @@ const config = {
       metadata: [
         {name: 'keywords', content: 'Introducción al Desarrollo de Software, 75.18, FIUBA, UBA, Cátedra Camejo, Programación, Algoritmos'},
       ],
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/tux-mate.png',
       navbar: {
         title: 'Intro',
         logo: {
