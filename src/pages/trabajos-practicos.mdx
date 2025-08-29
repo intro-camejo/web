@@ -1,58 +1,298 @@
-import Link from '@docusaurus/Link';
 import styles from './index.module.css';
 
+# TP 0 - Bash/Regex
 
-# TP2 - Introducción al Desarrollo de Software
+En este trabajo práctico se busca evaluar los conceptos adquiridos en las clases sobre el uso de **Bash** y **Regex**. 
 
-_Última modificación: 04/06/25_
+La fecha de entrega de este trabajo es el **12 de septiembre de 2025**, a través de la plataforma [Algotron](https://algotron.com.ar/).
 
-## Objetivo
+Para aprobar se requiere completar todos los ejercicios propuestos, pasando todas las pruebas automáticas de la plataforma. **Este trabajo no tiene reentrega**.
 
-Los alumnos deben demostrar la comprensión de los conceptos aprendidos en clase y la habilidad para aplicarlos en la resolución de problemas, junto con el desarrollo de una idea creativa y propia.
+## Introducción
 
-## Descripción
+Desde tiempos antiguos, el Avatar ha sido el guardián del equilibrio entre las Cuatro Naciones. Crónicas olvidadas y escrituras incompletas narran pruebas, batallas y secretos que aún esperan ser revelados. El eco de héroes y villanos resuena a través de generaciones, recordando que la paz nunca está asegurada y que el caos siempre acecha.
 
-Los alumnos deberán desarrollar un sitio web completo utilizando las tecnologías vistas a lo largo de la materia. El mismo constará de un frontend y un backend, con persistencia de datos utilizando una base de datos. El sitio web deberá tener una temática creativa y original, elegida por cada grupo, y deberá cumplir con los siguientes requisitos:
+En medio de estos relatos dispersos, el destino del mundo late con fuerza, pues cada huella del pasado puede decidir el futuro y cada elección puede alterar para siempre el frágil equilibrio de las naciones.
 
-- El backend deberá ser una API REST.
-- El frontend deberá ser un sitio estático (CSR), con al menos tres (3) páginas diferentes, el cual solicitará información al backend para mostrarla.
-- El proyecto deberá contar con al menos tres (3) entidades diferentes, representadas en tablas de la base de datos, con al menos cinco (5) campos cada una (excluyendo el ID). Debe haber al menos una relación para cada entidad (de entrada o salida), utilizando _foreign keys_.
-- Se debe contar con un CRUD completo para cada entidad, los cuales deberán ser accesibles desde el frontend.
-- Debe existir la posibilidad de levantar el proyecto utilizando Docker Compose, permitiendo levantar el frontend y el backend por separado.
-- El proyecto deberá contar con un archivo `README.md` con las instrucciones para configurar y levantar el sistema, junto con una descripción del mismo y capturas de pantalla del funcionamiento.
-- El proyecto deberá ser desarrollado utilizando `git`, cumpliendo las prácticas profesadas en clase, y subido a un repositorio **privado** de GitHub. En particular, se deben cumplir las siguientes pautas:
-    - El desarrollo deberá ser incremental, con _commits_ atómicos y mensajes descriptivos.
-    - Se deberán utilizar _branches_ para el desarrollo de nuevas funcionalidades, y _pull requests_ para la revisión de código.
-    - Los _pull requests_ deberán ser revisados y aprobados por al menos un (1) compañero de grupo.
+![image alt](https://i.imgur.com/eXCtcMl.jpeg "title" =900x)
 
-### Grupos
+## Ejercicio 0
 
-Los grupos serán de dos (2) a cuatro (4) alumnos, sin excepción. Los grupos serán formados por los alumnos y serán informados al docente a través de un formulario de Google Forms.
+Durante uno de sus entrenamientos, Toph decidió medir la distancia que recorrió para no perder el ritmo. Para ello anota la cantidad de pasos que dio a la mañana y la cantidad de pasos que dio a la tarde. Al final del día, quiere saber cuántos pasos recorrió en total.
 
-## Evaluación
-El TP se evaluará en una instancia de final, en la cual los alumnos deberán presentar el proyecto y responder preguntas sobre el mismo. Todos los alumnos del grupo deberán estar presentes en la presentación y haber participado en el desarrollo del proyecto, con _commits_ en el repositorio.
-En caso de contar con el proyecto desplegado en un servicio disponible públicamente en internet, se otorgará un (1) punto extra a la nota final.
-Los grupos escogerán una fecha entre las primeras cuatro (4) disponibles para presentar. La quinta y última fecha quedará reservada para los grupos que no hayan aprobado en su primera instancia. En caso de no aprobar en la segunda instancia, los alumnos no habrán regularizado la materia.
+Se pide crear un script que reciba como parámetros:
+- La cantidad de pasos que dio Toph en la mañana.
+- La cantidad de pasos que dio Toph en la tarde.
 
-## Fechas de Presentación
+El script deberá mostrar en pantalla la suma total de pasos recorridos en el día.
 
-Las fechas de presentación del trabajo práctico se corresponderán con los primeros **cuatro** llamados a exámenes finales del período **julio-agosto de 2025**.
+Ejemplo de ejecución:
+```
+./ejercicio0.sh 800 1200
+2000
+```
 
-El **quinto** llamado (último disponible en el período) estará reservado exclusivamente para la instancia de **recuperatorio**.
+![image alt](https://i.imgur.com/gUxXXZc.jpeg "title" =1000x)
 
-**IMPORTANTE:** Todo grupo que no apruebe en alguno de los llamados disponibles deberá recursar la materia, **sin excepciones**.
+## Ejercicio 1
 
-### Fechas de final
+**Toph**, la maestra del control de tierra, está entrenando a sus estudiantes en la construcción de estructuras de energía. Para practicar la concentración y el orden, les pide crear pirámides de palabras, donde cada fila representa un nivel de control de energía que deben dominar.
 
-**Ubicación:** Laboratorios de computación (4to piso de Paseo Colón 850)  
-**Horario:** 19:00 hs
+El tamaño de la pirámide indica cuántos niveles de energía deben acumular, y las palabras representan las técnicas o movimientos que van incorporando en su entrenamiento.
 
-- **Jueves 3 de julio de 2025**
-- **Jueves 10 de julio de 2025**
-- **Jueves 17 de julio de 2025**
-- **Jueves 24 de julio de 2025**
-- **Jueves 31 de julio de 2025** (Solo recuperatorio, no se pueden anotar directamente a esta fecha)
+Se pide construir un script que reciba un número de niveles y una lista de palabras, y genere la pirámide correspondiente, respetando el orden en que se aprenden las técnicas.
 
-export const UnderlinedText = ({children}) => (
-  <span style={{ textDecoration: 'underline' }}>{children}</span>
-);
+Ejemplos:
+
+```bash 
+./ejercicio1.sh 3 Terremoto
+Terremoto
+Terremoto Terremoto
+Terremoto Terremoto Terremoto
+
+./ejercicio1.sh 2 Golpe Patada Puñetazo
+Golpe
+Patada Puñetazo
+
+./ejercicio1.sh 6 p i r a m i d e 
+p
+i r
+a m i
+d e p i
+r a m i d
+e p i r a m
+
+```
+
+**Nota:** Si se recibe más de una palabra, deberán mostrarse en el mismo orden en el que se recibieron, siempre separándose por un espacio. En caso de recibir más palabras de las necesarias por la cantidad de niveles, ignorar las restantes.
+
+
+## Ejercicio 2
+
+Azula, princesa del Reino del Fuego, planea iniciar una guerra y sabe que no puede atacar a cualquiera sin analizar primero su fuerza y experiencia en combate. Para decidir a quién atacar y a quién evitar, revisa cuidadosamente los combates ganados y la fuerza de cada personaje, aliados y enemigos, buscando maximizar sus victorias y asegurarse de no provocar conflictos innecesarios con su propia familia.
+
+Se dispone de un archivo de estadísticas de combate con el siguiente formato:
+`nombre,es_aliado,fuerza,combates_ganados`
+
+- **nombre**: nombre del personaje.
+- **es_aliado**: '**A**' si es aliado de Azula, '**E**' si es enemigo.
+- **fuerza**: Nivel de poder del personaje.
+- **combates_ganados**: Cantidad de combates ganados.
+
+Ejemplo de contenido:
+```csv
+Azula,A,95,48
+Zuko,A,80,30
+Mako,E,50,30
+Toph,E,60,100
+Katara,E,120,51
+Amon,E,95,20
+```
+
+Se pide crear un script que reciba como parámetros la ruta al archivo de estadísticas y el nombre de un personaje, y busque a Azula y al personaje pasado por parámetro. Una vez encontrados, deberá imprimir por pantalla un mensaje según los siguientes criterios:
+
+* Si el personaje es aliado (**A**): `TODAVIA NO ES MOMENTO`.
+* Si Azula tiene más fuerza y más combates ganados: `GANA`.
+* Si Azula tiene más fuerza pero menos combates ganados: `EMPATE`.
+* Si Azula tiene menos fuerza pero más combates ganados: `EMPATE`.
+* Si Azula tiene menos fuerza y menos combates ganados: `PIERDE`.
+* Cualquier otro escenario: `BATALLA INCIERTA`.
+
+**Notas a tener en cuenta:**
+
+- Azula **siempre** aparecerá en la lista, aunque puede que no sea la primera.
+- Si el personaje no se encuentra, se debe terminar el programa con error (código de salida distinto de 0).
+- No hay nombres duplicados.
+- Los criterios deben evaluarse en orden e imprimir únicamente el primero en coincidir.
+
+Ejemplos:
+
+```
+./ejercicio2.sh combate.csv Zuko
+TODAVIA NO ES MOMENTO
+
+./ejercicio2.sh combate.csv Mako
+GANA
+
+./ejercicio2.sh combate.csv Toph
+EMPATE
+
+./ejercicio2.sh combate.csv Katara
+PIERDE
+
+./ejercicio2.sh combate.csv Amon
+BATALLA INCIERTA
+```
+
+![image alt](https://i.imgur.com/8dDKey7.jpeg "Azula" =1000x)
+
+## Ejercicio 3
+
+**¡Escándalo en la Nación del Fuego!** Kwan, la feroz instructora en la escuela de la Nación del Fuego, descubrió algo inaudito: uno de los alumnos de la escuela no es un estudiante común y corriente, sino que es ni más ni menos que ¡el **Avatar** encubierto! El problema: no sabe *quién* es. Afortunadamente, cuenta con algunos datos acerca del infiltrado, que usará para identificarlo entre sus alumnos.
+
+Kwan dispone de un archivo de alumnos que cumple con el siguiente formato:
+
+`nombre,edad,clases_asistidas,valoracion`
+
+Donde:
+* `nombre`: Nombre del alumno.
+* `edad`: Edad del alumno.
+* `clases_asistidas`: Cantidad de clases a las que el alumno ha asistido.
+* `valoracion`: Indica el desempeño del alumno en la escuela. Puede ser uno de los siguientes niveles:
+  - `SOBRESALIENTE`
+  - `BUENO`
+  - `REGULAR`
+  - `MALO`
+  - `MUY MALO`
+
+Este es un ejemplo del contenido del archivo:
+```
+Ahron,12,14,REGULAR
+Yuko,13,17,BUENO
+Zulya,11,9,MALO
+Dazai,15,23,SOBRESALIENTE
+Shinu,14,19,MUY MALO
+Into,12,15,BUENO
+```
+
+Se conoce la siguiente información sobre el Avatar:
+* Su nombre encubierto termina con la letra `n`.
+* Tiene 12 años de edad o menos.
+* Ha asistido a menos de 15 clases.
+* Su desempeño es `MUY MALO`.
+
+Se pide crear un script que reciba como parámetro la ruta al archivo de alumnos e imprima por pantalla los **nombres** de todos los sospechosos, es decir, todos los alumnos que comparten **al menos uno** de los rasgos del infiltrado.
+
+Ejemplo de ejecución:
+```sh
+$ ./ejercicio3.sh alumnos.csv
+Ahron
+Zulya
+Shinu
+Into
+```
+
+![image alt](https://i.imgur.com/2vSuooF.jpeg "Kwan clase" =900x)
+
+## Ejercicio 4
+
+Las **guerreras Kyoshi**, protectoras de la Isla, descubrieron una serie de archivos con las antiguas escrituras del Avatar Kyoshi. En él se mezclan relatos históricos, anotaciones incompletas y registros de pruebas superadas o fallidas por otra generación de guerreras:
+
+```
+Aprobada Prueba de Resistencia
+Pendiente Prueba de Valor
+Rechazada Prueba de Agilidad
+APROBADA Prueba de Equilibrio
+En revisión Prueba de Concentración
+Anulada Prueba de Combate
+Prueba de Sigilo rechazada
+nota: Ninguna prueba aprobada el dia de hoy
+APROBADA Prueba de Estrategia
+Suspendida Prueba de Memoria
+Incompleta Prueba de Sigilo Avanzado
+Prueba de Disciplina AproBaDA
+Nota: Pruebas del dia de hoy suspendidas
+Prueba ??? alsdkAPROBADAkasdj
+Error en el registro de la prueba espiritual
+```
+
+Con el fin de preservar el legado y comprender la verdadera historia de su linaje, las guerreras desean conocer con exactitud cuántas pruebas **no** quedaron consagradas como “Aprobadas” en aquellos registros.
+
+Asimismo, se requiere que el método implementado para filtrar dichas pruebas contemple la posibilidad de incorporar un criterio adicional de exclusión, definido como un parámetro opcional que pueda especificar el usuario al momento de la ejecución.
+
+Se pide crear un script que reciba como primer parámetro el archivo de registros a analizar e imprima por pantalla la **cantidad** de registros en los cuales la prueba **no** fue documentada como “aprobada” y **no** es una nota.
+
+Adicionalmente, el script debe aceptar una palabra segundo parámetro opcional. En caso de estar presente, los registros que contengan esa palabra **no** deben ser contados.
+
+**Nota:** Ignorar el uso mayúsculas y minúsculas.
+
+Usando el ejemplo anterior:
+
+```sh
+$ ./ejercicio4.sh registro.csv
+9
+$ ./ejercicio4.sh registro.csv sigilo
+7
+```
+
+![image alt](https://i.imgur.com/gFx6rhm.jpeg "Guerreras Kyoshi" =1000x)
+
+## Ejercicio 5
+
+**Katara** encontró al Avatar, pero como aún no domina los elementos, decide ayudarlo mientras ella misma aprende con un pergamino. Para perfeccionar sus habilidades, buscan la guía de un maestro de la Tribu del Norte, pero él la subestima y se niega a enseñarle por considerarla débil.
+
+Determinada, **Katara enfrenta al maestro en un duelo de agua**. Debe demostrar su fuerza, creatividad y perseverancia para cambiar su percepción y ganar la batalla, asegurando así su propio aprendizaje y el del Avatar.
+
+Para esto, Katara altera el registro de su pelea anterior, que se encuentra en un archivo con el siguiente formato:
+
+```
+(A) Katara    (B) Maestro
+ O  <<<<<         O
+/|\ <<<<<< <<    /|\
+/ \       <<<    / \
+
+>>> KATARA lanza LÁTIGO de agua
+>>> Maestro lanza un contraataque: Ola rápida!
+??? ruido de la batalla ???
+>>> El maestro intenta derribar a su oponente
+??? movimientos irreconocibles ???
+>>> Katara lanza un ataque de agua!
+>>> Katara lanza ráfaga
+### movimientos irreconocibles ###
+### ruido de batalla ###
+>>> El maestro lanza un ataque otra vez, golpe de agua, pero falla
+*** ruido de batalla ***
+KATARA PERDIÓ!
+```
+
+Se pide, realizar un script que realice los siguientes cambios al archivo, mostrando por pantalla el resultado final.
+
+1. Eliminar las líneas que contengan ruido o movimientos irreconocibles (`?`, `*`, `#`).
+2. Invertir los ataques del maestro, es decir, los símbolos `<` por `>` en el dibujo superior.
+3. Cambiar la frase final `KATARA PERDIÓ!` por `KATARA GANÓ!`.
+4. Agregar al final cuántos ataques lanzó Katara y cuántos el Maestro en total (ver el ejemplo a continuación).
+
+
+Ejemplo:
+
+```sh
+$ ./ejercicio5.sh batalla.txt
+(A) Katara    (B) Maestro
+ O  >>>>>         O
+/|\ >>>>>> >>    /|\
+/ \       >>>    / \
+
+>>> KATARA lanza LÁTIGO de agua
+>>> Maestro lanza un contraataque: Ola rápida!
+>>> El maestro intenta derribar a su oponente
+>>> Katara lanza un ataque de agua!
+>>> Katara lanza ráfaga
+>>> El maestro lanza un ataque otra vez, golpe de agua, pero falla
+KATARA GANÓ!
+Katara: 3
+Maestro: 3
+```
+
+## Formato de entrega
+
+Para que la entrega del trabajo práctico en la plataforma Algotron sea válida, deben cumplirse los siguientes requisitos:
+
+- Cada script debe nombrarse siguiendo el formato indicado en los ejemplos de cada consigna: `ejercicio<num_de_ejercicio>.sh`
+- Todos los scripts deben comprimirse en un archivo `.zip` con un nombre arbitrario.
+  - Dicho archivo `.zip` debe contener **únicamente** los scripts solicitados, sin archivos ni directorios adicionales.
+  - No debe comprimirse el directorio que contiene los archivos, sino **el conjunto de archivos en sí**.
+
+<div style={{ textAlign: 'center' }}>
+
+![Ejemplo](https://i.imgur.com/I1IytcS.png)
+
+ </div>
+
+## Consideraciones generales
+
+Se requiere lo siguiente en la implementación de todos los ejercicios del trabajo:
+
+- Si el ejercicio requiere del uso de uno o más valores recibidos por parámetro, **verificar** que lo que se está recibiendo es correcto, tanto en cantidad de valores recibidos, como en el tipo de valores que se reciben. 
+- Con el objetivo de lograr un mejor entendimiento de la resolución, **alojar los valores recibidos en nuevas variables**, cuyos nombres hagan referencia a lo que aportan al problema.
+- **Modularizar el código** si se considera necesario.
+- En caso de querer utilizar algún comando o herramienta nueva, **explicar brevemente para qué sirve en ese contexto, y por qué se desea usarla**. Esto se recomienda más que nada para que, en el momento de las correcciones, se vea que saben qué es lo que están usando, y por qué.
