@@ -31,19 +31,7 @@
 * [Tutorial Bash - freeCodeCamp](https://youtu.be/tK9Oc6AEnR4)
 * [Bash scripting Geeks for Geeks](https://www.geeksforgeeks.org/bash-scripting-introduction-to-bash-and-bash-scripting/)
 
-### Git / Github
-* [Pro Git](https://git-scm.com/book/es/v2)
-* [Ciclo de vida](https://codecabulary.launchacademy.com/learn-git/git-lifecycle)
 
-### Docker
-* [Docker - Pelado Nerd](https://www.youtube.com/watch?v=CV_Uf3Dq-EU)
-
-### SQL 
-* [SQL - Material de clases](https://drive.google.com/drive/folders/1fFFvkRCKR0TLXFI2RCWLqj0kECyUeGpX?usp=sharing)
-
-
-### Javascript
-* [Ejercicios clases node](https://github.com/RiedelNicolas/introJS)
-
-### Backend
-* [Archivos clase API REST](https://intro-camejo.github.io/web/files/lilo_stitch.zip)
+### Material de clases 
+* [Ejercicios 22-08](https://intro-camejo.github.io/web/files/clase_220825.zip)
+* [Ejercicios 29-08](https://intro-camejo.github.io/web/files/clase_290825.zip)
