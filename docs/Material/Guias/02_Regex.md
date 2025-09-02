@@ -6,14 +6,14 @@
 Tenemos un archivo **oraciones.txt**, cuyo contenido es:
 
 ```txt
-El perro corre rapido por el parque.
-Maria compro manzanas, peras y bananas en el mercado.
+El perro corre rápido por el parque.
+María compró manzanas, peras y bananas en el mercado.
 La computadora tiene 16 GB de RAM y 512 GB de almacenamiento.
-Que dia tan bonito para un paseo por la montana!
-Cuantas palabras puede contener esta oracion?
-El gato salto sobre la mesa para atrapar el raton.
+¡Qué día tan bonito para un paseo por la montaña!
+¿Cuántas palabras puede contener esta oración?
+El gato saltó sobre la mesa para atrapar el ratón.
 Las clases de Intro comienzan a las 7:30 AM.
-Juan y Martina juegan al futbol todos los viernes.
+Juan y Martina juegan al fútbol todos los viernes.
 ```
 
 Encontrar la expresión regular de Regex que devuelve:
