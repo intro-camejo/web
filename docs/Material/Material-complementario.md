@@ -1,4 +1,4 @@
-# Material complemetario
+# Material complementario
 
 ### Linux/Unix
 #### Lore

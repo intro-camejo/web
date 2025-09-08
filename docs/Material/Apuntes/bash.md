@@ -448,7 +448,7 @@ En Bash, las funciones permiten agrupar comandos relacionados y reutilizarlos en
 Para definir una función en Bash, utilizamos la siguiente sintaxis:
 
 ```bash
-nombre_funcion() {
+nombre_función() {
     # Comandos a ejecutar
 }
 ```
