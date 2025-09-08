@@ -1,7 +1,7 @@
 # Web de Introducción al Desarrollo de Software
 ## Camejo & CO
 
-Página para colgar material relacionado a la materia, cualquier issue/PR es super bienvenido!
+Página para colgar material relacionado a la materia, cualquier issue/PR es super bienvenido!!
 
 
 Para levantarlo local :
