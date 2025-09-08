@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 const config = {
   title: 'Intro al Desarrollo de Software',
-  tagline: 'Introducción al Desarrollo de Software (Camejo) - FIUBA',
+  tagline: 'Introducción al Desarrollo de Software (Camejo) - The one',
   favicon: 'img/tron.svg',
   staticDirectories: ['public', 'static'],
 
