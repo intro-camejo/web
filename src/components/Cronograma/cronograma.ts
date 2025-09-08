@@ -70,6 +70,7 @@ export const cronograma = [
             "fecha": "12/09/2025",
             "actividades": [
                 { "name": "Git - Ramas (checkout, branch)" },
+                { "name": "Github - pull requests" },
                 { "name": "git restore" },
                 { "name": "Staging" },
                 { "name": "git log y git diff" },
