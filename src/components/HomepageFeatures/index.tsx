@@ -31,7 +31,7 @@ const ColabList: ColabItem[] = [
     pictures: [PekeImg, Peke2Img],
   },
   {
-    name: 'Nico R',
+    name: 'Nico',
     pictures: [NicoImg, Nico2],
   },
   {
