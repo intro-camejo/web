@@ -2,211 +2,957 @@
 sidebar_label: "Backend"
 ---
 
-import Quiz from '@site/src/components/Quiz';
 import CodePlayground from '@site/src/components/CodePlayground';
 
 # Backend - Practica Interactiva
 
-## Quiz
+Practica conceptos de backend y REST APIs con JavaScript. Hace click en "Ejecutar" para ver los resultados.
 
-Pone a prueba tus conocimientos sobre REST APIs y Backend con Node.js.
+*Nota: estos ejemplos ejecutan JavaScript puro en el navegador para practicar la logica. Para ejecutar codigo de Express, necesitas un entorno Node.js.*
 
-<Quiz preguntas={[
-  {
-    pregunta: "¿Que significa REST?",
-    opciones: [
-      "Remote Execution of Server Tasks",
-      "Representational State Transfer",
-      "Request-Response State Transmission",
-      "Reliable and Secure Transfer"
-    ],
-    respuesta: 1,
-    explicacion: "REST significa Representational State Transfer. Es un estilo de arquitectura para diseñar APIs, basado en principios como el uso de recursos con URIs unicas, metodos HTTP como verbos, y comunicacion sin estado (stateless)."
-  },
-  {
-    pregunta: "¿Que metodo HTTP se usa para crear un recurso nuevo?",
-    opciones: [
-      "GET",
-      "PUT",
-      "POST",
-      "DELETE"
-    ],
-    respuesta: 2,
-    explicacion: "POST se usa para crear un recurso nuevo. Por ejemplo, POST /api/tareas crea una nueva tarea. La respuesta exitosa tipicamente devuelve un codigo 201 Created."
-  },
-  {
-    pregunta: "¿Que codigo de estado HTTP significa 'Not Found'?",
-    opciones: [
-      "400 Bad Request",
-      "401 Unauthorized",
-      "403 Forbidden",
-      "404 Not Found"
-    ],
-    respuesta: 3,
-    explicacion: "El codigo 404 Not Found indica que el recurso solicitado no existe. Los codigos 4xx son errores del cliente: 400 es un pedido invalido, 401 falta autenticacion, y 403 falta autorizacion."
-  },
-  {
-    pregunta: "¿Que es Express.js?",
-    opciones: [
-      "Un lenguaje de programacion para backend",
-      "Una base de datos NoSQL",
-      "El framework mas popular de Node.js para crear servidores HTTP",
-      "Un navegador web para desarrolladores"
-    ],
-    respuesta: 2,
-    explicacion: "Express es el framework mas popular de Node.js para crear servidores HTTP. Simplifica enormemente el manejo de rutas, peticiones y respuestas, permitiendo crear APIs de forma rapida."
-  },
-  {
-    pregunta: "¿Que hace app.get('/ruta', handler) en Express?",
-    opciones: [
-      "Envia una peticion GET a otra API",
-      "Define que pasa cuando alguien hace un GET a /ruta",
-      "Obtiene el valor de la variable 'ruta'",
-      "Descarga un archivo desde /ruta"
-    ],
-    respuesta: 1,
-    explicacion: "app.get('/ruta', handler) define una ruta en Express. Cuando un cliente hace una peticion GET a /ruta, Express ejecuta la funcion handler, que recibe los objetos req (peticion) y res (respuesta)."
-  },
-  {
-    pregunta: "¿Que es un middleware en Express?",
-    opciones: [
-      "Un tipo de base de datos",
-      "Una funcion que se ejecuta entre que llega la peticion y se envia la respuesta",
-      "Un metodo HTTP especial",
-      "Un archivo de configuracion del servidor"
-    ],
-    respuesta: 1,
-    explicacion: "Un middleware es una funcion que se ejecuta entre que llega la peticion y se envia la respuesta. Se usa para tareas comunes como parsear JSON (express.json()), loggear peticiones, manejar autenticacion, etc. Siempre debe llamar a next() para pasar al siguiente middleware."
-  },
-  {
-    pregunta: "¿Cual es la diferencia entre req.params y req.query?",
-    opciones: [
-      "No hay diferencia, son sinonimos",
-      "req.params tiene los parametros de ruta (ej: /tareas/:id) y req.query los parametros de query string (ej: ?orden=fecha)",
-      "req.params tiene el body del POST y req.query los headers",
-      "req.query tiene los parametros de ruta y req.params los de query string"
-    ],
-    respuesta: 1,
-    explicacion: "req.params contiene los parametros de ruta definidos con : en la URL (ej: en /tareas/:id, req.params.id vale '5' si la URL es /tareas/5). req.query contiene los parametros de query string (ej: en /tareas?orden=fecha, req.query.orden vale 'fecha')."
-  },
-  {
-    pregunta: "¿Que hace el middleware express.json()?",
-    opciones: [
-      "Convierte la respuesta a formato XML",
-      "Sirve archivos estaticos JSON",
-      "Parsea el body de las peticiones que vienen en formato JSON, permitiendo acceder a los datos con req.body",
-      "Valida que todas las respuestas sean JSON valido"
-    ],
-    respuesta: 2,
-    explicacion: "express.json() es un middleware que parsea el body de las peticiones que tienen Content-Type: application/json. Sin este middleware, req.body seria undefined. Se debe agregar con app.use(express.json()) antes de las rutas."
-  },
-  {
-    pregunta: "¿Que codigo de estado HTTP significa 'Created'?",
-    opciones: [
-      "200 OK",
-      "201 Created",
-      "204 No Content",
-      "301 Moved Permanently"
-    ],
-    respuesta: 1,
-    explicacion: "El codigo 201 Created indica que la peticion fue exitosa y se creo un recurso nuevo. Se usa tipicamente como respuesta a un POST exitoso. El 200 es exito general, el 204 es exito sin body (usado en DELETE), y el 301 es una redireccion."
-  },
-  {
-    pregunta: "¿Que significa CRUD?",
-    opciones: [
-      "Connect, Read, Update, Deploy",
-      "Code, Run, Upload, Delete",
-      "Create, Read, Update, Delete",
-      "Copy, Rename, Undo, Duplicate"
-    ],
-    respuesta: 2,
-    explicacion: "CRUD significa Create, Read, Update, Delete. Son las cuatro operaciones basicas sobre datos. En REST se mapean a los metodos HTTP: POST (Create), GET (Read), PUT/PATCH (Update), DELETE (Delete). En SQL se corresponden con INSERT, SELECT, UPDATE y DELETE."
-  }
-]} />
-
-## Playground
-
-Proba fragmentos de codigo JavaScript para backend.
+## JSON y Objetos
 
 <CodePlayground
   language="javascript"
-  title="Manejo de objetos JSON"
-  initialCode={`// --- Trabajando con JSON ---
+  title="JSON: parse y stringify"
+  initialCode={`// --- JSON: parse y stringify ---
 
-// Un objeto JavaScript (como los que maneja el backend)
-const tarea = {
-  id: 1,
-  titulo: "Estudiar APIs REST",
-  completada: false,
-  tags: ["backend", "express"]
-};
-
-// Acceder a propiedades
-console.log("Titulo:", tarea.titulo);
-console.log("Primer tag:", tarea.tags[0]);
-
-// Convertir objeto a JSON string (lo que envia el servidor)
-const jsonString = JSON.stringify(tarea, null, 2);
-console.log("\\nJSON stringificado:");
+// 1) Tenemos un string JSON (como el que llega en un request body)
+const jsonString = '{"nombre": "Ana", "edad": 25, "activo": true}';
+console.log("JSON string recibido:");
 console.log(jsonString);
 
-// Convertir JSON string a objeto (lo que recibe el servidor)
-const jsonRecibido = '{"titulo": "Leer apunte", "prioridad": "alta"}';
-const objetoParseado = JSON.parse(jsonRecibido);
-console.log("\\nObjeto parseado:", objetoParseado);
-console.log("Prioridad:", objetoParseado.prioridad);
+// 2) Parseamos el string a un objeto JavaScript
+const usuario = JSON.parse(jsonString);
+console.log("\\nObjeto parseado:");
+console.log(usuario);
+console.log("Tipo:", typeof usuario); // object
 
-// Desestructuracion (como se usa en los controllers)
-const { titulo, prioridad } = objetoParseado;
-console.log("\\nDesestructurado - titulo:", titulo);
-console.log("Desestructurado - prioridad:", prioridad);`}
+// 3) Modificamos el objeto
+usuario.rol = "admin";
+usuario.edad = 26;
+console.log("\\nObjeto modificado:");
+console.log(usuario);
+
+// 4) Convertimos de vuelta a JSON string (como lo envia el servidor)
+// Sin formato:
+const sinFormato = JSON.stringify(usuario);
+console.log("\\nStringify sin formato:");
+console.log(sinFormato);
+
+// Con formato legible (indent de 2 espacios):
+const conFormato = JSON.stringify(usuario, null, 2);
+console.log("\\nStringify con pretty-print:");
+console.log(conFormato);
+
+// 5) JSON.parse puede fallar si el string no es valido
+try {
+  JSON.parse("esto no es json");
+} catch (error) {
+  console.log("\\nError al parsear JSON invalido:", error.message);
+}`}
 />
 
 <CodePlayground
   language="javascript"
-  title="Simulando Request y Response"
-  initialCode={`// --- Simulacion de objetos req y res de Express ---
+  title="Accediendo a datos JSON"
+  initialCode={`// --- Accediendo a datos JSON ---
 
-// Simulamos el objeto req (request) que llega al handler
+// Array de usuarios (como los que devolveria una base de datos)
+const usuarios = [
+  { id: 1, nombre: "Ana", email: "ana@mail.com", rol: "admin" },
+  { id: 2, nombre: "Luis", email: "luis@mail.com", rol: "usuario" },
+  { id: 3, nombre: "Maria", email: "maria@mail.com", rol: "usuario" },
+  { id: 4, nombre: "Carlos", email: "carlos@mail.com", rol: "admin" }
+];
+
+// Acceder a un usuario especifico por indice
+console.log("Primer usuario:", usuarios[0].nombre);
+console.log("Email del segundo:", usuarios[1].email);
+
+// Recorrer con forEach (util para logging o efectos secundarios)
+console.log("\\n--- Listado con forEach ---");
+usuarios.forEach((u) => {
+  console.log(\`  [\${u.id}] \${u.nombre} (\${u.rol}) - \${u.email}\`);
+});
+
+// Transformar con map (util para armar respuestas)
+const nombresYRoles = usuarios.map((u) => ({
+  nombre: u.nombre,
+  rol: u.rol
+}));
+console.log("\\n--- Solo nombres y roles (con map) ---");
+console.log(JSON.stringify(nombresYRoles, null, 2));
+
+// Filtrar con filter (util para busquedas)
+const admins = usuarios.filter((u) => u.rol === "admin");
+console.log("\\n--- Admins (con filter) ---");
+admins.forEach((a) => console.log(\`  \${a.nombre}\`));
+
+// Buscar uno con find (util para GET por id)
+const buscado = usuarios.find((u) => u.id === 3);
+console.log("\\n--- Buscar usuario con id 3 (con find) ---");
+console.log(JSON.stringify(buscado, null, 2));`}
+/>
+
+## HTTP y Status Codes
+
+<CodePlayground
+  language="javascript"
+  title="Estructura de un Request HTTP"
+  initialCode={`// --- Estructura de un Request HTTP ---
+// Simulamos el objeto req que Express nos da en cada handler
+
 const req = {
+  // Metodo HTTP: GET, POST, PUT, DELETE, PATCH
   method: "POST",
-  url: "/api/tareas",
-  params: { id: "5" },
-  query: { orden: "fecha", completada: "true" },
-  body: { titulo: "Estudiar Node.js", descripcion: "Leer el apunte completo" }
+
+  // URL a la que se hizo el pedido
+  url: "/api/usuarios",
+
+  // Headers: metadatos del pedido
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIs...",
+    "Accept": "application/json",
+    "User-Agent": "MiApp/1.0"
+  },
+
+  // Body: datos enviados por el cliente (en POST/PUT/PATCH)
+  body: {
+    nombre: "Ana Garcia",
+    email: "ana@mail.com",
+    edad: 25
+  },
+
+  // Params: parametros de ruta (ej: /usuarios/:id)
+  params: {},
+
+  // Query: parametros de query string (ej: ?page=1&limit=10)
+  query: { page: "1", limit: "10" }
 };
 
-console.log("=== Peticion recibida ===");
-console.log("Metodo:", req.method, req.url);
+// Logueamos cada parte del request
+console.log("=== REQUEST HTTP ===");
+console.log(\`Metodo: \${req.method}\`);
+console.log(\`URL:    \${req.url}\`);
 
-// Acceder a parametros de ruta (req.params)
-console.log("\\nParametro de ruta (id):", req.params.id);
+console.log("\\n--- Headers ---");
+for (const [clave, valor] of Object.entries(req.headers)) {
+  console.log(\`  \${clave}: \${valor}\`);
+}
 
-// Acceder a query strings (req.query)
-console.log("Query - orden:", req.query.orden);
-console.log("Query - completada:", req.query.completada);
+console.log("\\n--- Body ---");
+console.log(JSON.stringify(req.body, null, 2));
 
-// Acceder al body (req.body) con desestructuracion
-const { titulo, descripcion } = req.body;
-console.log("\\nBody - titulo:", titulo);
-console.log("Body - descripcion:", descripcion);
+console.log("\\n--- Query Params ---");
+for (const [clave, valor] of Object.entries(req.query)) {
+  console.log(\`  \${clave} = \${valor}\`);
+}
 
-// Simulamos la logica de un controller
-console.log("\\n=== Respuesta del servidor ===");
+console.log("\\n--- Params ---");
+console.log("  (vacio en este ejemplo, se llena con :parametros de ruta)");`}
+/>
 
-// Validacion (como en un controller real)
-if (!titulo || titulo.trim() === "") {
-  console.log("Status: 400");
-  console.log(JSON.stringify({ error: "El titulo es obligatorio" }));
-} else {
-  // Simulamos crear el recurso
-  const nuevaTarea = {
-    id: 3,
-    titulo: titulo.trim(),
-    descripcion: descripcion || null,
-    completada: false
+<CodePlayground
+  language="javascript"
+  title="Status Codes comunes"
+  initialCode={`// --- Status Codes HTTP comunes ---
+
+// Mapa de codigos de estado con sus descripciones
+const statusCodes = {
+  200: "OK - Peticion exitosa",
+  201: "Created - Recurso creado exitosamente",
+  204: "No Content - Exito sin body (usado en DELETE)",
+  400: "Bad Request - Datos invalidos enviados por el cliente",
+  401: "Unauthorized - Falta autenticacion",
+  403: "Forbidden - No tiene permisos",
+  404: "Not Found - El recurso no existe",
+  409: "Conflict - Conflicto (ej: email duplicado)",
+  500: "Internal Server Error - Error del servidor"
+};
+
+console.log("=== Codigos de Estado HTTP ===");
+for (const [code, desc] of Object.entries(statusCodes)) {
+  console.log(\`  \${code} - \${desc}\`);
+}
+
+// Funcion que determina el status code segun el escenario
+function obtenerStatusCode(escenario) {
+  switch (escenario) {
+    case "recurso_creado":    return { status: 201, mensaje: "Recurso creado" };
+    case "recurso_no_existe": return { status: 404, mensaje: "Recurso no encontrado" };
+    case "datos_invalidos":   return { status: 400, mensaje: "Datos invalidos" };
+    case "sin_autenticacion": return { status: 401, mensaje: "Debe autenticarse" };
+    case "sin_permisos":      return { status: 403, mensaje: "No tiene permisos" };
+    case "exito":             return { status: 200, mensaje: "OK" };
+    case "eliminado":         return { status: 204, mensaje: "Eliminado (sin contenido)" };
+    default:                  return { status: 500, mensaje: "Error interno" };
+  }
+}
+
+// Probamos distintos escenarios
+console.log("\\n=== Escenarios ===");
+const escenarios = [
+  "recurso_creado",
+  "recurso_no_existe",
+  "datos_invalidos",
+  "exito",
+  "eliminado",
+  "sin_autenticacion"
+];
+
+escenarios.forEach((esc) => {
+  const { status, mensaje } = obtenerStatusCode(esc);
+  console.log(\`  \${esc} => \${status} \${mensaje}\`);
+});`}
+/>
+
+## Simulando un CRUD
+
+<CodePlayground
+  language="javascript"
+  title="Simulando GET /usuarios"
+  initialCode={`// --- Simulando GET /usuarios ---
+
+// "Base de datos" en memoria
+const usuarios = [
+  { id: 1, nombre: "Ana", email: "ana@mail.com" },
+  { id: 2, nombre: "Luis", email: "luis@mail.com" },
+  { id: 3, nombre: "Maria", email: "maria@mail.com" }
+];
+
+// Handler: GET /usuarios
+// Devuelve todos los usuarios
+function getUsuarios() {
+  // En Express seria: res.json(usuarios)
+  return {
+    status: 200,
+    body: usuarios
   };
-  console.log("Status: 201 Created");
-  console.log(JSON.stringify(nuevaTarea, null, 2));
-}`}
+}
+
+// Ejecutamos el handler
+const respuesta = getUsuarios();
+console.log("GET /usuarios");
+console.log("Status:", respuesta.status);
+console.log("Body:");
+console.log(JSON.stringify(respuesta.body, null, 2));
+console.log("\\nTotal de usuarios:", respuesta.body.length);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Simulando POST /usuarios"
+  initialCode={`// --- Simulando POST /usuarios ---
+
+// "Base de datos" en memoria
+const usuarios = [
+  { id: 1, nombre: "Ana", email: "ana@mail.com" }
+];
+let nextId = 2; // Auto-incremento de ID
+
+// Handler: POST /usuarios
+// Crea un usuario nuevo, valida campos requeridos
+function postUsuario(body) {
+  // Validar campos requeridos
+  if (!body.nombre || body.nombre.trim() === "") {
+    return {
+      status: 400,
+      body: { error: "El campo 'nombre' es obligatorio" }
+    };
+  }
+  if (!body.email || body.email.trim() === "") {
+    return {
+      status: 400,
+      body: { error: "El campo 'email' es obligatorio" }
+    };
+  }
+
+  // Crear el nuevo usuario con id auto-generado
+  const nuevoUsuario = {
+    id: nextId++,
+    nombre: body.nombre.trim(),
+    email: body.email.trim()
+  };
+
+  // Agregarlo a la "base de datos"
+  usuarios.push(nuevoUsuario);
+
+  // Retornar 201 Created con el usuario creado
+  return {
+    status: 201,
+    body: nuevoUsuario
+  };
+}
+
+// --- Probamos ---
+
+// POST valido
+console.log("POST /usuarios (valido)");
+let res = postUsuario({ nombre: "Carlos", email: "carlos@mail.com" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// POST sin nombre
+console.log("\\nPOST /usuarios (sin nombre)");
+res = postUsuario({ email: "test@mail.com" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body));
+
+// POST sin email
+console.log("\\nPOST /usuarios (sin email)");
+res = postUsuario({ nombre: "Test" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body));
+
+// Otro POST valido
+console.log("\\nPOST /usuarios (otro valido)");
+res = postUsuario({ nombre: "Laura", email: "laura@mail.com" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Estado final
+console.log("\\n--- Estado final de la base de datos ---");
+console.log(JSON.stringify(usuarios, null, 2));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Simulando GET /usuarios/:id"
+  initialCode={`// --- Simulando GET /usuarios/:id ---
+
+// "Base de datos" en memoria
+const usuarios = [
+  { id: 1, nombre: "Ana", email: "ana@mail.com" },
+  { id: 2, nombre: "Luis", email: "luis@mail.com" },
+  { id: 3, nombre: "Maria", email: "maria@mail.com" }
+];
+
+// Handler: GET /usuarios/:id
+// Busca un usuario por su ID
+function getUsuarioPorId(id) {
+  // Buscar el usuario (find devuelve undefined si no existe)
+  const usuario = usuarios.find((u) => u.id === id);
+
+  if (!usuario) {
+    return {
+      status: 404,
+      body: { error: \`Usuario con id \${id} no encontrado\` }
+    };
+  }
+
+  return {
+    status: 200,
+    body: usuario
+  };
+}
+
+// --- Probamos ---
+
+// Buscar uno que existe
+console.log("GET /usuarios/2");
+let res = getUsuarioPorId(2);
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Buscar otro que existe
+console.log("\\nGET /usuarios/1");
+res = getUsuarioPorId(1);
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Buscar uno que NO existe
+console.log("\\nGET /usuarios/99");
+res = getUsuarioPorId(99);
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Simulando PUT /usuarios/:id"
+  initialCode={`// --- Simulando PUT /usuarios/:id ---
+
+// "Base de datos" en memoria
+const usuarios = [
+  { id: 1, nombre: "Ana", email: "ana@mail.com" },
+  { id: 2, nombre: "Luis", email: "luis@mail.com" },
+  { id: 3, nombre: "Maria", email: "maria@mail.com" }
+];
+
+// Handler: PUT /usuarios/:id
+// Actualiza los campos de un usuario existente
+function putUsuario(id, body) {
+  // Buscar el indice del usuario
+  const index = usuarios.findIndex((u) => u.id === id);
+
+  if (index === -1) {
+    return {
+      status: 404,
+      body: { error: \`Usuario con id \${id} no encontrado\` }
+    };
+  }
+
+  // Actualizar solo los campos que vienen en el body
+  // (el id no se puede cambiar)
+  if (body.nombre) usuarios[index].nombre = body.nombre.trim();
+  if (body.email) usuarios[index].email = body.email.trim();
+
+  return {
+    status: 200,
+    body: usuarios[index]
+  };
+}
+
+// --- Probamos ---
+
+console.log("Estado inicial:");
+console.log(JSON.stringify(usuarios, null, 2));
+
+// Actualizar usuario existente
+console.log("\\nPUT /usuarios/2 { nombre: 'Luis Garcia' }");
+let res = putUsuario(2, { nombre: "Luis Garcia" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Actualizar ambos campos
+console.log("\\nPUT /usuarios/1 { nombre: 'Ana Lopez', email: 'analopez@mail.com' }");
+res = putUsuario(1, { nombre: "Ana Lopez", email: "analopez@mail.com" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Intentar actualizar uno que no existe
+console.log("\\nPUT /usuarios/99 { nombre: 'Nadie' }");
+res = putUsuario(99, { nombre: "Nadie" });
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body));
+
+// Estado final
+console.log("\\n--- Estado final ---");
+console.log(JSON.stringify(usuarios, null, 2));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Simulando DELETE /usuarios/:id"
+  initialCode={`// --- Simulando DELETE /usuarios/:id ---
+
+// "Base de datos" en memoria
+const usuarios = [
+  { id: 1, nombre: "Ana", email: "ana@mail.com" },
+  { id: 2, nombre: "Luis", email: "luis@mail.com" },
+  { id: 3, nombre: "Maria", email: "maria@mail.com" }
+];
+
+// Handler: DELETE /usuarios/:id
+// Elimina un usuario por ID
+function deleteUsuario(id) {
+  const index = usuarios.findIndex((u) => u.id === id);
+
+  if (index === -1) {
+    return {
+      status: 404,
+      body: { error: \`Usuario con id \${id} no encontrado\` }
+    };
+  }
+
+  // Eliminar del array (splice modifica el array original)
+  const eliminado = usuarios.splice(index, 1)[0];
+
+  return {
+    status: 200,
+    body: { mensaje: \`Usuario '\${eliminado.nombre}' eliminado\`, usuario: eliminado }
+  };
+}
+
+// --- Probamos ---
+
+console.log("Estado inicial:");
+console.log(JSON.stringify(usuarios, null, 2));
+
+// Eliminar usuario existente
+console.log("\\nDELETE /usuarios/2");
+let res = deleteUsuario(2);
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Ver como quedo el array
+console.log("\\nEstado despues de eliminar:");
+console.log(JSON.stringify(usuarios, null, 2));
+
+// Intentar eliminar uno que no existe
+console.log("\\nDELETE /usuarios/99");
+res = deleteUsuario(99);
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body));
+
+// Eliminar otro
+console.log("\\nDELETE /usuarios/1");
+res = deleteUsuario(1);
+console.log("Status:", res.status);
+console.log("Body:", JSON.stringify(res.body, null, 2));
+
+// Estado final
+console.log("\\n--- Estado final ---");
+console.log(JSON.stringify(usuarios, null, 2));
+console.log("Total restante:", usuarios.length);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="CRUD completo"
+  initialCode={`// --- CRUD completo: todas las operaciones juntas ---
+
+// "Base de datos" en memoria
+const usuarios = [];
+let nextId = 1;
+
+// === Funciones CRUD ===
+
+function crearUsuario(body) {
+  if (!body.nombre || !body.email) {
+    return { status: 400, body: { error: "nombre y email son obligatorios" } };
+  }
+  const nuevo = { id: nextId++, nombre: body.nombre, email: body.email };
+  usuarios.push(nuevo);
+  return { status: 201, body: nuevo };
+}
+
+function obtenerTodos() {
+  return { status: 200, body: [...usuarios] };
+}
+
+function obtenerPorId(id) {
+  const u = usuarios.find((u) => u.id === id);
+  if (!u) return { status: 404, body: { error: "No encontrado" } };
+  return { status: 200, body: u };
+}
+
+function actualizar(id, body) {
+  const idx = usuarios.findIndex((u) => u.id === id);
+  if (idx === -1) return { status: 404, body: { error: "No encontrado" } };
+  if (body.nombre) usuarios[idx].nombre = body.nombre;
+  if (body.email) usuarios[idx].email = body.email;
+  return { status: 200, body: usuarios[idx] };
+}
+
+function eliminar(id) {
+  const idx = usuarios.findIndex((u) => u.id === id);
+  if (idx === -1) return { status: 404, body: { error: "No encontrado" } };
+  usuarios.splice(idx, 1);
+  return { status: 200, body: { mensaje: "Eliminado" } };
+}
+
+function mostrarEstado(titulo) {
+  console.log(\`\\n--- \${titulo} ---\`);
+  console.log(JSON.stringify(usuarios, null, 2));
+}
+
+// === Ejecutamos todas las operaciones ===
+
+// 1) Crear 3 usuarios
+console.log("=== CREAR USUARIOS (POST) ===");
+console.log(JSON.stringify(crearUsuario({ nombre: "Ana", email: "ana@mail.com" }).body));
+console.log(JSON.stringify(crearUsuario({ nombre: "Luis", email: "luis@mail.com" }).body));
+console.log(JSON.stringify(crearUsuario({ nombre: "Maria", email: "maria@mail.com" }).body));
+mostrarEstado("Despues de crear 3 usuarios");
+
+// 2) Obtener todos
+console.log("\\n=== OBTENER TODOS (GET) ===");
+let res = obtenerTodos();
+console.log(\`Status: \${res.status}, Total: \${res.body.length}\`);
+
+// 3) Obtener por ID
+console.log("\\n=== OBTENER POR ID (GET /2) ===");
+res = obtenerPorId(2);
+console.log(\`Status: \${res.status}\`);
+console.log(JSON.stringify(res.body, null, 2));
+
+// 4) Actualizar uno
+console.log("\\n=== ACTUALIZAR (PUT /2) ===");
+res = actualizar(2, { nombre: "Luis Garcia", email: "luisg@mail.com" });
+console.log(\`Status: \${res.status}\`);
+console.log(JSON.stringify(res.body, null, 2));
+mostrarEstado("Despues de actualizar usuario 2");
+
+// 5) Eliminar uno
+console.log("\\n=== ELIMINAR (DELETE /1) ===");
+res = eliminar(1);
+console.log(\`Status: \${res.status}\`);
+console.log(JSON.stringify(res.body));
+mostrarEstado("Despues de eliminar usuario 1");
+
+// 6) Estado final
+console.log("\\n=== RESUMEN ===");
+console.log("Usuarios restantes:", usuarios.length);
+usuarios.forEach((u) => console.log(\`  [\${u.id}] \${u.nombre} - \${u.email}\`));`}
+/>
+
+## Validacion de Datos
+
+<CodePlayground
+  language="javascript"
+  title="Validacion de datos"
+  initialCode={`// --- Validacion de datos ---
+// Funcion que valida un objeto usuario y retorna un array de errores
+
+function validarUsuario(usuario) {
+  const errores = [];
+
+  // Validar nombre: debe ser un string no vacio
+  if (!usuario.nombre || typeof usuario.nombre !== "string") {
+    errores.push("'nombre' es obligatorio y debe ser un string");
+  } else if (usuario.nombre.trim() === "") {
+    errores.push("'nombre' no puede estar vacio");
+  }
+
+  // Validar email: debe ser string y contener @
+  if (!usuario.email || typeof usuario.email !== "string") {
+    errores.push("'email' es obligatorio y debe ser un string");
+  } else if (!usuario.email.includes("@")) {
+    errores.push("'email' debe contener @");
+  }
+
+  // Validar edad: debe ser un numero positivo
+  if (usuario.edad === undefined || usuario.edad === null) {
+    errores.push("'edad' es obligatorio");
+  } else if (typeof usuario.edad !== "number") {
+    errores.push("'edad' debe ser un numero");
+  } else if (usuario.edad <= 0) {
+    errores.push("'edad' debe ser un numero positivo");
+  }
+
+  return errores;
+}
+
+// Funcion auxiliar para simular la respuesta
+function procesarRegistro(body) {
+  const errores = validarUsuario(body);
+  if (errores.length > 0) {
+    return { status: 400, body: { errores } };
+  }
+  return { status: 201, body: { mensaje: "Usuario creado", usuario: body } };
+}
+
+// --- Probamos con distintos datos ---
+
+// Caso 1: todo valido
+console.log("=== Caso 1: datos validos ===");
+let res = procesarRegistro({ nombre: "Ana", email: "ana@mail.com", edad: 25 });
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+// Caso 2: email sin @
+console.log("\\n=== Caso 2: email invalido ===");
+res = procesarRegistro({ nombre: "Luis", email: "luis-sin-arroba", edad: 30 });
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+// Caso 3: edad negativa
+console.log("\\n=== Caso 3: edad negativa ===");
+res = procesarRegistro({ nombre: "Maria", email: "maria@mail.com", edad: -5 });
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+// Caso 4: multiples errores
+console.log("\\n=== Caso 4: multiples errores ===");
+res = procesarRegistro({ nombre: "", email: "invalido", edad: "veinte" });
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+// Caso 5: objeto vacio
+console.log("\\n=== Caso 5: objeto vacio ===");
+res = procesarRegistro({});
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));`}
+/>
+
+## Manejo de Errores
+
+<CodePlayground
+  language="javascript"
+  title="Manejo de errores con try/catch"
+  initialCode={`// --- Manejo de errores con try/catch ---
+
+// Simulamos datos que pueden estar incompletos o ser nulos
+const respuestasAPI = {
+  exitosa: {
+    data: {
+      usuario: {
+        nombre: "Ana",
+        direccion: { calle: "Av. Siempre Viva", ciudad: "Springfield" }
+      }
+    }
+  },
+  sinDireccion: {
+    data: {
+      usuario: {
+        nombre: "Luis",
+        direccion: null
+      }
+    }
+  },
+  sinUsuario: {
+    data: {
+      usuario: null
+    }
+  },
+  sinData: null
+};
+
+// Funcion que intenta acceder a datos anidados
+function obtenerCiudad(respuesta) {
+  try {
+    // Esto puede fallar si algun nivel es null/undefined
+    const ciudad = respuesta.data.usuario.direccion.ciudad;
+    return {
+      status: 200,
+      body: { ciudad }
+    };
+  } catch (error) {
+    return {
+      status: 500,
+      body: {
+        error: "Error al procesar los datos",
+        detalle: error.message
+      }
+    };
+  }
+}
+
+// --- Probamos con cada caso ---
+
+console.log("=== Caso 1: respuesta exitosa ===");
+let res = obtenerCiudad(respuestasAPI.exitosa);
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+console.log("\\n=== Caso 2: direccion es null ===");
+res = obtenerCiudad(respuestasAPI.sinDireccion);
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+console.log("\\n=== Caso 3: usuario es null ===");
+res = obtenerCiudad(respuestasAPI.sinUsuario);
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+console.log("\\n=== Caso 4: data es null ===");
+res = obtenerCiudad(respuestasAPI.sinData);
+console.log("Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));
+
+// Ejemplo con JSON.parse invalido
+console.log("\\n=== Caso 5: parsear body invalido ===");
+function procesarBody(bodyString) {
+  try {
+    const datos = JSON.parse(bodyString);
+    return { status: 200, body: datos };
+  } catch (error) {
+    return {
+      status: 400,
+      body: { error: "El body no es JSON valido", detalle: error.message }
+    };
+  }
+}
+
+res = procesarBody('{"nombre": "Ana"}');
+console.log("Body valido - Status:", res.status);
+
+res = procesarBody('nombre: Ana');
+console.log("Body invalido - Status:", res.status);
+console.log(JSON.stringify(res.body, null, 2));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Query Parameters: filtrado y paginacion"
+  initialCode={`// --- Query Parameters: filtrado y paginacion ---
+
+// "Base de datos" de productos
+const productos = [
+  { id: 1, nombre: "Notebook", categoria: "electronica", precio: 850000 },
+  { id: 2, nombre: "Mouse", categoria: "electronica", precio: 15000 },
+  { id: 3, nombre: "Remera", categoria: "ropa", precio: 12000 },
+  { id: 4, nombre: "Teclado", categoria: "electronica", precio: 25000 },
+  { id: 5, nombre: "Pantalon", categoria: "ropa", precio: 30000 },
+  { id: 6, nombre: "Monitor", categoria: "electronica", precio: 350000 },
+  { id: 7, nombre: "Zapatillas", categoria: "ropa", precio: 65000 },
+  { id: 8, nombre: "Auriculares", categoria: "electronica", precio: 45000 },
+  { id: 9, nombre: "Campera", categoria: "ropa", precio: 80000 },
+  { id: 10, nombre: "Webcam", categoria: "electronica", precio: 30000 }
+];
+
+// Handler: GET /productos?categoria=X&page=N&limit=N
+function getProductos(query) {
+  let resultado = [...productos]; // Copia del array
+
+  // 1) Filtrar por categoria (si se especifica)
+  if (query.categoria) {
+    resultado = resultado.filter((p) => p.categoria === query.categoria);
+    console.log(\`Filtrado por categoria '\${query.categoria}': \${resultado.length} resultados\`);
+  }
+
+  // 2) Info de paginacion
+  const page = parseInt(query.page) || 1;    // Pagina actual (default: 1)
+  const limit = parseInt(query.limit) || 5;  // Items por pagina (default: 5)
+  const totalItems = resultado.length;
+  const totalPages = Math.ceil(totalItems / limit);
+  const start = (page - 1) * limit;
+  const end = start + limit;
+
+  // 3) Aplicar paginacion
+  const paginado = resultado.slice(start, end);
+
+  return {
+    status: 200,
+    body: {
+      data: paginado,
+      paginacion: {
+        paginaActual: page,
+        itemsPorPagina: limit,
+        totalItems: totalItems,
+        totalPaginas: totalPages
+      }
+    }
+  };
+}
+
+// --- Probamos ---
+
+// Sin filtros, pagina 1
+console.log("=== GET /productos?page=1&limit=3 ===");
+let res = getProductos({ page: "1", limit: "3" });
+console.log(JSON.stringify(res.body, null, 2));
+
+// Pagina 2
+console.log("\\n=== GET /productos?page=2&limit=3 ===");
+res = getProductos({ page: "2", limit: "3" });
+console.log(JSON.stringify(res.body, null, 2));
+
+// Filtrar por categoria + paginacion
+console.log("\\n=== GET /productos?categoria=ropa&page=1&limit=2 ===");
+res = getProductos({ categoria: "ropa", page: "1", limit: "2" });
+console.log(JSON.stringify(res.body, null, 2));
+
+// Solo electronica
+console.log("\\n=== GET /productos?categoria=electronica ===");
+res = getProductos({ categoria: "electronica" });
+console.log("Total electronica:", res.body.paginacion.totalItems);
+console.log("Mostrando primeros", res.body.paginacion.itemsPorPagina);
+res.body.data.forEach((p) => console.log(\`  \${p.nombre} - $\${p.precio}\`));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Middleware: logger simulado"
+  initialCode={`// --- Middleware: logger simulado ---
+// En Express, los middleware son funciones que se ejecutan
+// en cadena antes de llegar al handler final.
+// Cada middleware recibe (req, res, next) y debe llamar a next()
+// para pasar al siguiente.
+
+// Simulamos un request
+const req = {
+  method: "GET",
+  url: "/api/usuarios",
+  headers: {
+    "Authorization": "Bearer token-valido-123"
+  }
+};
+
+// Acumulamos la respuesta aca
+let respuestaFinal = null;
+const res = {
+  statusCode: 200,
+  status(code) { this.statusCode = code; return this; },
+  json(data) {
+    respuestaFinal = { status: this.statusCode, body: data };
+  }
+};
+
+// === MIDDLEWARE 1: Logger ===
+// Registra cada peticion que llega
+function loggerMiddleware(req, res, next) {
+  const timestamp = new Date().toISOString();
+  console.log(\`[\${timestamp}] \${req.method} \${req.url}\`);
+  console.log("  -> Paso por middleware: Logger");
+  next(); // Pasar al siguiente middleware
+}
+
+// === MIDDLEWARE 2: Auth Check ===
+// Verifica que el request tenga un token de autorizacion
+function authMiddleware(req, res, next) {
+  console.log("  -> Paso por middleware: Auth Check");
+
+  const authHeader = req.headers["Authorization"];
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    console.log("  !! Auth FALLIDA: sin token");
+    res.status(401).json({ error: "No autorizado" });
+    return; // No llama a next(), corta la cadena
+  }
+
+  const token = authHeader.split(" ")[1];
+  console.log(\`  -> Token encontrado: \${token.substring(0, 10)}...\`);
+  // En la realidad aca se verificaria el token (JWT, etc.)
+  req.usuario = { id: 1, nombre: "Ana", rol: "admin" }; // Datos del token
+  next(); // Token valido, seguir
+}
+
+// === HANDLER FINAL ===
+function getUsuariosHandler(req, res) {
+  console.log("  -> Llego al handler final");
+  console.log(\`  -> Usuario autenticado: \${req.usuario.nombre}\`);
+  res.status(200).json({
+    usuarios: [
+      { id: 1, nombre: "Ana" },
+      { id: 2, nombre: "Luis" }
+    ]
+  });
+}
+
+// === Ejecutar la cadena de middleware ===
+// En Express esto se hace con app.use() y app.get()
+// Aca lo simulamos manualmente
+
+function ejecutarCadena(middlewares, req, res) {
+  let index = 0;
+  function next() {
+    if (index < middlewares.length) {
+      const middleware = middlewares[index++];
+      middleware(req, res, next);
+    }
+  }
+  next();
+}
+
+console.log("=== Request CON token valido ===");
+ejecutarCadena(
+  [loggerMiddleware, authMiddleware, getUsuariosHandler],
+  req, res
+);
+console.log("\\nRespuesta:", JSON.stringify(respuestaFinal, null, 2));
+
+// --- Ahora probamos SIN token ---
+console.log("\\n=== Request SIN token ===");
+const reqSinToken = {
+  method: "GET",
+  url: "/api/usuarios",
+  headers: {}
+};
+respuestaFinal = null;
+const res2 = {
+  statusCode: 200,
+  status(code) { this.statusCode = code; return this; },
+  json(data) {
+    respuestaFinal = { status: this.statusCode, body: data };
+  }
+};
+
+ejecutarCadena(
+  [loggerMiddleware, authMiddleware, getUsuariosHandler],
+  reqSinToken, res2
+);
+console.log("\\nRespuesta:", JSON.stringify(respuestaFinal, null, 2));`}
 />
