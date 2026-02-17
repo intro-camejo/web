@@ -1,0 +1,751 @@
+---
+sidebar_label: "SQL - Historias"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# SQL - Ejercicios con Historias
+
+Resolvé estos ejercicios basados en situaciones reales. Cada historia presenta un contexto y un esquema de base de datos, seguido de ejercicios que te van a ayudar a resolver el problema planteado.
+
+---
+
+## Historia 1: El Videoclub de Martin
+
+Martin acaba de heredar el videoclub de su abuelo en el barrio de Caballito. El negocio esta algo desactualizado, pero tiene una base de datos con toda la informacion de las peliculas, los socios y los alquileres. Martin quiere modernizar el negocio y necesita tu ayuda para analizar los datos y tomar decisiones. Que peliculas son las mas populares? Que socios estan inactivos? Cuanto factura el videoclub por mes? Ponete en el lugar de Martin y usa SQL para responder estas preguntas.
+
+### Esquema de la Base de Datos
+
+```sql
+CREATE TABLE peliculas (
+    id SERIAL PRIMARY KEY,
+    titulo TEXT NOT NULL,
+    genero TEXT NOT NULL,
+    anio INTEGER NOT NULL,
+    director TEXT NOT NULL,
+    precio_alquiler DECIMAL(5,2) NOT NULL
+);
+
+CREATE TABLE socios (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    email TEXT NOT NULL,
+    fecha_registro DATE NOT NULL,
+    activo BOOLEAN DEFAULT true
+);
+
+CREATE TABLE alquileres (
+    id SERIAL PRIMARY KEY,
+    socio_id INTEGER REFERENCES socios(id),
+    pelicula_id INTEGER REFERENCES peliculas(id),
+    fecha_alquiler DATE NOT NULL,
+    fecha_devolucion DATE,
+    devuelto BOOLEAN DEFAULT false
+);
+```
+
+<details>
+<summary>Ver datos de ejemplo (INSERT statements)</summary>
+
+```sql
+-- Peliculas
+INSERT INTO peliculas (id, titulo, genero, anio, director, precio_alquiler) VALUES
+(1, 'El Secreto de sus Ojos', 'Drama', 2009, 'Juan Jose Campanella', 350.00),
+(2, 'Relatos Salvajes', 'Comedia Negra', 2014, 'Damian Szifron', 400.00),
+(3, 'Pulp Fiction', 'Accion', 1994, 'Quentin Tarantino', 300.00),
+(4, 'The Matrix', 'Accion', 1999, 'Lana Wachowski', 300.00),
+(5, 'El Clan', 'Drama', 2015, 'Pablo Trapero', 350.00),
+(6, 'Nueve Reinas', 'Suspenso', 2000, 'Fabian Bielinsky', 250.00),
+(7, 'Volver al Futuro', 'Ciencia Ficcion', 1985, 'Robert Zemeckis', 200.00),
+(8, 'Inception', 'Ciencia Ficcion', 2010, 'Christopher Nolan', 350.00),
+(9, 'El Padrino', 'Drama', 1972, 'Francis Ford Coppola', 250.00),
+(10, 'Toy Story', 'Animacion', 1995, 'John Lasseter', 200.00);
+
+-- Socios
+INSERT INTO socios (id, nombre, email, fecha_registro, activo) VALUES
+(1, 'Lucia Fernandez', 'lucia.fernandez@gmail.com', '2023-03-15', true),
+(2, 'Santiago Gomez', 'santi.gomez@hotmail.com', '2023-06-20', true),
+(3, 'Valentina Rodriguez', 'vale.rodri@gmail.com', '2022-11-10', true),
+(4, 'Mateo Alvarez', 'mateo.alvarez@yahoo.com', '2024-01-05', false),
+(5, 'Camila Lopez', 'cami.lopez@gmail.com', '2023-09-01', true),
+(6, 'Nicolas Martinez', 'nico.martinez@outlook.com', '2022-05-18', false);
+
+-- Alquileres
+INSERT INTO alquileres (id, socio_id, pelicula_id, fecha_alquiler, fecha_devolucion, devuelto) VALUES
+(1, 1, 2, '2024-10-01', '2024-10-04', true),
+(2, 1, 8, '2024-10-10', '2024-10-13', true),
+(3, 2, 3, '2024-10-05', '2024-10-08', true),
+(4, 2, 4, '2024-10-15', NULL, false),
+(5, 3, 1, '2024-09-20', '2024-09-23', true),
+(6, 3, 6, '2024-10-12', '2024-10-15', true),
+(7, 3, 9, '2024-11-01', '2024-11-04', true),
+(8, 5, 2, '2024-10-20', '2024-10-23', true),
+(9, 5, 7, '2024-11-05', NULL, false),
+(10, 1, 5, '2024-11-10', '2024-11-13', true),
+(11, 2, 10, '2024-11-08', '2024-11-11', true),
+(12, 3, 8, '2024-11-15', NULL, false),
+(13, 5, 3, '2024-11-18', '2024-11-21', true),
+(14, 1, 4, '2024-11-20', NULL, false),
+(15, 6, 1, '2024-08-10', NULL, false),
+(16, 2, 9, '2024-11-25', '2024-11-28', true),
+(17, 5, 5, '2024-12-01', NULL, false);
+```
+
+</details>
+
+### Ejercicio 1: Catalogo completo
+
+Martin quiere ver todas las peliculas disponibles en el videoclub, ordenadas por anio de estreno (las mas nuevas primero).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Mostra todas las peliculas ordenadas por anio de estreno (mas nuevas primero)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Usamos ORDER BY con DESC para ordenar de mas nuevo a mas viejo\nSELECT *\nFROM peliculas\nORDER BY anio DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Peliculas de accion
+
+Un socio pregunta que peliculas de accion hay disponibles. Mostra el titulo, el anio y el precio de alquiler.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Filtra las peliculas cuyo genero sea 'Accion'\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- WHERE filtra por el genero indicado\nSELECT titulo, anio, precio_alquiler\nFROM peliculas\nWHERE genero = 'Accion';`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Peliculas por genero
+
+Martin quiere saber cuantas peliculas tiene de cada genero para decidir que generos necesita reforzar.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Agrupa las peliculas por genero y conta cuantas hay en cada uno\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- GROUP BY agrupa por genero, COUNT(*) cuenta cuantas hay en cada grupo\nSELECT genero, COUNT(*) AS cantidad\nFROM peliculas\nGROUP BY genero\nORDER BY cantidad DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Precio promedio por genero
+
+Cual es el precio promedio de alquiler por genero? Martin quiere revisar si los precios son coherentes.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Calcula el precio promedio de alquiler agrupado por genero\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- AVG() calcula el promedio, lo redondeamos a 2 decimales\nSELECT genero, ROUND(AVG(precio_alquiler), 2) AS precio_promedio\nFROM peliculas\nGROUP BY genero\nORDER BY precio_promedio DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Socios activos
+
+Martin necesita contactar a los socios activos para una promocion. Mostra el nombre y email de los socios activos, ordenados alfabeticamente.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Mostra nombre y email de los socios donde activo = true\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Filtramos por activo = true y ordenamos por nombre\nSELECT nombre, email\nFROM socios\nWHERE activo = true\nORDER BY nombre ASC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 6: Peliculas sin devolver
+
+Que peliculas estan alquiladas y no fueron devueltas todavia? Mostra el titulo de la pelicula y el nombre del socio.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni alquileres con peliculas y socios, filtra por devuelto = false\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Unimos las tres tablas y filtramos los no devueltos\nSELECT p.titulo, s.nombre AS socio\nFROM alquileres a\nJOIN peliculas p ON a.pelicula_id = p.id\nJOIN socios s ON a.socio_id = s.id\nWHERE a.devuelto = false;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Alquileres por socio
+
+Cuantos alquileres hizo cada socio? Mostra el nombre del socio y la cantidad, ordenado de mayor a menor.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni alquileres con socios, agrupa por socio y conta los alquileres\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- JOIN para unir tablas, GROUP BY para agrupar, COUNT para contar\nSELECT s.nombre, COUNT(*) AS cantidad_alquileres\nFROM alquileres a\nJOIN socios s ON a.socio_id = s.id\nGROUP BY s.nombre\nORDER BY cantidad_alquileres DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Mejor cliente
+
+Martin quiere premiar a su mejor cliente. Quien es el socio que mas plata gasto en alquileres?
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni alquileres con socios y peliculas, suma el precio_alquiler por socio\n-- Ordena de mayor a menor y limita a 1 resultado\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Sumamos los precios de alquiler de cada socio\nSELECT s.nombre, SUM(p.precio_alquiler) AS total_gastado\nFROM alquileres a\nJOIN socios s ON a.socio_id = s.id\nJOIN peliculas p ON a.pelicula_id = p.id\nGROUP BY s.nombre\nORDER BY total_gastado DESC\nLIMIT 1;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Facturacion total
+
+Cuanto facturo el videoclub en total por todos los alquileres realizados?
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Calcula la suma total de los precios de alquiler de todos los alquileres\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Unimos alquileres con peliculas para acceder al precio\nSELECT SUM(p.precio_alquiler) AS facturacion_total\nFROM alquileres a\nJOIN peliculas p ON a.pelicula_id = p.id;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Morosos
+
+Martin sospecha que algunos socios alquilaron peliculas y nunca las devolvieron. Que socios tienen alquileres sin devolver con fecha de alquiler hace mas de 30 dias? Mostra el nombre del socio, el titulo de la pelicula y la fecha de alquiler.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Filtra alquileres no devueltos donde la fecha_alquiler sea anterior a hace 30 dias\n-- Pista: usa CURRENT_DATE - INTERVAL '30 days'\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Filtramos alquileres no devueltos con mas de 30 dias de antiguedad\nSELECT s.nombre, p.titulo, a.fecha_alquiler\nFROM alquileres a\nJOIN socios s ON a.socio_id = s.id\nJOIN peliculas p ON a.pelicula_id = p.id\nWHERE a.devuelto = false\n  AND a.fecha_alquiler < CURRENT_DATE - INTERVAL '30 days'\nORDER BY a.fecha_alquiler ASC;`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Historia 2: La Pizzeria de los Hermanos Lopez
+
+Los hermanos Lopez abrieron una pizzeria en Palermo hace 2 anios. El negocio crecio tanto que necesitan organizar mejor sus datos. Tienen informacion sobre el menu, los pedidos, los repartidores y los clientes. Necesitan analizar que pizzas son las mas vendidas, cuanto facturan por dia, y que repartidores son los mas eficientes. Tu SQL va a ayudarlos a tomar mejores decisiones!
+
+### Esquema de la Base de Datos
+
+```sql
+CREATE TABLE menu (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    categoria TEXT NOT NULL,  -- 'pizza', 'empanada', 'bebida', 'postre'
+    precio DECIMAL(7,2) NOT NULL,
+    disponible BOOLEAN DEFAULT true
+);
+
+CREATE TABLE clientes (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    telefono TEXT NOT NULL,
+    direccion TEXT NOT NULL,
+    barrio TEXT NOT NULL
+);
+
+CREATE TABLE repartidores (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    vehiculo TEXT NOT NULL,  -- 'moto', 'bicicleta', 'auto'
+    activo BOOLEAN DEFAULT true
+);
+
+CREATE TABLE pedidos (
+    id SERIAL PRIMARY KEY,
+    cliente_id INTEGER REFERENCES clientes(id),
+    repartidor_id INTEGER REFERENCES repartidores(id),
+    fecha DATE NOT NULL,
+    total DECIMAL(8,2) NOT NULL,
+    estado TEXT NOT NULL  -- 'pendiente', 'en_camino', 'entregado', 'cancelado'
+);
+
+CREATE TABLE detalle_pedidos (
+    id SERIAL PRIMARY KEY,
+    pedido_id INTEGER REFERENCES pedidos(id),
+    menu_id INTEGER REFERENCES menu(id),
+    cantidad INTEGER NOT NULL,
+    subtotal DECIMAL(8,2) NOT NULL
+);
+```
+
+<details>
+<summary>Ver datos de ejemplo (INSERT statements)</summary>
+
+```sql
+-- Menu
+INSERT INTO menu (id, nombre, categoria, precio, disponible) VALUES
+(1, 'Muzzarella', 'pizza', 5500.00, true),
+(2, 'Fugazzeta', 'pizza', 6000.00, true),
+(3, 'Napolitana', 'pizza', 6500.00, true),
+(4, 'Calabresa', 'pizza', 6000.00, true),
+(5, 'Empanada de Carne', 'empanada', 900.00, true),
+(6, 'Empanada de Jamon y Queso', 'empanada', 900.00, true),
+(7, 'Empanada de Verdura', 'empanada', 850.00, true),
+(8, 'Quilmes 1L', 'bebida', 2500.00, true),
+(9, 'Coca-Cola 1.5L', 'bebida', 2800.00, true),
+(10, 'Agua Mineral 500ml', 'bebida', 1000.00, true),
+(11, 'Flan con Dulce de Leche', 'postre', 3500.00, true),
+(12, 'Tiramisu', 'postre', 4000.00, false),
+(13, 'Provoleta', 'pizza', 5000.00, true),
+(14, 'Empanada de Pollo', 'empanada', 900.00, false);
+
+-- Clientes
+INSERT INTO clientes (id, nombre, telefono, direccion, barrio) VALUES
+(1, 'Ana Gutierrez', '11-4567-8901', 'Honduras 4800', 'Palermo'),
+(2, 'Diego Ramirez', '11-5678-9012', 'Gorriti 5200', 'Palermo'),
+(3, 'Florencia Diaz', '11-6789-0123', 'Borges 1800', 'Palermo'),
+(4, 'Roberto Sanchez', '11-7890-1234', 'Av. Corrientes 3400', 'Almagro'),
+(5, 'Maria Eugenia Torres', '11-8901-2345', 'Av. Rivadavia 4100', 'Almagro'),
+(6, 'Pablo Herrera', '11-9012-3456', 'Thames 1500', 'Palermo'),
+(7, 'Carolina Mendez', '11-3456-7890', 'Av. Santa Fe 3200', 'Recoleta');
+
+-- Repartidores
+INSERT INTO repartidores (id, nombre, vehiculo, activo) VALUES
+(1, 'Franco Ruiz', 'moto', true),
+(2, 'Agustin Perez', 'bicicleta', true),
+(3, 'Leandro Silva', 'moto', true),
+(4, 'Tomas Vega', 'auto', false);
+
+-- Pedidos
+INSERT INTO pedidos (id, cliente_id, repartidor_id, fecha, total, estado) VALUES
+(1, 1, 1, '2024-11-01', 14500.00, 'entregado'),
+(2, 2, 2, '2024-11-01', 6000.00, 'entregado'),
+(3, 3, 1, '2024-11-02', 11800.00, 'entregado'),
+(4, 4, 3, '2024-11-03', 19300.00, 'entregado'),
+(5, 1, 2, '2024-11-05', 8300.00, 'entregado'),
+(6, 5, 1, '2024-11-06', 12500.00, 'entregado'),
+(7, 6, 3, '2024-11-07', 6500.00, 'entregado'),
+(8, 2, 1, '2024-11-08', 15800.00, 'entregado'),
+(9, 7, 2, '2024-11-10', 5500.00, 'entregado'),
+(10, 3, 3, '2024-11-12', 9700.00, 'cancelado'),
+(11, 1, 1, '2024-11-15', 22000.00, 'entregado'),
+(12, 4, 2, '2024-11-18', 7200.00, 'en_camino'),
+(13, 5, 3, '2024-11-20', 13000.00, 'pendiente'),
+(14, 6, 1, '2024-11-22', 11000.00, 'entregado');
+
+-- Detalle de pedidos
+INSERT INTO detalle_pedidos (id, pedido_id, menu_id, cantidad, subtotal) VALUES
+(1, 1, 1, 1, 5500.00),
+(2, 1, 3, 1, 6500.00),
+(3, 1, 8, 1, 2500.00),
+(4, 2, 2, 1, 6000.00),
+(5, 3, 1, 1, 5500.00),
+(6, 3, 5, 4, 3600.00),
+(7, 3, 9, 1, 2800.00),
+(8, 4, 3, 2, 13000.00),
+(9, 4, 5, 3, 2700.00),
+(10, 4, 11, 1, 3500.00),
+(11, 5, 5, 6, 5400.00),
+(12, 5, 9, 1, 2800.00),
+(13, 6, 2, 1, 6000.00),
+(14, 6, 4, 1, 6000.00),
+(15, 7, 3, 1, 6500.00),
+(16, 8, 1, 2, 11000.00),
+(17, 8, 8, 2, 5000.00),
+(18, 9, 1, 1, 5500.00),
+(19, 10, 4, 1, 6000.00),
+(20, 10, 6, 4, 3600.00),
+(21, 11, 3, 2, 13000.00),
+(22, 11, 2, 1, 6000.00),
+(23, 11, 9, 1, 2800.00),
+(24, 12, 5, 8, 7200.00),
+(25, 13, 1, 1, 5500.00),
+(26, 13, 4, 1, 6000.00),
+(27, 14, 1, 2, 11000.00);
+```
+
+</details>
+
+### Ejercicio 1: El menu completo
+
+Los hermanos quieren ver todo el menu ordenado por categoria y, dentro de cada categoria, por precio (de menor a mayor).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Mostra todo el menu ordenado por categoria y luego por precio\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Podemos ordenar por multiples columnas separadas por coma\nSELECT *\nFROM menu\nORDER BY categoria, precio ASC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Pizzas disponibles
+
+Cuales son las pizzas disponibles? Mostra el nombre y el precio.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Filtra por categoria = 'pizza' y disponible = true\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Combinamos dos condiciones con AND\nSELECT nombre, precio\nFROM menu\nWHERE categoria = 'pizza'\n  AND disponible = true;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Productos por categoria
+
+Cuantos productos hay en cada categoria del menu?
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Agrupa por categoria y conta cuantos productos hay en cada una\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- GROUP BY para agrupar, COUNT(*) para contar\nSELECT categoria, COUNT(*) AS cantidad_productos\nFROM menu\nGROUP BY categoria\nORDER BY cantidad_productos DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: El pedido mas caro
+
+Cual es el pedido mas caro que se hizo? Mostra el nombre del cliente, la fecha y el total.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni pedidos con clientes, ordena por total descendente y limita a 1\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- JOIN para traer el nombre del cliente, ORDER BY + LIMIT para el maximo\nSELECT c.nombre, p.fecha, p.total\nFROM pedidos p\nJOIN clientes c ON p.cliente_id = c.id\nORDER BY p.total DESC\nLIMIT 1;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Entregas por repartidor
+
+Cuantos pedidos entrego cada repartidor? Mostra solo los pedidos con estado 'entregado'.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni pedidos con repartidores, filtra por estado 'entregado'\n-- Agrupa por repartidor y conta\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Filtramos por estado, agrupamos por repartidor y contamos\nSELECT r.nombre, COUNT(*) AS pedidos_entregados\nFROM pedidos p\nJOIN repartidores r ON p.repartidor_id = r.id\nWHERE p.estado = 'entregado'\nGROUP BY r.nombre\nORDER BY pedidos_entregados DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 6: La pizza mas pedida
+
+Cual es la pizza mas pedida? Mostra el nombre del producto y la cantidad total vendida.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni detalle_pedidos con menu, filtra por categoria 'pizza'\n-- Agrupa por nombre, suma la cantidad y ordena\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Sumamos las cantidades vendidas de cada pizza\nSELECT m.nombre, SUM(dp.cantidad) AS total_vendido\nFROM detalle_pedidos dp\nJOIN menu m ON dp.menu_id = m.id\nWHERE m.categoria = 'pizza'\nGROUP BY m.nombre\nORDER BY total_vendido DESC\nLIMIT 1;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Facturacion por barrio
+
+Cuanto facturo la pizzeria por cada barrio? Solo considerar pedidos entregados.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni pedidos con clientes, filtra por estado 'entregado'\n-- Agrupa por barrio y suma el total\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Agrupamos por barrio del cliente y sumamos los totales\nSELECT c.barrio, SUM(p.total) AS facturacion\nFROM pedidos p\nJOIN clientes c ON p.cliente_id = c.id\nWHERE p.estado = 'entregado'\nGROUP BY c.barrio\nORDER BY facturacion DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Productos que nunca se vendieron
+
+Los hermanos quieren saber que productos del menu nunca se vendieron. Eso les ayuda a decidir si sacarlos del menu.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Busca productos del menu que no aparecen en detalle_pedidos\n-- Pista: usa LEFT JOIN y busca los NULL, o usa NOT IN con una subconsulta\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Opcion 1: LEFT JOIN buscando los que no tienen match\nSELECT m.nombre, m.categoria\nFROM menu m\nLEFT JOIN detalle_pedidos dp ON m.id = dp.menu_id\nWHERE dp.id IS NULL;\n\n-- Opcion 2: Con subconsulta NOT IN\n-- SELECT nombre, categoria\n-- FROM menu\n-- WHERE id NOT IN (SELECT DISTINCT menu_id FROM detalle_pedidos);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Ticket promedio
+
+Cual es el ticket promedio (total promedio) de los pedidos entregados?
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Calcula el promedio del total de los pedidos con estado 'entregado'\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- AVG() calcula el promedio, filtramos solo los entregados\nSELECT ROUND(AVG(total), 2) AS ticket_promedio\nFROM pedidos\nWHERE estado = 'entregado';`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Repartidor estrella
+
+Que repartidor genero mas facturacion en pedidos entregados? Mostra su nombre y el total facturado.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni pedidos con repartidores, filtra entregados\n-- Agrupa por repartidor, suma el total, ordena y limita a 1\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Sumamos la facturacion por repartidor y obtenemos el maximo\nSELECT r.nombre, SUM(p.total) AS total_facturado\nFROM pedidos p\nJOIN repartidores r ON p.repartidor_id = r.id\nWHERE p.estado = 'entregado'\nGROUP BY r.nombre\nORDER BY total_facturado DESC\nLIMIT 1;`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Historia 3: La Universidad Nacional de Codigo
+
+La Universidad Nacional de Codigo (UNC) necesita modernizar su sistema de gestion academica. Tienen datos de estudiantes, materias, profesores e inscripciones. El rector te pide ayuda para generar reportes: que materias tienen mas inscriptos? Que profesores dictan mas materias? Que estudiantes estan en riesgo de quedar libres? Con tus consultas SQL, vas a ayudar a la universidad a tomar mejores decisiones academicas.
+
+### Esquema de la Base de Datos
+
+```sql
+CREATE TABLE estudiantes (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    legajo TEXT UNIQUE NOT NULL,
+    carrera TEXT NOT NULL,
+    anio_ingreso INTEGER NOT NULL
+);
+
+CREATE TABLE profesores (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    departamento TEXT NOT NULL,
+    antiguedad INTEGER NOT NULL  -- anios
+);
+
+CREATE TABLE materias (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    departamento TEXT NOT NULL,
+    creditos INTEGER NOT NULL,
+    cuatrimestre INTEGER NOT NULL  -- 1 o 2
+);
+
+CREATE TABLE inscripciones (
+    id SERIAL PRIMARY KEY,
+    estudiante_id INTEGER REFERENCES estudiantes(id),
+    materia_id INTEGER REFERENCES materias(id),
+    profesor_id INTEGER REFERENCES profesores(id),
+    nota DECIMAL(4,2),  -- NULL si aun no tiene nota
+    estado TEXT NOT NULL  -- 'cursando', 'aprobado', 'desaprobado', 'libre'
+);
+```
+
+<details>
+<summary>Ver datos de ejemplo (INSERT statements)</summary>
+
+```sql
+-- Estudiantes
+INSERT INTO estudiantes (id, nombre, legajo, carrera, anio_ingreso) VALUES
+(1, 'Martin Perez', 'LU-2020-001', 'Ingenieria Informatica', 2020),
+(2, 'Sofia Garcia', 'LU-2021-002', 'Licenciatura en Sistemas', 2021),
+(3, 'Juan Cruz Lopez', 'LU-2020-003', 'Ingenieria Informatica', 2020),
+(4, 'Valentina Romero', 'LU-2022-004', 'Licenciatura en Sistemas', 2022),
+(5, 'Tomas Fernandez', 'LU-2021-005', 'Ingenieria Informatica', 2021),
+(6, 'Camila Ruiz', 'LU-2023-006', 'Ciencia de Datos', 2023),
+(7, 'Facundo Gonzalez', 'LU-2022-007', 'Ingenieria Informatica', 2022),
+(8, 'Luciana Martinez', 'LU-2023-008', 'Ciencia de Datos', 2023),
+(9, 'Agustin Diaz', 'LU-2020-009', 'Licenciatura en Sistemas', 2020),
+(10, 'Milagros Sanchez', 'LU-2021-010', 'Ingenieria Informatica', 2021),
+(11, 'Nicolas Torres', 'LU-2023-011', 'Ciencia de Datos', 2023),
+(12, 'Rocio Alvarez', 'LU-2022-012', 'Licenciatura en Sistemas', 2022);
+
+-- Profesores
+INSERT INTO profesores (id, nombre, departamento, antiguedad) VALUES
+(1, 'Dr. Ricardo Blanco', 'Informatica', 15),
+(2, 'Dra. Laura Vidal', 'Matematica', 12),
+(3, 'Ing. Carlos Mendez', 'Informatica', 8),
+(4, 'Lic. Patricia Sosa', 'Matematica', 20),
+(5, 'Dr. Alejandro Rios', 'Informatica', 5),
+(6, 'Dra. Marina Castro', 'Ciencias Basicas', 3);
+
+-- Materias
+INSERT INTO materias (id, nombre, departamento, creditos, cuatrimestre) VALUES
+(1, 'Algebra', 'Matematica', 8, 1),
+(2, 'Analisis Matematico', 'Matematica', 8, 1),
+(3, 'Programacion I', 'Informatica', 6, 1),
+(4, 'Base de Datos', 'Informatica', 6, 2),
+(5, 'Sistemas Operativos', 'Informatica', 6, 2),
+(6, 'Redes de Computadoras', 'Informatica', 4, 2),
+(7, 'Estadistica', 'Matematica', 6, 1),
+(8, 'Ingenieria de Software', 'Informatica', 6, 2);
+
+-- Inscripciones
+INSERT INTO inscripciones (id, estudiante_id, materia_id, profesor_id, nota, estado) VALUES
+(1, 1, 1, 2, 8.00, 'aprobado'),
+(2, 1, 2, 4, 7.50, 'aprobado'),
+(3, 1, 3, 1, 9.00, 'aprobado'),
+(4, 1, 4, 3, 8.50, 'aprobado'),
+(5, 1, 5, 5, NULL, 'cursando'),
+(6, 2, 1, 2, 6.00, 'aprobado'),
+(7, 2, 3, 1, 7.00, 'aprobado'),
+(8, 2, 4, 3, NULL, 'cursando'),
+(9, 3, 1, 4, 4.00, 'aprobado'),
+(10, 3, 2, 2, 3.50, 'desaprobado'),
+(11, 3, 3, 1, 5.00, 'aprobado'),
+(12, 3, 4, 3, 2.00, 'libre'),
+(13, 4, 1, 2, 9.50, 'aprobado'),
+(14, 4, 3, 5, 8.00, 'aprobado'),
+(15, 4, 7, 4, NULL, 'cursando'),
+(16, 5, 1, 4, 6.50, 'aprobado'),
+(17, 5, 2, 2, 5.50, 'aprobado'),
+(18, 5, 3, 1, 7.00, 'aprobado'),
+(19, 5, 4, 3, 6.00, 'aprobado'),
+(20, 6, 1, 2, NULL, 'cursando'),
+(21, 6, 3, 5, 8.50, 'aprobado'),
+(22, 7, 1, 4, 7.00, 'aprobado'),
+(23, 7, 3, 1, 3.00, 'desaprobado'),
+(24, 7, 4, 3, NULL, 'libre'),
+(25, 8, 1, 2, 9.00, 'aprobado'),
+(26, 8, 7, 4, 8.00, 'aprobado'),
+(27, 9, 1, 4, 5.00, 'aprobado'),
+(28, 9, 2, 2, 4.50, 'aprobado'),
+(29, 9, 3, 1, 6.00, 'aprobado'),
+(30, 9, 4, 3, 7.00, 'aprobado'),
+(31, 9, 5, 5, 5.50, 'aprobado'),
+(32, 10, 1, 2, 7.50, 'aprobado'),
+(33, 10, 2, 4, 6.00, 'aprobado'),
+(34, 10, 3, 5, 8.00, 'aprobado'),
+(35, 10, 4, 3, NULL, 'cursando'),
+(36, 11, 3, 1, NULL, 'libre'),
+(37, 11, 1, 2, 2.00, 'desaprobado'),
+(38, 12, 1, 4, 6.00, 'aprobado'),
+(39, 12, 3, 5, 7.50, 'aprobado'),
+(40, 12, 4, 3, NULL, 'cursando');
+```
+
+</details>
+
+### Ejercicio 1: Lista de estudiantes
+
+El rector quiere ver la lista de todos los estudiantes, ordenados por anio de ingreso (los mas recientes primero).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Mostra todos los estudiantes ordenados por anio_ingreso descendente\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- ORDER BY con DESC para los mas recientes primero\nSELECT *\nFROM estudiantes\nORDER BY anio_ingreso DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Estudiantes por carrera
+
+Cuantos estudiantes hay en cada carrera?
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Agrupa por carrera y conta cuantos estudiantes hay en cada una\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- GROUP BY agrupa por carrera, COUNT(*) cuenta los estudiantes\nSELECT carrera, COUNT(*) AS cantidad_estudiantes\nFROM estudiantes\nGROUP BY carrera\nORDER BY cantidad_estudiantes DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Materias del segundo cuatrimestre
+
+Que materias se dictan en el segundo cuatrimestre? Mostra el nombre y los creditos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Filtra las materias donde cuatrimestre = 2\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- WHERE filtra por el cuatrimestre indicado\nSELECT nombre, creditos\nFROM materias\nWHERE cuatrimestre = 2;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Profesores con experiencia
+
+Cuales son los profesores con mas de 10 anios de antiguedad? Mostra el nombre, departamento y antiguedad.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Filtra los profesores donde antiguedad > 10\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Comparacion numerica simple con WHERE\nSELECT nombre, departamento, antiguedad\nFROM profesores\nWHERE antiguedad > 10\nORDER BY antiguedad DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Inscriptos por materia
+
+Cuantos inscriptos tiene cada materia? Mostra el nombre de la materia y la cantidad de inscriptos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni inscripciones con materias, agrupa por materia y conta\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- JOIN para unir tablas, GROUP BY + COUNT para contar inscriptos\nSELECT m.nombre, COUNT(*) AS cantidad_inscriptos\nFROM inscripciones i\nJOIN materias m ON i.materia_id = m.id\nGROUP BY m.nombre\nORDER BY cantidad_inscriptos DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 6: Promedio de notas por materia
+
+Cual es el promedio de notas por materia? Solo considerar las inscripciones que tienen nota (no NULL).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni inscripciones con materias, filtra donde nota IS NOT NULL\n-- Agrupa por materia y calcula el promedio\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- AVG ignora los NULL por defecto, pero filtramos igual para claridad\nSELECT m.nombre, ROUND(AVG(i.nota), 2) AS promedio_notas\nFROM inscripciones i\nJOIN materias m ON i.materia_id = m.id\nWHERE i.nota IS NOT NULL\nGROUP BY m.nombre\nORDER BY promedio_notas DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Aprobados en Base de Datos
+
+Que estudiantes aprobaron "Base de Datos"? Mostra el nombre del estudiante y su nota.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni inscripciones con estudiantes y materias\n-- Filtra por materia 'Base de Datos' y estado 'aprobado'\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Unimos las tres tablas y filtramos por materia y estado\nSELECT e.nombre, i.nota\nFROM inscripciones i\nJOIN estudiantes e ON i.estudiante_id = e.id\nJOIN materias m ON i.materia_id = m.id\nWHERE m.nombre = 'Base de Datos'\n  AND i.estado = 'aprobado'\nORDER BY i.nota DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: El profesor con mas alumnos
+
+Que profesor tiene la mayor cantidad de alumnos inscriptos en total? Mostra su nombre y la cantidad.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni inscripciones con profesores, agrupa por profesor\n-- Conta los inscriptos, ordena y limita a 1\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Contamos todas las inscripciones por profesor\nSELECT p.nombre, COUNT(*) AS total_alumnos\nFROM inscripciones i\nJOIN profesores p ON i.profesor_id = p.id\nGROUP BY p.nombre\nORDER BY total_alumnos DESC\nLIMIT 1;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Estudiantes libres por materia
+
+Cuantos estudiantes estan en estado "libre" en cada materia? Mostra el nombre de la materia y la cantidad.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni inscripciones con materias, filtra por estado 'libre'\n-- Agrupa por materia y conta\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Filtramos por estado 'libre' y contamos por materia\nSELECT m.nombre, COUNT(*) AS cantidad_libres\nFROM inscripciones i\nJOIN materias m ON i.materia_id = m.id\nWHERE i.estado = 'libre'\nGROUP BY m.nombre\nORDER BY cantidad_libres DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Reporte academico
+
+El rector quiere un reporte completo: nombre del estudiante, cantidad de materias aprobadas y promedio general (solo de las aprobadas). Ordenar por promedio descendente.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" height="150px" initialCode={`-- Uni inscripciones con estudiantes, filtra por estado 'aprobado'\n-- Agrupa por estudiante, conta materias y calcula promedio\n-- Ordena por promedio descendente\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" height="150px" initialCode={`-- Combinamos COUNT, AVG, JOIN, GROUP BY y ORDER BY\nSELECT e.nombre,\n       COUNT(*) AS materias_aprobadas,\n       ROUND(AVG(i.nota), 2) AS promedio_general\nFROM inscripciones i\nJOIN estudiantes e ON i.estudiante_id = e.id\nWHERE i.estado = 'aprobado'\nGROUP BY e.nombre\nORDER BY promedio_general DESC;`} />
+  </TabItem>
+</Tabs>
