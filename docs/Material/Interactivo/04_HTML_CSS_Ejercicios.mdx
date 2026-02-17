@@ -1,0 +1,291 @@
+---
+sidebar_label: "HTML & CSS - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# HTML & CSS - Ejercicios Interactivos
+
+Practicá HTML y CSS resolviendo los ejercicios. Cada uno tiene dos pestañas: escribí tu código y después compará con la solución.
+
+---
+
+## Nivel 1 - HTML Básico
+
+### Ejercicio 1: Estructura HTML
+
+Crear un documento HTML válido con DOCTYPE, html, head (con título "Mi página") y body con un encabezado h1 que diga "Hola Mundo" y un párrafo.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá la estructura básica de un documento HTML -->\n<!-- Incluí: DOCTYPE, html, head con title, body con h1 y p -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Mi página</title>\n</head>\n<body>\n  <h1>Hola Mundo</h1>\n  <p>Este es mi primer documento HTML.</p>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Encabezados
+
+Usar los 6 niveles de encabezados (h1 a h6) y agregar un párrafo debajo de cada uno describiendo su nivel.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Usá los 6 niveles de encabezados h1 a h6 -->\n<!-- Agregá un párrafo debajo de cada uno -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Encabezados</title>\n</head>\n<body>\n  <h1>Encabezado nivel 1</h1>\n  <p>Este es el encabezado más importante de la página.</p>\n\n  <h2>Encabezado nivel 2</h2>\n  <p>Se usa para secciones principales.</p>\n\n  <h3>Encabezado nivel 3</h3>\n  <p>Se usa para subsecciones.</p>\n\n  <h4>Encabezado nivel 4</h4>\n  <p>Se usa para detalles dentro de subsecciones.</p>\n\n  <h5>Encabezado nivel 5</h5>\n  <p>Se usa para contenido más específico.</p>\n\n  <h6>Encabezado nivel 6</h6>\n  <p>Es el encabezado más pequeño disponible.</p>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Links e imágenes
+
+Crear un enlace a google.com que se abra en una nueva pestaña (target="_blank") y una imagen usando https://picsum.photos/300/200 con texto alternativo.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un link a google.com con target="_blank" -->\n<!-- Agregá una imagen de https://picsum.photos/300/200 con alt -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Links e imágenes</title>\n</head>\n<body>\n  <h1>Links e imágenes</h1>\n\n  <p>Visitá <a href="https://www.google.com" target="_blank">Google</a> para buscar información.</p>\n\n  <h2>Una imagen aleatoria</h2>\n  <img src="https://picsum.photos/300/200" alt="Imagen aleatoria de ejemplo">\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Listas
+
+Crear una lista ordenada con 5 materias de la facultad y una lista no ordenada con 5 hobbies.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una lista ordenada (ol) con 5 materias -->\n<!-- Creá una lista no ordenada (ul) con 5 hobbies -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Listas</title>\n</head>\n<body>\n  <h1>Mis materias</h1>\n  <ol>\n    <li>Introducción al Desarrollo de Software</li>\n    <li>Algoritmos y Programación</li>\n    <li>Álgebra</li>\n    <li>Análisis Matemático</li>\n    <li>Física</li>\n  </ol>\n\n  <h1>Mis hobbies</h1>\n  <ul>\n    <li>Programar</li>\n    <li>Leer</li>\n    <li>Hacer deporte</li>\n    <li>Escuchar música</li>\n    <li>Cocinar</li>\n  </ul>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Formato de texto
+
+Crear un párrafo que utilice las etiquetas strong, em, mark, del y code para dar formato a distintas partes del texto.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un párrafo usando: strong, em, mark, del y code -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Formato de texto</title>\n</head>\n<body>\n  <h1>Formato de texto en HTML</h1>\n  <p>\n    Este texto tiene partes en <strong>negrita</strong>,\n    otras en <em>cursiva</em>,\n    algo <mark>resaltado</mark>,\n    texto <del>tachado</del>\n    y también <code>código en línea</code>.\n  </p>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Formularios
+
+### Ejercicio 6: Formulario de login
+
+Crear un formulario de login con un campo de email, un campo de password y un botón de submit.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un formulario con: input email, input password, botón submit -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Login</title>\n</head>\n<body>\n  <h1>Iniciar sesión</h1>\n  <form>\n    <label for="email">Email:</label><br>\n    <input type="email" id="email" name="email" placeholder="tu@email.com"><br><br>\n\n    <label for="password">Contraseña:</label><br>\n    <input type="password" id="password" name="password" placeholder="Tu contraseña"><br><br>\n\n    <button type="submit">Iniciar sesión</button>\n  </form>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Formulario con validación
+
+Crear un formulario con: nombre (required, maxlength=50), email (required), edad (min=18, max=99) y un botón de enviar.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un formulario con validaciones HTML: -->\n<!-- nombre: required, maxlength=50 -->\n<!-- email: required -->\n<!-- edad: min=18, max=99 -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Formulario con validación</title>\n</head>\n<body>\n  <h1>Registro</h1>\n  <form>\n    <label for="nombre">Nombre:</label><br>\n    <input type="text" id="nombre" name="nombre" required maxlength="50" placeholder="Máximo 50 caracteres"><br><br>\n\n    <label for="email">Email:</label><br>\n    <input type="email" id="email" name="email" required placeholder="tu@email.com"><br><br>\n\n    <label for="edad">Edad:</label><br>\n    <input type="number" id="edad" name="edad" min="18" max="99" placeholder="18-99"><br><br>\n\n    <button type="submit">Enviar</button>\n  </form>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Formulario con select y textarea
+
+Crear un formulario con un dropdown de asunto (3 opciones), un textarea para el mensaje (5 filas) y un botón de enviar.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un formulario con: -->\n<!-- select con 3 opciones de asunto -->\n<!-- textarea de 5 filas para el mensaje -->\n<!-- botón de enviar -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Formulario de contacto</title>\n</head>\n<body>\n  <h1>Contacto</h1>\n  <form>\n    <label for="asunto">Asunto:</label><br>\n    <select id="asunto" name="asunto">\n      <option value="">-- Seleccioná un asunto --</option>\n      <option value="consulta">Consulta general</option>\n      <option value="soporte">Soporte técnico</option>\n      <option value="sugerencia">Sugerencia</option>\n    </select><br><br>\n\n    <label for="mensaje">Mensaje:</label><br>\n    <textarea id="mensaje" name="mensaje" rows="5" cols="40" placeholder="Escribí tu mensaje acá..."></textarea><br><br>\n\n    <button type="submit">Enviar</button>\n  </form>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Formulario con radio y checkbox
+
+Crear un formulario con radio buttons para género (Masculino, Femenino, Otro), checkboxes para intereses (Deportes, Música, Tecnología) y un botón de enviar.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un formulario con: -->\n<!-- radio buttons para género (M/F/Otro) -->\n<!-- checkboxes para intereses (Deportes, Música, Tecnología) -->\n<!-- botón de enviar -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Radio y Checkbox</title>\n</head>\n<body>\n  <h1>Encuesta</h1>\n  <form>\n    <fieldset>\n      <legend>Género:</legend>\n      <input type="radio" id="masculino" name="genero" value="masculino">\n      <label for="masculino">Masculino</label><br>\n      <input type="radio" id="femenino" name="genero" value="femenino">\n      <label for="femenino">Femenino</label><br>\n      <input type="radio" id="otro" name="genero" value="otro">\n      <label for="otro">Otro</label>\n    </fieldset><br>\n\n    <fieldset>\n      <legend>Intereses:</legend>\n      <input type="checkbox" id="deportes" name="intereses" value="deportes">\n      <label for="deportes">Deportes</label><br>\n      <input type="checkbox" id="musica" name="intereses" value="musica">\n      <label for="musica">Música</label><br>\n      <input type="checkbox" id="tecnologia" name="intereses" value="tecnologia">\n      <label for="tecnologia">Tecnología</label>\n    </fieldset><br>\n\n    <button type="submit">Enviar</button>\n  </form>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Formulario completo de registro
+
+Crear un formulario completo de registro que combine: nombre, email, password, fecha de nacimiento, género (radio), aceptar términos (checkbox) y botón de enviar. Estilizarlo con CSS.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un formulario completo de registro con: -->\n<!-- nombre, email, password, fecha de nacimiento -->\n<!-- género (radio), términos (checkbox), botón submit -->\n<!-- Agregá estilos CSS para que se vea bien -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Registro</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      background-color: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      padding: 20px;\n    }\n    form {\n      background: white;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      width: 100%;\n      max-width: 400px;\n    }\n    h1 { text-align: center; color: #333; }\n    label { font-weight: bold; color: #555; }\n    input[type="text"],\n    input[type="email"],\n    input[type="password"],\n    input[type="date"] {\n      width: 100%;\n      padding: 8px;\n      margin: 5px 0 15px 0;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      box-sizing: border-box;\n    }\n    fieldset {\n      border: 1px solid #ddd;\n      border-radius: 4px;\n      margin-bottom: 15px;\n      padding: 10px;\n    }\n    legend { font-weight: bold; color: #555; }\n    button {\n      width: 100%;\n      padding: 10px;\n      background-color: #4CAF50;\n      color: white;\n      border: none;\n      border-radius: 4px;\n      font-size: 16px;\n      cursor: pointer;\n    }\n    button:hover { background-color: #45a049; }\n  </style>\n</head>\n<body>\n  <form>\n    <h1>Crear cuenta</h1>\n\n    <label for="nombre">Nombre:</label>\n    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">\n\n    <label for="email">Email:</label>\n    <input type="email" id="email" name="email" required placeholder="tu@email.com">\n\n    <label for="password">Contraseña:</label>\n    <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres">\n\n    <label for="nacimiento">Fecha de nacimiento:</label>\n    <input type="date" id="nacimiento" name="nacimiento" required>\n\n    <fieldset>\n      <legend>Género:</legend>\n      <input type="radio" id="masc" name="genero" value="masculino">\n      <label for="masc">Masculino</label>\n      <input type="radio" id="fem" name="genero" value="femenino">\n      <label for="fem">Femenino</label>\n      <input type="radio" id="otr" name="genero" value="otro">\n      <label for="otr">Otro</label>\n    </fieldset>\n\n    <div>\n      <input type="checkbox" id="terminos" name="terminos" required>\n      <label for="terminos">Acepto los términos y condiciones</label>\n    </div><br>\n\n    <button type="submit">Registrarse</button>\n  </form>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Tablas
+
+### Ejercicio 11: Tabla simple
+
+Crear una tabla con 3 columnas (Nombre, Edad, Ciudad) y 4 filas de datos, usando thead y tbody para organizar la estructura.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una tabla con thead y tbody -->\n<!-- Columnas: Nombre, Edad, Ciudad -->\n<!-- 4 filas de datos -->\n`} height="200px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Tabla simple</title>\n</head>\n<body>\n  <h1>Datos de personas</h1>\n  <table border="1">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Edad</th>\n        <th>Ciudad</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Ana García</td>\n        <td>25</td>\n        <td>Buenos Aires</td>\n      </tr>\n      <tr>\n        <td>Carlos López</td>\n        <td>30</td>\n        <td>Córdoba</td>\n      </tr>\n      <tr>\n        <td>María Rodríguez</td>\n        <td>22</td>\n        <td>Rosario</td>\n      </tr>\n      <tr>\n        <td>Juan Martínez</td>\n        <td>28</td>\n        <td>Mendoza</td>\n      </tr>\n    </tbody>\n  </table>\n</body>\n</html>`} height="200px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 12: Tabla con estilos
+
+Crear la misma tabla del ejercicio anterior pero agregarle CSS: border-collapse, color de fondo en el header, filas alternadas con nth-child y efecto hover.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una tabla estilizada con CSS: -->\n<!-- border-collapse, header con fondo de color -->\n<!-- filas zebra con nth-child, efecto hover -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Tabla con estilos</title>\n  <style>\n    body { font-family: Arial, sans-serif; padding: 20px; }\n    h1 { color: #333; }\n    table {\n      width: 100%;\n      border-collapse: collapse;\n      margin-top: 10px;\n    }\n    th, td {\n      border: 1px solid #ddd;\n      padding: 12px;\n      text-align: left;\n    }\n    thead th {\n      background-color: #4CAF50;\n      color: white;\n      font-weight: bold;\n    }\n    tbody tr:nth-child(even) {\n      background-color: #f2f2f2;\n    }\n    tbody tr:hover {\n      background-color: #ddd;\n    }\n  </style>\n</head>\n<body>\n  <h1>Datos de personas</h1>\n  <table>\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Edad</th>\n        <th>Ciudad</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Ana García</td>\n        <td>25</td>\n        <td>Buenos Aires</td>\n      </tr>\n      <tr>\n        <td>Carlos López</td>\n        <td>30</td>\n        <td>Córdoba</td>\n      </tr>\n      <tr>\n        <td>María Rodríguez</td>\n        <td>22</td>\n        <td>Rosario</td>\n      </tr>\n      <tr>\n        <td>Juan Martínez</td>\n        <td>28</td>\n        <td>Mendoza</td>\n      </tr>\n    </tbody>\n  </table>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 13: Tabla con colspan y rowspan
+
+Crear una tabla de boletín de notas donde "Primer Cuatrimestre" ocupe 3 columnas (colspan) y el nombre de un alumno ocupe 2 filas (rowspan).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una tabla con colspan y rowspan -->\n<!-- "Primer Cuatrimestre" debe ocupar 3 columnas -->\n<!-- Un nombre de alumno debe ocupar 2 filas -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Tabla con colspan y rowspan</title>\n  <style>\n    body { font-family: Arial, sans-serif; padding: 20px; }\n    table {\n      border-collapse: collapse;\n      width: 100%;\n    }\n    th, td {\n      border: 1px solid #999;\n      padding: 10px;\n      text-align: center;\n    }\n    th {\n      background-color: #2196F3;\n      color: white;\n    }\n    td { background-color: #f9f9f9; }\n  </style>\n</head>\n<body>\n  <h1>Boletín de notas</h1>\n  <table>\n    <thead>\n      <tr>\n        <th>Alumno</th>\n        <th colspan="3">Primer Cuatrimestre</th>\n      </tr>\n      <tr>\n        <th></th>\n        <th>Matemática</th>\n        <th>Historia</th>\n        <th>Programación</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td rowspan="2">Ana García</td>\n        <td>8</td>\n        <td>9</td>\n        <td>10</td>\n      </tr>\n      <tr>\n        <td colspan="3"><em>Promedio: 9.0</em></td>\n      </tr>\n      <tr>\n        <td rowspan="2">Carlos López</td>\n        <td>7</td>\n        <td>6</td>\n        <td>9</td>\n      </tr>\n      <tr>\n        <td colspan="3"><em>Promedio: 7.3</em></td>\n      </tr>\n    </tbody>\n  </table>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - CSS Layout
+
+### Ejercicio 14: Box Model
+
+Crear 3 divs: uno con solo margin (rojo), uno con solo padding (azul) y uno con ambos (verde). Agregar bordes visibles para que la diferencia sea clara.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá 3 divs que demuestren el box model: -->\n<!-- Div rojo: solo margin -->\n<!-- Div azul: solo padding -->\n<!-- Div verde: margin + padding -->\n<!-- Agregá bordes visibles -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Box Model</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      background-color: #f0f0f0;\n      padding: 20px;\n    }\n    h1 { text-align: center; }\n    .caja {\n      color: white;\n      font-weight: bold;\n      text-align: center;\n    }\n    .solo-margin {\n      background-color: #e74c3c;\n      border: 3px solid #c0392b;\n      margin: 30px;\n      padding: 0;\n    }\n    .solo-padding {\n      background-color: #3498db;\n      border: 3px solid #2980b9;\n      margin: 0;\n      padding: 30px;\n    }\n    .ambos {\n      background-color: #27ae60;\n      border: 3px solid #1e8449;\n      margin: 30px;\n      padding: 30px;\n    }\n  </style>\n</head>\n<body>\n  <h1>Box Model</h1>\n\n  <div class="caja solo-margin">\n    Solo MARGIN (30px) - Espacio afuera del borde\n  </div>\n\n  <div class="caja solo-padding">\n    Solo PADDING (30px) - Espacio adentro del borde\n  </div>\n\n  <div class="caja ambos">\n    MARGIN (30px) + PADDING (30px) - Ambos\n  </div>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 15: Flexbox Navbar
+
+Crear una barra de navegación horizontal con un logo a la izquierda y 4 links a la derecha, usando display:flex y justify-content:space-between.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una navbar con flexbox: -->\n<!-- Logo a la izquierda -->\n<!-- 4 links a la derecha -->\n<!-- Usá display:flex y justify-content:space-between -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Navbar Flexbox</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body { font-family: Arial, sans-serif; }\n    nav {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      background-color: #333;\n      padding: 15px 30px;\n    }\n    .logo {\n      color: white;\n      font-size: 24px;\n      font-weight: bold;\n    }\n    .nav-links {\n      display: flex;\n      list-style: none;\n      gap: 20px;\n    }\n    .nav-links a {\n      color: white;\n      text-decoration: none;\n      padding: 8px 15px;\n      border-radius: 4px;\n      transition: background-color 0.3s;\n    }\n    .nav-links a:hover {\n      background-color: #555;\n    }\n  </style>\n</head>\n<body>\n  <nav>\n    <div class="logo">MiSitio</div>\n    <ul class="nav-links">\n      <li><a href="#">Inicio</a></li>\n      <li><a href="#">Servicios</a></li>\n      <li><a href="#">Nosotros</a></li>\n      <li><a href="#">Contacto</a></li>\n    </ul>\n  </nav>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 16: Flexbox Cards
+
+Crear 3 tarjetas en fila usando flex-wrap. Cada tarjeta debe tener una imagen (picsum.photos), un título, una descripción y un botón "Ver más".
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá 3 tarjetas con flexbox (flex-wrap): -->\n<!-- Cada tarjeta: imagen, título, descripción, botón "Ver más" -->\n<!-- Usá imágenes de https://picsum.photos/300/200 -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Flexbox Cards</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body {\n      font-family: Arial, sans-serif;\n      background-color: #f0f0f0;\n      padding: 20px;\n    }\n    h1 { text-align: center; margin-bottom: 20px; }\n    .cards-container {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 20px;\n      justify-content: center;\n    }\n    .card {\n      background: white;\n      border-radius: 8px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n      width: 280px;\n      overflow: hidden;\n      display: flex;\n      flex-direction: column;\n    }\n    .card img {\n      width: 100%;\n      height: 180px;\n      object-fit: cover;\n    }\n    .card-body {\n      padding: 15px;\n      flex: 1;\n      display: flex;\n      flex-direction: column;\n    }\n    .card-body h2 {\n      font-size: 18px;\n      margin-bottom: 10px;\n      color: #333;\n    }\n    .card-body p {\n      color: #666;\n      font-size: 14px;\n      flex: 1;\n      margin-bottom: 15px;\n    }\n    .card-body a {\n      display: inline-block;\n      background-color: #3498db;\n      color: white;\n      text-decoration: none;\n      padding: 8px 16px;\n      border-radius: 4px;\n      text-align: center;\n      transition: background-color 0.3s;\n    }\n    .card-body a:hover {\n      background-color: #2980b9;\n    }\n  </style>\n</head>\n<body>\n  <h1>Nuestros proyectos</h1>\n  <div class="cards-container">\n    <div class="card">\n      <img src="https://picsum.photos/300/200?random=1" alt="Proyecto 1">\n      <div class="card-body">\n        <h2>Proyecto Alpha</h2>\n        <p>Una aplicación web moderna con las últimas tecnologías.</p>\n        <a href="#">Ver más</a>\n      </div>\n    </div>\n    <div class="card">\n      <img src="https://picsum.photos/300/200?random=2" alt="Proyecto 2">\n      <div class="card-body">\n        <h2>Proyecto Beta</h2>\n        <p>Plataforma de e-commerce con diseño responsivo.</p>\n        <a href="#">Ver más</a>\n      </div>\n    </div>\n    <div class="card">\n      <img src="https://picsum.photos/300/200?random=3" alt="Proyecto 3">\n      <div class="card-body">\n        <h2>Proyecto Gamma</h2>\n        <p>Dashboard interactivo para análisis de datos en tiempo real.</p>\n        <a href="#">Ver más</a>\n      </div>\n    </div>\n  </div>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 17: Centrado con Flexbox
+
+Crear una caja perfectamente centrada horizontal y verticalmente en la página usando flexbox con min-height: 100vh.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una caja centrada en la página con flexbox -->\n<!-- Usá display:flex, justify-content:center, align-items:center -->\n<!-- El contenedor debe tener min-height: 100vh -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Centrado Flexbox</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body {\n      font-family: Arial, sans-serif;\n      background-color: #ecf0f1;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n    }\n    .caja {\n      background: white;\n      padding: 40px 60px;\n      border-radius: 12px;\n      box-shadow: 0 4px 20px rgba(0,0,0,0.15);\n      text-align: center;\n    }\n    .caja h1 {\n      color: #2c3e50;\n      margin-bottom: 10px;\n    }\n    .caja p {\n      color: #7f8c8d;\n      font-size: 18px;\n    }\n  </style>\n</head>\n<body>\n  <div class="caja">\n    <h1>Estoy centrado</h1>\n    <p>Horizontal y verticalmente con Flexbox</p>\n  </div>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 5 - Páginas Completas
+
+### Ejercicio 18: Página con HTML semántico
+
+Crear una página usando etiquetas semánticas: header, nav, main (con 2 sections), aside y footer. Agregar estilos CSS básicos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una página con HTML semántico: -->\n<!-- header, nav, main (con 2 sections), aside, footer -->\n<!-- Agregá estilos CSS básicos -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>HTML Semántico</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body { font-family: Arial, sans-serif; color: #333; }\n    header {\n      background-color: #2c3e50;\n      color: white;\n      padding: 20px;\n      text-align: center;\n    }\n    nav {\n      background-color: #34495e;\n      padding: 10px;\n      display: flex;\n      justify-content: center;\n      gap: 20px;\n    }\n    nav a {\n      color: white;\n      text-decoration: none;\n      padding: 5px 10px;\n    }\n    nav a:hover { text-decoration: underline; }\n    .contenido {\n      display: flex;\n      min-height: 60vh;\n    }\n    main {\n      flex: 3;\n      padding: 20px;\n    }\n    main section {\n      margin-bottom: 20px;\n      padding: 15px;\n      background-color: #f9f9f9;\n      border-radius: 6px;\n    }\n    main section h2 {\n      color: #2c3e50;\n      margin-bottom: 10px;\n    }\n    aside {\n      flex: 1;\n      background-color: #ecf0f1;\n      padding: 20px;\n    }\n    aside h3 { color: #2c3e50; margin-bottom: 10px; }\n    aside ul { padding-left: 20px; }\n    aside li { margin-bottom: 5px; }\n    footer {\n      background-color: #2c3e50;\n      color: white;\n      text-align: center;\n      padding: 15px;\n    }\n  </style>\n</head>\n<body>\n  <header>\n    <h1>Mi sitio web</h1>\n    <p>Un ejemplo de HTML semántico</p>\n  </header>\n\n  <nav>\n    <a href="#">Inicio</a>\n    <a href="#">Artículos</a>\n    <a href="#">Acerca de</a>\n    <a href="#">Contacto</a>\n  </nav>\n\n  <div class="contenido">\n    <main>\n      <section>\n        <h2>Sección 1: Introducción</h2>\n        <p>Esta es la primera sección del contenido principal. Acá podrías escribir una introducción sobre el tema de tu página.</p>\n      </section>\n      <section>\n        <h2>Sección 2: Desarrollo</h2>\n        <p>Esta es la segunda sección. Acá se desarrolla el contenido principal con más detalle y profundidad.</p>\n      </section>\n    </main>\n\n    <aside>\n      <h3>Enlaces útiles</h3>\n      <ul>\n        <li><a href="#">Recurso 1</a></li>\n        <li><a href="#">Recurso 2</a></li>\n        <li><a href="#">Recurso 3</a></li>\n      </ul>\n    </aside>\n  </div>\n\n  <footer>\n    <p>2026 - Mi sitio web. Todos los derechos reservados.</p>\n  </footer>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 19: Landing page
+
+Crear una landing page con: un hero section (fondo de color, título y subtítulo centrados, botón CTA), 3 tarjetas de features con flexbox, y un footer con copyright.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá una landing page con: -->\n<!-- Hero section: fondo de color, título, subtítulo, botón CTA -->\n<!-- 3 tarjetas de features con flexbox -->\n<!-- Footer con copyright -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Landing Page</title>\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body { font-family: Arial, sans-serif; }\n\n    /* Hero Section */\n    .hero {\n      background: linear-gradient(135deg, #667eea, #764ba2);\n      color: white;\n      text-align: center;\n      padding: 80px 20px;\n    }\n    .hero h1 {\n      font-size: 42px;\n      margin-bottom: 15px;\n    }\n    .hero p {\n      font-size: 20px;\n      margin-bottom: 30px;\n      opacity: 0.9;\n    }\n    .hero .cta {\n      display: inline-block;\n      background-color: white;\n      color: #667eea;\n      padding: 15px 40px;\n      border-radius: 30px;\n      text-decoration: none;\n      font-size: 18px;\n      font-weight: bold;\n      transition: transform 0.3s, box-shadow 0.3s;\n    }\n    .hero .cta:hover {\n      transform: translateY(-2px);\n      box-shadow: 0 4px 15px rgba(0,0,0,0.2);\n    }\n\n    /* Features */\n    .features {\n      padding: 60px 20px;\n      text-align: center;\n      background-color: #f8f9fa;\n    }\n    .features h2 {\n      font-size: 32px;\n      margin-bottom: 40px;\n      color: #333;\n    }\n    .features-container {\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n      gap: 30px;\n    }\n    .feature-card {\n      background: white;\n      padding: 30px;\n      border-radius: 10px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.08);\n      width: 280px;\n      text-align: center;\n    }\n    .feature-card .icon {\n      font-size: 40px;\n      margin-bottom: 15px;\n    }\n    .feature-card h3 {\n      color: #333;\n      margin-bottom: 10px;\n    }\n    .feature-card p {\n      color: #666;\n      font-size: 14px;\n      line-height: 1.6;\n    }\n\n    /* Footer */\n    footer {\n      background-color: #333;\n      color: white;\n      text-align: center;\n      padding: 20px;\n    }\n  </style>\n</head>\n<body>\n  <section class="hero">\n    <h1>Bienvenido a MiApp</h1>\n    <p>La mejor plataforma para aprender desarrollo web</p>\n    <a href="#" class="cta">Empezar ahora</a>\n  </section>\n\n  <section class="features">\n    <h2>Nuestras características</h2>\n    <div class="features-container">\n      <div class="feature-card">\n        <div class="icon">&#9889;</div>\n        <h3>Rápido</h3>\n        <p>Aprendé a tu ritmo con contenido optimizado y ejercicios prácticos.</p>\n      </div>\n      <div class="feature-card">\n        <div class="icon">&#128218;</div>\n        <h3>Completo</h3>\n        <p>Cubrimos HTML, CSS, JavaScript, bases de datos y mucho más.</p>\n      </div>\n      <div class="feature-card">\n        <div class="icon">&#127891;</div>\n        <h3>Interactivo</h3>\n        <p>Practicá directamente en el navegador con nuestro editor de código.</p>\n      </div>\n    </div>\n  </section>\n\n  <footer>\n    <p>&copy; 2026 MiApp. Todos los derechos reservados.</p>\n  </footer>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 20: Formulario estilizado
+
+Crear un formulario de registro con diseño atractivo: tarjeta con sombra, inputs redondeados, botón de submit con color y efecto hover, buen espaciado e importar una fuente de Google Fonts.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="html" title="Tu código" initialCode={`<!-- Creá un formulario de registro estilizado: -->\n<!-- Tarjeta con sombra centrada en la página -->\n<!-- Inputs redondeados con buen espaciado -->\n<!-- Botón con color y efecto hover -->\n<!-- Importá una Google Font -->\n`} height="300px" />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="html" title="Solución" initialCode={`<!DOCTYPE html>\n<html lang="es">\n<head>\n  <meta charset="UTF-8">\n  <title>Formulario estilizado</title>\n  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">\n  <style>\n    * { margin: 0; padding: 0; box-sizing: border-box; }\n    body {\n      font-family: 'Poppins', sans-serif;\n      background: linear-gradient(135deg, #74b9ff, #a29bfe);\n      min-height: 100vh;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding: 20px;\n    }\n    .form-card {\n      background: white;\n      border-radius: 16px;\n      box-shadow: 0 10px 40px rgba(0,0,0,0.15);\n      padding: 40px;\n      width: 100%;\n      max-width: 420px;\n    }\n    .form-card h1 {\n      text-align: center;\n      color: #2d3436;\n      margin-bottom: 5px;\n      font-size: 28px;\n    }\n    .form-card .subtitulo {\n      text-align: center;\n      color: #636e72;\n      font-weight: 300;\n      margin-bottom: 30px;\n    }\n    .campo {\n      margin-bottom: 20px;\n    }\n    .campo label {\n      display: block;\n      color: #2d3436;\n      font-weight: 600;\n      margin-bottom: 6px;\n      font-size: 14px;\n    }\n    .campo input {\n      width: 100%;\n      padding: 12px 16px;\n      border: 2px solid #dfe6e9;\n      border-radius: 10px;\n      font-family: 'Poppins', sans-serif;\n      font-size: 14px;\n      transition: border-color 0.3s;\n      outline: none;\n    }\n    .campo input:focus {\n      border-color: #a29bfe;\n    }\n    .campo input::placeholder {\n      color: #b2bec3;\n    }\n    .btn-submit {\n      width: 100%;\n      padding: 14px;\n      background: linear-gradient(135deg, #6c5ce7, #a29bfe);\n      color: white;\n      border: none;\n      border-radius: 10px;\n      font-family: 'Poppins', sans-serif;\n      font-size: 16px;\n      font-weight: 600;\n      cursor: pointer;\n      transition: transform 0.2s, box-shadow 0.2s;\n      margin-top: 10px;\n    }\n    .btn-submit:hover {\n      transform: translateY(-2px);\n      box-shadow: 0 5px 20px rgba(108, 92, 231, 0.4);\n    }\n    .login-link {\n      text-align: center;\n      margin-top: 20px;\n      font-size: 14px;\n      color: #636e72;\n    }\n    .login-link a {\n      color: #6c5ce7;\n      text-decoration: none;\n      font-weight: 600;\n    }\n  </style>\n</head>\n<body>\n  <div class="form-card">\n    <h1>Crear cuenta</h1>\n    <p class="subtitulo">Completá tus datos para registrarte</p>\n\n    <form>\n      <div class="campo">\n        <label for="nombre">Nombre completo</label>\n        <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>\n      </div>\n\n      <div class="campo">\n        <label for="email">Email</label>\n        <input type="email" id="email" name="email" placeholder="juan@email.com" required>\n      </div>\n\n      <div class="campo">\n        <label for="password">Contraseña</label>\n        <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>\n      </div>\n\n      <div class="campo">\n        <label for="password2">Confirmar contraseña</label>\n        <input type="password" id="password2" name="password2" placeholder="Repetí tu contraseña" required>\n      </div>\n\n      <button type="submit" class="btn-submit">Registrarse</button>\n    </form>\n\n    <p class="login-link">¿Ya tenés cuenta? <a href="#">Iniciá sesión</a></p>\n  </div>\n</body>\n</html>`} height="300px" />
+  </TabItem>
+</Tabs>
