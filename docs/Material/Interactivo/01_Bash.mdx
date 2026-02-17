@@ -1,0 +1,124 @@
+---
+sidebar_label: "Bash"
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Bash - Practica Interactiva
+
+## Quiz
+
+Pone a prueba tus conocimientos sobre Bash.
+
+<Quiz preguntas={[
+  {
+    pregunta: "Que hace el comando echo en Bash?",
+    opciones: [
+      "Elimina un archivo del sistema",
+      "Muestra texto o el valor de variables en la terminal",
+      "Copia un archivo a otro directorio",
+      "Cambia los permisos de un archivo"
+    ],
+    respuesta: 1,
+    explicacion: "El comando echo se utiliza para mostrar texto o el valor de variables en la terminal. Por ejemplo, echo \"Hola Mundo\" imprime \"Hola Mundo\" en la pantalla."
+  },
+  {
+    pregunta: "Cual es la diferencia entre $1 y $# en un script de Bash?",
+    opciones: [
+      "$1 es el nombre del script y $# es el PID del proceso",
+      "$1 es el codigo de salida y $# es el numero de argumentos",
+      "$1 es el primer argumento pasado al script y $# es la cantidad total de argumentos",
+      "$1 y $# son equivalentes y representan el primer argumento"
+    ],
+    respuesta: 2,
+    explicacion: "$1 contiene el valor del primer argumento pasado al script (por ejemplo, en ./script.sh hola, $1 vale \"hola\"). En cambio, $# devuelve el numero total de argumentos que se le pasaron al script."
+  },
+  {
+    pregunta: "Que permisos establece chmod 755 sobre un archivo?",
+    opciones: [
+      "Lectura y escritura para todos los usuarios",
+      "Solo ejecucion para el propietario",
+      "Lectura, escritura y ejecucion para el propietario; lectura y ejecucion para grupo y otros",
+      "Sin permisos para nadie"
+    ],
+    respuesta: 2,
+    explicacion: "chmod 755 establece permisos rwx (lectura, escritura y ejecucion) para el propietario (7), y r-x (lectura y ejecucion) para el grupo (5) y para otros usuarios (5)."
+  },
+  {
+    pregunta: "Cual es la diferencia entre > y >> al redirigir la salida de un comando a un archivo?",
+    opciones: [
+      "> agrega al final del archivo y >> lo sobreescribe",
+      "> sobreescribe el archivo y >> agrega al final del archivo",
+      "Ambos sobreescriben el archivo, no hay diferencia",
+      "> redirige stderr y >> redirige stdout"
+    ],
+    respuesta: 1,
+    explicacion: "El operador > redirige la salida estandar a un archivo y lo sobreescribe si ya existe. El operador >> tambien redirige la salida, pero agrega el contenido al final del archivo existente sin borrar lo anterior. Ambos crean el archivo si no existe."
+  },
+  {
+    pregunta: "Que hace el operador pipe | en Bash?",
+    opciones: [
+      "Redirige la salida de un comando a un archivo",
+      "Conecta la salida estandar de un comando con la entrada estandar de otro comando",
+      "Ejecuta dos comandos en paralelo sin conexion entre ellos",
+      "Compara la salida de dos comandos"
+    ],
+    respuesta: 1,
+    explicacion: "El pipe (|) conecta la salida estandar (stdout) de un comando directamente con la entrada estandar (stdin) de otro comando. Por ejemplo, ls -l | grep \".txt\" pasa la lista de archivos al comando grep para filtrar solo los que contienen \".txt\"."
+  },
+  {
+    pregunta: "Como se hace ejecutable un script de Bash?",
+    opciones: [
+      "Usando el comando mv para moverlo a /bin",
+      "Agregandole la extension .exe al archivo",
+      "Ejecutando chmod +x nombre_del_script.sh",
+      "Escribiendo sudo antes del nombre del script"
+    ],
+    respuesta: 2,
+    explicacion: "Para hacer ejecutable un script, se usa el comando chmod +x mi_script.sh, que agrega el permiso de ejecucion al archivo. Luego se puede ejecutar con ./mi_script.sh."
+  },
+  {
+    pregunta: "Que valor devuelve la variable especial $? en Bash?",
+    opciones: [
+      "El PID del proceso actual",
+      "El nombre del ultimo comando ejecutado",
+      "El codigo de salida del ultimo comando ejecutado (0 = exito)",
+      "La cantidad de procesos en ejecucion"
+    ],
+    respuesta: 2,
+    explicacion: "$? contiene el codigo de salida (exit code) del ultimo programa ejecutado. Un valor de 0 indica que el comando se ejecuto correctamente, mientras que cualquier otro valor indica un error."
+  },
+  {
+    pregunta: "Cual es la diferencia entre comillas simples (' ') y comillas dobles (\" \") en Bash?",
+    opciones: [
+      "No hay ninguna diferencia, son intercambiables",
+      "Las comillas simples permiten la expansion de variables y las dobles no",
+      "Las comillas simples no expanden variables (se toma todo literalmente), las dobles si permiten expansion",
+      "Las comillas dobles se usan solo para numeros y las simples para texto"
+    ],
+    respuesta: 2,
+    explicacion: "Dentro de comillas simples (' '), todo el contenido se trata de forma literal, sin expandir variables ni caracteres especiales. Dentro de comillas dobles (\" \"), las variables como $nombre se expanden y se reemplazan por su valor."
+  },
+  {
+    pregunta: "Que verifica la condicion if [ -f archivo ] en un script de Bash?",
+    opciones: [
+      "Si el archivo tiene permisos de ejecucion",
+      "Si el archivo es un directorio",
+      "Si el archivo existe y es un archivo regular (no un directorio)",
+      "Si el archivo esta vacio"
+    ],
+    respuesta: 2,
+    explicacion: "La condicion [ -f archivo ] verifica si la ruta especificada existe y corresponde a un archivo regular (es decir, no es un directorio, ni un enlace simbolico, ni un dispositivo). Es una verificacion muy comun en scripts de Bash."
+  },
+  {
+    pregunta: "Que hace el comando grep -r \"patron\" directorio?",
+    opciones: [
+      "Reemplaza el patron en todos los archivos del directorio",
+      "Busca el patron de forma recursiva en todos los archivos dentro del directorio y sus subdirectorios",
+      "Cuenta cuantas veces aparece el patron en un solo archivo",
+      "Elimina las lineas que contienen el patron en el directorio"
+    ],
+    respuesta: 1,
+    explicacion: "La flag -r (recursivo) del comando grep hace que busque el patron especificado no solo en los archivos del directorio indicado, sino tambien en todos los archivos dentro de sus subdirectorios. Es muy util para buscar texto en proyectos grandes."
+  }
+]} />

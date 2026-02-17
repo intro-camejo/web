@@ -1,0 +1,141 @@
+---
+sidebar_label: "SQL"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# SQL - Practica Interactiva
+
+## Quiz
+
+Pone a prueba tus conocimientos sobre SQL.
+
+<Quiz preguntas={[
+  {
+    pregunta: "Cual es la funcion principal de la sentencia SELECT en SQL?",
+    opciones: [
+      "Insertar nuevos registros en una tabla",
+      "Recuperar datos de una o mas tablas",
+      "Eliminar registros de una tabla",
+      "Crear una nueva tabla en la base de datos"
+    ],
+    respuesta: 1,
+    explicacion: "SELECT es la sentencia utilizada para recuperar (consultar) datos de una o mas tablas. Permite especificar que columnas queremos ver y aplicar filtros, ordenamientos y agrupaciones sobre los resultados."
+  },
+  {
+    pregunta: "Cual es la diferencia entre WHERE y HAVING en SQL?",
+    opciones: [
+      "WHERE se usa con SELECT y HAVING se usa con INSERT",
+      "WHERE filtra filas antes de agrupar y HAVING filtra grupos despues de agrupar con GROUP BY",
+      "No hay ninguna diferencia, son sinonimos",
+      "WHERE solo funciona con numeros y HAVING solo con texto"
+    ],
+    respuesta: 1,
+    explicacion: "WHERE filtra filas individuales antes de que se aplique el GROUP BY, mientras que HAVING filtra los resultados despues de la agrupacion. Por ejemplo, WHERE puede filtrar empleados por departamento, y HAVING puede filtrar grupos cuyo COUNT(*) sea mayor a cierto valor."
+  },
+  {
+    pregunta: "Que es una PRIMARY KEY (clave primaria) en una tabla?",
+    opciones: [
+      "Una columna que puede contener valores nulos",
+      "Una columna o conjunto de columnas que identifica de manera unica cada fila en una tabla",
+      "Una columna que almacena las contrasenas de los usuarios",
+      "Una columna que referencia a otra tabla"
+    ],
+    respuesta: 1,
+    explicacion: "Una PRIMARY KEY es una columna (o conjunto de columnas) que identifica de manera unica cada fila en una tabla. No puede contener valores nulos y debe ser unica para cada registro. Por ejemplo, la columna 'id' de tipo SERIAL suele usarse como clave primaria."
+  },
+  {
+    pregunta: "Que hace un JOIN en SQL?",
+    opciones: [
+      "Elimina registros duplicados de una tabla",
+      "Crea una copia de seguridad de la base de datos",
+      "Combina registros de dos o mas tablas basandose en una relacion entre ellas",
+      "Ordena los resultados de una consulta"
+    ],
+    respuesta: 2,
+    explicacion: "Un JOIN permite combinar registros de dos o mas tablas basandose en una relacion entre ellas (generalmente a traves de claves primarias y foraneas). De esta forma se pueden obtener datos relacionados que estan distribuidos en distintas tablas."
+  },
+  {
+    pregunta: "Cual es la diferencia entre INNER JOIN y LEFT JOIN?",
+    opciones: [
+      "INNER JOIN es mas rapido que LEFT JOIN",
+      "INNER JOIN devuelve solo las filas con coincidencias en ambas tablas, mientras que LEFT JOIN devuelve todas las filas de la tabla izquierda aunque no tengan coincidencia en la derecha",
+      "LEFT JOIN solo funciona con dos tablas, INNER JOIN con multiples",
+      "No hay diferencia, ambos devuelven los mismos resultados"
+    ],
+    respuesta: 1,
+    explicacion: "INNER JOIN devuelve unicamente los registros que tienen coincidencias en ambas tablas. LEFT JOIN devuelve todos los registros de la tabla izquierda y los registros coincidentes de la tabla derecha; si no hay coincidencia, las columnas de la tabla derecha aparecen como NULL."
+  },
+  {
+    pregunta: "Para que se utiliza la clausula GROUP BY?",
+    opciones: [
+      "Para ordenar los resultados alfabeticamente",
+      "Para limitar la cantidad de resultados devueltos",
+      "Para agrupar filas que tienen los mismos valores en columnas especificadas y poder aplicar funciones de agregacion como COUNT, AVG o SUM",
+      "Para unir dos tablas en una sola"
+    ],
+    respuesta: 2,
+    explicacion: "GROUP BY agrupa filas que comparten los mismos valores en las columnas especificadas. Se usa junto con funciones de agregacion como COUNT(*), AVG(), SUM(), MIN() y MAX() para obtener calculos sobre cada grupo. Por ejemplo: SELECT departamento, COUNT(*) FROM empleados GROUP BY departamento."
+  },
+  {
+    pregunta: "Que significa ORDER BY salario DESC en una consulta?",
+    opciones: [
+      "Ordena los resultados por salario en orden ascendente (de menor a mayor)",
+      "Elimina los registros con salario mas bajo",
+      "Ordena los resultados por salario en orden descendente (de mayor a menor)",
+      "Agrupa los resultados por el campo salario"
+    ],
+    respuesta: 2,
+    explicacion: "ORDER BY se usa para ordenar los resultados de una consulta. DESC indica orden descendente, es decir, de mayor a menor. En este caso, los empleados se mostrarian ordenados desde el que tiene mejor salario hasta el que tiene peor salario. Si se quisiera orden ascendente, se usaria ASC (o simplemente se omite, ya que ASC es el valor por defecto)."
+  },
+  {
+    pregunta: "Que es una FOREIGN KEY (clave foranea)?",
+    opciones: [
+      "Una clave que encripta los datos de una tabla",
+      "Una columna que siempre contiene valores unicos y no nulos",
+      "Una columna en una tabla que hace referencia a la PRIMARY KEY de otra tabla, estableciendo una relacion entre ambas",
+      "Una columna temporal que se elimina al cerrar la base de datos"
+    ],
+    respuesta: 2,
+    explicacion: "Una FOREIGN KEY es una columna (o conjunto de columnas) en una tabla que hace referencia a la PRIMARY KEY de otra tabla. Sirve para establecer y reforzar la relacion entre dos tablas, asegurando que los valores en la clave foranea coincidan con valores existentes en la clave primaria de la tabla referenciada."
+  },
+  {
+    pregunta: "Cual es la diferencia entre DELETE y DROP en SQL?",
+    opciones: [
+      "DELETE y DROP hacen exactamente lo mismo",
+      "DELETE elimina filas (registros) de una tabla manteniendo su estructura, mientras que DROP elimina la tabla completa junto con toda su estructura y datos",
+      "DELETE elimina la tabla completa y DROP elimina solo filas",
+      "DELETE funciona solo con bases de datos y DROP solo con tablas"
+    ],
+    respuesta: 1,
+    explicacion: "DELETE elimina filas especificas de una tabla (se puede usar con WHERE para filtrar cuales), pero la tabla sigue existiendo con su estructura intacta. DROP TABLE elimina la tabla completa de la base de datos, incluyendo su estructura y todos los datos. Tambien existe TRUNCATE TABLE, que elimina todos los datos pero mantiene la estructura."
+  },
+  {
+    pregunta: "Que hace la sentencia INSERT INTO en SQL?",
+    opciones: [
+      "Modifica registros existentes en una tabla",
+      "Crea una nueva tabla en la base de datos",
+      "Agrega uno o mas registros nuevos a una tabla existente",
+      "Selecciona datos de una tabla para mostrarlos"
+    ],
+    respuesta: 2,
+    explicacion: "INSERT INTO se utiliza para agregar nuevos registros (filas) a una tabla existente. Se especifican las columnas y los valores que se desean insertar. Se pueden insertar uno o varios registros en una misma sentencia. Por ejemplo: INSERT INTO empleados (id, nombre) VALUES (1, 'Juan Perez')."
+  }
+]} />
+
+## Playground
+
+Escribi tus consultas SQL y probalas en DB Fiddle.
+
+<CodePlayground
+  language="sql"
+  title="Consulta SELECT"
+  initialCode={`SELECT *\nFROM bandas\nWHERE genero = 'Rock'\nORDER BY nombre;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="JOIN entre tablas"
+  initialCode={`SELECT b.nombre AS banda, a.nombre AS album\nFROM bandas b\nJOIN albumes a ON b.id = a.banda_id\nORDER BY b.nombre;`}
+/>

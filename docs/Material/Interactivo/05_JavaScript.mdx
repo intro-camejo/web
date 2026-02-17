@@ -1,0 +1,248 @@
+---
+sidebar_label: "JavaScript"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# JavaScript - Practica Interactiva
+
+## Quiz
+
+Pone a prueba tus conocimientos sobre JavaScript.
+
+<Quiz preguntas={[
+  {
+    pregunta: "Cual es la diferencia principal entre let y const?",
+    opciones: [
+      "let se usa para numeros y const para strings",
+      "const no permite reasignar el valor, let si",
+      "let es mas rapido que const",
+      "No hay ninguna diferencia, son lo mismo"
+    ],
+    respuesta: 1,
+    explicacion: "const declara una variable cuyo valor no puede ser reasignado despues de la asignacion inicial. let permite reasignar el valor. Siempre conviene usar const cuando no necesitas cambiar el valor."
+  },
+  {
+    pregunta: "Que devuelve typeof null en JavaScript?",
+    opciones: [
+      "\"null\"",
+      "\"undefined\"",
+      "\"object\"",
+      "\"boolean\""
+    ],
+    respuesta: 2,
+    explicacion: "Es un bug historico de JavaScript que nunca se corrigio. typeof null devuelve \"object\" aunque null no sea realmente un objeto. Es una de las trick questions mas clasicas de JS."
+  },
+  {
+    pregunta: "Que es el DOM (Document Object Model)?",
+    opciones: [
+      "Un lenguaje de programacion para navegadores",
+      "Una base de datos del navegador",
+      "Una representacion en forma de arbol de los elementos HTML de la pagina, manipulable con JavaScript",
+      "Un framework de JavaScript"
+    ],
+    respuesta: 2,
+    explicacion: "El DOM es la representacion interna que crea el navegador al cargar una pagina HTML. Es un arbol de objetos donde cada elemento HTML se convierte en un nodo que se puede manipular con JavaScript."
+  },
+  {
+    pregunta: "Que hace document.querySelector()?",
+    opciones: [
+      "Crea un nuevo elemento HTML",
+      "Devuelve el primer elemento que coincide con un selector CSS",
+      "Elimina un elemento del DOM",
+      "Modifica el contenido de todos los elementos de la pagina"
+    ],
+    respuesta: 1,
+    explicacion: "querySelector recibe un selector CSS (como \"#miId\", \".miClase\", \"div > p\") y devuelve el primer elemento del DOM que coincida. Para obtener todos los que coincidan, se usa querySelectorAll."
+  },
+  {
+    pregunta: "Que hace addEventListener?",
+    opciones: [
+      "Agrega un nuevo elemento al DOM",
+      "Envia datos a un servidor",
+      "Registra una funcion que se ejecuta cuando ocurre un evento determinado en un elemento",
+      "Crea una nueva variable de evento"
+    ],
+    respuesta: 2,
+    explicacion: "addEventListener permite escuchar eventos como click, submit, keydown, etc. en un elemento. Recibe el tipo de evento y una funcion callback que se ejecuta cuando ese evento ocurre."
+  },
+  {
+    pregunta: "Cual es la diferencia entre == y === en JavaScript?",
+    opciones: [
+      "No hay diferencia, son iguales",
+      "== compara solo numeros, === compara cualquier tipo",
+      "== compara valor con conversion de tipo, === compara valor y tipo sin conversion",
+      "=== es mas lento que =="
+    ],
+    respuesta: 2,
+    explicacion: "== (igualdad abstracta) convierte los tipos antes de comparar, por ejemplo \"5\" == 5 es true. === (igualdad estricta) compara valor Y tipo sin conversion, asi que \"5\" === 5 es false. Se recomienda siempre usar ===."
+  },
+  {
+    pregunta: "Que devuelve la funcion fetch()?",
+    opciones: [
+      "Los datos del servidor directamente como un objeto",
+      "Un string con el HTML de la pagina",
+      "Una Promise que se resuelve con la respuesta del servidor",
+      "Un array con los datos del servidor"
+    ],
+    respuesta: 2,
+    explicacion: "fetch() devuelve una Promise. Esta promesa se resuelve con un objeto Response. Para obtener los datos, hay que llamar a response.json() (que tambien devuelve una promesa). Por eso se usa con .then() o async/await."
+  },
+  {
+    pregunta: "Que es una arrow function?",
+    opciones: [
+      "Una funcion que solo puede recibir un parametro",
+      "Una sintaxis mas concisa para escribir funciones usando =>",
+      "Una funcion que se ejecuta automaticamente al cargar la pagina",
+      "Una funcion exclusiva de TypeScript"
+    ],
+    respuesta: 1,
+    explicacion: "Las arrow functions (funciones flecha) son una forma mas corta de escribir funciones en JavaScript moderno. Ejemplo: const doble = (n) => n * 2. Se usan mucho en callbacks y metodos de array."
+  },
+  {
+    pregunta: "Que hace el metodo Array.map()?",
+    opciones: [
+      "Elimina elementos de un array",
+      "Ordena los elementos del array",
+      "Crea un nuevo array aplicando una funcion a cada elemento del array original",
+      "Busca un elemento en el array y devuelve su posicion"
+    ],
+    respuesta: 2,
+    explicacion: "map() recorre cada elemento del array, le aplica la funcion que le pases, y devuelve un nuevo array con los resultados. El array original no se modifica. Ejemplo: [1,2,3].map(n => n * 2) devuelve [2,4,6]."
+  },
+  {
+    pregunta: "Que hace JSON.parse()?",
+    opciones: [
+      "Convierte un objeto JavaScript a un string JSON",
+      "Convierte un string con formato JSON a un objeto JavaScript",
+      "Valida si un string es JSON correcto",
+      "Envia un JSON a un servidor"
+    ],
+    respuesta: 1,
+    explicacion: "JSON.parse() toma un string con formato JSON y lo convierte en un objeto (o array) de JavaScript. Es lo opuesto a JSON.stringify(), que convierte un objeto a string JSON. Se usa mucho con localStorage y fetch."
+  }
+]} />
+
+## Playground
+
+Escribi y ejecuta codigo JavaScript directamente en el navegador.
+
+<CodePlayground
+  language="javascript"
+  title="Variables y Tipos"
+  initialCode={`// Variables con const y let
+const nombre = "Maria";
+const edad = 22;
+let contador = 0;
+contador = contador + 1;
+
+// Template literals (backticks)
+const mensaje = \`Hola, me llamo \${nombre} y tengo \${edad} años\`;
+console.log(mensaje);
+
+// Tipos de datos
+console.log("String:", typeof nombre);
+console.log("Number:", typeof edad);
+console.log("Boolean:", typeof true);
+console.log("Undefined:", typeof undefined);
+console.log("Null (ojo!):", typeof null); // "object" - bug historico
+
+// Arrays
+const materias = ["Algoritmos", "Intro al Desarrollo", "Fisica"];
+console.log("Materias:", materias);
+console.log("Primera materia:", materias[0]);
+console.log("Cantidad:", materias.length);
+
+// Objetos
+const estudiante = {
+  nombre: "Juan",
+  padron: 108432,
+  materias: ["Algo 1", "Intro"]
+};
+console.log("Estudiante:", estudiante);
+console.log("Nombre:", estudiante.nombre);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Funciones y Metodos de Array"
+  initialCode={`// Funcion clasica
+function sumar(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const multiplicar = (a, b) => a * b;
+
+console.log("Sumar 3 + 4:", sumar(3, 4));
+console.log("Multiplicar 3 * 4:", multiplicar(3, 4));
+
+// Array de numeros
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// filter: quedarse solo con algunos elementos
+const pares = numeros.filter(n => n % 2 === 0);
+console.log("Pares:", pares);
+
+// map: transformar cada elemento
+const dobles = numeros.map(n => n * 2);
+console.log("Dobles:", dobles);
+
+// Encadenar metodos: filtrar pares y duplicarlos
+const paresDobles = numeros
+  .filter(n => n % 2 === 0)
+  .map(n => n * 2);
+console.log("Pares duplicados:", paresDobles);
+
+// reduce: acumular un resultado
+const suma = numeros.reduce((acumulador, n) => acumulador + n, 0);
+console.log("Suma total:", suma);
+
+// forEach: recorrer sin crear nuevo array
+console.log("Recorriendo con forEach:");
+["HTML", "CSS", "JavaScript"].forEach((tech, i) => {
+  console.log(\`  \${i + 1}. \${tech}\`);
+});`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Fetch API"
+  initialCode={`// NOTA: fetch puede no funcionar en este sandbox.
+// Si da error, copia el codigo y probalo en la consola
+// del navegador (F12 > Console).
+
+// Ejemplo con async/await
+async function obtenerUsuario() {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1"
+    );
+    const data = await response.json();
+
+    console.log("Nombre:", data.name);
+    console.log("Email:", data.email);
+    console.log("Ciudad:", data.address.city);
+    console.log("Empresa:", data.company.name);
+  } catch (error) {
+    console.error("Error al hacer fetch:", error.message);
+    console.log("Tip: si da error, proba este codigo");
+    console.log("en la consola del navegador (F12)");
+  }
+}
+
+obtenerUsuario();
+
+// Ejemplo con .then() y .catch()
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(response => response.json())
+  .then(post => {
+    console.log("\\n--- Post ---");
+    console.log("Titulo:", post.title);
+    console.log("Body:", post.body);
+  })
+  .catch(error => {
+    console.error("Error:", error.message);
+  });`}
+/>

@@ -1,0 +1,212 @@
+---
+sidebar_label: "Backend"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# Backend - Practica Interactiva
+
+## Quiz
+
+Pone a prueba tus conocimientos sobre REST APIs y Backend con Node.js.
+
+<Quiz preguntas={[
+  {
+    pregunta: "¿Que significa REST?",
+    opciones: [
+      "Remote Execution of Server Tasks",
+      "Representational State Transfer",
+      "Request-Response State Transmission",
+      "Reliable and Secure Transfer"
+    ],
+    respuesta: 1,
+    explicacion: "REST significa Representational State Transfer. Es un estilo de arquitectura para diseñar APIs, basado en principios como el uso de recursos con URIs unicas, metodos HTTP como verbos, y comunicacion sin estado (stateless)."
+  },
+  {
+    pregunta: "¿Que metodo HTTP se usa para crear un recurso nuevo?",
+    opciones: [
+      "GET",
+      "PUT",
+      "POST",
+      "DELETE"
+    ],
+    respuesta: 2,
+    explicacion: "POST se usa para crear un recurso nuevo. Por ejemplo, POST /api/tareas crea una nueva tarea. La respuesta exitosa tipicamente devuelve un codigo 201 Created."
+  },
+  {
+    pregunta: "¿Que codigo de estado HTTP significa 'Not Found'?",
+    opciones: [
+      "400 Bad Request",
+      "401 Unauthorized",
+      "403 Forbidden",
+      "404 Not Found"
+    ],
+    respuesta: 3,
+    explicacion: "El codigo 404 Not Found indica que el recurso solicitado no existe. Los codigos 4xx son errores del cliente: 400 es un pedido invalido, 401 falta autenticacion, y 403 falta autorizacion."
+  },
+  {
+    pregunta: "¿Que es Express.js?",
+    opciones: [
+      "Un lenguaje de programacion para backend",
+      "Una base de datos NoSQL",
+      "El framework mas popular de Node.js para crear servidores HTTP",
+      "Un navegador web para desarrolladores"
+    ],
+    respuesta: 2,
+    explicacion: "Express es el framework mas popular de Node.js para crear servidores HTTP. Simplifica enormemente el manejo de rutas, peticiones y respuestas, permitiendo crear APIs de forma rapida."
+  },
+  {
+    pregunta: "¿Que hace app.get('/ruta', handler) en Express?",
+    opciones: [
+      "Envia una peticion GET a otra API",
+      "Define que pasa cuando alguien hace un GET a /ruta",
+      "Obtiene el valor de la variable 'ruta'",
+      "Descarga un archivo desde /ruta"
+    ],
+    respuesta: 1,
+    explicacion: "app.get('/ruta', handler) define una ruta en Express. Cuando un cliente hace una peticion GET a /ruta, Express ejecuta la funcion handler, que recibe los objetos req (peticion) y res (respuesta)."
+  },
+  {
+    pregunta: "¿Que es un middleware en Express?",
+    opciones: [
+      "Un tipo de base de datos",
+      "Una funcion que se ejecuta entre que llega la peticion y se envia la respuesta",
+      "Un metodo HTTP especial",
+      "Un archivo de configuracion del servidor"
+    ],
+    respuesta: 1,
+    explicacion: "Un middleware es una funcion que se ejecuta entre que llega la peticion y se envia la respuesta. Se usa para tareas comunes como parsear JSON (express.json()), loggear peticiones, manejar autenticacion, etc. Siempre debe llamar a next() para pasar al siguiente middleware."
+  },
+  {
+    pregunta: "¿Cual es la diferencia entre req.params y req.query?",
+    opciones: [
+      "No hay diferencia, son sinonimos",
+      "req.params tiene los parametros de ruta (ej: /tareas/:id) y req.query los parametros de query string (ej: ?orden=fecha)",
+      "req.params tiene el body del POST y req.query los headers",
+      "req.query tiene los parametros de ruta y req.params los de query string"
+    ],
+    respuesta: 1,
+    explicacion: "req.params contiene los parametros de ruta definidos con : en la URL (ej: en /tareas/:id, req.params.id vale '5' si la URL es /tareas/5). req.query contiene los parametros de query string (ej: en /tareas?orden=fecha, req.query.orden vale 'fecha')."
+  },
+  {
+    pregunta: "¿Que hace el middleware express.json()?",
+    opciones: [
+      "Convierte la respuesta a formato XML",
+      "Sirve archivos estaticos JSON",
+      "Parsea el body de las peticiones que vienen en formato JSON, permitiendo acceder a los datos con req.body",
+      "Valida que todas las respuestas sean JSON valido"
+    ],
+    respuesta: 2,
+    explicacion: "express.json() es un middleware que parsea el body de las peticiones que tienen Content-Type: application/json. Sin este middleware, req.body seria undefined. Se debe agregar con app.use(express.json()) antes de las rutas."
+  },
+  {
+    pregunta: "¿Que codigo de estado HTTP significa 'Created'?",
+    opciones: [
+      "200 OK",
+      "201 Created",
+      "204 No Content",
+      "301 Moved Permanently"
+    ],
+    respuesta: 1,
+    explicacion: "El codigo 201 Created indica que la peticion fue exitosa y se creo un recurso nuevo. Se usa tipicamente como respuesta a un POST exitoso. El 200 es exito general, el 204 es exito sin body (usado en DELETE), y el 301 es una redireccion."
+  },
+  {
+    pregunta: "¿Que significa CRUD?",
+    opciones: [
+      "Connect, Read, Update, Deploy",
+      "Code, Run, Upload, Delete",
+      "Create, Read, Update, Delete",
+      "Copy, Rename, Undo, Duplicate"
+    ],
+    respuesta: 2,
+    explicacion: "CRUD significa Create, Read, Update, Delete. Son las cuatro operaciones basicas sobre datos. En REST se mapean a los metodos HTTP: POST (Create), GET (Read), PUT/PATCH (Update), DELETE (Delete). En SQL se corresponden con INSERT, SELECT, UPDATE y DELETE."
+  }
+]} />
+
+## Playground
+
+Proba fragmentos de codigo JavaScript para backend.
+
+<CodePlayground
+  language="javascript"
+  title="Manejo de objetos JSON"
+  initialCode={`// --- Trabajando con JSON ---
+
+// Un objeto JavaScript (como los que maneja el backend)
+const tarea = {
+  id: 1,
+  titulo: "Estudiar APIs REST",
+  completada: false,
+  tags: ["backend", "express"]
+};
+
+// Acceder a propiedades
+console.log("Titulo:", tarea.titulo);
+console.log("Primer tag:", tarea.tags[0]);
+
+// Convertir objeto a JSON string (lo que envia el servidor)
+const jsonString = JSON.stringify(tarea, null, 2);
+console.log("\\nJSON stringificado:");
+console.log(jsonString);
+
+// Convertir JSON string a objeto (lo que recibe el servidor)
+const jsonRecibido = '{"titulo": "Leer apunte", "prioridad": "alta"}';
+const objetoParseado = JSON.parse(jsonRecibido);
+console.log("\\nObjeto parseado:", objetoParseado);
+console.log("Prioridad:", objetoParseado.prioridad);
+
+// Desestructuracion (como se usa en los controllers)
+const { titulo, prioridad } = objetoParseado;
+console.log("\\nDesestructurado - titulo:", titulo);
+console.log("Desestructurado - prioridad:", prioridad);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Simulando Request y Response"
+  initialCode={`// --- Simulacion de objetos req y res de Express ---
+
+// Simulamos el objeto req (request) que llega al handler
+const req = {
+  method: "POST",
+  url: "/api/tareas",
+  params: { id: "5" },
+  query: { orden: "fecha", completada: "true" },
+  body: { titulo: "Estudiar Node.js", descripcion: "Leer el apunte completo" }
+};
+
+console.log("=== Peticion recibida ===");
+console.log("Metodo:", req.method, req.url);
+
+// Acceder a parametros de ruta (req.params)
+console.log("\\nParametro de ruta (id):", req.params.id);
+
+// Acceder a query strings (req.query)
+console.log("Query - orden:", req.query.orden);
+console.log("Query - completada:", req.query.completada);
+
+// Acceder al body (req.body) con desestructuracion
+const { titulo, descripcion } = req.body;
+console.log("\\nBody - titulo:", titulo);
+console.log("Body - descripcion:", descripcion);
+
+// Simulamos la logica de un controller
+console.log("\\n=== Respuesta del servidor ===");
+
+// Validacion (como en un controller real)
+if (!titulo || titulo.trim() === "") {
+  console.log("Status: 400");
+  console.log(JSON.stringify({ error: "El titulo es obligatorio" }));
+} else {
+  // Simulamos crear el recurso
+  const nuevaTarea = {
+    id: 3,
+    titulo: titulo.trim(),
+    descripcion: descripcion || null,
+    completada: false
+  };
+  console.log("Status: 201 Created");
+  console.log(JSON.stringify(nuevaTarea, null, 2));
+}`}
+/>

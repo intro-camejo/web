@@ -1,0 +1,389 @@
+---
+sidebar_label: "HTML & CSS"
+---
+
+import Quiz from '@site/src/components/Quiz';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# HTML & CSS - Práctica Interactiva
+
+## Quiz
+
+Poné a prueba tus conocimientos sobre HTML y CSS.
+
+<Quiz preguntas={[
+  {
+    pregunta: "¿Cuál es la función de la declaración <!DOCTYPE html> al inicio de un documento HTML?",
+    opciones: [
+      "Definir el título de la página web",
+      "Indicar al navegador que el documento es HTML5 y cómo debe interpretarlo",
+      "Vincular una hoja de estilos CSS al documento",
+      "Crear el elemento raíz del documento"
+    ],
+    respuesta: 1,
+    explicacion: "La declaración <!DOCTYPE html> le indica al navegador que el documento está escrito en HTML5. No es una etiqueta HTML en sí, sino una instrucción que define el tipo de documento para que el navegador lo renderice correctamente."
+  },
+  {
+    pregunta: "¿Cuál es la diferencia principal entre <div> y <span>?",
+    opciones: [
+      "No hay ninguna diferencia, son equivalentes",
+      "<div> es un elemento de bloque que ocupa todo el ancho disponible, mientras que <span> es un elemento en línea que solo ocupa el espacio de su contenido",
+      "<span> es un elemento de bloque y <div> es un elemento en línea",
+      "<div> se usa solo para texto y <span> solo para imágenes"
+    ],
+    respuesta: 1,
+    explicacion: "<div> es un elemento de bloque (block) que ocupa todo el ancho disponible y genera un salto de línea antes y después. <span> es un elemento en línea (inline) que solo ocupa el espacio necesario para su contenido y no genera saltos de línea."
+  },
+  {
+    pregunta: "¿Qué es el HTML semántico y cuáles son ejemplos de etiquetas semánticas?",
+    opciones: [
+      "Es HTML que usa solo etiquetas <div> y <span> para estructurar la página",
+      "Es HTML que aplica estilos CSS directamente en las etiquetas",
+      "Es el uso de etiquetas como <header>, <nav>, <main> y <footer> que describen el significado y la función de cada sección de la página",
+      "Es HTML que solo utiliza etiquetas de texto como <p> y <h1>"
+    ],
+    respuesta: 2,
+    explicacion: "El HTML semántico utiliza etiquetas que describen claramente su propósito, como <header> para el encabezado, <nav> para la navegación, <main> para el contenido principal y <footer> para el pie de página. Esto mejora la accesibilidad y el SEO."
+  },
+  {
+    pregunta: "¿Qué efecto tiene el atributo 'required' en un campo de formulario?",
+    opciones: [
+      "Hace que el campo sea de solo lectura",
+      "Oculta el campo del formulario",
+      "Obliga a que el campo sea completado antes de poder enviar el formulario",
+      "Aplica un estilo visual especial al campo"
+    ],
+    respuesta: 2,
+    explicacion: "El atributo 'required' asegura que un campo de entrada debe ser completado antes de enviar el formulario. Si el usuario intenta enviar el formulario sin completar ese campo, el navegador mostrará un mensaje de advertencia."
+  },
+  {
+    pregunta: "¿Cuál es la diferencia entre un selector de clase (.clase) y un selector de id (#id) en CSS?",
+    opciones: [
+      "No hay diferencia, ambos funcionan igual",
+      "El selector de clase se puede aplicar a múltiples elementos, mientras que el selector de id debe ser único en la página",
+      "El selector de id se puede aplicar a múltiples elementos y el de clase es único",
+      "Los selectores de clase solo funcionan con etiquetas <div>"
+    ],
+    respuesta: 1,
+    explicacion: "El atributo 'class' permite aplicar un mismo nombre a varios elementos para agruparlos y estilizarlos de forma conjunta. El atributo 'id' es un identificador único que se asigna a un solo elemento de la página, permitiendo aplicar estilos o acciones específicas a ese elemento."
+  },
+  {
+    pregunta: "¿Qué hace la propiedad 'display: flex' en CSS?",
+    opciones: [
+      "Oculta el elemento de la página",
+      "Convierte al elemento en un contenedor flex, permitiendo organizar sus hijos de manera flexible en una sola dirección (fila o columna)",
+      "Hace que el elemento ocupe toda la pantalla",
+      "Aplica una animación de aparición al elemento"
+    ],
+    respuesta: 1,
+    explicacion: "La propiedad 'display: flex' convierte un elemento en un contenedor flexible (Flexbox). Sus elementos hijos se convierten en 'flex items' y se pueden alinear y distribuir de diversas maneras usando propiedades como justify-content, align-items y flex-direction."
+  },
+  {
+    pregunta: "En el modelo de caja de CSS, ¿cuál es la diferencia entre margin y padding?",
+    opciones: [
+      "Son lo mismo, solo cambia el nombre",
+      "Margin es el espacio interior entre el contenido y el borde, padding es el espacio exterior",
+      "Padding es el espacio interior entre el contenido y el borde, margin es el espacio exterior que separa el borde de otros elementos",
+      "Margin define el color del borde y padding define el grosor"
+    ],
+    respuesta: 2,
+    explicacion: "En el modelo de caja (box model), el padding es el relleno o espacio entre el contenido y el borde del elemento. El margin es el espacio exterior que separa el borde del elemento de otros elementos adyacentes."
+  },
+  {
+    pregunta: "¿Cuál es la función de la etiqueta <a href=\"...\"> en HTML?",
+    opciones: [
+      "Insertar una imagen en la página",
+      "Crear una tabla de datos",
+      "Crear un hipervínculo que permite navegar a otra página o sección",
+      "Definir un párrafo de texto"
+    ],
+    respuesta: 2,
+    explicacion: "La etiqueta <a> (anchor) se utiliza para crear hipervínculos. El atributo 'href' define el destino del enlace, que puede ser otra página web, un archivo, o una sección dentro de la misma página."
+  },
+  {
+    pregunta: "¿Cuál es la forma correcta de vincular un archivo CSS externo a un documento HTML?",
+    opciones: [
+      "<style src=\"estilos.css\">",
+      "<link rel=\"stylesheet\" href=\"estilos.css\"> dentro del <head>",
+      "<css href=\"estilos.css\">",
+      "<script src=\"estilos.css\"></script>"
+    ],
+    respuesta: 1,
+    explicacion: "Para vincular un archivo CSS externo se usa la etiqueta <link> con el atributo rel=\"stylesheet\" y href apuntando al archivo CSS, ubicada dentro del <head> del documento. Esta es la forma más recomendada ya que permite una gestión centralizada de los estilos."
+  },
+  {
+    pregunta: "¿Cuál es la diferencia entre 'position: relative' y 'position: absolute' en CSS?",
+    opciones: [
+      "Ambos posicionan el elemento en relación a la ventana del navegador",
+      "'relative' posiciona al elemento respecto a su posición normal en el flujo del documento, mientras que 'absolute' lo posiciona respecto a su contenedor más cercano con position distinto de static",
+      "'absolute' posiciona al elemento respecto a su posición normal y 'relative' respecto al contenedor padre",
+      "No hay diferencia práctica entre ambos"
+    ],
+    respuesta: 1,
+    explicacion: "Con 'position: relative', el elemento se desplaza respecto a su posición original en el flujo del documento. Con 'position: absolute', el elemento se posiciona en relación a su contenedor ancestro más cercano que tenga una propiedad position diferente de static. Si no existe tal contenedor, se posiciona respecto al documento."
+  }
+]} />
+
+## Playground
+
+Probá tu código HTML y CSS directamente en el navegador.
+
+<CodePlayground
+  language="html"
+  title="Mi primera página"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi primera página</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    p {
+      line-height: 1.6;
+    }
+    img {
+      max-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    ul {
+      background-color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+    li {
+      padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenidos a mi página</h1>
+  <p>Esta es mi primera página web usando HTML y CSS.
+     Acá voy a practicar los elementos básicos.</p>
+
+  <img src="https://picsum.photos/300/200" alt="Imagen de ejemplo">
+
+  <h2>Mis lenguajes favoritos</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+  </ul>
+</body>
+</html>`}
+  height="250px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Formulario de contacto"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Contacto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 0;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: #555;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 4px rgba(52,152,219,0.3);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    button {
+      margin-top: 18px;
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h2>Contactanos</h2>
+
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre"
+           placeholder="Tu nombre completo" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email"
+           placeholder="ejemplo@correo.com" required>
+
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono"
+           placeholder="11-1234-5678"
+           pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}">
+
+    <label for="asunto">Asunto</label>
+    <select id="asunto" name="asunto" required>
+      <option value="">-- Seleccioná un asunto --</option>
+      <option value="consulta">Consulta general</option>
+      <option value="soporte">Soporte técnico</option>
+      <option value="sugerencia">Sugerencia</option>
+    </select>
+
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" name="mensaje"
+              placeholder="Escribí tu mensaje acá..."
+              maxlength="500" required></textarea>
+
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</body>
+</html>`}
+  height="250px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Flexbox Layout"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .card .icono {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .card .tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: white;
+    }
+    .tag-html { background-color: #e44d26; }
+    .tag-css  { background-color: #264de4; }
+    .tag-js   { background-color: #f7df1e; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Tecnologías Web</h1>
+  <div class="contenedor">
+    <div class="card">
+      <div class="icono">📄</div>
+      <h3>HTML</h3>
+      <p>El lenguaje de marcado para estructurar el contenido de la web.</p>
+      <span class="tag tag-html">Estructura</span>
+    </div>
+    <div class="card">
+      <div class="icono">🎨</div>
+      <h3>CSS</h3>
+      <p>Hojas de estilo para controlar la apariencia y el diseño visual.</p>
+      <span class="tag tag-css">Estilos</span>
+    </div>
+    <div class="card">
+      <div class="icono">⚡</div>
+      <h3>JavaScript</h3>
+      <p>El lenguaje de programación para agregar interactividad a la web.</p>
+      <span class="tag tag-js">Interactividad</span>
+    </div>
+  </div>
+</body>
+</html>`}
+  height="300px"
+/>

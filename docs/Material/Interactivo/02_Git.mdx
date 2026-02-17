@@ -1,0 +1,124 @@
+---
+sidebar_label: "Git"
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Git - Práctica Interactiva
+
+## Quiz
+
+Poné a prueba tus conocimientos sobre Git y GitHub.
+
+<Quiz preguntas={[
+  {
+    pregunta: "¿Qué hace el comando `git init`?",
+    opciones: [
+      "Clona un repositorio remoto en tu computadora",
+      "Crea un nuevo repositorio Git en el directorio actual",
+      "Inicializa la conexión con GitHub",
+      "Descarga las últimas actualizaciones del repositorio remoto"
+    ],
+    respuesta: 1,
+    explicacion: "El comando `git init` crea un nuevo repositorio Git en el directorio actual. Esto genera una carpeta oculta `.git` que contiene toda la estructura necesaria para que Git pueda rastrear los cambios en los archivos del proyecto."
+  },
+  {
+    pregunta: "¿Cuál es la diferencia entre `git add` y `git commit`?",
+    opciones: [
+      "No hay diferencia, ambos guardan los cambios en el repositorio",
+      "`git add` sube los cambios al repositorio remoto y `git commit` los guarda localmente",
+      "`git add` añade archivos al área de staging y `git commit` confirma esos cambios en el repositorio local",
+      "`git add` crea una nueva rama y `git commit` fusiona las ramas"
+    ],
+    respuesta: 2,
+    explicacion: "`git add` mueve los archivos modificados al área de staging (preparación), mientras que `git commit` toma los archivos del área de staging y los confirma en el historial del repositorio local con un mensaje descriptivo. Son dos pasos distintos del flujo de trabajo en Git."
+  },
+  {
+    pregunta: "¿Qué es una branch (rama) en Git?",
+    opciones: [
+      "Una copia del repositorio en otro servidor",
+      "Un archivo especial que guarda la configuración del proyecto",
+      "Una línea independiente de desarrollo que permite trabajar en cambios sin afectar la rama principal",
+      "Un comando para deshacer cambios en el repositorio"
+    ],
+    respuesta: 2,
+    explicacion: "Una branch (rama) es una línea independiente de desarrollo que permite trabajar en nuevas funcionalidades o correcciones sin afectar la rama principal (main). Esto facilita el trabajo en equipo y la organización del proyecto, ya que cada desarrollador puede trabajar en su propia rama."
+  },
+  {
+    pregunta: "¿Qué comando se usa para crear una nueva rama y cambiar a ella al mismo tiempo?",
+    opciones: [
+      "`git branch nueva-rama`",
+      "`git checkout -b nueva-rama`",
+      "`git merge nueva-rama`",
+      "`git push origin nueva-rama`"
+    ],
+    respuesta: 1,
+    explicacion: "El comando `git checkout -b nueva-rama` crea una nueva rama con el nombre indicado y cambia a ella automáticamente. Es equivalente a ejecutar `git branch nueva-rama` seguido de `git checkout nueva-rama`, pero en un solo paso."
+  },
+  {
+    pregunta: "¿Qué hace el comando `git merge`?",
+    opciones: [
+      "Elimina una rama del repositorio",
+      "Crea una nueva rama a partir de la rama actual",
+      "Fusiona los cambios de una rama especificada con la rama actual",
+      "Envía los cambios locales al repositorio remoto"
+    ],
+    respuesta: 2,
+    explicacion: "El comando `git merge <nombre-rama>` fusiona los cambios de la rama especificada con la rama en la que te encontrás actualmente. Por ejemplo, si estás en `main` y ejecutás `git merge feature`, los cambios de `feature` se integran en `main`."
+  },
+  {
+    pregunta: "¿Qué es un merge conflict (conflicto de fusión)?",
+    opciones: [
+      "Un error que ocurre cuando no tenés permisos para hacer push al repositorio remoto",
+      "Una situación donde Git no puede fusionar automáticamente los cambios porque hay modificaciones incompatibles en las mismas líneas de un archivo",
+      "Un problema de conexión con el servidor de GitHub",
+      "Un error que aparece cuando intentás crear una rama que ya existe"
+    ],
+    respuesta: 1,
+    explicacion: "Un merge conflict ocurre cuando Git no puede fusionar automáticamente los cambios de dos ramas porque hay modificaciones incompatibles en las mismas partes de un archivo. Para resolverlo, hay que abrir el archivo en conflicto, decidir manualmente qué cambios mantener, hacer `git add` y luego un `git commit` para completar la fusión."
+  },
+  {
+    pregunta: "¿Cuál es la diferencia entre `git fetch` y `git pull`?",
+    opciones: [
+      "`git fetch` descarga los cambios del repositorio remoto sin fusionarlos, mientras que `git pull` los descarga y fusiona automáticamente",
+      "No hay diferencia, ambos hacen lo mismo",
+      "`git fetch` sube cambios al remoto y `git pull` los descarga",
+      "`git fetch` solo funciona con GitHub y `git pull` con cualquier repositorio remoto"
+    ],
+    respuesta: 0,
+    explicacion: "`git fetch` descarga los cambios del repositorio remoto pero no los fusiona con tu rama local, permitiéndote revisarlos antes de integrarlos. En cambio, `git pull` es equivalente a hacer `git fetch` seguido de `git merge`, es decir, descarga los cambios y los fusiona automáticamente con tu rama actual."
+  },
+  {
+    pregunta: "¿Qué es un Pull Request (PR)?",
+    opciones: [
+      "Un comando de Git para descargar cambios del repositorio remoto",
+      "Una herramienta para eliminar ramas que ya no se necesitan",
+      "Una solicitud para fusionar los cambios de una rama a otra, permitiendo revisión de código antes de integrarlos",
+      "Un método para clonar un repositorio de otro usuario"
+    ],
+    respuesta: 2,
+    explicacion: "Un Pull Request (PR) es una solicitud para fusionar cambios de una rama a otra (generalmente a la rama principal). Permite que otros miembros del equipo revisen el código, discutan los cambios y aprueben la integración antes de que se fusionen, asegurando la calidad del proyecto."
+  },
+  {
+    pregunta: "¿Para qué sirve el archivo `.gitignore`?",
+    opciones: [
+      "Para listar los colaboradores que tienen permiso de acceder al repositorio",
+      "Para especificar qué archivos o directorios Git debe ignorar y no rastrear",
+      "Para guardar la configuración de las ramas del proyecto",
+      "Para almacenar las credenciales de acceso al repositorio remoto"
+    ],
+    respuesta: 1,
+    explicacion: "El archivo `.gitignore` permite especificar patrones de archivos o directorios que Git debe ignorar. Es útil para evitar que archivos generados automáticamente, archivos temporales, archivos de compilación o archivos con información sensible se incluyan en el repositorio."
+  },
+  {
+    pregunta: "¿Qué hace el comando `git clone`?",
+    opciones: [
+      "Crea una nueva rama idéntica a la rama actual",
+      "Genera una copia de seguridad del repositorio local",
+      "Copia un repositorio remoto completo (con todo su historial) en tu computadora",
+      "Duplica un commit específico en otra rama"
+    ],
+    respuesta: 2,
+    explicacion: "El comando `git clone <url>` crea una copia completa de un repositorio remoto en tu computadora, incluyendo todos los archivos, ramas y el historial completo de commits. Es el primer paso habitual cuando querés empezar a trabajar en un proyecto existente alojado en un repositorio remoto."
+  }
+]} />

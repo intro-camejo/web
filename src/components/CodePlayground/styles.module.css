@@ -1,0 +1,257 @@
+/* CodePlayground styles - works with both light and dark Docusaurus themes */
+
+.playgroundContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  margin: 1.5rem 0;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.playgroundContainer:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Header bar with title and language badge */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #1e1e1e;
+  border-bottom: 1px solid #333;
+  min-height: 40px;
+}
+
+.headerTitle {
+  color: #ccc;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.languageBadge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+.languageBadgeJavascript {
+  background: #f7df1e;
+  color: #1a1a1a;
+}
+
+.languageBadgeHtml {
+  background: #e44d26;
+  color: #fff;
+}
+
+.languageBadgeSql {
+  background: #336791;
+  color: #fff;
+}
+
+/* Editor area containing the textarea */
+.editorArea {
+  position: relative;
+  background: #1e1e1e;
+}
+
+/* The code textarea */
+.codeEditor {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', var(--ifm-font-family-monospace), monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 80px;
+  tab-size: 2;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+}
+
+.codeEditor::placeholder {
+  color: #555;
+  font-style: italic;
+}
+
+.codeEditor:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--ifm-color-primary);
+}
+
+/* Button bar below the editor */
+.buttonBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #252526;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.runButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.runButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.runButton:active {
+  transform: translateY(0);
+}
+
+.copyButton,
+.resetButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #555;
+  border-radius: var(--ifm-global-radius);
+  background: transparent;
+  color: #ccc;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.copyButton:hover,
+.resetButton:hover {
+  background: #3c3c3c;
+  border-color: #777;
+}
+
+.copySuccess {
+  border-color: #4caf50 !important;
+  color: #4caf50 !important;
+}
+
+/* Output display area */
+.outputArea {
+  padding: 1rem;
+  background: #1a1a2e;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', var(--ifm-font-family-monospace), monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  min-height: 48px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 1px solid #333;
+}
+
+.outputLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #2a2a3e;
+}
+
+.outputSuccess {
+  color: #a8d8a8;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.outputError {
+  color: #f48771;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.outputPlaceholder {
+  color: #555;
+  font-style: italic;
+}
+
+/* HTML preview iframe */
+.previewFrame {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  border-top: 1px solid #333;
+  background: #fff;
+}
+
+/* SQL external link area */
+.sqlNote {
+  padding: 0.85rem 1rem;
+  background: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sqlNote a {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sqlNote a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .buttonBar {
+    gap: 0.35rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .runButton,
+  .copyButton,
+  .resetButton {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .codeEditor {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+}
