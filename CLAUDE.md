@@ -58,7 +58,7 @@ static/
 
 - GitHub Actions (`.github/workflows/deploy.yml`) auto-deploys to GitHub Pages on push to `main`
 - Uses `npm ci --force` + `npm run build`, publishes `build/` to `gh-pages` branch
-- Slack notification on deploy (suppress with `-silent` suffix in commit message)
+
 
 ## Validation
 
