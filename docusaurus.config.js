@@ -93,11 +93,6 @@ const config = {
             label: 'Trabajos Prácticos',
           },
           {
-            to:"/playlist",
-            position: 'left',
-            label: 'Playlist',
-          },
-          {
             href: 'https://github.com/intro-camejo/web',
             label: 'GitHub',
             position: 'right',
