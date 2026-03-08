@@ -1,5 +1,4 @@
 backend:
-  local_backend: true
   name: github
   repo: intro-camejo/web
   branch: main
