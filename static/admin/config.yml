@@ -1,4 +1,5 @@
 backend:
+  local_backend: true
   name: github
   repo: intro-camejo/web
   branch: main
@@ -14,6 +15,29 @@ media_folder: "static/img"
 public_folder: "/img/"
 
 collections:
+  - name: "docentes"
+    label: "Docentes"
+    files:
+      - name: "docentes"
+        label: "Docentes"
+        file: "src/data/docentes.json"
+        fields:
+          - label: "Docentes"
+            name: "docentes"
+            widget: "list"
+            allow_add: true
+            fields:
+              - label: "Nombre"
+                name: "name"
+                widget: "string"
+              - label: "Fotos"
+                name: "pictures"
+                widget: "list"
+                field:
+                  label: "Foto"
+                  name: "foto"
+                  widget: "image"
+
   - name: "blog"
     label: "Blog"
     folder: "blog"

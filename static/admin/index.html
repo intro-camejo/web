@@ -7,6 +7,69 @@
     <title>Admin - Intro al Desarrollo de Software</title>
   </head>
   <body>
+    <div id="nc-root"></div>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      var isLocal = document.location.hostname === "localhost" || document.location.hostname === "127.0.0.1";
+
+      CMS.init({
+        config: {
+          backend: isLocal
+            ? { name: "test-repo" }
+            : {
+                name: "github",
+                repo: "intro-camejo/web",
+                branch: "main",
+                base_url: "https://decap-cms-github-auth-production.up.railway.app",
+                commit_messages: {
+                  create: "contenido: crear {{collection}} — {{slug}}",
+                  update: "contenido: actualizar {{collection}} — {{slug}}",
+                  delete: "contenido: eliminar {{collection}} — {{slug}}",
+                  uploadMedia: "media: subir {{path}}",
+                  deleteMedia: "media: eliminar {{path}}",
+                },
+              },
+          media_folder: "static/img",
+          public_folder: "/img/",
+          collections: [
+            {
+              name: "blog",
+              label: "Blog",
+              folder: "blog",
+              create: true,
+              slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+              extension: "md",
+              summary: "{{title}}",
+              fields: [
+                { label: "Slug", name: "slug", widget: "string" },
+                { label: "Titulo", name: "title", widget: "string" },
+                { label: "Autores", name: "authors", widget: "string", hint: "Clave de authors.yml (ej: camejo) o lista (ej: [camejo, nico])" },
+                { label: "Tags", name: "tags", widget: "list" },
+                { label: "Contenido", name: "body", widget: "markdown" },
+              ],
+            },
+            {
+              name: "material",
+              label: "Material de Catedra",
+              folder: "docs/Material",
+              create: true,
+              extension: "md",
+              summary: "{{title}}",
+              nested: { depth: 3, summary: "{{title}}" },
+              meta: { path: { widget: "string", label: "Carpeta", index_file: "index" } },
+              fields: [
+                { label: "Titulo", name: "title", widget: "string" },
+                { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
+                { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
+                { label: "Contenido", name: "body", widget: "markdown" },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
   </body>
 </html>
