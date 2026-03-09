@@ -33,8 +33,38 @@
                 },
               },
           media_folder: "static/img",
-          public_folder: "/web/img/",
+          public_folder: "/img/",
           collections: [
+            {
+              name: "trabajos-practicos",
+              label: "Trabajos Prácticos",
+              editor: { preview: false },
+              files: [
+                {
+                  name: "trabajos-practicos",
+                  label: "Trabajos Prácticos",
+                  file: "src/pages/trabajos-practicos.md",
+                  fields: [
+                    { label: "Contenido", name: "body", widget: "markdown" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "regimen-cursada",
+              label: "Régimen de Cursada",
+              editor: { preview: false },
+              files: [
+                {
+                  name: "regimen-cursada",
+                  label: "Régimen de Cursada",
+                  file: "src/pages/regimen-cursada.md",
+                  fields: [
+                    { label: "Contenido", name: "body", widget: "markdown" },
+                  ],
+                },
+              ],
+            },
             {
               name: "docentes",
               label: "Docentes",
@@ -65,32 +95,133 @@
               ],
             },
             {
-              name: "blog",
-              label: "Blog",
-              folder: "blog",
+              name: "cronograma",
+              label: "Cronograma",
+              editor: { preview: false },
+              files: [
+                {
+                  name: "cronograma",
+                  label: "Cronograma",
+                  file: "src/data/cronograma.json",
+                  fields: [
+                    { label: "Introducción", name: "intro", widget: "markdown" },
+                    {
+                      label: "Semanas",
+                      name: "semanas",
+                      widget: "list",
+                      fields: [
+                        { label: "Semana", name: "semana", widget: "number", value_type: "int" },
+                        {
+                          label: "Martes",
+                          name: "martes",
+                          widget: "object",
+                          fields: [
+                            { label: "Fecha", name: "fecha", widget: "string", hint: "DD/MM/AAAA" },
+                            {
+                              label: "Actividades",
+                              name: "actividades",
+                              widget: "list",
+                              fields: [
+                                { label: "Nombre", name: "name", widget: "string" },
+                                { label: "Color de fondo", name: "bg", widget: "string", required: false, hint: "ej: #0070a7" },
+                                { label: "Color de texto", name: "color", widget: "string", required: false, hint: "ej: #f7f7f7" },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          label: "Jueves",
+                          name: "jueves",
+                          widget: "object",
+                          fields: [
+                            { label: "Fecha", name: "fecha", widget: "string", hint: "DD/MM/AAAA" },
+                            {
+                              label: "Actividades",
+                              name: "actividades",
+                              widget: "list",
+                              fields: [
+                                { label: "Nombre", name: "name", widget: "string" },
+                                { label: "Color de fondo", name: "bg", widget: "string", required: false, hint: "ej: #0070a7" },
+                                { label: "Color de texto", name: "color", widget: "string", required: false, hint: "ej: #f7f7f7" },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "material-root",
+              label: "Material de Catedra",
+              editor: { preview: false },
+              files: [
+                {
+                  name: "index",
+                  label: "Inicio (Material)",
+                  file: "docs/Material/index.md",
+                  fields: [
+                    { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
+                    { label: "Contenido", name: "body", widget: "markdown" },
+                  ],
+                },
+                {
+                  name: "clases",
+                  label: "Clases Grabadas",
+                  file: "docs/Material/Clases.md",
+                  fields: [
+                    { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
+                    { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
+                    { label: "Contenido", name: "body", widget: "markdown" },
+                  ],
+                },
+                {
+                  name: "diapos",
+                  label: "Diapos",
+                  file: "docs/Material/Diapos.md",
+                  fields: [
+                    { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
+                    { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
+                    { label: "Contenido", name: "body", widget: "markdown" },
+                  ],
+                },
+                {
+                  name: "material-complementario",
+                  label: "Material Complementario",
+                  file: "docs/Material/Material-complementario.md",
+                  fields: [
+                    { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
+                    { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
+                    { label: "Contenido", name: "body", widget: "markdown" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "apuntes",
+              label: "Apuntes",
+              folder: "docs/Material/Apuntes",
               create: true,
-              slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
               extension: "md",
-              summary: "{{title}}",
+              summary: "{{filename}}",
+              editor: { preview: false },
               fields: [
-                { label: "Slug", name: "slug", widget: "string" },
-                { label: "Titulo", name: "title", widget: "string" },
-                { label: "Autores", name: "authors", widget: "string", hint: "Clave de authors.yml (ej: camejo) o lista (ej: [camejo, nico])" },
-                { label: "Tags", name: "tags", widget: "list" },
+                { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
+                { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
                 { label: "Contenido", name: "body", widget: "markdown" },
               ],
             },
             {
-              name: "material",
-              label: "Material de Catedra",
-              folder: "docs/Material",
+              name: "guias",
+              label: "Guías",
+              folder: "docs/Material/Guias",
               create: true,
               extension: "md",
-              summary: "{{title}}",
-              nested: { depth: 3, summary: "{{title}}" },
-              meta: { path: { widget: "string", label: "Carpeta", index_file: "index" } },
+              summary: "{{filename}}",
+              editor: { preview: false },
               fields: [
-                { label: "Titulo", name: "title", widget: "string" },
                 { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
                 { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
                 { label: "Contenido", name: "body", widget: "markdown" },
@@ -99,6 +230,14 @@
           ],
         },
       });
+
+      // Fix image previews: prepend /web to /img/ paths so thumbnails load correctly
+      var basePrefix = "/web";
+      new MutationObserver(function(mutations) {
+        document.querySelectorAll('img[src^="/img/"]').forEach(function(img) {
+          img.src = basePrefix + img.getAttribute("src");
+        });
+      }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["src"] });
     </script>
   </body>
 </html>
