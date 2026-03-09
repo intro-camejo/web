@@ -1,16 +1,20 @@
 {
   "docentes": [
     {
-      "name": "Peke",
-      "pictures": ["/img/peke.jpeg", "/img/peke2.jpeg"]
+      "name": "Cami",
+      "pictures": ["/img/cami.jpg"]
     },
     {
-      "name": "Nico",
-      "pictures": ["/img/nico.jpg", "/img/nico2.jpg"]
+      "name": "Conra",
+      "pictures": ["/img/conra.jpeg"]
     },
     {
       "name": "Gonza",
       "pictures": ["/img/gonza.jpeg"]
+    },
+    {
+      "name": "Lara",
+      "pictures": ["/img/lara.jpeg"]
     },
     {
       "name": "Manu B",
@@ -21,24 +25,20 @@
       "pictures": ["/img/manu1.jpeg", "/img/manu2.jpeg", "/img/image.png"]
     },
     {
-      "name": "Sofi",
-      "pictures": ["/img/sofi.jpeg", "/img/sofi2.jpeg"]
-    },
-    {
-      "name": "Conra",
-      "pictures": ["/img/conra.jpeg"]
+      "name": "Nico",
+      "pictures": ["/img/nico.jpg", "/img/nico2.jpg"]
     },
     {
       "name": "Pedro",
       "pictures": ["/img/pedroimg.jpeg"]
     },
     {
-      "name": "Lara",
-      "pictures": ["/img/lara.jpeg"]
+      "name": "Peke",
+      "pictures": ["/img/peke.jpeg", "/img/peke2.jpeg"]
     },
     {
-      "name": "Manu R",
-      "pictures": ["/img/manur.jpeg"]
+      "name": "Sofi",
+      "pictures": ["/img/sofi.jpeg", "/img/sofi2.jpeg"]
     }
   ]
 }
