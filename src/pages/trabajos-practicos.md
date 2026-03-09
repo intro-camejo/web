@@ -1,7 +1,3 @@
-import Link from '@docusaurus/Link';
-import styles from './index.module.css';
-
-
 # TP2 - Introducción al Desarrollo de Software
 
 _Última modificación: 20/10/25_
@@ -53,7 +49,3 @@ El **quinto** llamado (último disponible en el período) estará reservado excl
 **Horario:** 19:00 hs
 
 **TBA**
-
-export const UnderlinedText = ({children}) => (
-  <span style={{ textDecoration: 'underline' }}>{children}</span>
-);

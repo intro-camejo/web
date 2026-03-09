@@ -1,63 +1,85 @@
 import React from "react";
-import { Actividad, cronograma } from "./cronograma";
+import data from "../../data/cronograma.json";
 
-export const Cronograma = () => {
+type Actividad = {
+    name: string;
+    bg?: string;
+    color?: string;
+};
 
-    const renderActividades = (actividades: Actividad[]) => {
+type Dia = {
+    fecha: string;
+    actividades: Actividad[];
+};
 
-        const renderActividadText = (actividad: Actividad) => {
-            if (actividad.bg && actividad.color) {
-                return <li>
+type Semana = {
+    semana: number;
+    martes: Dia;
+    jueves: Dia;
+};
+
+const renderIntro = (text: string) => {
+    return text.split("\n\n").map((block, i) => {
+        const trimmed = block.trim();
+        if (trimmed.startsWith("### ")) return <h3 key={i}>{trimmed.slice(4)}</h3>;
+        if (trimmed.startsWith("## ")) return <h2 key={i}>{trimmed.slice(3)}</h2>;
+        if (trimmed.startsWith("# ")) return <h1 key={i}>{trimmed.slice(2)}</h1>;
+        if (trimmed === "") return null;
+        return <p key={i}>{trimmed}</p>;
+    });
+};
+
+const renderActividades = (actividades: Actividad[]) => (
+    <ul>
+        {actividades.map((actividad, index) => (
+            <li key={index}>
+                {actividad.bg && actividad.color ? (
                     <span style={{
                         backgroundColor: actividad.bg,
-                        borderRadius: '5px',
+                        borderRadius: "5px",
                         color: actividad.color,
-                        padding: '0.2rem 0.4rem',
-                        fontWeight: 'bold',
-                        textTransform: 'uppercase',
-                    }}
-                    >{actividad.name}</span></li>
-            } else {
-                return <li>{actividad.name}</li>
-            }
-        }
-        return (
-            <ul>
-                {actividades.map((actividad, index) => (
-                    <>
-                    {renderActividadText(actividad)}
-                    </>
-                ))}
-            </ul>
-        )
-    }
+                        padding: "0.2rem 0.4rem",
+                        fontWeight: "bold",
+                        textTransform: "uppercase",
+                    }}>
+                        {actividad.name}
+                    </span>
+                ) : (
+                    actividad.name
+                )}
+            </li>
+        ))}
+    </ul>
+);
+
+export const Cronograma = () => {
+    const semanas = data.semanas as Semana[];
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Semana</th>
-                    <th>Fecha</th>
-                    <th>Lunes</th>
-                    <th>Fecha</th>
-                    <th>Viernes</th>
-                </tr>
-            </thead>
-            <tbody>
-                {cronograma.map((semana) => (
-                    <tr key={semana.semana}>
-                        <td>{semana.semana}</td>
-                        <td>{semana.lunes.fecha}</td>
-                        <td>
-                            {renderActividades(semana.lunes.actividades)}
-                        </td>
-                        <td>{semana.viernes.fecha}</td>
-                        <td>
-                            {renderActividades(semana.viernes.actividades)}
-                        </td>
+        <>
+            {renderIntro(data.intro)}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Semana</th>
+                        <th>Fecha</th>
+                        <th>Martes</th>
+                        <th>Fecha</th>
+                        <th>Jueves</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
-    )
+                </thead>
+                <tbody>
+                    {semanas.map((semana) => (
+                        <tr key={semana.semana}>
+                            <td>{semana.semana}</td>
+                            <td>{semana.martes.fecha}</td>
+                            <td>{renderActividades(semana.martes.actividades)}</td>
+                            <td>{semana.jueves.fecha}</td>
+                            <td>{renderActividades(semana.jueves.actividades)}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </>
+    );
 };
