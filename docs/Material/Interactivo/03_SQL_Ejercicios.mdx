@@ -1,0 +1,342 @@
+---
+sidebar_label: "SQL - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# SQL - Ejercicios Interactivos
+
+Practicá SQL resolviendo los ejercicios. Cada uno tiene dos pestañas: una para que escribas tu consulta y otra con la solución. Intentá resolver el ejercicio antes de mirar la respuesta.
+
+Para probar tus consultas, copialas y pegalas en [**DB Fiddle**](https://www.db-fiddle.com/f/o4BQczgY9ZnezSUYht4rCh/16) (ya tiene los datos precargados).
+
+## Esquema de la Base de Datos
+
+```sql
+-- Tabla de bandas musicales
+CREATE TABLE bandas (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    pais_origen TEXT NOT NULL,
+    fecha_creacion INTEGER NOT NULL,
+    genero TEXT NOT NULL,
+    cant_integrantes INTEGER NOT NULL
+);
+
+-- Tabla de álbumes
+CREATE TABLE albumes (
+    id SERIAL PRIMARY KEY,
+    banda_id INTEGER NOT NULL REFERENCES bandas(id),
+    nombre TEXT NOT NULL,
+    lanzamiento INTEGER NOT NULL,
+    duracion INTEGER NOT NULL,  -- duración en minutos
+    ranking INTEGER UNIQUE NOT NULL  -- ranking global entre todos los álbumes
+);
+
+-- Tabla de canciones
+CREATE TABLE canciones (
+    id SERIAL PRIMARY KEY,
+    banda_id INTEGER NOT NULL REFERENCES bandas(id),
+    album_id INTEGER NOT NULL REFERENCES albumes(id),
+    nombre TEXT NOT NULL,
+    duracion INTEGER NOT NULL,  -- duración en minutos
+    ranking INTEGER UNIQUE NOT NULL  -- ranking global entre todas las canciones
+);
+
+-- Tabla de conciertos
+CREATE TABLE conciertos (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    pais TEXT NOT NULL,
+    fecha INTEGER NOT NULL  -- año
+);
+
+-- Tabla intermedia para relación muchos-a-muchos entre conciertos y músicos
+CREATE TABLE conciertos_musicos (
+    concierto_id INTEGER NOT NULL REFERENCES conciertos(id),
+    banda_id INTEGER NOT NULL REFERENCES bandas(id),
+    PRIMARY KEY (concierto_id, banda_id)
+);
+```
+
+---
+
+## Nivel 1 - SELECT Básico
+
+### Ejercicio 1: Todas las bandas
+
+Mostrar todos los campos de todas las bandas musicales.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá todos los campos de la tabla bandas\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Usamos * para seleccionar todas las columnas\nSELECT *\nFROM bandas;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Nombre y país
+
+Mostrar solo el nombre y el país de origen de todas las bandas.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá solo el nombre y el país de origen de cada banda\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Seleccionamos solo las columnas que nos interesan\nSELECT nombre, pais_origen\nFROM bandas;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Bandas ordenadas por fecha
+
+Mostrar el nombre y la fecha de creación de todas las bandas, ordenadas de la más reciente a la más antigua.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá nombre y fecha_creacion, ordenados de más reciente a más antiguo\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- ORDER BY con DESC ordena de mayor a menor (más reciente primero)\nSELECT nombre, fecha_creacion\nFROM bandas\nORDER BY fecha_creacion DESC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Álbumes en orden alfabético
+
+Mostrar el nombre y la duración de todos los álbumes, ordenados alfabéticamente por nombre (de A a Z).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá nombre y duracion de los álbumes, ordenados alfabéticamente\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- ORDER BY nombre ordena alfabéticamente (ASC es el orden por defecto)\nSELECT nombre, duracion\nFROM albumes\nORDER BY nombre ASC;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Top 5 álbumes por ranking
+
+Mostrar el nombre y el ranking de los 5 mejores álbumes (ranking más bajo = mejor posición).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá los 5 álbumes con mejor ranking (ranking 1 es el mejor)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- LIMIT restringe la cantidad de resultados\n-- Ordenamos por ranking ASC para que el mejor (1) aparezca primero\nSELECT nombre, ranking\nFROM albumes\nORDER BY ranking ASC\nLIMIT 5;`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Filtros con WHERE
+
+### Ejercicio 6: Bandas de Rock
+
+Mostrar el nombre y el género de todas las bandas que tocan "Rock".
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Filtrá las bandas cuyo género sea 'Rock'\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- WHERE filtra las filas que cumplen la condición\nSELECT nombre, genero\nFROM bandas\nWHERE genero = 'Rock';`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Bandas con más de 4 integrantes
+
+Mostrar el nombre y la cantidad de integrantes de las bandas que tienen más de 4 miembros.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Filtrá las bandas con más de 4 integrantes\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Usamos > para comparar valores numéricos\nSELECT nombre, cant_integrantes\nFROM bandas\nWHERE cant_integrantes > 4;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Álbumes largos
+
+Mostrar el nombre y la duración de todos los álbumes que duran más de 45 minutos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Filtrá los álbumes con duración mayor a 45 minutos\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- La columna duracion está en minutos\nSELECT nombre, duracion\nFROM albumes\nWHERE duracion > 45;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Bandas de Argentina o Inglaterra
+
+Mostrar el nombre y el país de origen de las bandas que son de Argentina o de Inglaterra.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Filtrá las bandas de Argentina o Inglaterra\n-- Pista: podés usar IN o múltiples condiciones con OR\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- IN permite comparar contra una lista de valores\nSELECT nombre, pais_origen\nFROM bandas\nWHERE pais_origen IN ('Argentina', 'Inglaterra');`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Bandas que empiezan con "The"
+
+Mostrar el nombre de todas las bandas cuyo nombre empieza con "The".
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Filtrá las bandas cuyo nombre comience con 'The'\n-- Pista: usá LIKE con un patrón\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- LIKE con % permite buscar patrones\n-- 'The%' significa: empieza con 'The' seguido de cualquier cosa\nSELECT nombre\nFROM bandas\nWHERE nombre LIKE 'The%';`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Funciones de Agregación y GROUP BY
+
+### Ejercicio 11: Contar bandas
+
+Mostrar la cantidad total de bandas registradas en la base de datos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Contá cuántas bandas hay en total\n-- Pista: usá COUNT(*)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- COUNT(*) cuenta todas las filas de la tabla\n-- AS le da un alias a la columna del resultado\nSELECT COUNT(*) AS total_bandas\nFROM bandas;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 12: Duración promedio de álbumes
+
+Mostrar la duración promedio de todos los álbumes (en minutos).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Calculá la duración promedio de los álbumes\n-- Pista: usá AVG()\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- AVG() calcula el promedio de una columna numérica\nSELECT AVG(duracion) AS duracion_promedio\nFROM albumes;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 13: Bandas por género
+
+Mostrar cuántas bandas hay en cada género musical.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Agrupá las bandas por género y contá cuántas hay en cada uno\n-- Pista: usá GROUP BY\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- GROUP BY agrupa las filas por el valor de una columna\n-- COUNT(*) cuenta cuántas filas hay en cada grupo\nSELECT genero, COUNT(*) AS cantidad\nFROM bandas\nGROUP BY genero;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 14: Géneros con más de 2 bandas
+
+Mostrar solo los géneros que tienen más de 2 bandas, junto con la cantidad de bandas.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá los géneros con más de 2 bandas\n-- Pista: usá GROUP BY con HAVING\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- HAVING filtra grupos (a diferencia de WHERE que filtra filas)\n-- Se usa después de GROUP BY para filtrar los resultados agrupados\nSELECT genero, COUNT(*) AS cantidad\nFROM bandas\nGROUP BY genero\nHAVING COUNT(*) > 2;`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - JOIN
+
+### Ejercicio 15: Bandas con sus álbumes
+
+Mostrar el nombre de cada banda junto con los nombres de sus álbumes.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Uní la tabla bandas con albumes para mostrar banda y álbum\n-- Pista: usá INNER JOIN con la condición bandas.id = albumes.banda_id\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- INNER JOIN combina filas de dos tablas cuando hay coincidencia\n-- Usamos alias (b, a) para abreviar los nombres de las tablas\nSELECT b.nombre AS banda, a.nombre AS album\nFROM bandas b\nINNER JOIN albumes a ON b.id = a.banda_id;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 16: Cantidad de álbumes por banda
+
+Mostrar el nombre de cada banda y cuántos álbumes tiene.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá cada banda con la cantidad de álbumes que tiene\n-- Pista: combiná JOIN con GROUP BY y COUNT()\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Combinamos JOIN para unir tablas con GROUP BY para agrupar\n-- COUNT(a.id) cuenta los álbumes de cada banda\nSELECT b.nombre, COUNT(a.id) AS cant_albumes\nFROM bandas b\nJOIN albumes a ON b.id = a.banda_id\nGROUP BY b.nombre;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 17: Bandas, álbumes y canciones
+
+Mostrar el nombre de la banda, el nombre del álbum y el nombre de la canción, uniendo las tres tablas.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Uní las tablas bandas, albumes y canciones\n-- Pista: necesitás dos JOIN encadenados\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Podemos encadenar múltiples JOIN para unir varias tablas\n-- bandas -> albumes -> canciones\nSELECT b.nombre AS banda,\n       a.nombre AS album,\n       c.nombre AS cancion\nFROM bandas b\nJOIN albumes a ON b.id = a.banda_id\nJOIN canciones c ON a.id = c.album_id;`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 18: Bandas que tocaron en Argentina
+
+Mostrar los nombres (sin repetir) de las bandas que participaron en conciertos realizados en Argentina.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá las bandas que tocaron en conciertos en Argentina\n-- Pista: necesitás unir bandas, conciertos_musicos y conciertos\n-- Usá DISTINCT para evitar nombres repetidos\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Unimos tres tablas a través de la tabla intermedia conciertos_musicos\n-- DISTINCT evita que aparezcan bandas repetidas\nSELECT DISTINCT b.nombre\nFROM bandas b\nJOIN conciertos_musicos cm ON b.id = cm.banda_id\nJOIN conciertos c ON cm.concierto_id = c.id\nWHERE c.pais = 'Argentina';`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 5 - Subconsultas y Avanzados
+
+### Ejercicio 19: Bandas con álbum en el Top 10
+
+Mostrar el nombre de las bandas que tienen al menos un álbum en el Top 10 del ranking (ranking menor o igual a 10).
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Mostrá las bandas con al menos un álbum en el Top 10\n-- Pista: usá una subconsulta con IN\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- La subconsulta busca los banda_id de álbumes en el Top 10\n-- La consulta principal filtra las bandas que están en esa lista\nSELECT nombre\nFROM bandas\nWHERE id IN (\n  SELECT banda_id\n  FROM albumes\n  WHERE ranking <= 10\n);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 20: Banda con más álbumes
+
+Mostrar el nombre de la banda que tiene la mayor cantidad de álbumes, junto con esa cantidad.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="sql" title="Tu consulta" initialCode={`-- Encontrá la banda con más álbumes\n-- Pista: usá JOIN, GROUP BY, ORDER BY y LIMIT\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="sql" title="Solución" initialCode={`-- Combinamos varias técnicas:\n-- JOIN para unir bandas con álbumes\n-- GROUP BY para agrupar por banda\n-- COUNT() para contar álbumes\n-- ORDER BY DESC + LIMIT 1 para obtener solo la que tiene más\nSELECT b.nombre, COUNT(a.id) AS cant_albumes\nFROM bandas b\nJOIN albumes a ON b.id = a.banda_id\nGROUP BY b.nombre\nORDER BY cant_albumes DESC\nLIMIT 1;`} />
+  </TabItem>
+</Tabs>

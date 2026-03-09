@@ -1,0 +1,857 @@
+---
+sidebar_label: "JavaScript"
+---
+
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# JavaScript - Práctica Interactiva
+
+Escribí y ejecutá código JavaScript directamente en el navegador. Hacé click en "Ejecutar" para ver los resultados.
+
+## Variables y Tipos de Datos
+
+<CodePlayground
+  language="javascript"
+  title="Variables: let vs const"
+  initialCode={`// const: no se puede reasignar
+const nombre = "María";
+const edad = 22;
+// nombre = "Ana";  // Descomentar esta linea da error!
+
+// let: se puede reasignar
+let contador = 0;
+contador = 1;
+contador = 2;
+console.log("contador:", contador);
+
+// Tipos de datos en JavaScript
+console.log("--- typeof de cada tipo ---");
+console.log("String:", typeof nombre);          // "string"
+console.log("Number:", typeof edad);            // "number"
+console.log("Boolean:", typeof true);           // "boolean"
+console.log("Undefined:", typeof undefined);    // "undefined"
+console.log("Null (ojo!):", typeof null);       // "object" - bug historico de JS
+
+// let permite cambiar de tipo (tipado dinamico)
+let variable = "soy un string";
+console.log("\\nAntes:", variable, "- tipo:", typeof variable);
+variable = 42;
+console.log("Despues:", variable, "- tipo:", typeof variable);
+variable = true;
+console.log("Despues:", variable, "- tipo:", typeof variable);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Template Literals"
+  initialCode={`const nombre = "Carlos";
+const edad = 25;
+const materia = "Intro al Desarrollo";
+
+// Template literals usan backticks (\` \`)
+// Permiten interpolar expresiones con \${}
+const saludo = \`Hola, soy \${nombre} y tengo \${edad} años\`;
+console.log(saludo);
+
+// Se pueden poner expresiones, no solo variables
+console.log(\`En 5 años voy a tener \${edad + 5} años\`);
+console.log(\`Mi nombre en mayusculas: \${nombre.toUpperCase()}\`);
+
+// Strings multilinea (sin necesidad de \\n)
+const info = \`
+  Estudiante: \${nombre}
+  Edad: \${edad}
+  Materia: \${materia}
+  Aprobado: \${edad >= 18 ? "Si" : "No"}
+\`;
+console.log(info);
+
+// Comparacion con concatenacion clasica
+const clasico = "Hola, soy " + nombre + " y tengo " + edad + " años";
+const moderno = \`Hola, soy \${nombre} y tengo \${edad} años\`;
+console.log("Clasico:", clasico);
+console.log("Moderno:", moderno);
+console.log("Son iguales?", clasico === moderno);`}
+/>
+
+## Operadores y Condicionales
+
+<CodePlayground
+  language="javascript"
+  title="Operadores de comparación"
+  initialCode={`// == vs === (la diferencia mas importante de JS)
+console.log("--- == (igualdad con conversion de tipo) ---");
+console.log('5 == "5"  :', 5 == "5");     // true (convierte tipos)
+console.log("0 == false :", 0 == false);   // true
+console.log("null == undefined:", null == undefined); // true
+
+console.log("\\n--- === (igualdad estricta, SIN conversion) ---");
+console.log('5 === "5"  :', 5 === "5");    // false (distinto tipo)
+console.log("0 === false:", 0 === false);  // false
+console.log("null === undefined:", null === undefined); // false
+
+// Siempre usar === para evitar sorpresas!
+
+// Valores falsy (se evaluan como false)
+console.log("\\n--- Valores Falsy ---");
+const falsy = [0, "", null, undefined, NaN, false];
+falsy.forEach(val => {
+  console.log(\`  \${String(val).padEnd(12)} => Boolean: \${Boolean(val)}\`);
+});
+
+// Valores truthy (se evaluan como true)
+console.log("\\n--- Valores Truthy ---");
+const truthy = [1, "hola", [], {}, -1, "0", "false"];
+truthy.forEach(val => {
+  const label = typeof val === "object"
+    ? JSON.stringify(val) : String(val);
+  console.log(\`  \${label.padEnd(12)} => Boolean: \${Boolean(val)}\`);
+});`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Condicionales: if/else y ternario"
+  initialCode={`// Funcion con if/else
+function evaluarNota(nota) {
+  if (nota < 1 || nota > 10) {
+    return "Nota invalida (debe ser entre 1 y 10)";
+  } else if (nota >= 7) {
+    return "Aprobado - Promocion directa";
+  } else if (nota >= 4) {
+    return "Aprobado - Regular";
+  } else {
+    return "Desaprobado";
+  }
+}
+
+// Probar con varias notas
+const notas = [2, 4, 7, 10, 0, 11];
+notas.forEach(n => {
+  console.log(\`Nota \${n}: \${evaluarNota(n)}\`);
+});
+
+// Lo mismo con operador ternario (version simplificada)
+console.log("\\n--- Con operador ternario ---");
+const evaluar = (nota) => nota >= 4 ? "Aprobado" : "Desaprobado";
+
+[3, 4, 8].forEach(n => {
+  console.log(\`Nota \${n}: \${evaluar(n)}\`);
+});
+
+// Ternario anidado (usar con moderacion!)
+const nivel = (nota) =>
+  nota >= 7 ? "Alto" :
+  nota >= 4 ? "Medio" :
+  "Bajo";
+console.log("\\nNivel de nota 8:", nivel(8));
+console.log("Nivel de nota 5:", nivel(5));
+console.log("Nivel de nota 2:", nivel(2));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Switch"
+  initialCode={`// Switch: ideal cuando hay muchos casos posibles
+function diaDeLaSemana(numero) {
+  switch (numero) {
+    case 1: return "Lunes";
+    case 2: return "Martes";
+    case 3: return "Miercoles";
+    case 4: return "Jueves";
+    case 5: return "Viernes";
+    case 6: return "Sabado";
+    case 7: return "Domingo";
+    default: return "Numero invalido (usar 1-7)";
+  }
+}
+
+// Probar todos los dias
+for (let i = 1; i <= 7; i++) {
+  console.log(\`Dia \${i}: \${diaDeLaSemana(i)}\`);
+}
+console.log(\`Dia 9: \${diaDeLaSemana(9)}\`);
+
+// Switch con agrupacion de casos
+console.log("\\n--- Tipo de dia ---");
+function tipoDeDia(numero) {
+  switch (numero) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return "Dia laboral";
+    case 6:
+    case 7:
+      return "Fin de semana";
+    default:
+      return "Invalido";
+  }
+}
+
+for (let i = 1; i <= 7; i++) {
+  console.log(\`\${diaDeLaSemana(i)}: \${tipoDeDia(i)}\`);
+}`}
+/>
+
+## Funciones
+
+<CodePlayground
+  language="javascript"
+  title="Funciones: declaración vs arrow"
+  initialCode={`// 1. Declaracion de funcion (function declaration)
+function sumar1(a, b) {
+  return a + b;
+}
+
+// 2. Expresion de funcion (function expression)
+const sumar2 = function(a, b) {
+  return a + b;
+};
+
+// 3. Arrow function
+const sumar3 = (a, b) => a + b;
+
+// Las tres hacen exactamente lo mismo
+console.log("Declaracion:", sumar1(3, 4));
+console.log("Expresion:", sumar2(3, 4));
+console.log("Arrow:", sumar3(3, 4));
+
+// Arrow functions: distintas formas
+// Con un solo parametro no necesitan parentesis
+const doble = n => n * 2;
+console.log("\\nDoble de 5:", doble(5));
+
+// Sin parametros: parentesis vacios obligatorios
+const saludar = () => "Hola!";
+console.log(saludar());
+
+// Con cuerpo de multiples lineas: necesitan {} y return
+const calcular = (a, b) => {
+  const suma = a + b;
+  const producto = a * b;
+  return \`Suma: \${suma}, Producto: \${producto}\`;
+};
+console.log(calcular(3, 4));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Funciones con parámetros por defecto"
+  initialCode={`// Parametros por defecto
+function crearUsuario(nombre, rol = "estudiante", activo = true) {
+  return { nombre, rol, activo };
+}
+
+console.log(crearUsuario("Ana"));
+console.log(crearUsuario("Carlos", "admin"));
+console.log(crearUsuario("Maria", "docente", false));
+
+// Rest parameters: agrupar argumentos en un array
+function sumarTodos(...numeros) {
+  console.log("Argumentos recibidos:", numeros);
+  return numeros.reduce((acc, n) => acc + n, 0);
+}
+
+console.log("\\nSuma:", sumarTodos(1, 2, 3));
+console.log("Suma:", sumarTodos(10, 20, 30, 40, 50));
+
+// Combinar parametros normales con rest
+function registrar(accion, ...detalles) {
+  console.log(\`\\n[\${accion}] Detalles: \${detalles.join(", ")}\`);
+}
+registrar("LOGIN", "usuario: ana", "ip: 192.168.1.1");
+registrar("ERROR", "404", "pagina no encontrada", "/api/datos");
+
+// Funcion que retorna un objeto
+const crearPunto = (x, y) => ({ x, y });  // Notar los parentesis!
+const punto = crearPunto(10, 20);
+console.log("\\nPunto:", punto);
+console.log("X:", punto.x, "Y:", punto.y);`}
+/>
+
+## Arrays
+
+<CodePlayground
+  language="javascript"
+  title="Arrays: métodos básicos"
+  initialCode={`const frutas = ["manzana", "banana", "naranja"];
+console.log("Inicio:", frutas);
+
+// push: agregar al final
+frutas.push("uva");
+console.log("push('uva'):", [...frutas]);
+
+// pop: sacar el ultimo
+const ultima = frutas.pop();
+console.log("pop():", [...frutas], "- Sacado:", ultima);
+
+// unshift: agregar al principio
+frutas.unshift("frutilla");
+console.log("unshift('frutilla'):", [...frutas]);
+
+// shift: sacar el primero
+const primera = frutas.shift();
+console.log("shift():", [...frutas], "- Sacado:", primera);
+
+// splice: insertar/eliminar en una posicion
+frutas.splice(1, 0, "kiwi");  // En posicion 1, eliminar 0, insertar "kiwi"
+console.log("splice(1,0,'kiwi'):", [...frutas]);
+
+frutas.splice(1, 1);  // En posicion 1, eliminar 1
+console.log("splice(1,1):", [...frutas]);
+
+// slice: obtener una porcion (NO modifica el original)
+const sub = frutas.slice(0, 2);
+console.log("\\nslice(0,2):", sub);
+console.log("Original intacto:", frutas);
+
+// indexOf e includes
+console.log("\\nindexOf('banana'):", frutas.indexOf("banana"));
+console.log("includes('banana'):", frutas.includes("banana"));
+console.log("includes('pera'):", frutas.includes("pera"));
+console.log("length:", frutas.length);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Arrays: map, filter, reduce"
+  initialCode={`const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log("Original:", numeros);
+
+// map: transforma cada elemento -> nuevo array
+const dobles = numeros.map(n => n * 2);
+console.log("\\nmap (x2):", dobles);
+
+// filter: filtra elementos -> nuevo array
+const pares = numeros.filter(n => n % 2 === 0);
+console.log("filter (pares):", pares);
+
+// reduce: acumula todo en un valor
+const suma = numeros.reduce((acc, n) => acc + n, 0);
+console.log("reduce (suma):", suma);
+
+// Encadenando metodos (esto es muy comun!)
+const resultado = numeros
+  .filter(n => n % 2 === 0)     // [2, 4, 6, 8, 10]
+  .map(n => n * 2)              // [4, 8, 12, 16, 20]
+  .reduce((acc, n) => acc + n, 0);  // 60
+console.log("\\nEncadenado (pares * 2, sumados):", resultado);
+
+// Ejemplo practico: calcular promedio de notas aprobadas
+const notas = [2, 5, 8, 3, 9, 7, 4, 6, 1, 10];
+const aprobadas = notas.filter(n => n >= 4);
+const promedio = aprobadas.reduce((acc, n) => acc + n, 0) / aprobadas.length;
+console.log("\\nNotas:", notas);
+console.log("Aprobadas:", aprobadas);
+console.log("Promedio aprobadas:", promedio.toFixed(2));`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Arrays: find, some, every, sort"
+  initialCode={`const estudiantes = [
+  { nombre: "Ana", nota: 9 },
+  { nombre: "Carlos", nota: 5 },
+  { nombre: "Maria", nota: 7 },
+  { nombre: "Pedro", nota: 3 },
+  { nombre: "Laura", nota: 8 },
+];
+console.log("Estudiantes:", estudiantes);
+
+// find: devuelve el PRIMER elemento que cumple la condicion
+const encontrado = estudiantes.find(e => e.nombre === "Maria");
+console.log("\\nfind Maria:", encontrado);
+
+const primerDesaprobado = estudiantes.find(e => e.nota < 4);
+console.log("Primer desaprobado:", primerDesaprobado);
+
+// some: devuelve true si AL MENOS UNO cumple
+const hayDesaprobados = estudiantes.some(e => e.nota < 4);
+console.log("\\nHay algun desaprobado?", hayDesaprobados);
+
+const hayPerfectos = estudiantes.some(e => e.nota === 10);
+console.log("Hay algun 10?", hayPerfectos);
+
+// every: devuelve true si TODOS cumplen
+const todosAprobaron = estudiantes.every(e => e.nota >= 4);
+console.log("\\nTodos aprobaron?", todosAprobaron);
+
+const todosAsistieron = estudiantes.every(e => e.nota > 0);
+console.log("Todos tienen nota > 0?", todosAsistieron);
+
+// sort: ordenar (modifica el array original!)
+// Para numeros/objetos hay que pasar funcion de comparacion
+const ordenados = [...estudiantes].sort((a, b) => b.nota - a.nota);
+console.log("\\nOrdenados por nota (mayor a menor):");
+ordenados.forEach((e, i) => {
+  console.log(\`  \${i + 1}. \${e.nombre}: \${e.nota}\`);
+});`}
+/>
+
+## Objetos
+
+<CodePlayground
+  language="javascript"
+  title="Objetos: crear y acceder"
+  initialCode={`// Crear un objeto
+const estudiante = {
+  nombre: "Ana Garcia",
+  padron: 108432,
+  carrera: "Informatica",
+  activo: true
+};
+
+// Acceder con notacion de punto
+console.log("Nombre:", estudiante.nombre);
+console.log("Padron:", estudiante.padron);
+
+// Acceder con notacion de corchetes (util con variables)
+const campo = "carrera";
+console.log("Carrera:", estudiante[campo]);
+
+// Agregar propiedades
+estudiante.email = "ana@fi.uba.ar";
+estudiante["promedio"] = 7.5;
+console.log("\\nDespues de agregar:", estudiante);
+
+// Eliminar propiedades
+delete estudiante.activo;
+console.log("Despues de delete:", estudiante);
+
+// Object.keys, Object.values, Object.entries
+console.log("\\nKeys:", Object.keys(estudiante));
+console.log("Values:", Object.values(estudiante));
+console.log("Entries:");
+Object.entries(estudiante).forEach(([clave, valor]) => {
+  console.log(\`  \${clave}: \${valor}\`);
+});
+
+// Verificar si existe una propiedad
+console.log("\\nTiene 'nombre'?", "nombre" in estudiante);
+console.log("Tiene 'activo'?", "activo" in estudiante);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Objetos: métodos"
+  initialCode={`// Objeto con metodos (funciones dentro del objeto)
+const persona = {
+  nombre: "Carlos",
+  apellido: "Lopez",
+  edad: 30,
+
+  // Metodo: usa "this" para acceder a las propiedades del objeto
+  nombreCompleto() {
+    return \`\${this.nombre} \${this.apellido}\`;
+  },
+
+  saludar() {
+    return \`Hola! Soy \${this.nombreCompleto()} y tengo \${this.edad} años\`;
+  },
+
+  cumplir() {
+    this.edad++;
+    return \`Feliz cumple! Ahora tengo \${this.edad} años\`;
+  }
+};
+
+console.log(persona.saludar());
+console.log(persona.cumplir());
+console.log(persona.saludar());
+
+// Ejemplo: objeto calculadora
+const calculadora = {
+  historial: [],
+
+  sumar(a, b) {
+    const resultado = a + b;
+    this.historial.push(\`\${a} + \${b} = \${resultado}\`);
+    return resultado;
+  },
+
+  restar(a, b) {
+    const resultado = a - b;
+    this.historial.push(\`\${a} - \${b} = \${resultado}\`);
+    return resultado;
+  },
+
+  verHistorial() {
+    return this.historial.length === 0
+      ? "Sin operaciones"
+      : this.historial.join("\\n");
+  }
+};
+
+console.log("\\n--- Calculadora ---");
+console.log("5 + 3 =", calculadora.sumar(5, 3));
+console.log("10 - 4 =", calculadora.restar(10, 4));
+console.log("7 + 2 =", calculadora.sumar(7, 2));
+console.log("\\nHistorial:");
+console.log(calculadora.verHistorial());`}
+/>
+
+## Strings
+
+<CodePlayground
+  language="javascript"
+  title="Strings: métodos útiles"
+  initialCode={`const texto = "  Hola Mundo JavaScript  ";
+console.log("Original:", "'" + texto + "'");
+
+// Mayusculas y minusculas
+console.log("toUpperCase:", texto.toUpperCase());
+console.log("toLowerCase:", texto.toLowerCase());
+
+// Eliminar espacios al inicio y final
+console.log("trim:", "'" + texto.trim() + "'");
+
+// Dividir en un array
+const csv = "Ana,Carlos,Maria,Pedro";
+const nombres = csv.split(",");
+console.log("\\nsplit(','):", nombres);
+
+// Reemplazar
+const frase = "JavaScript es dificil, JavaScript es raro";
+console.log("\\nOriginal:", frase);
+console.log("replace:", frase.replace("dificil", "divertido"));
+console.log("replaceAll:", frase.replaceAll("JavaScript", "JS"));
+
+// Buscar dentro de un string
+console.log("\\nincludes('dificil'):", frase.includes("dificil"));
+console.log("startsWith('Java'):", frase.startsWith("Java"));
+console.log("endsWith('raro'):", frase.endsWith("raro"));
+
+// Obtener partes del string
+const lenguaje = "JavaScript";
+console.log("\\nslice(0, 4):", lenguaje.slice(0, 4));  // "Java"
+console.log("slice(4):", lenguaje.slice(4));            // "Script"
+console.log("charAt(0):", lenguaje.charAt(0));          // "J"
+
+// padStart / padEnd: rellenar con caracteres
+console.log("\\n--- padStart / padEnd ---");
+const num = "42";
+console.log("padStart(5, '0'):", num.padStart(5, "0"));  // "00042"
+console.log("padEnd(5, '.'):", num.padEnd(5, "."));       // "42..."
+
+// Ejemplo practico: formatear hora
+const h = 9, m = 5, s = 3;
+const hora = \`\${String(h).padStart(2,"0")}:\${String(m).padStart(2,"0")}:\${String(s).padStart(2,"0")}\`;
+console.log("Hora formateada:", hora);`}
+/>
+
+## Estructuras de Control
+
+<CodePlayground
+  language="javascript"
+  title="Loops: for, while, for...of"
+  initialCode={`const materias = ["Algoritmos", "Intro al Desarrollo", "Fisica", "Algebra"];
+
+// 1. for clasico (cuando necesitas el indice)
+let resultado1 = "";
+for (let i = 0; i < materias.length; i++) {
+  resultado1 += \`  \${i + 1}. \${materias[i]}\\n\`;
+}
+console.log("--- for clasico ---");
+console.log(resultado1);
+
+// 2. for...of (cuando solo necesitas el valor)
+let resultado2 = "";
+for (const materia of materias) {
+  resultado2 += \`  - \${materia}\\n\`;
+}
+console.log("--- for...of ---");
+console.log(resultado2);
+
+// 3. while (cuando no sabes cuantas iteraciones seran)
+console.log("--- while ---");
+let numero = 1;
+let resultado3 = "";
+while (numero <= 100) {
+  resultado3 += numero + " ";
+  numero *= 2;  // duplicar cada vez
+}
+console.log("Potencias de 2:", resultado3);
+
+// 4. for...in (para propiedades de objetos)
+const alumno = { nombre: "Ana", edad: 22, carrera: "Informatica" };
+console.log("\\n--- for...in (objetos) ---");
+for (const clave in alumno) {
+  console.log(\`  \${clave}: \${alumno[clave]}\`);
+}`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="forEach vs map"
+  initialCode={`const numeros = [1, 2, 3, 4, 5];
+
+// forEach: ejecuta una funcion por cada elemento
+// pero SIEMPRE devuelve undefined
+console.log("--- forEach ---");
+const resultadoForEach = numeros.forEach(n => {
+  // Hace algo con cada elemento (efecto secundario)
+  return n * 2;  // Este return NO sirve para nada!
+});
+console.log("Retorno de forEach:", resultadoForEach);  // undefined!
+
+// map: ejecuta una funcion por cada elemento
+// y devuelve un NUEVO ARRAY con los resultados
+console.log("\\n--- map ---");
+const resultadoMap = numeros.map(n => {
+  return n * 2;  // Este return SI se usa!
+});
+console.log("Retorno de map:", resultadoMap);  // [2, 4, 6, 8, 10]
+
+// Cuando usar cada uno:
+// - forEach: cuando queres HACER algo (imprimir, guardar, etc.)
+// - map: cuando queres TRANSFORMAR datos
+
+// Ejemplo practico
+const nombres = ["ana", "carlos", "maria"];
+
+// CORRECTO: usar map para transformar
+const capitalizados = nombres.map(n =>
+  n.charAt(0).toUpperCase() + n.slice(1)
+);
+console.log("\\nCapitalizados (map):", capitalizados);
+
+// INCORRECTO (error comun): usar forEach para transformar
+const mal = [];
+nombres.forEach(n => {
+  mal.push(n.charAt(0).toUpperCase() + n.slice(1));
+});
+console.log("Capitalizados (forEach):", mal);
+console.log("\\nAmbos dan el mismo resultado, pero map es mas limpio!");`}
+/>
+
+## Funciones de Orden Superior
+
+<CodePlayground
+  language="javascript"
+  title="Arrays: map, filter, reduce (combinados)"
+  initialCode={`// Funciones de orden superior: reciben o devuelven funciones
+
+// Dataset: productos de un kiosco
+const productos = [
+  { nombre: "Alfajor", precio: 500, categoria: "snack" },
+  { nombre: "Agua", precio: 300, categoria: "bebida" },
+  { nombre: "Galletitas", precio: 700, categoria: "snack" },
+  { nombre: "Jugo", precio: 450, categoria: "bebida" },
+  { nombre: "Chocolate", precio: 900, categoria: "snack" },
+  { nombre: "Gaseosa", precio: 800, categoria: "bebida" },
+];
+
+// 1. Obtener nombres de snacks que cuestan mas de 500
+const snacksCaros = productos
+  .filter(p => p.categoria === "snack")
+  .filter(p => p.precio > 500)
+  .map(p => p.nombre);
+console.log("Snacks caros:", snacksCaros);
+
+// 2. Precio total de todas las bebidas
+const totalBebidas = productos
+  .filter(p => p.categoria === "bebida")
+  .reduce((total, p) => total + p.precio, 0);
+console.log("Total bebidas: $" + totalBebidas);
+
+// 3. Producto mas caro
+const masCaro = productos.reduce((max, p) =>
+  p.precio > max.precio ? p : max
+);
+console.log("Mas caro:", masCaro.nombre, "$" + masCaro.precio);
+
+// 4. Agrupar por categoria
+const porCategoria = productos.reduce((grupos, p) => {
+  if (!grupos[p.categoria]) {
+    grupos[p.categoria] = [];
+  }
+  grupos[p.categoria].push(p.nombre);
+  return grupos;
+}, {});
+console.log("\\nPor categoria:", porCategoria);
+
+// 5. Aplicar 10% de descuento a todos
+const conDescuento = productos.map(p => ({
+  ...p,
+  precioFinal: Math.round(p.precio * 0.9)
+}));
+console.log("\\nCon 10% descuento:");
+conDescuento.forEach(p => {
+  console.log(\`  \${p.nombre}: $\${p.precio} -> $\${p.precioFinal}\`);
+});`}
+/>
+
+## Desestructuración y Spread
+
+<CodePlayground
+  language="javascript"
+  title="Desestructuración"
+  initialCode={`// Desestructuracion de ARRAYS
+const coordenadas = [10, 20, 30];
+const [x, y, z] = coordenadas;
+console.log("x:", x, "y:", y, "z:", z);
+
+// Saltar elementos
+const [primero, , tercero] = coordenadas;
+console.log("Primero:", primero, "Tercero:", tercero);
+
+// Valores por defecto
+const [a, b, c, d = 0] = [1, 2, 3];
+console.log("d (default):", d);
+
+// Desestructuracion de OBJETOS
+const estudiante = {
+  nombre: "Ana",
+  edad: 22,
+  carrera: "Informatica",
+  promedio: 8.5
+};
+
+const { nombre, edad, carrera } = estudiante;
+console.log("\\nNombre:", nombre, "Edad:", edad);
+
+// Renombrar variables
+const { nombre: nombreAlumno, promedio: prom } = estudiante;
+console.log("Renombrado:", nombreAlumno, "Promedio:", prom);
+
+// Valores por defecto en objetos
+const { email = "sin email", carrera: carr } = estudiante;
+console.log("Email (default):", email);
+
+// Desestructuracion anidada
+const universidad = {
+  nombre: "UBA",
+  facultad: {
+    nombre: "FIUBA",
+    departamento: {
+      nombre: "Computacion",
+      materias: 45
+    }
+  }
+};
+
+const { facultad: { departamento: { nombre: depto, materias } } } = universidad;
+console.log("\\nDepto:", depto, "- Materias:", materias);
+
+// En parametros de funcion
+function mostrar({ nombre, edad, carrera = "Sin carrera" }) {
+  console.log(\`\\n\${nombre}, \${edad} años, \${carrera}\`);
+}
+mostrar(estudiante);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Spread y Rest"
+  initialCode={`// SPREAD (...) - Expandir elementos
+
+// Copiar arrays (copia superficial)
+const original = [1, 2, 3];
+const copia = [...original];
+copia.push(4);
+console.log("Original:", original);  // [1, 2, 3]
+console.log("Copia:", copia);        // [1, 2, 3, 4]
+
+// Combinar arrays
+const front = ["HTML", "CSS", "JavaScript"];
+const back = ["Node", "Express", "PostgreSQL"];
+const fullstack = [...front, ...back];
+console.log("\\nFullstack:", fullstack);
+
+// Copiar objetos
+const config = { tema: "oscuro", idioma: "es" };
+const nuevaConfig = { ...config, fontSize: 16 };
+console.log("\\nConfig original:", config);
+console.log("Nueva config:", nuevaConfig);
+
+// Merge de objetos (el ultimo gana si hay conflicto)
+const defaults = { tema: "claro", idioma: "en", fontSize: 14 };
+const usuario = { tema: "oscuro", idioma: "es" };
+const final = { ...defaults, ...usuario };
+console.log("\\nMerge:", final);
+
+// REST (...) - Agrupar argumentos
+
+// En funciones
+function primeroYResto(primero, ...resto) {
+  console.log("\\nPrimero:", primero);
+  console.log("Resto:", resto);
+}
+primeroYResto("JavaScript", "Python", "Go", "Rust");
+
+// En desestructuracion
+const [cabeza, ...cola] = [10, 20, 30, 40, 50];
+console.log("\\nCabeza:", cabeza);
+console.log("Cola:", cola);
+
+const { nombre, ...datosExtra } = {
+  nombre: "Ana", edad: 22, carrera: "Info", promedio: 8
+};
+console.log("\\nNombre:", nombre);
+console.log("Datos extra:", datosExtra);`}
+/>
+
+<CodePlayground
+  language="javascript"
+  title="Try/Catch"
+  initialCode={`// try/catch: manejar errores sin que el programa se rompa
+
+function parsearJSON(texto) {
+  try {
+    const resultado = JSON.parse(texto);
+    console.log("Parseado correctamente:", resultado);
+    return resultado;
+  } catch (error) {
+    console.log("Error al parsear:", error.message);
+    return null;
+  }
+}
+
+// JSON valido
+parsearJSON('{"nombre": "Ana", "edad": 22}');
+
+// JSON invalido
+parsearJSON("esto no es JSON");
+parsearJSON("{nombre: sin comillas}");
+
+// El programa sigue ejecutandose despues del error!
+console.log("\\nEl programa no se rompio!");
+
+// Ejemplo practico: validacion con throw
+function dividir(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("Ambos argumentos deben ser numeros");
+  }
+  if (b === 0) {
+    throw new Error("No se puede dividir por cero");
+  }
+  return a / b;
+}
+
+console.log("\\n--- Divisiones ---");
+try {
+  console.log("10 / 2 =", dividir(10, 2));
+  console.log("10 / 0 =", dividir(10, 0));  // Esto lanza error
+} catch (error) {
+  console.log("Error capturado:", error.message);
+}
+
+try {
+  console.log(dividir("hola", 5));
+} catch (error) {
+  console.log("Error capturado:", error.message);
+}
+
+// finally: se ejecuta SIEMPRE, haya o no error
+console.log("\\n--- finally ---");
+try {
+  const data = JSON.parse('{"ok": true}');
+  console.log("Exito:", data);
+} catch (error) {
+  console.log("Error:", error.message);
+} finally {
+  console.log("Esto se ejecuta siempre!");
+}`}
+/>

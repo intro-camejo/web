@@ -1,0 +1,291 @@
+---
+sidebar_label: "JavaScript - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# JavaScript - Ejercicios Interactivos
+
+Practica JavaScript resolviendo los ejercicios. Cada uno tiene dos pestanas: una para que escribas tu codigo y otra con la solucion. Intenta resolver el ejercicio antes de mirar la respuesta.
+
+---
+
+## Nivel 1 - Variables y Tipos
+
+### Ejercicio 1: Variables
+
+Declara una constante `nombre` con tu nombre y una variable `edad` con tu edad. Mostra ambas usando template literals con el formato: "Me llamo X y tengo Y anos".
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Declara una constante "nombre" con tu nombre\n// Declara una variable "edad" con tu edad\n// Mostra ambas con template literals: "Me llamo X y tengo Y anos"\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const nombre = "Juan";\nconst edad = 20;\nconsole.log(\`Me llamo \${nombre} y tengo \${edad} anos\`);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Tipos de datos
+
+Crea una variable de cada tipo de dato principal en JavaScript: string, number, boolean, null, undefined, array y object. Mostra el `typeof` de cada una.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Crea una variable de cada tipo:\n// string, number, boolean, null, undefined, array, object\n// Mostra typeof de cada una con console.log\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const texto = "Hola mundo";\nconst numero = 42;\nconst booleano = true;\nconst nulo = null;\nlet indefinido;\nconst arreglo = [1, 2, 3];\nconst objeto = { clave: "valor" };\n\nconsole.log("texto:", typeof texto);\nconsole.log("numero:", typeof numero);\nconsole.log("booleano:", typeof booleano);\nconsole.log("nulo:", typeof nulo);          // "object" (bug historico de JS)\nconsole.log("indefinido:", typeof indefinido);\nconsole.log("arreglo:", typeof arreglo);    // "object" (los arrays son objetos)\nconsole.log("Es array?", Array.isArray(arreglo)); // true\nconsole.log("objeto:", typeof objeto);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Operaciones con strings
+
+Dada la variable `const frase = "  Hola Mundo  "`, aplica los metodos `trim()`, `toUpperCase()`, `toLowerCase()`, `replace()`, `split(" ")` y mostra el resultado de cada uno.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const frase = "  Hola Mundo  ";\n\n// Usa trim(), toUpperCase(), toLowerCase(), replace(), split(" ")\n// Mostra el resultado de cada operacion con console.log\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const frase = "  Hola Mundo  ";\n\nconsole.log("Original:", JSON.stringify(frase));\nconsole.log("trim():", JSON.stringify(frase.trim()));\nconsole.log("toUpperCase():", frase.trim().toUpperCase());\nconsole.log("toLowerCase():", frase.trim().toLowerCase());\nconsole.log("replace('Mundo', 'JavaScript'):", frase.trim().replace("Mundo", "JavaScript"));\nconsole.log("split(' '):", frase.trim().split(" "));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Operaciones con numeros
+
+Dado `const precio = 49.99`, aplica `Math.round()`, `Math.floor()`, `Math.ceil()`, `.toFixed(1)` y `isNaN()`. Mostra el resultado de cada operacion.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const precio = 49.99;\n\n// Usa Math.round(), Math.floor(), Math.ceil(), toFixed(1), isNaN()\n// Mostra el resultado de cada operacion con console.log\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const precio = 49.99;\n\nconsole.log("Precio original:", precio);\nconsole.log("Math.round():", Math.round(precio));\nconsole.log("Math.floor():", Math.floor(precio));\nconsole.log("Math.ceil():", Math.ceil(precio));\nconsole.log("toFixed(1):", precio.toFixed(1));\nconsole.log("isNaN(precio):", isNaN(precio));\nconsole.log("isNaN('hola'):", isNaN("hola"));`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Condicionales y Funciones
+
+### Ejercicio 5: Condicional
+
+Escribi una funcion `esAprobado(nota)` que retorne "Aprobado" si la nota es mayor o igual a 4, y "Desaprobado" en caso contrario. Probala con al menos 3 valores distintos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Escribi la funcion esAprobado(nota)\n// Debe retornar "Aprobado" si nota >= 4, "Desaprobado" sino\n// Probala con al menos 3 valores\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`function esAprobado(nota) {\n    if (nota >= 4) {\n        return "Aprobado";\n    } else {\n        return "Desaprobado";\n    }\n}\n\nconsole.log("Nota 8:", esAprobado(8));\nconsole.log("Nota 4:", esAprobado(4));\nconsole.log("Nota 2:", esAprobado(2));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 6: Switch
+
+Escribi una funcion `diaEnEspanol(num)` que reciba un numero del 1 al 7 y retorne el nombre del dia en espanol. Usa `switch`. Probala con varios valores.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Escribi la funcion diaEnEspanol(num)\n// Usa switch para retornar el nombre del dia (1=Lunes, 7=Domingo)\n// Probala con varios valores\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`function diaEnEspanol(num) {\n    switch (num) {\n        case 1: return "Lunes";\n        case 2: return "Martes";\n        case 3: return "Miercoles";\n        case 4: return "Jueves";\n        case 5: return "Viernes";\n        case 6: return "Sabado";\n        case 7: return "Domingo";\n        default: return "Numero invalido";\n    }\n}\n\nconsole.log("1:", diaEnEspanol(1));\nconsole.log("5:", diaEnEspanol(5));\nconsole.log("7:", diaEnEspanol(7));\nconsole.log("9:", diaEnEspanol(9));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Arrow function
+
+Reescrbi la funcion clasica `sumar(a, b)` como arrow function. Ademas, escribi `esPar` como una arrow function de una sola linea. Proba ambas.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Escribi sumar como arrow function\n// Escribi esPar como arrow function de una linea (retorna true/false)\n// Proba ambas funciones\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`// Arrow function con cuerpo\nconst sumar = (a, b) => {\n    return a + b;\n};\n\n// Arrow function de una linea (retorno implicito)\nconst esPar = (n) => n % 2 === 0;\n\nconsole.log("sumar(3, 4):", sumar(3, 4));\nconsole.log("sumar(10, 20):", sumar(10, 20));\nconsole.log("esPar(4):", esPar(4));\nconsole.log("esPar(7):", esPar(7));\nconsole.log("esPar(0):", esPar(0));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Funcion con default params
+
+Escribi una funcion `saludar(nombre = "visitante", saludo = "Hola")` que retorne `${saludo}, ${nombre}!`. Probala con 0, 1 y 2 argumentos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Escribi la funcion saludar con parametros por defecto\n// nombre = "visitante", saludo = "Hola"\n// Debe retornar: saludo + ", " + nombre + "!"\n// Probala con 0, 1 y 2 argumentos\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`function saludar(nombre = "visitante", saludo = "Hola") {\n    return \`\${saludo}, \${nombre}!\`;\n}\n\nconsole.log(saludar());                    // "Hola, visitante!"\nconsole.log(saludar("Maria"));             // "Hola, Maria!"\nconsole.log(saludar("Pedro", "Buenos dias")); // "Buenos dias, Pedro!"`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Funcion que retorna objeto
+
+Escribi una funcion `crearUsuario(nombre, email)` que retorne un objeto con `{id, nombre, email, activo: true}` donde `id` sea un numero aleatorio. Crea 2 usuarios y mostralos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Escribi crearUsuario(nombre, email)\n// Debe retornar { id: (aleatorio), nombre, email, activo: true }\n// Crea 2 usuarios y mostralos con console.log\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`function crearUsuario(nombre, email) {\n    return {\n        id: Math.floor(Math.random() * 10000),\n        nombre,\n        email,\n        activo: true\n    };\n}\n\nconst usuario1 = crearUsuario("Ana", "ana@mail.com");\nconst usuario2 = crearUsuario("Carlos", "carlos@mail.com");\n\nconsole.log("Usuario 1:", usuario1);\nconsole.log("Usuario 2:", usuario2);`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Arrays
+
+### Ejercicio 10: Metodos basicos
+
+Empeza con `const frutas = ["manzana", "banana", "naranja"]`. Usa `push`, `unshift`, `pop`, `includes` e `indexOf`. Mostra el array despues de cada operacion.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const frutas = ["manzana", "banana", "naranja"];\n\n// Usa push, unshift, pop, includes, indexOf\n// Mostra el array despues de cada operacion\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const frutas = ["manzana", "banana", "naranja"];\nconsole.log("Inicial:", frutas);\n\nfrutas.push("uva");\nconsole.log("Despues de push('uva'):", frutas);\n\nfrutas.unshift("frutilla");\nconsole.log("Despues de unshift('frutilla'):", frutas);\n\nconst eliminada = frutas.pop();\nconsole.log("Despues de pop():", frutas, "- Eliminada:", eliminada);\n\nconsole.log("includes('banana'):", frutas.includes("banana"));\nconsole.log("includes('kiwi'):", frutas.includes("kiwi"));\n\nconsole.log("indexOf('naranja'):", frutas.indexOf("naranja"));\nconsole.log("indexOf('pera'):", frutas.indexOf("pera")); // -1 = no encontrado`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 11: Map
+
+Dado `const numeros = [1, 2, 3, 4, 5]`, usa `map` para crear tres arrays nuevos: uno con los numeros duplicados, otro con los numeros al cuadrado, y otro con strings "Numero: X". Mostra cada uno.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const numeros = [1, 2, 3, 4, 5];\n\n// Usa map para crear:\n// 1. Array con numeros duplicados (x * 2)\n// 2. Array con numeros al cuadrado (x * x)\n// 3. Array con strings "Numero: X"\n// Mostra cada resultado\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const numeros = [1, 2, 3, 4, 5];\n\nconst duplicados = numeros.map(n => n * 2);\nconsole.log("Duplicados:", duplicados);\n\nconst cuadrados = numeros.map(n => n * n);\nconsole.log("Al cuadrado:", cuadrados);\n\nconst comoStrings = numeros.map(n => \`Numero: \${n}\`);\nconsole.log("Como strings:", comoStrings);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 12: Filter
+
+Dado un array de estudiantes con nombre y nota, filtra los que tienen nota mayor o igual a 7. Mostra los aprobados y los desaprobados.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const estudiantes = [\n    { nombre: "Ana", nota: 9 },\n    { nombre: "Luis", nota: 5 },\n    { nombre: "Maria", nota: 7 },\n    { nombre: "Pedro", nota: 3 },\n    { nombre: "Sofia", nota: 8 }\n];\n\n// Usa filter para separar aprobados (nota >= 7) y desaprobados\n// Mostra ambos arrays\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const estudiantes = [\n    { nombre: "Ana", nota: 9 },\n    { nombre: "Luis", nota: 5 },\n    { nombre: "Maria", nota: 7 },\n    { nombre: "Pedro", nota: 3 },\n    { nombre: "Sofia", nota: 8 }\n];\n\nconst aprobados = estudiantes.filter(e => e.nota >= 7);\nconst desaprobados = estudiantes.filter(e => e.nota < 7);\n\nconsole.log("Aprobados:");\naprobados.forEach(e => console.log(\`  \${e.nombre}: \${e.nota}\`));\n\nconsole.log("Desaprobados:");\ndesaprobados.forEach(e => console.log(\`  \${e.nombre}: \${e.nota}\`));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 13: Reduce
+
+Dado un array de compras con producto y precio, usa `reduce` para obtener: el precio total, el producto mas caro, y un string resumen con todos los productos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const compras = [\n    { producto: "Remera", precio: 5000 },\n    { producto: "Pantalon", precio: 12000 },\n    { producto: "Zapatillas", precio: 25000 },\n    { producto: "Medias", precio: 1500 },\n    { producto: "Gorra", precio: 3000 }\n];\n\n// Usa reduce para:\n// 1. Calcular el precio total\n// 2. Encontrar el producto mas caro\n// 3. Crear un string resumen: "Remera, Pantalon, ..."\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const compras = [\n    { producto: "Remera", precio: 5000 },\n    { producto: "Pantalon", precio: 12000 },\n    { producto: "Zapatillas", precio: 25000 },\n    { producto: "Medias", precio: 1500 },\n    { producto: "Gorra", precio: 3000 }\n];\n\n// Precio total\nconst total = compras.reduce((acc, c) => acc + c.precio, 0);\nconsole.log("Precio total: $" + total);\n\n// Producto mas caro\nconst masCaro = compras.reduce((max, c) => c.precio > max.precio ? c : max);\nconsole.log("Mas caro:", masCaro.producto, "$" + masCaro.precio);\n\n// String resumen\nconst resumen = compras.reduce((str, c, i) => {\n    return i === 0 ? c.producto : str + ", " + c.producto;\n}, "");\nconsole.log("Resumen:", resumen);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 14: Encadenamiento
+
+Dado un array de numeros del 1 al 10, encadena `filter` (solo pares), `map` (elevar al cuadrado) y `reduce` (sumar todo). Mostra los resultados intermedios y el final.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\n\n// Encadena: filter (pares) -> map (cuadrado) -> reduce (suma)\n// Mostra resultados intermedios y final\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\nconsole.log("Original:", numeros);\n\n// Paso 1: filtrar pares\nconst pares = numeros.filter(n => n % 2 === 0);\nconsole.log("Pares:", pares);\n\n// Paso 2: elevar al cuadrado\nconst cuadrados = pares.map(n => n * n);\nconsole.log("Al cuadrado:", cuadrados);\n\n// Paso 3: sumar\nconst suma = cuadrados.reduce((acc, n) => acc + n, 0);\nconsole.log("Suma:", suma);\n\n// Todo encadenado en una sola expresion\nconst resultado = numeros\n    .filter(n => n % 2 === 0)\n    .map(n => n * n)\n    .reduce((acc, n) => acc + n, 0);\nconsole.log("Encadenado:", resultado);`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - Objetos y mas
+
+### Ejercicio 15: Objetos
+
+Crea un objeto `persona` con nombre, edad, hobbies (array) y un metodo `presentarse()` que retorne un string usando `this`. Mostra la presentacion.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Crea un objeto persona con:\n// - nombre (string)\n// - edad (number)\n// - hobbies (array)\n// - presentarse() que use this y retorne un string\n// Mostra persona.presentarse()\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const persona = {\n    nombre: "Ana",\n    edad: 25,\n    hobbies: ["programar", "leer", "cocinar"],\n    presentarse() {\n        return \`Hola, soy \${this.nombre}, tengo \${this.edad} anos y me gusta \${this.hobbies.join(", ")}.\`;\n    }\n};\n\nconsole.log(persona.presentarse());\nconsole.log("Nombre:", persona.nombre);\nconsole.log("Hobbies:", persona.hobbies);\nconsole.log("Primer hobby:", persona.hobbies[0]);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 16: Destructuring
+
+Dado un objeto y un array, usa destructuring para extraer valores. Renombra una propiedad y agrega valores por defecto. Mostra todo.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const usuario = { nombre: "Carlos", edad: 30, pais: "Argentina" };\nconst colores = ["rojo", "verde", "azul", "amarillo"];\n\n// Destructuring del objeto: extraer nombre y edad\n// Renombra pais a paisOrigen\n// Agrega un default: profesion = "No especificada"\n// Destructuring del array: extraer primero y segundo elemento\n// Mostra todo con console.log\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const usuario = { nombre: "Carlos", edad: 30, pais: "Argentina" };\nconst colores = ["rojo", "verde", "azul", "amarillo"];\n\n// Destructuring de objeto con renombre y default\nconst { nombre, edad, pais: paisOrigen, profesion = "No especificada" } = usuario;\nconsole.log("Nombre:", nombre);\nconsole.log("Edad:", edad);\nconsole.log("Pais (renombrado):", paisOrigen);\nconsole.log("Profesion (default):", profesion);\n\n// Destructuring de array\nconst [primero, segundo, ...resto] = colores;\nconsole.log("Primero:", primero);\nconsole.log("Segundo:", segundo);\nconsole.log("Resto:", resto);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 17: Spread
+
+Usa el operador spread para: unir dos arrays, copiar un objeto y agregarle una propiedad nueva, y pasar elementos de un array como argumentos a una funcion.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const frutas = ["manzana", "banana"];\nconst verduras = ["lechuga", "tomate"];\nconst persona = { nombre: "Ana", edad: 25 };\n\n// 1. Uni los dos arrays con spread\n// 2. Copia persona y agrega una propiedad "pais"\n// 3. Usa spread para pasar elementos como argumentos a Math.max\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const frutas = ["manzana", "banana"];\nconst verduras = ["lechuga", "tomate"];\nconst persona = { nombre: "Ana", edad: 25 };\n\n// 1. Unir arrays\nconst alimentos = [...frutas, ...verduras];\nconsole.log("Arrays unidos:", alimentos);\n\n// 2. Copiar objeto y agregar propiedad\nconst personaConPais = { ...persona, pais: "Argentina" };\nconsole.log("Objeto copiado:", personaConPais);\nconsole.log("Original intacto:", persona);\n\n// 3. Spread como argumentos\nconst numeros = [5, 3, 9, 1, 7];\nconst maximo = Math.max(...numeros);\nconsole.log("Numeros:", numeros);\nconsole.log("Maximo:", maximo);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 18: Recorrer objetos
+
+Dado un objeto con 5 pares clave-valor, recorrelo usando `Object.keys`, `Object.values`, `Object.entries` y `for...in`. Mostra el resultado de cada forma.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const producto = {\n    nombre: "Notebook",\n    marca: "Dell",\n    precio: 500000,\n    stock: 15,\n    categoria: "Electronica"\n};\n\n// Recorre el objeto usando:\n// 1. Object.keys()\n// 2. Object.values()\n// 3. Object.entries()\n// 4. for...in\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const producto = {\n    nombre: "Notebook",\n    marca: "Dell",\n    precio: 500000,\n    stock: 15,\n    categoria: "Electronica"\n};\n\n// 1. Object.keys\nconsole.log("--- Object.keys ---");\nObject.keys(producto).forEach(key => {\n    console.log(key);\n});\n\n// 2. Object.values\nconsole.log("--- Object.values ---");\nObject.values(producto).forEach(value => {\n    console.log(value);\n});\n\n// 3. Object.entries\nconsole.log("--- Object.entries ---");\nObject.entries(producto).forEach(([key, value]) => {\n    console.log(\`\${key}: \${value}\`);\n});\n\n// 4. for...in\nconsole.log("--- for...in ---");\nfor (const key in producto) {\n    console.log(\`\${key} => \${producto[key]}\`);\n}`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 5 - Desafios
+
+### Ejercicio 19: Array de objetos completo
+
+Dado un array de 6 productos con nombre, precio, categoria y stock, escribi funciones para: encontrar el mas caro, agrupar por categoria, calcular el valor total del stock, y filtrar por rango de precio. Usa `map`, `filter` y `reduce`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`const productos = [\n    { nombre: "Notebook", precio: 500000, categoria: "Electronica", stock: 10 },\n    { nombre: "Mouse", precio: 15000, categoria: "Electronica", stock: 50 },\n    { nombre: "Remera", precio: 8000, categoria: "Ropa", stock: 100 },\n    { nombre: "Pantalon", precio: 20000, categoria: "Ropa", stock: 40 },\n    { nombre: "Auriculares", precio: 35000, categoria: "Electronica", stock: 25 },\n    { nombre: "Zapatillas", precio: 45000, categoria: "Calzado", stock: 30 }\n];\n\n// 1. Encontra el producto mas caro\n// 2. Agrupa los productos por categoria\n// 3. Calcula el valor total del stock (precio * stock de cada uno)\n// 4. Filtra productos entre $10000 y $40000\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`const productos = [\n    { nombre: "Notebook", precio: 500000, categoria: "Electronica", stock: 10 },\n    { nombre: "Mouse", precio: 15000, categoria: "Electronica", stock: 50 },\n    { nombre: "Remera", precio: 8000, categoria: "Ropa", stock: 100 },\n    { nombre: "Pantalon", precio: 20000, categoria: "Ropa", stock: 40 },\n    { nombre: "Auriculares", precio: 35000, categoria: "Electronica", stock: 25 },\n    { nombre: "Zapatillas", precio: 45000, categoria: "Calzado", stock: 30 }\n];\n\n// 1. Producto mas caro\nconst masCaro = productos.reduce((max, p) => p.precio > max.precio ? p : max);\nconsole.log("Mas caro:", masCaro.nombre, "$" + masCaro.precio);\n\n// 2. Agrupar por categoria\nconst porCategoria = productos.reduce((grupos, p) => {\n    if (!grupos[p.categoria]) {\n        grupos[p.categoria] = [];\n    }\n    grupos[p.categoria].push(p.nombre);\n    return grupos;\n}, {});\nconsole.log("Por categoria:", porCategoria);\n\n// 3. Valor total del stock\nconst valorTotal = productos.reduce((total, p) => total + (p.precio * p.stock), 0);\nconsole.log("Valor total del stock: $" + valorTotal);\n\n// 4. Filtrar por rango de precio\nconst enRango = productos.filter(p => p.precio >= 10000 && p.precio <= 40000);\nconsole.log("Entre $10000 y $40000:");\nenRango.forEach(p => console.log(\`  \${p.nombre}: $\${p.precio}\`));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 20: Mini sistema
+
+Crea un mini gestor de tareas: un array de tareas `{id, titulo, completada}`. Escribi funciones para: agregar tarea, completar tarea, eliminar tarea, listar pendientes y listar completadas. Proba el flujo: agrega 3 tareas, completa 1, lista pendientes, elimina 1, lista todas.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu codigo" initialCode={`// Crea un array de tareas (vacio al inicio)\n// Escribi las funciones:\n// - agregarTarea(titulo)\n// - completarTarea(id)\n// - eliminarTarea(id)\n// - listarPendientes()\n// - listarCompletadas()\n// Proba el flujo completo\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solucion">
+    <CodePlayground language="javascript" title="Solucion" initialCode={`let tareas = [];\nlet nextId = 1;\n\nfunction agregarTarea(titulo) {\n    const tarea = { id: nextId++, titulo, completada: false };\n    tareas.push(tarea);\n    console.log(\`+ Tarea agregada: "\${titulo}" (id: \${tarea.id})\`);\n    return tarea;\n}\n\nfunction completarTarea(id) {\n    const tarea = tareas.find(t => t.id === id);\n    if (tarea) {\n        tarea.completada = true;\n        console.log(\`v Tarea completada: "\${tarea.titulo}"\`);\n    } else {\n        console.log("Tarea no encontrada");\n    }\n}\n\nfunction eliminarTarea(id) {\n    const index = tareas.findIndex(t => t.id === id);\n    if (index !== -1) {\n        const eliminada = tareas.splice(index, 1)[0];\n        console.log(\`x Tarea eliminada: "\${eliminada.titulo}"\`);\n    } else {\n        console.log("Tarea no encontrada");\n    }\n}\n\nfunction listarPendientes() {\n    const pendientes = tareas.filter(t => !t.completada);\n    console.log(\`\\nPendientes (\${pendientes.length}):\`);\n    pendientes.forEach(t => console.log(\`  [ ] \${t.titulo} (id: \${t.id})\`));\n}\n\nfunction listarCompletadas() {\n    const completadas = tareas.filter(t => t.completada);\n    console.log(\`\\nCompletadas (\${completadas.length}):\`);\n    completadas.forEach(t => console.log(\`  [x] \${t.titulo} (id: \${t.id})\`));\n}\n\n// --- Flujo de prueba ---\nconsole.log("=== GESTOR DE TAREAS ===\\n");\n\nagregarTarea("Estudiar JavaScript");\nagregarTarea("Hacer ejercicios");\nagregarTarea("Leer documentacion");\n\nlistarPendientes();\n\ncompletarTarea(1);\n\nlistarPendientes();\nlistarCompletadas();\n\neliminarTarea(2);\n\nconsole.log("\\n--- Estado final ---");\nlistarPendientes();\nlistarCompletadas();`} />
+  </TabItem>
+</Tabs>

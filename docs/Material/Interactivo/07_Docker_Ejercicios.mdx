@@ -1,0 +1,878 @@
+---
+sidebar_label: "Docker - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Docker - Ejercicios
+
+Practicá Docker resolviendo los ejercicios. Cada uno tiene dos pestañas: una para que escribas tus comandos y otra con la solución. Intentá resolver el ejercicio antes de mirar la respuesta.
+
+:::info
+*Estos ejercicios son para practicar en tu terminal con Docker instalado. Si no tenés Docker, podés usar [Play with Docker](https://labs.play-with-docker.com/).*
+:::
+
+---
+
+## Nivel 1 - Comandos Básicos
+
+### Ejercicio 1: Pull y listar
+
+Descargar la imagen de **nginx** desde Docker Hub y verificar que se descargó correctamente listando las imágenes disponibles.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Descargá la imagen de nginx
+  # 2. Listá todas las imágenes descargadas
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Descargamos la imagen de nginx desde Docker Hub
+  docker pull nginx
+
+  # Listamos todas las imágenes locales para verificar
+  docker images
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Ejecutar contenedor
+
+Ejecutar un contenedor de **nginx** en modo "detached" (segundo plano), con el nombre `mi-web`, mapeando el puerto **8080** del host al puerto **80** del contenedor. Luego verificar que está corriendo.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Ejecutá nginx en modo detached, con nombre "mi-web" y puerto 8080:80
+  # 2. Verificá que el contenedor está corriendo
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # -d: modo detached (segundo plano)
+  # --name: asigna un nombre al contenedor
+  # -p: mapea puerto_host:puerto_contenedor
+  docker run -d --name mi-web -p 8080:80 nginx
+
+  # Listamos los contenedores en ejecución
+  docker ps
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Ver logs
+
+Ver los logs del contenedor `mi-web`. Luego, mostrar solamente las últimas **10 líneas** de los logs.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Mostrá todos los logs del contenedor "mi-web"
+  # 2. Mostrá solo las últimas 10 líneas de los logs
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Ver todos los logs del contenedor
+  docker logs mi-web
+
+  # Ver solo las últimas 10 líneas con --tail
+  docker logs --tail 10 mi-web
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Ejecutar comando
+
+Abrir una terminal interactiva **bash** dentro del contenedor `mi-web` que está en ejecución, usando `docker exec`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Abrí una terminal bash dentro del contenedor "mi-web"
+  # Pista: usá docker exec con los flags -i (interactivo) y -t (terminal)
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # -i: mantiene STDIN abierto (interactivo)
+  # -t: asigna una pseudo-terminal (TTY)
+  # bash: el comando a ejecutar dentro del contenedor
+  docker exec -it mi-web bash
+
+  # Una vez dentro, podés explorar el contenedor:
+  # ls /usr/share/nginx/html/
+  # cat /etc/nginx/nginx.conf
+  # exit   <-- para salir
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Detener y eliminar
+
+Detener el contenedor `mi-web`, luego eliminarlo. Verificar que ya no existe con `docker ps -a`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Detené el contenedor "mi-web"
+  # 2. Eliminá el contenedor
+  # 3. Verificá que ya no existe (docker ps -a muestra TODOS, incluso los detenidos)
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Detenemos el contenedor
+  docker stop mi-web
+
+  # Eliminamos el contenedor
+  docker rm mi-web
+
+  # Verificamos que no aparece en la lista (ni siquiera como detenido)
+  docker ps -a
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Dockerfile
+
+### Ejercicio 6: Dockerfile básico
+
+Escribir un **Dockerfile** para una aplicación Node.js que:
+- Use la imagen base `node:18`
+- Establezca `/app` como directorio de trabajo
+- Copie el `package.json` primero y ejecute `npm install`
+- Copie el resto del código
+- Exponga el puerto `3000`
+- Ejecute `node index.js` al iniciar
+
+Luego, construir la imagen con el tag `mi-app`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```dockerfile
+  # Completá el Dockerfile para una app Node.js
+  # 1. Imagen base node:18
+  # 2. Directorio de trabajo /app
+  # 3. Copiar package.json e instalar dependencias
+  # 4. Copiar el resto del código
+  # 5. Exponer puerto 3000
+  # 6. Comando para ejecutar la app
+  ```
+
+  ```bash
+  # Construí la imagen con el tag "mi-app"
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```dockerfile
+  # Imagen base con Node.js versión 18
+  FROM node:18
+
+  # Establecemos el directorio de trabajo dentro del contenedor
+  WORKDIR /app
+
+  # Copiamos package.json primero para aprovechar la caché de Docker
+  # Si package.json no cambió, Docker reutiliza la capa de npm install
+  COPY package.json .
+
+  # Instalamos las dependencias
+  RUN npm install
+
+  # Copiamos el resto del código fuente
+  COPY . .
+
+  # Documentamos que la app usa el puerto 3000
+  EXPOSE 3000
+
+  # Comando que se ejecuta al iniciar el contenedor
+  CMD ["node", "index.js"]
+  ```
+
+  ```bash
+  # Construimos la imagen con tag "mi-app"
+  # El punto (.) indica que el Dockerfile está en el directorio actual
+  docker build -t mi-app .
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Dockerfile con .dockerignore
+
+Crear un archivo `.dockerignore` que excluya archivos innecesarios de la imagen: `node_modules`, `.git`, `.env` y archivos `*.md`. Explicar por qué es importante.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```text
+  # Creá el archivo .dockerignore
+  # Excluí: node_modules, .git, .env y archivos .md
+  ```
+
+  ```bash
+  # ¿Por qué es importante usar .dockerignore?
+  # Escribí tu respuesta acá
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```text
+  # .dockerignore
+  node_modules
+  .git
+  .env
+  *.md
+  ```
+
+  ```bash
+  # ¿Por qué es importante usar .dockerignore?
+  #
+  # 1. node_modules: Se reinstalan con npm install dentro del contenedor.
+  #    Copiarlos sería redundante y podría causar conflictos entre
+  #    arquitecturas (host vs contenedor).
+  #
+  # 2. .git: El historial de Git no es necesario en producción y
+  #    aumenta considerablemente el tamaño de la imagen.
+  #
+  # 3. .env: Contiene variables de entorno sensibles (claves, contraseñas).
+  #    NUNCA deben incluirse en la imagen por seguridad.
+  #
+  # 4. *.md: Los archivos README y documentación no son necesarios
+  #    para la ejecución de la aplicación.
+  #
+  # Beneficios generales:
+  # - Imagen más liviana (menor tamaño)
+  # - Builds más rápidos (menos archivos para copiar)
+  # - Mayor seguridad (no se incluyen secretos)
+  # - Mejor uso de la caché de Docker
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Multi-stage build
+
+Escribir un **Dockerfile** con dos etapas (multi-stage build):
+1. **Etapa de build:** usar `node:18` para instalar dependencias y compilar la app.
+2. **Etapa de producción:** usar `nginx:alpine` y copiar solo los archivos compilados desde la etapa anterior.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```dockerfile
+  # Etapa 1: Build
+  # Usá node:18 como imagen base con alias "builder"
+  # Copiá el código e instalá dependencias
+  # Ejecutá npm run build
+
+  # Etapa 2: Producción
+  # Usá nginx:alpine como imagen base
+  # Copiá los archivos compilados desde la etapa "builder"
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```dockerfile
+  # === Etapa 1: Build ===
+  # Usamos node:18 y le damos el alias "builder"
+  FROM node:18 AS builder
+
+  WORKDIR /app
+
+  # Copiamos archivos de dependencias primero (caché de Docker)
+  COPY package.json package-lock.json ./
+
+  # Instalamos todas las dependencias (incluyendo devDependencies)
+  RUN npm install
+
+  # Copiamos el código fuente
+  COPY . .
+
+  # Compilamos la aplicación (ej: React, Vue, etc.)
+  RUN npm run build
+
+  # === Etapa 2: Producción ===
+  # Usamos nginx:alpine (imagen mucho más liviana)
+  FROM nginx:alpine
+
+  # Copiamos SOLO los archivos compilados desde la etapa "builder"
+  # --from=builder referencia la primera etapa
+  COPY --from=builder /app/build /usr/share/nginx/html
+
+  # nginx expone el puerto 80 por defecto
+  EXPOSE 80
+
+  # nginx se ejecuta automáticamente con su CMD por defecto
+  ```
+
+  ```bash
+  # La imagen final solo contiene nginx + los archivos estáticos
+  # No incluye node_modules, código fuente ni herramientas de build
+  # Resultado: imagen mucho más pequeña y segura
+
+  docker build -t mi-app-prod .
+
+  # Comparar tamaños:
+  # node:18        ~900MB
+  # nginx:alpine   ~40MB  (+ archivos compilados)
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Variables de entorno
+
+Ejecutar un contenedor de **PostgreSQL** con las siguientes configuraciones usando variables de entorno:
+- Usuario: `admin`
+- Contraseña: `secret`
+- Base de datos: `midb`
+- Puerto mapeado: `5432:5432`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Ejecutá un contenedor de postgres con:
+  # - Modo detached
+  # - Nombre: mi-postgres
+  # - Variables de entorno para usuario, contraseña y base de datos
+  # - Puerto 5432 mapeado
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # -e define variables de entorno dentro del contenedor
+  # PostgreSQL usa estas variables para configurarse automáticamente
+  docker run -d \
+    --name mi-postgres \
+    -e POSTGRES_USER=admin \
+    -e POSTGRES_PASSWORD=secret \
+    -e POSTGRES_DB=midb \
+    -p 5432:5432 \
+    postgres
+
+  # Verificamos que está corriendo
+  docker ps
+
+  # Podemos conectarnos a la base de datos con:
+  docker exec -it mi-postgres psql -U admin -d midb
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Volúmenes
+
+Ejecutar un contenedor de PostgreSQL con un **volumen nombrado** para persistir los datos. Luego, detener y eliminar el contenedor, recrearlo con el mismo volumen y comprobar que los datos persisten.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Creá un volumen nombrado llamado "pg-data"
+  # 2. Ejecutá postgres montando el volumen en /var/lib/postgresql/data
+  # 3. Creá una tabla de prueba dentro de la base de datos
+  # 4. Detené y eliminá el contenedor
+  # 5. Recreá el contenedor con el mismo volumen
+  # 6. Verificá que la tabla sigue existiendo
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Paso 1: Crear un volumen nombrado
+  docker volume create pg-data
+
+  # Paso 2: Ejecutar postgres con el volumen montado
+  # -v volumen:ruta_en_contenedor
+  docker run -d \
+    --name mi-postgres \
+    -e POSTGRES_USER=admin \
+    -e POSTGRES_PASSWORD=secret \
+    -e POSTGRES_DB=midb \
+    -v pg-data:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    postgres
+
+  # Paso 3: Crear una tabla de prueba
+  docker exec -it mi-postgres psql -U admin -d midb -c \
+    "CREATE TABLE prueba (id SERIAL PRIMARY KEY, nombre TEXT);"
+  docker exec -it mi-postgres psql -U admin -d midb -c \
+    "INSERT INTO prueba (nombre) VALUES ('dato persistente');"
+
+  # Paso 4: Detener y eliminar el contenedor
+  docker stop mi-postgres
+  docker rm mi-postgres
+
+  # Paso 5: Recrear el contenedor con el MISMO volumen
+  docker run -d \
+    --name mi-postgres \
+    -e POSTGRES_USER=admin \
+    -e POSTGRES_PASSWORD=secret \
+    -e POSTGRES_DB=midb \
+    -v pg-data:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    postgres
+
+  # Paso 6: Verificar que los datos persisten
+  docker exec -it mi-postgres psql -U admin -d midb -c \
+    "SELECT * FROM prueba;"
+  # Resultado: el dato "dato persistente" sigue ahí!
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Docker Compose
+
+### Ejercicio 11: Compose básico
+
+Escribir un archivo `docker-compose.yml` con un único servicio **nginx** que:
+- Mapee el puerto `8080:80`
+- Monte una carpeta local `./html` como volumen en `/usr/share/nginx/html`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```yaml
+  # Completá el docker-compose.yml
+  # Servicio: web (nginx)
+  # Puerto: 8080 -> 80
+  # Volumen: carpeta local ./html -> /usr/share/nginx/html
+  ```
+
+  ```bash
+  # ¿Qué comando usás para levantar los servicios?
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```yaml
+  # docker-compose.yml
+  services:
+    web:
+      image: nginx
+      ports:
+        - "8080:80"
+      volumes:
+        - ./html:/usr/share/nginx/html
+  ```
+
+  ```bash
+  # Crear la carpeta html con un archivo de prueba
+  mkdir -p html
+  echo "<h1>Hola Docker Compose!</h1>" > html/index.html
+
+  # Levantar los servicios en modo detached
+  docker compose up -d
+
+  # Verificar que está corriendo
+  docker compose ps
+
+  # Abrir en el navegador: http://localhost:8080
+
+  # Para detener y eliminar los servicios
+  docker compose down
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 12: Compose multi-servicio
+
+Escribir un `docker-compose.yml` con dos servicios:
+1. **app:** una aplicación Node.js que se construye desde un Dockerfile local, expone el puerto `3000` y depende de la base de datos.
+2. **db:** PostgreSQL con variables de entorno, volumen nombrado para persistencia.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```yaml
+  # Completá el docker-compose.yml con dos servicios:
+  # 1. "app" - Node.js (build desde Dockerfile, puerto 3000, depends_on db)
+  # 2. "db"  - PostgreSQL (imagen postgres, variables de entorno, volumen)
+  # Definí un volumen nombrado para la base de datos
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```yaml
+  # docker-compose.yml
+  services:
+    app:
+      # Construye la imagen desde el Dockerfile en el directorio actual
+      build: .
+      ports:
+        - "3000:3000"
+      environment:
+        - DATABASE_URL=postgres://admin:secret@db:5432/midb
+      # El servicio app espera a que db esté listo antes de iniciar
+      depends_on:
+        - db
+
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=secret
+        - POSTGRES_DB=midb
+      ports:
+        - "5432:5432"
+      volumes:
+        # Volumen nombrado para persistir datos de PostgreSQL
+        - pg-data:/var/lib/postgresql/data
+
+  # Declaración del volumen nombrado
+  volumes:
+    pg-data:
+  ```
+
+  ```bash
+  # Levantar ambos servicios (construye la imagen si es necesario)
+  docker compose up -d --build
+
+  # Ver logs de ambos servicios
+  docker compose logs
+
+  # Ver logs solo de la app
+  docker compose logs app
+
+  # Detener todo
+  docker compose down
+
+  # Detener todo Y eliminar los volúmenes (borra datos de la DB)
+  docker compose down -v
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 13: Compose con .env
+
+Refactorizar el ejercicio anterior moviendo todas las variables de entorno a un archivo `.env`. Referenciarlas en `docker-compose.yml` usando la sintaxis `${VARIABLE}`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```text
+  # Creá el archivo .env con las variables necesarias
+  # (usuario, contraseña, nombre de la DB, puertos)
+  ```
+
+  ```yaml
+  # Modificá el docker-compose.yml para usar ${VARIABLE}
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```text
+  # .env
+  POSTGRES_USER=admin
+  POSTGRES_PASSWORD=secret
+  POSTGRES_DB=midb
+  DB_PORT=5432
+  APP_PORT=3000
+  ```
+
+  ```yaml
+  # docker-compose.yml
+  services:
+    app:
+      build: .
+      ports:
+        - "${APP_PORT}:3000"
+      environment:
+        - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${DB_PORT}/${POSTGRES_DB}
+      depends_on:
+        - db
+
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRES_DB=${POSTGRES_DB}
+      ports:
+        - "${DB_PORT}:5432"
+      volumes:
+        - pg-data:/var/lib/postgresql/data
+
+  volumes:
+    pg-data:
+  ```
+
+  ```bash
+  # Docker Compose lee automáticamente el archivo .env del mismo directorio
+  # No hace falta ningún flag extra
+
+  # Verificar qué valores se están usando
+  docker compose config
+
+  # Levantar con las variables del .env
+  docker compose up -d
+
+  # Ventaja: podés tener diferentes archivos .env por entorno:
+  # .env.development, .env.production, etc.
+  # docker compose --env-file .env.production up -d
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - Desafíos
+
+### Ejercicio 14: Stack completo
+
+Escribir un `docker-compose.yml` para un stack completo con tres servicios:
+1. **frontend:** nginx sirviendo archivos estáticos desde `./frontend/build`
+2. **backend:** aplicación Node.js con Express, expone puerto `4000`
+3. **database:** PostgreSQL con volumen persistente
+
+Conectarlos mediante una **red personalizada** y agregar un **healthcheck** en el backend.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```yaml
+  # Completá el docker-compose.yml con:
+  # 1. Servicio "frontend" (nginx, archivos estáticos, puerto 80)
+  # 2. Servicio "backend"  (node:18, puerto 4000, healthcheck)
+  # 3. Servicio "database" (postgres, volumen, variables de entorno)
+  # 4. Red personalizada "app-network"
+  # 5. Volumen nombrado para la base de datos
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```yaml
+  # docker-compose.yml
+  services:
+    frontend:
+      image: nginx:alpine
+      ports:
+        - "80:80"
+      volumes:
+        # Montamos los archivos estáticos del frontend
+        - ./frontend/build:/usr/share/nginx/html
+        # Configuración personalizada de nginx para proxy al backend
+        - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      depends_on:
+        - backend
+      networks:
+        - app-network
+
+    backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      ports:
+        - "4000:4000"
+      environment:
+        - NODE_ENV=production
+        - DATABASE_URL=postgres://admin:secret@database:5432/midb
+        - PORT=4000
+      depends_on:
+        - database
+      networks:
+        - app-network
+      # Healthcheck: verifica que el backend responde correctamente
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 10s
+
+    database:
+      image: postgres:15
+      environment:
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=secret
+        - POSTGRES_DB=midb
+      volumes:
+        - db-data:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+      networks:
+        - app-network
+
+  # Red personalizada: los servicios se comunican por nombre
+  # (ej: el backend accede a la DB como "database:5432")
+  networks:
+    app-network:
+      driver: bridge
+
+  # Volumen nombrado para persistencia de datos
+  volumes:
+    db-data:
+  ```
+
+  ```bash
+  # Estructura de archivos esperada:
+  # .
+  # ├── docker-compose.yml
+  # ├── nginx.conf
+  # ├── frontend/
+  # │   └── build/        (archivos estáticos)
+  # └── backend/
+  #     ├── Dockerfile
+  #     ├── package.json
+  #     └── index.js
+
+  # Levantar todo el stack
+  docker compose up -d --build
+
+  # Verificar el estado de los healthchecks
+  docker compose ps
+
+  # Ver los logs de todos los servicios
+  docker compose logs -f
+
+  # Detener y limpiar todo
+  docker compose down -v
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 15: Debugging
+
+El siguiente Dockerfile tiene **varios errores comunes**. Identificá cada problema y escribí la versión corregida.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```dockerfile
+  # Dockerfile con errores - Encontrá y corregí los problemas
+
+  FROM node:18
+
+  # Error 1: ¿Qué pasa con el WORKDIR?
+  WORKDIR /aplicacion
+
+  # Error 2: ¿El orden de las instrucciones es correcto?
+  COPY . .
+  RUN npm install
+
+  # Error 3: ¿Falta algo importante?
+
+  CMD ["node", "index.js"]
+  ```
+
+  ```bash
+  # Listá los errores que encontraste y explicá por qué son problemas:
+  # Error 1:
+  # Error 2:
+  # Error 3:
+  # Error 4: ¿Falta algún archivo importante en el proyecto?
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # === Errores encontrados ===
+
+  # Error 1 - WORKDIR inconsistente:
+  # Usar /aplicacion no es incorrecto, pero la convención estándar
+  # es /app. Lo importante es ser consistente. Si otros archivos
+  # (docker-compose.yml, scripts) referencian /app, esto falla.
+  # Solución: usar WORKDIR /app
+
+  # Error 2 - COPY . . ANTES de npm install:
+  # Al copiar TODO el código antes de instalar dependencias,
+  # se invalida la caché de Docker con CADA cambio en el código.
+  # Esto significa que npm install se ejecuta de nuevo cada vez,
+  # incluso si package.json no cambió.
+  # Solución: copiar package.json primero, instalar, luego copiar el resto.
+
+  # Error 3 - Falta EXPOSE:
+  # No se documentó el puerto que usa la aplicación.
+  # Si bien EXPOSE no publica el puerto, es una buena práctica
+  # documentarlo y es necesario para que funcionen ciertos proxies.
+  # Solución: agregar EXPOSE 3000
+
+  # Error 4 - Falta .dockerignore:
+  # Sin .dockerignore, COPY . . incluye node_modules, .git, .env
+  # y otros archivos innecesarios o sensibles en la imagen.
+  # Solución: crear un archivo .dockerignore
+  ```
+
+  ```dockerfile
+  # === Dockerfile corregido ===
+
+  FROM node:18
+
+  # Directorio de trabajo estándar
+  WORKDIR /app
+
+  # Primero copiamos SOLO los archivos de dependencias
+  # Esto aprovecha la caché de Docker: si package.json no cambió,
+  # npm install no se vuelve a ejecutar
+  COPY package.json package-lock.json ./
+  RUN npm install
+
+  # Después copiamos el resto del código
+  COPY . .
+
+  # Documentamos el puerto que expone la aplicación
+  EXPOSE 3000
+
+  # Comando de inicio
+  CMD ["node", "index.js"]
+  ```
+
+  ```text
+  # === .dockerignore (archivo faltante) ===
+  node_modules
+  .git
+  .env
+  *.md
+  .dockerignore
+  Dockerfile
+  ```
+
+  </TabItem>
+</Tabs>

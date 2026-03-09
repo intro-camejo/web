@@ -1,0 +1,577 @@
+---
+sidebar_label: "Git - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Git - Ejercicios Interactivos
+
+Practicá Git resolviendo los ejercicios. Cada uno tiene dos pestañas: una con la consigna para que escribas tus comandos y otra con la solución. Intentá resolver el ejercicio antes de mirar la respuesta.
+
+:::tip Consejo
+Estos ejercicios son para practicar en tu terminal. Creá un directorio de prueba para experimentar sin miedo.
+:::
+
+:::info Recurso recomendado
+Para practicar de forma visual e interactiva, te recomendamos [**Learn Git Branching**](https://learngitbranching.js.org/?locale=es_AR). Es una herramienta excelente para entender cómo funcionan las ramas, los merges y más.
+:::
+
+---
+
+## Nivel 1 - Básico
+
+### Ejercicio 1: Inicializar un repositorio
+
+Creá un directorio llamado "mi-proyecto", ingresá a él e inicializá un repositorio Git.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Creá el directorio, ingresá y luego inicializá el repositorio Git
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  mkdir mi-proyecto
+  cd mi-proyecto
+  git init
+  ```
+
+  Deberías ver el mensaje: `Initialized empty Git repository in .../mi-proyecto/.git/`
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Primer commit
+
+Creá un archivo `README.md` con el contenido "# Mi Proyecto", agregalo al área de staging y hacé un commit con el mensaje "Primer commit".
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Creá el archivo README.md, agregalo al staging y hacé el commit
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  echo "# Mi Proyecto" > README.md
+  git add README.md
+  git commit -m "Primer commit"
+  ```
+
+  El comando `echo` crea el archivo con el contenido indicado. Luego `git add` lo prepara para el commit, y `git commit -m` confirma los cambios con un mensaje descriptivo.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Ver estado y cambios
+
+Modificá el archivo `README.md` agregándole una línea, revisá el estado del repositorio, mirá las diferencias, agregá los cambios al staging y hacé un nuevo commit.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Modificá README.md (agregá una línea de descripción)
+  # 2. Revisá el estado del repositorio
+  # 3. Mirá las diferencias
+  # 4. Agregá los cambios y hacé un commit
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  echo "Este es mi primer proyecto con Git." >> README.md
+  git status
+  git diff
+  git add README.md
+  git commit -m "Agrego descripción al README"
+  ```
+
+  - `git status` muestra que `README.md` fue modificado pero no está en staging.
+  - `git diff` muestra exactamente qué líneas cambiaron (en verde las nuevas, en rojo las eliminadas).
+  - Después del `git add`, si hacés `git status` de nuevo, verás el archivo en staging listo para el commit.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Ver historial
+
+Usá distintas formas de `git log` para ver el historial de commits del repositorio.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Mostrá el historial completo de commits
+  # 2. Mostrá el historial en formato resumido (una línea por commit)
+  # 3. Mostrá el historial resumido con un gráfico de ramas
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  git log
+  git log --oneline
+  git log --oneline --graph
+  ```
+
+  - `git log` muestra el historial completo con hash, autor, fecha y mensaje.
+  - `git log --oneline` muestra una versión compacta con hash abreviado y mensaje.
+  - `git log --oneline --graph` agrega una representación visual de las ramas (muy útil cuando hay merges).
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 5: Crear .gitignore
+
+Creá un archivo `.gitignore` que ignore `node_modules/`, `.env`, archivos `*.log` y `.DS_Store`. Luego agregalo y hacé un commit.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Creá el archivo .gitignore con los patrones indicados
+  # 2. Agregalo al staging y hacé un commit
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  echo "node_modules/
+  .env
+  *.log
+  .DS_Store" > .gitignore
+
+  git add .gitignore
+  git commit -m "Agrego .gitignore"
+  ```
+
+  El archivo `.gitignore` le dice a Git qué archivos o directorios debe ignorar. Cada línea es un patrón:
+  - `node_modules/` ignora todo el directorio de dependencias de Node.js.
+  - `.env` ignora archivos de variables de entorno (que suelen contener secretos).
+  - `*.log` ignora cualquier archivo que termine en `.log`.
+  - `.DS_Store` ignora archivos de metadata de macOS.
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Ramas
+
+### Ejercicio 6: Crear una rama
+
+Creá una rama llamada `feature/nueva-pagina`, cambiá a ella, creá un archivo `pagina.html` y hacé un commit.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Creá la rama feature/nueva-pagina
+  # 2. Cambiá a esa rama
+  # 3. Creá un archivo pagina.html
+  # 4. Agregalo y hacé un commit
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  git branch feature/nueva-pagina
+  git checkout feature/nueva-pagina
+  # O en un solo paso: git checkout -b feature/nueva-pagina
+
+  echo "<html><body><h1>Nueva Página</h1></body></html>" > pagina.html
+  git add pagina.html
+  git commit -m "Agrego nueva página HTML"
+  ```
+
+  - `git branch nombre` crea la rama pero no te mueve a ella.
+  - `git checkout nombre` te cambia a esa rama.
+  - `git checkout -b nombre` hace ambas cosas en un solo paso.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: Merge
+
+Volvé a la rama `main`, fusioná la rama `feature/nueva-pagina` y verificá que el archivo `pagina.html` esté presente.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Cambiá a la rama main
+  # 2. Fusioná la rama feature/nueva-pagina
+  # 3. Verificá que pagina.html existe
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  git checkout main
+  git merge feature/nueva-pagina
+  ls pagina.html
+  ```
+
+  El `merge` trae todos los commits de `feature/nueva-pagina` a `main`. Si no hubo cambios en `main` después de crear la rama, Git hace un "fast-forward merge" (simplemente mueve el puntero de main hacia adelante).
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: Merge conflict
+
+Creá un escenario de conflicto: modificá la misma línea de un archivo en dos ramas diferentes, luego intentá fusionarlas y resolvé el conflicto.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. En main, creá un archivo con contenido inicial y hacé commit
+  # 2. Creá una rama nueva y modificá la primera línea del archivo, hacé commit
+  # 3. Volvé a main y modificá la misma primera línea con otro texto, hacé commit
+  # 4. Intentá mergear la rama y resolvé el conflicto
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # 1. En main, crear archivo base
+  echo "Hola Mundo" > saludo.txt
+  git add saludo.txt
+  git commit -m "Agrego saludo.txt"
+
+  # 2. Crear rama y modificar
+  git checkout -b feature/saludo-formal
+  echo "Buenos días, Mundo" > saludo.txt
+  git add saludo.txt
+  git commit -m "Cambio saludo a formal"
+
+  # 3. Volver a main y modificar la misma línea
+  git checkout main
+  echo "Hey Mundo!" > saludo.txt
+  git add saludo.txt
+  git commit -m "Cambio saludo a informal"
+
+  # 4. Intentar merge (va a dar conflicto)
+  git merge feature/saludo-formal
+  ```
+
+  Git mostrará un conflicto. Si abrís `saludo.txt`, vas a ver algo así:
+
+  ```
+  <<<<<<< HEAD
+  Hey Mundo!
+  =======
+  Buenos días, Mundo
+  >>>>>>> feature/saludo-formal
+  ```
+
+  Para resolverlo, editá el archivo dejando solo el contenido que querés (borrando los marcadores `<<<<<<<`, `=======` y `>>>>>>>`), luego:
+
+  ```bash
+  git add saludo.txt
+  git commit -m "Resuelvo conflicto en saludo.txt"
+  ```
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: Eliminar una rama
+
+Eliminá la rama `feature/nueva-pagina` que ya fue fusionada con `main`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Eliminá la rama que ya fue mergeada
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  git branch -d feature/nueva-pagina
+  ```
+
+  - `git branch -d` elimina una rama solo si ya fue fusionada (es seguro).
+  - `git branch -D` fuerza la eliminación aunque no haya sido fusionada (usá con cuidado).
+  - Es buena práctica eliminar las ramas que ya fueron mergeadas para mantener el repositorio limpio.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 10: Ver ramas
+
+Listá todas las ramas locales, las ramas remotas y verificá en qué rama estás actualmente.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Listá todas las ramas locales
+  # 2. Listá las ramas remotas
+  # 3. Verificá en qué rama estás
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Listar ramas locales (la actual aparece con un asterisco *)
+  git branch
+
+  # Listar ramas remotas
+  git branch -r
+
+  # Listar todas las ramas (locales + remotas)
+  git branch -a
+
+  # Ver en qué rama estás actualmente
+  git status
+  # o también:
+  git branch --show-current
+  ```
+
+  La rama actual se marca con un `*` al listar ramas locales. También podés verla en la primera línea de `git status`.
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Remoto
+
+### Ejercicio 11: Conectar un remoto
+
+Agregá un repositorio remoto llamado `origin`, verificá la conexión y subí la rama `main`.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Agregá un remoto llamado origin con la URL de tu repositorio en GitHub
+  # 2. Verificá que el remoto se haya agregado correctamente
+  # 3. Subí la rama main al remoto
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Agregar el remoto (reemplazá con tu URL real)
+  git remote add origin git@github.com:tu-usuario/mi-proyecto.git
+
+  # Verificar los remotos configurados
+  git remote -v
+
+  # Subir la rama main al remoto (y establecerla como rama de seguimiento)
+  git push -u origin main
+  ```
+
+  - `git remote add` asocia un nombre (origin) con una URL de repositorio remoto.
+  - `git remote -v` muestra las URLs de fetch y push configuradas.
+  - `git push -u origin main` sube la rama y la flag `-u` establece la relación de seguimiento, para que después puedas usar solo `git push` sin especificar la rama.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 12: Clonar y modificar
+
+Cloná un repositorio remoto, hacé un cambio, creá un commit y subilo al remoto.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # 1. Cloná un repositorio (usá la URL de algún repo tuyo o de prueba)
+  # 2. Ingresá al directorio clonado
+  # 3. Hacé una modificación en algún archivo
+  # 4. Agregá los cambios, hacé un commit y pusheá
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # Clonar el repositorio
+  git clone git@github.com:tu-usuario/mi-proyecto.git
+  cd mi-proyecto
+
+  # Hacer un cambio
+  echo "## Contribuciones" >> README.md
+
+  # Agregar, commitear y pushear
+  git add README.md
+  git commit -m "Agrego sección de contribuciones al README"
+  git push
+  ```
+
+  `git clone` descarga el repositorio completo (con todo su historial) y configura automáticamente el remoto `origin`. No necesitás hacer `git init` ni `git remote add`.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 13: Pull y fetch
+
+Mostrá la diferencia entre usar `git fetch` y `git pull` para traer cambios del remoto.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Opción A: Usá fetch para traer los cambios sin fusionar
+  # y luego revisá qué cambió antes de fusionar
+
+  # Opción B: Usá pull para traer y fusionar en un solo paso
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # --- Opción A: fetch + merge (más control) ---
+
+  # Traer los cambios del remoto sin fusionar
+  git fetch origin
+
+  # Ver qué commits nuevos hay en el remoto que no tenés local
+  git log HEAD..origin/main --oneline
+
+  # Si estás conforme, fusionar manualmente
+  git merge origin/main
+
+
+  # --- Opción B: pull (más rápido) ---
+
+  # Traer y fusionar en un solo paso
+  git pull origin main
+  ```
+
+  La diferencia clave:
+  - `git fetch` descarga los cambios del remoto pero **no los aplica**. Te permite revisarlos antes de fusionar.
+  - `git pull` es equivalente a `git fetch` + `git merge`. Descarga y fusiona en un solo paso.
+  - Usar `fetch` primero es más seguro porque podés revisar los cambios antes de integrarlos.
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - Desafíos
+
+### Ejercicio 14: Flujo completo de colaboración
+
+Describí y ejecutá el flujo completo para colaborar en un proyecto open source: fork, clone, branch, cambios, push y pull request.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Escribí los pasos completos del flujo de colaboración
+  # desde el fork hasta el pull request
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # 1. FORK: Desde GitHub, hacé un fork del repositorio original
+  #    (esto crea una copia del repo en tu cuenta de GitHub)
+
+  # 2. CLONE: Cloná TU fork (no el repo original)
+  git clone git@github.com:tu-usuario/repo-forkeado.git
+  cd repo-forkeado
+
+  # 3. BRANCH: Creá una rama para tu feature
+  git checkout -b feature/mi-mejora
+
+  # 4. CAMBIOS: Hacé las modificaciones necesarias
+  echo "Mi contribución al proyecto" > contribucion.md
+  git add contribucion.md
+  git commit -m "Agrego mi contribución al proyecto"
+
+  # 5. PUSH: Subí tu rama al remoto (tu fork)
+  git push -u origin feature/mi-mejora
+
+  # 6. PULL REQUEST: Desde GitHub, creá un Pull Request
+  #    - Andá a tu fork en GitHub
+  #    - Hacé click en "Compare & pull request"
+  #    - Escribí un título y descripción claros
+  #    - Seleccioná la rama base del repo original (generalmente main)
+  #    - Hacé click en "Create pull request"
+  ```
+
+  Este es el flujo estándar de colaboración en GitHub. El fork te permite trabajar en tu propia copia del proyecto, y el pull request es el mecanismo para proponer tus cambios al proyecto original.
+
+  </TabItem>
+</Tabs>
+
+### Ejercicio 15: Deshacer cambios
+
+Mostrá cómo deshacer cambios en tres escenarios distintos: cambios no guardados en staging, archivos en staging que querés sacar, y un commit que querés revertir.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  # Escenario A: Modificaste un archivo pero NO lo agregaste al staging.
+  # ¿Cómo deshacés los cambios?
+
+  # Escenario B: Agregaste un archivo al staging con git add, pero te arrepentiste.
+  # ¿Cómo lo sacás del staging sin perder los cambios?
+
+  # Escenario C: Hiciste un commit pero querés deshacerlo,
+  # manteniendo los cambios en tu directorio de trabajo.
+  # ¿Cómo lo revertís?
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  # --- Escenario A: Deshacer cambios NO guardados en staging ---
+  # (el archivo fue modificado pero no hiciste git add)
+
+  git restore archivo.txt
+  # Esto descarta los cambios locales y vuelve a la versión del último commit.
+  # ⚠️ Cuidado: los cambios descartados se pierden para siempre.
+
+
+  # --- Escenario B: Sacar un archivo del staging ---
+  # (hiciste git add pero querés sacarlo del staging)
+
+  git restore --staged archivo.txt
+  # Esto saca el archivo del staging, pero los cambios siguen en tu directorio.
+  # Después podés seguir editando o volver a agregarlo con git add.
+
+
+  # --- Escenario C: Deshacer el último commit conservando los cambios ---
+
+  git reset --soft HEAD~1
+  # Esto deshace el último commit pero mantiene todos los cambios
+  # en el área de staging (listos para un nuevo commit).
+  # HEAD~1 significa "un commit antes del actual".
+  ```
+
+  Resumen de comandos para deshacer:
+  - `git restore <archivo>` -- deshace cambios locales no agregados al staging.
+  - `git restore --staged <archivo>` -- saca archivos del staging sin perder cambios.
+  - `git reset --soft HEAD~1` -- deshace el último commit manteniendo los cambios en staging.
+
+  </TabItem>
+</Tabs>

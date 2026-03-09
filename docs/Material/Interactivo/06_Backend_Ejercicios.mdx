@@ -1,0 +1,226 @@
+---
+sidebar_label: "Backend - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# Backend - Ejercicios Interactivos
+
+Practicá lógica de backend resolviendo los ejercicios. Cada uno tiene dos pestañas: una para que escribas tu código y otra con la solución. Intentá resolver el ejercicio antes de mirar la respuesta.
+
+:::note
+*Estos ejercicios simulan lógica de backend usando JavaScript puro. Para ejecutar código real de Express, necesitás un entorno Node.js.*
+:::
+
+---
+
+## Nivel 1 - JSON y HTTP
+
+### Ejercicio 1: JSON parse y stringify
+
+Dado un string JSON de un usuario, parsealo, agregale el campo `activo: true`, y convertilo de nuevo a string con formato legible (pretty print). Logueá el string original, el objeto y el string final.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// String JSON de un usuario\nconst jsonString = '{"nombre":"Ana","edad":28,"email":"ana@mail.com"}';\n\n// 1. Parseá el string JSON a un objeto\n// Pista: usá JSON.parse()\n\n// 2. Agregá el campo activo: true al objeto\n\n// 3. Convertí el objeto de nuevo a string con formato legible\n// Pista: usá JSON.stringify() con 2 espacios de indentación\n\n// 4. Logueá el string original, el objeto y el string final\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// String JSON de un usuario\nconst jsonString = '{"nombre":"Ana","edad":28,"email":"ana@mail.com"}';\nconsole.log("String original:", jsonString);\n\n// 1. Parsear el string JSON a un objeto\nconst usuario = JSON.parse(jsonString);\nconsole.log("Objeto parseado:", usuario);\n\n// 2. Agregar el campo activo\nusuario.activo = true;\nconsole.log("Objeto con campo activo:", usuario);\n\n// 3. Convertir a string con formato legible (pretty print)\nconst jsonFinal = JSON.stringify(usuario, null, 2);\nconsole.log("String final (pretty print):");\nconsole.log(jsonFinal);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 2: Acceder a datos de una API
+
+Dado un array JSON de 5 usuarios, escribí código para: obtener el tercer usuario, obtener todos los nombres (map) y filtrar los usuarios mayores de 25 años. Logueá cada resultado.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`const usuarios = [\n  { id: 1, nombre: "Ana", email: "ana@mail.com", edad: 22 },\n  { id: 2, nombre: "Luis", email: "luis@mail.com", edad: 30 },\n  { id: 3, nombre: "María", email: "maria@mail.com", edad: 27 },\n  { id: 4, nombre: "Carlos", email: "carlos@mail.com", edad: 19 },\n  { id: 5, nombre: "Sofía", email: "sofia@mail.com", edad: 35 }\n];\n\n// 1. Obtené el tercer usuario (índice 2)\n\n// 2. Obtené un array con solo los nombres\n// Pista: usá .map()\n\n// 3. Filtrá los usuarios mayores de 25 años\n// Pista: usá .filter()\n\n// 4. Logueá cada resultado\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const usuarios = [\n  { id: 1, nombre: "Ana", email: "ana@mail.com", edad: 22 },\n  { id: 2, nombre: "Luis", email: "luis@mail.com", edad: 30 },\n  { id: 3, nombre: "María", email: "maria@mail.com", edad: 27 },\n  { id: 4, nombre: "Carlos", email: "carlos@mail.com", edad: 19 },\n  { id: 5, nombre: "Sofía", email: "sofia@mail.com", edad: 35 }\n];\n\n// 1. Obtener el tercer usuario\nconst tercerUsuario = usuarios[2];\nconsole.log("Tercer usuario:", tercerUsuario);\n\n// 2. Obtener todos los nombres con map\nconst nombres = usuarios.map(u => u.nombre);\nconsole.log("Nombres:", nombres);\n\n// 3. Filtrar usuarios mayores de 25\nconst mayores25 = usuarios.filter(u => u.edad > 25);\nconsole.log("Mayores de 25:", mayores25);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 3: Códigos de estado HTTP
+
+Creá un objeto que mapee los códigos de estado HTTP más comunes (200, 201, 204, 400, 401, 403, 404, 500) a su descripción. Escribí una función `describir(code)` que devuelva la descripción o "Código desconocido". Probala con 5 códigos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// 1. Creá un objeto con los códigos de estado HTTP y sus descripciones\n// Códigos: 200, 201, 204, 400, 401, 403, 404, 500\n\n// 2. Escribí la función describir(code)\n// Si el código existe, devolvé la descripción\n// Si no existe, devolvé "Código desconocido"\n\n// 3. Probá con 5 códigos (algunos válidos, alguno inválido)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// 1. Objeto con códigos de estado HTTP\nconst statusCodes = {\n  200: "OK - Petición exitosa",\n  201: "Created - Recurso creado",\n  204: "No Content - Éxito sin contenido en la respuesta",\n  400: "Bad Request - Petición inválida",\n  401: "Unauthorized - No autenticado",\n  403: "Forbidden - Sin permisos",\n  404: "Not Found - Recurso no encontrado",\n  500: "Internal Server Error - Error del servidor"\n};\n\n// 2. Función describir\nfunction describir(code) {\n  return statusCodes[code] || "Código desconocido";\n}\n\n// 3. Probar con 5 códigos\nconsole.log("200:", describir(200));\nconsole.log("201:", describir(201));\nconsole.log("404:", describir(404));\nconsole.log("500:", describir(500));\nconsole.log("418:", describir(418));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 4: Estructura de un request
+
+Creá un objeto que simule una petición HTTP con method, url, params, query, body y headers. Logueá cada parte por separado.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// 1. Creá un objeto request simulado con:\n//    - method: "POST"\n//    - url: "/api/productos/5"\n//    - params: { id: "5" }\n//    - query: { orden: "asc" }\n//    - body: { nombre: "Juan" }\n//    - headers: { "content-type": "application/json" }\n\n// 2. Logueá cada parte del request por separado\n// Pista: accedé a cada propiedad del objeto\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// 1. Objeto request simulado\nconst request = {\n  method: "POST",\n  url: "/api/productos/5",\n  params: { id: "5" },\n  query: { orden: "asc" },\n  body: { nombre: "Juan" },\n  headers: { "content-type": "application/json" }\n};\n\n// 2. Loguear cada parte\nconsole.log("Método:", request.method);\nconsole.log("URL:", request.url);\nconsole.log("Params:", request.params);\nconsole.log("Query:", request.query);\nconsole.log("Body:", request.body);\nconsole.log("Headers:", request.headers);\nconsole.log("Content-Type:", request.headers["content-type"]);`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Simulando Endpoints
+
+### Ejercicio 5: GET /productos
+
+Creá un array de 5 productos `{id, nombre, precio, categoria}`. Escribí una función `getProductos()` que devuelva `{status: 200, data: productos}`. Logueá la respuesta.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// 1. Creá un array de 5 productos con: id, nombre, precio, categoria\n\n// 2. Escribí la función getProductos()\n// Debe devolver un objeto con status 200 y data con todos los productos\n\n// 3. Llamá a la función y logueá la respuesta\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// 1. Array de productos\nconst productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" },\n  { id: 4, nombre: "Mouse", precio: 25000, categoria: "electrónica" },\n  { id: 5, nombre: "Jean", precio: 35000, categoria: "ropa" }\n];\n\n// 2. Función GET /productos\nfunction getProductos() {\n  return { status: 200, data: productos };\n}\n\n// 3. Llamar y loguear\nconst respuesta = getProductos();\nconsole.log("Status:", respuesta.status);\nconsole.log("Productos:", respuesta.data);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 6: GET /productos/:id
+
+Escribí una función `getProducto(id)` que busque un producto por id. Si lo encuentra, devolvé `{status: 200, data: producto}`. Si no, devolvé `{status: 404, error: "Producto no encontrado"}`. Probá con un id válido y uno inválido.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" },\n  { id: 4, nombre: "Mouse", precio: 25000, categoria: "electrónica" },\n  { id: 5, nombre: "Jean", precio: 35000, categoria: "ropa" }\n];\n\n// 1. Escribí la función getProducto(id)\n// Pista: usá .find() para buscar por id\n// Si lo encontrás, devolvé status 200 con data\n// Si no, devolvé status 404 con error\n\n// 2. Probá con un id válido (ej: 3) y uno inválido (ej: 99)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" },\n  { id: 4, nombre: "Mouse", precio: 25000, categoria: "electrónica" },\n  { id: 5, nombre: "Jean", precio: 35000, categoria: "ropa" }\n];\n\n// Función GET /productos/:id\nfunction getProducto(id) {\n  const producto = productos.find(p => p.id === id);\n  if (producto) {\n    return { status: 200, data: producto };\n  }\n  return { status: 404, error: "Producto no encontrado" };\n}\n\n// Probar con id válido\nconsole.log("GET /productos/3:");\nconsole.log(getProducto(3));\n\n// Probar con id inválido\nconsole.log("GET /productos/99:");\nconsole.log(getProducto(99));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 7: POST /productos
+
+Escribí una función `crearProducto(body)` que valide que `nombre` y `precio` estén presentes, genere un id automáticamente, agregue el producto al array y devuelva la respuesta apropiada. Probá ambos casos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" }\n];\n\n// 1. Escribí la función crearProducto(body)\n// - Validá que body tenga nombre y precio\n// - Si falta alguno, devolvé status 400 con error: "Faltan campos obligatorios"\n// - Si están, generá un id automático, agregá al array\n// - Devolvé status 201 con data: nuevoProducto\n// Pista: para el id, podés usar productos.length + 1 o Math.max sobre los ids\n\n// 2. Probá con datos válidos\n\n// 3. Probá con datos inválidos (sin nombre o sin precio)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" }\n];\n\n// Función POST /productos\nfunction crearProducto(body) {\n  if (!body.nombre || !body.precio) {\n    return { status: 400, error: "Faltan campos obligatorios" };\n  }\n\n  const nuevoId = Math.max(...productos.map(p => p.id)) + 1;\n  const nuevoProducto = {\n    id: nuevoId,\n    nombre: body.nombre,\n    precio: body.precio,\n    categoria: body.categoria || "sin categoría"\n  };\n\n  productos.push(nuevoProducto);\n  return { status: 201, data: nuevoProducto };\n}\n\n// Probar con datos válidos\nconsole.log("POST válido:");\nconsole.log(crearProducto({ nombre: "Teclado", precio: 45000, categoria: "electrónica" }));\n\n// Probar con datos inválidos\nconsole.log("POST inválido (sin precio):");\nconsole.log(crearProducto({ nombre: "Monitor" }));\n\nconsole.log("Productos actuales:", productos);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 8: PUT /productos/:id
+
+Escribí una función `actualizarProducto(id, body)` que busque un producto por id, actualice los campos del body y devuelva la respuesta. Si no existe, devolvé 404. Probá ambos casos.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" }\n];\n\n// 1. Escribí la función actualizarProducto(id, body)\n// - Buscá el producto por id\n// - Si no existe, devolvé status 404 con error\n// - Si existe, actualizá los campos que vengan en body\n// - Devolvé status 200 con data: producto actualizado\n// Pista: usá Object.assign() o spread para actualizar campos\n\n// 2. Probá actualizando un producto existente\n\n// 3. Probá con un id que no existe\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" }\n];\n\n// Función PUT /productos/:id\nfunction actualizarProducto(id, body) {\n  const index = productos.findIndex(p => p.id === id);\n  if (index === -1) {\n    return { status: 404, error: "Producto no encontrado" };\n  }\n\n  // Actualizar solo los campos que vienen en body (sin cambiar el id)\n  productos[index] = { ...productos[index], ...body, id: id };\n  return { status: 200, data: productos[index] };\n}\n\n// Probar con producto existente\nconsole.log("PUT /productos/2 (actualizar precio):");\nconsole.log(actualizarProducto(2, { precio: 18000, nombre: "Remera Premium" }));\n\n// Probar con producto inexistente\nconsole.log("PUT /productos/99:");\nconsole.log(actualizarProducto(99, { nombre: "Nada" }));\n\nconsole.log("Productos actuales:", productos);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 9: DELETE /productos/:id
+
+Escribí una función `eliminarProducto(id)` que busque y elimine un producto del array. Devolvé `{status: 200, message: "Producto eliminado"}` o 404. Mostrá el array antes y después.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" }\n];\n\n// 1. Escribí la función eliminarProducto(id)\n// - Buscá el producto por id\n// - Si no existe, devolvé status 404 con error\n// - Si existe, eliminalo del array\n// - Devolvé status 200 con message: "Producto eliminado"\n// Pista: usá .findIndex() y .splice() para eliminar\n\n// 2. Mostrá el array antes de eliminar\n\n// 3. Eliminá un producto existente y mostrá la respuesta\n\n// 4. Mostrá el array después de eliminar\n\n// 5. Intentá eliminar uno que no existe\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" }\n];\n\n// Función DELETE /productos/:id\nfunction eliminarProducto(id) {\n  const index = productos.findIndex(p => p.id === id);\n  if (index === -1) {\n    return { status: 404, error: "Producto no encontrado" };\n  }\n\n  productos.splice(index, 1);\n  return { status: 200, message: "Producto eliminado" };\n}\n\n// Antes de eliminar\nconsole.log("Antes:", productos.map(p => p.nombre));\n\n// Eliminar producto existente\nconsole.log("DELETE /productos/2:", eliminarProducto(2));\n\n// Después de eliminar\nconsole.log("Después:", productos.map(p => p.nombre));\n\n// Intentar eliminar uno que no existe\nconsole.log("DELETE /productos/99:", eliminarProducto(99));`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Validación y Errores
+
+### Ejercicio 10: Validación de datos
+
+Escribí una función `validarProducto(body)` que verifique: nombre debe ser string no vacío, precio debe ser número positivo, categoria debe ser una de `["electrónica", "ropa", "alimentos"]`. Devolvé un array de errores. Probá con datos válidos, campos faltantes, tipos inválidos y categoría inválida.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// 1. Escribí la función validarProducto(body)\n// Reglas:\n//   - nombre: debe ser string y no estar vacío\n//   - precio: debe ser un número positivo\n//   - categoria: debe ser "electrónica", "ropa" o "alimentos"\n// Devolvé un array con los mensajes de error encontrados\n// Si no hay errores, devolvé un array vacío\n\n// 2. Probá con datos válidos\n\n// 3. Probá con campos faltantes\n\n// 4. Probá con tipos inválidos\n\n// 5. Probá con categoría inválida\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const categoriasValidas = ["electrónica", "ropa", "alimentos"];\n\nfunction validarProducto(body) {\n  const errores = [];\n\n  // Validar nombre\n  if (!body.nombre || typeof body.nombre !== "string" || body.nombre.trim() === "") {\n    errores.push("El nombre es obligatorio y debe ser un texto no vacío");\n  }\n\n  // Validar precio\n  if (body.precio === undefined || typeof body.precio !== "number" || body.precio <= 0) {\n    errores.push("El precio es obligatorio y debe ser un número positivo");\n  }\n\n  // Validar categoría\n  if (!body.categoria || !categoriasValidas.includes(body.categoria)) {\n    errores.push("La categoría debe ser: " + categoriasValidas.join(", "));\n  }\n\n  return errores;\n}\n\n// Datos válidos\nconsole.log("Válido:", validarProducto({ nombre: "Mouse", precio: 25000, categoria: "electrónica" }));\n\n// Campos faltantes\nconsole.log("Faltantes:", validarProducto({}));\n\n// Tipos inválidos\nconsole.log("Tipos inválidos:", validarProducto({ nombre: 123, precio: "caro", categoria: "ropa" }));\n\n// Categoría inválida\nconsole.log("Categoría inválida:", validarProducto({ nombre: "Silla", precio: 50000, categoria: "muebles" }));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 11: Try/Catch
+
+Escribí una función `procesarJSON(jsonString)` que parsee un JSON, verifique que tiene los campos requeridos y devuelva el objeto procesado. Usá try/catch para manejar errores. Probá con: JSON válido, JSON inválido y JSON válido pero con campos faltantes.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// 1. Escribí la función procesarJSON(jsonString)\n// - Intentá parsear el string con JSON.parse()\n// - Verificá que tenga los campos "nombre" y "precio"\n// - Si falta alguno, lanzá un error con throw\n// - Devolvé el objeto procesado\n// - Envolvé todo en try/catch\n// - En el catch, devolvé un objeto con el error\n\n// 2. Probá con JSON válido y completo\n// '{"nombre": "Mouse", "precio": 25000}'\n\n// 3. Probá con string que no es JSON válido\n// 'esto no es json'\n\n// 4. Probá con JSON válido pero sin campos requeridos\n// '{"color": "rojo"}'\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`function procesarJSON(jsonString) {\n  try {\n    // Intentar parsear\n    const datos = JSON.parse(jsonString);\n\n    // Verificar campos requeridos\n    if (!datos.nombre) {\n      throw new Error("Falta el campo 'nombre'");\n    }\n    if (!datos.precio) {\n      throw new Error("Falta el campo 'precio'");\n    }\n\n    // Devolver el objeto procesado\n    return { status: 200, data: datos };\n  } catch (error) {\n    return { status: 400, error: error.message };\n  }\n}\n\n// JSON válido y completo\nconsole.log("Válido:");\nconsole.log(procesarJSON('{"nombre": "Mouse", "precio": 25000}'));\n\n// String que no es JSON\nconsole.log("No es JSON:");\nconsole.log(procesarJSON('esto no es json'));\n\n// JSON válido pero sin campos requeridos\nconsole.log("Sin campos requeridos:");\nconsole.log(procesarJSON('{"color": "rojo"}'));`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 12: Filtrado y paginación
+
+Dado un array de 10 productos, escribí una función `buscarProductos(query)` donde query tiene opcionales: `categoria`, `precioMin`, `precioMax`, `page` (default 1) y `limit` (default 3). Devolvé los resultados filtrados y paginados más metadata `{total, page, totalPages}`. Probá con distintas combinaciones.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" },\n  { id: 4, nombre: "Mouse", precio: 25000, categoria: "electrónica" },\n  { id: 5, nombre: "Jean", precio: 35000, categoria: "ropa" },\n  { id: 6, nombre: "Teclado", precio: 45000, categoria: "electrónica" },\n  { id: 7, nombre: "Fideos", precio: 800, categoria: "alimentos" },\n  { id: 8, nombre: "Monitor", precio: 350000, categoria: "electrónica" },\n  { id: 9, nombre: "Campera", precio: 65000, categoria: "ropa" },\n  { id: 10, nombre: "Aceite", precio: 2500, categoria: "alimentos" }\n];\n\n// 1. Escribí la función buscarProductos(query)\n// - Filtrá por categoria si viene en query\n// - Filtrá por precioMin si viene en query\n// - Filtrá por precioMax si viene en query\n// - Paginá con page (default 1) y limit (default 3)\n// - Devolvé { status: 200, data: [...], meta: { total, page, totalPages } }\n// Pista: usá .slice() para paginar\n\n// 2. Probá sin filtros\n\n// 3. Probá filtrando por categoría\n\n// 4. Probá con rango de precios y página 2\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`const productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" },\n  { id: 4, nombre: "Mouse", precio: 25000, categoria: "electrónica" },\n  { id: 5, nombre: "Jean", precio: 35000, categoria: "ropa" },\n  { id: 6, nombre: "Teclado", precio: 45000, categoria: "electrónica" },\n  { id: 7, nombre: "Fideos", precio: 800, categoria: "alimentos" },\n  { id: 8, nombre: "Monitor", precio: 350000, categoria: "electrónica" },\n  { id: 9, nombre: "Campera", precio: 65000, categoria: "ropa" },\n  { id: 10, nombre: "Aceite", precio: 2500, categoria: "alimentos" }\n];\n\nfunction buscarProductos(query = {}) {\n  let resultados = [...productos];\n\n  // Filtrar por categoría\n  if (query.categoria) {\n    resultados = resultados.filter(p => p.categoria === query.categoria);\n  }\n\n  // Filtrar por precio mínimo\n  if (query.precioMin !== undefined) {\n    resultados = resultados.filter(p => p.precio >= query.precioMin);\n  }\n\n  // Filtrar por precio máximo\n  if (query.precioMax !== undefined) {\n    resultados = resultados.filter(p => p.precio <= query.precioMax);\n  }\n\n  // Paginación\n  const page = query.page || 1;\n  const limit = query.limit || 3;\n  const total = resultados.length;\n  const totalPages = Math.ceil(total / limit);\n  const inicio = (page - 1) * limit;\n  const paginados = resultados.slice(inicio, inicio + limit);\n\n  return {\n    status: 200,\n    data: paginados,\n    meta: { total, page, totalPages }\n  };\n}\n\n// Sin filtros (página 1)\nconsole.log("Sin filtros:");\nconsole.log(buscarProductos());\n\n// Filtrar por categoría\nconsole.log("Electrónica:");\nconsole.log(buscarProductos({ categoria: "electrónica" }));\n\n// Rango de precios, página 2\nconsole.log("Precio 1000-50000, página 2:");\nconsole.log(buscarProductos({ precioMin: 1000, precioMax: 50000, page: 2 }));`} />
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - Desafíos
+
+### Ejercicio 13: CRUD completo
+
+Combiná todas las operaciones CRUD. Partí de 3 productos iniciales: creá 2 más, listá todos, buscá uno por id, actualizá uno, eliminá uno y listá todos de nuevo. Logueá la respuesta de cada paso.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// Base de datos simulada\nlet productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" }\n];\nlet nextId = 4;\n\n// 1. Implementá las funciones: getProductos, getProducto, crearProducto,\n//    actualizarProducto, eliminarProducto\n\n// 2. Ejecutá el siguiente flujo y logueá cada respuesta:\n//    a) Crear "Mouse" (electrónica, 25000)\n//    b) Crear "Jean" (ropa, 35000)\n//    c) GET todos\n//    d) GET producto con id 1\n//    e) PUT producto id 2 (cambiar precio a 18000)\n//    f) DELETE producto id 3\n//    g) GET todos (verificar estado final)\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// Base de datos simulada\nlet productos = [\n  { id: 1, nombre: "Notebook", precio: 850000, categoria: "electrónica" },\n  { id: 2, nombre: "Remera", precio: 15000, categoria: "ropa" },\n  { id: 3, nombre: "Arroz 1kg", precio: 1200, categoria: "alimentos" }\n];\nlet nextId = 4;\n\n// Funciones CRUD\nfunction getProductos() {\n  return { status: 200, data: productos };\n}\n\nfunction getProducto(id) {\n  const producto = productos.find(p => p.id === id);\n  if (!producto) return { status: 404, error: "Producto no encontrado" };\n  return { status: 200, data: producto };\n}\n\nfunction crearProducto(body) {\n  if (!body.nombre || !body.precio) {\n    return { status: 400, error: "Faltan campos obligatorios" };\n  }\n  const nuevo = { id: nextId++, ...body };\n  productos.push(nuevo);\n  return { status: 201, data: nuevo };\n}\n\nfunction actualizarProducto(id, body) {\n  const index = productos.findIndex(p => p.id === id);\n  if (index === -1) return { status: 404, error: "Producto no encontrado" };\n  productos[index] = { ...productos[index], ...body, id };\n  return { status: 200, data: productos[index] };\n}\n\nfunction eliminarProducto(id) {\n  const index = productos.findIndex(p => p.id === id);\n  if (index === -1) return { status: 404, error: "Producto no encontrado" };\n  productos.splice(index, 1);\n  return { status: 200, message: "Producto eliminado" };\n}\n\n// Flujo completo\nconsole.log("=== a) POST Mouse ===" );\nconsole.log(crearProducto({ nombre: "Mouse", precio: 25000, categoria: "electrónica" }));\n\nconsole.log("=== b) POST Jean ===");\nconsole.log(crearProducto({ nombre: "Jean", precio: 35000, categoria: "ropa" }));\n\nconsole.log("=== c) GET todos ===");\nconsole.log(getProductos());\n\nconsole.log("=== d) GET /productos/1 ===");\nconsole.log(getProducto(1));\n\nconsole.log("=== e) PUT /productos/2 ===");\nconsole.log(actualizarProducto(2, { precio: 18000 }));\n\nconsole.log("=== f) DELETE /productos/3 ===");\nconsole.log(eliminarProducto(3));\n\nconsole.log("=== g) GET todos (final) ===");\nconsole.log(getProductos());`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 14: Middleware simulado
+
+Escribí una cadena de middlewares: `logger` (loguea method y url), `authCheck` (verifica que headers tenga "authorization") y `handler` (devuelve datos). Probá con una petición autenticada y una sin autenticar.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// Simulamos el patrón de middlewares de Express\n// Cada middleware recibe (req, res, next)\n// Si llama a next(), pasa al siguiente middleware\n// Si no llama a next(), corta la cadena\n\n// 1. Creá el middleware logger(req, res, next)\n//    - Logueá el método y la URL del request\n//    - Llamá a next() para continuar\n\n// 2. Creá el middleware authCheck(req, res, next)\n//    - Si req.headers tiene "authorization", llamá a next()\n//    - Si no, asigná a res el status 401 y error "No autorizado"\n\n// 3. Creá el handler(req, res, next)\n//    - Asigná a res el status 200 y data con un mensaje\n\n// 4. Creá una función ejecutarMiddlewares(middlewares, req, res)\n//    que ejecute la cadena de middlewares en orden\n\n// 5. Probá con un request autenticado y uno sin autenticar\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// Función que ejecuta la cadena de middlewares\nfunction ejecutarMiddlewares(middlewares, req, res) {\n  let index = 0;\n\n  function next() {\n    if (index < middlewares.length) {\n      const middleware = middlewares[index];\n      index++;\n      middleware(req, res, next);\n    }\n  }\n\n  next();\n  return res;\n}\n\n// Middleware 1: Logger\nfunction logger(req, res, next) {\n  console.log("[LOG]", req.method, req.url);\n  next();\n}\n\n// Middleware 2: Auth Check\nfunction authCheck(req, res, next) {\n  if (req.headers && req.headers.authorization) {\n    console.log("[AUTH] Usuario autenticado");\n    next();\n  } else {\n    console.log("[AUTH] Sin autorización");\n    res.status = 401;\n    res.body = { error: "No autorizado" };\n    // No llamamos a next(), se corta la cadena\n  }\n}\n\n// Middleware 3: Handler (el endpoint final)\nfunction handler(req, res, next) {\n  res.status = 200;\n  res.body = { data: [{ id: 1, nombre: "Producto secreto" }] };\n}\n\nconst cadena = [logger, authCheck, handler];\n\n// Request autenticado\nconsole.log("=== Request autenticado ===");\nconst res1 = {};\nejecutarMiddlewares(cadena, {\n  method: "GET",\n  url: "/api/productos",\n  headers: { authorization: "Bearer token123" }\n}, res1);\nconsole.log("Respuesta:", res1);\n\n// Request sin autenticar\nconsole.log("\\n=== Request sin autenticar ===");\nconst res2 = {};\nejecutarMiddlewares(cadena, {\n  method: "GET",\n  url: "/api/productos",\n  headers: {}\n}, res2);\nconsole.log("Respuesta:", res2);`} />
+  </TabItem>
+</Tabs>
+
+### Ejercicio 15: API de tareas completa
+
+Construí una simulación completa de una API de tareas. Array de tareas `{id, titulo, completada, prioridad}`. Funciones: `getTareas` (con filtro opcional por completada y prioridad), `getTarea(id)`, `crearTarea(body)`, `actualizarTarea(id, body)`, `eliminarTarea(id)`, `getEstadisticas` (total, completadas, pendientes, por prioridad). Ejecutá un flujo de prueba completo.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+    <CodePlayground language="javascript" title="Tu código" initialCode={`// Base de datos de tareas\nlet tareas = [\n  { id: 1, titulo: "Estudiar JavaScript", completada: true, prioridad: "alta" },\n  { id: 2, titulo: "Hacer ejercicios de SQL", completada: false, prioridad: "alta" },\n  { id: 3, titulo: "Leer apunte de APIs", completada: false, prioridad: "media" }\n];\nlet nextId = 4;\n\n// 1. getTareas(filtro) - filtro opcional: { completada, prioridad }\n\n// 2. getTarea(id) - buscar por id, 200 o 404\n\n// 3. crearTarea(body) - validar titulo, default completada=false\n\n// 4. actualizarTarea(id, body) - buscar y actualizar, 200 o 404\n\n// 5. eliminarTarea(id) - buscar y eliminar, 200 o 404\n\n// 6. getEstadisticas() - total, completadas, pendientes, por prioridad\n\n// 7. Flujo de prueba:\n//    a) Crear 2 tareas nuevas\n//    b) Listar todas\n//    c) Filtrar solo las pendientes\n//    d) Completar una tarea\n//    e) Eliminar una tarea\n//    f) Ver estadísticas\n`} />
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+    <CodePlayground language="javascript" title="Solución" initialCode={`// Base de datos de tareas\nlet tareas = [\n  { id: 1, titulo: "Estudiar JavaScript", completada: true, prioridad: "alta" },\n  { id: 2, titulo: "Hacer ejercicios de SQL", completada: false, prioridad: "alta" },\n  { id: 3, titulo: "Leer apunte de APIs", completada: false, prioridad: "media" }\n];\nlet nextId = 4;\n\n// GET /tareas con filtros opcionales\nfunction getTareas(filtro = {}) {\n  let resultado = [...tareas];\n  if (filtro.completada !== undefined) {\n    resultado = resultado.filter(t => t.completada === filtro.completada);\n  }\n  if (filtro.prioridad) {\n    resultado = resultado.filter(t => t.prioridad === filtro.prioridad);\n  }\n  return { status: 200, data: resultado };\n}\n\n// GET /tareas/:id\nfunction getTarea(id) {\n  const tarea = tareas.find(t => t.id === id);\n  if (!tarea) return { status: 404, error: "Tarea no encontrada" };\n  return { status: 200, data: tarea };\n}\n\n// POST /tareas\nfunction crearTarea(body) {\n  if (!body.titulo || body.titulo.trim() === "") {\n    return { status: 400, error: "El título es obligatorio" };\n  }\n  const nueva = {\n    id: nextId++,\n    titulo: body.titulo,\n    completada: body.completada || false,\n    prioridad: body.prioridad || "media"\n  };\n  tareas.push(nueva);\n  return { status: 201, data: nueva };\n}\n\n// PUT /tareas/:id\nfunction actualizarTarea(id, body) {\n  const index = tareas.findIndex(t => t.id === id);\n  if (index === -1) return { status: 404, error: "Tarea no encontrada" };\n  tareas[index] = { ...tareas[index], ...body, id };\n  return { status: 200, data: tareas[index] };\n}\n\n// DELETE /tareas/:id\nfunction eliminarTarea(id) {\n  const index = tareas.findIndex(t => t.id === id);\n  if (index === -1) return { status: 404, error: "Tarea no encontrada" };\n  tareas.splice(index, 1);\n  return { status: 200, message: "Tarea eliminada" };\n}\n\n// GET /tareas/estadisticas\nfunction getEstadisticas() {\n  const total = tareas.length;\n  const completadas = tareas.filter(t => t.completada).length;\n  const pendientes = total - completadas;\n  const porPrioridad = tareas.reduce((acc, t) => {\n    acc[t.prioridad] = (acc[t.prioridad] || 0) + 1;\n    return acc;\n  }, {});\n  return { status: 200, data: { total, completadas, pendientes, porPrioridad } };\n}\n\n// === Flujo de prueba ===\nconsole.log("=== a) Crear 2 tareas ===");\nconsole.log(crearTarea({ titulo: "Configurar Docker", prioridad: "baja" }));\nconsole.log(crearTarea({ titulo: "Hacer TP final", prioridad: "alta" }));\n\nconsole.log("\\n=== b) Listar todas ===");\nconsole.log(getTareas());\n\nconsole.log("\\n=== c) Filtrar pendientes ===");\nconsole.log(getTareas({ completada: false }));\n\nconsole.log("\\n=== d) Completar tarea 2 ===");\nconsole.log(actualizarTarea(2, { completada: true }));\n\nconsole.log("\\n=== e) Eliminar tarea 3 ===");\nconsole.log(eliminarTarea(3));\n\nconsole.log("\\n=== f) Estadísticas ===");\nconsole.log(getEstadisticas());`} />
+  </TabItem>
+</Tabs>

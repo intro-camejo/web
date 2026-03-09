@@ -1,0 +1,1925 @@
+---
+sidebar_label: "HTML & CSS"
+---
+
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# HTML & CSS - Práctica Interactiva
+
+Experimentá con HTML y CSS directamente en el navegador. Modificá el código y hacé click en "Vista previa" para ver los cambios.
+
+## Estructura Básica
+
+<CodePlayground
+  language="html"
+  title="Estructura HTML básica"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi primera página</title>
+</head>
+<body>
+  <h1>Hola mundo!</h1>
+  <p>Esta es mi primera página web.
+     Tiene un título y un párrafo.</p>
+</body>
+</html>`}
+/>
+
+<CodePlayground
+  language="html"
+  title="Mi primera página"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi primera página</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    p {
+      line-height: 1.6;
+    }
+    img {
+      max-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    ul {
+      background-color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+    li {
+      padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenidos a mi página</h1>
+  <p>Esta es mi primera página web usando HTML y CSS.
+     Acá voy a practicar los elementos básicos.</p>
+
+  <img src="https://picsum.photos/300/200" alt="Imagen de ejemplo">
+
+  <h2>Mis lenguajes favoritos</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+  </ul>
+</body>
+</html>`}
+  height="250px"
+/>
+
+## Texto y Formato
+
+<CodePlayground
+  language="html"
+  title="Encabezados y párrafos"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Encabezados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 { color: #1a1a2e; border-bottom: 3px solid #e94560; padding-bottom: 8px; }
+    h2 { color: #16213e; }
+    h3 { color: #0f3460; }
+    h4 { color: #533483; }
+    h5 { color: #e94560; }
+    h6 { color: #a1a1a1; }
+    p {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encabezado h1 - Título Principal</h1>
+  <p>El h1 se usa una sola vez por página, como título principal.</p>
+
+  <h2>Encabezado h2 - Sección</h2>
+  <p>El h2 se usa para las secciones principales del contenido.</p>
+
+  <h3>Encabezado h3 - Subsección</h3>
+  <p>El h3 se usa para dividir una sección h2 en partes.</p>
+
+  <h4>Encabezado h4 - Detalle</h4>
+  <p>El h4 agrega un nivel más de detalle dentro de una subsección.</p>
+
+  <h5>Encabezado h5 - Sub-detalle</h5>
+  <p>El h5 se usa raramente, para niveles muy específicos.</p>
+
+  <h6>Encabezado h6 - Nivel mínimo</h6>
+  <p>El h6 es el encabezado más pequeño disponible en HTML.</p>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Formato de texto"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formato de Texto</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      padding: 20px;
+      color: #333;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    h2 {
+      color: #2c3e50;
+      border-left: 4px solid #3498db;
+      padding-left: 12px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #c7254e;
+    }
+    blockquote {
+      border-left: 4px solid #3498db;
+      margin: 15px 0;
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+      font-style: italic;
+      color: #555;
+    }
+    mark {
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Formato de texto en HTML</h2>
+
+  <p><strong>Texto en negrita</strong> se usa para dar énfasis fuerte.</p>
+
+  <p><em>Texto en cursiva</em> se usa para dar énfasis suave.</p>
+
+  <p><mark>Texto resaltado</mark> se usa para marcar información importante.</p>
+
+  <p><del>Texto tachado</del> se usa para indicar contenido eliminado.</p>
+
+  <p>Fórmula del agua: H<sub>2</sub>O</p>
+
+  <p>Dos al cubo: 2<sup>3</sup> = 8</p>
+
+  <p>Para mostrar código usamos <code>&lt;code&gt;</code> que aplica una fuente monoespaciada.</p>
+
+  <blockquote>
+    "La simplicidad es la máxima sofisticación."
+    — Leonardo da Vinci
+  </blockquote>
+
+  <p>También podemos <strong>combinar <em>varios formatos</em></strong> en un mismo párrafo, usando <mark>resaltado</mark> y <code>código</code> juntos.</p>
+</body>
+</html>`}
+  height="300px"
+/>
+
+## Listas y Links
+
+<CodePlayground
+  language="html"
+  title="Listas"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #e74c3c;
+      padding-bottom: 6px;
+    }
+    h3 { color: #34495e; }
+    ol, ul {
+      background-color: #f8f9fa;
+      padding: 15px 15px 15px 35px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    li {
+      padding: 4px 0;
+      line-height: 1.5;
+    }
+    li li {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h2>Listas en HTML</h2>
+
+  <h3>Pasos para preparar mate (lista ordenada)</h3>
+  <ol>
+    <li>Calentar el agua hasta 75-80°C (no debe hervir)</li>
+    <li>Llenar el mate con yerba hasta 3/4 del recipiente</li>
+    <li>Tapar la boca del mate e invertirlo para sacar el polvillo</li>
+    <li>Inclinar la yerba dejando un hueco a un costado</li>
+    <li>Verter un poco de agua tibia en el hueco y dejar absorber</li>
+    <li>Insertar la bombilla en el hueco húmedo</li>
+    <li>Cebar vertiendo agua caliente lentamente por el mismo lugar</li>
+  </ol>
+
+  <h3>Ingredientes necesarios (lista desordenada)</h3>
+  <ul>
+    <li>Yerba mate</li>
+    <li>Agua caliente (75-80°C)</li>
+    <li>Mate (recipiente)</li>
+    <li>Bombilla</li>
+    <li>Termo para mantener la temperatura</li>
+  </ul>
+
+  <h3>Tipos de mate (lista anidada)</h3>
+  <ul>
+    <li>Mate amargo
+      <ul>
+        <li>Clásico</li>
+        <li>Con hierbas (peperina, menta)</li>
+      </ul>
+    </li>
+    <li>Mate dulce
+      <ul>
+        <li>Con azúcar</li>
+        <li>Con miel</li>
+      </ul>
+    </li>
+    <li>Tereré (mate frío)
+      <ul>
+        <li>Con jugo de naranja</li>
+        <li>Con pomelo y menta</li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Links e imágenes"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Links e Imágenes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 6px;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+    .galeria {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    .galeria img {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+    .imagen-link img {
+      border: 3px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .imagen-link:hover img {
+      border-color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <h2>Links</h2>
+  <p>Visitá <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a> para aprender más sobre desarrollo web.</p>
+  <p>También podés consultar <a href="https://www.w3schools.com" target="_blank">W3Schools</a> para tutoriales interactivos.</p>
+
+  <h2>Imágenes</h2>
+  <div class="galeria">
+    <img src="https://picsum.photos/180/120?random=1" alt="Imagen aleatoria 1">
+    <img src="https://picsum.photos/180/120?random=2" alt="Imagen aleatoria 2">
+    <img src="https://picsum.photos/180/120?random=3" alt="Imagen aleatoria 3">
+  </div>
+
+  <h2>Imagen como link</h2>
+  <p>Hacé click en la imagen para abrir un sitio:</p>
+  <a href="https://developer.mozilla.org" target="_blank" class="imagen-link">
+    <img src="https://picsum.photos/250/150?random=4" alt="Click para visitar MDN">
+  </a>
+</body>
+</html>`}
+  height="300px"
+/>
+
+## Tablas
+
+<CodePlayground
+  language="html"
+  title="Tabla de horarios"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla de Horarios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+    td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+      font-size: 13px;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f2f6fc;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+    tbody tr:hover {
+      background-color: #d5e8f7;
+    }
+    .hora {
+      font-weight: bold;
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <h2>Horario de Cursada - 1er Cuatrimestre</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Hora</th>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miércoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="hora">08:00 - 10:00</td>
+        <td>Matemática I</td>
+        <td>Programación I</td>
+        <td>Matemática I</td>
+        <td>Inglés Técnico</td>
+        <td>Programación I</td>
+      </tr>
+      <tr>
+        <td class="hora">10:00 - 12:00</td>
+        <td>Intro. Informática</td>
+        <td>Álgebra</td>
+        <td>Programación I</td>
+        <td>Álgebra</td>
+        <td>Intro. Informática</td>
+      </tr>
+      <tr>
+        <td class="hora">14:00 - 16:00</td>
+        <td>Laboratorio</td>
+        <td>—</td>
+        <td>Laboratorio</td>
+        <td>—</td>
+        <td>Laboratorio</td>
+      </tr>
+      <tr>
+        <td class="hora">16:00 - 18:00</td>
+        <td>—</td>
+        <td>Inglés Técnico</td>
+        <td>—</td>
+        <td>Matemática I</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Tabla con colspan y rowspan"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla con colspan y rowspan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #bbb;
+      padding: 10px 14px;
+      text-align: center;
+    }
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+    .materia {
+      background-color: #2c3e50;
+      color: white;
+      font-weight: bold;
+    }
+    .nombre {
+      text-align: left;
+      font-weight: bold;
+      background-color: #ecf0f1;
+    }
+    .aprobado {
+      background-color: #d5f5e3;
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .desaprobado {
+      background-color: #fadbd8;
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    .promedio {
+      background-color: #eaf2f8;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    caption {
+      font-size: 13px;
+      color: #888;
+      margin-top: 8px;
+      caption-side: bottom;
+    }
+  </style>
+</head>
+<body>
+  <h2>Notas de Alumnos</h2>
+  <table>
+    <caption>Las celdas combinadas muestran el uso de colspan y rowspan</caption>
+    <thead>
+      <tr>
+        <th>Alumno</th>
+        <th class="materia" colspan="2">Programación</th>
+        <th class="materia" colspan="2">Matemática</th>
+        <th>Promedio</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Parcial 1</th>
+        <th>Parcial 2</th>
+        <th>Parcial 1</th>
+        <th>Parcial 2</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="nombre">Ana García</td>
+        <td class="aprobado">8</td>
+        <td class="aprobado">9</td>
+        <td class="aprobado">7</td>
+        <td class="aprobado">8</td>
+        <td class="promedio">8.0</td>
+      </tr>
+      <tr>
+        <td class="nombre">Juan Pérez</td>
+        <td class="aprobado">6</td>
+        <td class="aprobado">7</td>
+        <td class="desaprobado">3</td>
+        <td class="aprobado">6</td>
+        <td class="promedio">5.5</td>
+      </tr>
+      <tr>
+        <td class="nombre">María López</td>
+        <td class="aprobado">10</td>
+        <td class="aprobado">9</td>
+        <td class="aprobado">10</td>
+        <td class="aprobado">10</td>
+        <td class="promedio">9.75</td>
+      </tr>
+      <tr>
+        <td class="nombre" rowspan="2">Carlos Ruiz</td>
+        <td class="desaprobado">3</td>
+        <td colspan="2" rowspan="2" style="background-color:#fef9e7; color:#856404; font-style:italic;">Recuperatorio pendiente</td>
+        <td class="aprobado">5</td>
+        <td class="promedio" rowspan="2">—</td>
+      </tr>
+      <tr>
+        <td class="desaprobado">2</td>
+        <td class="desaprobado">4</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>`}
+  height="300px"
+/>
+
+## Formularios
+
+<CodePlayground
+  language="html"
+  title="Formulario de login"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .login-card {
+      background: white;
+      padding: 35px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 380px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+      font-size: 14px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+    .remember input {
+      width: 16px;
+      height: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
+    <form>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email"
+             placeholder="tu@email.com" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password"
+             placeholder="Tu contraseña" required>
+
+      <div class="remember">
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember" style="margin:0;font-weight:normal;">Recordarme</label>
+      </div>
+
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Formulario de registro completo"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      margin: 0;
+    }
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 0;
+    }
+    .campo {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: #444;
+      font-size: 14px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+    .grupo-radio, .grupo-check {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+    .grupo-radio label, .grupo-check label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .terminos {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: #666;
+    }
+    .terminos input {
+      margin-top: 2px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #219a52;
+    }
+    small {
+      color: #999;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h2>Crear Cuenta</h2>
+
+    <div class="campo">
+      <label for="nombre">Nombre completo *</label>
+      <input type="text" id="nombre" name="nombre"
+             placeholder="Juan Pérez" required maxlength="100">
+    </div>
+
+    <div class="campo">
+      <label for="reg-email">Email *</label>
+      <input type="email" id="reg-email" name="email"
+             placeholder="juan@email.com" required>
+    </div>
+
+    <div class="campo">
+      <label for="reg-pass">Contraseña *</label>
+      <input type="password" id="reg-pass" name="password"
+             placeholder="Mínimo 8 caracteres"
+             required pattern=".{8,}"
+             title="La contraseña debe tener al menos 8 caracteres">
+      <small>Mínimo 8 caracteres</small>
+    </div>
+
+    <div class="campo">
+      <label for="reg-pass2">Confirmar contraseña *</label>
+      <input type="password" id="reg-pass2" name="password2"
+             placeholder="Repetí tu contraseña" required>
+    </div>
+
+    <div class="campo">
+      <label for="nacimiento">Fecha de nacimiento</label>
+      <input type="date" id="nacimiento" name="nacimiento">
+    </div>
+
+    <div class="campo">
+      <label>Género</label>
+      <div class="grupo-radio">
+        <label><input type="radio" name="genero" value="m"> Masculino</label>
+        <label><input type="radio" name="genero" value="f"> Femenino</label>
+        <label><input type="radio" name="genero" value="otro"> Otro</label>
+        <label><input type="radio" name="genero" value="ns"> Prefiero no decir</label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Intereses</label>
+      <div class="grupo-check">
+        <label><input type="checkbox" name="intereses" value="frontend"> Frontend</label>
+        <label><input type="checkbox" name="intereses" value="backend"> Backend</label>
+        <label><input type="checkbox" name="intereses" value="mobile"> Mobile</label>
+        <label><input type="checkbox" name="intereses" value="data"> Data Science</label>
+        <label><input type="checkbox" name="intereses" value="ia"> Inteligencia Artificial</label>
+        <label><input type="checkbox" name="intereses" value="devops"> DevOps</label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="bio">Biografía</label>
+      <textarea id="bio" name="bio"
+                placeholder="Contanos un poco sobre vos..."
+                maxlength="300"></textarea>
+      <small>Máximo 300 caracteres</small>
+    </div>
+
+    <div class="terminos">
+      <input type="checkbox" id="terminos" name="terminos" required>
+      <label for="terminos" style="font-weight:normal;">
+        Acepto los <a href="#">términos y condiciones</a> y la
+        <a href="#">política de privacidad</a> *
+      </label>
+    </div>
+
+    <button type="submit">Crear cuenta</button>
+  </form>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Formulario de contacto"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Contacto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 0;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-weight: bold;
+      color: #555;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 4px rgba(52,152,219,0.3);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    button {
+      margin-top: 18px;
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <h2>Contactanos</h2>
+
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre"
+           placeholder="Tu nombre completo" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email"
+           placeholder="ejemplo@correo.com" required>
+
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono"
+           placeholder="11-1234-5678"
+           pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}">
+
+    <label for="asunto">Asunto</label>
+    <select id="asunto" name="asunto" required>
+      <option value="">-- Seleccioná un asunto --</option>
+      <option value="consulta">Consulta general</option>
+      <option value="soporte">Soporte técnico</option>
+      <option value="sugerencia">Sugerencia</option>
+    </select>
+
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" name="mensaje"
+              placeholder="Escribí tu mensaje acá..."
+              maxlength="500" required></textarea>
+
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</body>
+</html>`}
+  height="250px"
+/>
+
+## CSS - Selectores y Propiedades
+
+<CodePlayground
+  language="html"
+  title="Selectores CSS"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Selectores CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 8px;
+    }
+
+    /* Selector de etiqueta: aplica a TODOS los <p> */
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* Selector de clase: aplica a elementos con class="destacado" */
+    .destacado {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      color: #856404;
+    }
+
+    /* Selector de clase: aplica a elementos con class="info" */
+    .info {
+      background-color: #d1ecf1;
+      border-left: 4px solid #17a2b8;
+      color: #0c5460;
+    }
+
+    /* Selector de ID: aplica al elemento con id="unico" */
+    #unico {
+      background-color: #d4edda;
+      border-left: 4px solid #28a745;
+      color: #155724;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    code {
+      background-color: rgba(0,0,0,0.08);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Selectores CSS</h2>
+
+  <p>Este párrafo solo tiene el estilo del <code>selector de etiqueta</code> (p).
+     Aplica a todos los párrafos por igual.</p>
+
+  <p class="destacado">Este párrafo tiene <code>class="destacado"</code>.
+     El selector <code>.destacado</code> le agrega fondo amarillo y borde.
+     Una clase se puede aplicar a múltiples elementos.</p>
+
+  <p class="info">Este párrafo tiene <code>class="info"</code>.
+     El selector <code>.info</code> le da un estilo celeste diferente.
+     Cada clase puede definir estilos distintos.</p>
+
+  <p id="unico">Este párrafo tiene <code>id="unico"</code>.
+     El selector <code>#unico</code> aplica estilos exclusivos.
+     Un ID debe ser único en toda la página.</p>
+
+  <p class="destacado">Otro párrafo con <code>class="destacado"</code>.
+     Las clases se pueden reutilizar en varios elementos.</p>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Box Model"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Box Model</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .demo-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .box-wrapper {
+      text-align: center;
+    }
+    .box-wrapper h3 {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    /* Margin box (outermost - salmon) */
+    .margin-box {
+      background-color: #f8b4b4;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    /* Border box */
+    .border-box {
+      border: 6px solid #f6c358;
+      display: inline-block;
+    }
+
+    /* Padding box (light green) */
+    .padding-box {
+      background-color: #a8d8a8;
+      padding: 25px;
+      display: inline-block;
+    }
+
+    /* Content box (light blue) */
+    .content-box {
+      background-color: #87ceeb;
+      width: 80px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 12px;
+      color: #333;
+    }
+
+    /* Comparison boxes */
+    .comparison {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .comp-box {
+      width: 150px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+    .sin-nada {
+      background-color: #e74c3c;
+    }
+    .con-padding {
+      background-color: #3498db;
+      padding: 20px;
+    }
+    .con-margin {
+      background-color: #27ae60;
+      margin: 20px;
+    }
+    .con-todo {
+      background-color: #8e44ad;
+      padding: 15px;
+      margin: 10px;
+      border: 4px dashed #f1c40f;
+    }
+
+    .leyenda {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .leyenda span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+    }
+    .color-box {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h2>El Box Model de CSS</h2>
+
+  <div class="leyenda">
+    <span><span class="color-box" style="background:#f8b4b4;"></span> Margin</span>
+    <span><span class="color-box" style="background:#f6c358;"></span> Border</span>
+    <span><span class="color-box" style="background:#a8d8a8;"></span> Padding</span>
+    <span><span class="color-box" style="background:#87ceeb;"></span> Content</span>
+  </div>
+
+  <div class="demo-container">
+    <div class="box-wrapper">
+      <h3>Visualización del Box Model</h3>
+      <div class="margin-box">
+        <div class="border-box">
+          <div class="padding-box">
+            <div class="content-box">Contenido</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 30px;">Comparación</h2>
+  <div class="comparison">
+    <div class="comp-box sin-nada">Sin nada</div>
+    <div class="comp-box con-padding">Con padding</div>
+    <div class="comp-box con-margin">Con margin</div>
+    <div class="comp-box con-todo">Con todo</div>
+  </div>
+</body>
+</html>`}
+  height="300px"
+/>
+
+## Flexbox
+
+<CodePlayground
+  language="html"
+  title="Flexbox - Dirección y Alineación"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 15px;
+      background-color: #f5f5f5;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    h3 {
+      color: #34495e;
+      font-size: 14px;
+      margin: 12px 0 6px 0;
+    }
+    .flex-demo {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background-color: #ecf0f1;
+      border: 2px dashed #bdc3c7;
+      border-radius: 8px;
+      min-height: 60px;
+    }
+    .box {
+      padding: 12px 20px;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+    }
+    .b1 { background-color: #e74c3c; }
+    .b2 { background-color: #3498db; }
+    .b3 { background-color: #27ae60; }
+    .b4 { background-color: #f39c12; }
+
+    /* flex-direction: row (default) */
+    .row { flex-direction: row; }
+
+    /* flex-direction: column */
+    .column { flex-direction: column; width: 200px; }
+
+    /* justify-content examples */
+    .jc-center { justify-content: center; }
+    .jc-between { justify-content: space-between; }
+    .jc-around { justify-content: space-around; }
+
+    /* align-items examples */
+    .ai-center {
+      align-items: center;
+      min-height: 100px;
+    }
+    .ai-center .box:nth-child(1) { padding: 25px 20px; }
+    .ai-center .box:nth-child(2) { padding: 10px 20px; }
+    .ai-center .box:nth-child(3) { padding: 35px 20px; }
+    .ai-center .box:nth-child(4) { padding: 15px 20px; }
+
+    code {
+      background-color: #2c3e50;
+      color: #e74c3c;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Flexbox - Dirección y Alineación</h2>
+
+  <h3><code>flex-direction: row</code> (fila, por defecto)</h3>
+  <div class="flex-demo row">
+    <div class="box b1">1</div>
+    <div class="box b2">2</div>
+    <div class="box b3">3</div>
+    <div class="box b4">4</div>
+  </div>
+
+  <h3><code>flex-direction: column</code> (columna)</h3>
+  <div class="flex-demo column">
+    <div class="box b1">1</div>
+    <div class="box b2">2</div>
+    <div class="box b3">3</div>
+  </div>
+
+  <h3><code>justify-content: center</code></h3>
+  <div class="flex-demo row jc-center">
+    <div class="box b1">1</div>
+    <div class="box b2">2</div>
+    <div class="box b3">3</div>
+  </div>
+
+  <h3><code>justify-content: space-between</code></h3>
+  <div class="flex-demo row jc-between">
+    <div class="box b1">1</div>
+    <div class="box b2">2</div>
+    <div class="box b3">3</div>
+  </div>
+
+  <h3><code>justify-content: space-around</code></h3>
+  <div class="flex-demo row jc-around">
+    <div class="box b1">1</div>
+    <div class="box b2">2</div>
+    <div class="box b3">3</div>
+  </div>
+
+  <h3><code>align-items: center</code> (con distintas alturas)</h3>
+  <div class="flex-demo row ai-center">
+    <div class="box b1">1</div>
+    <div class="box b2">2</div>
+    <div class="box b3">3</div>
+    <div class="box b4">4</div>
+  </div>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Flexbox - Navbar"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Navbar con Flexbox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2c3e50;
+      padding: 0 25px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      color: #3498db;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 5px;
+    }
+    .nav-links a {
+      color: #bdc3c7;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    .nav-links a:hover {
+      background-color: #3498db;
+      color: white;
+    }
+    .nav-links a.active {
+      background-color: #3498db;
+      color: white;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #3498db;
+      color: #3498db;
+    }
+    .btn-primary {
+      background-color: #3498db;
+      color: white;
+    }
+
+    /* Contenido de ejemplo */
+    .content {
+      padding: 30px;
+      text-align: center;
+      color: #555;
+    }
+    .content h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Mi<span>Sitio</span></div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Inicio</a></li>
+      <li><a href="#">Cursos</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn btn-outline">Ingresar</button>
+      <button class="btn btn-primary">Registrarse</button>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>Bienvenido al sitio</h1>
+    <p>Esta barra de navegación fue creada usando Flexbox.</p>
+  </div>
+</body>
+</html>`}
+  height="250px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Flexbox - Cards"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cards con Flexbox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      width: 220px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .card-body h3 {
+      color: #2c3e50;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .card-body p {
+      color: #666;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .card-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      color: white;
+    }
+    .tag-html { background-color: #e44d26; }
+    .tag-css { background-color: #264de4; }
+    .tag-js { background-color: #f0db4f; color: #333; }
+    .tag-react { background-color: #61dafb; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Cursos Disponibles</h1>
+  <div class="cards-container">
+    <div class="card">
+      <img src="https://picsum.photos/200/150?random=10" alt="HTML">
+      <div class="card-body">
+        <h3>HTML Fundamental</h3>
+        <p>Aprendé a estructurar páginas web con las etiquetas más importantes de HTML5.</p>
+        <span class="card-tag tag-html">HTML</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/200/150?random=11" alt="CSS">
+      <div class="card-body">
+        <h3>CSS desde Cero</h3>
+        <p>Dominá selectores, box model, flexbox y más para dar estilo a tus páginas.</p>
+        <span class="card-tag tag-css">CSS</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/200/150?random=12" alt="JavaScript">
+      <div class="card-body">
+        <h3>JavaScript Esencial</h3>
+        <p>Agregá interactividad a tus sitios web con el lenguaje más popular.</p>
+        <span class="card-tag tag-js">JavaScript</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/200/150?random=13" alt="React">
+      <div class="card-body">
+        <h3>Intro a React</h3>
+        <p>Construí interfaces modernas con componentes reutilizables y estado.</p>
+        <span class="card-tag tag-react">React</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`}
+  height="300px"
+/>
+
+<CodePlayground
+  language="html"
+  title="Flexbox Layout"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .card .icono {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .card .tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: white;
+    }
+    .tag-html { background-color: #e44d26; }
+    .tag-css  { background-color: #264de4; }
+    .tag-js   { background-color: #f7df1e; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Tecnologías Web</h1>
+  <div class="contenedor">
+    <div class="card">
+      <div class="icono">📄</div>
+      <h3>HTML</h3>
+      <p>El lenguaje de marcado para estructurar el contenido de la web.</p>
+      <span class="tag tag-html">Estructura</span>
+    </div>
+    <div class="card">
+      <div class="icono">🎨</div>
+      <h3>CSS</h3>
+      <p>Hojas de estilo para controlar la apariencia y el diseño visual.</p>
+      <span class="tag tag-css">Estilos</span>
+    </div>
+    <div class="card">
+      <div class="icono">⚡</div>
+      <h3>JavaScript</h3>
+      <p>El lenguaje de programación para agregar interactividad a la web.</p>
+      <span class="tag tag-js">Interactividad</span>
+    </div>
+  </div>
+</body>
+</html>`}
+  height="300px"
+/>
+
+## Layout Completo
+
+<CodePlayground
+  language="html"
+  title="Página completa"
+  initialCode={`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Sitio Web</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    /* ===== Header / Nav ===== */
+    header {
+      background-color: #1a1a2e;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      height: 55px;
+    }
+    .logo {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .logo span { color: #e94560; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+    }
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: white;
+      background-color: #e94560;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #aaa;
+      max-width: 500px;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+    }
+    .hero-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #e94560;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      transition: background-color 0.3s;
+    }
+    .hero-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* ===== Features ===== */
+    .features {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .features h2 {
+      text-align: center;
+      color: #1a1a2e;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    .features-grid {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .feature-card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .feature-card h3 {
+      color: #1a1a2e;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .feature-card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+    footer a {
+      color: #e94560;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Dev<span>Academy</span></div>
+      <ul>
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#">Cursos</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Aprendé a programar</h1>
+      <p>Cursos prácticos de desarrollo web para arrancar tu carrera en tecnología desde cero.</p>
+      <a href="#" class="hero-btn">Empezar ahora</a>
+    </section>
+
+    <section class="features">
+      <h2>¿Por qué elegirnos?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Contenido Práctico</h3>
+          <p>Aprendé haciendo con ejercicios y proyectos reales desde el primer día.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🏫</div>
+          <h3>Docentes Expertos</h3>
+          <p>Profesionales de la industria que te guían paso a paso en tu aprendizaje.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Salida Laboral</h3>
+          <p>Te preparamos para conseguir tu primer trabajo en el mundo tech.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 DevAcademy - Hecho con ❤️ y mucho <a href="#">código</a></p>
+  </footer>
+
+</body>
+</html>`}
+  height="300px"
+/>

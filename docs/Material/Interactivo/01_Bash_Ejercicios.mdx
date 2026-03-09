@@ -1,0 +1,679 @@
+---
+sidebar_label: "Bash - Ejercicios"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Bash - Ejercicios
+
+Practicá Bash resolviendo los ejercicios. Cada uno tiene dos pestañas: una con el enunciado y el esqueleto del script, y otra con la solución. Intentá resolver el ejercicio antes de mirar la respuesta.
+
+:::tip Cómo usar estos ejercicios
+Estos ejercicios son para practicar en tu terminal. Copiá el código y ejecutalo en un archivo `.sh` (no olvides darle permisos con `chmod +x`).
+
+```bash
+# 1. Creá el archivo
+nano mi_script.sh
+
+# 2. Dale permisos de ejecución
+chmod +x mi_script.sh
+
+# 3. Ejecutalo
+./mi_script.sh
+```
+:::
+
+---
+
+## Nivel 1 - Básico
+
+### Ejercicio 1: Saludo
+
+Crear un script que reciba un nombre como parámetro y lo salude con "Hola, [nombre]!".
+
+**Uso esperado:** `./saludo.sh Juan` → `Hola, Juan!`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para que salude al usuario
+  # Recordá que $1 es el primer parámetro
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Saludar al usuario pasado como parámetro
+  echo "Hola, $1!"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 2: Suma
+
+Crear un script que reciba 2 números como parámetros e imprima su suma.
+
+**Uso esperado:** `./suma.sh 5 3` → `La suma es: 8`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para que sume dos números
+  # Recordá que $1 y $2 son los parámetros
+  # Usá $(( )) para operaciones aritméticas
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Sumar dos números pasados como parámetros
+  resultado=$(( $1 + $2 ))
+  echo "La suma es: $resultado"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 3: Nombre completo
+
+Crear un script que pregunte al usuario su nombre y apellido (usando `read`), y luego imprima el nombre completo.
+
+**Uso esperado:** El script pregunta y el usuario escribe. Resultado: `Tu nombre completo es: Juan Pérez`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para que pida nombre y apellido
+  # Usá el comando "read" para leer la entrada del usuario
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Pedir nombre y apellido al usuario
+  echo "Ingresá tu nombre:"
+  read nombre
+  echo "Ingresá tu apellido:"
+  read apellido
+  echo "Tu nombre completo es: $nombre $apellido"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 4: Par o impar
+
+Crear un script que reciba un número como parámetro y diga si es par o impar.
+
+**Uso esperado:** `./par_impar.sh 7` → `7 es impar`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para determinar si un número es par o impar
+  # Pista: usá el operador módulo (%) dentro de $(( ))
+  # Si el resto de dividir por 2 es 0, es par
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Verificar si un número es par o impar
+  numero=$1
+  resto=$(( numero % 2 ))
+
+  if [ $resto -eq 0 ]; then
+      echo "$numero es par"
+  else
+      echo "$numero es impar"
+  fi
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 5: Mayor de edad
+
+Crear un script que reciba una edad como parámetro y diga si la persona es "mayor de edad" (>= 18) o "menor de edad".
+
+**Uso esperado:** `./edad.sh 21` → `Sos mayor de edad`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para verificar si es mayor o menor de edad
+  # Recordá: -ge significa "greater or equal" (mayor o igual)
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Verificar si la persona es mayor o menor de edad
+  edad=$1
+
+  if [ $edad -ge 18 ]; then
+      echo "Sos mayor de edad"
+  else
+      echo "Sos menor de edad"
+  fi
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 2 - Condicionales y Loops
+
+### Ejercicio 6: Calculadora
+
+Crear un script que reciba 2 números y una operación (+, -, \*, /) e imprima el resultado usando `case`.
+
+**Uso esperado:** `./calculadora.sh 10 + 5` → `Resultado: 15`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá la calculadora usando case
+  # $1 = primer número, $2 = operación, $3 = segundo número
+
+  num1=$1
+  operacion=$2
+  num2=$3
+
+  case $operacion in
+      # Completá los casos para +, -, *, /
+  esac
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Calculadora con case
+  num1=$1
+  operacion=$2
+  num2=$3
+
+  case $operacion in
+      "+")
+          resultado=$(( num1 + num2 ))
+          echo "Resultado: $resultado"
+          ;;
+      "-")
+          resultado=$(( num1 - num2 ))
+          echo "Resultado: $resultado"
+          ;;
+      "*")
+          resultado=$(( num1 * num2 ))
+          echo "Resultado: $resultado"
+          ;;
+      "/")
+          if [ $num2 -eq 0 ]; then
+              echo "Error: no se puede dividir por cero"
+          else
+              resultado=$(( num1 / num2 ))
+              echo "Resultado: $resultado"
+          fi
+          ;;
+      *)
+          echo "Operación no válida. Usá: +, -, *, /"
+          ;;
+  esac
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 7: Tabla de multiplicar
+
+Crear un script que reciba un número y muestre su tabla de multiplicar del 1 al 10 usando un `for`.
+
+**Uso esperado:** `./tabla.sh 5` → muestra `5 x 1 = 5`, `5 x 2 = 10`, ... `5 x 10 = 50`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para mostrar la tabla de multiplicar
+  # Usá un for con una secuencia del 1 al 10
+  # Sintaxis: for i in {1..10}; do ... done
+
+  numero=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Tabla de multiplicar usando for
+  numero=$1
+
+  echo "Tabla de multiplicar del $numero:"
+  for i in {1..10}; do
+      resultado=$(( numero * i ))
+      echo "$numero x $i = $resultado"
+  done
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 8: Countdown
+
+Crear un script que reciba un número y haga una cuenta regresiva hasta 0, imprimiendo cada número.
+
+**Uso esperado:** `./countdown.sh 5` → `5`, `4`, `3`, `2`, `1`, `0`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para hacer una cuenta regresiva
+  # Podés usar un while que vaya restando de a 1
+
+  numero=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Cuenta regresiva usando while
+  numero=$1
+
+  while [ $numero -ge 0 ]; do
+      echo $numero
+      numero=$(( numero - 1 ))
+  done
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 9: Factorial
+
+Crear un script que reciba un número y calcule su factorial usando un `while`.
+
+**Uso esperado:** `./factorial.sh 5` → `El factorial de 5 es: 120`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para calcular el factorial
+  # Factorial de 5 = 5 * 4 * 3 * 2 * 1 = 120
+  # Usá un while que multiplique desde el número hasta 1
+
+  numero=$1
+  factorial=1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Calcular el factorial usando while
+  numero=$1
+  factorial=1
+  i=$numero
+
+  while [ $i -gt 0 ]; do
+      factorial=$(( factorial * i ))
+      i=$(( i - 1 ))
+  done
+
+  echo "El factorial de $numero es: $factorial"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 10: Números primos
+
+Crear un script que reciba un número N e imprima todos los números primos del 1 al N.
+
+**Uso esperado:** `./primos.sh 20` → `2 3 5 7 11 13 17 19`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para mostrar números primos del 1 a N
+  # Un número primo solo es divisible por 1 y por sí mismo
+  # Pista: para cada número, verificá si tiene algún divisor entre 2 y el número-1
+
+  N=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Mostrar números primos del 1 a N
+  N=$1
+
+  for (( num=2; num<=N; num++ )); do
+      es_primo=1
+
+      for (( i=2; i*i<=num; i++ )); do
+          if [ $(( num % i )) -eq 0 ]; then
+              es_primo=0
+              break
+          fi
+      done
+
+      if [ $es_primo -eq 1 ]; then
+          echo -n "$num "
+      fi
+  done
+  echo  # Salto de línea final
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 3 - Archivos y Redirección
+
+### Ejercicio 11: Contar líneas, palabras y caracteres
+
+Crear un script que reciba un nombre de archivo y muestre la cantidad de líneas, palabras y caracteres.
+
+**Uso esperado:** `./contar.sh archivo.txt` → `Líneas: 10, Palabras: 50, Caracteres: 300`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para contar líneas, palabras y caracteres
+  # Pista: el comando "wc" cuenta líneas (-l), palabras (-w) y caracteres (-c)
+  # Podés usar $( ) para capturar la salida de un comando
+
+  archivo=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Contar líneas, palabras y caracteres de un archivo
+  archivo=$1
+
+  if [ ! -f "$archivo" ]; then
+      echo "Error: el archivo '$archivo' no existe"
+      exit 1
+  fi
+
+  lineas=$(wc -l < "$archivo")
+  palabras=$(wc -w < "$archivo")
+  caracteres=$(wc -c < "$archivo")
+
+  echo "Archivo: $archivo"
+  echo "Líneas: $lineas"
+  echo "Palabras: $palabras"
+  echo "Caracteres: $caracteres"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 12: Buscar palabra
+
+Crear un script que reciba una palabra y un archivo, imprima todas las líneas que contienen esa palabra y la cantidad de coincidencias.
+
+**Uso esperado:** `./buscar.sh "error" log.txt` → muestra las líneas y `Total de coincidencias: 3`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para buscar una palabra en un archivo
+  # Pista: usá grep para buscar y grep -c para contar coincidencias
+
+  palabra=$1
+  archivo=$2
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Buscar una palabra en un archivo y contar coincidencias
+  palabra=$1
+  archivo=$2
+
+  if [ ! -f "$archivo" ]; then
+      echo "Error: el archivo '$archivo' no existe"
+      exit 1
+  fi
+
+  echo "Líneas que contienen '$palabra':"
+  echo "---"
+  grep "$palabra" "$archivo"
+  echo "---"
+
+  cantidad=$(grep -c "$palabra" "$archivo")
+  echo "Total de coincidencias: $cantidad"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 13: Backup
+
+Crear un script que reciba un nombre de directorio y cree un backup comprimido (.tar.gz) con la fecha de hoy en el nombre del archivo.
+
+**Uso esperado:** `./backup.sh mi_proyecto` → crea `mi_proyecto_2024-01-15.tar.gz`
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para crear un backup comprimido
+  # Pista: usá $(date +%Y-%m-%d) para obtener la fecha
+  # Pista: usá tar -czf nombre.tar.gz directorio para comprimir
+
+  directorio=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Crear backup comprimido de un directorio
+  directorio=$1
+
+  if [ ! -d "$directorio" ]; then
+      echo "Error: el directorio '$directorio' no existe"
+      exit 1
+  fi
+
+  fecha=$(date +%Y-%m-%d)
+  nombre_backup="${directorio}_${fecha}.tar.gz"
+
+  tar -czf "$nombre_backup" "$directorio"
+
+  echo "Backup creado: $nombre_backup"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Nivel 4 - Desafíos
+
+### Ejercicio 14: Renombrar archivos
+
+Crear un script que reciba un directorio y renombre todos los archivos `.txt` a `.bak`.
+
+**Uso esperado:** `./renombrar.sh mi_carpeta` → renombra `notas.txt` a `notas.bak`, etc.
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para renombrar archivos .txt a .bak
+  # Pista: usá un for para recorrer los archivos .txt del directorio
+  # Pista: usá mv para renombrar y ${variable%.txt}.bak para cambiar la extensión
+
+  directorio=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Renombrar todos los .txt a .bak en un directorio
+  directorio=$1
+
+  if [ ! -d "$directorio" ]; then
+      echo "Error: el directorio '$directorio' no existe"
+      exit 1
+  fi
+
+  contador=0
+
+  for archivo in "$directorio"/*.txt; do
+      # Verificar que el glob matcheó archivos reales
+      if [ -f "$archivo" ]; then
+          nuevo_nombre="${archivo%.txt}.bak"
+          mv "$archivo" "$nuevo_nombre"
+          echo "Renombrado: $archivo -> $nuevo_nombre"
+          contador=$(( contador + 1 ))
+      fi
+  done
+
+  echo "Total de archivos renombrados: $contador"
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Ejercicio 15: Analizador de logs
+
+Crear un script que lea un archivo de log y cuente cuántas líneas contienen "ERROR", "WARNING" e "INFO", mostrando un resumen al final.
+
+**Uso esperado:** `./log_analyzer.sh app.log` → muestra un resumen con la cantidad de cada tipo
+
+<Tabs>
+  <TabItem value="ejercicio" label="✏️ Ejercicio" default>
+
+  ```bash
+  #!/bin/bash
+  # Completá el script para analizar un archivo de log
+  # Pista: usá grep -c para contar las líneas que contienen cada palabra
+  # Mostrá un resumen con la cantidad de ERROR, WARNING e INFO
+
+  archivo=$1
+
+  ```
+
+  </TabItem>
+  <TabItem value="solucion" label="💡 Solución">
+
+  ```bash
+  #!/bin/bash
+  # Analizador de logs
+  archivo=$1
+
+  if [ ! -f "$archivo" ]; then
+      echo "Error: el archivo '$archivo' no existe"
+      exit 1
+  fi
+
+  total=$(wc -l < "$archivo")
+  errores=$(grep -c "ERROR" "$archivo")
+  warnings=$(grep -c "WARNING" "$archivo")
+  infos=$(grep -c "INFO" "$archivo")
+
+  echo "=============================="
+  echo "  Resumen del log: $archivo"
+  echo "=============================="
+  echo "  Total de líneas:  $total"
+  echo "  ERROR:            $errores"
+  echo "  WARNING:          $warnings"
+  echo "  INFO:             $infos"
+  echo "=============================="
+  ```
+
+  </TabItem>
+</Tabs>

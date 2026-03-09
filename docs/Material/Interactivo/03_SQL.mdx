@@ -1,0 +1,218 @@
+---
+sidebar_label: "SQL"
+---
+
+import CodePlayground from '@site/src/components/CodePlayground';
+
+# SQL - Práctica Interactiva
+
+Escribí tus consultas SQL y probalas en [DB Fiddle](https://www.db-fiddle.com/f/o4BQczgY9ZnezSUYht4rCh/16). Ese link ya tiene los datos precargados de la guía.
+
+## SELECT Básico
+
+<CodePlayground
+  language="sql"
+  title="SELECT todos los campos"
+  initialCode={`-- Seleccionar todas las columnas de la tabla bandas
+SELECT *
+FROM bandas;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="SELECT campos específicos"
+  initialCode={`-- Seleccionar solo el nombre y el país de origen de cada banda
+SELECT nombre, pais_origen
+FROM bandas;`}
+/>
+
+## Filtros con WHERE
+
+<CodePlayground
+  language="sql"
+  title="WHERE con condición simple"
+  initialCode={`-- Filtrar bandas que sean del género Rock
+SELECT nombre, genero
+FROM bandas
+WHERE genero = 'Rock';`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="WHERE con múltiples condiciones"
+  initialCode={`-- Bandas de Rock con más de 3 integrantes
+SELECT nombre, cant_integrantes
+FROM bandas
+WHERE genero = 'Rock'
+  AND cant_integrantes > 3;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="WHERE con LIKE"
+  initialCode={`-- Buscar bandas cuyo nombre empiece con "The"
+SELECT nombre
+FROM bandas
+WHERE nombre LIKE 'The%';`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="WHERE con IN"
+  initialCode={`-- Bandas de Argentina, Inglaterra o Estados Unidos
+SELECT nombre, pais_origen
+FROM bandas
+WHERE pais_origen IN ('Argentina', 'Inglaterra', 'Estados Unidos');`}
+/>
+
+## Ordenamiento y Límites
+
+<CodePlayground
+  language="sql"
+  title="ORDER BY"
+  initialCode={`-- Ordenar bandas por fecha de creación, de la más nueva a la más vieja
+SELECT nombre, fecha_creacion
+FROM bandas
+ORDER BY fecha_creacion DESC;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="LIMIT y OFFSET"
+  initialCode={`-- Los 5 álbumes mejor rankeados (ranking más bajo = mejor posición)
+SELECT nombre, ranking
+FROM albumes
+ORDER BY ranking
+LIMIT 5;`}
+/>
+
+## Funciones de Agregación
+
+<CodePlayground
+  language="sql"
+  title="COUNT y AVG"
+  initialCode={`-- Contar el total de bandas registradas
+SELECT COUNT(*) AS total_bandas
+FROM bandas;
+
+-- Calcular la duración promedio de los álbumes (en minutos)
+SELECT AVG(duracion) AS duracion_promedio
+FROM albumes;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="MAX, MIN y SUM"
+  initialCode={`-- Obtener el álbum más largo, el más corto y la duración total
+SELECT
+  MAX(duracion) AS mas_largo,
+  MIN(duracion) AS mas_corto,
+  SUM(duracion) AS total
+FROM albumes;`}
+/>
+
+## GROUP BY y HAVING
+
+<CodePlayground
+  language="sql"
+  title="GROUP BY"
+  initialCode={`-- Contar cuántas bandas hay por cada género
+SELECT genero, COUNT(*) AS cantidad
+FROM bandas
+GROUP BY genero;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="GROUP BY con HAVING"
+  initialCode={`-- Géneros que tienen más de 2 bandas
+SELECT genero, COUNT(*) AS cantidad
+FROM bandas
+GROUP BY genero
+HAVING COUNT(*) > 2;`}
+/>
+
+## JOIN
+
+<CodePlayground
+  language="sql"
+  title="INNER JOIN"
+  initialCode={`-- Combinar bandas con sus álbumes usando INNER JOIN
+SELECT
+  b.nombre AS banda,
+  a.nombre AS album
+FROM bandas b
+INNER JOIN albumes a ON b.id = a.banda_id
+ORDER BY b.nombre;`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="JOIN con múltiples tablas"
+  initialCode={`-- Unir bandas, álbumes y canciones para ver todo junto
+SELECT
+  b.nombre  AS banda,
+  a.nombre  AS album,
+  c.nombre  AS cancion
+FROM bandas b
+INNER JOIN albumes a   ON b.id = a.banda_id
+INNER JOIN canciones c ON a.id = c.album_id
+ORDER BY b.nombre, a.nombre, c.nombre;`}
+/>
+
+## Subconsultas
+
+<CodePlayground
+  language="sql"
+  title="Subconsulta en WHERE"
+  initialCode={`-- Bandas que tienen al menos un álbum en el top 10 del ranking
+SELECT nombre
+FROM bandas
+WHERE id IN (
+  SELECT banda_id
+  FROM albumes
+  WHERE ranking < 10
+);`}
+/>
+
+## INSERT, UPDATE y DELETE
+
+<CodePlayground
+  language="sql"
+  title="INSERT INTO"
+  initialCode={`-- Insertar una nueva banda en la tabla
+INSERT INTO bandas (nombre, genero, pais_origen, cant_integrantes, fecha_creacion)
+VALUES ('Los Nuevos', 'Rock', 'Argentina', 4, '2020-01-15');
+
+-- Verificar que se insertó correctamente
+SELECT *
+FROM bandas
+WHERE nombre = 'Los Nuevos';`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="UPDATE"
+  initialCode={`-- Actualizar la cantidad de integrantes de una banda
+UPDATE bandas
+SET cant_integrantes = 5
+WHERE nombre = 'Los Nuevos';
+
+-- Verificar el cambio
+SELECT nombre, cant_integrantes
+FROM bandas
+WHERE nombre = 'Los Nuevos';`}
+/>
+
+<CodePlayground
+  language="sql"
+  title="DELETE"
+  initialCode={`-- Eliminar una banda por su nombre
+DELETE FROM bandas
+WHERE nombre = 'Los Nuevos';
+
+-- Verificar que se eliminó
+SELECT *
+FROM bandas
+WHERE nombre = 'Los Nuevos';`}
+/>
