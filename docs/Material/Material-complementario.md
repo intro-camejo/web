@@ -30,8 +30,3 @@
 * [Online Bash Shell](https://www.onlinegdb.com/online_bash_shell)
 * [Tutorial Bash - freeCodeCamp](https://youtu.be/tK9Oc6AEnR4)
 * [Bash scripting Geeks for Geeks](https://www.geeksforgeeks.org/bash-scripting-introduction-to-bash-and-bash-scripting/)
-
-
-### Material de clases 
-* [Ejercicios 22-08](https://intro-camejo.github.io/web/files/clase_220825.zip)
-* [Ejercicios 29-08](https://intro-camejo.github.io/web/files/clase_290825.zip)
