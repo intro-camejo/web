@@ -80,6 +80,7 @@ export const Cronograma = () => {
                     ))}
                 </tbody>
             </table>
+            {data.nota && <p><em>{data.nota}</em></p>}
         </>
     );
 };
