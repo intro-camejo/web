@@ -33,7 +33,7 @@
                 },
               },
           media_folder: "static/img",
-          public_folder: "/web/img/",
+          public_folder: "/img/",
           collections: [
             {
               name: "docentes",
@@ -99,6 +99,14 @@
           ],
         },
       });
+
+      // Fix image previews: prepend /web to /img/ paths so thumbnails load correctly
+      var basePrefix = "/web";
+      new MutationObserver(function(mutations) {
+        document.querySelectorAll('img[src^="/img/"]').forEach(function(img) {
+          img.src = basePrefix + img.getAttribute("src");
+        });
+      }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["src"] });
     </script>
   </body>
 </html>
