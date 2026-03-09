@@ -18,7 +18,7 @@
       CMS.init({
         config: {
           backend: isLocal
-            ? { name: "test-repo" }
+            ? { name: "proxy", proxy_url: "http://localhost:8081/api/v1" }
             : {
                 name: "github",
                 repo: "intro-camejo/web",
@@ -35,6 +35,34 @@
           media_folder: "static/img",
           public_folder: "/img/",
           collections: [
+            {
+              name: "docentes",
+              label: "Docentes",
+              files: [
+                {
+                  name: "docentes",
+                  label: "Docentes",
+                  file: "src/data/docentes.json",
+                  fields: [
+                    {
+                      label: "Docentes",
+                      name: "docentes",
+                      widget: "list",
+                      allow_add: true,
+                      fields: [
+                        { label: "Nombre", name: "name", widget: "string" },
+                        {
+                          label: "Fotos",
+                          name: "pictures",
+                          widget: "list",
+                          field: { label: "Foto", name: "foto", widget: "image" },
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
             {
               name: "blog",
               label: "Blog",
