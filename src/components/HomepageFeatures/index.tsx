@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import docentesData from '@site/src/data/docentes.json';
 
@@ -10,7 +11,7 @@ type ColabItem = {
 
 function Colab({ name, pictures }: ColabItem) {
   const [currentImage, setCurrentImage] = useState(0);
-  const imgSrc = pictures[currentImage];
+  const imgSrc = useBaseUrl(pictures[currentImage]);
 
   const handleClick = () => {
     setCurrentImage((prev) => (prev + 1) % pictures.length);
