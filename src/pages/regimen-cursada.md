@@ -5,7 +5,7 @@
 Las clases se dictarán los días Martes y Jueves de 19:00 a 22:00.
 Los Martes serán virtuales y los Jueves presenciales en la sede Paseo Colón (Aula 403), salvo excepciones informadas con suficiente antelación.
 
-## Aprobación de cursada
+## Aprobación de cursada 
 
 Se realizará un Trabajo Práctico grupal y un parcial con sus respectivos recuperatorios. En la sección del cronograma podrán ver las fechas de presentación y entrega del TP, como de la fecha del parcial y los recuperatorios.
 
