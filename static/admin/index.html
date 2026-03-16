@@ -203,6 +203,21 @@
                 { label: "Contenido", name: "body", widget: "markdown" },
               ],
             },
+            ,
+            {
+              name: "clases",
+              label: "Clases",
+              folder: "docs/Material/Clases",
+              create: true,
+              extension: "md",
+              summary: "{{filename}}",
+              editor: { preview: false },
+              fields: [
+                { label: "Sidebar Label", name: "sidebar_label", widget: "string", required: false },
+                { label: "Sidebar Position", name: "sidebar_position", widget: "number", required: false, value_type: "int" },
+                { label: "Contenido", name: "body", widget: "markdown" },
+              ],
+            },
             {
               name: "guias",
               label: "Guías",
