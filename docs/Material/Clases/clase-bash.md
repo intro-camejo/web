@@ -85,7 +85,7 @@ Bash es un lenguaje **procedural (o imperativo)**. ¿Qué significa esto?
 | Usar Bash | Usar Python/otro |
 |-----------|------------------|
 | Automatizar comandos del sistema | Lógica compleja |
-| Scripts cortos (<100 líneas) | Manipulación de datos |
+| Scripts cortos | Manipulación de datos |
 | Glue code entre programas | APIs, web, bases de datos |
 | Tareas de sysadmin | Cuando necesitás librerías |
 | Instaladores, deploy scripts | Código mantenible a largo plazo |
