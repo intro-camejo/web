@@ -887,7 +887,7 @@ $ ./script.sh > salida.txt 2> errores.txt
 $ comando 2>&1 | grep "warning"
 ```
 
-### Para pasar múltiples líneas como stdin (<<)
+### Para pasar múltiples líneas como stdin
 
 ```bash
 # Crear archivo con contenido
