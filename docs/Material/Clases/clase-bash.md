@@ -913,7 +913,7 @@ cat << MENU
 MENU
 ```
 
-### Para pasar un string como stdin (<<<)
+### Para pasar un string como stdin
 
 ```bash
 # En vez de: echo "texto" | comando
