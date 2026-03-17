@@ -30,15 +30,14 @@
       "semana": 2,
       "martes": {
         "fecha": "17/03/2026",
-        "actividades": [
-          { "name": "Bash" },
-          { "name": "Pipelines, redirecciones, listas (&&, ||, ;)" },
-          { "name": "Regex" }
-        ]
+        "actividades": [{ "name": "Paro universitario" }]
       },
       "jueves": {
         "fecha": "19/03/2026",
-        "actividades": [{ "name": "Bash y Regex - Ejercitación" }]
+        "actividades": [
+          { "name": "Regex" },
+          { "name": "Bash y Regex - Ejercitación" }
+        ]
       }
     },
     {
