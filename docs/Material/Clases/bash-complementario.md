@@ -1,25 +1,11 @@
 # Bash Complementario
 
-## Índice
-1. [Repositorio](#1-repositorio)
-2. [Video de la clase](#2-video-de-la-clase)
-3. [Ejercicio Integrador: Sistema de Gestión de Entregas de TPs](#3-ejercicio-integrador-sistema-de-gestión-de-entregas-de-tps)
+- [Repositorio](https://github.com/RiedelNicolas/bash-exercise)
+- [Video de la clase](https://youtu.be/dGo6IiAdvvs)
 
 ---
 
-## 1. Repositorio
-
-https://github.com/RiedelNicolas/bash-exercise
-
----
-
-## 2. Video de la clase
-
-https://youtu.be/dGo6IiAdvvs
-
----
-
-## 3. Ejercicio Integrador: Sistema de Gestión de Entregas de TPs
+## Ejercicio Integrador: Sistema de Gestión de Entregas de TPs
 
 ### Contexto
 
