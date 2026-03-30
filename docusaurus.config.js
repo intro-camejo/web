@@ -11,10 +11,9 @@ const config = {
   staticDirectories: ['public', 'static'],
 
   // Set the production url of your site here
-  url: 'https://intro-camejo.github.io',
+  url: 'https://www.intro-camejo.com.ar',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/web/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
