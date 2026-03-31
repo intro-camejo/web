@@ -83,8 +83,7 @@
           { "name": "Git - Ramas (checkout, branch)" },
           { "name": "git restore" },
           { "name": "Staging" },
-          { "name": "git log y git diff" },
-          { "name": "Entrega TP0", "bg": "#0070a7", "color": "#f7f7f7" }
+          { "name": "git log y git diff" }
         ]
       },
       "jueves": {
