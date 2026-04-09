@@ -6,5 +6,7 @@
 * [FileSystem](https://drive.google.com/file/d/169BwslyyKv5c6GwNjuL2MN-GTuYhXG2W/view?usp=drive_link)
 * [Editores de Texto](https://drive.google.com/file/d/1dJPt64u4kg-0NM7OKxjSoX-_qTE8vgSt/view?usp=drive_link)
 * [Intro a Regex](https://drive.google.com/file/d/1X2K3l9ZL2OGgRJyZE9mKKE-t41t-3vyl/view?usp=drive_link)
+* [Ingeniería de Software](https://drive.google.com/file/d/1VfmVSmWNm2uFhN0REiI12LBg6RGrbkYA/view?usp=sharing)
+* [Etapas de la Ingeniería de Software](https://drive.google.com/file/d/1nV3FjmzQLB93a0gr1cuVi76vT2iVJ3BK/view?usp=drive_link)
 * [Intro a Git](https://drive.google.com/file/d/1K6mVSddY0L9o80gSF_XR-Mu9abbmXz2U/view?usp=sharing)
 * [Ssh para Github](https://drive.google.com/file/d/10_Kc5wv1eIahixzIe4rMjVW3HcA1gR2d/view?usp=sharing)
