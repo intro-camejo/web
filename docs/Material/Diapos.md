@@ -10,4 +10,5 @@
 * [Etapas de la Ingeniería de Software](https://drive.google.com/file/d/1nV3FjmzQLB93a0gr1cuVi76vT2iVJ3BK/view?usp=drive_link)
 * [Intro a Git](https://drive.google.com/file/d/1K6mVSddY0L9o80gSF_XR-Mu9abbmXz2U/view?usp=sharing)
 * [SSH para Github](https://drive.google.com/file/d/10_Kc5wv1eIahixzIe4rMjVW3HcA1gR2d/view?usp=sharing)
+* [Github: ramas y merge conflicts](https://canva.link/presentacion-git2-1c26)
 * [Docker](https://drive.google.com/file/d/1FSG-wXa_jFv0w4ptc_4WjRy-46Hc5BP1/view?usp=drive_link)
