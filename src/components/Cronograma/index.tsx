@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import data from "../../data/cronograma.json";
 
 type Actividad = {
@@ -29,24 +29,30 @@ const renderIntro = (text: string) => {
     });
 };
 
+const Badge = ({ actividad }: { actividad: Actividad }) => {
+    if (actividad.bg && actividad.color) {
+        return (
+            <span style={{
+                backgroundColor: actividad.bg,
+                borderRadius: "5px",
+                color: actividad.color,
+                padding: "0.2rem 0.4rem",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                display: "inline-block",
+            }}>
+                {actividad.name}
+            </span>
+        );
+    }
+    return <>{actividad.name}</>;
+};
+
 const renderActividades = (actividades: Actividad[]) => (
-    <ul>
+    <ul style={{ margin: 0, paddingLeft: "1.2rem" }}>
         {actividades.map((actividad, index) => (
             <li key={index}>
-                {actividad.bg && actividad.color ? (
-                    <span style={{
-                        backgroundColor: actividad.bg,
-                        borderRadius: "5px",
-                        color: actividad.color,
-                        padding: "0.2rem 0.4rem",
-                        fontWeight: "bold",
-                        textTransform: "uppercase",
-                    }}>
-                        {actividad.name}
-                    </span>
-                ) : (
-                    actividad.name
-                )}
+                <Badge actividad={actividad} />
             </li>
         ))}
     </ul>
@@ -58,28 +64,50 @@ export const Cronograma = () => {
     return (
         <>
             {renderIntro(data.intro)}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Semana</th>
-                        <th>Fecha</th>
-                        <th>Martes</th>
-                        <th>Fecha</th>
-                        <th>Jueves</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {semanas.map((semana) => (
-                        <tr key={semana.semana}>
-                            <td>{semana.semana}</td>
-                            <td>{semana.martes.fecha}</td>
-                            <td>{renderActividades(semana.martes.actividades)}</td>
-                            <td>{semana.jueves.fecha}</td>
-                            <td>{renderActividades(semana.jueves.actividades)}</td>
+
+            {/* Vista desktop: tabla */}
+            <div className="cronograma-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Fecha</th>
+                            <th>Martes</th>
+                            <th>Fecha</th>
+                            <th>Jueves</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {semanas.map((semana) => (
+                            <tr key={semana.semana}>
+                                <td style={{ textAlign: "center", fontWeight: "bold" }}>{semana.semana}</td>
+                                <td style={{ whiteSpace: "nowrap" }}>{semana.martes.fecha}</td>
+                                <td>{renderActividades(semana.martes.actividades)}</td>
+                                <td style={{ whiteSpace: "nowrap" }}>{semana.jueves.fecha}</td>
+                                <td>{renderActividades(semana.jueves.actividades)}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+            {/* Vista mobile: cards */}
+            <div className="cronograma-cards">
+                {semanas.map((semana) => (
+                    <div key={semana.semana} className="cronograma-card">
+                        <div className="cronograma-card-header">Semana {semana.semana}</div>
+                        <div className="cronograma-card-dia">
+                            <span className="cronograma-dia-label">Martes {semana.martes.fecha}</span>
+                            {renderActividades(semana.martes.actividades)}
+                        </div>
+                        <div className="cronograma-card-dia">
+                            <span className="cronograma-dia-label">Jueves {semana.jueves.fecha}</span>
+                            {renderActividades(semana.jueves.actividades)}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
             {data.nota && <p><em>{data.nota}</em></p>}
         </>
     );

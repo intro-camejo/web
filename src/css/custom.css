@@ -33,3 +33,51 @@
   cursor: pointer;
 }
 
+/* Cronograma responsive */
+.cronograma-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cronograma-cards {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .cronograma-table-wrapper {
+    display: none;
+  }
+
+  .cronograma-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cronograma-card {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .cronograma-card-header {
+    background-color: var(--ifm-color-primary);
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .cronograma-card-dia {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+  }
+
+  .cronograma-dia-label {
+    display: block;
+    font-weight: bold;
+    color: var(--ifm-color-primary);
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+  }
+}
