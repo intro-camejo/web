@@ -159,18 +159,21 @@
       "martes": {
         "fecha": "12/05/2026",
         "actividades": [
-          { "name": "HTML, estructuras básicas y etiquetas" },
-          { "name": "CSS,  clases, IDs, atributos básicos" },
+          { "name": "Marcha universitaria" },
           {
-            "name": "Presentación TP Final",
+            "name": "Presentación TP Final (asincrona)",
             "bg": "#0070a7",
             "color": "#f7f7f7"
-          }
+          },
+          { "name": "Entrega de material para estudio de HTML y CSS (Asincrono)" }
         ]
       },
       "jueves": {
         "fecha": "14/05/2026",
-        "actividades": [{ "name": "Web básica con HTML y CSS" }]
+        "actividades": [
+          { "name": "Repaso HTML y CSS" },
+          { "name": "Web básica con HTML y CSS" }
+        ]
       }
     },
     {
