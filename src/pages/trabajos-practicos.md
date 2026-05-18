@@ -84,7 +84,7 @@ Las fechas de presentación del trabajo práctico se corresponderán con los pri
 
 :::danger Importante
 
-Todo grupo que no apruebe en alguno de los llamados disponibles deberá recursar la materia, sin excepciones.
+Todo grupo que no apruebe la instancia de final deberá recursar la materia.
 
 :::
 
