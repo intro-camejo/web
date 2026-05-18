@@ -9,7 +9,7 @@ Los alumnos deben demostrar la comprensión de los conceptos aprendidos en clase
 Los alumnos deberán desarrollar un sitio web completo utilizando las tecnologías vistas a lo largo de la materia. El mismo constará de un frontend y un backend, con persistencia de datos utilizando una base de datos. El sitio web deberá tener una temática creativa y original, elegida por cada grupo, y deberá cumplir con los siguientes requisitos:
 
 - El backend deberá ser una API REST.
-- El frontend deberá ser un sitio estático, con al menos tres (3) páginas diferentes, el cual solicitará información al backend para mostrarla (CSR).
+- El frontend deberá ser un sitio estático, con al menos tres (3) páginas diferentes, el cual solicitará información al backend para mostrarla ([CSR](https://developer.mozilla.org/en-US/docs/Glossary/CSR)).
 - El proyecto deberá contar con al menos tres (3) entidades diferentes, representadas en tablas de la base de datos, con al menos cinco (5) campos cada una (excluyendo el ID).
 - Debe haber al menos una relación para cada entidad (de entrada o salida), utilizando foreign keys.
 - Se debe contar con un CRUD completo para cada entidad, los cuales deberán ser accesibles desde el frontend.
