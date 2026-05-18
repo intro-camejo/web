@@ -28,7 +28,7 @@ En particular, se deben cumplir las siguientes pautas:
 Se permite el uso de asistentes de código (como GitHub Copilot, ChatGPT, Gemini, etc.) como herramientas de apoyo para el desarrollo del proyecto. Sin embargo, su uso debe ser **consciente, crítico y declarado**.
 
 - El código generado por IA es responsabilidad absoluta del grupo. Los alumnos deben comprender el 100% del código que entregan.
-- Al momento de la evaluación no se aceptarán excusas como *"la IA lo generó así y no sé cómo funciona"*. Si el código está en el repositorio, el alumno debe poder explicarlo, modificarlo y depurarlo.
+- Al momento de la evaluación no se aceptarán excusas como *"la IA lo generó así y no sé cómo funciona"*. Si el código está en el repositorio, el alumno debe poder explicarlo, modificarlo y debugearlo.
 
 ## Grupos
 
