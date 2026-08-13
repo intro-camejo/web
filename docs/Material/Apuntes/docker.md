@@ -112,12 +112,12 @@ Todo se gestiona desde un archivo YAML (`docker-compose.yml`), donde se describe
 
 ### Comandos básicos:
 
-* `docker-compose up`: levanta todos los servicios definidos. Puede usar el flag `-d` para correr en modo “detached”.
-* `docker-compose down`: detiene y elimina los servicios, redes y volúmenes asociados.
-* `docker-compose build`: construye las imágenes a partir de los Dockerfiles definidos.
-* `docker-compose logs`: muestra los logs de todos los servicios.
-* `docker-compose ps`: lista los servicios que se están ejecutando.
-* `docker-compose exec <servicio> <comando>`: ejecuta un comando en un contenedor en ejecución.
+* `docker compose up`: levanta todos los servicios definidos. Puede usar el flag `-d` para correr en modo “detached”.
+* `docker compose down`: detiene y elimina los servicios, redes y volúmenes asociados.
+* `docker compose build`: construye las imágenes a partir de los Dockerfiles definidos.
+* `docker compose logs`: muestra los logs de todos los servicios.
+* `docker compose ps`: lista los servicios que se están ejecutando.
+* `docker compose exec <servicio> <comando>`: ejecuta un comando en un contenedor en ejecución.
 
 ### Ejemplo básico de archivo `docker-compose.yml`:
 
