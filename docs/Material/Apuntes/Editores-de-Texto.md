@@ -1,7 +1,5 @@
 # Editores de texto
 
-#### Gracias Conra!
-
 **Qué son los editores de texto?**
 
 Los editores de texto son herramientas esenciales para cualquier usuario que trabaje con archivos de texto. Pueden ser usados para una amplia gama de tareas, desde escribir scripts y programas hasta editar archivos de configuración del sistema. En Linux, hay varios editores de texto disponibles, cada uno con características y enfoques distintos. En este resumen, explicaremos tres editores populares: **Vim**, **Nano** y **Micro**.

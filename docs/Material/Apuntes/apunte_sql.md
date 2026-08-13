@@ -1,7 +1,5 @@
 # SQL
 
-Este apartado contiene apuntes sobre SQL. ¡Esperamos que te sean útiles!
-
 ## Introducción
 
 **SQL (Structured Query Language)** es un lenguaje de programación utilizado para gestionar bases de datos relacionales. Permite realizar consultas, insertar, actualizar y eliminar datos de manera eficiente. A continuación, se presentan algunos conceptos clave:
