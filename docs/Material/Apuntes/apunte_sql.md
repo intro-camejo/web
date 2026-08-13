@@ -336,12 +336,12 @@ CREATE TABLE departamentos (
 CREATE TABLE empleados (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(50),
-    departamento INT,
+    departamento_id INT,
     salario DECIMAL(10, 2),
-    FOREIGN KEY (depto_id) REFERENCES departamentos(id)
+    FOREIGN KEY (departamento_id) REFERENCES departamentos(id)
 );
 ```
 
-En este caso, la columna `depto_id` en la tabla `empleados` es una clave foránea que hace referencia a la columna `id` en la tabla `departamentos`. Esto significa que cada empleado debe pertenecer a un departamento existente, y no se permitirá insertar un registro en la tabla `empleados` con un valor de `depto_id` que no exista en la tabla `departamentos`.
+En este caso, la columna `departamento_id` en la tabla `empleados` es una clave foránea que hace referencia a la columna `id` en la tabla `departamentos`. Esto significa que cada empleado debe pertenecer a un departamento existente, y no se permitirá insertar un registro en la tabla `empleados` con un valor de `departamento_id` que no exista en la tabla `departamentos`.
 
 A su vez, la generación de esta *foreign key* garantiza que la tabla de empleados pueda relacionarse de forma directa con la tabla de departamentos, permitiendo realizar consultas que combinen datos de ambas tablas de manera efectiva. 
