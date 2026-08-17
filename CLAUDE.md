@@ -55,6 +55,25 @@ static/
 - Media uploads go to `static/img/`
 - Commit messages follow Spanish convention: `contenido: crear/actualizar/eliminar ...`
 
+### Upgrading Decap CMS
+
+The `<script>` in `static/admin/index.html` is pinned to an exact version and guarded
+with Subresource Integrity. Do **not** loosen it back to a range (`^3.0.0`): the panel
+holds a GitHub token with write access to this repo, so unverified third-party JS there
+is a direct path to repo compromise. A range and an `integrity` hash are mutually
+exclusive — pinning is what makes the hash meaningful.
+
+To move to a new version, update the URL and recompute the hash together:
+
+```sh
+VERSION=3.15.1
+curl -sL "https://unpkg.com/decap-cms@${VERSION}/dist/decap-cms.js" \
+  | openssl dgst -sha384 -binary | openssl base64 -A | sed 's/^/sha384-/'
+```
+
+If the hash is wrong the browser silently refuses to run the script and the panel renders
+blank, so verify `/admin/` loads after any bump.
+
 ## Content
 
 - **Language**: All content is in Spanish (locale: `es`)
