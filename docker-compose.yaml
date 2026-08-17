@@ -1,8 +1,9 @@
-version: '3.8'
-
 services:
   app:
-    build:
-      dockerfile: Dockerfile
+    build: .
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    restart: unless-stopped
