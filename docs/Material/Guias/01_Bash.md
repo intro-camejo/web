@@ -63,3 +63,18 @@
 -Legajo 
 -Materia preferida 
 Luego imprimir en un archivo “datos_alumno.txt” toda la información. 
+
+### Case, parámetros posicionales y códigos de salida
+
+27. Crear un script de Bash que muestre un menú simple de calculadora, recibiendo un número entero e imprima "Ingresa el número de la operación:" con las opciones:
+    ```
+    1) Sumar
+    2) Restar
+    3) Multiplicar
+    4) Dividir
+    ```
+    Luego, usando `case` (no `if`/`elif`), pedir dos números y ejecutar la operación elegida. Si se ingresa una opción que no sea 1, 2, 3 o 4, imprimir "Opción inválida".
+
+28. Crear un script de Bash que reciba una cantidad variable de argumentos (números) al ejecutarse y que imprima cuántos argumentos se pasaron. Si no se pasó ningún argumento, debe imprimir un mensaje de uso indicando cómo se debe ejecutar el script (por ejemplo: `Uso: ./script.sh num1 num2 ...`).
+
+29. Crear un script de Bash que reciba el nombre de una carpeta como parámetro e intente crearla. Inmediatamente después, verificar el código de salida del comando: si fue 0, imprimir "Carpeta creada con éxito"; si fue distinto de 0 (por ejemplo, porque la carpeta ya existía), imprimir "No se pudo crear la carpeta".

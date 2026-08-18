@@ -46,6 +46,57 @@ Docker se ha convertido en una herramienta fundamental para el desarrollo modern
 
 ---
 
+## Comandos básicos de Docker (CLI)
+
+Antes de llegar a Docker Compose, es importante manejar los comandos básicos para trabajar con imágenes y contenedores directamente desde la terminal.
+
+### Correr contenedores
+
+* `docker run <imagen>`: crea y corre un contenedor a partir de una imagen (si no la tenés localmente, la descarga primero de Docker Hub).
+* `docker run -it <imagen>`: corre el contenedor en modo **interactivo** (`-i`) con una terminal (`-t`) conectada, útil para trabajar "adentro" del contenedor (por ejemplo, con `ubuntu` o `alpine`).
+* `docker run -d <imagen>`: corre el contenedor en **segundo plano** (detached), sin bloquear la terminal.
+* `docker run -p <puerto_host>:<puerto_contenedor> <imagen>`: mapea un puerto de tu máquina a un puerto del contenedor (por ejemplo, `-p 8080:80` para acceder por `localhost:8080`).
+* `docker run -e <VARIABLE>=<valor> <imagen>`: define una variable de entorno dentro del contenedor.
+* `docker run -v <carpeta_host>:<carpeta_contenedor> <imagen>`: monta un volumen, mapeando una carpeta local a una carpeta dentro del contenedor.
+* `docker run --name <nombre> <imagen>`: le asigna un nombre custom al contenedor (en vez de uno generado automáticamente).
+
+Estos flags se pueden combinar. Por ejemplo:
+
+```bash
+docker run -d -p 8080:80 --name mi-nginx nginx
+```
+
+Esto corre un contenedor de `nginx` en segundo plano, llamado `mi-nginx`, mapeando el puerto 8080 local al 80 del contenedor.
+
+### Listar y gestionar contenedores
+
+* `docker ps`: lista los contenedores **en ejecución**.
+* `docker ps -a`: lista **todos** los contenedores, incluidos los detenidos.
+* `docker stop <contenedor>`: detiene un contenedor en ejecución (podés usar el nombre o el ID).
+* `docker start <contenedor>`: vuelve a iniciar un contenedor detenido.
+* `docker restart <contenedor>`: reinicia un contenedor.
+* `docker rm <contenedor>`: elimina un contenedor detenido.
+* `docker logs <contenedor>`: muestra la salida (stdout/stderr) de un contenedor.
+* `docker logs -f <contenedor>`: muestra los logs en tiempo real (`-f` de "follow").
+* `docker exec -it <contenedor> <comando>`: ejecuta un comando dentro de un contenedor que ya está corriendo (por ejemplo, `docker exec -it mi-nginx bash` para abrir una terminal adentro).
+
+### Imágenes
+
+* `docker images`: lista las imágenes descargadas localmente.
+* `docker pull <imagen>`: descarga una imagen desde Docker Hub sin correr un contenedor.
+* `docker rmi <imagen>`: elimina una imagen del sistema (la imagen no debe estar en uso por ningún contenedor).
+* `docker build -t <nombre>:<tag> <ruta>`: construye una imagen a partir de un `Dockerfile`. La `ruta` suele ser `.` (directorio actual, donde está el Dockerfile), y `-t` le asigna un nombre y tag (por ejemplo, `docker build -t mi-app:1.0 .`).
+
+### Flujo típico
+
+1. Escribís un `Dockerfile` con las instrucciones para armar tu imagen.
+2. Construís la imagen con `docker build -t mi-app:1.0 .`
+3. Corrés un contenedor a partir de esa imagen con `docker run mi-app:1.0` (agregando los flags que necesites: `-d`, `-p`, `-v`, `-e`, etc.).
+4. Usás `docker ps`, `docker logs` y `docker exec` para inspeccionar o interactuar con el contenedor mientras corre.
+5. Cuando termina su ciclo de vida, lo parás con `docker stop` y, si ya no lo necesitás, lo borrás con `docker rm`.
+
+---
+
 ## Docker Compose
 
 Docker Compose es una herramienta que permite definir, configurar y ejecutar múltiples contenedores Docker como una única aplicación. Es ideal para entornos donde se requiere una arquitectura basada en varios servicios interconectados (por ejemplo: backend, base de datos, frontend, cache).
@@ -61,12 +112,12 @@ Todo se gestiona desde un archivo YAML (`docker-compose.yml`), donde se describe
 
 ### Comandos básicos:
 
-* `docker-compose up`: levanta todos los servicios definidos. Puede usar el flag `-d` para correr en modo “detached”.
-* `docker-compose down`: detiene y elimina los servicios, redes y volúmenes asociados.
-* `docker-compose build`: construye las imágenes a partir de los Dockerfiles definidos.
-* `docker-compose logs`: muestra los logs de todos los servicios.
-* `docker-compose ps`: lista los servicios que se están ejecutando.
-* `docker-compose exec <servicio> <comando>`: ejecuta un comando en un contenedor en ejecución.
+* `docker compose up`: levanta todos los servicios definidos. Puede usar el flag `-d` para correr en modo “detached”.
+* `docker compose down`: detiene y elimina los servicios, redes y volúmenes asociados.
+* `docker compose build`: construye las imágenes a partir de los Dockerfiles definidos.
+* `docker compose logs`: muestra los logs de todos los servicios.
+* `docker compose ps`: lista los servicios que se están ejecutando.
+* `docker compose exec <servicio> <comando>`: ejecuta un comando en un contenedor en ejecución.
 
 ### Ejemplo básico de archivo `docker-compose.yml`:
 
