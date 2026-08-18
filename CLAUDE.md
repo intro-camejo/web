@@ -27,7 +27,7 @@ install. No current dependency needs them. If one ever does, run it explicitly w
 src/
   pages/           # Custom pages: index.tsx, cronograma.mdx, regimen-cursada.md,
                    # trabajos-practicos.md, markdown-page.md
-  components/      # React components: HomepageFeatures, Cronograma
+  components/      # React components: Home (Hero, EstaSemana, Enlaces), Docentes, Cronograma
   data/            # cronograma.json, docentes.json
   css/             # Global CSS (custom.css)
 docs/

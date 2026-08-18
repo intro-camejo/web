@@ -65,7 +65,7 @@ After making any changes, ALWAYS test these scenarios:
 src/
   pages/          # Custom pages (index.tsx, cronograma.mdx, regimen-cursada.md,
                   # trabajos-practicos.md, markdown-page.md)
-  components/     # React components (HomepageFeatures, Cronograma)
+  components/     # React components (Home, Docentes, Cronograma)
   data/           # cronograma.json, docentes.json
   css/            # Global CSS styles
 docs/
