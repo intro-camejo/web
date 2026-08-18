@@ -20,8 +20,8 @@ export default function Hero(): React.JSX.Element {
     <header className={styles.hero}>
       <div className={`container ${styles.heroInner}`}>
         <div className={styles.heroTexto}>
+          <p className={styles.heroKicker}>Cátedra Camejo · FIUBA</p>
           <h1 className={styles.heroTitulo}>{siteConfig.title}</h1>
-          <p className={styles.heroTagline}>{siteConfig.tagline}</p>
 
           <ul className={styles.heroDatos}>
             <li>
