@@ -128,8 +128,14 @@
                               widget: "list",
                               fields: [
                                 { label: "Nombre", name: "name", widget: "string" },
-                                { label: "Color de fondo", name: "bg", widget: "string", required: false, hint: "ej: #0070a7" },
-                                { label: "Color de texto", name: "color", widget: "string", required: false, hint: "ej: #f7f7f7" },
+                                {
+                                  label: "Destacar", name: "tipo", widget: "select", required: false,
+                                  hint: "Deja vacio para un tema normal",
+                                  options: [
+                                    { label: "Evaluacion (parcialito / recuperatorio)", value: "evaluacion" },
+                                    { label: "Hito (entrega, presentacion)", value: "hito" },
+                                  ],
+                                },
                               ],
                             },
                           ],
@@ -146,8 +152,14 @@
                               widget: "list",
                               fields: [
                                 { label: "Nombre", name: "name", widget: "string" },
-                                { label: "Color de fondo", name: "bg", widget: "string", required: false, hint: "ej: #0070a7" },
-                                { label: "Color de texto", name: "color", widget: "string", required: false, hint: "ej: #f7f7f7" },
+                                {
+                                  label: "Destacar", name: "tipo", widget: "select", required: false,
+                                  hint: "Deja vacio para un tema normal",
+                                  options: [
+                                    { label: "Evaluacion (parcialito / recuperatorio)", value: "evaluacion" },
+                                    { label: "Hito (entrega, presentacion)", value: "hito" },
+                                  ],
+                                },
                               ],
                             },
                           ],
