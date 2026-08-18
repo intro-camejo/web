@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Guía 2 - Regex
 
 *<u>__Nota__</u>: si aún no tienen bien asentada la utilización de los `tokens` o de los comandos de expresiones regulares con los que venimos trabajando, recomendamos que se ayuden con la presentación [Intro a Regex](https://drive.google.com/file/d/1r44hko1kdqOjxsM7MhDOyG5yQH3HMmtB/view)*. 
