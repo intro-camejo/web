@@ -71,6 +71,10 @@
   flex: 0 1 18rem;
   width: 18rem;
   max-width: 100%;
+  /* La imagen es cuadrada: sin esto, al pasar el hero a columna el flex-basis
+     pasa a gobernar el alto y la deforma. */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -224,6 +228,7 @@
   }
 
   .heroImagen {
+    flex: none;
     width: 12rem;
   }
 
