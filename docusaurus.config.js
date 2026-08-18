@@ -92,6 +92,11 @@ const config = {
             label: 'Trabajos Prácticos',
           },
           {
+            href: 'https://forms.gle/eNntd1kjymuCZKmE7',
+            label: 'Buzón de quejas',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/intro-camejo/web',
             label: 'GitHub',
             position: 'right',

@@ -67,6 +67,12 @@
   height: 1.2em;
 }
 
+.heroNota {
+  margin: 0.75rem 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+}
+
 .heroImagen {
   flex: 0 1 18rem;
   width: 18rem;

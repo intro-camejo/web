@@ -3,14 +3,14 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import {BuzonIcon, ChatIcon, RelojIcon, UbicacionIcon} from './icons';
+import {ChatIcon, RelojIcon, UbicacionIcon, VideoIcon} from './icons';
 import styles from './styles.module.css';
 
 const SLACK_URL = 'https://introaldesarr-pun2471.slack.com/';
 
-// Formulario del buzón de quejas. Mientras esté vacío el botón no se renderiza,
+// Aula virtual de los martes. Mientras esté vacío el botón no se renderiza,
 // así no queda un link muerto en producción.
-const BUZON_URL = 'https://forms.gle/eNntd1kjymuCZKmE7';
+const MEET_URL = 'https://meet.google.com/cjo-fcsf-qag';
 
 export default function Hero(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
@@ -35,27 +35,35 @@ export default function Hero(): React.JSX.Element {
           </ul>
 
           <div className={styles.heroBotones}>
+            {MEET_URL && (
+              <Link
+                className={clsx(
+                  'button button--primary button--lg',
+                  styles.botonConIcono,
+                )}
+                to={MEET_URL}>
+                <VideoIcon />
+                Aula virtual
+              </Link>
+            )}
             <Link
               className={clsx(
-                'button button--primary button--lg',
+                'button button--lg',
+                // Sin link del Meet, Slack pasa a ser el botón principal.
+                MEET_URL ? 'button--secondary button--outline' : 'button--primary',
                 styles.botonConIcono,
               )}
               to={SLACK_URL}>
               <ChatIcon />
               Slack del curso
             </Link>
-            {BUZON_URL && (
-              <Link
-                className={clsx(
-                  'button button--secondary button--outline button--lg',
-                  styles.botonConIcono,
-                )}
-                to={BUZON_URL}>
-                <BuzonIcon />
-                Buzón de quejas
-              </Link>
-            )}
           </div>
+
+          {MEET_URL && (
+            <p className={styles.heroNota}>
+              El aula virtual requiere iniciar sesión con tu cuenta de FIUBA.
+            </p>
+          )}
         </div>
 
         <img className={styles.heroImagen} src={imagen} alt="" />

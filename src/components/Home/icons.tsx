@@ -70,6 +70,20 @@ export const ChatIcon = () => (
   </Icon>
 );
 
+export const VideoIcon = () => (
+  <Icon>
+    <rect x="2" y="6" width="13" height="12" rx="2" />
+    <path d="M15 10.5 21 7v10l-6-3.5z" />
+  </Icon>
+);
+
+export const PlayIcon = () => (
+  <Icon>
+    <rect x="2" y="5" width="20" height="14" rx="4" />
+    <path d="m10 9 5 3-5 3z" />
+  </Icon>
+);
+
 export const BuzonIcon = () => (
   <Icon>
     <path d="M22 12h-6l-2 3h-4l-2-3H2" />
