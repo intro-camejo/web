@@ -1,41 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 style={{textAlign:'center',fontSize:"3rem"}}>{siteConfig.title}</h1> 
-        <h2 style={{fontSize:"2.3rem", textAlign:'center'}}>{siteConfig.tagline}</h2>
-        <div className={styles.buttons}>
-          <Link    
-            className="button button--secondary button--lg"
-            to="https://introaldesarr-pun2471.slack.com//">
-            Canal de comunicación - Slack
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+import {Enlaces, EstaSemana, Hero} from '@site/src/components/Home';
+import Docentes from '@site/src/components/Docentes';
 
 export default function Home(): React.JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  // Sin `title`, la pestaña usa solo el título del sitio: pasarle el tagline
+  // acá lo repetiría entero.
   return (
-    <Layout
-      title={`${siteConfig.tagline}`}
-      description="Introducción al Desarrollo de Software - Cátedra Camejo - FIUBA.">
-      <HomepageHeader />
+    <Layout description="Introducción al Desarrollo de Software - Cátedra Camejo - FIUBA.">
+      <Hero />
       <main>
-        <HomepageFeatures />
+        <EstaSemana />
+        <Enlaces />
+        <Docentes />
       </main>
     </Layout>
   );

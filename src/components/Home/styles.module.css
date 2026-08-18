@@ -1,0 +1,245 @@
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.heroTexto {
+  flex: 1 1 20rem;
+}
+
+.heroKicker {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heroTitulo {
+  margin-bottom: 1.75rem;
+  font-size: 2.75rem;
+  line-height: 1.1;
+}
+
+.heroDatos {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.heroDatos li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.heroDatos svg {
+  flex-shrink: 0;
+  color: var(--ifm-color-primary);
+}
+
+.heroBotones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Los iconos acompañan al texto del botón y siguen su tamaño y su color. */
+.botonConIcono {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.botonConIcono svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.heroNota {
+  margin: 0.75rem 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+}
+
+.heroImagen {
+  flex: 0 1 18rem;
+  width: 18rem;
+  max-width: 100%;
+  /* La imagen es cuadrada: sin esto, al pasar el hero a columna el flex-basis
+     pasa a gobernar el alto y la deforma. */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Secciones ---------- */
+
+.seccion {
+  padding: 3rem 0 0;
+}
+
+.seccionHead {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.seccionTitulo {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.seccionNota {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.95rem;
+}
+
+.seccionPie {
+  margin: 1rem 0 0;
+  font-weight: 600;
+}
+
+/* ---------- Esta semana ---------- */
+
+.semanaPanel {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.semanaDia {
+  flex: 1 1 18rem;
+  padding: 1.5rem;
+}
+
+.semanaDia + .semanaDia {
+  border-left: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.semanaDiaFecha {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.semanaChip {
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.semanaTemas {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* ---------- Enlaces ---------- */
+
+.enlacesGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.enlace {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  color: inherit;
+  transition:
+    border-color var(--ifm-transition-fast),
+    background var(--ifm-transition-fast);
+}
+
+.enlace:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-hover-overlay);
+  color: inherit;
+  text-decoration: none;
+}
+
+.enlaceHead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.enlaceIcono {
+  display: flex;
+  color: var(--ifm-color-primary);
+}
+
+.enlaceTitulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.enlaceDescripcion {
+  display: block;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media screen and (max-width: 996px) {
+  .hero {
+    padding: 2.5rem 0;
+  }
+
+  .heroInner {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .heroTitulo {
+    font-size: 2.25rem;
+  }
+
+  .heroDatos li {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .heroBotones {
+    justify-content: center;
+  }
+
+  .heroImagen {
+    flex: none;
+    width: 12rem;
+  }
+
+  .semanaDia + .semanaDia {
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    border-left: none;
+  }
+}

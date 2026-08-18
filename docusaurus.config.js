@@ -5,7 +5,7 @@ const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 const config = {
-  title: 'Intro al Desarrollo de Software',
+  title: 'Introducción al Desarrollo de Software',
   tagline: 'Introducción al Desarrollo de Software (Camejo) - FIUBA',
   favicon: 'img/tron.svg',
   staticDirectories: ['public', 'static'],
@@ -92,15 +92,16 @@ const config = {
             label: 'Trabajos Prácticos',
           },
           {
+            href: 'https://forms.gle/eNntd1kjymuCZKmE7',
+            label: 'Buzón de quejas',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/intro-camejo/web',
             label: 'GitHub',
             position: 'right',
           },
         ],
-      },
-      footer: {
-        style: 'dark',
-        copyright: `Introducción al Desarrollo de Software - (${new Date().getFullYear()})`,
       },
       prism: {
         theme: lightCodeTheme,

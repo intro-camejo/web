@@ -1,0 +1,62 @@
+.docentes {
+  padding: 3rem 0 4rem;
+}
+
+/* Mismo tratamiento que los títulos de sección de la home. */
+.titulo {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  justify-items: center;
+}
+
+.docente {
+  margin: 0;
+  text-align: center;
+}
+
+.fotoButton {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.foto {
+  width: 9rem;
+  height: 9rem;
+  border: 3px solid var(--ifm-color-emphasis-200);
+  border-radius: 50%;
+  object-fit: cover;
+  transition:
+    transform var(--ifm-transition-fast),
+    border-color var(--ifm-transition-fast);
+}
+
+.fotoButton:hover .foto,
+.fotoButton:focus-visible .foto {
+  border-color: var(--ifm-color-primary);
+  transform: scale(1.04);
+}
+
+.nombre {
+  margin-top: 0.75rem;
+  color: var(--ifm-font-color-base);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foto,
+  .fotoButton:hover .foto,
+  .fotoButton:focus-visible .foto {
+    transform: none;
+    transition: none;
+  }
+}
