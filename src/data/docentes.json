@@ -1,63 +1,39 @@
 {
   "docentes": [
     {
-      "name": "Cami",
-      "pictures": [
-        "/img/cami.jpg"
-      ]
+      "name": "Cami"
     },
     {
       "name": "Conra",
-      "pictures": [
-        "/img/conra.jpeg"
-      ]
+      "picture": "/img/conra.jpeg"
     },
     {
       "name": "Gonza",
-      "pictures": [
-        "/img/gonza.jpeg"
-      ]
+      "picture": "/img/gonza.jpeg"
     },
     {
       "name": "Manu B",
-      "pictures": [
-        "/img/manub.jpg"
-      ]
+      "picture": "/img/manub.jpg"
     },
     {
       "name": "Manu C",
-      "pictures": [
-        "/img/manu1.jpeg",
-        "/img/manu2.jpeg",
-        "/img/image.png"
-      ]
+      "picture": "/img/manu1.jpeg"
     },
     {
       "name": "Nico",
-      "pictures": [
-        "/img/nico.jpg",
-        "/img/nico2.jpg"
-      ]
+      "picture": "/img/nico.jpg"
     },
     {
       "name": "Pedro",
-      "pictures": [
-        "/img/pedroimg.jpeg"
-      ]
+      "picture": "/img/pedroimg.jpeg"
     },
     {
       "name": "Peke",
-      "pictures": [
-        "/img/peke.jpeg",
-        "/img/peke2.jpeg"
-      ]
+      "picture": "/img/peke.jpeg"
     },
     {
       "name": "Sofi",
-      "pictures": [
-        "/img/sofi.jpeg",
-        "/img/sofi2.jpeg"
-      ]
+      "picture": "/img/sofi.jpeg"
     }
   ]
 }
