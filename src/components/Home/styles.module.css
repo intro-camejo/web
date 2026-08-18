@@ -132,30 +132,28 @@
   border-left: 1px solid var(--ifm-color-emphasis-200);
 }
 
+/* Mismo tratamiento que la fecha de cada celda del cronograma completo. */
 .semanaDiaFecha {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 0.75rem;
-  font-size: 1.05rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.8rem;
   font-weight: 700;
-}
-
-.semanaChip {
-  padding: 0.15rem 0.55rem;
-  border-radius: 4px;
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-800);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.semanaTemas {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: var(--ifm-color-emphasis-800);
+.semanaChip {
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* ---------- Enlaces ---------- */

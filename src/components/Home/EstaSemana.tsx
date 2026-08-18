@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import Link from '@docusaurus/Link';
 import cronograma from '@site/src/data/cronograma.json';
+import {
+  Actividad,
+  Actividades,
+  formatearFecha,
+} from '@site/src/components/Cronograma/Actividades';
 import styles from './styles.module.css';
 
-type Actividad = {name: string};
 type Dia = {fecha: string; actividades: Actividad[]};
 type Semana = {semana: number; martes: Dia; jueves: Dia};
 
@@ -44,16 +48,12 @@ function Dia({
   return (
     <div className={styles.semanaDia}>
       <p className={styles.semanaDiaFecha}>
-        {nombre} {dia.fecha.slice(0, 5)}
+        {nombre} {formatearFecha(dia.fecha)}
         {esDiaDeClase(dia) && (
           <span className={styles.semanaChip}>{modalidad}</span>
         )}
       </p>
-      <ul className={styles.semanaTemas}>
-        {dia.actividades.map((actividad, i) => (
-          <li key={i}>{actividad.name}</li>
-        ))}
-      </ul>
+      <Actividades actividades={dia.actividades} />
     </div>
   );
 }
