@@ -45,10 +45,10 @@ export const Cronograma = () => {
                         <tr>
                             <th className={styles.colSemana}>Semana</th>
                             <th className={styles.colDia}>
-                                <Encabezado dia="Martes" modalidad="Virtual" />
+                                <Encabezado dia="Martes" modalidad="Práctica - Virtual" />
                             </th>
                             <th className={styles.colDia}>
-                                <Encabezado dia="Jueves" modalidad="Presencial" />
+                                <Encabezado dia="Jueves" modalidad="Teórica - Presencial" />
                             </th>
                         </tr>
                     </thead>
