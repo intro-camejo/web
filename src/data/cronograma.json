@@ -51,9 +51,8 @@
         "fecha": "03/09/2026",
         "actividades": [
           {
-            "name": "Parcialito 1 (Linux, Bash y Regex)",
-            "bg": "#0070a7",
-            "color": "#f7f7f7"
+            "name": "Parcialito 1 - Linux, Bash y Regex",
+            "tipo": "evaluacion"
           },
           { "name": "Ingeniería de Software (Parte 1)" },
           { "name": "Git" },
@@ -94,9 +93,8 @@
         "fecha": "17/09/2026",
         "actividades": [
           {
-            "name": "Parcialito 2 (Git e Ingeniería de Software)",
-            "bg": "#0070a7",
-            "color": "#f7f7f7"
+            "name": "Parcialito 2 - Git e Ingeniería de Software",
+            "tipo": "evaluacion"
           },
           { "name": "Docker compose" },
           { "name": "Imágenes custom, redes y volúmenes" }
@@ -148,9 +146,8 @@
         "fecha": "08/10/2026",
         "actividades": [
           {
-            "name": "Parcialito 3 (Docker y SQL)",
-            "bg": "#0070a7",
-            "color": "#f7f7f7"
+            "name": "Parcialito 3 - Docker y SQL",
+            "tipo": "evaluacion"
           },
           { "name": "Desarrollo & IA" }
         ]
@@ -161,11 +158,7 @@
       "martes": {
         "fecha": "13/10/2026",
         "actividades": [
-          {
-            "name": "Presentación TP Final",
-            "bg": "#0070a7",
-            "color": "#f7f7f7"
-          },
+          { "name": "Presentación TP Final", "tipo": "hito" },
           { "name": "Alcance del trabajo y validación de ideas" }
         ]
       },
@@ -222,9 +215,8 @@
         "fecha": "05/11/2026",
         "actividades": [
           {
-            "name": "Parcialito 4 (HTML, CSS y Javascript)",
-            "bg": "#0070a7",
-            "color": "#f7f7f7"
+            "name": "Parcialito 4 - HTML, CSS y Javascript",
+            "tipo": "evaluacion"
           },
           { "name": "Integración Parte 1" }
         ]
@@ -250,7 +242,7 @@
       "jueves": {
         "fecha": "19/11/2026",
         "actividades": [
-          { "name": "Recuperatorio 1", "bg": "#0070a7", "color": "#f7f7f7" },
+          { "name": "Recuperatorio 1", "tipo": "evaluacion" },
           { "name": "Consultas" }
         ]
       }

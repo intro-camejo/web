@@ -1,0 +1,238 @@
+/**
+ * El cronograma respira mal dentro de la columna de texto: la tabla necesita
+ * ancho. La página lo consigue con `hide_table_of_contents`, acá sólo le
+ * ponemos un techo para que no se estire en pantallas muy anchas.
+ */
+.cronograma {
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+/* ---------- Tabla (desktop) ---------- */
+
+.tablaWrapper {
+  margin-top: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabla {
+  display: table;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+  border: none;
+  vertical-align: top;
+}
+
+/* Infima raya las filas pares por defecto; acá el zebra lo damos nosotros. */
+.tabla tbody tr,
+.tabla tbody tr:nth-of-type(2n) {
+  background: transparent;
+}
+
+.tabla tbody tr + tr {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.tabla tbody tr:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.tabla thead th {
+  padding: 0.9rem 1.25rem;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.colSemana {
+  width: 6rem;
+  text-align: center !important;
+}
+
+.colDia {
+  width: 47%;
+}
+
+.celdaSemana {
+  padding: 1.15rem 0.5rem;
+  text-align: center;
+}
+
+.numeroSemana {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.celdaDia {
+  padding: 1.15rem 1.25rem;
+}
+
+.fecha {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ---------- Temas ---------- */
+
+.temas {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.temas li {
+  margin-bottom: 0.25rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.temas li::marker {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.temas li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Parcialitos, recuperatorios y otros hitos ---------- */
+
+.destacado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 0 0 0.65rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--acento) 35%, transparent);
+  border-left: 3px solid var(--acento);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--acento) 9%, transparent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.destacado:last-child {
+  margin-bottom: 0;
+}
+
+.destacadoIcono {
+  flex-shrink: 0;
+  color: var(--acento);
+}
+
+.evaluacion {
+  --acento: var(--ifm-color-primary);
+}
+
+.hito {
+  --acento: #b45309;
+}
+
+[data-theme='dark'] .hito {
+  --acento: #fbbf24;
+}
+
+/* ---------- Chips y nota ---------- */
+
+.chipModalidad {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.nota {
+  margin-top: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ---------- Cards (mobile) ---------- */
+
+.cards {
+  display: none;
+}
+
+@media (max-width: 996px) {
+  .tablaWrapper {
+    display: none;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .card {
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cardHeader {
+    padding: 0.6rem 1rem;
+    background: var(--ifm-color-emphasis-100);
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    color: var(--ifm-color-emphasis-700);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cardDia {
+    padding: 1rem;
+  }
+
+  .cardDia + .cardDia {
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+  }
+
+  .cardDiaLabel {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--ifm-color-primary);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+}

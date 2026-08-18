@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import clsx from "clsx";
 import data from "../../data/cronograma.json";
+import styles from "./styles.module.css";
+
+type Tipo = "evaluacion" | "hito";
 
 type Actividad = {
     name: string;
-    bg?: string;
-    color?: string;
+    tipo?: Tipo;
 };
 
 type Dia = {
@@ -18,8 +21,19 @@ type Semana = {
     jueves: Dia;
 };
 
-const renderIntro = (text: string) => {
-    return text.split("\n\n").map((block, i) => {
+const MESES = [
+    "ene", "feb", "mar", "abr", "may", "jun",
+    "jul", "ago", "sep", "oct", "nov", "dic",
+];
+
+/** "18/08/2026" -> "18 ago". El año ya lo da el título de la página. */
+const formatearFecha = (fecha: string) => {
+    const [dia, mes] = fecha.split("/");
+    return `${dia} ${MESES[Number(mes) - 1] ?? mes}`;
+};
+
+const renderIntro = (text: string) =>
+    text.split("\n\n").map((block, i) => {
         const trimmed = block.trim();
         if (trimmed.startsWith("### ")) return <h3 key={i}>{trimmed.slice(4)}</h3>;
         if (trimmed.startsWith("## ")) return <h2 key={i}>{trimmed.slice(3)}</h2>;
@@ -27,64 +41,112 @@ const renderIntro = (text: string) => {
         if (trimmed === "") return null;
         return <p key={i}>{trimmed}</p>;
     });
+
+/** Iconos inline (estilo trazo) al tono del contenedor, como en Home/icons. */
+const Icono = ({ children }: { children: React.ReactNode }) => (
+    <svg
+        className={styles.destacadoIcono}
+        viewBox="0 0 24 24"
+        width="16"
+        height="16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true">
+        {children}
+    </svg>
+);
+
+const ICONOS: Record<Tipo, React.ReactNode> = {
+    evaluacion: (
+        <Icono>
+            <path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" />
+            <rect x="9" y="2" width="6" height="4" rx="1" />
+            <path d="M9 13l2 2 4-4" />
+        </Icono>
+    ),
+    hito: (
+        <Icono>
+            <path d="M5 21V4" />
+            <path d="M5 4h11l-2 3.5L16 11H5z" />
+        </Icono>
+    ),
 };
 
-const Badge = ({ actividad }: { actividad: Actividad }) => {
-    if (actividad.bg && actividad.color) {
-        return (
-            <span style={{
-                backgroundColor: actividad.bg,
-                borderRadius: "5px",
-                color: actividad.color,
-                padding: "0.2rem 0.4rem",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-                display: "inline-block",
-            }}>
-                {actividad.name}
-            </span>
-        );
-    }
-    return <>{actividad.name}</>;
+/**
+ * Las evaluaciones y los hitos se sacan de la lista y se muestran como una
+ * franja arriba de la celda: en el bullet quedaban desalineados y se comían
+ * dos renglones.
+ */
+const Actividades = ({ actividades }: { actividades: Actividad[] }) => {
+    const destacadas = actividades.filter((a) => a.tipo);
+    const temas = actividades.filter((a) => !a.tipo);
+
+    return (
+        <>
+            {destacadas.map((actividad, index) => (
+                <p
+                    key={index}
+                    className={clsx(styles.destacado, styles[actividad.tipo!])}>
+                    {ICONOS[actividad.tipo!]}
+                    {actividad.name}
+                </p>
+            ))}
+            {temas.length > 0 && (
+                <ul className={styles.temas}>
+                    {temas.map((actividad, index) => (
+                        <li key={index}>{actividad.name}</li>
+                    ))}
+                </ul>
+            )}
+        </>
+    );
 };
 
-const renderActividades = (actividades: Actividad[]) => (
-    <ul style={{ margin: 0, paddingLeft: "1.2rem" }}>
-        {actividades.map((actividad, index) => (
-            <li key={index}>
-                <Badge actividad={actividad} />
-            </li>
-        ))}
-    </ul>
+const Encabezado = ({ dia, modalidad }: { dia: string; modalidad: string }) => (
+    <>
+        {dia}
+        <span className={styles.chipModalidad}>{modalidad}</span>
+    </>
 );
 
 export const Cronograma = () => {
     const semanas = data.semanas as Semana[];
 
     return (
-        <>
+        <div className={styles.cronograma}>
             {renderIntro(data.intro)}
 
             {/* Vista desktop: tabla */}
-            <div className="cronograma-table-wrapper">
-                <table>
+            <div className={styles.tablaWrapper}>
+                <table className={styles.tabla}>
                     <thead>
                         <tr>
-                            <th>Semana</th>
-                            <th>Fecha</th>
-                            <th>Martes</th>
-                            <th>Fecha</th>
-                            <th>Jueves</th>
+                            <th className={styles.colSemana}>Semana</th>
+                            <th className={styles.colDia}>
+                                <Encabezado dia="Martes" modalidad="Virtual" />
+                            </th>
+                            <th className={styles.colDia}>
+                                <Encabezado dia="Jueves" modalidad="Presencial" />
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         {semanas.map((semana) => (
                             <tr key={semana.semana}>
-                                <td style={{ textAlign: "center", fontWeight: "bold" }}>{semana.semana}</td>
-                                <td style={{ whiteSpace: "nowrap" }}>{semana.martes.fecha}</td>
-                                <td>{renderActividades(semana.martes.actividades)}</td>
-                                <td style={{ whiteSpace: "nowrap" }}>{semana.jueves.fecha}</td>
-                                <td>{renderActividades(semana.jueves.actividades)}</td>
+                                <td className={styles.celdaSemana}>
+                                    <span className={styles.numeroSemana}>{semana.semana}</span>
+                                </td>
+                                {([semana.martes, semana.jueves] as Dia[]).map((dia, i) => (
+                                    <td key={i} className={styles.celdaDia}>
+                                        <span className={styles.fecha}>
+                                            {formatearFecha(dia.fecha)}
+                                        </span>
+                                        <Actividades actividades={dia.actividades} />
+                                    </td>
+                                ))}
                             </tr>
                         ))}
                     </tbody>
@@ -92,23 +154,29 @@ export const Cronograma = () => {
             </div>
 
             {/* Vista mobile: cards */}
-            <div className="cronograma-cards">
+            <div className={styles.cards}>
                 {semanas.map((semana) => (
-                    <div key={semana.semana} className="cronograma-card">
-                        <div className="cronograma-card-header">Semana {semana.semana}</div>
-                        <div className="cronograma-card-dia">
-                            <span className="cronograma-dia-label">Martes {semana.martes.fecha}</span>
-                            {renderActividades(semana.martes.actividades)}
+                    <div key={semana.semana} className={styles.card}>
+                        <div className={styles.cardHeader}>Semana {semana.semana}</div>
+                        <div className={styles.cardDia}>
+                            <span className={styles.cardDiaLabel}>
+                                Martes {semana.martes.fecha}
+                                <span className={styles.chipModalidad}>Virtual</span>
+                            </span>
+                            <Actividades actividades={semana.martes.actividades} />
                         </div>
-                        <div className="cronograma-card-dia">
-                            <span className="cronograma-dia-label">Jueves {semana.jueves.fecha}</span>
-                            {renderActividades(semana.jueves.actividades)}
+                        <div className={styles.cardDia}>
+                            <span className={styles.cardDiaLabel}>
+                                Jueves {semana.jueves.fecha}
+                                <span className={styles.chipModalidad}>Presencial</span>
+                            </span>
+                            <Actividades actividades={semana.jueves.actividades} />
                         </div>
                     </div>
                 ))}
             </div>
 
-            {data.nota && <p><em>{data.nota}</em></p>}
-        </>
+            {data.nota && <p className={styles.nota}>{data.nota}</p>}
+        </div>
     );
 };
