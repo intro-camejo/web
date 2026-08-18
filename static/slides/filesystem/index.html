@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filesystem</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+  
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Filesystem</div>
+        <div class="s-sub">Sistema de archivos</div>
+        <div class="cover-index"><span class="n">Clase</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Qué es un filesystem?</span></li>
+        <li><span class="idx">.02</span><span class="lbl">En Unix, es un árbol</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Directorios principales</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Rutas absolutas vs relativas</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-pad">
+      <div class="s-title s-title--md">Qué es un filesystem?</div>
+      <ul class="bullets">
+        <li><span>Es la forma en que el sistema operativo <strong>organiza y almacena</strong> archivos en un disco.</span></li>
+        <li><span>Define cómo se guardan, nombran y recuperan los datos.</span></li>
+        <li><span>Sin un filesystem, el disco sería solo un conjunto de bytes sin estructura.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-pad">
+      <div class="s-title s-title--md">En Unix, es un árbol</div>
+      <div class="cols2">
+        <ul class="bullets">
+          <li><span>Los filesystems Unix tienen una estructura <strong>jerárquica</strong> en forma de árbol.</span></li>
+          <li><span>Todo parte de un único directorio raíz: <code>/</code></span></li>
+          <li><span>No existen letras de unidad como en Windows (<code>C:\</code>, <code>D:\</code>).</span></li>
+          <li><span>Los dispositivos y discos se <strong>montan</strong> dentro del mismo árbol.</span></li>
+        </ul>
+        <div class="col-media"><img src="img/File-System.webp" alt="Estructura de árbol del Filesystem"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-pad">
+      <div class="s-title s-title--md">Directorios principales</div>
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align: left;">Directorio</th>
+            <th style="text-align: left;">Contenido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/</code></td><td>Raíz del sistema</td></tr>
+          <tr><td><code>/home</code></td><td>Carpetas personales de los usuarios</td></tr>
+          <tr><td><code>/etc</code></td><td>Archivos de configuración del sistema</td></tr>
+          <tr><td><code>/bin</code></td><td>Programas esenciales (ls, cp, mv...)</td></tr>
+          <tr><td><code>/tmp</code></td><td>Archivos temporales</td></tr>
+          <tr><td><code>/var</code></td><td>Datos variables (logs, caches)</td></tr>
+          <tr><td><code>/usr</code></td><td>Programas y bibliotecas del usuario</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-pad">
+      <div class="s-title s-title--md">Rutas absolutas vs relativas</div>
+      <ul class="bullets">
+        <li><span><strong>Ruta absoluta</strong>: empieza desde <code>/</code> → <code>/home/usuario/proyecto/main.c</code></span></li>
+        <li><span><strong>Ruta relativa</strong>: parte del directorio actual → <code>proyecto/main.c</code></span></li>
+        <li><span><code>.</code> → directorio actual</span></li>
+        <li><span><code>..</code> → directorio padre</span></li>
+      </ul>
+      <br>
+      <div class="code-block">
+        <div class="fname">bash</div>
+        <pre><code>cd /home/usuario     <span class="c1"># ruta absoluta</span>
+cd ./proyecto        <span class="c1"># ruta relativa</span>
+cd ..                <span class="c1"># subir un nivel</span></code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">GRACIAS!</div>
+        <div class="closing-links"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>Filesystem Hierarchy Standard (FHS 3.0) <span class="src">(<a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html">Enlace</a>)</span></li>
+        <li><code>man hier</code> — descripción del árbol de directorios <span class="src">(<a href="https://man7.org/linux/man-pages/man7/hier.7.html">Enlace</a>)</span></li>
+        <li>Sistema de archivos — Wikipedia <span class="src">(<a href="https://es.wikipedia.org/wiki/Sistema_de_archivos">Enlace</a>)</span></li>
+        <li>The Linux Command Line — Cap. 2: Navegación <span class="src">(<a href="https://linuxcommand.org/lc3_lts0020.php">Enlace</a>)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
