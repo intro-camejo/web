@@ -4,12 +4,42 @@ sidebar_position: 1
 
 # Introducción a Linux
 
-### Gracias Conra y Sofi por este apunte &lt;3!!
-
 <img src="https://i.imgur.com/vZCtkfQ.png" alt="Foto de Tux" width="300"/>
+
+## ¿Por qué Linux?
+
+Aunque en escritorio sea minoritario, Linux es el sistema operativo más usado del planeta:
+
+- Las 500 supercomputadoras más potentes del mundo corren Linux (el 100% desde 2017).
+- Alrededor del 90% de la infraestructura de nube pública corre Linux: 92% de las VMs de Google Cloud, 84% de las instancias EC2 de AWS y 62% de las VMs de Azure.
+- Android está construido sobre el kernel de Linux, así que lo lleva encima más del 70% de los celulares del mundo.
+- El 92% de los servidores con sistema operativo conocido son Unix-like.
+- Solo en 2025, más de 5.200 desarrolladores de más de 1.780 organizaciones contribuyeron al kernel.
+- En escritorio ronda el 4,5% a nivel global, pero ya supera el 10% en Estados Unidos y viene subiendo rápido.
+- También corre en los vehículos autónomos y en Chrome OS.
+
+### Algunos usos curiosos
+
+- **Steam Deck**: Valve metió Linux (SteamOS) adentro de una consola portátil.
+- **Ingenuity**: el helicóptero de la NASA que voló en Marte llevaba Linux a bordo.
+- **Red Star OS**: Corea del Norte tiene su propia distribución.
+- **PewDiePie**: el youtuber más conocido de la última década se pasó a Linux.
+
+### ¿Por qué le dedicamos tiempo de clase?
+
+- Para poder seguir la cursada vas a necesitar Linux o macOS.
+- Lo vas a volver a necesitar a lo largo de toda la carrera.
+- Es más rápido, más simple y más robusto para desarrollar.
+- Te va a dar una vida profesional más cómoda y competitiva.
+
 
 ## Opciones de instalación
 Empezar a usar Linux puede parecer un poco complicado e intimidante al principio, pero hay varias opciones de instalación según lo que necesites y el uso que le vayas a dar. Ya sea que quieras tener Linux junto con otro sistema en la misma máquina, probarlo en una máquina virtual sin tocar nada de tu sistema actual, o probar con contenedores, te contamos cómo hacerlo de la forma más fácil.
+
+:::tip Recomendación de la cátedra
+Si podés, **instalá Linux de forma nativa** (dual-boot o reemplazando el sistema): es la opción más performante y con la que vas a estar más cómodo. Si estás en Windows y no querés tocar el disco, **WSL2** es una alternativa aceptable. La **máquina virtual** funciona, pero es la menos recomendada. Y si tenés **macOS**, podés seguir las clases sin instalar nada.
+:::
+
 1. ## Instalación Dual-Boot
     La instalación dual-boot te permite tener dos sistemas operativos en la misma máquina. Así, podés elegir cuál usar al arrancar el equipo.
    ### Pasos para la Instalación Dual-Boot:
@@ -25,7 +55,25 @@ Empezar a usar Linux puede parecer un poco complicado e intimidante al principio
     - Durante la instalación, elegí la opción de instalar Linux junto con el sistema operativo que ya tenés. El instalador debería detectar tu sistema actual y configurar el gestor de arranque (como GRUB) para que puedas elegir entre ambos sistemas cuando inicies la PC.
    5. **Completar la Instalación:**
       - Seguí las instrucciones del instalador y, al reiniciar, vas a poder elegir entre Linux y tu sistema operativo original en el menú de arranque.
-2. ## Instalación en una Máquina Virtual
+2. ## Windows Subsystem for Linux (WSL2)
+    WSL2 te permite correr una distribución de Linux dentro de Windows, con un kernel real de Linux, sin reiniciar ni particionar el disco. Es bastante más performante que una máquina virtual y te deja abrir una terminal de Linux como si fuera una aplicación más. Requiere Windows 11 o una versión actualizada de Windows 10.
+   ### Pasos para instalar WSL2:
+   1. **Abrir PowerShell como administrador**:
+    - Clic derecho en el menú de inicio y elegí *Terminal (Administrador)*.
+   2. **Instalar WSL:**
+    - Ejecutá `wsl --install`. Por defecto instala Ubuntu.
+    - Si querés otra distribución, `wsl --list --online` te muestra las disponibles y `wsl --install -d <nombre>` instala la que elijas.
+   3. **Reiniciar la computadora:**
+    - Reiniciá cuando el instalador te lo pida.
+   4. **Crear tu usuario:**
+    - La primera vez que abras la distro te va a pedir un nombre de usuario y una contraseña de Linux, independientes de los de Windows.
+   5. **Actualizar los paquetes:**
+    - Corré `sudo apt update && sudo apt upgrade` para dejar el sistema al día.
+
+    **A favor**: instalación simple, poco invasiva, mucho más rápida que una VM y podés correr Docker sin problemas.
+    **En contra**: es exigente con el hardware, necesitás una versión reciente de Windows y seguís trabajando dentro de Windows.
+
+3. ## Instalación en una Máquina Virtual
     Instalar Linux en una máquina virtual te permite usar el sistema operativo en un entorno virtualizado dentro de tu sistema operativo principal. Ideal para probar o desarrollar sin tocar tu sistema principal.
     ### a. Usando VirtualBox:
       1. **Descargar e Instalar VirtualBox**:
@@ -48,7 +96,7 @@ Empezar a usar Linux puede parecer un poco complicado e intimidante al principio
          -  Configurá la máquina virtual para usar la imagen ISO de Linux.
       4. **Iniciar la Instalación:**
          - Iniciá la máquina virtual y seguí las instrucciones del instalador de Linux.
-3. ## Instalación en un Entorno de Contenedores
+4. ## Instalación en un Entorno de Contenedores
 Los contenedores, como los que ofrece Docker, te permiten ejecutar aplicaciones y entornos aislados dentro del mismo sistema operativo sin necesidad de instalar un SO completo.
 ####  Uso Básico de Docker:
    1. **Instalar Docker:**
@@ -70,6 +118,43 @@ Los contenedores, como los que ofrece Docker, te permiten ejecutar aplicaciones 
 Linux, un nombre que a menudo se usa para describir un sistema operativo completo, en realidad se refiere al kernel del sistema, el núcleo que gestiona la comunicación entre el hardware y el software. Aunque el kernel de Linux es fundamental para el funcionamiento del sistema, no es suficiente por sí solo para constituir un sistema operativo completo. Para formar un sistema operativo funcional, Linux debe integrarse con una variedad de componentes adicionales, incluyendo bibliotecas, herramientas y utilidades que proporcionan una interfaz completa para el usuario y gestionan diversas tareas del sistema.
 
 En su esencia, Linux es un sistema operativo *Unix-like*, lo que significa que comparte características y conceptos fundamentales con los sistemas operativos basados en Unix. Esta herencia Unix proporciona a Linux una estructura robusta y flexible, con una fuerte orientación hacia la multitarea, la seguridad y la estabilidad. La similitud con Unix también se refleja en la interfaz de línea de comandos y en las herramientas estándar que permiten a los usuarios y administradores gestionar el sistema de manera eficiente.
+
+### ¿Qué es un sistema operativo?
+
+Es el software que gestiona los recursos de la computadora: reparte la CPU entre los procesos, administra la memoria y el disco, habla con el hardware (placa de video, wifi, teclado) y te da una interfaz para usar todo eso. Windows, macOS, Android y Ubuntu son sistemas operativos.
+
+### ¿Y el kernel?
+
+El kernel es el **núcleo** del sistema operativo: la única parte que le habla directo al hardware. Si pensamos el sistema como capas, queda algo así:
+
+| Capa | Ejemplos |
+| --- | --- |
+| Tus programas | Chrome, VS Code, la terminal |
+| Librerías y herramientas del sistema | GNU coreutils, bash, gcc |
+| **Kernel** | procesos, memoria, drivers, sistema de archivos |
+| Hardware | CPU, RAM, disco, placa de red |
+
+Linux es solamente esa capa: por sí solo no te da ni una terminal. Kernel + herramientas + interfaz es lo que forma un sistema operativo usable, y por eso se suele hablar de **GNU/Linux**: el kernel lo puso Linux y buena parte de las herramientas las puso el proyecto GNU.
+
+### Las distribuciones ("distros")
+
+Una **distribución** es un sistema operativo armado sobre el kernel de Linux: el kernel más un gestor de paquetes, un entorno de escritorio y un conjunto de programas preinstalados. Cada una tiene su propio enfoque y filosofía, y son las que realmente se instalan. Las más conocidas se agrupan en familias:
+
+- **Debian**: Debian, Ubuntu, Linux Mint, Pop!\_OS, Kali. Usan `apt` y son las más recomendadas para arrancar.
+- **Red Hat**: Fedora, RHEL, CentOS, Rocky. Usan `dnf` o `yum`.
+- **Arch**: Arch Linux, Manjaro, EndeavourOS. Usan `pacman`.
+- **Otras**: openSUSE, Gentoo, Alpine (muy usada en contenedores), NixOS.
+
+Si es tu primera vez, **Ubuntu** o **Linux Mint** son las apuestas más seguras.
+
+### Un poco de historia
+
+**UNIX (1969)**. Desarrollado en los Bell Labs de AT&T por Ken Thompson y Dennis Ritchie, inspirado en el proyecto Multics. El lenguaje C fue creado justamente para implementarlo. Definió el universo de lo que hoy llamamos sistemas *Unix-like*.
+
+**GNU (1983)**. Richard Stallman arranca el GNU Project, cuyo nombre es un acrónimo recursivo (**G**NU's **N**ot **U**nix). Introduce el concepto de *copyleft* y la GNU General Public License (GPL). Uno de sus objetivos era construir un Unix-like libre y llegó a implementar herramientas como GCC, GNU Emacs, GIMP, Bash y GDB, pero nunca terminó su propio kernel.
+
+**Linux (1991)**. Proyecto personal del finlandés Linus Torvalds. Ya había sistemas Unix-like dando vueltas, pero ninguno libre y compatible con los procesadores Intel 386. Torvalds lo licencia bajo la GPL y, combinado con los componentes de GNU, queda por fin un sistema operativo completo y libre.
+
 
 ## ¿Qué es un sistema operativo “UNIX-LIKE”?
 
@@ -377,3 +462,16 @@ Para facilitar el manejo del sistema y mejorar la eficiencia en la administraci�
 - **Flags útiles**:
 - -O: Especifica el nombre del archivo de salida.
 - -r: Descarga de forma recursiva desde un directorio web.
+
+## Fuentes
+
+- [IEEE Std 1003.1 (POSIX)](https://standards.ieee.org/ieee/1003.1/7700/)
+- [POSIX — The Open Group Base Specifications Issue 8](https://pubs.opengroup.org/onlinepubs/9799919799/)
+- [Unix-like — Wikipedia](https://es.wikipedia.org/wiki/Unix-like)
+- [GNU — Linux y el sistema GNU](https://www.gnu.org/gnu/linux-and-gnu.es.html)
+- [Microsoft — ¿Qué es WSL?](https://learn.microsoft.com/es-es/windows/wsl/about)
+- [TOP500 — Lista de junio 2026](https://www.top500.org/lists/top500/2026/06/)
+- [Cloud Provider Linux Usage Breakdown (2026)](https://commandlinux.com/statistics/cloud-provider-linux-usage-breakdown/)
+- [Linux Foundation — Kernel Development Report](https://www.linuxfoundation.org/blog/blog/linux-kernel-report-more-contributors-than-ever)
+- [W3Techs — Linux Web Server Market Share](https://fosspost.org/linux-web-server-market-share/)
+- [StatCounter — Linux supera el 10% en Norteamérica](https://linuxiac.com/linux-desktop-market-share-surpasses-10-in-north-america/)
