@@ -98,10 +98,6 @@ const config = {
           },
         ],
       },
-      footer: {
-        style: 'dark',
-        copyright: `Introducción al Desarrollo de Software - (${new Date().getFullYear()})`,
-      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
