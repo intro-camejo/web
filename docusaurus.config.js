@@ -89,7 +89,7 @@ const config = {
           {
             to:"/trabajos-practicos",
             position: 'left',
-            label: 'Trabajos Prácticos',
+            label: 'Trabajo práctico',
           },
           {
             href: 'https://forms.gle/eNntd1kjymuCZKmE7',

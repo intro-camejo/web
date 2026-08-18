@@ -29,7 +29,7 @@ const enlaces: Enlace[] = (
     },
     {
       icon: <CodigoIcon />,
-      title: 'Trabajos Prácticos',
+      title: 'Trabajo práctico',
       description: 'Consigna del TP grupal, requisitos y pautas de entrega.',
       to: '/trabajos-practicos',
     },
