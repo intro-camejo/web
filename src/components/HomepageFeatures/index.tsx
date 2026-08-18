@@ -35,7 +35,7 @@ function Colab({ name, pictures }: ColabItem) {
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): React.JSX.Element {
   const sortedColabs = [...docentesData.docentes].sort((a, b) => a.name.localeCompare(b.name));
   return (
     <section className={styles.features}>
