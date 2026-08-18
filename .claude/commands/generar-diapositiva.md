@@ -54,8 +54,8 @@ Pasos:
    el bloque ```mermaid crudo en el HTML final.
 7. Numerá el footer (`.s-foot .num`) en orden correlativo empezando en 01
    a lo largo de todo el mazo. En `.s-foot .logo-mark`, usá
-   `assets/logo_fiuba_dark.svg` en slides de fondo blanco y
-   `assets/logo_fiuba_light.svg` en las `on-accent` (fondo naranja).
+   `assets/logo_fiuba.png` en slides de fondo blanco y
+   `assets/logo_fiuba.png` en las `on-accent` (fondo naranja).
 8. Para las imágenes: si el archivo referenciado existe en
    `static/slides/$ARGUMENTS/img/`, usá `<img src="img/archivo.png">`. Si
    no existe todavía, dejá el placeholder de `.col-media`/`.ph` con la

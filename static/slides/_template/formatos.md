@@ -91,7 +91,7 @@ Todo `<section class="slide ...">` sigue esta forma (ver
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
-    <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
     <span class="num">04</span>
   </div>
 </section>
@@ -99,8 +99,8 @@ Todo `<section class="slide ...">` sigue esta forma (ver
 
 El footer (`Intro Camejo` + logo + número) es automático — Claude lo agrega
 en cada slide, numerando en orden. **El logo tiene dos variantes** en
-`assets/`: `logo_fiuba_dark.svg` (relleno negro, para slides de fondo
-blanco) y `logo_fiuba_light.svg` (relleno blanco, para slides `on-accent`
+`assets/`: `logo_fiuba.png` (relleno negro, para slides de fondo
+blanco) y `logo_fiuba.png` (relleno blanco, para slides `on-accent`
 de fondo naranja — portada, divisoria-seccion, cierre). Elegir la variante
 según el fondo de esa slide puntual, no una fija para todo el mazo.
 

@@ -43,7 +43,7 @@ que armó esto; acá va solo el uso.
 | `_template/formatos.md` | El catálogo de los 15 tipos de slide que Claude usa para generar | No |
 | `_template/base.html` | Esqueleto HTML de un mazo vacío | No |
 | `_template/fonts/` | Los `.woff2` de Montserrat / Instrument Sans / Open Sans | No |
-| `_template/assets/logo_fiuba_dark.svg` / `logo_fiuba_light.svg` | Logo del footer — versión negra (fondo blanco) y blanca (fondo naranja) | No |
+| `_template/assets/logo_fiuba.png` / `logo_fiuba.png` | Logo del footer — versión negra (fondo blanco) y blanca (fondo naranja) | No |
 | `<clase>/contenido.md` | El temario que escribe el profesor | Sí, es el input de cada clase |
 | `<clase>/img/` | Imágenes locales de esa clase | Sí |
 | `<clase>/index.html` | El mazo generado — el artefacto final que se proyecta y se linkea desde Diapos.md | Se regenera con el comando, pero después se puede tocar a mano |
