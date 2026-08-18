@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Git y GitHub
 
 **Importante**: Antes de comenzar a trabajar con repositorios remotos, se debe configurar la SSH Key. En la sección "Apuntes" hay un tutorial detallado.

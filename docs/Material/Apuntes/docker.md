@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Introducción a Docker
 
 Docker es una plataforma que permite desarrollar, empaquetar y ejecutar aplicaciones en contenedores. Un contenedor es una unidad ligera y portátil que contiene todo lo necesario para ejecutar una aplicación: código, runtime, librerías y configuraciones del sistema.
