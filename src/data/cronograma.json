@@ -5,124 +5,112 @@
     {
       "semana": 1,
       "martes": {
-        "fecha": "10/03/2026",
+        "fecha": "18/08/2026",
         "actividades": [
           { "name": "Presentación de la materia" },
           { "name": "Introducción a Linux" },
           { "name": "Opciones de instalación de Linux" },
-          { "name": "Editores de texto" },
-          {
-            "name": "Terminal"
-          }
+          { "name": "Terminal" },
+          { "name": "Editores de texto" }
         ]
       },
       "jueves": {
-        "fecha": "12/03/2026",
+        "fecha": "20/08/2026",
         "actividades": [
           { "name": "Bash" },
           { "name": "¿Qué es Bash? (Terminal y lenguaje)" },
-          { "name": "Estructuras condicionales e iterativas" },
-          { "name": "Ejercicios" }
+          { "name": "Estructuras condicionales e iterativas" }
         ]
       }
     },
     {
       "semana": 2,
       "martes": {
-        "fecha": "17/03/2026",
-        "actividades": [{ "name": "Paro universitario" }]
+        "fecha": "25/08/2026",
+        "actividades": [
+          { "name": "Editores de texto por consola (nano, vim)" },
+          { "name": "Permisos y privilegios (chmod, sudo)" },
+          { "name": "Ejercicios de Bash" }
+        ]
       },
       "jueves": {
-        "fecha": "19/03/2026",
+        "fecha": "27/08/2026",
         "actividades": [
-          { "name": "Regex" },
-          { "name": "Bash y Regex - Ejercitación" }
+          { "name": "Bash - Pipelines y redirecciones" },
+          { "name": "Regex" }
         ]
       }
     },
     {
       "semana": 3,
       "martes": {
-        "fecha": "24/03/2026",
-        "actividades": [
-          { "name": "FERIADO", "bg": "#0070a7", "color": "#f7f7f7" }
-        ]
+        "fecha": "01/09/2026",
+        "actividades": [{ "name": "Bash y Regex - Ejercitación" }]
       },
       "jueves": {
-        "fecha": "26/03/2026",
-        "actividades": [{ "name": "Ingeniería de Software" }]
+        "fecha": "03/09/2026",
+        "actividades": [
+          {
+            "name": "Parcialito 1 (Linux, Bash y Regex)",
+            "bg": "#0070a7",
+            "color": "#f7f7f7"
+          },
+          { "name": "Ingeniería de Software (Parte 1)" },
+          { "name": "Git" },
+          { "name": "¿Qué es Git? ¿Para qué sirve?" }
+        ]
       }
     },
     {
       "semana": 4,
       "martes": {
-        "fecha": "31/03/2026",
+        "fecha": "08/09/2026",
         "actividades": [
-          { "name": "Git" },
-          { "name": "¿Qué es Git? ¿Para qué sirve?" },
-          { "name": "Repositorio y Estados" },
-          {
-            "name": "Comandos básicos"
-          },
-          { "name": "Github" },
-          { "name": "Asociar SSH, crear y subir repositorio" }
+          { "name": "Git - Comandos básicos" },
+          { "name": "Github - Asociar SSH, crear y subir repositorio" },
+          { "name": "Ramas y resolución de merge" }
         ]
       },
       "jueves": {
-        "fecha": "02/04/2026",
+        "fecha": "10/09/2026",
         "actividades": [
-          { "name": "FERIADO", "bg": "#0070a7", "color": "#f7f7f7" }
+          { "name": "Ingeniería de Software (Parte 2)" },
+          { "name": "Docker" },
+          { "name": "¿Qué es Docker? Diferencia con VM" },
+          { "name": "Imágenes y containers" }
         ]
       }
     },
     {
       "semana": 5,
       "martes": {
-        "fecha": "07/04/2026",
+        "fecha": "15/09/2026",
         "actividades": [
-          { "name": "Git - Ramas (checkout, branch)" },
-          { "name": "git restore" },
-          { "name": "Staging" },
-          { "name": "git log y git diff" }
+          { "name": "Docker - Comandos básicos" },
+          { "name": "Armado del primer Dockerfile" }
         ]
       },
       "jueves": {
-        "fecha": "09/04/2026",
-        "actividades": [{ "name": "Desarrollo & IA" }]
+        "fecha": "17/09/2026",
+        "actividades": [
+          {
+            "name": "Parcialito 2 (Git e Ingeniería de Software)",
+            "bg": "#0070a7",
+            "color": "#f7f7f7"
+          },
+          { "name": "Docker compose" },
+          { "name": "Imágenes custom, redes y volúmenes" }
+        ]
       }
     },
     {
       "semana": 6,
       "martes": {
-        "fecha": "14/04/2026",
-        "actividades": [
-          { "name": "Docker" },
-          { "name": "Nociones básicas de puertos y servicios" },
-          { "name": "¿Qué es Docker? ¿Para qué se usa?" },
-          { "name": "Diferencia con VM" },
-          { "name": "¿Qué es un container? ¿Qué es una imagen?" }
-        ]
+        "fecha": "22/09/2026",
+        "actividades": [{ "name": "Docker compose - Ejercicios" }]
       },
       "jueves": {
-        "fecha": "16/04/2026",
-        "actividades": [
-          { "name": "Docker - Ejercicios" },
-          { "name": "Comandos básicos" }
-        ]
-      }
-    },
-    {
-      "semana": 7,
-      "martes": {
-        "fecha": "21/04/2026",
-        "actividades": [
-          { "name": "Docker compose" },
-          { "name": "Armado de imágenes custom" },
-          { "name": "Ejercicios" }
-        ]
-      },
-      "jueves": {
-        "fecha": "23/04/2026",
+        "fecha": "24/09/2026",
         "actividades": [
           { "name": "SQL" },
           { "name": "¿Qué es una BDD? ¿Qué es SQL?" },
@@ -131,117 +119,171 @@
       }
     },
     {
-      "semana": 8,
+      "semana": 7,
       "martes": {
-        "fecha": "28/04/2026",
-        "actividades": [{ "name": "Ejercicios SQL" }]
+        "fecha": "29/09/2026",
+        "actividades": [
+          { "name": "Ejercicios SQL" },
+          { "name": "Consultas" }
+        ]
       },
       "jueves": {
-        "fecha": "30/04/2026",
-        "actividades": [{ "name": "SQL" }]
+        "fecha": "01/10/2026",
+        "actividades": [
+          { "name": "SQL - JOINs y agrupamientos" },
+          { "name": "Repaso integrador" }
+        ]
+      }
+    },
+    {
+      "semana": 8,
+      "martes": {
+        "fecha": "06/10/2026",
+        "actividades": [
+          { "name": "Ejercicios SQL" },
+          { "name": "Simulacro de parcialito" }
+        ]
+      },
+      "jueves": {
+        "fecha": "08/10/2026",
+        "actividades": [
+          {
+            "name": "Parcialito 3 (Docker y SQL)",
+            "bg": "#0070a7",
+            "color": "#f7f7f7"
+          },
+          { "name": "Desarrollo & IA" }
+        ]
       }
     },
     {
       "semana": 9,
       "martes": {
-        "fecha": "05/05/2026",
-        "actividades": [{ "name": "Consultas" }]
+        "fecha": "13/10/2026",
+        "actividades": [
+          {
+            "name": "Presentación TP Final",
+            "bg": "#0070a7",
+            "color": "#f7f7f7"
+          },
+          { "name": "Alcance del trabajo y validación de ideas" }
+        ]
       },
       "jueves": {
-        "fecha": "07/05/2026",
+        "fecha": "15/10/2026",
         "actividades": [
-          { "name": "Parcial", "bg": "#0070a7", "color": "#f7f7f7" }
+          { "name": "HTML y CSS" },
+          { "name": "Etiquetas, selectores y Flexbox" }
         ]
       }
     },
     {
       "semana": 10,
       "martes": {
-        "fecha": "12/05/2026",
-        "actividades": [
-          { "name": "Marcha universitaria" },
-          {
-            "name": "Presentación TP Final (asíncrona)",
-            "bg": "#0070a7",
-            "color": "#f7f7f7"
-          },
-          { "name": "Entrega de material para estudio de HTML y CSS (asíncrono)" }
-        ]
+        "fecha": "20/10/2026",
+        "actividades": [{ "name": "Web básica con HTML y CSS" }]
       },
       "jueves": {
-        "fecha": "14/05/2026",
+        "fecha": "22/10/2026",
         "actividades": [
-          { "name": "Repaso HTML y CSS" },
-          { "name": "Web básica con HTML y CSS" }
+          { "name": "Javascript" },
+          { "name": "Manipulación del DOM" },
+          { "name": "Asincronismo en Javascript" }
         ]
       }
     },
     {
       "semana": 11,
       "martes": {
-        "fecha": "19/05/2026",
-        "actividades": [{ "name": "Javascript" }]
+        "fecha": "27/10/2026",
+        "actividades": [
+          { "name": "Javascript en el navegador" },
+          { "name": "Consumo de una API pública" }
+        ]
       },
       "jueves": {
-        "fecha": "21/05/2026",
-        "actividades": [{ "name": "Javascript en el navegador" }]
+        "fecha": "29/10/2026",
+        "actividades": [
+          { "name": "REST y métodos HTTP" },
+          { "name": "Backend (Node y Express)" }
+        ]
       }
     },
     {
       "semana": 12,
       "martes": {
-        "fecha": "26/05/2026",
-        "actividades": [{ "name": "Backend" }]
+        "fecha": "03/11/2026",
+        "actividades": [
+          { "name": "Backend" },
+          { "name": "Armado de una API básica" }
+        ]
       },
       "jueves": {
-        "fecha": "28/05/2026",
-        "actividades": [{ "name": "Backend" }]
+        "fecha": "05/11/2026",
+        "actividades": [
+          {
+            "name": "Parcialito 4 (HTML, CSS y Javascript)",
+            "bg": "#0070a7",
+            "color": "#f7f7f7"
+          },
+          { "name": "Integración Parte 1" }
+        ]
       }
     },
     {
       "semana": 13,
       "martes": {
-        "fecha": "02/06/2026",
-        "actividades": [{ "name": "Backend" }]
+        "fecha": "10/11/2026",
+        "actividades": [{ "name": "Integración Parte 2" }]
       },
       "jueves": {
-        "fecha": "04/06/2026",
-        "actividades": [
-          { "name": "RECUPERATORIO 1", "bg": "#0070a7", "color": "#f7f7f7" }
-        ]
+        "fecha": "12/11/2026",
+        "actividades": [{ "name": "Integración Parte 3" }]
       }
     },
     {
       "semana": 14,
       "martes": {
-        "fecha": "09/06/2026",
-        "actividades": [{ "name": "Integración Parte 1" }]
+        "fecha": "17/11/2026",
+        "actividades": [{ "name": "Integración Parte 4" }]
       },
       "jueves": {
-        "fecha": "11/06/2026",
-        "actividades": [{ "name": "Integración Parte 2" }]
+        "fecha": "19/11/2026",
+        "actividades": [
+          { "name": "Recuperatorio 1", "bg": "#0070a7", "color": "#f7f7f7" },
+          { "name": "Consultas" }
+        ]
       }
     },
     {
       "semana": 15,
       "martes": {
-        "fecha": "16/06/2026",
-        "actividades": [{ "name": "Integración Parte 3" }]
+        "fecha": "24/11/2026",
+        "actividades": [{ "name": "Integración Parte 5" }]
       },
       "jueves": {
-        "fecha": "18/06/2026",
-        "actividades": [{ "name": "Integración Parte 4" }]
+        "fecha": "26/11/2026",
+        "actividades": [
+          { "name": "Taller de desarrollo" },
+          { "name": "Buenas prácticas y consultas" }
+        ]
       }
     },
     {
       "semana": 16,
       "martes": {
-        "fecha": "23/06/2026",
-        "actividades": [{ "name": "Integración Parte 5" }]
+        "fecha": "01/12/2026",
+        "actividades": [
+          { "name": "Taller de desarrollo" },
+          { "name": "Buenas prácticas y consultas" }
+        ]
       },
       "jueves": {
-        "fecha": "25/06/2026",
-        "actividades": [{ "name": "Retrospectiva" }]
+        "fecha": "03/12/2026",
+        "actividades": [
+          { "name": "Retrospectiva" },
+          { "name": "Cierre de notas" }
+        ]
       }
     }
   ]
