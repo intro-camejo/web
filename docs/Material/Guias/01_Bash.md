@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Guía 1 - Bash 
 ### Ejercicios introductorios 
 

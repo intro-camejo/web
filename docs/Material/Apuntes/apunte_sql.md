@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # SQL
 
 Este apartado contiene apuntes sobre SQL. ¡Esperamos que te sean útiles!

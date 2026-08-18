@@ -1,10 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Cómo configurar tu SSH Key
-
-#### Gracias Nicolas Hatzidimitriou
 
 ## Crear clave SSH y conectarse con Github
 
