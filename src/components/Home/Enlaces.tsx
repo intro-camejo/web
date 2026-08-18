@@ -1,12 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import {
-  CalendarioIcon,
-  CodigoIcon,
-  DocumentoIcon,
-  LibroIcon,
-  PlayIcon,
-} from './icons';
+import {CodigoIcon, DocumentoIcon, LibroIcon, PlayIcon} from './icons';
 import styles from './styles.module.css';
 
 type Enlace = {
@@ -44,12 +38,6 @@ const enlaces: Enlace[] = (
       title: 'Régimen de cursada',
       description: 'Modalidad, condiciones de aprobación y final.',
       to: '/regimen-cursada',
-    },
-    {
-      icon: <CalendarioIcon />,
-      title: 'Cronograma',
-      description: 'Todas las semanas del cuatrimestre y las fechas clave.',
-      to: '/cronograma',
     },
   ] as Enlace[]
 ).filter((enlace) => enlace.to);
