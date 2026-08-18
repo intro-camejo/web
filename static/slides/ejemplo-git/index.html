@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a Git — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!--
+  Generado a partir de contenido.md con /generar-diapositiva ejemplo-git.
+  Las imágenes de este ejemplo no tienen screenshots reales todavía, así
+  que quedan como placeholders con leyenda en vez de <img> rotos — en una
+  clase real esos bloques son <img src="img/archivo.png"> como dice
+  ../_template/formatos.md.
+-->
+<main class="deck">
+
+  <!-- 1. portada -->
+  <section class="slide on-accent">
+    <div class="dev-tag"><span class="type">portada</span><span class="how">tipo=portada</span></div>
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Introducción a Git</div>
+        <div class="s-sub">Control de versiones y flujo de trabajo colaborativo</div>
+        <div class="cover-index"><span class="n">Clase 07</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_light.svg" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- 2. agenda -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">agenda</span><span class="how">automática — no se escribe</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Qué es control de versiones</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Comandos esenciales</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Ramas y merge</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Trabajando con GitHub</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Cierre y práctica</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- 3. titulo-texto -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">titulo-texto</span><span class="how">## Título + párrafo</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Qué es control de versiones</div>
+      <div class="s-title s-title--md">Por qué versionar código</div>
+      <p class="s-body-text">
+        Un sistema de control de versiones registra el historial completo de cambios de un
+        proyecto: quién cambió qué, cuándo y por qué. Permite volver atrás sin miedo, trabajar
+        en paralelo sin pisarse el trabajo de otra persona, y entender la evolución del código
+        con el tiempo en lugar de perderla en carpetas como <code>final_v2_ok.zip</code>.
+      </p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- 4. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="dev-tag"><span class="type">divisoria-seccion</span><span class="how"># Título (H1, sin imagen)</span></div>
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Comandos esenciales</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_light.svg" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- 5. titulo-bullets -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">titulo-bullets</span><span class="how">## Título + lista "-" o "*" · {tag:note/tip/info/warning/danger}</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Comandos esenciales</div>
+      <div class="s-title s-title--md">El ciclo básico</div>
+      <ul class="bullets">
+        <li><span><strong>git init</strong> — crea un repositorio nuevo en la carpeta actual<span class="tag tag-info">Info</span></span></li>
+        <li><span><strong>git add</strong> — mueve cambios al staging area<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>git commit</strong> — el mensaje debe ser descriptivo<span class="tag tag-note">Nota</span></span></li>
+        <li><span><strong>git push</strong> — sincroniza los commits locales con el remoto<span class="tag tag-warning">Warning</span></span></li>
+        <li><span><strong>git push --force</strong> — sobreescribe el historial remoto<span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- 6. imagen-full -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">imagen-full</span><span class="how">## Título + una ![]()</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Comandos esenciales</div>
+      <div class="cols2 cols2--single">
+        <div class="col-media"><span>imagen local · captura de <code>git status</code> en terminal</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- 7. codigo -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">codigo</span><span class="how">## Título + ```bash</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Comandos esenciales</div>
+      <div class="s-title s-title--md">Deshacer el último commit</div>
+      <div class="code-block">
+        <div class="fname">terminal</div>
+        <pre><code><span class="c1"># mantiene los cambios en el staging area</span>
+git reset --soft HEAD~1
+
+<span class="c1"># descarta los cambios por completo</span>
+git reset <span class="c2">--hard</span> HEAD~1
+
+<span class="c3">$</span> git log --oneline -3</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- 8. codigo (lenguaje de programación, no terminal — usa los tok-* en vez de c1/c2/c3) -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">codigo</span><span class="how">## Título + ```python (tok-kw/str/num/com/fn)</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Comandos esenciales</div>
+      <div class="s-title s-title--md">Automatizar con un hook</div>
+      <div class="code-block">
+        <div class="fname">python — .git/hooks/commit-msg</div>
+        <pre><code><span class="tok-kw">import</span> sys
+
+<span class="tok-com"># valida que el mensaje del commit no sea muy corto</span>
+<span class="tok-kw">def</span> <span class="tok-fn">check_message</span>(msg):
+    <span class="tok-kw">if</span> len(msg) &lt; <span class="tok-num">10</span>:
+        <span class="tok-kw">return</span> False
+    <span class="tok-kw">return</span> True
+
+msg = sys.argv[1]
+<span class="tok-kw">if</span> <span class="tok-kw">not</span> <span class="tok-fn">check_message</span>(msg):
+    <span class="tok-fn">print</span>(<span class="tok-str">"El mensaje del commit es muy corto"</span>)
+    sys.<span class="tok-fn">exit</span>(<span class="tok-num">1</span>)</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- 9. diagrama (mermaid horneado a SVG estático, nodos con rx/ry redondeados) -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">diagrama</span><span class="how">## Título + ```mermaid</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Comandos esenciales</div>
+      <div class="s-title s-title--md">Las tres áreas de Git</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 1080 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Working Directory a Staging Area a repositorio local a repositorio remoto">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="45" width="190" height="80" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="95" y="90" text-anchor="middle" font-size="17" fill="#16130f">Working Directory</text>
+
+            <rect x="297" y="45" width="190" height="80" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="392" y="90" text-anchor="middle" font-size="17" fill="#16130f">Staging Area</text>
+
+            <rect x="594" y="45" width="190" height="80" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="689" y="90" text-anchor="middle" font-size="17" fill="#16130f">Repositorio local</text>
+
+            <rect x="890" y="45" width="190" height="80" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="985" y="90" text-anchor="middle" font-size="17" fill="#16130f">Repositorio remoto</text>
+
+            <line x1="190" y1="85" x2="290" y2="85" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="240" y="70" text-anchor="middle" font-size="14" fill="#6e6a63">git add</text>
+
+            <line x1="487" y1="85" x2="587" y2="85" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="537" y="70" text-anchor="middle" font-size="14" fill="#6e6a63">git commit</text>
+
+            <line x1="784" y1="85" x2="884" y2="85" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="834" y="70" text-anchor="middle" font-size="14" fill="#6e6a63">git push</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- 10. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="dev-tag"><span class="type">divisoria-seccion</span><span class="how"># Título (H1, sin imagen)</span></div>
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">Ramas y merge</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_light.svg" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- 11. imagen-texto -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">imagen-texto</span><span class="how">## Título + párrafo + ![]()</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Ramas y merge</div>
+      <div class="s-title s-title--md">Trabajar en ramas</div>
+      <div class="cols2">
+        <p class="s-body-text">
+          Cada rama es una línea de trabajo independiente. Creá una rama por feature con
+          <code>git branch</code>, cambiate con <code>git checkout</code>, y cuando termines
+          integrá los cambios de vuelta a <code>main</code> con <code>git merge</code>.
+        </p>
+        <div class="col-media">imagen local · diagrama de ramas</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- 12. comparacion (A vs. B) -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">comparacion</span><span class="how">tipo=comparacion + dos ###</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Ramas y merge</div>
+      <div class="s-title s-title--md">merge vs. rebase</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>git merge</h3>
+          <ul>
+            <li>Conserva el historial completo tal cual pasó</li>
+            <li>Crea un commit de merge</li>
+            <li>Seguro para ramas compartidas</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>git rebase</h3>
+          <ul>
+            <li>Reescribe el historial como una línea recta</li>
+            <li>No crea commit de merge</li>
+            <li>Evitar en ramas que otros ya bajaron</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- 13. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="dev-tag"><span class="type">divisoria-seccion</span><span class="how"># Título (H1, sin imagen)</span></div>
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Trabajando con GitHub</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_light.svg" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- 14. hasta-6-imagenes -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">hasta-6-imagenes</span><span class="how">tipo=hasta-6-imagenes + varias ![]()</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Trabajando con GitHub</div>
+      <div class="s-title s-title--md">Del fork al pull request</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph">imagen</div><div class="cap">1. Fork del repositorio</div></div>
+        <div class="cell"><div class="ph">imagen</div><div class="cap">2. Clonar en local</div></div>
+        <div class="cell"><div class="ph">imagen</div><div class="cap">3. Commit y push a tu fork</div></div>
+        <div class="cell"><div class="ph">imagen</div><div class="cap">4. Abrir el pull request</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- 15. comparacion (pros/contras de una sola opción + badge de recomendación) -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">comparacion</span><span class="how">tipo=comparacion tag=tip tag-label="Recomendado"</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Trabajando con GitHub</div>
+      <div class="s-title s-title--md">Clonar por SSH <span class="tag tag-tip">Recomendado</span></div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Pros</h3>
+          <ul>
+            <li>No pide usuario ni contraseña en cada push</li>
+            <li>Más seguro que HTTPS con contraseña</li>
+            <li>Estándar en equipos profesionales</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Contras</h3>
+          <ul>
+            <li>Hay que generar y agregar una clave SSH una vez</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- 16. seccion-imagen (la sección .05 ya existía en la agenda pero nunca
+       tenía su propia slide de transición — la completamos con este tipo.
+       Usa --reverse para mostrar esa variante también) -->
+  <section class="slide slide-split slide-split--reverse">
+    <div class="dev-tag"><span class="type">seccion-imagen</span><span class="how"># Título + texto + ![]() al final → --reverse infiere solo</span></div>
+    <div class="split-media"><span>imagen local · alumnos resolviendo el ejercicio en clase</span></div>
+    <div class="split-copy on-accent">
+      <div class="s-pad">
+        <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+        <div class="s-title">Cierre y práctica</div>
+        <p class="s-body-text">Repasamos lo esencial y encaramos el primer ejercicio con Git.</p>
+      </div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba_light.svg" alt="FIUBA">
+        <span class="num">16</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17. cita -->
+  <section class="slide">
+    <div class="dev-tag"><span class="type">cita</span><span class="how">&gt; texto — Autor</span></div>
+    <div class="s-pad">
+      <div class="quote-wrap">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="quote-text">Talk is cheap. Show me the code.</div>
+        <div class="quote-cite">— Linus Torvalds, creador de Git</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- 18. bibliografia -->
+  <section class="slide biblio">
+    <div class="dev-tag"><span class="type">bibliografia</span><span class="how">tipo=bibliografia</span></div>
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>Pro Git — Scott Chacon &amp; Ben Straub <span class="src">(git-scm.com/book)</span></li>
+        <li>Git Internals — documentación oficial de Git <span class="src">(git-scm.com/docs)</span></li>
+        <li>GitHub Docs — Guía de Pull Requests <span class="src">(docs.github.com)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_dark.svg" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- 19. cierre -->
+  <section class="slide on-accent">
+    <div class="dev-tag"><span class="type">cierre</span><span class="how">tipo=cierre</span></div>
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">Gracias</div>
+        <div class="closing-links">Próxima clase: SSH para GitHub · dudas@intro-camejo.fiuba</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba_light.svg" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
