@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Respuestas - Guía de ejercicios SQL
 
 ***Nota**: estas respuestas son únicamente a modo de ejemplo. Puede ser que al ver la guía resuelvas los ejercicios de manera diferente, y estarán bien siempre y cuando cumplan con los requisitos del enunciado. ¡Ante cualquier duda o consulta, no dudes en preguntar!*
