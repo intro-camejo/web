@@ -9,14 +9,14 @@
 <body>
 <main class="deck">
 
-<!-- 01: Portada -->
+<!-- Portada -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
     <div class="cover-title-block">
       <div class="s-title">Introducción a Bash</div>
       <div class="s-sub">GNU Bash (Bourne Again Shell)</div>
-      <div class="cover-index"><span class="n">Bash</span><span class="dot"></span><span class="n">2026</span></div>
+      <div class="cover-index"><span class="n">Clase Bash</span><span class="dot"></span><span class="n">2026</span></div>
     </div>
   </div>
   <div class="s-foot">
@@ -26,23 +26,22 @@
   </div>
 </section>
 
-<!-- 02: Agenda -->
+<!-- Agenda -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>Agenda</div>
     <ul class="agenda-list">
-      <li><span class="idx">.01</span><span class="lbl">Historia: de Bourne a Bash</span></li>
-      <li><span class="idx">.02</span><span class="lbl">¿Qué es Bash?</span></li>
-      <li><span class="idx">.03</span><span class="lbl">Entradas y Salidas Estándar</span></li>
-      <li><span class="idx">.04</span><span class="lbl">Variables en Bash</span></li>
-      <li><span class="idx">.05</span><span class="lbl">Redirecciones y Pipelines</span></li>
-      <li><span class="idx">.06</span><span class="lbl">Condicionales: if</span></li>
-      <li><span class="idx">.07</span><span class="lbl">Condicionales: case</span></li>
-      <li><span class="idx">.08</span><span class="lbl">Bucles: for y while</span></li>
-      <li><span class="idx">.09</span><span class="lbl">Funciones</span></li>
-      <li><span class="idx">.10</span><span class="lbl">Ejercicios de Práctica (1/2)</span></li>
-      <li><span class="idx">.11</span><span class="lbl">Ejercicios de Práctica (2/2)</span></li>
-      <li><span class="idx">.12</span><span class="lbl">Fin de la Presentación</span></li>
+      <li><span class="idx">.01</span><span class="lbl">Introducción a Bash</span></li>
+      <li><span class="idx">.02</span><span class="lbl">Historia: de Bourne a Bash</span></li>
+      <li><span class="idx">.03</span><span class="lbl">¿Qué es Bash?</span></li>
+      <li><span class="idx">.04</span><span class="lbl">Entradas y Salidas Estándar</span></li>
+      <li><span class="idx">.05</span><span class="lbl">Variables en Bash</span></li>
+      <li><span class="idx">.06</span><span class="lbl">Redirecciones y Pipelines</span></li>
+      <li><span class="idx">.07</span><span class="lbl">Condicionales: if</span></li>
+      <li><span class="idx">.08</span><span class="lbl">Condicionales: case</span></li>
+      <li><span class="idx">.09</span><span class="lbl">Bucles: for y while</span></li>
+      <li><span class="idx">.10</span><span class="lbl">Funciones</span></li>
+      <li><span class="idx">.11</span><span class="lbl">Ejercicios de Práctica</span></li>
     </ul>
   </div>
   <div class="s-foot">
@@ -52,32 +51,24 @@
   </div>
 </section>
 
-<!-- 03: Historia -->
-<section class="slide slide-split">
-  <div class="split-media"><img src="img/bash-logo.svg" alt="Bash Logo"></div>
-  <div class="split-copy on-accent">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
-      <div class="s-title">Historia: de Bourne a Bash</div>
-    </div>
-    <div class="s-foot">
-        <span>Intro Camejo</span>
-        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-        <span class="num">03</span>
-    </div>
+<!-- 1. Introducción a Bash -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+    <div class="s-title">Introducción a Bash</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">03</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.01 Historia: de Bourne a Bash</div>
-    <div class="s-title s-title--md">Evolución de los Shells</div>
-    <ul class="bullets">
-      <li><span>En 1979, **Stephen Bourne** creó el **Bourne Shell (`sh`)** para UNIX.</span></li>
-      <li><span>Fue el estándar durante años, pero tenía código cerrado.</span></li>
-      <li><span>En 1989, **Brian Fox** creó **Bash (Bourne *Again* Shell)** para el proyecto GNU.</span></li>
-      <li><span>Diseñado como un reemplazo 100% libre, compatible y muy mejorado.</span></li>
-    </ul>
+<!-- 2. Historia: de Bourne a Bash -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+    <div class="s-title">Historia: de Bourne a Bash</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -86,29 +77,29 @@
   </div>
 </section>
 
-<!-- 04: Qué es Bash -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .02</div>
-    <div class="s-title">¿Qué es Bash?</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Historia: de Bourne a Bash</div>
+    <div class="s-title s-title--md">Evolución</div>
+    <ul class="bullets">
+      <li>En 1979, <strong>Stephen Bourne</strong> creó el <strong>Bourne Shell (`sh`)</strong> para UNIX.</li>
+      <li>Fue el estándar durante años, pero tenía código cerrado.</li>
+      <li>En 1989, <strong>Brian Fox</strong> creó <strong>Bash (Bourne *Again* Shell)</strong> para el proyecto GNU.</li>
+      <li>Diseñado como un reemplazo 100% libre, compatible y muy mejorado.</li>
+    </ul>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">05</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">05</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.02 ¿Qué es Bash?</div>
-    <div class="s-title s-title--md">Definición y Propósito</div>
-    <ul class="bullets">
-      <li><span>**Bash** es un intérprete de comandos y lenguaje de scripting.</span></li>
-      <li><span>Creado como una mejora del Bourne Shell (`sh`).</span></li>
-      <li><span>Permite la interacción entre el usuario y el sistema operativo.</span></li>
-      <li><span>Interpreta comandos y devuelve resultados (éxito o error).</span></li>
-    </ul>
+<!-- 3. ¿Qué es Bash? -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+    <div class="s-title">¿Qué es Bash?</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -117,28 +108,29 @@
   </div>
 </section>
 
-<!-- 05: Entradas y Salidas -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .03</div>
-    <div class="s-title">Entradas y Salidas Estándar</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — ¿Qué es Bash?</div>
+    <div class="s-title s-title--md">Definición</div>
+    <ul class="bullets">
+      <li><strong>Bash</strong> es un intérprete de comandos y lenguaje de scripting.</li>
+      <li>Creado como una mejora del Bourne Shell (`sh`).</li>
+      <li>Permite la interacción entre el usuario y el sistema operativo.</li>
+      <li>Interpreta comandos y devuelve resultados (éxito o error).</li>
+    </ul>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">07</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">07</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 Entradas y Salidas Estándar</div>
-    <div class="s-title s-title--md">Flujos de Datos</div>
-    <ul class="bullets">
-      <li><span>**stdin**: Entrada estándar (teclado, archivos).</span></li>
-      <li><span>**stdout**: Salida estándar (terminal, archivos).</span></li>
-      <li><span>**stderr**: Salida de errores estándar.</span></li>
-    </ul>
+<!-- 4. Entradas y Salidas Estándar -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+    <div class="s-title">Entradas y Salidas Estándar</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -147,37 +139,28 @@
   </div>
 </section>
 
-<!-- 06: Variables -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .04</div>
-    <div class="s-title">Variables en Bash</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 — Entradas y Salidas Estándar</div>
+    <div class="s-title s-title--md">Streams</div>
+    <ul class="bullets">
+      <li><strong>stdin</strong>: Entrada estándar (teclado, archivos).</li>
+      <li><strong>stdout</strong>: Salida estándar (terminal, archivos).</li>
+      <li><strong>stderr</strong>: Salida de errores estándar.</li>
+    </ul>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">09</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">09</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.04 Variables en Bash</div>
-    <div class="s-title s-title--md">Definición y Uso</div>
-    <ul class="bullets">
-      <li><span>Se definen sin espacios alrededor del signo `=`.</span></li>
-      <li><span>Se accede a su valor anteponiendo el signo `$`.</span></li>
-    </ul>
-    <div class="code-block">
-      <div class="fname">bash</div>
-      <pre><code>nombre="José"
-edad=30
-<span class="tok-fn">echo</span> "Mi nombre es $nombre y tengo $edad años."</code></pre>
-    </div>
-    <ul class="bullets" style="margin-top: 1rem;">
-      <li><span>**Variables de Entorno**: `$HOME`, `$PATH`, `$USER`.</span></li>
-      <li><span>**Variables Especiales**: `$0`, `$1`, `$2`, `$?`.</span></li>
-    </ul>
+<!-- 5. Variables en Bash -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+    <div class="s-title">Variables en Bash</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -186,40 +169,37 @@ edad=30
   </div>
 </section>
 
-<!-- 07: Redirecciones -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .05</div>
-    <div class="s-title">Redirecciones y Pipelines</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 — Variables en Bash</div>
+    <div class="s-title s-title--md">Uso y Acceso</div>
+    <ul class="bullets">
+      <li>Se definen sin espacios alrededor del signo `=`.</li>
+      <li>Se accede a su valor anteponiendo el signo `$`.</li>
+    </ul>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code>nombre="José"
+edad=30
+echo "Mi nombre es <span class="c3">$nombre</span> y tengo <span class="c3">$edad</span> años."</code></pre>
+    </div>
+    <ul class="bullets">
+      <li><strong>Variables de Entorno</strong>: <span class="c2">$HOME</span>, <span class="c2">$PATH</span>, <span class="c2">$USER</span>.</li>
+      <li><strong>Variables Especiales</strong>: <span class="c2">$0</span>, <span class="c2">$1</span>, <span class="c2">$2</span>, <span class="c2">$?</span>.</li>
+    </ul>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">11</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">11</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.05 Redirecciones y Pipelines</div>
-    <div class="s-title s-title--md">Control de Flujos</div>
-    <ul class="bullets">
-      <li><span>`>`: Sobrescribe el archivo con la salida.</span></li>
-      <li><span>`>>`: Añade al final del archivo.</span></li>
-      <li><span>`<`: Usa un archivo como entrada.</span></li>
-    </ul>
-    <div class="code-block">
-        <div class="fname">bash</div>
-        <pre><code><span class="tok-fn">echo</span> "Hola" > archivo.txt
-<span class="tok-fn">echo</span> "Mundo" >> archivo.txt</code></pre>
-    </div>
-    <ul class="bullets" style="margin-top: 1rem;">
-      <li><span>**Pipelines (`|`)**: Envía la salida de un comando como entrada de otro.</span></li>
-    </ul>
-    <div class="code-block">
-        <div class="fname">bash</div>
-        <pre><code><span class="tok-fn">ls</span> -l | <span class="tok-fn">grep</span> ".txt"</code></pre>
-    </div>
+<!-- 6. Redirecciones y Pipelines -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+    <div class="s-title">Redirecciones y Pipelines</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -228,35 +208,41 @@ edad=30
   </div>
 </section>
 
-<!-- 08: Condicionales If -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .06</div>
-    <div class="s-title">Condicionales: if</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Redirecciones y Pipelines</div>
+    <div class="s-title s-title--md">Redirecciones</div>
+    <ul class="bullets">
+      <li>`>`: Sobrescribe el archivo con la salida.</li>
+      <li>`>>`: Añade al final del archivo.</li>
+      <li>`<`: Usa un archivo como entrada.</li>
+    </ul>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code>echo "Hola" > archivo.txt
+echo "Mundo" >> archivo.txt</code></pre>
+    </div>
+    <div class="s-title s-title--md">Pipelines</div>
+    <ul class="bullets">
+        <li><strong>Pipelines (`|`)</strong>: Envía la salida de un comando como entrada de otro.</li>
+    </ul>
+    <div class="code-block">
+        <div class="fname">bash</div>
+        <pre><code>ls -l | grep ".txt"</code></pre>
+    </div>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">13</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">13</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 Condicionales: if</div>
-    <div class="code-block">
-        <div class="fname">bash</div>
-        <pre><code><span class="tok-kw">if</span> [ condicion ]; <span class="tok-kw">then</span>
-    <span class="c1"># comandos</span>
-<span class="tok-kw">elif</span> [ otra_condicion ]; <span class="tok-kw">then</span>
-    <span class="c1"># comandos</span>
-<span class="tok-kw">else</span>
-    <span class="c1"># comandos</span>
-<span class="tok-kw">fi</span></code></pre>
-    </div>
-    <ul class="bullets" style="margin-top: 1rem;">
-      <li><span>Operadores: `-eq`, `-ne`, `-gt`, `-lt`.</span></li>
-    </ul>
+<!-- 7. Condicionales: if -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .07</div>
+    <div class="s-title">Condicionales: if</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -265,26 +251,51 @@ edad=30
   </div>
 </section>
 
-<!-- 09: Condicionales Case -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.07 — Condicionales: if</div>
+    <div class="s-title s-title--md">Sintaxis</div>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code><span class="tok-kw">if</span> [ condicion ]; <span class="tok-kw">then</span>
+    <span class="c1"># comandos</span>
+<span class="tok-kw">elif</span> [ otra_condicion ]; <span class="tok-kw">then</span>
+    <span class="c1"># comandos</span>
+<span class="tok-kw">else</span>
+    <span class="c1"># comandos</span>
+<span class="tok-kw">fi</span></code></pre>
+    </div>
+    <ul class="bullets">
+      <li>Operadores numéricos: <span class="c2">-eq</span> (igual), <span class="c2">-ne</span> (distinto), <span class="c2">-gt</span> (mayor), <span class="c2">-lt</span> (menor).</li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">15</span>
+  </div>
+</section>
+
+<!-- 8. Condicionales: case -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .07</div>
+    <div class="eyebrow"><span class="dot"></span>Sección .08</div>
     <div class="s-title">Condicionales: case</div>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">15</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">16</span>
   </div>
 </section>
 
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.07 Condicionales: case</div>
-    <div class="s-title s-title--md">Múltiples Opciones</div>
+    <div class="eyebrow"><span class="dot"></span>.08 — Condicionales: case</div>
+    <div class="s-title s-title--md">Manejo de múltiples opciones</div>
     <div class="code-block">
-        <div class="fname">bash</div>
-        <pre><code><span class="tok-kw">case</span> variable <span class="tok-kw">in</span>
+      <div class="fname">bash</div>
+      <pre><code><span class="tok-kw">case</span> variable <span class="tok-kw">in</span>
     patrón1)
         comandos ;;
     patrón2)
@@ -297,39 +308,15 @@ edad=30
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">16</span>
+    <span class="num">17</span>
   </div>
 </section>
 
-<!-- 10: Bucles -->
+<!-- 9. Bucles: for y while -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .08</div>
+    <div class="eyebrow"><span class="dot"></span>Sección .09</div>
     <div class="s-title">Bucles: for y while</div>
-  </div>
-  <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">17</span>
-  </div>
-</section>
-
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.08 Bucles: for y while</div>
-    <div class="s-title s-title--md">Estructuras repetitivas</div>
-    <div class="code-block">
-        <div class="fname">For</div>
-        <pre><code><span class="tok-kw">for</span> variable <span class="tok-kw">in</span> secuencia; <span class="tok-kw">do</span>
-    comandos
-<span class="tok-kw">done</span></code></pre>
-    </div>
-    <div class="code-block" style="margin-top: 1rem;">
-        <div class="fname">While</div>
-        <pre><code><span class="tok-kw">while</span> [ condicion ]; <span class="tok-kw">do</span>
-    comandos
-<span class="tok-kw">done</span></code></pre>
-    </div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -338,31 +325,36 @@ edad=30
   </div>
 </section>
 
-<!-- 11: Funciones -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .09</div>
-    <div class="s-title">Funciones</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.09 — Bucles: for y while</div>
+    <div class="s-title s-title--md">For</div>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code><span class="tok-kw">for</span> variable <span class="tok-kw">in</span> secuencia; <span class="tok-kw">do</span>
+    comandos
+<span class="tok-kw">done</span></code></pre>
+    </div>
+    <div class="s-title s-title--md">While</div>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code><span class="tok-kw">while</span> [ condicion ]; <span class="tok-kw">do</span>
+    comandos
+<span class="tok-kw">done</span></code></pre>
+    </div>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">19</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">19</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.09 Funciones</div>
-    <div class="code-block">
-        <div class="fname">bash</div>
-        <pre><code>saludar() {
-    <span class="tok-kw">local</span> nombre=$1
-    <span class="tok-fn">echo</span> "¡Hola, $nombre!"
-}
-
-saludar "Mundo"</code></pre>
-    </div>
+<!-- 10. Funciones -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .10</div>
+    <div class="s-title">Funciones</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -371,27 +363,32 @@ saludar "Mundo"</code></pre>
   </div>
 </section>
 
-<!-- 12: Ejercicios 1/2 -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .10</div>
-    <div class="s-title">Ejercicios de Práctica (1/2)</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.10 — Funciones</div>
+    <div class="s-title s-title--md">Reutilización de código</div>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code>saludar() {
+    <span class="tok-kw">local</span> nombre=$1
+    echo "¡Hola, $nombre!"
+}
+
+saludar "Mundo"</code></pre>
+    </div>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">21</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">21</span>
   </div>
 </section>
 
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.10 Ejercicios de Práctica (1/2)</div>
-    <ul class="bullets">
-      <li><span>1. Crear un script que le solicite al usuario el ingreso de un número e indicar si es mayor, menor o igual a 0.</span></li>
-      <li><span>2. Crear un script que reciba un número entero e indique si el número es par o impar.</span></li>
-      <li><span>3. Crear un script que le solicite al usuario su nombre y apellido (por separado) y lo imprima junto.</span></li>
-    </ul>
+<!-- 11. Ejercicios -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .11</div>
+    <div class="s-title">Ejercicios de Práctica</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -400,25 +397,30 @@ saludar "Mundo"</code></pre>
   </div>
 </section>
 
-<!-- 13: Ejercicios 2/2 -->
-<section class="slide on-accent">
-  <div class="s-pad" style="justify-content:center;">
-    <div class="eyebrow"><span class="dot"></span>Sección .11</div>
-    <div class="s-title">Ejercicios de Práctica (2/2)</div>
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.11 — Ejercicios</div>
+    <div class="s-title s-title--md">Parte 1</div>
+    <ul class="bullets">
+      <li>Crear un script que le solicite al usuario el ingreso de un número e indicar si es mayor, menor o igual a 0.</li>
+      <li>Crear un script que reciba un número entero e indique si el número es par o impar.</li>
+      <li>Crear un script que le solicite al usuario su nombre y apellido (por separado) y lo imprima junto.</li>
+    </ul>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">23</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">23</span>
   </div>
 </section>
 
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.11 Ejercicios de Práctica (2/2)</div>
+    <div class="eyebrow"><span class="dot"></span>.11 — Ejercicios</div>
+    <div class="s-title s-title--md">Parte 2</div>
     <ul class="bullets">
-      <li><span>4. Crear un script que imprima los primeros *n* números naturales (solicitando *n* al usuario).</span></li>
-      <li><span>5. Crear un script que muestre un menú de calculadora (sumar, restar, multiplicar, dividir) usando `case` para ejecutar la opción elegida.</span></li>
+      <li>Crear un script que imprima los primeros *n* números naturales (solicitando *n* al usuario).</li>
+      <li>Crear un script que muestre un menú de calculadora (sumar, restar, multiplicar, dividir) usando `case` para ejecutar la opción elegida.</li>
     </ul>
   </div>
   <div class="s-foot">
@@ -428,18 +430,19 @@ saludar "Mundo"</code></pre>
   </div>
 </section>
 
-<!-- 14: Cierre -->
+<!-- Cierre -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="closing-center">
       <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
       <div class="s-title">Gracias</div>
+      <div class="closing-links">¡A practicar!</div>
     </div>
   </div>
   <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">25</span>
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">25</span>
   </div>
 </section>
 
