@@ -1,7 +1,8 @@
 {
   "docentes": [
     {
-      "name": "Cami"
+      "name": "Cami",
+      "picture": "/img/cami.jpeg"
     },
     {
       "name": "Conra",
