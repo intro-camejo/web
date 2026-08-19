@@ -9,6 +9,17 @@ paginate: true
 
 ---
 
+# Historia: de Bourne a Bash
+
+![bg right:40% fit](img/bash-logo.svg)
+
+- En 1979, **Stephen Bourne** creó el **Bourne Shell (`sh`)** para UNIX.
+- Fue el estándar durante años, pero tenía código cerrado.
+- En 1989, **Brian Fox** creó **Bash (Bourne *Again* Shell)** para el proyecto GNU.
+- Diseñado como un reemplazo 100% libre, compatible y muy mejorado.
+
+---
+
 # ¿Qué es Bash?
 
 - **Bash** es un intérprete de comandos y lenguaje de scripting.
