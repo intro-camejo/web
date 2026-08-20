@@ -127,10 +127,10 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
 
 .s-title{
   font-family:var(--f-display);font-weight:800;letter-spacing:-.01em;
-  font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.06;margin:0 0 .3em;
+  font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.06;margin:0 0 .3em;
   text-wrap:balance;
 }
-.s-title.s-title--md{font-size:clamp(1.7rem,3.2vw,2.4rem);}
+.s-title.s-title--md{font-size:clamp(2.1rem,4vw,3.2rem);}
 .s-sub{
   font-family:var(--f-label);color:var(--muted);font-size:clamp(1rem,1.4vw,1.2rem);
   margin:0 0 auto;font-weight:500;
@@ -138,7 +138,7 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
 .on-accent .s-sub{color:rgba(255,255,255,.8);}
 
 .bullets{list-style:none;margin:1.1em 0 0;padding:0;display:flex;flex-direction:column;gap:.75em;}
-.bullets li{display:flex;gap:.7em;font-size:clamp(1.1rem,1.7vw,1.4rem);line-height:1.45;}
+.bullets li{display:flex;gap:.7em;font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.45;}
 .bullets li::before{
   content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;
   background:var(--accent);margin-top:.5em;
@@ -157,7 +157,7 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
 /* dentro de un s-title el em-scale del padre es enorme — fijar un tamaño cómodo */
 .s-title .tag{font-size:1rem;vertical-align:middle;}
 
-.s-body-text{font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.6;max-width:62ch;margin:1em 0 0;}
+.s-body-text{font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.6;max-width:62ch;margin:1em 0 0;}
 
 .cols2{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);gap:6%;flex:1;min-height:0;margin-top:.6em;}
 .cols2.cols2--single{grid-template-columns:1fr;}
@@ -191,7 +191,7 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
   font-family:var(--f-label);font-size:.78rem;color:var(--muted);margin-bottom:.7em;
   text-transform:uppercase;letter-spacing:.06em;
 }
-.code-block pre{margin:0;font-family:var(--f-mono);font-size:clamp(.9rem,1.4vw,1.15rem);line-height:1.65;}
+.code-block pre{margin:0;font-family:var(--f-mono);font-size:clamp(1.15rem,1.8vw,1.45rem);line-height:1.65;}
 
 /* terminal/shell: comandos y salida de consola */
 .code-block .c1{color:#8a7f6a;} /* comentarios */
@@ -242,12 +242,11 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
 .cover-index .n{font-family:var(--f-mono);font-size:1rem;}
 .cover-index .dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.5;}
 
-.agenda-list{list-style:none;margin:1.3em 0 0;padding:0;display:flex;flex-direction:column;}
+.agenda-list{list-style:none;margin:1.3em 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:5%;}
 .agenda-list li{
-  display:flex;align-items:baseline;gap:1em;padding:.85em 0;
-  border-bottom:1px solid var(--line);font-size:clamp(1.1rem,1.6vw,1.4rem);
+  display:flex;align-items:baseline;gap:1em;padding:.5em 0;
+  border-bottom:1px solid var(--line);font-size:clamp(1.2rem,1.8vw,1.5rem);
 }
-.agenda-list li:first-child{border-top:1px solid var(--line);}
 .agenda-list .idx{font-family:var(--f-mono);color:var(--accent);font-size:.85em;flex:0 0 2.4em;}
 .agenda-list .lbl{font-family:var(--f-label);font-weight:600;}
 
