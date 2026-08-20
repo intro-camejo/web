@@ -35,6 +35,21 @@ paginate: true
 
 ---
 
+# Scripts y el Shebang
+
+- Los scripts son archivos de texto que contienen secuencias de comandos.
+- El **shebang** (`#!`) en la primera línea le indica al SO qué intérprete utilizar.
+
+```bash
+#!/bin/bash
+
+echo "Ejecutando mi primer script..."
+```
+
+- **Importante:** El archivo necesita permisos de ejecución para correr directamente (`chmod +x script.sh`).
+
+---
+
 # Variables en Bash
 
 - Se definen sin espacios alrededor del signo `=`.
