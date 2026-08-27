@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a Expresiones Regulares</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+
+  <!-- 01 · portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Introducción a Expresiones Regulares</div>
+        <div class="s-sub">Buscar, validar y transformar texto con patrones</div>
+        <div class="cover-index"><span class="n">Clase 04</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- 02 · agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Patrones</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Regex</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Vamos a llevarlas a la práctica</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Comandos útiles</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Vamos a practicar</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- 03 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Para arrancar</div>
+      <div class="s-title s-title--md">¿Cuáles de estas podrían ser bandas porteñas indie?</div>
+      <ul class="bullets">
+        <li><span>Él me vendió un kg de helado</span></li>
+        <li><span>Luis y su quinteto</span></li>
+        <li><span>Ella se toma el 160 a Burzaco</span></li>
+        <li><span>Manuel Camejo y sus profes de Ricota</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- 04 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Para arrancar</div>
+      <div class="s-title s-title--md">¿Quiénes de esta lista podrían ser familiares míos? (Martinez Sastre)</div>
+      <ul class="bullets">
+        <li><span>Miguel Sastre</span></li>
+        <li><span>Claudia Martinez</span></li>
+        <li><span>Lionel Messi</span></li>
+        <li><span>Juan Martinez Sastre</span></li>
+        <li><span>Hermione Granger</span></li>
+        <li><span>Eiichiro Oda</span></li>
+        <li><span>Lautaro Martinez</span></li>
+        <li><span>Luciana Aymar</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- 05 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Para arrancar</div>
+      <div class="s-title s-title--md">¿Cuáles de estas son fechas válidas?</div>
+      <ul class="bullets">
+        <li><span>09/02/1965</span></li>
+        <li><span>24/24/14687</span></li>
+        <li><span>32/otoño/2001</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- 06 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Para arrancar</div>
+      <div class="s-title s-title--md">¿Cuáles de estas son direcciones de mail válidas?</div>
+      <ul class="bullets">
+        <li><span>intro@mail.com</span></li>
+        <li><span>hola@chicos</span></li>
+        <li><span>tomenagua@cucucu.co</span></li>
+        <li><span>porfa@net</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- 07 · divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">Patrones</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- 08 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Patrones</div>
+      <div class="s-title s-title--md">1943 — Warren S. McCulloch y Walter Pitts</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/neuros.png" alt="McCulloch y Pitts"></div>
+        <p class="s-body-text">Modelos matemáticos para representar neuronas. Plantean una idea importante: podemos representar matemáticamente cómo un sistema recibe entradas y produce respuestas. Con el tiempo, autómatas.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- 09 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Patrones</div>
+      <div class="s-title s-title--md">1956 — Stephen Kleene</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/kleene.jpeg" alt="Stephen Kleene"></div>
+        <p class="s-body-text">Encuentra una forma matemática de describir ciertos comportamientos de esos sistemas: los <strong>eventos regulares</strong>. Responde a la pregunta <em>¿cómo describimos un comportamiento sin enumerar todos los casos posibles?</em> con dos ideas: <code>|</code> (or) y <code>*</code> (repetición).</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- 10 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Patrones</div>
+      <div class="s-title s-title--md">1968 — Ken Thompson</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/thompson.jpg" alt="Ken Thompson"></div>
+        <p class="s-body-text">Trabajando en Bell Labs en los softwares previos a Unix se topa con un problema: muchas líneas de código, y buscar algo era un infierno. La solución fue llevar los eventos regulares a la práctica. Nacen las expresiones regulares, <em>regular expressions</em>, o…</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- 11 · divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Regex</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- 12 · hasta-6-imagenes -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Regex</div>
+      <div class="s-title s-title--md">¿Qué son?</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/regex-mail.png" alt="el patrón de un mail, parte por parte"></div><div class="cap">El patrón de un mail, parte por parte</div></div>
+        <div class="cell"><div class="ph"><img src="img/skill-basico.png" alt="tomando la presión"></div><div class="cap">Skill-básico</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- 13 · titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Regex</div>
+      <div class="s-title s-title--md">¿Para qué creen que las usamos?</div>
+      <p class="s-body-text">Antes de meternos con la sintaxis: ¿dónde se les ocurre que aparece esto en el día a día de alguien que programa?</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- 14 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Regex</div>
+      <div class="s-title s-title--md">Es una herramienta más de las que ya tenemos</div>
+      <ul class="bullets">
+        <li><span><strong>Buscar</strong> dentro de un texto</span></li>
+        <li><span><strong>Reemplazar</strong> partes de un texto</span></li>
+        <li><span><strong>Validar</strong> que algo tenga el formato esperado</span></li>
+        <li><span><strong>Parsear</strong> información estructurada</span></li>
+        <li><span>…entre muchas otras cosas</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- 15 · imagen-full -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Regex</div>
+      <div class="s-title s-title--md">Se usa en todos lados</div>
+      <div class="cols2 cols2--single">
+        <div class="col-media"><img src="img/todos-las-usan.png" alt="las regex las están usando todos"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- 16 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Regex</div>
+      <div class="s-title s-title--md">¿Dónde, concretamente?</div>
+      <ul class="bullets">
+        <li><span>Validación de formularios</span></li>
+        <li><span>Búsquedas avanzadas de texto</span></li>
+        <li><span>Limpieza de datos a gran escala</span></li>
+        <li><span>Debugging de servidores</span></li>
+        <li><span>Refactorizar código</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- 17 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Regex</div>
+      <div class="s-title s-title--md">Esto tiene una contra…</div>
+      <ul class="bullets">
+        <li><span>No hay una única regex: existen <strong>variantes</strong> según la herramienta o el lenguaje</span></li>
+        <li><span>Las dos familias más comunes son <strong>IEEE POSIX</strong> y <strong>PCRE</strong><span class="tag tag-note">Nota</span></span></li>
+        <li><span>Lo que vamos a usar hoy es común a todas ellas<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- 18 · divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">Vamos a llevarlas a la práctica</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- 19 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Caso trivial</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/trivial.png" alt="la regex /love/ matcheando la palabra love"></div>
+        <p class="s-body-text">Una regex sin ningún símbolo especial es simplemente el texto literal que buscamos. Playground: https://regex101.com/</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- 20 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">OR</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/or.png" alt="la regex (y|t)o"></div>
+        <p class="s-body-text">La barra <code>|</code> significa "esto <strong>o</strong> esto otro": <code>(y|t)o</code> matchea <code>yo</code> y <code>to</code>.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- 21 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">OR de grupos</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/or-grupos.png" alt="la regex for (as long|the rest)"></div>
+        <p class="s-body-text">Los paréntesis agrupan: lo que está adentro se toma como una sola unidad, así el <code>|</code> puede elegir entre frases enteras y no solo entre caracteres.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- 22 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Comodín</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/comodin.png" alt="la regex f.r"></div>
+        <p class="s-body-text">El punto <code>.</code> representa <strong>cualquier carácter</strong>: <code>f.r</code> matchea <code>far</code> y <code>fer</code>, pero no <code>paul</code>.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- 23 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Colecciones</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/coleccion.png" alt="la regex [cv]aso"></div>
+        <p class="s-body-text">Los corchetes definen un conjunto de caracteres posibles para <strong>una sola</strong> posición: <code>[cv]aso</code> matchea <code>vaso</code> y <code>caso</code>, pero no <code>paso</code> ni <code>Vaso</code>.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- 24 · hasta-6-imagenes -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Colección vs. grupo</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/coleccion.png" alt="[cv]aso — una c o una v"></div><div class="cap"><code>[cv]aso</code> — una c o una v</div></div>
+        <div class="cell"><div class="ph"><img src="img/grupo.png" alt="(cv)aso — la secuencia literal cv"></div><div class="cap"><code>(cv)aso</code> — la secuencia literal cv</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- 25 · hasta-6-imagenes -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Rangos</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/rango.png" alt="[m-z] — el rango"></div><div class="cap"><code>[m-z]</code> — el rango</div></div>
+        <div class="cell"><div class="ph"><img src="img/rango-negado.png" alt="[^m-z] — el rango negado"></div><div class="cap"><code>[^m-z]</code> — el rango negado</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- 26 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Tokens</div>
+      <ul class="bullets">
+        <li><span><code>.</code> — cualquier carácter</span></li>
+        <li><span><code>\n</code> — carácter de nueva línea</span></li>
+        <li><span><code>\t</code> — carácter de tabulación</span></li>
+        <li><span><code>\s</code> — cualquier carácter de espacio en blanco (incluye <code>\t</code>, <code>\n</code> y otros)</span></li>
+        <li><span><code>\S</code> — cualquier carácter que no sea un espacio en blanco</span></li>
+        <li><span><code>\w</code> — cualquier carácter de palabra (letras del alfabeto latino, <code>0-9</code> y <code>_</code>)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- 27 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Tokens</div>
+      <ul class="bullets">
+        <li><span><code>\W</code> — cualquier carácter que NO sea de palabra (el inverso de <code>\w</code>)</span></li>
+        <li><span><code>\b</code> — límite de palabra: la frontera entre <code>\w</code> y <code>\W</code></span></li>
+        <li><span><code>\B</code> — no-límite de palabra: el inverso de <code>\b</code></span></li>
+        <li><span><code>^</code> dentro de colección — niega el contenido, complemento</span></li>
+        <li><span><code>^</code> fuera de colección — el inicio de una línea</span></li>
+        <li><span><code>$</code> — el final de una línea</span></li>
+        <li><span><code>\</code> — el carácter literal</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- 28 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Cuantificadores</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/cuant-1.png" alt="la regex z{4}"></div>
+        <p class="s-body-text"><code>{n}</code> pide exactamente <code>n</code> repeticiones: <code>z{4}</code> matchea <code>zzzz</code>.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- 29 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Cuantificadores</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/cuant-2.png" alt="la regex z{2,4}"></div>
+        <p class="s-body-text"><code>{min,max}</code> pide entre <code>min</code> y <code>max</code> repeticiones: <code>z{2,4}</code> matchea tanto <code>zzzz</code> como <code>zz</code>.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- 30 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Cuantificadores</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/cuant-3.png" alt="la regex z+"></div>
+        <p class="s-body-text">Los tres atajos que más se usan: <code>*</code> (0 o más), <code>+</code> (1 o más) y <code>?</code> (0 o 1).</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- 31 · imagen-texto (imagen primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a llevarlas a la práctica</div>
+      <div class="s-title s-title--md">Anclaje</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/anclaje.png" alt="la regex ^z"></div>
+        <p class="s-body-text"><code>^</code> principio de línea y <code>$</code> fin de línea. Sin anclas, el patrón puede matchear en cualquier parte.</p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- 32 · divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Comandos útiles</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- 33 · codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Comandos útiles</div>
+      <div class="s-title s-title--md">grep</div>
+      <p class="s-body-text">Permite buscar patrones dentro de los archivos especificados. El <code>patron</code> es una regex: todo lo que vimos hasta acá se puede usar acá adentro.</p>
+      <div class="code-block">
+        <div class="fname">bash</div>
+        <pre><code>grep <span class="c1">[opciones] [patron] [archivo]</span></code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- 34 · hasta-6-imagenes -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Comandos útiles</div>
+      <div class="s-title s-title--md">Ejemplo básico</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/ejemplo-1.png" alt='grep "ejemplo" ejemplo1.txt'></div><div class="cap"><code>grep "ejemplo" ejemplo1.txt</code></div></div>
+        <div class="cell"><div class="ph"><img src="img/ejemplo-2.png" alt='grep "s" ejemplo1.txt'></div><div class="cap"><code>grep "s" ejemplo1.txt</code></div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- 35 · hasta-6-imagenes -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Comandos útiles</div>
+      <div class="s-title s-title--md">¿Qué pasa si busco "f"?</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/ejemplo-1.png" alt='grep "ejemplo" ejemplo1.txt'></div><div class="cap"><code>grep "ejemplo" ejemplo1.txt</code></div></div>
+        <div class="cell"><div class="ph"><img src="img/ejemplo-2.png" alt='grep "s" ejemplo1.txt'></div><div class="cap"><code>grep "s" ejemplo1.txt</code></div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- 36 · titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Comandos útiles</div>
+      <div class="s-title s-title--md">Algunas opciones</div>
+      <ul class="bullets">
+        <li><span><code>-i</code> — ignora el case</span></li>
+        <li><span><code>-n</code> — muestra el número de línea</span></li>
+        <li><span><code>-w</code> — coincide solo con palabras completas, no con subcadenas</span></li>
+        <li><span><code>-v</code> — muestra todas las líneas que NO contienen el patrón<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><code>-r</code> — busca el patrón en todos los archivos del directorio y sus subdirectorios</span></li>
+        <li><span><code>-c</code> — muestra el número de líneas que contienen el patrón</span></li>
+        <li><span><code>-l</code> — muestra solo los nombres de los archivos que contienen el patrón, no las líneas coincidentes</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- 37 · imagen-full -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Comandos útiles</div>
+      <div class="s-title s-title--md">¿Puedo buscar en más de un archivo?</div>
+      <div class="cols2 cols2--single">
+        <div class="col-media"><img src="img/siii.png" alt="sí"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- 38 · codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Comandos útiles</div>
+      <div class="s-title s-title--md">Buscar en varios archivos</div>
+      <div class="code-block">
+        <div class="fname">bash</div>
+        <pre><code>grep <span class="c2">"ejemplo"</span> archivo1.txt archivo2.txt archivo3.csv
+grep <span class="c2">"ejemplo"</span> *
+grep <span class="c2">"ejemplo"</span> *.log
+grep <span class="c2">"ejemplo"</span> ruta/a/directorio/*
+grep <span class="c2">-r</span> <span class="c2">"ejemplo"</span> .
+grep <span class="c2">-r</span> <span class="c2">"ejemplo"</span> ./ruta/a/directorio/</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- 39 · seccion-imagen -->
+  <section class="slide slide-split slide-split--reverse">
+    <div class="split-media"><img src="img/practica.png" alt="vamos a practicar"></div>
+    <div class="split-copy on-accent">
+      <div class="s-pad">
+        <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+        <div class="s-title">Vamos a practicar</div>
+      </div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">39</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 40 · imagen-texto (texto primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a practicar</div>
+      <div class="s-title s-title--md">Ejercicio 1.a — las notas de Gonza</div>
+      <div class="cols2">
+        <p class="s-body-text">Buscar las notas de Gonza dentro del archivo <code>notas.csv</code>.</p>
+        <div class="col-media"><img src="img/ej-grep-1a.png" alt="grep -i 'gonzalo martinez sastre' notas.csv"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- 41 · imagen-texto (texto primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a practicar</div>
+      <div class="s-title s-title--md">Ejercicio 1.b — en todo el directorio</div>
+      <div class="cols2">
+        <p class="s-body-text">Buscar las notas de Gonza en todos los archivos dentro del directorio <code>ej1</code>.</p>
+        <div class="col-media"><img src="img/ej-grep-1b.png" alt="grep -i -r 'gonzalo martinez sastre' ."></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+  <!-- 42 · imagen-texto (texto primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a practicar</div>
+      <div class="s-title s-title--md">Ejercicio 2 — notas mayores o iguales a 85</div>
+      <div class="cols2">
+        <p class="s-body-text">Dado el archivo <code>notas.csv</code>, buscar todos aquellos alumnos cuyas notas son mayores o iguales a 85.</p>
+        <div class="col-media"><img src="img/ej-grep-2.png" alt="grep -E '8[5-9]|9[0-9]|100' notas.csv"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">42</span>
+    </div>
+  </section>
+
+  <!-- 43 · imagen-texto (texto primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a practicar</div>
+      <div class="s-title s-title--md">Ejercicio 3 — códigos postales mal escritos</div>
+      <div class="cols2">
+        <p class="s-body-text">Dado el listado de alumnos, buscar todos aquellos cuyo código postal no esté bien escrito de acuerdo con el CPA (1 letra, 4 números, 3 letras).</p>
+        <div class="col-media"><img src="img/ej-grep-3.png" alt='grep -v -E "^[^,]+,[A-Z][0-9]{4}[A-Z]{3},[^,]+$" alumnos.csv'></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">43</span>
+    </div>
+  </section>
+
+  <!-- 44 · imagen-texto (texto primero) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Vamos a practicar</div>
+      <div class="s-title s-title--md">Ejercicio 4 — alumnos de 25 a 29 años</div>
+      <div class="cols2">
+        <p class="s-body-text">Dado el listado de alumnos, buscar todos aquellos que tengan entre 25 y 29 años (inclusive).</p>
+        <div class="col-media"><img src="img/ej-grep-4.png" alt='grep -E ",2[5-9],[^,]*$" alumnos.csv'></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">44</span>
+    </div>
+  </section>
+
+  <!-- 45 · bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>Regular expression — Wikipedia <span class="src">(en.wikipedia.org/wiki/Regular_expression)</span></li>
+        <li>Regular language — Wikipedia <span class="src">(en.wikipedia.org/wiki/Regular_language)</span></li>
+        <li>RegEx in Python — Nikhil Kumar Singh <span class="src">(github.com/nikhilkumarsingh/RegEx-In-Python)</span></li>
+        <li>regexr.com — playground alternativo</li>
+        <li>The complete guide to regular expressions — CoderPad <span class="src">(coderpad.io/blog/development)</span></li>
+        <li>Regular Expressions (Regex) — YouTube <span class="src">(youtube.com/watch?v=ZfQFUJhPqMM)</span></li>
+        <li>grep(1) — Linux man page <span class="src">(linux.die.net/man/1/grep)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">45</span>
+    </div>
+  </section>
+
+  <!-- 46 · cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">Gracias</div>
+        <div class="closing-links">Practicá en regex101.com — próxima clase: práctica de Bash y Regex</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">46</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
