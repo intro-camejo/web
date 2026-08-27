@@ -8,8 +8,9 @@
 * [Filesystem](pathname:///slides/filesystem/index.html)
 * [Bash](pathname:///slides/bash/index.html)
 
+
 ## Semana 2
 
 * [Bash Parte 2](pathname:///slides/bash-parte-2/index.html)
-
 * [Enunciado Calculadora en Bash](pathname:///slides/bash-calculadora/enunciado.html)
+* [Regex](pathname:///slides/regex/index.html)
