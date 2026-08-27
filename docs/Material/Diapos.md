@@ -7,6 +7,7 @@
 * [Intro a Terminal](pathname:///slides/intro-terminal/index.html)
 * [Filesystem](pathname:///slides/filesystem/index.html)
 * [Bash](pathname:///slides/bash/index.html)
+* [Repaso Bash (27 Ago)](pathname:///slides/bash-repaso/index.html)
 
 ## Semana 2
 
