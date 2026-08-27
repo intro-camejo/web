@@ -159,6 +159,21 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
 
 .s-body-text{font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.6;max-width:62ch;margin:1em 0 0;}
 
+/* código inline (fuera de .code-block): mono + chip sutil, para que los
+   símbolos y patrones no se pierdan dentro del texto corrido ni en bullets,
+   captions o celdas de tabla. Dentro de .code-block se anula (ese bloque ya
+   tiene su propio tratamiento con los spans .c1/.c2/.tok-*). */
+code{
+  font-family:var(--f-mono);font-size:.88em;
+  background:var(--media-bg);border:1px solid var(--media-line);
+  border-radius:5px;padding:.05em .34em;color:var(--accent-deep);
+}
+.on-accent code{
+  background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.32);color:#fff;
+}
+.compare code,.grid-imgs .cap code{font-size:.95em;}
+.code-block code{background:none;border:0;padding:0;color:inherit;font-size:inherit;}
+
 .cols2{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);gap:6%;flex:1;min-height:0;margin-top:.6em;}
 .cols2.cols2--single{grid-template-columns:1fr;}
 .col-media{
