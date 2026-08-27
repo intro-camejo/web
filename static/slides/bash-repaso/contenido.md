@@ -4,7 +4,7 @@ theme: default
 paginate: true
 ---
 
-# Repaso de Bash
+# Bash Parte 2
 ## Clase del 27 de Agosto
 
 ---
