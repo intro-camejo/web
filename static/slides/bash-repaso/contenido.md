@@ -68,8 +68,6 @@ cantidad=$(ls -l | wc -l)
 echo "Hay $cantidad líneas en el output"
 ```
 
-*Nota:* Eviten usar las comillas invertidas `` `comando` ``. `$()` es moderno, más legible y permite anidar comandos.
-
 ---
 
 # Completando: Redirecciones

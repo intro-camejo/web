@@ -9,14 +9,14 @@
 <body>
 <main class="deck">
 
-<!-- Portada -->
+<!-- 01: Portada -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
     <div class="cover-title-block">
       <div class="s-title">Bash Parte 2</div>
       <div class="s-sub">Clase del 27 de Agosto</div>
-      <div class="cover-index"><span class="n">Clase Bash</span><span class="dot"></span><span class="n">2026</span></div>
+      <div class="cover-index"><span class="n">Clase --</span><span class="dot"></span><span class="n">2026</span></div>
     </div>
   </div>
   <div class="s-foot">
@@ -26,7 +26,7 @@
   </div>
 </section>
 
-<!-- Agenda -->
+<!-- 02: Agenda -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>Agenda</div>
@@ -48,16 +48,16 @@
   </div>
 </section>
 
-<!-- Slide 1 -->
+<!-- 03: ¿Qué vimos hasta ahora? -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>¿Qué vimos hasta ahora?</div>
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
     <div class="s-title s-title--md">¿Qué vimos hasta ahora?</div>
     <ul class="bullets">
-      <li><span><strong>Estructuras de Control</strong>: `if` con `[[ ]]`, `while`.</span></li>
-      <li><span><strong>Interacción</strong>: `read` para pedir datos al usuario.</span></li>
-      <li><span><strong>Aritmética</strong>: Operaciones matemáticas en bash.</span></li>
-      <li><span><strong>Organización</strong>: Funciones.</span></li>
+      <li><span>**Estructuras de Control**: `if` con `[[ ]]`, `while`.</span></li>
+      <li><span>**Interacción**: `read` para pedir datos al usuario.</span></li>
+      <li><span>**Aritmética**: Operaciones matemáticas en bash.</span></li>
+      <li><span>**Organización**: Funciones.</span></li>
     </ul>
   </div>
   <div class="s-foot">
@@ -67,26 +67,26 @@
   </div>
 </section>
 
-<!-- Slide 2 -->
+<!-- 04: Recordando: `if` con `[[ ]]` -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>¿Qué vimos hasta ahora?</div>
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
     <div class="s-title s-title--md">Recordando: `if` con `[[ ]]`</div>
-    <p class="s-body-text">El doble corchete `[[ ]]` es una mejora de bash sobre el `[ ]` tradicional.</p>
+    <p class="s-body-text">El doble corchete <code>[[ ]]</code> es una mejora de bash sobre el <code>[ ]</code> tradicional.</p>
     <ul class="bullets">
       <li><span>Es más seguro con variables vacías o con espacios.</span></li>
-      <li><span>Permite operadores lógicos `&&` y `||` dentro.</span></li>
-      <li><span>Soporta *pattern matching* (ej: `[[ $var == *.txt ]]`).</span></li>
+      <li><span>Permite operadores lógicos <code>&&</code> y <code>||</code> dentro.</span></li>
+      <li><span>Soporta <em>pattern matching</em> (ej: <code>[[ $var == *.txt ]]</code>).</span></li>
     </ul>
     <div class="code-block">
       <div class="fname">bash</div>
-      <pre><code>read -p "Ingresá un nombre: " nombre
+      <pre><code><span class="tok-kw">read</span> -p "Ingresá un nombre: " nombre
 
-if [[ $nombre == "Admin" ]]; then
+<span class="tok-kw">if</span> [[ $nombre == "Admin" ]]; <span class="tok-kw">then</span>
     echo "¡Bienvenido Administrador!"
-elif [[ -z $nombre ]]; then
+<span class="tok-kw">elif</span> [[ -z $nombre ]]; <span class="tok-kw">then</span>
     echo "No ingresaste nada."
-fi</code></pre>
+<span class="tok-kw">fi</span></code></pre>
     </div>
   </div>
   <div class="s-foot">
@@ -96,22 +96,22 @@ fi</code></pre>
   </div>
 </section>
 
-<!-- Slide 3 -->
+<!-- 05: Recordando: Aritmética y `read` -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>¿Qué vimos hasta ahora?</div>
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
     <div class="s-title s-title--md">Recordando: Aritmética y `read`</div>
-    <p class="s-body-text">Podemos hacer operaciones matemáticas usando `(( ))` o `$(( ))`:</p>
+    <p class="s-body-text">Podemos hacer operaciones matemáticas usando <code>(( ))</code> o <code>$(( ))</code>:</p>
     <div class="code-block">
       <div class="fname">bash</div>
-      <pre><code>read -p "Ingresá el primer número: " num1
-read -p "Ingresá el segundo número: " num2
+      <pre><code><span class="tok-kw">read</span> -p "Ingresá el primer número: " num1
+<span class="tok-kw">read</span> -p "Ingresá el segundo número: " num2
 
 suma=$((num1 + num2))
 
-if [[ $suma -gt 10 ]]; then
+<span class="tok-kw">if</span> [[ $suma -gt 10 ]]; <span class="tok-kw">then</span>
     echo "La suma ($suma) es mayor a 10"
-fi</code></pre>
+<span class="tok-kw">fi</span></code></pre>
     </div>
   </div>
   <div class="s-foot">
@@ -121,23 +121,22 @@ fi</code></pre>
   </div>
 </section>
 
-<!-- Slide 4 -->
+<!-- 06: Profundizando: Subshells `$()` -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>¿Qué vimos hasta ahora?</div>
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
     <div class="s-title s-title--md">Profundizando: Subshells `$()`</div>
-    <p class="s-body-text">Un subshell `$()` ejecuta un comando y <strong>captura su salida</strong> para usarla en una variable o como argumento de otro comando.</p>
+    <p class="s-body-text">Un subshell <code>$()</code> ejecuta un comando y captura su salida para usarla en una variable o como argumento de otro comando.</p>
     <div class="code-block">
       <div class="fname">bash</div>
-      <pre><code># Guardar la fecha actual en una variable
+      <pre><code><span class="tok-com"># Guardar la fecha actual en una variable</span>
 fecha_actual=$(date +%Y-%m-%d)
 echo "Hoy es: $fecha_actual"
 
-# Listar la cantidad de archivos
+<span class="tok-com"># Listar la cantidad de archivos</span>
 cantidad=$(ls -l | wc -l)
 echo "Hay $cantidad líneas en el output"</code></pre>
     </div>
-    <p class="s-body-text"><em>Nota:</em> Eviten usar las comillas invertidas ` `comando` `. `$()` es moderno, más legible y permite anidar comandos.</p>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -146,26 +145,26 @@ echo "Hay $cantidad líneas en el output"</code></pre>
   </div>
 </section>
 
-<!-- Slide 5 -->
+<!-- 07: Completando: Redirecciones -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>¿Qué vimos hasta ahora?</div>
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
     <div class="s-title s-title--md">Completando: Redirecciones</div>
     <p class="s-body-text">Todo proceso tiene 3 canales estándar:</p>
     <ul class="bullets">
-      <li><span><strong>stdin</strong> (Entrada, 0)</span></li>
-      <li><span><strong>stdout</strong> (Salida normal, 1)</span></li>
-      <li><span><strong>stderr</strong> (Salida de errores, 2)</span></li>
+      <li><span>**stdin** (Entrada, 0)</span></li>
+      <li><span>**stdout** (Salida normal, 1)</span></li>
+      <li><span>**stderr** (Salida de errores, 2)</span></li>
     </ul>
     <div class="code-block">
       <div class="fname">bash</div>
-      <pre><code># Sobrescribe el archivo con la salida (stdout)
+      <pre><code><span class="tok-com"># Sobrescribe el archivo con la salida (stdout)</span>
 echo "Hola" > archivo.txt
 
-# Agrega al final del archivo (stdout)
+<span class="tok-com"># Agrega al final del archivo (stdout)</span>
 echo "Mundo" >> archivo.txt
 
-# Redirige los errores (stderr) al archivo de log
+<span class="tok-com"># Redirige los errores (stderr) al archivo de log</span>
 ls /directorio/inexistente 2> errores.log</code></pre>
     </div>
   </div>
@@ -176,18 +175,18 @@ ls /directorio/inexistente 2> errores.log</code></pre>
   </div>
 </section>
 
-<!-- Slide 6 -->
+<!-- 08: Completando: Pipelines (`|`) -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>¿Qué vimos hasta ahora?</div>
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
     <div class="s-title s-title--md">Completando: Pipelines (`|`)</div>
-    <p class="s-body-text">El pipeline (`|`) conecta la <strong>salida estándar (stdout)</strong> del comando de la izquierda con la <strong>entrada estándar (stdin)</strong> del comando de la derecha.</p>
+    <p class="s-body-text">El pipeline (<code>|</code>) conecta la salida estándar (stdout) del comando de la izquierda con la entrada estándar (stdin) del comando de la derecha.</p>
     <div class="code-block">
       <div class="fname">bash</div>
-      <pre><code># ls lista los archivos, grep filtra los que tienen ".txt"
+      <pre><code><span class="tok-com"># ls lista los archivos, grep filtra los que tienen ".txt"</span>
 ls -l | grep ".txt"
 
-# cat lee el archivo, wc -l cuenta las líneas
+<span class="tok-com"># cat lee el archivo, wc -l cuenta las líneas</span>
 cat mi_archivo.txt | wc -l</code></pre>
     </div>
     <p class="s-body-text">¡Es la base de la filosofía UNIX! Pequeñas herramientas que hacen bien una sola cosa, conectadas entre sí.</p>
@@ -199,28 +198,28 @@ cat mi_archivo.txt | wc -l</code></pre>
   </div>
 </section>
 
-<!-- Slide 7 -->
-<section class="slide slide-split">
-  <div class="split-media"><img src="img/gonza.jpeg" alt="Gonza"></div>
-  <div class="split-copy on-accent">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>Siguiente tema: Regex</div>
-      <div class="s-title">Siguiente tema: Regex</div>
-      <p class="s-body-text">Las Expresiones Regulares son una herramienta fundamental en UNIX para buscar y manipular patrones de texto de forma avanzada.</p>
-      <div style="margin-top: 20px;">
+<!-- 09: Siguiente tema: Regex -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Bash Parte 2</div>
+    <div class="s-title s-title--md">Siguiente tema: Regex</div>
+    <p class="s-body-text">Las Expresiones Regulares son una herramienta fundamental en UNIX para buscar y manipular patrones de texto de forma avanzada.</p>
+    <div class="cols2">
+      <div class="col-media"><img src="img/gonza.jpeg" alt="Gonza"></div>
+      <div class="split-copy">
         <h3 style="margin: 0; font-size: 1.5em; color: var(--accent);">Gonza</h3>
-        <p style="margin: 0; font-size: 1.2em;">Toma la posta 🚀</p>
+        <p style="margin: 0; font-size: 1.2em; color: var(--muted);">Toma la posta 🚀</p>
       </div>
     </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">09</span>
-    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">09</span>
   </div>
 </section>
 
-<!-- Cierre -->
+<!-- 10: Cierre -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="closing-center">
