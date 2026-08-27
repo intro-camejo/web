@@ -10,4 +10,6 @@
 
 ## Semana 2
 
+* [Bash Parte 2](pathname:///slides/bash-parte-2/index.html)
+
 * [Enunciado Calculadora en Bash](pathname:///slides/bash-calculadora/enunciado.html)
