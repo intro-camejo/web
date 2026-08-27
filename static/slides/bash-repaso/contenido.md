@@ -108,5 +108,19 @@ cat mi_archivo.txt | wc -l
 
 ---
 
+# Siguiente tema: Regex
+
+Las Expresiones Regulares son una herramienta fundamental en UNIX para buscar y manipular patrones de texto de forma avanzada.
+
+<div style="display:flex; align-items:center; justify-content:center; gap: 30px; margin-top:40px;">
+  <img src="img/gonza.jpeg" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent);" />
+  <div style="text-align: left;">
+    <h3 style="margin: 0; font-size: 1.5em; color: var(--accent);">Gonza</h3>
+    <p style="margin: 0; font-size: 1.2em; color: var(--muted);">Toma la posta 🚀</p>
+  </div>
+</div>
+
+---
+
 # Fin del Repaso
-## ¡A seguir practicando!
+## ¡A programar!
