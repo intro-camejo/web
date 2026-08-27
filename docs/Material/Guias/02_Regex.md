@@ -4,6 +4,17 @@ draft: false
 
 # Guía 2 - Regex
 
+### Ejercicios de calentamiento: Pipes (Tuberías)
+
+Antes de empezar con Regex puro, vamos a repasar cómo conectar comandos básicos usando pipes (`|`):
+
+1. Resolver los siguientes incisos ejecutando comandos en la terminal:
+    a. Listar el contenido del directorio actual y contar cuántos archivos/directorios hay en total. (Pista: usar `ls` y enviarlo a `wc -l`)
+    b. Mostrar las primeras 10 líneas de un archivo de texto cualquiera y ordenarlas alfabéticamente. (Pista: usar `head` y enviarlo a `sort`)
+    c. Buscar una palabra específica dentro de un archivo de texto y contar cuántas veces aparece. (Pista: usar `grep` y enviarlo a `wc -l`)
+    d. Listar los archivos de un directorio, filtrar aquellos que contengan la letra "a" en su nombre y mostrar solo los últimos 5 resultados. (Pista: `ls`, `grep` y `tail`)
+    e. Mostrar el historial de comandos ejecutados en la terminal y filtrar para ver solo las veces que se utilizó el comando `cd`. (Pista: `history` y `grep`)
+
 ### Introducción - Básicos
 
 Tenemos un archivo **oraciones.txt**, cuyo contenido es:
