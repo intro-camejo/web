@@ -58,29 +58,27 @@ Clase 04 — 2026
 ## 1943 — Warren S. McCulloch y Walter Pitts
 ![McCulloch y Pitts](img/neuros.png)
 
-Modelos matemáticos para representar neuronas. Plantean una idea
-importante: podemos representar matemáticamente cómo un sistema recibe
-entradas y produce respuestas. Con el tiempo, autómatas.
+- Modelos matemáticos para representar neuronas. 
+- Plantean una idea importante: podemos representar matemáticamente cómo un sistema recibe entradas y produce respuestas. Con el tiempo, autómatas.
 
 ---
 
 ## 1956 — Stephen Kleene
 ![Stephen Kleene](img/kleene.jpeg)
 
-Encuentra una forma matemática de describir ciertos comportamientos de esos
-sistemas: los **eventos regulares**. Responde a la pregunta *¿cómo
-describimos un comportamiento sin enumerar todos los casos posibles?* con
-dos ideas: `|` (or) y `*` (repetición).
+- Encuentra una forma matemática de describir ciertos comportamientos de esos
+sistemas: los **eventos regulares**. 
+- Responde a la pregunta *¿cómo describimos un comportamiento sin enumerar todos los casos posibles?* -
+- Utiliza símbolos como `|` (or) y `*` (repetición).
 
 ---
 
 ## 1968 — Ken Thompson
 ![Ken Thompson](img/thompson.jpg)
 
-Trabajando en Bell Labs en los softwares previos a Unix se topa con un
-problema: muchas líneas de código, y buscar algo era un infierno. La
-solución fue llevar los eventos regulares a la práctica. Nacen las
-expresiones regulares, *regular expressions*, o…
+- Trabajando en Bell Labs en los softwares previos a Unix 
+- Se topa con un problema: muchas líneas de código, y buscar algo era un calvario. 
+- La solución fue llevar los eventos regulares a la práctica. Nacen las expresiones regulares, *regular expressions*, o…
 
 ---
 
@@ -124,13 +122,6 @@ el día a día de alguien que programa?
 
 ---
 
-## Esto tiene una contra…
-- No hay una única regex: existen **variantes** según la herramienta o el lenguaje
-- Las dos familias más comunes son **IEEE POSIX** y **PCRE** {tag:note}
-- Lo que vamos a usar hoy es común a todas ellas {tag:tip}
-
----
-
 # Vamos a llevarlas a la práctica
 
 ---
@@ -139,7 +130,9 @@ el día a día de alguien que programa?
 ![la regex /love/ matcheando la palabra love](img/trivial.png)
 
 Una regex sin ningún símbolo especial es simplemente el texto literal que
-buscamos. Playground: https://regex101.com/
+buscamos. 
+
+- Playground: https://regex101.com/
 
 ---
 

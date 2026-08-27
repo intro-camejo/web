@@ -144,7 +144,8 @@
       <div class="s-title s-title--md">1943 — Warren S. McCulloch y Walter Pitts</div>
       <div class="cols2">
         <div class="col-media"><img src="img/neuros.png" alt="McCulloch y Pitts"></div>
-        <p class="s-body-text">Modelos matemáticos para representar neuronas. Plantean una idea importante: podemos representar matemáticamente cómo un sistema recibe entradas y produce respuestas. Con el tiempo, autómatas.</p>
+        <p class="s-body-text">Publican el primer <strong>modelo matemático de una neurona</strong>.<br>
+        Lo que queda: se puede describir con matemática cómo un sistema toma <strong>entradas</strong> y produce <strong>respuestas</strong>. De esa idea salen, con los años, los <strong>autómatas</strong>.</p>
       </div>
     </div>
     <div class="s-foot">
@@ -161,7 +162,8 @@
       <div class="s-title s-title--md">1956 — Stephen Kleene</div>
       <div class="cols2">
         <div class="col-media"><img src="img/kleene.jpeg" alt="Stephen Kleene"></div>
-        <p class="s-body-text">Encuentra una forma matemática de describir ciertos comportamientos de esos sistemas: los <strong>eventos regulares</strong>. Responde a la pregunta <em>¿cómo describimos un comportamiento sin enumerar todos los casos posibles?</em> con dos ideas: <code>|</code> (or) y <code>*</code> (repetición).</p>
+        <p class="s-body-text">Define los <strong>eventos regulares</strong>: una forma de describir el comportamiento de un sistema <em>sin enumerar todos los casos posibles</em>.<br>
+        Le alcanza con dos operaciones: <code>|</code> (alternativa) y <code>*</code> (repetición).</p>
       </div>
     </div>
     <div class="s-foot">
@@ -178,7 +180,8 @@
       <div class="s-title s-title--md">1968 — Ken Thompson</div>
       <div class="cols2">
         <div class="col-media"><img src="img/thompson.jpg" alt="Ken Thompson"></div>
-        <p class="s-body-text">Trabajando en Bell Labs en los softwares previos a Unix se topa con un problema: muchas líneas de código, y buscar algo era un infierno. La solución fue llevar los eventos regulares a la práctica. Nacen las expresiones regulares, <em>regular expressions</em>, o…</p>
+        <p class="s-body-text">En Bell Labs necesitaba <strong>buscar patrones</strong> en archivos enormes, y hacerlo a mano era un infierno.<br>
+        Lleva los eventos regulares de Kleene a un programa real: nacen las <strong>expresiones regulares</strong> — <em>regular expressions</em>, o <code>regex</code>.</p>
       </div>
     </div>
     <div class="s-foot">
@@ -326,7 +329,8 @@
       <div class="s-title s-title--md">Caso trivial</div>
       <div class="cols2">
         <div class="col-media"><img src="img/trivial.png" alt="la regex /love/ matcheando la palabra love"></div>
-        <p class="s-body-text">Una regex sin ningún símbolo especial es simplemente el texto literal que buscamos. Playground: https://regex101.com/</p>
+        <p class="s-body-text">Sin símbolos especiales, la regex es <strong>texto literal</strong>: <code>/love/</code> busca exactamente <code>love</code>.<br>
+        Para probar todo lo que sigue: <code>regex101.com</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -343,7 +347,8 @@
       <div class="s-title s-title--md">OR</div>
       <div class="cols2">
         <div class="col-media"><img src="img/or.png" alt="la regex (y|t)o"></div>
-        <p class="s-body-text">La barra <code>|</code> significa "esto <strong>o</strong> esto otro": <code>(y|t)o</code> matchea <code>yo</code> y <code>to</code>.</p>
+        <p class="s-body-text"><code>|</code> — <strong>esto o lo otro</strong>.<br>
+        <code>(y|t)o</code> <span class="tag tag-tip">matchea</span> <code>yo</code>, <code>to</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -360,7 +365,8 @@
       <div class="s-title s-title--md">OR de grupos</div>
       <div class="cols2">
         <div class="col-media"><img src="img/or-grupos.png" alt="la regex for (as long|the rest)"></div>
-        <p class="s-body-text">Los paréntesis agrupan: lo que está adentro se toma como una sola unidad, así el <code>|</code> puede elegir entre frases enteras y no solo entre caracteres.</p>
+        <p class="s-body-text"><code>( )</code> — agrupan lo de adentro como <strong>una sola unidad</strong>.<br>
+        Así el <code>|</code> elige entre <em>frases enteras</em>, no entre letras sueltas: <code>for (as long|the rest)</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -377,7 +383,8 @@
       <div class="s-title s-title--md">Comodín</div>
       <div class="cols2">
         <div class="col-media"><img src="img/comodin.png" alt="la regex f.r"></div>
-        <p class="s-body-text">El punto <code>.</code> representa <strong>cualquier carácter</strong>: <code>f.r</code> matchea <code>far</code> y <code>fer</code>, pero no <code>paul</code>.</p>
+        <p class="s-body-text"><code>.</code> — <strong>cualquier carácter</strong>, uno solo.<br>
+        <code>f.r</code> <span class="tag tag-tip">matchea</span> <code>far</code>, <code>fer</code> &nbsp; <span class="tag tag-danger">no</span> <code>paul</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -394,7 +401,8 @@
       <div class="s-title s-title--md">Colecciones</div>
       <div class="cols2">
         <div class="col-media"><img src="img/coleccion.png" alt="la regex [cv]aso"></div>
-        <p class="s-body-text">Los corchetes definen un conjunto de caracteres posibles para <strong>una sola</strong> posición: <code>[cv]aso</code> matchea <code>vaso</code> y <code>caso</code>, pero no <code>paso</code> ni <code>Vaso</code>.</p>
+        <p class="s-body-text"><code>[ ]</code> — <strong>un carácter</strong> de un conjunto.<br>
+        <code>[cv]aso</code> <span class="tag tag-tip">matchea</span> <code>vaso</code>, <code>caso</code> &nbsp; <span class="tag tag-danger">no</span> <code>paso</code>, <code>Vaso</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -488,7 +496,8 @@
       <div class="s-title s-title--md">Cuantificadores</div>
       <div class="cols2">
         <div class="col-media"><img src="img/cuant-1.png" alt="la regex z{4}"></div>
-        <p class="s-body-text"><code>{n}</code> pide exactamente <code>n</code> repeticiones: <code>z{4}</code> matchea <code>zzzz</code>.</p>
+        <p class="s-body-text"><code>{n}</code> — <strong>exactamente n</strong> repeticiones.<br>
+        <code>z{4}</code> <span class="tag tag-tip">matchea</span> <code>zzzz</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -505,7 +514,8 @@
       <div class="s-title s-title--md">Cuantificadores</div>
       <div class="cols2">
         <div class="col-media"><img src="img/cuant-2.png" alt="la regex z{2,4}"></div>
-        <p class="s-body-text"><code>{min,max}</code> pide entre <code>min</code> y <code>max</code> repeticiones: <code>z{2,4}</code> matchea tanto <code>zzzz</code> como <code>zz</code>.</p>
+        <p class="s-body-text"><code>{min,max}</code> — <strong>entre min y max</strong> repeticiones.<br>
+        <code>z{2,4}</code> <span class="tag tag-tip">matchea</span> <code>zz</code>, <code>zzz</code>, <code>zzzz</code></p>
       </div>
     </div>
     <div class="s-foot">
@@ -522,7 +532,8 @@
       <div class="s-title s-title--md">Cuantificadores</div>
       <div class="cols2">
         <div class="col-media"><img src="img/cuant-3.png" alt="la regex z+"></div>
-        <p class="s-body-text">Los tres atajos que más se usan: <code>*</code> (0 o más), <code>+</code> (1 o más) y <code>?</code> (0 o 1).</p>
+        <p class="s-body-text">Los tres atajos que más se usan:<br>
+        <code>*</code> <strong>0 o más</strong> &nbsp; <code>+</code> <strong>1 o más</strong> &nbsp; <code>?</code> <strong>0 o 1</strong></p>
       </div>
     </div>
     <div class="s-foot">
@@ -539,7 +550,8 @@
       <div class="s-title s-title--md">Anclaje</div>
       <div class="cols2">
         <div class="col-media"><img src="img/anclaje.png" alt="la regex ^z"></div>
-        <p class="s-body-text"><code>^</code> principio de línea y <code>$</code> fin de línea. Sin anclas, el patrón puede matchear en cualquier parte.</p>
+        <p class="s-body-text"><code>^</code> — <strong>inicio</strong> de línea &nbsp; <code>$</code> — <strong>fin</strong> de línea.<br>
+        Sin anclas, el patrón puede matchear en <em>cualquier parte</em>.</p>
       </div>
     </div>
     <div class="s-foot">
