@@ -4,7 +4,7 @@ draft: false
 
 # Guía 2 - Regex
 
-### Ejercicios de calentamiento: Pipes (Tuberías)
+### Ejercicios de calentamiento: Pipes
 
 Antes de empezar con Regex puro, vamos a repasar cómo conectar comandos básicos usando pipes (`|`):
 
