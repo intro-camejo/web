@@ -1,10 +1,20 @@
 ---
-draft: true
+draft: false
 ---
 
 # Guía 2 - Regex
 
-*<u>__Nota__</u>: si aún no tienen bien asentada la utilización de los `tokens` o de los comandos de expresiones regulares con los que venimos trabajando, recomendamos que se ayuden con la presentación [Intro a Regex](https://drive.google.com/file/d/1r44hko1kdqOjxsM7MhDOyG5yQH3HMmtB/view)*. 
+### Ejercicios de calentamiento: Pipes
+
+Antes de empezar con Regex puro, vamos a repasar cómo conectar comandos básicos usando pipes (`|`):
+
+1. Resolver los siguientes incisos ejecutando comandos en la terminal:
+    1. Listar el contenido del directorio actual y contar cuántos archivos/directorios hay en total.
+    2. Mostrar las primeras 10 líneas de un archivo de texto cualquiera y ordenarlas alfabéticamente.
+    3. Buscar una palabra específica dentro de un archivo de texto y contar cuántas veces aparece.
+    4. Listar los archivos de un directorio, filtrar aquellos que contengan la letra "a" en su nombre y mostrar solo los últimos 5 resultados.
+    5. Mostrar el historial de comandos ejecutados en la terminal y filtrar para ver solo las veces que se utilizó el comando `cd`.
+
 ### Introducción - Básicos
 
 Tenemos un archivo **oraciones.txt**, cuyo contenido es:
