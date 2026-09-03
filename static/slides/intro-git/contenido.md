@@ -69,14 +69,6 @@ Git categoriza los archivos en diferentes estados conceptuales:
 
 ---
 
-# El archivo .gitignore
-
-A veces hay cosas que **NO** queremos guardar en Git (archivos temporales, contraseñas, configuraciones personales, código compilado).
-
-El archivo `.gitignore` funciona como una lista de "no molestar". Todo lo que esté anotado ahí (nombres de archivos o carpetas), Git hará de cuenta que no existe, manteniendo el repositorio limpio y ordenado.
-
----
-
 # Git vs GitHub
 
 ¡No son lo mismo!
