@@ -157,6 +157,13 @@ Repasamos lo esencial y encaramos el primer ejercicio con Git.
 
 ---
 
+<!-- slide: tipo=imagen-bleed -->
+## Todo el historial, en una pantalla
+
+![captura a pantalla completa de git log --graph](img/git-log-graph.png)
+
+---
+
 <!-- slide: tipo=bibliografia -->
 ## Bibliografía
 1. Pro Git — Scott Chacon & Ben Straub (git-scm.com/book)

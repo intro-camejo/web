@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingeniería de Software — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!--
+  Generado a partir de contenido.md con /generar-diapositiva ing-soft-1.
+-->
+<main class="deck">
+
+  <!-- 01. portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Ingeniería de Software</div>
+        <div class="s-sub">Qué es, qué hace a un buen software y cuáles son sus etapas.</div>
+        <div class="cover-index"><span class="n">Clase 06</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- 02. agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Ingeniería y Software</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Análisis de requerimientos</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Diseño</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Implementación</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Testing y validación</span></li>
+        <li><span class="idx">.06</span><span class="lbl">Despliegue</span></li>
+        <li><span class="idx">.07</span><span class="lbl">Mantenimiento</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- 03. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">Ingeniería y Software</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- 04. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">¿A qué llamamos Ingeniería?</div>
+      <ul class="bullets">
+        <li><span>Del latín <em>ingenium</em>: <strong>engendrar, producir</strong>.</span></li>
+        <li><span>Si miramos varias definiciones vamos a notar que se repite el mismo patrón: conjunto de <strong>conocimientos</strong> aplicados en <strong>acciones</strong> sobre <strong>áreas</strong> con un <strong>fin</strong>.</span></li>
+        <li><span><strong>Conocimientos</strong>: científicos, técnicos y empíricos.</span></li>
+        <li><span><strong>Acciones</strong>: invención, gestión, desarrollo, optimización, validación…</span></li>
+        <li><span><strong>Áreas</strong>: maquinaria, equipos, procesos, sistemas…</span></li>
+        <li><span><strong>Fin</strong>: solucionar un problema, satisfacer una necesidad.<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- 05. imagen-texto (bullets + imagen) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">¿Qué es el Software?</div>
+      <div class="cols2">
+        <ul class="bullets">
+          <li><span>De chicos nos dicen que es «la parte intangible de la computadora». Es mucho más que eso.</span></li>
+          <li><span>Intenten pensar un momento u objeto de la vida cotidiana que no esté influenciado por software.<span class="tag tag-note">Nota</span></span></li>
+        </ul>
+        <div class="col-media"><img src="img/pensando.jpg" alt="Persona pensando"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- 06. titulo-bullets (continuación: definición IEEE + tipos como subítems) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">¿Qué es el Software?</div>
+      <ul class="bullets">
+        <li><span><strong>Estándar 729 (IEEE)</strong>: conjunto de programas de cómputo, procedimientos, reglas, documentación y datos asociados que forman parte de las operaciones de un sistema de computación.</span></li>
+        <li><span>Tipos de software:
+          <ul class="subbullets">
+            <li>De sistemas</li>
+            <li>De aplicación</li>
+            <li>De ingeniería o ciencias</li>
+            <li>Embebido</li>
+            <li>IA… y más</li>
+          </ul>
+        </span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- 07. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">¿Qué hace a un buen software?</div>
+      <ul class="bullets">
+        <li><span><strong>Cumple su objetivo.</strong> Si esto falla, lo demás no importa.<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Puede ser utilizado.</span></li>
+        <li><span>Tiene buena performance.</span></li>
+        <li><span>Es mantenible.</span></li>
+        <li><span>Es confiable (<em>reliable</em>).</span></li>
+        <li><span>Es seguro (<em>secure</em>).</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- 08. titulo-texto (slide intermedia — pregunta abierta) -->
+  <section class="slide">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title">¿Cómo creen que se desarrolla el software?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- 09. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">¿Por qué no alcanza con sentarse a programar?</div>
+      <ul class="bullets">
+        <li><span>El software es masivo y cotidiano: hay muchas personas interesadas y sus opiniones varían. Hay que <strong>entender el problema antes de desarrollar</strong>.</span></li>
+        <li><span>Gobiernos y redes masivas dependen de sistemas software: la complejidad convierte al <strong>diseño</strong> en una actividad crucial.</span></li>
+        <li><span>El más mínimo error puede ser crítico para el usuario final: el software debe ser <strong>de calidad</strong>.</span></li>
+        <li><span>Con el tiempo llueven pedidos de mejora: gana importancia la <strong>capacidad de mantenimiento</strong>.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- 10. titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">Entonces, ¿qué es la Ingeniería de Software?</div>
+      <p class="s-body-text">Consiste en aplicar Ingeniería a todo el proceso de creación de software: desde que aparece la necesidad o el problema hasta el despliegue y el mantenimiento de la solución. Y hoy ese proceso ya no es una línea recta: se encara de forma <strong>iterativa e incremental</strong>, avanzando por ciclos en los que el producto se construye y se mejora de a partes.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- 11. diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Ingeniería y Software</div>
+      <div class="s-title s-title--md">Las etapas</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 1320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Análisis de requerimientos, Diseño, Implementación, Testing y validación, Despliegue y Mantenimiento en secuencia, con un ciclo de retorno por nuevas necesidades">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="95" y="72" text-anchor="middle" font-size="16" fill="#16130f">Análisis de</text>
+            <text x="95" y="94" text-anchor="middle" font-size="16" fill="#16130f">requerimientos</text>
+
+            <rect x="225" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="320" y="84" text-anchor="middle" font-size="16" fill="#16130f">Diseño</text>
+
+            <rect x="450" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="545" y="84" text-anchor="middle" font-size="16" fill="#16130f">Implementación</text>
+
+            <rect x="675" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="770" y="72" text-anchor="middle" font-size="16" fill="#16130f">Testing y</text>
+            <text x="770" y="94" text-anchor="middle" font-size="16" fill="#16130f">validación</text>
+
+            <rect x="900" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="995" y="84" text-anchor="middle" font-size="16" fill="#16130f">Despliegue</text>
+
+            <rect x="1125" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="1220" y="84" text-anchor="middle" font-size="16" fill="#16130f">Mantenimiento</text>
+
+            <line x1="190" y1="78" x2="222" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="415" y1="78" x2="447" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="640" y1="78" x2="672" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="865" y1="78" x2="897" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="1090" y1="78" x2="1122" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+            <path d="M1220,120 L1220,172 L95,172 L95,122" fill="none" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="657" y="165" text-anchor="middle" font-size="13" fill="#6e6a63">nuevas necesidades</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- 12. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Análisis de requerimientos</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- 13. imagen-full (solo la imagen) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="cols2 cols2--single">
+        <div class="col-media"><img src="img/replace.avif" alt="Tweet: para reemplazar programadores con IA los clientes van a tener que describir con precisión lo que quieren"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- 14. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Análisis de requerimientos</div>
+      <div class="s-title s-title--md">¿Qué buscamos?</div>
+      <ul class="bullets">
+        <li><span><strong>Entender lo que el cliente o usuario quiere o necesita</strong>: ¿cuál es el objetivo? ¿cómo se adapta a las necesidades de los usuarios finales? ¿cómo va a usarse?</span></li>
+        <li><span><strong>Construir el producto adecuado</strong> ≠ construir adecuadamente el producto.<span class="tag tag-note">Nota</span></span></li>
+        <li><span><strong>Comprender el alcance</strong>, para evitar desvíos, retrasos y costos extra.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- 15. titulo-bullets (descripción + fases) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Análisis de requerimientos</div>
+      <div class="s-title s-title--md">¿Cómo? Ingeniería de requerimientos</div>
+      <p class="s-body-text">Es la disciplina que traduce lo que el cliente pide a requerimientos que el equipo puede construir y validar.</p>
+      <ul class="bullets">
+        <li><span>Indagación</span></li>
+        <li><span>Negociación</span></li>
+        <li><span>Especificación</span></li>
+        <li><span>Validación</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- 16. imagen-bleed (mismo título + imagen grande) -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs">
+      <img src="img/tree.jpg" alt="Caricatura del columpio en el árbol: lo que el cliente pidió frente a lo que necesitaba">
+    </div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.02 — Análisis de requerimientos</div>
+      <div class="s-title s-title--md">¿Cómo? Ingeniería de requerimientos</div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">16</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Análisis de requerimientos</div>
+      <div class="s-title s-title--md">Objetivos</div>
+      <ul class="bullets">
+        <li><span>Describir lo que quiere el cliente.</span></li>
+        <li><span>Establecer las bases para el diseño del software.</span></li>
+        <li><span>Definir requerimientos que <strong>puedan ser validados</strong>.<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- 18. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">Diseño</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- 19. cita -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="quote-wrap">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="quote-text">Si crees que una buena arquitectura es cara, intenta con una mala.</div>
+        <div class="quote-cite">— Brian Foote &amp; Joseph Yoder, «Big ball of mud»</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- 20. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Diseño</div>
+      <div class="s-title s-title--md">Cuando el diseño falla: Friendster</div>
+      <div class="cols2">
+        <p class="s-body-text">Problemas graves de escalabilidad y lentitud extrema. Los usuarios migraron a alternativas como Facebook. <em>Costo: murió como red social.</em><span class="tag tag-danger">Danger</span></p>
+        <div class="col-media"><img src="img/friendster.png" alt="Captura de la red social Friendster"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- 21. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Diseño</div>
+      <div class="s-title s-title--md">Cuando el diseño falla: HealthCare.gov</div>
+      <div class="cols2">
+        <p class="s-body-text">Sistema armado con múltiples proveedores sin una arquitectura coherente; el sitio colapsó en su lanzamiento. <em>Costo: rehacer gran parte del sistema + impacto político enorme.</em><span class="tag tag-danger">Danger</span></p>
+        <div class="col-media"><img src="img/obamacare.png" alt="Captura del sitio HealthCare.gov"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- 22. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Diseño</div>
+      <div class="s-title s-title--md">Cuando el diseño falla: Cyberpunk 2077</div>
+      <div class="cols2">
+        <p class="s-body-text">Motor no preparado, mismo código para PC, PS4 y Xbox One. <em>Costo: reembolsos, caída del valor de la empresa y años de retrabajo.</em><span class="tag tag-danger">Danger</span></p>
+        <div class="col-media"><img src="img/keanu.webp" alt="Keanu Reeves como Johnny Silverhand en Cyberpunk 2077"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- 23. hasta-6-imagenes (texto + 2 imágenes) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Diseño</div>
+      <div class="s-title s-title--md">Elegir la arquitectura</div>
+      <p class="s-body-text">En base a los requerimientos <strong>funcionales</strong> y <strong>no funcionales</strong> es muy importante escoger la arquitectura más adecuada: cliente-servidor, microservicios, monolito, event-driven… Cada una resuelve bien algunos problemas y mal otros.</p>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/p2p.webp" alt="Diagrama comparando cliente-servidor y peer-to-peer"></div><div class="cap">Cliente-Servidor vs Peer-to-peer</div></div>
+        <div class="cell"><div class="ph"><img src="img/monolito.png" alt="Diagrama comparando una arquitectura monolítica y una de microservicios"></div><div class="cap">Monolito vs Microservicios</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- 24. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Implementación</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- 25. hasta-6-imagenes (texto + 3 imágenes) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Implementación</div>
+      <div class="s-title s-title--md">De los requerimientos al producto</div>
+      <p class="s-body-text">Todos los pasos para pasar de los requerimientos a un producto funcional: modelar el dominio, diseñar los datos, escribir el código y llegar a algo que el usuario pueda usar.</p>
+      <div class="grid-imgs cols-3">
+        <div class="cell"><div class="ph"><img src="img/entidad-relacion.png" alt="Modelo de entidad-relación"></div><div class="cap">Modelo entidad-relación</div></div>
+        <div class="cell"><div class="ph"><img src="img/secuencia.png" alt="Diagrama de secuencia"></div><div class="cap">Diagrama de secuencia</div></div>
+        <div class="cell"><div class="ph"><img src="img/codigo.webp" alt="Fragmento de código fuente"></div><div class="cap">Código</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- 26. imagen-bleed (A — proceso ordenado) -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs">
+      <img src="img/harry.jpg" alt="Harry: prolijo, todo en orden">
+    </div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.04 — Implementación</div>
+      <div class="s-title s-title--md">Tiene que ser un proceso organizado, para no pasar de esto…</div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">26</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 27. imagen-bleed (A + B — el contraste) -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs">
+      <img src="img/harry.jpg" alt="Harry: prolijo, todo en orden">
+      <img src="img/daniel.webp" alt="Daniel: desprolijo, todo enredado">
+    </div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.04 — Implementación</div>
+      <div class="s-title s-title--md">…a esto.</div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">27</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 28. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">Testing y validación</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- 29. cita -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="quote-wrap">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="quote-text">El fracaso es, a veces, más fructífero que el éxito.</div>
+        <div class="quote-cite">— Henry Ford</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- 30. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">Aprender del fracaso: Burbn</div>
+      <div class="cols2">
+        <p class="s-body-text">Burbn era una app para compartir planes y hacer check-in en lugares, tan cargada de funciones que confundía. Lo único que la gente usaba eran las fotos. La rehicieron alrededor de eso y nació Instagram.</p>
+        <div class="col-media"><img src="img/burbn.svg" alt="Logo de Burbn"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- 31. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">Aprender del fracaso: Pixar</div>
+      <div class="cols2">
+        <p class="s-body-text">Su primer producto, el <em>Pixar Image Computer</em>, fue un fracaso comercial. Pero su tecnología y su experiencia fueron la base para dedicarse a la animación. Tras años de intentos fallidos llegó <em>Toy Story</em>: el fracaso les dio las herramientas para lograrlo.</p>
+        <div class="col-media"><img src="img/pixar.jpg" alt="Estudios de animación Pixar"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- 32. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">Aprender del fracaso: Windows Vista</div>
+      <div class="cols2">
+        <p class="s-body-text">Salió lento y con problemas de compatibilidad. Las quejas y las pruebas de campo marcaron la agenda de la versión siguiente: <em>Windows 7</em>.</p>
+        <div class="col-media"><img src="img/windows.png" alt="Logo de Windows"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- 33. comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">¿No son lo mismo?</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Verificación</h3>
+          <ul>
+            <li>¿Estamos construyendo <strong>bien</strong> el producto?</li>
+            <li>Encontrar errores en el funcionamiento.</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Validación</h3>
+          <ul>
+            <li>¿Estamos construyendo el producto <strong>correcto</strong>?</li>
+            <li>Demostrarle al cliente que el software cumple los requerimientos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- 34. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">Razones para testear</div>
+      <ul class="bullets">
+        <li><span>Demostrar al cliente que el software cumple los requerimientos (validación).</span></li>
+        <li><span>Encontrar errores en el funcionamiento (verificación).</span></li>
+        <li><span>Inspirar cambios en los requerimientos.<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- 35. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">Tipos de test</div>
+      <ul class="bullets">
+        <li><span>Pruebas unitarias.</span></li>
+        <li><span>Pruebas de integración.</span></li>
+        <li><span>UAT (<em>User Acceptance Test</em>).</span></li>
+        <li><span>Pruebas de usabilidad.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- 36. imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Testing y validación</div>
+      <div class="s-title s-title--md">¿Quién las hace?</div>
+      <div class="cols2">
+        <p class="s-body-text">Que exista un equipo de QA no quiere decir que uno no tenga que probar su propio código.<span class="tag tag-warning">Warning</span></p>
+        <div class="col-media"><img src="img/qa.png" alt="Equipo de QA probando software"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- 37. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+      <div class="s-title">Despliegue</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- 38. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Despliegue</div>
+      <div class="s-title s-title--md">Entornos</div>
+      <ul class="bullets">
+        <li><span><strong>Development</strong>: donde se desarrolla.</span></li>
+        <li><span><strong>QA</strong>: donde se prueba.</span></li>
+        <li><span><strong>Preproducción / Staging</strong>: réplica de producción para la validación final.</span></li>
+        <li><span><strong>Producción</strong>: donde están los usuarios reales.<span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- 39. diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Despliegue</div>
+      <div class="s-title s-title--md">El camino de un cambio</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 1190 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Local Development a Development a QA a Staging a Producción">
+          <defs>
+            <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="20" width="200" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="100" y="68" text-anchor="middle" font-size="16" fill="#16130f">Local Development</text>
+
+            <rect x="244" y="20" width="200" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="344" y="68" text-anchor="middle" font-size="16" fill="#16130f">Development</text>
+
+            <rect x="488" y="20" width="200" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="588" y="68" text-anchor="middle" font-size="16" fill="#16130f">QA</text>
+
+            <rect x="732" y="20" width="200" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="832" y="68" text-anchor="middle" font-size="16" fill="#16130f">Staging</text>
+
+            <rect x="976" y="20" width="200" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="1076" y="68" text-anchor="middle" font-size="16" fill="#16130f">Producción</text>
+
+            <line x1="200" y1="62" x2="241" y2="62" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow2)"/>
+            <line x1="444" y1="62" x2="485" y2="62" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow2)"/>
+            <line x1="688" y1="62" x2="729" y2="62" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow2)"/>
+            <line x1="932" y1="62" x2="973" y2="62" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow2)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- 40. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .07</div>
+      <div class="s-title">Mantenimiento</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- 41. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Mantenimiento</div>
+      <div class="s-title s-title--md">¿Qué pasa después del despliegue?</div>
+      <ul class="bullets">
+        <li><span>Surgen nuevos requerimientos.</span></li>
+        <li><span>El software tiene que actualizarse para mantener su utilidad.</span></li>
+        <li><span>Hay cambios en el negocio.</span></li>
+        <li><span>Aparecen errores no detectados.<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+  <!-- 42. diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Mantenimiento</div>
+      <div class="s-title s-title--md">Espiral de la evolución del software</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Especificación a Implementación a Validación a Operación, con un ciclo de retorno por cada nueva release">
+          <defs>
+            <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="95" y="84" text-anchor="middle" font-size="16" fill="#16130f">Especificación</text>
+
+            <rect x="234" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="329" y="84" text-anchor="middle" font-size="16" fill="#16130f">Implementación</text>
+
+            <rect x="468" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="563" y="84" text-anchor="middle" font-size="16" fill="#16130f">Validación</text>
+
+            <rect x="702" y="36" width="190" height="84" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="797" y="84" text-anchor="middle" font-size="16" fill="#16130f">Operación</text>
+
+            <line x1="190" y1="78" x2="231" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow3)"/>
+            <line x1="424" y1="78" x2="465" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow3)"/>
+            <line x1="658" y1="78" x2="699" y2="78" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+            <path d="M797,120 L797,172 L95,172 L95,122" fill="none" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow3)"/>
+            <text x="446" y="165" text-anchor="middle" font-size="13" fill="#6e6a63">nueva release</text>
+          </g>
+        </svg>
+      </div>
+      <p class="s-body-text">Basado en «Software Engineering», Sommerville.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">42</span>
+    </div>
+  </section>
+
+  <!-- 43. titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Mantenimiento</div>
+      <div class="s-title s-title--md">¿Es siempre lineal esto?</div>
+      <p class="s-body-text">No. En la práctica el proceso es <strong>iterativo e incremental</strong>: se vuelve a etapas anteriores todas las veces que haga falta. Lo vamos a ver en detalle la semana próxima.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">43</span>
+    </div>
+  </section>
+
+  <!-- 44. bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>Pressman — «Software Engineering: A Practitioner's Approach» <span class="src">(Capítulo 1)</span></li>
+        <li>Sommerville — «Software Engineering» <span class="src">(Capítulo 1)</span></li>
+        <li>Software Engineering Coordinating Committee — «SWEBOK»</li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">44</span>
+    </div>
+  </section>
+
+  <!-- 45. cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">Gracias</div>
+        <div class="closing-links">Próxima clase: nos metemos con el proceso de desarrollo.</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">45</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

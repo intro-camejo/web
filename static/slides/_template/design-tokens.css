@@ -24,6 +24,15 @@
   font-display:swap;
   src:url('./fonts/OpenSans-Regular.woff2') format('woff2');
 }
+@font-face{
+  /* peso bold real para <strong>/<b> en el cuerpo — Chrome no sintetiza
+     negrita falsa sobre un webfont, así que sin este archivo el <strong>
+     se ve igual que el texto normal. */
+  font-family:'Open Sans';
+  font-weight:700;
+  font-display:swap;
+  src:url('./fonts/OpenSans-Bold.woff2') format('woff2');
+}
 /*
   Los .woff2 de arriba todavía no están en este repo (ver fonts/README.md).
   Hasta que se agreguen, el navegador cae directo al fallback del sistema —
@@ -105,6 +114,42 @@ html{scroll-snap-type:y mandatory;scroll-behavior:smooth;}
 .slide-split .split-media img{width:100%;height:100%;object-fit:cover;display:block;}
 .slide-split .split-copy{flex:0 0 50%;min-height:0;min-width:0;display:flex;flex-direction:column;}
 .slide-split .split-copy .s-pad{justify-content:center;}
+
+/* imagen-bleed: imagen grande a (casi) pantalla completa. La imagen se ve
+   ENTERA — object-fit:contain sobre un fondo oscuro con un margen chico —
+   así no recorta nada ni exige alta resolución. Admite 1 o 2 imágenes
+   (van lado a lado dentro de .bleed-imgs) para comparar A vs B "con
+   dramatismo". El eyebrow / título opcional y el footer se apoyan sobre
+   una banda degradada al pie. Es aditivo: no toca ningún otro layout.
+   Para una imagen chica y enmarcada usar imagen-full (#7). */
+.slide.slide-bleed{padding:0;background:var(--ink);}
+.slide-bleed .bleed-imgs{position:absolute;inset:0;display:flex;gap:2%;padding:3.6% 4% 12%;}
+.slide-bleed .bleed-imgs img{flex:1;min-width:0;height:100%;object-fit:contain;display:block;}
+/* placeholder cuando la imagen todavía no existe (mismo criterio que .col-media/.ph):
+   sin imagen real, la slide vuelve a fondo neutro claro y el copy a tinta oscura. */
+.slide-bleed:has(.bleed-ph){background:var(--media-bg);}
+.slide-bleed .bleed-ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--media-fg);font-family:var(--f-label);font-size:.9rem;letter-spacing:.06em;
+  text-transform:uppercase;text-align:center;padding:2em;
+}
+.slide-bleed:has(.bleed-ph) .bleed-copy{background:linear-gradient(to top,rgba(0,0,0,.12),rgba(0,0,0,0));}
+.slide-bleed:has(.bleed-ph) .bleed-copy .eyebrow{color:var(--accent);text-shadow:none;}
+.slide-bleed:has(.bleed-ph) .bleed-copy .s-title,
+.slide-bleed:has(.bleed-ph) .bleed-copy .s-body-text{color:var(--ink);text-shadow:none;}
+.slide-bleed:has(.bleed-ph) .s-foot{color:var(--muted);}
+.slide-bleed:has(.bleed-ph) .s-foot .logo-mark{filter:none;}
+.slide-bleed .bleed-copy{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;flex-direction:column;
+  padding:4.2em 6.4% 0;
+  background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.60) 45%,rgba(0,0,0,0));
+}
+.slide-bleed .bleed-copy .eyebrow{color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(0,0,0,.5);}
+.slide-bleed .bleed-copy .s-title{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.55);}
+.slide-bleed .bleed-copy .s-body-text{color:#fff;max-width:46ch;text-shadow:0 1px 12px rgba(0,0,0,.55);}
+.slide-bleed .s-foot{padding:1.1em 0 3.2%;color:rgba(255,255,255,.82);}
+.slide-bleed .s-foot .logo-mark{filter:brightness(0) invert(1);}
 
 .s-pad{padding:5.2% 6.4%;flex:1;display:flex;flex-direction:column;min-height:0;}
 
