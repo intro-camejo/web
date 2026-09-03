@@ -78,9 +78,6 @@ En Git, el concepto de "estados" se refiere a las diferentes etapas en las que p
    - **Modified (Modificado)**: El archivo ha sido cambiado después del último commit. Los cambios aún no han sido añadidos al área de staging.
    - **Staged (En Área de Staging)**: El archivo ha sido modificado y sus cambios han sido añadidos al área de staging (preparado para el próximo commit).
 
-3. **Staged (En Área de Staging)**  
-   Descripción: El archivo está en el área de staging, lo que significa que los cambios han sido preparados para ser incluidos en el próximo commit. Es decir, Git ha marcado los cambios para que se incluyan en el historial del repositorio.
-
 ### Transición entre Estados
 
 - De **Untracked** a **Staged**:  
