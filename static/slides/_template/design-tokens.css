@@ -307,8 +307,21 @@ code{
 }
 
 @media print{
+  @page {
+    size: 1920px 1080px; /* Tamaño exacto 16:9 de la diapositiva */
+    margin: 0;
+  }
+  html, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   html{scroll-snap-type:none;}
-  .slide{width:100vw;height:100vh;page-break-after:always;}
+  .slide{
+    width: 1920px;
+    height: 1080px;
+    page-break-after:always;
+    page-break-inside: avoid;
+  }
   .pdf-download-area{display:none;}
 }
 
