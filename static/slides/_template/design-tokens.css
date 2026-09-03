@@ -269,9 +269,60 @@ code{
 .closing-center .s-title{font-size:clamp(2.4rem,5vw,4rem);}
 .closing-links{margin-top:1em;font-family:var(--f-label);font-size:1rem;color:rgba(255,255,255,.85);}
 
+/* Botón para descargar a PDF (se muestra en hover en la esquina inferior izquierda) */
+.pdf-download-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  z-index: 100;
+}
+.pdf-download-btn {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: var(--accent);
+  color: var(--paper);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.pdf-download-area:hover .pdf-download-btn,
+.pdf-download-btn:focus {
+  opacity: 1;
+  transform: scale(1);
+}
+.pdf-download-btn:hover {
+  background: var(--accent-deep);
+}
+
 @media print{
+  @page {
+    size: 1920px 1080px; /* Tamaño exacto 16:9 de la diapositiva */
+    margin: 0;
+  }
+  html, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   html{scroll-snap-type:none;}
-  .slide{width:100vw;height:100vh;page-break-after:always;}
+  .slide{
+    width: 1920px;
+    height: 1080px;
+    page-break-after:always;
+    page-break-inside: avoid;
+  }
+  .pdf-download-area{display:none;}
 }
 
 /* Solo para ejemplo-git (referencia viva del catálogo) — NUNCA usar en
