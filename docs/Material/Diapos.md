@@ -15,3 +15,7 @@
 * [Terminales/Shells/Editores/Permisos](pathname:///slides/terminales-shells-editores-permisos/index.html)
 * [Enunciado Calculadora en Bash](pathname:///slides/bash-calculadora/enunciado.html)
 * [Regex](pathname:///slides/regex/index.html)
+
+## Semana 3
+
+* [Intro a Git](pathname:///slides/intro-git/index.html)
