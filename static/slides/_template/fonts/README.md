@@ -12,6 +12,7 @@ Google Fonts):
 | `Montserrat-Bold.woff2` | Montserrat, peso 700–800 | https://fonts.google.com/specimen/Montserrat |
 | `InstrumentSans-Medium.woff2` | Instrument Sans, peso 500–600 | https://fonts.google.com/specimen/Instrument+Sans |
 | `OpenSans-Regular.woff2` | Open Sans, peso 400–600 | https://fonts.google.com/specimen/Open+Sans |
+| `OpenSans-Bold.woff2` | Open Sans, peso 700 (para `<strong>`/`<b>` en el cuerpo) | https://fonts.google.com/specimen/Open+Sans |
 
 Google Fonts entrega `.ttf`. Para convertir a `.woff2` (más liviano, es lo
 que referencia `design-tokens.css`):

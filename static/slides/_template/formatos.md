@@ -35,12 +35,12 @@ de cada sección puede ser un comentario de metadata:
 - **git commit** — guarda una foto del staging area en el historial
 ```
 
-- `tipo=` es uno de los 15 valores de la tabla de abajo. Si se omite, Claude
+- `tipo=` es uno de los 16 valores de la tabla de abajo. Si se omite, Claude
   infiere el layout más probable a partir de la forma del contenido y del
   nivel de encabezado (ver abajo). Para los layouts que no tienen un
   equivalente markdown obvio (`portada`, `agenda`, `comparacion`,
-  `hasta-6-imagenes`, `bibliografia`, `cierre`) conviene que el profesor lo
-  marque explícito.
+  `hasta-6-imagenes`, `imagen-bleed`, `bibliografia`, `cierre`) conviene que
+  el profesor lo marque explícito.
 - `seccion=` es el texto que va en el eyebrow de esa slide (`.02 — Comandos
   esenciales`). Claude lo repite en todas las slides de esa sección hasta
   que aparece una nueva `divisoria-seccion` o `seccion-imagen`.
@@ -104,7 +104,7 @@ blanco) y `logo_fiuba.png` (relleno blanco, para slides `on-accent`
 de fondo naranja — portada, divisoria-seccion, cierre). Elegir la variante
 según el fondo de esa slide puntual, no una fija para todo el mazo.
 
-## Catálogo de los 15 tipos
+## Catálogo de los 16 tipos
 
 ### 1. `portada`
 Apertura de la clase. Fondo de acento (`on-accent`).
@@ -202,6 +202,9 @@ prosa seguida en vez de una lista.
 ```
 
 ### 7. `imagen-full`
+Imagen sola **enmarcada**: entra completa (`object-fit:contain`) con un
+margen y borde alrededor. Para una imagen a sangre / pantalla completa
+usar `imagen-bleed` (#16).
 ```html
 <div class="eyebrow">...</div>
 <div class="cols2 cols2--single">
@@ -342,6 +345,48 @@ Un blockquote (`> texto — Autor`) se mapea directo a este layout.
   <div class="s-foot">...</div>
 </section>
 ```
+
+### 16. `imagen-bleed`
+Imagen **grande a casi pantalla completa** sobre fondo oscuro. A diferencia
+de `imagen-full` (#7, enmarcada y chica) la imagen acá manda; a diferencia
+de una imagen a sangre pura, **se ve entera** (`object-fit:contain` con un
+margen chico), así no recorta nada ni exige alta resolución. Admite **1 o
+2 imágenes** dentro de `.bleed-imgs` — dos van lado a lado, para comparar
+A vs B "con dramatismo".
+
+Se marca explícito con `tipo=imagen-bleed`. Se infiere cuando una slide
+trae **solo** imagen(es) y nada de texto (ni bullets ni párrafo largo) — si
+hay un H2 / frase corta que sirva de epígrafe, ese texto va en
+`.bleed-copy` sobre la banda degradada al pie.
+
+El `.s-pad` no se usa. El `eyebrow` y el `s-title` (usar `s-title--md`) son
+opcionales; el `s-foot` va **dentro** de `.bleed-copy` y se ve en blanco
+sobre el degradado (incluido el `logo-mark`, que se invierte por CSS).
+```html
+<section class="slide slide-bleed">
+  <div class="bleed-imgs">
+    <img src="{{ruta A}}" alt="{{alt A}}">
+    <img src="{{ruta B}}" alt="{{alt B}}">   <!-- opcional: 2da imagen para comparar -->
+  </div>
+  <div class="bleed-copy">
+    <div class="eyebrow"><span class="dot"></span>{{seccion}}</div>   <!-- opcional -->
+    <div class="s-title s-title--md">{{epígrafe}}</div>                <!-- opcional -->
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">NN</span>
+    </div>
+  </div>
+</section>
+```
+Para "dividir para dramatismo" una idea A→B: la primera slide muestra solo
+A, la segunda muestra **A y B juntas** (dos `<img>` en `.bleed-imgs`), cada
+una con su epígrafe.
+
+Si un archivo todavía no existe, en vez de `<img>` va un
+`<div class="bleed-ph">imagen local · {{alt}}</div>` (mismo criterio de
+placeholder que `.col-media`/`.ph`): el CSS lo pinta sobre fondo neutro
+claro y hay que avisar qué archivo falta.
 
 ## Reglas generales (no negociables al generar)
 
