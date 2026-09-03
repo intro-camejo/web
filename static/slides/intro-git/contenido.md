@@ -33,7 +33,7 @@ Git es un **Sistema de Control de Versiones Distribuido** que nos permite gestio
 
 En 2005, la comunidad que desarrollaba el kernel de Linux usaba un sistema de control de versiones privativo llamado *BitKeeper*. Debido a problemas con la licencia, tuvieron que dejar de usarlo.
 
-Ante la falta de buenas alternativas gratuitas, **Linus Torvalds** (el creador de Linux) decidió escribir su propio sistema en apenas un par de semanas. Así nació **Git**.
+Ante la falta de buenas alternativas abiertas, **Linus Torvalds** (el creador de Linux) decidió escribir su propio sistema en apenas un par de semanas. Así nació **Git**.
 
 ---
 
