@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a Git</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+
+<!-- Portada -->
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+    <div class="cover-title-block">
+      <div class="s-title">Introducción a Git</div>
+      <div class="s-sub">Control de Versiones para todos</div>
+      <div class="cover-index"><span class="n">Clase 01</span><span class="dot"></span><span class="n">2026</span></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">01</span>
+  </div>
+</section>
+
+<!-- Agenda -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Agenda</div>
+    <ul class="agenda-list">
+      <li><span class="idx">.01</span><span class="lbl">¿Qué es Git?</span></li>
+      <li><span class="idx">.02</span><span class="lbl">¿Para qué sirve?</span></li>
+      <li><span class="idx">.03</span><span class="lbl">Un poco de historia...</span></li>
+      <li><span class="idx">.04</span><span class="lbl">¿Qué existía antes de Git?</span></li>
+      <li><span class="idx">.05</span><span class="lbl">Conceptos Clave: El Repositorio</span></li>
+      <li><span class="idx">.06</span><span class="lbl">Ciclo de Vida de los Archivos</span></li>
+      <li><span class="idx">.07</span><span class="lbl">El archivo .gitignore</span></li>
+      <li><span class="idx">.08</span><span class="lbl">Git vs GitHub</span></li>
+      <li><span class="idx">.09</span><span class="lbl">Buenas Prácticas Generales</span></li>
+      <li><span class="idx">.10</span><span class="lbl">¿Preguntas?</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">02</span>
+  </div>
+</section>
+
+<!-- Sección 1 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+    <div class="s-title">¿Qué es Git?</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">03</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>¿Qué es Git?</div>
+    <div class="s-title s-title--md">¿Qué es Git?</div>
+    <p class="s-body-text">Git es un <strong>Sistema de Control de Versiones Distribuido</strong> que nos permite gestionar y rastrear los cambios que realizamos en nuestros archivos a lo largo del tiempo.</p>
+    <ul class="bullets">
+      <li><span><strong>Sistema de Control de Versiones:</strong> Lleva un registro histórico de todas las modificaciones.</span></li>
+      <li><span><strong>Distribuido:</strong> Cada desarrollador tiene una copia completa del historial en su computadora, sin depender de un servidor central.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">04</span>
+  </div>
+</section>
+
+<!-- Sección 2 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+    <div class="s-title">¿Para qué sirve?</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">05</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>¿Para qué sirve?</div>
+    <div class="s-title s-title--md">¿Para qué sirve?</div>
+    <ul class="bullets">
+      <li><span><strong>Copias de seguridad:</strong> Permite tener copias locales de un proyecto entero.</span></li>
+      <li><span><strong>Seguimiento detallado:</strong> Registra qué cambió, cuándo y quién lo hizo.</span></li>
+      <li><span><strong>Trabajo en equipo:</strong> Facilita que múltiples personas colaboren sin pisarse el código.</span></li>
+      <li><span><strong>Máquina del tiempo:</strong> Permite volver a versiones anteriores si algo se rompe.</span></li>
+      <li><span><strong>Experimentación:</strong> Podés crear líneas alternativas (ramas) sin afectar el proyecto principal.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">06</span>
+  </div>
+</section>
+
+<!-- Sección 3 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+    <div class="s-title">Un poco de historia...</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">07</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Un poco de historia...</div>
+    <div class="s-title s-title--md">Un poco de historia...</div>
+    <p class="s-body-text">En 2005 (año del huracán Katrina), la comunidad que desarrollaba el kernel de Linux usaba un sistema de control de versiones privativo llamado <em>BitKeeper</em>. Debido a problemas con la licencia, tuvieron que dejar de usarlo.</p>
+    <p class="s-body-text">Ante la falta de buenas alternativas gratuitas, <strong>Linus Torvalds</strong> (el creador de Linux) decidió escribir su propio sistema en apenas un par de semanas. Así nació <strong>Git</strong>.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">08</span>
+  </div>
+</section>
+
+<!-- Sección 4 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+    <div class="s-title">¿Qué existía antes de Git?</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">09</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>¿Qué existía antes de Git?</div>
+    <div class="s-title s-title--md">¿Qué existía antes de Git?</div>
+    <p class="s-body-text">Antes de que Git dominara el mundo, se usaban principalmente sistemas <strong>centralizados</strong>, donde el historial vivía solo en un servidor central. Si no tenías internet, no podías guardar versiones ni ver el historial.</p>
+    <p class="s-body-text">Algunas alternativas históricas y actuales:</p>
+    <ul class="bullets">
+      <li><span><strong>CVS</strong> (Concurrent Versions System) - Uno de los más antiguos.</span></li>
+      <li><span><strong>SVN</strong> (Subversion) - Fue muy popular, todavía usado en algunos proyectos <em>legacy</em>.</span></li>
+      <li><span><strong>Mercurial</strong> - El gran competidor inicial de Git (también distribuido).</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">10</span>
+  </div>
+</section>
+
+<!-- Sección 5 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+    <div class="s-title">Conceptos Clave: El Repositorio</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">11</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Conceptos Clave: El Repositorio</div>
+    <div class="s-title s-title--md">Conceptos Clave: El Repositorio</div>
+    <p class="s-body-text">Un <strong>repositorio</strong> (o <em>repo</em>) es como una "cajita mágica" o almacén virtual donde Git guarda todo el proyecto y su historial de cambios completo.</p>
+    <p class="s-body-text">Puede existir de dos formas:</p>
+    <ul class="bullets">
+      <li><span><strong>Local:</strong> Vive en tu computadora. Vos tenés el control total.</span></li>
+      <li><span><strong>Remoto:</strong> Vive en un servidor en internet (ej. GitHub), y sirve para colaborar y sincronizar con otras personas.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">12</span>
+  </div>
+</section>
+
+<!-- Sección 6 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+    <div class="s-title">Ciclo de Vida de los Archivos</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">13</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Ciclo de Vida de los Archivos</div>
+    <div class="s-title s-title--md">Ciclo de Vida de los Archivos</div>
+    <p class="s-body-text">Git categoriza los archivos en diferentes estados conceptuales:</p>
+    <ul class="bullets">
+      <li><span><strong>Untracked (Sin rastrear):</strong> Archivos nuevos que Git todavía no vigila.</span></li>
+      <li><span><strong>Unstaged (Modificados):</strong> Archivos conocidos que editaste, pero aún no marcaste para guardar.</span></li>
+      <li><span><strong>Staged (En el escenario):</strong> Archivos que preparaste y están listos para ser guardados en la próxima "foto".</span></li>
+      <li><span><strong>Committed (Confirmados):</strong> Archivos guardados de forma segura e inmutable en el historial.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">14</span>
+  </div>
+</section>
+
+<!-- Sección 7 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .07</div>
+    <div class="s-title">El archivo .gitignore</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">15</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>El archivo .gitignore</div>
+    <div class="s-title s-title--md">El archivo .gitignore</div>
+    <p class="s-body-text">A veces hay cosas que <strong>NO</strong> queremos guardar en Git (archivos temporales, contraseñas, configuraciones personales, código compilado).</p>
+    <p class="s-body-text">El archivo <code>.gitignore</code> funciona como una lista de "no molestar". Todo lo que esté anotado ahí (nombres de archivos o carpetas), Git hará de cuenta que no existe, manteniendo el repositorio limpio y ordenado.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">16</span>
+  </div>
+</section>
+
+<!-- Sección 8 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .08</div>
+    <div class="s-title">Git vs GitHub</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">17</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Git vs GitHub</div>
+    <div class="s-title s-title--md">Git vs GitHub</div>
+    <p class="s-body-text">¡No son lo mismo!</p>
+    <ul class="bullets">
+      <li><span><strong>Git</strong> es la herramienta (el software) que corre en tu computadora y controla las versiones por detrás.</span></li>
+      <li><span><strong>GitHub</strong> (nacido en 2007) es una red social y plataforma en internet que aloja repositorios Git y agrega herramientas para que los equipos colaboren.</span></li>
+    </ul>
+    <p class="s-body-text"><em>Otras plataformas similares:</em> GitLab, Bitbucket, Gitea.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">18</span>
+  </div>
+</section>
+
+<!-- Sección 9 -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .09</div>
+    <div class="s-title">Buenas Prácticas Generales</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">19</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Buenas Prácticas Generales</div>
+    <div class="s-title s-title--md">Buenas Prácticas Generales</div>
+    <p class="s-body-text">Para que un proyecto en equipo funcione fluido:</p>
+    <ul class="bullets">
+      <li><span>Siempre crear una línea de trabajo separada (<strong>rama</strong>) en lugar de modificar la historia principal directamente.</span></li>
+      <li><span>Agrupar los cambios por funcionalidad (commits lógicos).</span></li>
+      <li><span>Escribir mensajes descriptivos que expliquen <em>qué</em> y <em>por qué</em> se cambió algo.</span></li>
+      <li><span><strong>Regla de oro:</strong> ¡La rama principal (<code>main</code> o <code>master</code>) siempre tiene que funcionar!</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">20</span>
+  </div>
+</section>
+
+<!-- Cierre -->
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="closing-center">
+      <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+      <div class="s-title">¿Preguntas?</div>
+      <div class="closing-links">¡Listos para empezar a versionar!</div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">21</span>
+  </div>
+</section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
