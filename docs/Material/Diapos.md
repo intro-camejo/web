@@ -20,3 +20,7 @@
 
 * [Ingeniería de Software - Parte 1](pathname:///slides/ing-soft-1/index.html)
 * [Intro a Git](pathname:///slides/intro-git/index.html)
+
+## Semana 4
+
+* [Ingeniería de Software - Parte 2](pathname:///slides/ing-soft-2/index.html)
