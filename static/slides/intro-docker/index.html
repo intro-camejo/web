@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a Docker</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+
+<!-- 01: Portada -->
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+    <div class="cover-title-block">
+      <div class="s-title">Introducción a Docker</div>
+      <div class="s-sub">Clase Introductoria</div>
+      <div class="cover-index"><span class="n">Clase 01</span><span class="dot"></span><span class="n">2026</span></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">01</span>
+  </div>
+</section>
+
+<!-- 02: Agenda -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Agenda</div>
+    <ul class="agenda-list">
+      <li><span class="idx">.01</span><span class="lbl">Introducción a Docker</span></li>
+      <li><span class="idx">.02</span><span class="lbl">Repaso previo</span></li>
+      <li><span class="idx">.03</span><span class="lbl">Docker</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">02</span>
+  </div>
+</section>
+
+<!-- 03: Sección: Introducción a Docker -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+    <div class="s-title">Introducción a Docker</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">03</span>
+  </div>
+</section>
+
+<!-- 04: ¿Les suena? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.01 — Introducción a Docker</div>
+    <div class="s-title s-title--md">¿Les suena?</div>
+    <ul class="bullets">
+      <li><span>¿Qué es lo primero que piensan?</span></li>
+      <li><span>¿Lo usan?</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">04</span>
+  </div>
+</section>
+
+<!-- 05: No tan rápido macuin -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.01 — Introducción a Docker</div>
+    <div class="cols2 cols2--single">
+      <div class="col-media"><img src="img/macuin.png" alt="No tan rapido macuin"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">05</span>
+  </div>
+</section>
+
+<!-- 06: Sección: Repaso previo -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+    <div class="s-title">TENEMOS QUE REPASAR ALGUNAS COSITAS ANTES</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">06</span>
+  </div>
+</section>
+
+<!-- 07: ¿Qué partes tiene una compu? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">¿Qué partes tiene una compu?</div>
+    <div class="cols2 cols2--single">
+      <div class="col-media"><img src="img/partes-compu.png" alt="Partes de una compu"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">07</span>
+  </div>
+</section>
+
+<!-- 08: Componentes Internos -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">Componentes Internos</div>
+    <div class="cols2 cols2--single">
+      <div class="col-media"><img src="img/hardware.png" alt="Hardware Interno"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">08</span>
+  </div>
+</section>
+
+<!-- 09: ¿Qué pasa cuando desconectamos y volvemos a conectar la compu? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">¿Qué pasa cuando desconectamos y volvemos a conectar la compu?</div>
+    <div class="cols2 cols2--single">
+      <div class="col-media"><img src="img/enchufe.png" alt="Enchufe"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">09</span>
+  </div>
+</section>
+
+<!-- 10: Procesos -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">Procesos</div>
+    <div class="cols2">
+      <div>
+        <p class="s-body-text"><em>Lo pasamos muy por arriba</em></p>
+        <ul class="bullets">
+          <li><span>¿Qué ven si escriben <code>top</code> en sus terminales?</span></li>
+        </ul>
+      </div>
+      <div class="col-media"><img src="img/procesos.png" alt="Procesos"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">10</span>
+  </div>
+</section>
+
+<!-- 11: ¿Alguna vez jugaron Minecraft? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">¿Alguna vez jugaron Minecraft?</div>
+    <ul class="bullets">
+      <li><span>¿Qué cosas se acuerdan?</span></li>
+      <li><span>¿Jugaron Online?</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">11</span>
+  </div>
+</section>
+
+<!-- 12: ¿Qué hace falta para jugar online? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">¿Qué hace falta para jugar online?</div>
+    <ul class="bullets">
+      <li><span>¿Qué necesito para jugar con mis amigos?</span></li>
+      <li><span>¿Puedo jugar gratis?</span></li>
+      <li><span>¿En algunos casos anda mal?</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">12</span>
+  </div>
+</section>
+
+<!-- 13: Estructura Cliente-Servidor -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">Estructura Cliente-Servidor</div>
+    <div class="cols2">
+      <div>
+        <p class="s-body-text">Siguiendo el ejemplo anterior...</p>
+        <ul class="bullets">
+          <li><span>¿Cuáles son los clientes y cuál es el servidor?</span></li>
+          <li><span>¿Cómo se hablan?</span></li>
+        </ul>
+      </div>
+      <div class="col-media"><img src="img/cliente-servidor.png" alt="Cliente Servidor"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">13</span>
+  </div>
+</section>
+
+<!-- 14: ¿Qué necesito para conectarme al servidor? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">¿Qué necesito para conectarme al servidor?</div>
+    <div class="cols2">
+      <p class="s-body-text">¿Se acuerdan?</p>
+      <div class="col-media"><img src="img/ip-router.png" alt="IP Router"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">14</span>
+  </div>
+</section>
+
+<!-- 15: Puertos -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">Puertos</div>
+    <ul class="bullets">
+      <li><span>¿Suenan?</span></li>
+      <li><span>¿A qué nivel creen que se encuentran?</span></li>
+      <li><span>¿Cómo sabe mi computadora cuáles conexiones quieren hablar con el Minecraft?</span></li>
+    </ul>
+    <p class="s-body-text">Así como nuestra computadora puede tener muchos procesos, estos procesos hacen uso de puertos.</p>
+    <p class="s-body-text"><em>Quédense tranquilos que con la práctica lo vamos a dejar más en claro.</em></p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">15</span>
+  </div>
+</section>
+
+<!-- 16: ¡Recreo! -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
+    <div class="s-title s-title--md">¡Recreo!</div>
+    <p class="s-body-text">Después del intervalo vamos a hablar de Docker</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">16</span>
+  </div>
+</section>
+
+<!-- 17: Sección: Docker -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+    <div class="s-title">Docker</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">17</span>
+  </div>
+</section>
+
+<!-- 18: El problema de las instalaciones -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">El problema de las instalaciones</div>
+    <p class="s-body-text">Si yo les digo que se tienen que instalar Minecraft...</p>
+    <ul class="bullets">
+      <li><span>¿Por dónde arrancan?</span></li>
+      <li><span>Necesitamos Java... ¿Qué versión?</span></li>
+    </ul>
+    <p class="s-body-text">Para este tipo de situaciones, nos viene a ayudar <strong>Docker</strong>.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">18</span>
+  </div>
+</section>
+
+<!-- 19: Aplicaciones Contenerizadas -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">Aplicaciones Contenerizadas</div>
+    <div class="cols2 cols2--single">
+      <div class="col-media"><img src="img/arquitectura-docker.png" alt="Arquitectura Docker"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">19</span>
+  </div>
+</section>
+
+<!-- 20: ¿Qué es un container? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">¿Qué es un container?</div>
+    <div class="cols2">
+      <div>
+        <p class="s-body-text">Un container contiene el código y las dependencias necesarias para correr una aplicación de manera independiente.</p>
+        <p class="s-body-text"><em>Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.</em></p>
+      </div>
+      <div class="col-media"><img src="img/docker-whale.png" alt="Docker Whale"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">20</span>
+  </div>
+</section>
+
+<!-- 21: Container vs Image -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">Container vs Image</div>
+    <div class="cols2">
+      <ul class="bullets">
+        <li><span><strong>Container:</strong> es cuando se está ejecutando.</span></li>
+        <li><span><strong>Imagen:</strong> es el conjunto que define dependencias y código.</span></li>
+      </ul>
+      <div class="col-media"><img src="img/container-image.png" alt="Container vs Image"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">21</span>
+  </div>
+</section>
+
+<!-- 22: ¿Cómo los definimos? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">¿Cómo los definimos?</div>
+    <p class="s-body-text">Declarativamente usando un <code>Dockerfile</code>.</p>
+    <div class="code-block">
+      <div class="fname">Dockerfile</div>
+      <pre><code><span class="tok-kw">FROM</span> ubuntu:14.04
+<span class="tok-kw">RUN</span> apt-get update
+<span class="tok-kw">ENV</span> DEBIAN_FRONTEND noninteractive
+<span class="tok-kw">RUN</span> apt-get -qqy install git</code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">22</span>
+  </div>
+</section>
+
+<!-- 23: ¿Qué necesitamos? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">¿Qué necesitamos?</div>
+    <ul class="bullets">
+      <li><span><strong>Linux:</strong> Docker Engine</span></li>
+      <li><span><strong>Mac:</strong> Docker Desktop</span></li>
+      <li><span><strong>Windows:</strong> WSL2 &amp; Docker Desktop</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">23</span>
+  </div>
+</section>
+
+<!-- 24: Tarea -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="s-title s-title--md">Tarea</div>
+    <div class="cols2">
+      <div>
+        <ul class="bullets">
+          <li><span>Poder correr <code>docker run hello-world</code></span></li>
+          <li>
+            <span>Responder las siguientes preguntas:
+              <ul style="list-style:none;margin:.4em 0 0;padding-left:.8em;display:flex;flex-direction:column;gap:.35em;">
+                <li style="font-size:.85em;display:flex;gap:.5em;"><span style="color:var(--muted);">—</span><span>¿Qué es un volumen, para qué sirve?</span></li>
+                <li style="font-size:.85em;display:flex;gap:.5em;"><span style="color:var(--muted);">—</span><span>¿Qué es docker-compose, para qué sirve?</span></li>
+              </ul>
+            </span>
+          </li>
+          <li><span>Levantar la web de la Materia</span></li>
+          <li><span>Levantar servidor de Minecraft (Extra)</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="s-body-text" style="margin:0 0 .8em;"><strong>Ver para la clase que viene:</strong></p>
+        <div class="col-media" style="padding:0;border-style:solid;border-color:var(--line);aspect-ratio:16/9;width:100%;">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/CV_Uf3Dq-EU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border:0;border-radius:calc(var(--radius-md) - 1px);display:block;width:100%;height:100%;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">24</span>
+  </div>
+</section>
+
+<!-- 25: Cierre -->
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="closing-center">
+      <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+      <div class="s-title">Gracias</div>
+      <div class="closing-links">La seguimos por Slack</div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">25</span>
+  </div>
+</section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
