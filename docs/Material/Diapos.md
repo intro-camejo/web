@@ -24,3 +24,4 @@
 ## Semana 4
 
 * [Ingeniería de Software - Parte 2](pathname:///slides/ing-soft-2/index.html)
+* [Intro a Docker](pathname:///slides/intro-docker/index.html)
