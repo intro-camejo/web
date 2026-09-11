@@ -92,6 +92,11 @@ const config = {
             label: 'Trabajo práctico',
           },
           {
+            to:"/notas",
+            position: 'left',
+            label: 'Notas',
+          },
+          {
             href: 'https://forms.gle/eNntd1kjymuCZKmE7',
             label: 'Buzón de quejas',
             position: 'right',
