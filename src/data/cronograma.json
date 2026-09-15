@@ -74,9 +74,7 @@
         "fecha": "10/09/2026",
         "actividades": [
           { "name": "Ingeniería de Software (Parte 2)" },
-          { "name": "Docker" },
-          { "name": "¿Qué es Docker? Diferencia con VM" },
-          { "name": "Imágenes y containers" }
+          { "name": "Intro a Docker" }
         ]
       }
     },
@@ -85,19 +83,19 @@
       "martes": {
         "fecha": "15/09/2026",
         "actividades": [
-          { "name": "Docker - Comandos básicos" },
-          { "name": "Armado del primer Dockerfile" }
+          { "name": "Git" }
         ]
       },
       "jueves": {
         "fecha": "17/09/2026",
         "actividades": [
           {
-            "name": "Parcialito 2 - Git e Ingeniería de Software",
+            "name": "Parcialito 2",
             "tipo": "evaluacion"
           },
-          { "name": "Docker compose" },
-          { "name": "Imágenes custom, redes y volúmenes" }
+          { "name": "¿Qué es Docker?" },
+          { "name": "Imágenes y contenedores" },
+          { "name": "Docker comandos básicos" }
         ]
       }
     },
@@ -105,7 +103,11 @@
       "semana": 6,
       "martes": {
         "fecha": "22/09/2026",
-        "actividades": [{ "name": "Docker compose - Ejercicios" }]
+        "actividades": [
+          { "name": "Docker: Armado del primer Dockerfile" },
+          { "name": "Docker compose" },
+          { "name": "Imágenes custom, redes y volúmenes" }
+        ]
       },
       "jueves": {
         "fecha": "24/09/2026",
