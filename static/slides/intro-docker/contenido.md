@@ -291,7 +291,7 @@ docker run hello-world
 ```
 
 ### ¿Qué pasó por detrás cuando diste Enter?
-1. Docker buscó la imagen `hello-world` en tu máquina local $\rightarrow$ no la encontró.
+1. Docker buscó la imagen `hello-world` en tu máquina local → no la encontró.
 2. Fue a buscarla a **Docker Hub** (el registro público) y la descargó.
 3. Creó un contenedor nuevo y aislado a partir de esa imagen.
 4. Ejecutó el ejecutable que imprime el mensaje de bienvenida.
