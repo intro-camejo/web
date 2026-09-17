@@ -3,3 +3,5 @@ build
 .docusaurus
 .DS_Store
 GEMINI.md
+__pycache__/
+*.pyc

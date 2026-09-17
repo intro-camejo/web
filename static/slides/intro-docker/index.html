@@ -32,8 +32,11 @@
     <div class="eyebrow"><span class="dot"></span>Agenda</div>
     <ul class="agenda-list">
       <li><span class="idx">.01</span><span class="lbl">Introducción a Docker</span></li>
-      <li><span class="idx">.02</span><span class="lbl">Repaso previo</span></li>
-      <li><span class="idx">.03</span><span class="lbl">Docker</span></li>
+      <li><span class="idx">.02</span><span class="lbl">Repaso previo: hardware, procesos y redes</span></li>
+      <li><span class="idx">.03</span><span class="lbl">Contexto histórico: ¿Cómo corríamos software antes?</span></li>
+      <li><span class="idx">.04</span><span class="lbl">Docker: Imágenes y Contenedores</span></li>
+      <li><span class="idx">.05</span><span class="lbl">Cosas que solucionamos con Docker</span></li>
+      <li><span class="idx">.06</span><span class="lbl">Wrapping up</span></li>
     </ul>
   </div>
   <div class="s-foot">
@@ -43,7 +46,7 @@
   </div>
 </section>
 
-<!-- 03: Sección: Introducción a Docker -->
+<!-- 03: Sección: .01 Introducción a Docker -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
     <div class="eyebrow"><span class="dot"></span>Sección .01</div>
@@ -88,7 +91,7 @@
   </div>
 </section>
 
-<!-- 06: Sección: Repaso previo -->
+<!-- 06: Sección: .02 Repaso previo -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
     <div class="eyebrow"><span class="dot"></span>Sección .02</div>
@@ -154,13 +157,11 @@
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
     <div class="s-title s-title--md">Procesos</div>
-    <div class="cols2">
-      <div>
-        <p class="s-body-text"><em>Lo pasamos muy por arriba</em></p>
-        <ul class="bullets">
-          <li><span>¿Qué ven si escriben <code>top</code> en sus terminales?</span></li>
-        </ul>
-      </div>
+    <p class="s-body-text"><em>Lo pasamos muy por arriba</em></p>
+    <ul class="bullets">
+      <li><span>¿Qué ven si escriben <code>top</code> en sus terminales?</span></li>
+    </ul>
+    <div class="cols2 cols2--single">
       <div class="col-media"><img src="img/procesos.png" alt="Procesos"></div>
     </div>
   </div>
@@ -211,14 +212,12 @@
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
     <div class="s-title s-title--md">Estructura Cliente-Servidor</div>
-    <div class="cols2">
-      <div>
-        <p class="s-body-text">Siguiendo el ejemplo anterior...</p>
-        <ul class="bullets">
-          <li><span>¿Cuáles son los clientes y cuál es el servidor?</span></li>
-          <li><span>¿Cómo se hablan?</span></li>
-        </ul>
-      </div>
+    <p class="s-body-text">Siguiendo el ejemplo anterior...</p>
+    <ul class="bullets">
+      <li><span>¿Cuáles son los clientes y cuál es el servidor?</span></li>
+      <li><span>¿Cómo se hablan?</span></li>
+    </ul>
+    <div class="cols2 cols2--single">
       <div class="col-media"><img src="img/cliente-servidor.png" alt="Cliente Servidor"></div>
     </div>
   </div>
@@ -234,8 +233,8 @@
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.02 — Repaso previo</div>
     <div class="s-title s-title--md">¿Qué necesito para conectarme al servidor?</div>
-    <div class="cols2">
-      <p class="s-body-text">¿Se acuerdan?</p>
+    <p class="s-body-text">¿Se acuerdan?</p>
+    <div class="cols2 cols2--single">
       <div class="col-media"><img src="img/ip-router.png" alt="IP Router"></div>
     </div>
   </div>
@@ -280,11 +279,12 @@
   </div>
 </section>
 
-<!-- 17: Sección: Docker -->
+<!-- 17: Sección: .03 Contexto histórico -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
     <div class="eyebrow"><span class="dot"></span>Sección .03</div>
-    <div class="s-title">Docker</div>
+    <div class="s-title">Contexto histórico: ¿Cómo corríamos software antes?</div>
+    <div class="s-sub" style="margin-top:.5em;opacity:.9;">De los servidores físicos a los contenedores</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -293,17 +293,16 @@
   </div>
 </section>
 
-<!-- 18: El problema de las instalaciones -->
+<!-- 18: La era física: Bare Metal -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
-    <div class="s-title s-title--md">El problema de las instalaciones</div>
-    <p class="s-body-text">Si yo les digo que se tienen que instalar Minecraft...</p>
+    <div class="eyebrow"><span class="dot"></span>.03 — Contexto histórico</div>
+    <div class="s-title s-title--md">La era física: Bare Metal</div>
     <ul class="bullets">
-      <li><span>¿Por dónde arrancan?</span></li>
-      <li><span>Necesitamos Java... ¿Qué versión?</span></li>
+      <li><span><strong>Un servidor por aplicación:</strong> Hace 25 años, si necesitabas una web y una base de datos, ponías una computadora física dedicada para cada una.</span></li>
+      <li><span><strong>Desperdicio de recursos:</strong> La gran mayoría de los servidores operaban al 5% o 10% de su capacidad total de CPU y memoria.</span></li>
+      <li><span><strong>Dependency Hell (El infierno de dependencias):</strong> Si intentabas meter varias apps en la misma máquina, actualizar una librería compartida podía voltear todos los demás servicios.</span></li>
     </ul>
-    <p class="s-body-text">Para este tipo de situaciones, nos viene a ayudar <strong>Docker</strong>.</p>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -312,14 +311,17 @@
   </div>
 </section>
 
-<!-- 19: Aplicaciones Contenerizadas -->
+<!-- 19: La era de la Virtualización: Máquinas Virtuales -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
-    <div class="s-title s-title--md">Aplicaciones Contenerizadas</div>
-    <div class="cols2 cols2--single">
-      <div class="col-media"><img src="img/arquitectura-docker.png" alt="Arquitectura Docker"></div>
-    </div>
+    <div class="eyebrow"><span class="dot"></span>.03 — Contexto histórico</div>
+    <div class="s-title s-title--md">La era de la Virtualización: Máquinas Virtuales</div>
+    <p class="s-body-text">A principios de los 2000s explota el uso de <strong>Máquinas Virtuales (VMs)</strong> como VMware, VirtualBox y KVM:</p>
+    <ul class="bullets">
+      <li><span>Permitieron consolidar múltiples servicios aislados en un mismo hardware físico.</span></li>
+      <li><span><strong>El costo oculto:</strong> Cada VM corre un <strong>Sistema Operativo completo (Guest OS)</strong> con su propio kernel virtualizado.</span></li>
+      <li><span>Requieren gigabytes de disco para cada SO, gigabytes de RAM reservada fija y tardan <strong>minutos</strong> en arrancar.</span></li>
+    </ul>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -328,10 +330,100 @@
   </div>
 </section>
 
-<!-- 20: ¿Qué es un container? -->
+<!-- 20: Cita: ¡En mi máquina funciona! -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="eyebrow"><span class="dot"></span>.03 — Contexto histórico</div>
+    <div class="quote-wrap">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="quote-text">¡Pero en mi máquina funciona!</div>
+      <div class="quote-cite">— Cualquier desarrollador de software (circa 1995–hoy)</div>
+    </div>
+    <p class="s-body-text" style="margin-top:1.2em;">
+      Desarrollás en tu compu, todo anda joya. Se lo pasás a producción o a tu compañero y explota por diferencias de versiones o librerías.<br>
+      <strong>— "Bueno... ¡entonces mandemos tu máquina a producción!"</strong>
+    </p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">20</span>
+  </div>
+</section>
+
+<!-- 21: Las raíces en Linux: Namespaces y cgroups -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 — Contexto histórico</div>
+    <div class="s-title s-title--md">Las raíces en Linux: Namespaces y cgroups</div>
+    <p class="s-body-text">¿Y si en vez de emular una computadora entera, aislamos los procesos adentro de Linux?</p>
+    <ul class="bullets">
+      <li><span><strong>chroot (1979):</strong> Enjaula el sistema de archivos de un proceso para que no vea el resto del disco.</span></li>
+      <li><span><strong>cgroups (Google, 2006):</strong> Control Groups para limitar y medir uso de CPU, RAM y disco de cada grupo de procesos.</span></li>
+      <li><span><strong>Namespaces (2002–2008):</strong> Aíslan la visión de procesos (PID), red (IP/puertos), usuarios y filesystems.</span></li>
+      <li><span><strong>2013 — Nace Docker:</strong> Solomon Hykes presenta Docker en PyCon. Empaqueta estas tecnologías del kernel con imágenes en capas y democratiza los contenedores para todo el mundo.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">21</span>
+  </div>
+</section>
+
+<!-- 22: Sección: .04 Docker: Imágenes y Contenedores -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+    <div class="s-title">Docker: Imágenes y Contenedores</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">22</span>
+  </div>
+</section>
+
+<!-- 23: El problema de las instalaciones -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
+    <div class="s-title s-title--md">El problema de las instalaciones</div>
+    <p class="s-body-text">Si yo les digo que se tienen que instalar Minecraft...</p>
+    <ul class="bullets">
+      <li><span>¿Por dónde arrancan?</span></li>
+      <li><span>Necesitamos Java... ¿Qué versión? ¿Java 8, 17 o 21?</span></li>
+      <li><span>¿Y si otro proyecto requiere una versión incompatible?</span></li>
+    </ul>
+    <p class="s-body-text">Para este tipo de situaciones, nos viene a ayudar <strong>Docker</strong>.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">23</span>
+  </div>
+</section>
+
+<!-- 24: Aplicaciones Contenerizadas -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
+    <div class="s-title s-title--md">Aplicaciones Contenerizadas</div>
+    <div class="cols2 cols2--single">
+      <div class="col-media"><img src="img/arquitectura-docker.png" alt="Arquitectura Docker"></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">24</span>
+  </div>
+</section>
+
+<!-- 25: ¿Qué es un container? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
     <div class="s-title s-title--md">¿Qué es un container?</div>
     <div class="cols2">
       <div>
@@ -344,73 +436,444 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">20</span>
+    <span class="num">25</span>
   </div>
 </section>
 
-<!-- 21: Container vs Image -->
+<!-- 26: Máquinas Virtuales vs Contenedores -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
-    <div class="s-title s-title--md">Container vs Image</div>
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
+    <div class="s-title s-title--md">Máquinas Virtuales vs Contenedores</div>
+    <div class="compare">
+      <div class="side a">
+        <h3>Máquinas Virtuales (VMs)</h3>
+        <ul>
+          <li><strong>Virtualizan hardware</strong> mediante un Hypervisor.</li>
+          <li>Cada VM corre un <strong>SO completo (Guest OS)</strong> con su propio kernel.</li>
+          <li><strong>Arranque lento:</strong> tardan minutos en bootear.</li>
+          <li><strong>Pesadas:</strong> gigabytes de RAM y disco fijos por máquina.</li>
+        </ul>
+      </div>
+      <div class="side b">
+        <h3>Contenedores (Docker)</h3>
+        <ul>
+          <li><strong>Comparten el Kernel</strong> del sistema operativo anfitrión.</li>
+          <li>Aíslan únicamente el proceso, sus librerías y dependencias.</li>
+          <li><strong>Arranque casi instantáneo:</strong> levantan en milisegundos.</li>
+          <li><strong>Ultralivianos:</strong> consumen solo la RAM que usa el proceso.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">26</span>
+  </div>
+</section>
+
+<!-- 27: Container vs Imagen: Las analogías clave -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
+    <div class="s-title s-title--md">Container vs Imagen: Las analogías clave</div>
+    <div class="compare" style="gap:6%;">
+      <div class="side a">
+        <h3 style="font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:.8em;">Imagen (El Plano)</h3>
+        <ul style="font-size:clamp(1.35rem,2.1vw,1.75rem);line-height:1.6;display:flex;flex-direction:column;gap:.7em;">
+          <li>Plantilla estática e <strong>inmutable (sólo lectura)</strong>.</li>
+          <li>Es como <strong>el plano</strong> de una casa (o una receta de cocina).</li>
+          <li>Se define con un <code>Dockerfile</code>.</li>
+        </ul>
+      </div>
+      <div class="side b">
+        <h3 style="font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:.8em;">Contenedor (La Casa Construida)</h3>
+        <ul style="font-size:clamp(1.35rem,2.1vw,1.75rem);line-height:1.6;display:flex;flex-direction:column;gap:.7em;">
+          <li>Instancia viva en <strong>ejecución</strong> de esa imagen.</li>
+          <li>Es <strong>la casa ya construida</strong> a partir de ese plano.</li>
+          <li>Tiene estado: se puede iniciar, pausar, detener y destruir.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">27</span>
+  </div>
+</section>
+
+<!-- 28: De 1 Imagen a N Contenedores -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
+    <div class="s-title s-title--md">De 1 Imagen a N Contenedores</div>
     <div class="cols2">
-      <ul class="bullets">
-        <li><span><strong>Container:</strong> es cuando se está ejecutando.</span></li>
-        <li><span><strong>Imagen:</strong> es el conjunto que define dependencias y código.</span></li>
-      </ul>
+      <div>
+        <p class="s-body-text">A partir de <strong>una única imagen</strong> base (ej: <code>postgres</code> o <code>nginx</code>):</p>
+        <ul class="bullets">
+          <li><span>Podés levantar 1, 5 o 50 contenedores idénticos al mismo tiempo.</span></li>
+          <li><span>Cada contenedor tiene su propia IP de red interna, sus propios puertos y memoria aislada.</span></li>
+          <li><span>Si un contenedor falla o lo apagás, la imagen original no cambia y los demás contenedores siguen funcionando.</span></li>
+        </ul>
+      </div>
       <div class="col-media"><img src="img/container-image.png" alt="Container vs Image"></div>
     </div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">21</span>
+    <span class="num">28</span>
   </div>
 </section>
 
-<!-- 22: ¿Cómo los definimos? -->
+<!-- 29: Capas y Persistencia: ¿Qué pasa si el contenedor muere? -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
-    <div class="s-title s-title--md">¿Cómo los definimos?</div>
-    <p class="s-body-text">Declarativamente usando un <code>Dockerfile</code>.</p>
-    <div class="code-block">
-      <div class="fname">Dockerfile</div>
-      <pre><code><span class="tok-kw">FROM</span> ubuntu:14.04
-<span class="tok-kw">RUN</span> apt-get update
-<span class="tok-kw">ENV</span> DEBIAN_FRONTEND noninteractive
-<span class="tok-kw">RUN</span> apt-get -qqy install git</code></pre>
-    </div>
-  </div>
-  <div class="s-foot">
-    <span>Intro Camejo</span>
-    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">22</span>
-  </div>
-</section>
-
-<!-- 23: ¿Qué necesitamos? -->
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
-    <div class="s-title s-title--md">¿Qué necesitamos?</div>
+    <div class="eyebrow"><span class="dot"></span>.04 — Docker: Imágenes y Contenedores</div>
+    <div class="s-title s-title--md">Capas y Persistencia: ¿Qué pasa si el contenedor muere?</div>
     <ul class="bullets">
-      <li><span><strong>Linux:</strong> Docker Engine</span></li>
-      <li><span><strong>Mac:</strong> Docker Desktop</span></li>
-      <li><span><strong>Windows:</strong> WSL2 &amp; Docker Desktop</span></li>
+      <li><span><strong>Imágenes en capas (UnionFS):</strong> Cada instrucción del <code>Dockerfile</code> genera una capa inmutable. Si dos imágenes comparten capas, Docker las reutiliza y no gasta disco duplicado.</span></li>
+      <li><span><strong>Capa de escritura efímera:</strong> El contenedor monta una capa temporal encima. Al destruir el contenedor, los cambios o archivos nuevos que escribió desaparecen.</span></li>
+      <li><span><strong>¿Y si queremos guardar datos persistentes?</strong> Para eso usamos <strong>Volúmenes</strong>: carpetas del disco del Host (Anfitrión) vinculadas de forma segura al contenedor (clave para bases de datos o mundos de juegos).</span></li>
     </ul>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">23</span>
+    <span class="num">29</span>
   </div>
 </section>
 
-<!-- 24: Tarea -->
+<!-- 30: Sección: .05 Cosas que solucionamos con Docker -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+    <div class="s-title">¿Qué problemas solucionamos con Docker?</div>
+    <div class="s-sub" style="margin-top:.5em;opacity:.9;">Cosas reales que corren dockerizadas todos los días</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">30</span>
+  </div>
+</section>
+
+<!-- 31: Caso 1: Software para cámaras y videovigilancia -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.03 — Docker</div>
+    <div class="eyebrow"><span class="dot"></span>.05 — Cosas que solucionamos con Docker</div>
+    <div class="s-title s-title--md">Caso 1: Software para cámaras y videovigilancia</div>
+    <div class="compare">
+      <div class="side a">
+        <h3>El dolor sin Docker</h3>
+        <ul>
+          <li>Sistemas de cámaras como <strong>MotionEye</strong> o <strong>Frigate</strong> (NVR con detección de objetos e IA).</li>
+          <li>Requerían compilar <strong>FFmpeg</strong> con aceleración por placa de video y códecs especiales.</li>
+          <li>Lidiar con librerías de <strong>OpenCV</strong>, drivers V4L2 del kernel y paquetes de Python específicos.</li>
+          <li>Una actualización de tu distro podía romper la videovigilancia completa.</li>
+        </ul>
+      </div>
+      <div class="side b">
+        <h3>La solución con Docker</h3>
+        <ul>
+          <li>Un solo comando empaquetado:
+            <br><code>docker run -d --device=/dev/video0 -p 8765:8765 ccrisan/motioneye</code>
+          </li>
+          <li>Todo el software, drivers de video, servidor RTSP y panel web ya vienen testeados adentro.</li>
+          <li>Levanta en 30 segundos sin tocar una sola librería de tu sistema operativo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">31</span>
+  </div>
+</section>
+
+<!-- 32: Caso 2: Servicios hogareños y Homelab -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 — Cosas que solucionamos con Docker</div>
+    <div class="s-title s-title--md">Caso 2: Servicios hogareños y Homelab</div>
+    <p class="s-body-text">Millones de personas usan Docker en sus casas para montar servidores propios:</p>
+    <ul class="bullets">
+      <li><span><strong>Pi-hole / AdGuard Home:</strong> Servidor DNS que bloquea publicidad y rastreadores para todos los celulares, Smart TVs y computadoras conectadas al Wi-Fi de tu casa.</span></li>
+      <li><span><strong>Jellyfin / Plex:</strong> Tu propio Netflix privado para transmitir tus películas, fotos y música a cualquier pantalla sin pagar suscripciones.</span></li>
+      <li><span><strong>Home Assistant:</strong> Central domótica local para automatizar luces, enchufes y sensores sin que tus datos viajen a servidores extranjeros.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">32</span>
+  </div>
+</section>
+
+<!-- 33: Caso 3: Bases de datos y entornos de desarrollo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 — Cosas que solucionamos con Docker</div>
+    <div class="s-title s-title--md">Caso 3: Bases de datos y desarrollo sin ensuciar la compu</div>
+    <ul class="bullets">
+      <li><span><strong>¿Tenés que hacer el TP con PostgreSQL, Redis o MySQL?</strong>
+        <br><em>Antes:</em> Descargabas un instalador que te creaba servicios en segundo plano, puertos ocupados y basura en el sistema.
+        <br><em>Con Docker:</em> <code>docker run -d -p 5432:5432 postgres</code>. Terminás la entrega, corrés <code>docker stop</code> y tu compu queda 100% limpia.
+      </span></li>
+      <li><span><strong>Múltiples versiones conviviendo:</strong> ¿Un proyecto del laburo usa Node 16 y otro nuevo usa Node 22? ¿Python 3.7 vs Python 3.12? Con Docker corren a la vez en la misma máquina sin romperse.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">33</span>
+  </div>
+</section>
+
+<!-- 34: Caso 4: Servidores de juegos (Minecraft) -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 — Cosas que solucionamos con Docker</div>
+    <div class="s-title s-title--md">Caso 4: Servidores de juegos (¡Minecraft!)</div>
+    <p class="s-body-text">Volviendo al ejemplo con el que arrancamos la clase...</p>
+    <ul class="bullets">
+      <li><span>¿Te acordás la pregunta de qué Java necesitabas? Con Docker no te importa si requiere Java 8, 17 o 21.</span></li>
+      <li><span>Un solo comando descarga la versión exacta de OpenJDK y arranca el servidor:
+        <br><code style="font-size:.85em;">docker run -d -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</code>
+      </span></li>
+      <li><span>Podés pasarle el mundo entero a un amigo montando un volumen y le va a funcionar idéntico en su máquina.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">34</span>
+  </div>
+</section>
+
+<!-- 35: Caso 5: Proyectos enteros... -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 — Cosas que solucionamos con Docker</div>
+    <div class="s-title s-title--md">Caso 5: Proyectos enteros...</div>
+    <p class="s-body-text"><strong>¿Qué pasa cuando una aplicación necesita varios servicios a la vez?</strong></p>
+    <ul class="bullets">
+      <li><span>Una web frontend en React + una API backend en Python + una base de datos PostgreSQL + Redis.</span></li>
+      <li><span>¿Tenemos que acordarnos 4 comandos <code>docker run</code> gigantes conectando redes y puertos a mano?</span></li>
+      <li><span>Para levantar proyectos enteros interconectados con un solo comando existe <strong>Docker Compose</strong> (que ya lo vamos a ver)...</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">35</span>
+  </div>
+</section>
+
+<!-- 36: Sección: .06 Wrapping up -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+    <div class="s-title">Wrapping up</div>
+    <div class="s-sub" style="margin-top:.5em;opacity:.9;">Comandos en vivo y próximos pasos</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">36</span>
+  </div>
+</section>
+
+<!-- 37: Nuestro primer comando: docker run hello-world -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">Nuestro primer comando: <code>hello-world</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run hello-world</code></pre>
+    </div>
+    <p class="s-body-text" style="margin-top:.2em;font-size:1.15rem;font-weight:600;">¿Qué pasó por detrás cuando diste Enter?</p>
+    <ul class="bullets">
+      <li><span><strong>1. Búsqueda local:</strong> Docker revisó si ya tenías la imagen <code>hello-world</code> en tu máquina → no la encontró.</span></li>
+      <li><span><strong>2. Descarga desde Docker Hub:</strong> Se conectó automáticamente al registro público en internet y descargó la imagen.</span></li>
+      <li><span><strong>3. Creación y aislamiento:</strong> Creó un nuevo contenedor con su propio espacio de procesos y memoria.</span></li>
+      <li><span><strong>4. Ejecución:</strong> Corrió el programa empaquetado, que imprimió el saludo en tu terminal.</span></li>
+      <li><span><strong>5. Finalización:</strong> Terminó su tarea y el contenedor se detuvo solo.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">37</span>
+  </div>
+</section>
+
+<!-- 38: Una terminal interactiva: docker run -it alpine sh -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">Una terminal interactiva: <code>alpine sh</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run -it alpine sh</code></pre>
+    </div>
+    <ul class="bullets">
+      <li><span><code>-i</code> (interactive) mantiene abierto el canal de entrada (<code>stdin</code>) para escribirle.</span></li>
+      <li><span><code>-t</code> (pseudo-TTY) le asigna una consola emulada para sentirla como una terminal real.</span></li>
+    </ul>
+    <p class="s-body-text" style="font-size:1.15rem;margin:.5em 0 .3em;"><strong>¡Estás adentro de un Linux independiente en 1 segundo!</strong> Probá correr adentro:</p>
+    <div class="code-block" style="flex:1;">
+      <div class="fname">Adentro del contenedor Alpine (/ #)</div>
+      <pre><code><span class="c3">/ #</span> cat /etc/os-release   <span class="c1"># Vemos la versión de Alpine Linux</span>
+<span class="c3">/ #</span> uname -a              <span class="c1"># ¡Muestra el kernel de tu computadora!</span>
+<span class="c3">/ #</span> hostname              <span class="c1"># El ID efímero asignado a tu contenedor</span>
+<span class="c3">/ #</span> exit                  <span class="c1"># Salir y apagar el contenedor</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">38</span>
+  </div>
+</section>
+
+<!-- 39: Un servidor web en segundo plano: nginx -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">Un servidor web en segundo plano: <code>nginx</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run -d -p 8080:80 --name mi-servidor nginx</code></pre>
+    </div>
+    <ul class="bullets">
+      <li><span><code>-d</code> (detached): Corre en segundo plano. Tu consola queda libre al instante.</span></li>
+      <li><span><code>-p 8080:80</code> (puertos): Conecta el puerto <strong>8080</strong> de tu compu física con el puerto <strong>80</strong> interno de Nginx.</span></li>
+      <li><span><code>--name mi-servidor</code>: Le da un nombre amigable en lugar de un ID aleatorio.</span></li>
+    </ul>
+    <p class="s-body-text" style="margin-top:.8em;font-size:1.25rem;">
+      👉 <strong>Abran el navegador en:</strong> <code>http://localhost:8080</code><br>
+      <span style="font-size:.9em;color:var(--muted);">¡Un servidor web de producción corriendo en tu máquina sin haber instalado nada en tu sistema operativo!</span>
+    </p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">39</span>
+  </div>
+</section>
+
+<!-- 40: Controlando contenedores: Los 4 comandos clave -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">Controlando contenedores: Los 4 comandos clave</div>
+    <div class="code-block">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c1"># 1. Ver qué contenedores están corriendo AHORA</span>
+<span class="c3">$</span> docker ps
+
+<span class="c1"># 2. Ver TODOS los contenedores (incluso los apagados como hello-world)</span>
+<span class="c3">$</span> docker ps -a
+
+<span class="c1"># 3. Detener un contenedor en ejecución</span>
+<span class="c3">$</span> docker stop mi-servidor
+
+<span class="c1"># 4. Eliminarlo definitivamente del disco</span>
+<span class="c3">$</span> docker rm mi-servidor</code></pre>
+    </div>
+    <p class="s-body-text" style="font-size:1.15rem;margin-top:.5em;">
+      <strong>Tip pro:</strong> Agregando <code>--rm</code> (ej: <code>docker run --rm hello-world</code>), el contenedor se destruye automáticamente apenas termina, sin dejar basura acumulada.
+    </p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">40</span>
+  </div>
+</section>
+
+<!-- 41: Un saludo con arte ASCII: whalesay -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">Un saludo con arte ASCII: <code>whalesay</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run --rm docker/whalesay cowsay "¡Aguante Intro Camejo!"</code></pre>
+    </div>
+    <div class="code-block" style="flex:1;background:#16130f;color:#22c55e;">
+      <div class="fname" style="color:#6e6a63;">Salida de consola</div>
+      <pre><code> ________________________ 
+&lt; ¡Aguante Intro Camejo! &gt;
+ ------------------------ 
+    \
+     \
+      \     ##        .            
+            ## ## ##       ==       
+         ## ## ## ##      ===       
+     /""""""""""""""""___/ ===        
+~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+     \______ o          __/            
+      \    \        __/             
+       \____\______/   </code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">41</span>
+  </div>
+</section>
+
+<!-- 42: ¿Cómo definimos nuestras propias imágenes? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">¿Cómo definimos nuestras propias imágenes?</div>
+    <p class="s-body-text">Declarativamente usando un archivo de texto llamado <code>Dockerfile</code>:</p>
+    <ul class="bullets">
+      <li><span><code>FROM</code> — Especifica la imagen base sobre la que arrancamos (ej. <code>python:3.12-alpine</code>).</span></li>
+      <li><span><code>WORKDIR</code> — Define el directorio de trabajo dentro del contenedor.</span></li>
+      <li><span><code>COPY</code> — Copia archivos desde nuestra computadora anfitriona hacia el contenedor.</span></li>
+      <li><span><code>RUN</code> — Ejecuta comandos durante la creación de la imagen (ej. crear usuarios o instalar paquetes).</span></li>
+      <li><span><code>EXPOSE</code> — Documenta el puerto en el que la aplicación escuchará conexiones.</span></li>
+      <li><span><code>CMD</code> — El comando que se ejecuta automáticamente cuando el contenedor arranca.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">42</span>
+  </div>
+</section>
+
+<!-- 43: ¿Qué necesitamos? -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
+    <div class="s-title s-title--md">¿Qué necesitamos para empezar?</div>
+    <ul class="bullets">
+      <li><span><strong>Linux:</strong> Docker Engine nativo (el más rápido y liviano de todos).</span></li>
+      <li><span><strong>Mac:</strong> Docker Desktop (o alternativas como OrbStack / Colima).</span></li>
+      <li><span><strong>Windows:</strong> WSL2 (Windows Subsystem for Linux) &amp; Docker Desktop.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">43</span>
+  </div>
+</section>
+
+<!-- 44: Tarea -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Tarea</div>
     <div class="cols2">
       <div>
@@ -424,7 +887,7 @@
               </ul>
             </span>
           </li>
-          <li><span>Levantar la web de la Materia</span></li>
+          <li><span>Levantar la web de la Materia con Docker</span></li>
           <li><span>Levantar servidor de Minecraft (Extra)</span></li>
         </ul>
       </div>
@@ -439,11 +902,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">24</span>
+    <span class="num">44</span>
   </div>
 </section>
 
-<!-- 25: Cierre -->
+<!-- 45: Cierre -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="closing-center">
@@ -455,9 +918,10 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">25</span>
+    <span class="num">45</span>
   </div>
 </section>
+
 
 </main>
 <script src="../_template/nav.js"></script>

@@ -102,7 +102,52 @@ Así como nuestra computadora puede tener muchos procesos, estos procesos hacen 
 
 ---
 
-# Docker
+# Contexto histórico: ¿Cómo corríamos software antes?
+
+---
+
+## La era física: Bare Metal
+
+- **Un servidor por aplicación:** Hace 25 años, si necesitabas una web y una base de datos, ponías una máquina física para cada una.
+- **Desperdicio de cómputo:** La mayoría de los servidores operaban al 5% o 10% de su capacidad.
+- **Dependency Hell:** Si intentabas meter varias aplicaciones en la misma máquina, una actualización de una librería compartida podía romper todas las demás.
+
+---
+
+## La era de la Virtualización: Máquinas Virtuales
+
+A principios de los 2000s se popularizan las **VMs** (VMware, VirtualBox, KVM):
+
+- Permiten correr múltiples aplicaciones aisladas en un mismo hardware físico.
+- **El gran costo:** Cada máquina virtual corre un **Sistema Operativo completo (Guest OS)** con su propio kernel virtualizado.
+- Gigabytes de disco para cada SO, gigabytes de memoria RAM reservada y minutos para arrancar.
+
+---
+
+> "¡Pero en mi máquina funciona!"
+> — Cualquier desarrollador de software (circa 1995–hoy)
+
+Desarrollás en tu computadora, todo anda de diez. Se lo pasás a producción o a tu compañero y no levanta por diferencias de versiones, librerías del sistema o variables que faltan.
+
+*— "Bueno... ¡entonces mandemos tu máquina a producción!"*
+
+---
+
+## Las raíces en Linux: Namespaces y cgroups
+
+¿Y si en vez de emular una computadora entera, aislamos los procesos adentro de Linux?
+
+- **chroot (1979):** Enjaular el sistema de archivos de un proceso.
+- **cgroups (Google, 2006):** Limitar y medir uso de CPU, memoria y disco.
+- **Namespaces (2002–2008):** Aislar la vista de procesos (PID), red, usuarios y filesystems.
+
+Eran herramientas potentísimas, pero muy difíciles y tediosas de configurar a mano.
+
+En **2013**, nace **Docker**: empaquetó toda esta magia del kernel con imágenes en capas y cambió el desarrollo para siempre.
+
+---
+
+# Docker: Imágenes y Contenedores
 
 ---
 
@@ -126,31 +171,200 @@ Para este tipo de situaciones, nos viene a ayudar **Docker**.
 
 Un container contiene el código y las dependencias necesarias para correr una aplicación de manera independiente.
 
-Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
+*Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.*
 
 ![Docker Whale](img/docker-whale.png)
 
 ---
 
-## Container vs Image
+<!-- slide: tipo=comparacion -->
+## Máquinas Virtuales vs Contenedores
 
-- **Container:** es cuando se está ejecutando.
-- **Imagen:** es el conjunto que define dependencias y código.
+### Máquinas Virtuales (VMs)
+- Virtualizan hardware completo (Hypervisor)
+- Cada VM corre un SO completo (Guest OS)
+- Arranque lento (minutos)
+- Consumo pesado (Gigabytes de RAM y disco)
+
+### Contenedores (Docker)
+- Comparten el Kernel del sistema operativo anfitrión
+- Solo contienen la aplicación y sus dependencias
+- Arranque casi instantáneo (milisegundos)
+- Ultralivianos (Megabytes de RAM y disco)
+
+---
+
+<!-- slide: tipo=comparacion -->
+## Container vs Imagen: Las analogías clave
+
+### Imagen (El Plano)
+- Plantilla estática e inmutable (de sólo lectura)
+- Es como **el plano** de una casa (o una receta de cocina)
+- Se define con un `Dockerfile`
+
+### Contenedor (La Casa Construida)
+- Instancia viva en ejecución de esa imagen
+- Es **la casa ya construida** a partir de ese plano (o la torta horneada)
+- Tiene ciclo de vida: podés crearlo, pausarlo, apagarlo y destruirlo
+
+---
+
+## De 1 Imagen a N Contenedores
+
+Con una única imagen de base (ej: `postgres` o `nginx`):
+
+- Podés levantar 1, 5 o 50 contenedores idénticos e independientes al mismo tiempo.
+- Cada contenedor tiene su propia IP interna, sus puertos y su memoria aislada.
+- Si un contenedor falla, la imagen no se modifica y los otros contenedores no se enteran.
 
 ![Container vs Image](img/container-image.png)
 
 ---
 
-## ¿Cómo los definimos?
+## Capas y Persistencia: ¿Qué pasa si el contenedor muere?
 
-Declarativamente usando un `Dockerfile`.
+- Las imágenes se componen de **capas de sólo lectura** (UnionFS / overlay2) que se reutilizan entre imágenes.
+- El contenedor agrega una **capa de escritura efímera**: si borrás el contenedor, los archivos temporales creados adentro desaparecen.
+- **¿Cómo guardamos datos que no queremos perder?**
+  - Usamos **Volúmenes**: carpetas del disco del Host (Anfitrión) vinculadas de forma segura al interior del contenedor (clave para bases de datos o mundos de juegos).
 
-```dockerfile
-FROM ubuntu:14.04
-RUN apt-get update
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get -qqy install git
+---
+
+# ¿Qué podemos solucionar con Docker?
+## Cosas que corren dockerizadas todos los días
+
+---
+
+## Caso 1: Software para cámaras y videovigilancia
+
+- **El dolor sin Docker:** Software como **MotionEye** o **Frigate** (videovigilancia con detección por IA). Requieren compilar FFmpeg con aceleración por placa de video, lidiar con OpenCV, drivers V4L2 del kernel y librerías de Python. Una actualización de tu sistema operativo rompía todo el monitoreo.
+- **La solución con Docker:** Un solo comando:
+  `docker run -d --device=/dev/video0 -p 8765:8765 ccrisan/motioneye`
+  Todo viene empaquetado y probado. Tenés un panel web de videovigilancia grabando en 1 minuto.
+
+---
+
+## Caso 2: Servicios hogareños y Homelab
+
+- **Pi-hole / AdGuard Home:** Bloqueador de publicidad y tracker a nivel DNS para todos los celulares, teles y compus de tu casa.
+- **Jellyfin / Plex:** Tu propio Netflix hogareño para transmitir tus películas y música.
+- **Home Assistant:** Plataforma de domótica para controlar luces, enchufes y sensores inteligentes sin depender de la nube.
+
+---
+
+## Caso 3: Bases de datos y desarrollo sin ensuciar la compu
+
+- **¿Tenés que hacer el TP con Postgres, Redis o MySQL?**
+  - **Antes:** Descargabas el instalador, te creaba servicios en segundo plano que arrancaban al prender la compu, ocupaban puertos y dejaban basura en el sistema.
+  - **Con Docker:** `docker run -d -p 5432:5432 postgres`. Terminás la clase, corrés `docker stop` y tu máquina queda impecable.
+- **Múltiples versiones:** Podés tener un proyecto viejo con Node 16 y uno nuevo con Node 22 corriendo a la vez sin conflictos.
+
+---
+
+## Caso 4: Servidores de juegos
+
+- **Minecraft Server:**
+  - ¿Qué Java necesita Minecraft 1.20? ¿Java 17 o Java 21? ¿Qué flags de memoria hacen falta?
+  - Con Docker:
+    `docker run -d -p 25565:25565 -e EULA=TRUE itzg/minecraft-server`
+  - La imagen ya trae el Java exacto y optimizado para la versión del servidor.
+
+---
+
+## Caso 5: Proyectos enteros...
+
+- **¿Qué pasa cuando una aplicación necesita varios servicios a la vez?**
+  - Una web en React + una API en Python + una base de datos PostgreSQL + Redis.
+- ¿Tenemos que acordarnos 4 comandos `docker run` gigantes conectando redes y puertos a mano?
+- Para levantar proyectos enteros interconectados con un solo comando existe **Docker Compose** (que ya lo vamos a ver)...
+
+---
+
+# Wrapping up
+
+---
+
+## Nuestro primer comando: `docker run hello-world`
+
+```bash
+docker run hello-world
 ```
+
+### ¿Qué pasó por detrás cuando diste Enter?
+1. Docker buscó la imagen `hello-world` en tu máquina local → no la encontró.
+2. Fue a buscarla a **Docker Hub** (el registro público) y la descargó.
+3. Creó un contenedor nuevo y aislado a partir de esa imagen.
+4. Ejecutó el ejecutable que imprime el mensaje de bienvenida.
+5. El proceso terminó su tarea y el contenedor se detuvo.
+
+---
+
+## Una terminal interactiva: `docker run -it alpine sh`
+
+```bash
+docker run -it alpine sh
+```
+
+- **`-i` (interactive):** Mantiene abierto el canal de entrada (`stdin`) para que puedas escribirle.
+- **`-t` (pseudo-TTY):** Asigna una terminal para que la experiencia sea idéntica a una consola real.
+
+**¡Estás adentro de un sistema Linux independiente en 1 segundo!**
+Probá correr estos comandos adentro del contenedor:
+- `cat /etc/os-release` *(para ver qué distro es)*
+- `uname -a` *(para ver qué kernel usa)*
+- `hostname` *(tu ID aislado de contenedor)*
+- `exit` *(para salir y apagar el contenedor)*
+
+---
+
+## Un servidor web en segundo plano: `nginx`
+
+```bash
+docker run -d -p 8080:80 --name mi-servidor nginx
+```
+
+- **`-d` (detached):** Corre en segundo plano; tu terminal queda libre inmediatamente.
+- **`-p 8080:80` (puertos):** Conecta el puerto `8080` de tu compu física al puerto `80` del contenedor.
+- **`--name mi-servidor`:** Le da un nombre reconocible para no depender del ID numérico.
+
+👉 **Abran el navegador en:** `http://localhost:8080`
+*(¡Un servidor web de producción corriendo en tu máquina sin instalar nada!)*
+
+---
+
+## Controlando contenedores: Los 4 comandos clave
+
+- **`docker ps`** — Muestra los contenedores que están corriendo en este momento.
+- **`docker ps -a`** — Muestra **todos** los contenedores (incluidos los detenidos como `hello-world`).
+- **`docker stop mi-servidor`** — Detiene suavemente el contenedor en ejecución.
+- **`docker rm mi-servidor`** — Elimina el contenedor del disco.
+
+*Tip:* El flag `--rm` (ej. `docker run --rm hello-world`) elimina automáticamente el contenedor apenas termina de correr para no acumular basura.
+
+---
+
+## Un saludo con arte ASCII: `whalesay`
+
+```bash
+docker run --rm docker/whalesay cowsay "¡Aguante Intro Camejo!"
+```
+
+- Descarga la imagen con la ballena oficial de Docker.
+- Imprime el mensaje formateado en arte ASCII por pantalla.
+- Gracias al flag `--rm`, el contenedor se destruye automáticamente al terminar.
+
+---
+
+## ¿Cómo definimos nuestras propias imágenes?
+
+Declarativamente usando un `Dockerfile`:
+
+- **FROM:** Imagen base sobre la que construimos (ej. `python:3.12-alpine`)
+- **WORKDIR:** Carpeta de trabajo dentro del contenedor
+- **COPY:** Copia archivos de nuestra computadora al contenedor
+- **RUN:** Ejecuta comandos durante la creación de la imagen (ej. instalar paquetes)
+- **EXPOSE:** Documenta qué puerto escuchará el servicio
+- **CMD:** Comando que arranca la aplicación al iniciar el contenedor
 
 ---
 
@@ -173,7 +387,7 @@ WSL2 & Docker Desktop
 - Responder las siguientes preguntas:
   - ¿Qué es un volumen, para qué sirve?
   - ¿Qué es docker-compose, para qué sirve?
-- Levantar la web de la Materia
+- Levantar la web de la Materia con Docker
 - Levantar servidor de Minecraft (Extra)
 
 **Ver para la clase que viene:**
