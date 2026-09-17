@@ -536,7 +536,7 @@
     <ul class="bullets">
       <li><span><strong>Imágenes en capas (UnionFS):</strong> Cada instrucción del <code>Dockerfile</code> genera una capa inmutable. Si dos imágenes comparten capas, Docker las reutiliza y no gasta disco duplicado.</span></li>
       <li><span><strong>Capa de escritura efímera:</strong> El contenedor monta una capa temporal encima. Al destruir el contenedor, los cambios o archivos nuevos que escribió desaparecen.</span></li>
-      <li><span><strong>¿Y si queremos guardar datos persistentes?</strong> Para eso usamos <strong>Volúmenes</strong>: carpetas del disco anfitrión vinculadas de forma segura al contenedor (clave para bases de datos o mundos de juegos).</span></li>
+      <li><span><strong>¿Y si queremos guardar datos persistentes?</strong> Para eso usamos <strong>Volúmenes</strong>: carpetas del disco del Host (Anfitrión) vinculadas de forma segura al contenedor (clave para bases de datos o mundos de juegos).</span></li>
     </ul>
   </div>
   <div class="s-foot">

@@ -226,7 +226,7 @@ Con una única imagen de base (ej: `postgres` o `nginx`):
 - Las imágenes se componen de **capas de sólo lectura** (UnionFS / overlay2) que se reutilizan entre imágenes.
 - El contenedor agrega una **capa de escritura efímera**: si borrás el contenedor, los archivos temporales creados adentro desaparecen.
 - **¿Cómo guardamos datos que no queremos perder?**
-  - Usamos **Volúmenes**: carpetas persistentes que vinculan el disco de tu computadora con el interior del contenedor.
+  - Usamos **Volúmenes**: carpetas del disco del Host (Anfitrión) vinculadas de forma segura al interior del contenedor (clave para bases de datos o mundos de juegos).
 
 ---
 
