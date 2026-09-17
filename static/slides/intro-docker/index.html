@@ -36,7 +36,7 @@
       <li><span class="idx">.03</span><span class="lbl">Contexto histórico: ¿Cómo corríamos software antes?</span></li>
       <li><span class="idx">.04</span><span class="lbl">Docker: Imágenes y Contenedores</span></li>
       <li><span class="idx">.05</span><span class="lbl">Cosas que solucionamos con Docker</span></li>
-      <li><span class="idx">.06</span><span class="lbl">Manos a la obra: Un Coso Dockerizado</span></li>
+      <li><span class="idx">.06</span><span class="lbl">Manos a la obra: Comandos en vivo y el Coso Dockerizado</span></li>
     </ul>
   </div>
   <div class="s-foot">
@@ -656,12 +656,12 @@
   </div>
 </section>
 
-<!-- 35: Sección: .06 Manos a la obra: Un Coso Dockerizado -->
+<!-- 35: Sección: .06 Manos a la obra: Comandos en vivo y el Coso Dockerizado -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
     <div class="eyebrow"><span class="dot"></span>Sección .06</div>
-    <div class="s-title">Manos a la obra: Un Coso Dockerizado</div>
-    <div class="s-sub" style="margin-top:.5em;opacity:.9;">Armando nuestra primera aplicación contenerizada paso a paso</div>
+    <div class="s-title">Manos a la obra: Comandos en vivo y el Coso Dockerizado</div>
+    <div class="s-sub" style="margin-top:.5em;opacity:.9;">Probando Docker en la consola y creando nuestra primera app</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -670,7 +670,150 @@
   </div>
 </section>
 
-<!-- 36: ¿Cómo definimos nuestras propias imágenes? -->
+<!-- 36: Nuestro primer comando: docker run hello-world -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="s-title s-title--md">Nuestro primer comando: <code>hello-world</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run hello-world</code></pre>
+    </div>
+    <p class="s-body-text" style="margin-top:.2em;font-size:1.15rem;font-weight:600;">¿Qué pasó por detrás cuando diste Enter?</p>
+    <ul class="bullets">
+      <li><span><strong>1. Búsqueda local:</strong> Docker revisó si ya tenías la imagen <code>hello-world</code> en tu máquina $\rightarrow$ no la encontró.</span></li>
+      <li><span><strong>2. Descarga desde Docker Hub:</strong> Se conectó automáticamente al registro público en internet y descargó la imagen.</span></li>
+      <li><span><strong>3. Creación y aislamiento:</strong> Creó un nuevo contenedor con su propio espacio de procesos y memoria.</span></li>
+      <li><span><strong>4. Ejecución:</strong> Corrió el programa empaquetado, que imprimió el saludo en tu terminal.</span></li>
+      <li><span><strong>5. Finalización:</strong> Terminó su tarea y el contenedor se detuvo solo.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">36</span>
+  </div>
+</section>
+
+<!-- 37: Una terminal interactiva: docker run -it alpine sh -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="s-title s-title--md">Una terminal interactiva: <code>alpine sh</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run -it alpine sh</code></pre>
+    </div>
+    <ul class="bullets">
+      <li><span><code>-i</code> (interactive) mantiene abierto el canal de entrada (<code>stdin</code>) para escribirle.</span></li>
+      <li><span><code>-t</code> (pseudo-TTY) le asigna una consola emulada para sentirla como una terminal real.</span></li>
+    </ul>
+    <p class="s-body-text" style="font-size:1.15rem;margin:.5em 0 .3em;"><strong>¡Estás adentro de un Linux independiente en 1 segundo!</strong> Probá correr adentro:</p>
+    <div class="code-block" style="flex:1;">
+      <div class="fname">Adentro del contenedor Alpine (/ #)</div>
+      <pre><code><span class="c3">/ #</span> cat /etc/os-release   <span class="c1"># Vemos la versión de Alpine Linux</span>
+<span class="c3">/ #</span> uname -a              <span class="c1"># ¡Muestra el kernel de tu computadora!</span>
+<span class="c3">/ #</span> hostname              <span class="c1"># El ID efímero asignado a tu contenedor</span>
+<span class="c3">/ #</span> exit                  <span class="c1"># Salir y apagar el contenedor</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">37</span>
+  </div>
+</section>
+
+<!-- 38: Un servidor web en segundo plano: nginx -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="s-title s-title--md">Un servidor web en segundo plano: <code>nginx</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run -d -p 8080:80 --name mi-servidor nginx</code></pre>
+    </div>
+    <ul class="bullets">
+      <li><span><code>-d</code> (detached): Corre en segundo plano. Tu consola queda libre al instante.</span></li>
+      <li><span><code>-p 8080:80</code> (puertos): Conecta el puerto <strong>8080</strong> de tu compu física con el puerto <strong>80</strong> interno de Nginx.</span></li>
+      <li><span><code>--name mi-servidor</code>: Le da un nombre amigable en lugar de un ID aleatorio.</span></li>
+    </ul>
+    <p class="s-body-text" style="margin-top:.8em;font-size:1.25rem;">
+      👉 <strong>Abran el navegador en:</strong> <code>http://localhost:8080</code><br>
+      <span style="font-size:.9em;color:var(--muted);">¡Un servidor web de producción corriendo en tu máquina sin haber instalado nada en tu sistema operativo!</span>
+    </p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">38</span>
+  </div>
+</section>
+
+<!-- 39: Controlando contenedores: Los 4 comandos clave -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="s-title s-title--md">Controlando contenedores: Los 4 comandos clave</div>
+    <div class="code-block">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c1"># 1. Ver qué contenedores están corriendo AHORA</span>
+<span class="c3">$</span> docker ps
+
+<span class="c1"># 2. Ver TODOS los contenedores (incluso los apagados como hello-world)</span>
+<span class="c3">$</span> docker ps -a
+
+<span class="c1"># 3. Detener un contenedor en ejecución</span>
+<span class="c3">$</span> docker stop mi-servidor
+
+<span class="c1"># 4. Eliminarlo definitivamente del disco</span>
+<span class="c3">$</span> docker rm mi-servidor</code></pre>
+    </div>
+    <p class="s-body-text" style="font-size:1.15rem;margin-top:.5em;">
+      <strong>Tip pro:</strong> Agregando <code>--rm</code> (ej: <code>docker run --rm hello-world</code>), el contenedor se destruye automáticamente apenas termina, sin dejar basura acumulada.
+    </p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">39</span>
+  </div>
+</section>
+
+<!-- 40: Un saludo con arte ASCII: whalesay -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="s-title s-title--md">Un saludo con arte ASCII: <code>whalesay</code></div>
+    <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
+      <div class="fname">Terminal</div>
+      <pre><code><span class="c3">$</span> docker run --rm docker/whalesay cowsay "¡Aguante Intro Camejo!"</code></pre>
+    </div>
+    <div class="code-block" style="flex:1;background:#16130f;color:#22c55e;">
+      <div class="fname" style="color:#6e6a63;">Salida de consola</div>
+      <pre><code> ________________________ 
+&lt; ¡Aguante Intro Camejo! &gt;
+ ------------------------ 
+    \
+     \
+      \     ##        .            
+            ## ## ##       ==       
+         ## ## ## ##      ===       
+     /""""""""""""""""___/ ===        
+~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+     \______ o          __/            
+      \    \        __/             
+       \____\______/   </code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">40</span>
+  </div>
+</section>
+
+<!-- 41: ¿Cómo definimos nuestras propias imágenes? -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -688,11 +831,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">36</span>
+    <span class="num">41</span>
   </div>
 </section>
 
-<!-- 37: Nuestro propio "Coso Dockerizado" -->
+<!-- 42: Nuestro propio "Coso Dockerizado" -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -721,11 +864,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">37</span>
+    <span class="num">42</span>
   </div>
 </section>
 
-<!-- 38: El Dockerfile del Coso -->
+<!-- 43: El Dockerfile del Coso -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -748,11 +891,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">38</span>
+    <span class="num">43</span>
   </div>
 </section>
 
-<!-- 39: Docker Compose: Orquestando el Coso -->
+<!-- 44: Docker Compose: Orquestando el Coso -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -773,11 +916,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">39</span>
+    <span class="num">44</span>
   </div>
 </section>
 
-<!-- 40: Comandos esenciales para correr el Coso -->
+<!-- 45: Comandos esenciales para correr el Coso -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -801,11 +944,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">40</span>
+    <span class="num">45</span>
   </div>
 </section>
 
-<!-- 41: ¿Qué necesitamos? -->
+<!-- 46: ¿Qué necesitamos? -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -819,11 +962,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">41</span>
+    <span class="num">46</span>
   </div>
 </section>
 
-<!-- 42: Tarea -->
+<!-- 47: Tarea -->
 <section class="slide">
   <div class="s-pad">
     <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
@@ -856,11 +999,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">42</span>
+    <span class="num">47</span>
   </div>
 </section>
 
-<!-- 43: Cierre -->
+<!-- 48: Cierre -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="closing-center">
@@ -872,9 +1015,10 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">43</span>
+    <span class="num">48</span>
   </div>
 </section>
+
 
 </main>
 <script src="../_template/nav.js"></script>

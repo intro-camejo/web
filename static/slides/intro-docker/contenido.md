@@ -273,7 +273,78 @@ Con una única imagen de base (ej: `postgres` o `nginx`):
 
 ---
 
-# Manos a la obra: Un Coso Dockerizado
+# Manos a la obra: Comandos en vivo y el Coso Dockerizado
+
+---
+
+## Nuestro primer comando: `docker run hello-world`
+
+```bash
+docker run hello-world
+```
+
+### ¿Qué pasó por detrás cuando diste Enter?
+1. Docker buscó la imagen `hello-world` en tu máquina local $\rightarrow$ no la encontró.
+2. Fue a buscarla a **Docker Hub** (el registro público) y la descargó.
+3. Creó un contenedor nuevo y aislado a partir de esa imagen.
+4. Ejecutó el ejecutable que imprime el mensaje de bienvenida.
+5. El proceso terminó su tarea y el contenedor se detuvo.
+
+---
+
+## Una terminal interactiva: `docker run -it alpine sh`
+
+```bash
+docker run -it alpine sh
+```
+
+- **`-i` (interactive):** Mantiene abierto el canal de entrada (`stdin`) para que puedas escribirle.
+- **`-t` (pseudo-TTY):** Asigna una terminal para que la experiencia sea idéntica a una consola real.
+
+**¡Estás adentro de un sistema Linux independiente en 1 segundo!**
+Probá correr estos comandos adentro del contenedor:
+- `cat /etc/os-release` *(para ver qué distro es)*
+- `uname -a` *(para ver qué kernel usa)*
+- `hostname` *(tu ID aislado de contenedor)*
+- `exit` *(para salir y apagar el contenedor)*
+
+---
+
+## Un servidor web en segundo plano: `nginx`
+
+```bash
+docker run -d -p 8080:80 --name mi-servidor nginx
+```
+
+- **`-d` (detached):** Corre en segundo plano; tu terminal queda libre inmediatamente.
+- **`-p 8080:80` (puertos):** Conecta el puerto `8080` de tu compu física al puerto `80` del contenedor.
+- **`--name mi-servidor`:** Le da un nombre reconocible para no depender del ID numérico.
+
+👉 **Abran el navegador en:** `http://localhost:8080`
+*(¡Un servidor web de producción corriendo en tu máquina sin instalar nada!)*
+
+---
+
+## Controlando contenedores: Los 4 comandos clave
+
+- **`docker ps`** — Muestra los contenedores que están corriendo en este momento.
+- **`docker ps -a`** — Muestra **todos** los contenedores (incluidos los detenidos como `hello-world`).
+- **`docker stop mi-servidor`** — Detiene suavemente el contenedor en ejecución.
+- **`docker rm mi-servidor`** — Elimina el contenedor del disco.
+
+*Tip:* El flag `--rm` (ej. `docker run --rm hello-world`) elimina automáticamente el contenedor apenas termina de correr para no acumular basura.
+
+---
+
+## Un saludo con arte ASCII: `whalesay`
+
+```bash
+docker run --rm docker/whalesay cowsay "¡Aguante Intro Camejo!"
+```
+
+- Descarga la imagen con la ballena oficial de Docker.
+- Imprime el mensaje formateado en arte ASCII por pantalla.
+- Gracias al flag `--rm`, el contenedor se destruye automáticamente al terminar.
 
 ---
 
