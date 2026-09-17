@@ -197,15 +197,15 @@ Un container contiene el código y las dependencias necesarias para correr una a
 <!-- slide: tipo=comparacion -->
 ## Container vs Imagen: Las analogías clave
 
-### Imagen (El Molde / La Receta)
+### Imagen (El Plano)
 - Plantilla estática e inmutable (de sólo lectura)
-- Como una receta de cocina, el plano de una casa o una clase en POO
+- Es como **el plano** de una casa (o una receta de cocina)
 - Contiene: código, librerías, runtime y configuración
 - Se construye una vez y se comparte en Docker Hub
 
-### Contenedor (La Instancia / El Proceso)
+### Contenedor (La Casa Construida)
 - Instancia viva en ejecución de esa imagen
-- Como la torta horneada, la casa construida o el objeto instanciado
+- Es **la casa ya construida** a partir de ese plano (o la torta horneada)
 - Es un proceso real de tu compu con una capa de lectura/escritura (R/W)
 - Tiene ciclo de vida: podés crearlo, pausarlo, apagarlo y destruirlo
 
