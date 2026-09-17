@@ -280,7 +280,7 @@ Con una única imagen de base (ej: `postgres` o `nginx`):
 
 ---
 
-# Manos a la obra: Comandos en vivo y el Coso Dockerizado
+# Wrapping up
 
 ---
 
@@ -368,58 +368,6 @@ Declarativamente usando un `Dockerfile`:
 
 ---
 
-## Nuestro propio "Coso Dockerizado"
-
-Creamos un ejemplo real en el repositorio de la materia: `ejemplos/coso-dockerizado`
-
-- **¿Qué hace el Coso?**
-  - Servidor web interactivo escrito en Python puro (ultraliviano, sin dependencias externas).
-  - Muestra en tiempo real la información aislada del contenedor (Hostname/ID, SO del contenedor, memoria, uptime).
-  - Incluye un probador interactivo de cámara web (software para cámaras en el navegador).
-
----
-
-## El Dockerfile del Coso
-
-```dockerfile
-FROM python:3.12-alpine
-WORKDIR /app
-COPY app.py .
-RUN adduser -D cosouser && chown -R cosouser:cosouser /app
-USER cosouser
-EXPOSE 8000
-CMD ["python", "app.py"]
-```
-
----
-
-## Docker Compose: Orquestando el Coso
-
-Para no escribir comandos largos de terminal, usamos un archivo `docker-compose.yml`:
-
-```yaml
-services:
-  coso:
-    build: .
-    container_name: mi-coso-dockerizado
-    ports:
-      - "8000:8000"
-    restart: unless-stopped
-```
-
-Con solo correr `docker compose up --build`, Docker construye la imagen, crea el contenedor y mapea el puerto 8000 a nuestra computadora.
-
----
-
-## Comandos esenciales
-
-- **docker compose up --build** — Construye y levanta el servicio
-- **docker ps** — Lista los contenedores que se están ejecutando
-- **docker logs mi-coso-dockerizado** — Muestra la salida por consola del contenedor
-- **docker compose down** — Detiene y destruye los contenedores liberando recursos
-
----
-
 ## ¿Qué necesitamos?
 
 ### Linux
@@ -436,7 +384,6 @@ WSL2 & Docker Desktop
 ## Tarea
 
 - Poder correr `docker run hello-world`
-- Levantar nuestro **Coso Dockerizado** (`ejemplos/coso-dockerizado`)
 - Responder las siguientes preguntas:
   - ¿Qué es un volumen, para qué sirve?
   - ¿Qué es docker-compose, para qué sirve?

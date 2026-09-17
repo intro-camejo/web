@@ -36,7 +36,7 @@
       <li><span class="idx">.03</span><span class="lbl">Contexto histórico: ¿Cómo corríamos software antes?</span></li>
       <li><span class="idx">.04</span><span class="lbl">Docker: Imágenes y Contenedores</span></li>
       <li><span class="idx">.05</span><span class="lbl">Cosas que solucionamos con Docker</span></li>
-      <li><span class="idx">.06</span><span class="lbl">Manos a la obra: Comandos en vivo y el Coso Dockerizado</span></li>
+      <li><span class="idx">.06</span><span class="lbl">Wrapping up</span></li>
     </ul>
   </div>
   <div class="s-foot">
@@ -673,12 +673,12 @@
   </div>
 </section>
 
-<!-- 36: Sección: .06 Manos a la obra: Comandos en vivo y el Coso Dockerizado -->
+<!-- 36: Sección: .06 Wrapping up -->
 <section class="slide on-accent">
   <div class="s-pad" style="justify-content:center;">
     <div class="eyebrow"><span class="dot"></span>Sección .06</div>
-    <div class="s-title">Manos a la obra: Comandos en vivo y el Coso Dockerizado</div>
-    <div class="s-sub" style="margin-top:.5em;opacity:.9;">Probando Docker en la consola y creando nuestra primera app</div>
+    <div class="s-title">Wrapping up</div>
+    <div class="s-sub" style="margin-top:.5em;opacity:.9;">Comandos en vivo y próximos pasos</div>
   </div>
   <div class="s-foot">
     <span>Intro Camejo</span>
@@ -690,7 +690,7 @@
 <!-- 37: Nuestro primer comando: docker run hello-world -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Nuestro primer comando: <code>hello-world</code></div>
     <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
       <div class="fname">Terminal</div>
@@ -715,7 +715,7 @@
 <!-- 38: Una terminal interactiva: docker run -it alpine sh -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Una terminal interactiva: <code>alpine sh</code></div>
     <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
       <div class="fname">Terminal</div>
@@ -744,7 +744,7 @@
 <!-- 39: Un servidor web en segundo plano: nginx -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Un servidor web en segundo plano: <code>nginx</code></div>
     <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
       <div class="fname">Terminal</div>
@@ -770,7 +770,7 @@
 <!-- 40: Controlando contenedores: Los 4 comandos clave -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Controlando contenedores: Los 4 comandos clave</div>
     <div class="code-block">
       <div class="fname">Terminal</div>
@@ -800,7 +800,7 @@
 <!-- 41: Un saludo con arte ASCII: whalesay -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Comandos en vivo</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Un saludo con arte ASCII: <code>whalesay</code></div>
     <div class="code-block" style="flex:0 0 auto;margin-bottom:.6em;">
       <div class="fname">Terminal</div>
@@ -833,7 +833,7 @@
 <!-- 42: ¿Cómo definimos nuestras propias imágenes? -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">¿Cómo definimos nuestras propias imágenes?</div>
     <p class="s-body-text">Declarativamente usando un archivo de texto llamado <code>Dockerfile</code>:</p>
     <ul class="bullets">
@@ -852,123 +852,10 @@
   </div>
 </section>
 
-<!-- 43: Nuestro propio "Coso Dockerizado" -->
+<!-- 43: ¿Qué necesitamos? -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
-    <div class="s-title s-title--md">Nuestro propio "Coso Dockerizado"</div>
-    <div class="cols2">
-      <div>
-        <p class="s-body-text">Agregamos un proyecto práctico al repo: <code>ejemplos/coso-dockerizado</code></p>
-        <ul class="bullets">
-          <li><span><strong>Servidor Web nativo:</strong> Escrito en Python estándar sin dependencias externas pesadas.</span></li>
-          <li><span><strong>Aislamiento en vivo:</strong> Muestra el Hostname/ID efímero del contenedor, SO y uptime.</span></li>
-          <li><span><strong>Software para cámaras interactivo:</strong> Probador de webcam integrado en el navegador para capturar video y fotos desde el servicio dockerizado.</span></li>
-        </ul>
-      </div>
-      <div>
-        <div class="code-block" style="margin-top:0;">
-          <div class="fname">Estructura del Coso</div>
-          <pre><code>ejemplos/coso-dockerizado/
-├── <span class="tok-fn">app.py</span>             <span class="tok-com"># Servidor web interactivo</span>
-├── <span class="tok-fn">Dockerfile</span>         <span class="tok-com"># Receta de la imagen</span>
-├── <span class="tok-fn">docker-compose.yml</span> <span class="tok-com"># Orquestación del servicio</span>
-└── <span class="tok-fn">README.md</span>          <span class="tok-com"># Instrucciones de uso</span></code></pre>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="s-foot">
-    <span>Intro Camejo</span>
-    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">43</span>
-  </div>
-</section>
-
-<!-- 44: El Dockerfile del Coso -->
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
-    <div class="s-title s-title--md">El Dockerfile del Coso</div>
-    <p class="s-body-text">Un Dockerfile limpio y seguro siguiendo las mejores prácticas de la industria:</p>
-    <div class="code-block">
-      <div class="fname">ejemplos/coso-dockerizado/Dockerfile</div>
-      <pre><code><span class="tok-kw">FROM</span> python:3.12-alpine
-<span class="tok-kw">WORKDIR</span> /app
-<span class="tok-kw">COPY</span> app.py .
-
-<span class="tok-com"># Buenas prácticas: usuario sin privilegios root</span>
-<span class="tok-kw">RUN</span> adduser -D cosouser &amp;&amp; chown -R cosouser:cosouser /app
-<span class="tok-kw">USER</span> cosouser
-
-<span class="tok-kw">EXPOSE</span> 8000
-<span class="tok-kw">CMD</span> [<span class="tok-str">"python"</span>, <span class="tok-str">"app.py"</span>]</code></pre>
-    </div>
-  </div>
-  <div class="s-foot">
-    <span>Intro Camejo</span>
-    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">44</span>
-  </div>
-</section>
-
-<!-- 45: Docker Compose: Orquestando el Coso -->
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
-    <div class="s-title s-title--md">Docker Compose: Orquestando el Coso</div>
-    <p class="s-body-text">Para no tener que recordar flags largos en la consola, definimos el servicio en un archivo YAML:</p>
-    <div class="code-block">
-      <div class="fname">ejemplos/coso-dockerizado/docker-compose.yml</div>
-      <pre><code><span class="tok-kw">services</span>:
-  <span class="tok-fn">coso</span>:
-    <span class="tok-kw">build</span>: .
-    <span class="tok-kw">container_name</span>: mi-coso-dockerizado
-    <span class="tok-kw">ports</span>:
-      - <span class="tok-str">"8000:8000"</span>
-    <span class="tok-kw">restart</span>: unless-stopped</code></pre>
-    </div>
-    <p class="s-body-text" style="font-size:1.15rem;margin-top:.6em;">El mapeo <code>"8000:8000"</code> conecta el puerto de nuestra compu física con el puerto 8000 del contenedor.</p>
-  </div>
-  <div class="s-foot">
-    <span>Intro Camejo</span>
-    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">45</span>
-  </div>
-</section>
-
-<!-- 46: Comandos esenciales para correr el Coso -->
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
-    <div class="s-title s-title--md">Comandos esenciales para correr el Coso</div>
-    <div class="code-block">
-      <div class="fname">Terminal</div>
-      <pre><code><span class="c1"># 1. Construir y levantar el Coso en un solo paso</span>
-<span class="c3">$</span> docker compose up --build
-
-<span class="c1"># 2. Ver contenedores activos en la máquina</span>
-<span class="c3">$</span> docker ps
-
-<span class="c1"># 3. Ver los logs de lo que pasa adentro del contenedor</span>
-<span class="c3">$</span> docker logs -f mi-coso-dockerizado
-
-<span class="c1"># 4. Detener y limpiar los contenedores</span>
-<span class="c3">$</span> docker compose down</code></pre>
-    </div>
-    <p class="s-body-text" style="font-size:1.2rem;margin-top:.6em;">¡Listo! Abrís <code>http://localhost:8000</code> y ya estás interactuando con tu contenedor.</p>
-  </div>
-  <div class="s-foot">
-    <span>Intro Camejo</span>
-    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">46</span>
-  </div>
-</section>
-
-<!-- 47: ¿Qué necesitamos? -->
-<section class="slide">
-  <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">¿Qué necesitamos para empezar?</div>
     <ul class="bullets">
       <li><span><strong>Linux:</strong> Docker Engine nativo (el más rápido y liviano de todos).</span></li>
@@ -979,20 +866,19 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">47</span>
+    <span class="num">43</span>
   </div>
 </section>
 
-<!-- 48: Tarea -->
+<!-- 44: Tarea -->
 <section class="slide">
   <div class="s-pad">
-    <div class="eyebrow"><span class="dot"></span>.06 — Un Coso Dockerizado</div>
+    <div class="eyebrow"><span class="dot"></span>.06 — Wrapping up</div>
     <div class="s-title s-title--md">Tarea</div>
     <div class="cols2">
       <div>
         <ul class="bullets">
           <li><span>Poder correr <code>docker run hello-world</code></span></li>
-          <li><span>Levantar nuestro <strong>Coso Dockerizado</strong> (en <code>ejemplos/coso-dockerizado</code>)</span></li>
           <li>
             <span>Responder las siguientes preguntas:
               <ul style="list-style:none;margin:.4em 0 0;padding-left:.8em;display:flex;flex-direction:column;gap:.35em;">
@@ -1016,11 +902,11 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">48</span>
+    <span class="num">44</span>
   </div>
 </section>
 
-<!-- 49: Cierre -->
+<!-- 45: Cierre -->
 <section class="slide on-accent">
   <div class="s-pad">
     <div class="closing-center">
@@ -1032,7 +918,7 @@
   <div class="s-foot">
     <span>Intro Camejo</span>
     <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-    <span class="num">49</span>
+    <span class="num">45</span>
   </div>
 </section>
 
