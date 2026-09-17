@@ -271,6 +271,15 @@ Con una única imagen de base (ej: `postgres` o `nginx`):
 
 ---
 
+## Caso 5: Proyectos enteros...
+
+- **¿Qué pasa cuando una aplicación necesita varios servicios a la vez?**
+  - Una web en React + una API en Python + una base de datos PostgreSQL + Redis.
+- ¿Tenemos que acordarnos 4 comandos `docker run` gigantes conectando redes y puertos a mano?
+- Para levantar proyectos enteros interconectados con un solo comando existe **Docker Compose** (que ya lo vamos a ver)...
+
+---
+
 # Manos a la obra: Comandos en vivo y el Coso Dockerizado
 
 ---
