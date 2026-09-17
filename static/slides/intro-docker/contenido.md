@@ -200,13 +200,11 @@ Un container contiene el código y las dependencias necesarias para correr una a
 ### Imagen (El Plano)
 - Plantilla estática e inmutable (de sólo lectura)
 - Es como **el plano** de una casa (o una receta de cocina)
-- Contiene: código, librerías, runtime y configuración
-- Se construye una vez y se comparte en Docker Hub
+- Se define con un `Dockerfile`
 
 ### Contenedor (La Casa Construida)
 - Instancia viva en ejecución de esa imagen
 - Es **la casa ya construida** a partir de ese plano (o la torta horneada)
-- Es un proceso real de tu compu con una capa de lectura/escritura (R/W)
 - Tiene ciclo de vida: podés crearlo, pausarlo, apagarlo y destruirlo
 
 ---
