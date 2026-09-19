@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 # Guía 3 - SQL
@@ -55,7 +55,7 @@ CREATE TABLE conciertos_musicos (
 );
 ```
 
-**Importante**: para revisar tus respuestas, podés entrar a este link de [**DB Fiddle**](https://www.db-fiddle.com/f/o4BQczgY9ZnezSUYht4rCh/16) y pegar el código SQL que hayas escrito. Hay datos precargados en las tablas, por lo que no es necesario insertar datos adicionales (podés jugar con los datos que ya están o añadir más). **A modo de simplificación, no hay valores o campos nulos en los datos.**
+**Importante**: para revisar tus respuestas, podés entrar a este link de [**DB Fiddle**](https://www.db-fiddle.com/f/o4BQczgY9ZnezSUYht4rCh/198) y pegar el código SQL que hayas escrito. Hay datos precargados en las tablas, por lo que no es necesario insertar datos adicionales (podés jugar con los datos que ya están o añadir más). **A modo de simplificación, no hay valores o campos nulos en los datos.**
 
 *Para los amantes de la música: muchos datos no son reales y están puestos a modo de ejemplo. Sabemos que los Beatles no vinieron a Argentina en 2015, y que Sgt. Pepper's no es su primer álbum :)*
 
@@ -63,7 +63,7 @@ CREATE TABLE conciertos_musicos (
 
 Se pide mostrar, en cada ejercicio:
 
-### Nivel 0 (Introductorios)
+### Nivel 0
 
 1. **Todas las bandas musicales** con sus respectivos campos (todos). 
 2. Solo el **nombre y el país de origen** de todas las bandas.
@@ -75,46 +75,48 @@ Se pide mostrar, en cada ejercicio:
 8. El **nombre y la duración** de todas las canciones, ordenadas por duración (de más larga a más corta).
 9. El **nombre y fecha** de todos los conciertos, ordenados por fecha (de más antiguo a más reciente).
 
-### Nivel 1 (No me preocupo)
+### Nivel 1
 
-1. El **nombre y el país de origen** de todas las bandas que tienen exactamente 5 integrantes.
-2. El **nombre y la duración** de todos los álbumes que tienen una duración mayor a 40 minutos.
-3. El **nombre y la duración** de todas las canciones que tienen una duración menor o igual a 3 minutos.
-4. El **nombre y la fecha** de todos los conciertos que se realizaron en el país "Argentina".
-5. El nombre y ranking de los **mejores 7 álbumes** de la historia (según *fulanito*), ordenados alfabéticamente por nombre (de A a Z).
+10. El **nombre y el país de origen** de todas las bandas que tienen exactamente 5 integrantes.
+11. El **nombre y la duración** de todos los álbumes que tienen una duración mayor a 40 minutos.
+12. El **nombre y la duración** de todas las canciones que tienen una duración menor o igual a 3 minutos.
+13. El **nombre y la fecha** de todos los conciertos que se realizaron en el país "Argentina".
 
-### Nivel 2 (Vamos calentando)
+### Nivel 2
 
-1. El nombre y ranking de las **peores 5 canciones** de la historia (según *fulanito*), ordenadas de peor a mejor ranking (¡la peor va primero!).
-2. El nombre de todos los albumes de la banda **The Beatles**.
-3. El nombre de todas las bandas que tienen al menos un álbum lanzado **antes o en el año 1980**. (¡que no se repitan las bandas!)
-4. El **nombre y la fecha** de los conciertos que se realizaron en el país "Argentina" y que tuvieron lugar **antes del año 2010**.
-5. La suma de la duración de todas las canciones de la banda **Queen**.
-6. La suma de la duración de todos los álbumes de la banda **The Rolling Stones**.
-7. El nombre de los conciertos a los cuales asistió la banda **Dire Straits**.
-8. El nombre de las bandas que tienen al menos un álbum con una duración **menor a 40 minutos** (¡que no se repitan las bandas!).
+14. El nombre y ranking de las **peores 5 canciones** de la historia, ordenadas de peor a mejor ranking.
+15. El nombre de todos los albumes de la banda **The Beatles**.
+16. El nombre de todas las bandas que tienen al menos un álbum lanzado **antes o en el año 1980**. (¡que no se repitan las bandas!)
+17. El **nombre y la fecha** de los conciertos que se realizaron en el país "Argentina" y que tuvieron lugar **antes del año 2010**.
+18. La suma de la duración de todas las canciones de la banda **Queen**.
+19. La suma de la duración de todos los álbumes de la banda **The Rolling Stones**.
+20. El nombre de los conciertos a los cuales asistió la banda **Dire Straits**.
+21. El nombre de las bandas que tienen al menos un álbum con una duración **menor a 45 minutos** (¡que no se repitan las bandas!).
 
-### Nivel 3 (Me pongo las pilas)
+### Nivel 3
 
-1. El nombre de las bandas cuyos álbumes (todos) duran **más de 50 minutos**.
-2. El nombre de las canciones (con el nombre de su álbum) que pertenecen a álbumes lanzados **después del año 2000**. Ordenarlas por nombre de álbum (de A a Z), y por cada álbum, por nombre de canción (de Z a A).
-3. El nombre de las bandas con menos de 5 integrantes y de género "Rock Alternativo", cuyas canciones duran 4 o más minutos (todas ellas).
-4. El **concierto con más bandas participantes**, mostrando el nombre del concierto y la cantidad de bandas que participaron.
-5. El nombre de los álbumes cuyas bandas fueron **al menos a un concierto en el país "Argentina"**, ordenados por ranking de mejor a peor.
-6. La **cantidad de canciones** que tiene cada banda, ordenadas de mayor a menor cantidad de canciones. Mostrar el nombre de la banda y la cantidad de canciones.
+22. El nombre de las bandas cuyos álbumes (todos) duran **más de 50 minutos**.
+23. El nombre de las canciones (con el nombre de su álbum) que pertenecen a álbumes lanzados **después del año 2000**. Ordenarlas por nombre de álbum (de A a Z), y por cada álbum, por nombre de canción (de Z a A).
+24. El nombre de las bandas con menos de 5 integrantes y de género "Rock Alternativo", cuyas canciones duran 4 o más minutos (todas ellas).
+25. El **concierto con más bandas participantes**, mostrando el nombre del concierto y la cantidad de bandas que participaron.
+26. El nombre de los álbumes cuyas bandas fueron **al menos a un concierto en el país "Argentina"**, ordenados por ranking de mejor a peor.
+27. La **cantidad de canciones** que tiene cada banda, ordenadas de mayor a menor cantidad de canciones. Mostrar el nombre de la banda y la cantidad de canciones.
 
-### Nivel 4 (Uy, qué está pasando?)
+### Nivel 4
 
-1. El **primer álbum de todas las bandas**. Mostrar el nombre de la banda, del álbum y el año de lanzamiento. ¿Y para hacerlo con el último de cada banda?
-2. La **cantidad promedio de integrantes** de las bandas por cada género musical. Mostrar el género y la cantidad promedio de integrantes.
-3. El nombre de las bandas que participaron en **todos los conciertos** que ocurrieron en el país "Argentina".
-4. Las bandas cuyo **promedio de duración de canciones es mayor a 5 minutos**. Mostrar el nombre de la banda y el promedio de duración de sus canciones.
-5. El nombre de las bandas que **no tienen conciertos registrados**.
-6. El nombre y ranking de los álbumes que tienen todas sus canciones con un ranking peor o igual a 30. 
-7. El nombre de las bandas que tienen a **más de la mitad de sus canciones con un ranking peor o igual a 30**. Mostrar también (para cada banda) la cantidad de canciones rankeadas peor o igual a 30, así como el promedio de ranking de TODAS las canciones de la banda.
-8. El nombre de las bandas que **no tienen ninguna canción dentro del TOP 10** de canciones (según *fulanito*). Mostrar también el promedio de ranking de todas las canciones de la banda, y ranking mínimo de ellas (es decir, el de su mejor canción).
-9. El nombre de las canciones cuyo **ranking es mejor que el ranking del álbum al que pertenecen**. Mostrar también el ranking de la canción, así como el nombre del álbum y su ranking. Ordenar por ranking de canción (de mejor a peor).
-10. Las bandas y los conciertos donde **el concierto se realizó en el país de origen de la banda**. Mostrar (en este orden) el nombre de la banda, el del concierto, y el país de origen de la banda.
+28. El **primer álbum de todas las bandas**. Mostrar el nombre de la banda, del álbum y el año de lanzamiento. ¿Y para hacerlo con el último de cada banda?
+29. La **cantidad promedio de integrantes** de las bandas por cada género musical. Mostrar el género, la cantidad de bandas y la cantidad promedio de integrantes.
+30. El nombre de las bandas que participaron en **todos los conciertos** que ocurrieron en el país "Argentina".
+31. Las bandas cuyo **promedio de duración de canciones es mayor a 5 minutos**. Mostrar el nombre de la banda y el promedio de duración de sus canciones.
+32. El nombre de las bandas que **no tienen conciertos registrados**.
+33. El nombre y ranking de los álbumes que tienen todas sus canciones con un ranking peor o igual a 30. 
+34. El nombre de las bandas que tienen a **más de la mitad de sus canciones con un ranking peor o igual a 30**. Mostrar también (para cada banda) la cantidad de canciones que cumplen con esa condición, así como el promedio de ranking de TODAS las canciones de la banda.
+35. El nombre de las bandas que **no tienen ninguna canción dentro del TOP 10** de canciones. Mostrar también el promedio de ranking de todas las canciones de la banda, y ranking mínimo de ellas (es decir, el de su mejor canción).
+36. El nombre de las canciones cuyo **ranking es mejor que el ranking del álbum al que pertenecen**. Mostrar también el ranking de la canción, así como el nombre del álbum y su ranking. Ordenar por ranking de canción (de mejor a peor).
+37. Las bandas y los conciertos donde **el concierto se realizó en el país de origen de la banda**. Mostrar (en este orden) el nombre de la banda, el del concierto, y el país de origen de la banda.
+38. Por cada concierto, mostrar su nombre y el **porcentaje de bandas participantes** cuyo país de origen es el mismo que el país del concierto.
+39. Los conciertos en los cuales participó la banda con el **álbum más largo**. En caso de empate, considerar todas las bandas con el álbum más largo. Ordenar los conciertos por fecha (de más reciente a más antiguo).
+40. El nombre de los álbumes que tienen una **duración mayor al promedio de duración** de todos los álbumes de su **mismo género musical**. Mostrar el género de la banda, el nombre y la duración del álbum.
 
 ## Respuestas
 
