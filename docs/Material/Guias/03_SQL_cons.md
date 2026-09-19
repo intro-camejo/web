@@ -6,62 +6,109 @@ draft: false
 
 ## Introducción
 
-En esta guía, trabajaremos con SQL para realizar consultas sobre una base de datos ficticia. La base de datos contiene información sobre **bandas musicales, álbumes, canciones y conciertos**. A continuación, se presentan las tablas y sus relaciones:
+En esta guía trabajaremos con SQL. En la **Parte 1** aprenderemos a definir estructuras de datos (DDL) y a manipular la información (DML) creando nuestra propia base de datos desde cero. En la **Parte 2** realizaremos consultas sobre una base de datos con datos precargados.
 
-```sql
--- Tabla de bandas musicales
-CREATE TABLE bandas (
-    id SERIAL PRIMARY KEY,
-    nombre TEXT NOT NULL,
-    pais_origen TEXT NOT NULL,
-    fecha_creacion INTEGER NOT NULL,
-    genero TEXT NOT NULL,
-    cant_integrantes INTEGER NOT NULL
-);
+La temática de la guía gira en torno a **bandas musicales, álbumes, canciones y conciertos**.
 
--- Tabla de álbumes
-CREATE TABLE albumes (
-    id SERIAL PRIMARY KEY,
-    banda_id INTEGER NOT NULL REFERENCES bandas(id),
-    nombre TEXT NOT NULL,
-    lanzamiento INTEGER NOT NULL,
-    duracion INTEGER NOT NULL,  -- duración en minutos
-    ranking INTEGER UNIQUE NOT NULL  -- ranking global entre todos los álbumes
-);
+## Parte 1: Creación y manipulación de datos
 
--- Tabla de canciones
-CREATE TABLE canciones (
-    id SERIAL PRIMARY KEY,
-    banda_id INTEGER NOT NULL REFERENCES bandas(id),
-    album_id INTEGER NOT NULL REFERENCES albumes(id),
-    nombre TEXT NOT NULL,
-    duracion INTEGER NOT NULL,  -- duración en minutos
-    ranking INTEGER UNIQUE NOT NULL  -- ranking global entre todas las canciones
-);
+En esta primera sección aprenderemos a crear la base de datos que usaremos más adelante. Seguí los ejercicios en orden para ir construyendo las tablas, modificando sus estructuras y gestionando los datos.
 
--- Tabla de conciertos
-CREATE TABLE conciertos (
-    id SERIAL PRIMARY KEY,
-    nombre TEXT NOT NULL,
-    pais TEXT NOT NULL,
-    fecha INTEGER NOT NULL  -- año
-);
+:::tip Consejo
+Para probar las respuestas, podés usar [**DB Fiddle**](https://www.db-fiddle.com/):
 
--- Tabla intermedia para relación muchos-a-muchos entre conciertos y músicos
-CREATE TABLE conciertos_musicos (
-    concierto_id INTEGER NOT NULL REFERENCES conciertos(id),
-    banda_id INTEGER NOT NULL REFERENCES bandas(id),
-    PRIMARY KEY (concierto_id, banda_id)
-);
-```
+- Asegurate de seleccionar el motor de base de datos **PostgreSQL 17** (arriba a la izquierda).
+- En la solapa `Schema SQL` podés crear las tablas, y manipular los datos para que queden precargados.
+- En la solapa `Query SQL` podés realizar las consultas sobre los datos precargados.
+:::
 
-**Importante**: para revisar tus respuestas, podés entrar a este link de [**DB Fiddle**](https://www.db-fiddle.com/f/o4BQczgY9ZnezSUYht4rCh/198) y pegar el código SQL que hayas escrito. Hay datos precargados en las tablas, por lo que no es necesario insertar datos adicionales (podés jugar con los datos que ya están o añadir más). **A modo de simplificación, no hay valores o campos nulos en los datos.**
+1. Queremos llevar un registro de bandas musicales. **Crear la tabla `bandas`**, con los siguientes campos:
+    - `id`: entero, clave primaria autoincremental.
+    - `nombre`: texto, obligatorio.
+    - `pais_origen`: texto, obligatorio.
+    - `fecha_creacion`: entero (año), obligatorio.
+    - `genero`: texto, obligatorio.
+    - `cant_integrantes`: entero, obligatorio.
 
-*Para los amantes de la música: muchos datos no son reales y están puestos a modo de ejemplo. Sabemos que los Beatles no vinieron a Argentina en 2015, y que Sgt. Pepper's no es su primer álbum :)*
+2. Además de las bandas, queremos registrar sus álbumes, canciones y conciertos en los que han participado. **Crear cada una de las tablas con sus respectivos campos**:
+    1. **`albumes`**:
+        - `id`: entero, clave primaria autoincremental.
+        - `banda_id`: entero, clave foránea que referencia al ID de `bandas`, obligatorio.
+        - `nombre`: texto, obligatorio.
+        - `lanzamiento`: entero (año), obligatorio.
+        - `duracion`: entero (minutos), obligatorio.
+        - `ranking`: entero, único y obligatorio.
+    2. **`canciones`**:
+        - `id`: entero, clave primaria autoincremental.
+        - `banda_id`: entero, clave foránea que referencia al ID de `bandas`, obligatorio.
+        - `album_id`: entero, clave foránea que referencia al ID de `albumes`, obligatorio.
+        - `nombre`: texto, obligatorio.
+        - `duracion`: entero (minutos), obligatorio.
+        - `ranking`: entero, único y obligatorio.
+    3. **`conciertos`**:
+        - `id`: entero, clave primaria autoincremental.
+        - `nombre`: texto, obligatorio.
+        - `pais`: texto, obligatorio.
+        - `fecha`: entero (año), obligatorio.
 
-## Ejercicios
+3. **Crear la tabla intermedia `conciertos_musicos`**:
+    Representa la relación muchos-a-muchos entre conciertos y bandas:
+    - `concierto_id`: entero, clave foránea al ID de `conciertos`, obligatorio.
+    - `banda_id`: entero, clave foránea al ID de `bandas`, obligatorio.
+    - ¿Cómo se define la clave primaria de esta tabla?
 
-Se pide mostrar, en cada ejercicio:
+4. **Modificación de estructura**:
+    1. Por error de diseño, olvidamos agregar el campo `website` en la tabla `bandas`. Agregarlo como un campo de texto opcional.
+    2. Posteriormente, decidimos que no mantendremos sitios web en el sistema. Eliminar la columna `website` de la tabla `bandas`.
+
+5. **Insertar datos iniciales**:
+    1. Insertar la banda "**The Beatles**", de "**Reino Unido**", fundada en **1960**, género "**Rock**", con **4** integrantes.
+    2. Insertar un álbum para los Beatles llamado "**Abbey Road**", lanzado en **1969**, con duración de **47** minutos y ranking **1**.
+    3. Insertar dos canciones pertenecientes a dicho álbum:
+        - "**Come Together**", (4 minutos, 5ta en el ranking).
+        - "**Something**", (3 minutos, 12va en el ranking).
+
+6. **Actualización de datos**:
+    1. Debido a un error de tipeo, la duración del álbum "Abbey Road" se registró mal. Actualizar la duración a **45 minutos**.
+    2. Incrementar en **1** la cantidad de integrantes de todas las bandas del género "Rock".
+
+7. **Eliminación de datos**:
+    1. Eliminar todas las canciones que tengan una duración **menor o igual a 2 minutos**.
+    2. Intentar eliminar la banda "The Beatles" de la tabla `bandas`. ¿Qué sucede con las restricciones de clave foránea? ¿Cómo debería resolverse?
+
+8. **Eliminación de datos con cascada**:
+    1. Modificar las **restricciones de clave foránea** correspondientes para que, al eliminar una banda, se eliminen automáticamente todos sus álbumes y canciones asociadas.
+    2. Eliminar la banda "The Beatles" de la tabla `bandas`. ¿Qué sucede ahora con las restricciones de clave foránea?
+
+9. **Eliminación de tablas**:
+    1. Eliminar **todas las tablas, una por una**. ¿Es posible eliminarlas sin afectar a las demás tablas? ¿Por qué? ¿Qué ocurre con los datos una vez eliminadas las respectivas tablas?
+    2. Eliminar únicamente **todos los datos de las tablas**, sin eliminar la estructura de las mismas. ¿Qué comando SQL se utiliza para esto?
+
+## Parte 2: Consultas sobre la base de datos
+
+A partir de aquí trabajaremos con la base de datos ya precargada.
+La base de datos contiene información sobre **bandas musicales, álbumes, canciones y conciertos**. Cada banda puede tener varios álbumes, cada álbum puede tener varias canciones, y cada concierto puede tener varias bandas participantes.
+
+Para ver la estructura de las tablas, revisar el panel dentro del próximo consejo:
+
+:::tip Consejo
+Para revisar tus respuestas:
+
+1. Ingresar a [**DB Fiddle**](https://www.db-fiddle.com/).
+2. Seleccionar el motor de base de datos **PostgreSQL 17** (arriba a la izquierda).
+3. Copiar este [*script*](03_SQL_script.md) y pegarlo en el panel izquierdo (`Schema SQL`). Ejecutar el script para crear las tablas y precargar los datos.
+
+Consideraciones adicionales:
+
+- Hay datos precargados en las tablas, por lo que no es necesario insertar datos adicionales (podés jugar con los datos que ya están o añadir más).
+- **A modo de simplificación, no hay valores o campos nulos en los datos.**
+- *Para los amantes de la música: muchos datos no son reales y están puestos a modo de ejemplo. Sabemos que los Beatles no vinieron a Argentina en 2015, y que Sgt. Pepper's no es su primer álbum.*
+
+:::
+
+### Ejercicios
+
+Se pide mostrar, en cada caso:
 
 ### Nivel 0
 
@@ -120,4 +167,4 @@ Se pide mostrar, en cada ejercicio:
 
 ## Respuestas
 
-Recomendamos que primero intentes resolver los ejercicios por tu cuenta. Luego, si necesitas ayuda, podés consultar el [**archivo de respuestas**](03_SQL_resp.md) que se encuentra en esta misma carpeta.
+Recomendamos que primero intentes resolver los ejercicios por tu cuenta. Luego, si necesitas ayuda, podés consultar el [**archivo de respuestas**](03_SQL_resp.md).

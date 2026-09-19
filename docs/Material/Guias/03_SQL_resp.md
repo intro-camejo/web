@@ -6,7 +6,179 @@ sidebar_class_name: hidden
 
 ***Nota**: estas respuestas son únicamente a modo de ejemplo. Puede ser que al ver la guía resuelvas los ejercicios de manera diferente, y estarán bien siempre y cuando cumplan con los requisitos del enunciado. ¡Ante cualquier duda o consulta, no dudes en preguntar!*
 
-## Nivel 0
+## Parte 1: Creación y manipulación de datos
+
+**1. Crear la tabla `bandas`**
+
+```sql
+CREATE TABLE bandas (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    pais_origen TEXT NOT NULL,
+    fecha_creacion INTEGER NOT NULL,
+    genero TEXT NOT NULL,
+    cant_integrantes INTEGER NOT NULL
+);
+```
+
+**2. Crear las tablas `albumes`, `canciones` y `conciertos`**
+
+```sql
+CREATE TABLE albumes (
+    id SERIAL PRIMARY KEY,
+    banda_id INTEGER NOT NULL REFERENCES bandas(id),
+    nombre TEXT NOT NULL,
+    lanzamiento INTEGER NOT NULL,
+    duracion INTEGER NOT NULL,
+    ranking INTEGER UNIQUE NOT NULL
+);
+
+CREATE TABLE canciones (
+    id SERIAL PRIMARY KEY,
+    banda_id INTEGER NOT NULL REFERENCES bandas(id),
+    album_id INTEGER NOT NULL REFERENCES albumes(id),
+    nombre TEXT NOT NULL,
+    duracion INTEGER NOT NULL,
+    ranking INTEGER UNIQUE NOT NULL
+);
+
+CREATE TABLE conciertos (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    pais TEXT NOT NULL,
+    fecha INTEGER NOT NULL
+);
+```
+
+**3. Crear la tabla `conciertos_musicos`**
+
+```sql
+CREATE TABLE conciertos_musicos (
+    concierto_id INTEGER NOT NULL REFERENCES conciertos(id),
+    banda_id INTEGER NOT NULL REFERENCES bandas(id),
+    PRIMARY KEY (concierto_id, banda_id)
+);
+```
+
+:::note
+Esta tabla representa una **relación muchos a muchos entre conciertos y bandas**, ya que una banda puede participar en varios conciertos y un concierto puede tener varias bandas. Para definir la `PRIMARY KEY`, usamos la combinación de `concierto_id` y `banda_id`, lo que asegura que no se repita la misma banda en el mismo concierto. Adicionalmente, si solo definiéramos `concierto_id` como clave primaria, no podríamos registrar más de una banda por concierto, y si solo definiéramos `banda_id` como clave primaria, no podríamos registrar más de un concierto por banda.
+:::
+
+**4. Modificación de estructura con `website`**
+
+- Agregar una columna `website` a la tabla `bandas`:
+
+```sql
+ALTER TABLE bandas
+ADD COLUMN website TEXT;
+```
+
+- Eliminar la columna `website` de la tabla `bandas`:
+
+```sql
+ALTER TABLE bandas
+DROP COLUMN website;
+```
+
+**5. Insertar datos en `bandas`, `albumes` y `canciones`**
+
+```sql
+INSERT INTO bandas (nombre, pais_origen, fecha_creacion, genero, cant_integrantes)
+VALUES ('The Beatles', 'Reino Unido', 1960, 'Rock', 4);
+
+INSERT INTO albumes (banda_id, nombre, lanzamiento, duracion, ranking)
+VALUES (1, 'Abbey Road', 1969, 47, 1);
+
+INSERT INTO canciones (banda_id, album_id, nombre, duracion, ranking)
+VALUES 
+    (1, 1, 'Come Together', 4, 5),
+    (1, 1, 'Something', 3, 12);
+```
+
+:::note
+Aquí asumimos que el ID de "**The Beatles**" es **1**, y que el ID del álbum "**Abbey Road**" también es **1**. En un escenario real, deberíamos **obtener estos IDs después de insertar los registros**, por ejemplo, utilizando consultas en las tablas `bandas` y `albumes` para obtener los IDs correspondientes antes de insertar las canciones.
+:::
+
+**6. Actualización de datos en `albumes` y `bandas`**
+
+```sql
+UPDATE albumes
+SET duracion = 45
+WHERE nombre = 'Abbey Road';
+
+UPDATE bandas
+SET cant_integrantes = cant_integrantes + 1
+WHERE genero = 'Rock';
+```
+
+**7. Eliminación de datos en `canciones` y `bandas`**
+
+- Eliminar canciones con duración **menor a 2 minutos**:
+
+```sql
+DELETE FROM canciones
+WHERE duracion <= 2;
+```
+
+- Intentar eliminar la banda "**The Beatles**":
+
+```sql
+DELETE FROM bandas
+WHERE nombre = 'The Beatles';
+```
+
+:::note
+Si intentamos eliminar la banda "**The Beatles**" sin antes eliminar sus álbumes y canciones, obtendremos un **error de restricción de clave foránea** (`Foreign Key Constraint Error`), ya que existen registros en las tablas `albumes` y `canciones` que hacen referencia a esa banda. Para poder eliminar la banda, primero debemos eliminar sus álbumes y canciones, o bien, configurar las restricciones de clave foránea con la opción `ON DELETE CASCADE` al momento de crear las tablas, lo que permitiría eliminar automáticamente los registros relacionados en las tablas `albumes` y `canciones`.
+:::
+
+**8. Eliminación de datos con `CASCADE`**
+
+```sql
+-- Para la tabla albumes
+ALTER TABLE albumes
+DROP CONSTRAINT albumes_banda_id_fkey,
+ADD CONSTRAINT albumes_banda_id_fkey 
+    FOREIGN KEY (banda_id) REFERENCES bandas(id) ON DELETE CASCADE;
+
+-- Para la tabla canciones
+ALTER TABLE canciones
+DROP CONSTRAINT canciones_banda_id_fkey,
+ADD CONSTRAINT canciones_banda_id_fkey 
+    FOREIGN KEY (banda_id) REFERENCES bandas(id) ON DELETE CASCADE;
+```
+
+:::note
+Esta forma de solucionarlo en PostgreSQL consiste en modificar la Foreign Key **eliminando la restricción** (constraint) **por su nombre automático** (`<tabla>_<columna>_fkey`) y redefiniéndola con `ON DELETE CASCADE`. De esta manera, al eliminar una banda, se eliminarán automáticamente todos sus álbumes y canciones relacionados.
+:::
+
+**9. Eliminación de tablas con `DROP TABLE`**
+
+```sql
+-- ORDEN CORRECTO (de las tablas dependientes a las independientes):
+DROP TABLE canciones;
+DROP TABLE conciertos_musicos;
+DROP TABLE albumes;
+DROP TABLE conciertos;
+DROP TABLE bandas;
+```
+
+- **¿Es posible eliminarlas sin afectar a las demás?** No en cualquier orden. Si intentamos eliminar primero la tabla bandas antes que canciones o albumes, la base de datos no lo permitirá debido a las **referencias de clave foránea** (a menos que usemos `DROP TABLE bandas CASCADE`).
+
+- **¿Qué ocurre con los datos?** Una vez eliminada una tabla con DROP TABLE, tanto la estructura del esquema como todos sus datos **se borran permanentemente**. Por esa razón, es importante tener cuidado al eliminar tablas, especialmente si contienen datos importantes.
+
+- Para **eliminar únicamente los datos** de las tablas sin eliminar la estructura, se puede usar el comando `TRUNCATE TABLE <nombre_tabla>;`. Esto eliminará todos los registros de la tabla pero mantendrá su definición y estructura intacta.
+
+```sql
+TRUNCATE TABLE canciones;
+TRUNCATE TABLE conciertos_musicos;
+TRUNCATE TABLE albumes;
+TRUNCATE TABLE conciertos;
+TRUNCATE TABLE bandas;
+```
+
+## Parte 2: Consultas sobre la base de datos
+
+### Nivel 0
 
 **1. Todas las bandas musicales con sus respectivos campos (todos).**
 
@@ -68,7 +240,7 @@ SELECT nombre, fecha FROM conciertos
 ORDER BY fecha ASC;
 ```
 
-## Nivel 1
+### Nivel 1
 
 **10. El nombre y el país de origen de todas las bandas que tienen exactamente 5 integrantes.**
 
@@ -98,7 +270,7 @@ SELECT nombre, fecha FROM conciertos
 WHERE pais = 'Argentina';
 ```
 
-## Nivel 2
+### Nivel 2
 
 **14. El nombre y ranking de las peores 5 canciones de la historia, ordenadas de peor a mejor ranking.**
 
@@ -168,7 +340,7 @@ WHERE a.duracion < 45;
 Sin `DISTINCT`, el resultado podría incluir a la misma banda varias veces si tiene más de un álbum con duración menor a 45 minutos. Probar eliminando `DISTINCT` para ver la diferencia en DB Fiddle (también se puede comprobar manualmente viendo las duraciones en la pestaña `Schema SQL`).
 :::
 
-## Nivel 3
+### Nivel 3
 
 **22. El nombre de las bandas cuyos álbumes (todos) duran más de 50 minutos.**
 
@@ -249,7 +421,7 @@ GROUP BY b.id
 ORDER BY cantidad_canciones DESC;
 ```
 
-## Nivel 4
+### Nivel 4
 
 **28. El primer álbum de todas las bandas. Mostrar el nombre de la banda, del álbum y el año de lanzamiento.**
 
@@ -390,6 +562,10 @@ JOIN conciertos_musicos cm ON c.id = cm.concierto_id
 JOIN bandas b ON cm.banda_id = b.id
 GROUP BY c.id;
 ```
+
+:::warning Ojo
+Si un concierto no tuviese bandas participantes, usar `COUNT(*)` en el denominador daría como resultado una **división por cero**. No se corresponde tanto con la realidad que ocurra esto. De todos modos, a modo de curiosidad, investigar cómo se podría manejar este caso para que el resultado sea `NULL` o `0` en lugar de un error.
+:::
 
 **39. Los conciertos en los cuales participó la banda con el álbum más largo. En caso de empate, considerar todas las bandas con el álbum más largo. Ordenar los conciertos por fecha (de más reciente a más antiguo).**
 
