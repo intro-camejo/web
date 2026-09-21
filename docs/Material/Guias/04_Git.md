@@ -1,4 +1,4 @@
-# Guía 4 - Git y GitHub
+# Guía 5 - Git y GitHub
 
 *<u>__Nota__</u>: antes de empezar, asegurate de tener configurada tu SSH Key con GitHub. Hay un tutorial paso a paso en la sección "Apuntes".*
 
