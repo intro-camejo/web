@@ -1,0 +1,7 @@
+services:
+  coso:
+    build: .
+    container_name: mi-coso-dockerizado
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

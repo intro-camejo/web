@@ -1,0 +1,49 @@
+.docentes {
+  padding: 3rem 0 4rem;
+}
+
+/* Mismo tratamiento que los títulos de sección de la home. */
+.titulo {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  justify-items: center;
+}
+
+.docente {
+  margin: 0;
+  text-align: center;
+}
+
+.foto {
+  width: 9rem;
+  height: 9rem;
+  border: 3px solid var(--ifm-color-emphasis-200);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pendiente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-500);
+}
+
+.pendiente svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.nombre {
+  margin-top: 0.75rem;
+  color: var(--ifm-font-color-base);
+  font-size: 1.05rem;
+  font-weight: 600;
+}

@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Ingeniería de Software
 
 ## ¿Qué es la Ingeniería?

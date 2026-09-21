@@ -1,16 +1,31 @@
 # Régimen de Cursada
 
-## Modalidad de las clases
+## Clases
 
-Las clases se dictarán los días Martes y Jueves de 19:00 a 22:00.
-Los Martes serán virtuales y los Jueves presenciales en la sede Paseo Colón (Aula 403), salvo excepciones informadas con suficiente antelación.
+Martes y Jueves de 19:00 a 22:00.
 
-## Aprobación de cursada 
+- **Martes**: práctica, virtual.
+- **Jueves**: teórica, presencial en Paseo Colón (Aula 403).
 
-Se realizará un Trabajo Práctico grupal y un parcial con sus respectivos recuperatorios. En la sección del cronograma podrán ver las fechas de presentación y entrega del TP, como de la fecha del parcial y los recuperatorios.
+Cualquier excepción se informa con antelación.
 
-Para su aprobación, se deberá realizar correctamente el trabajo práctico y el parcial obligatoriamente. Esto quiere decir, que si se desaprueban ambos, se deberá recursar la materia.
+## Aprobación de la cursada
+
+Para aprobar la cursada hay que:
+
+1. Aprobar los **4 parcialitos**.
+2. Aprobar el **Trabajo Práctico grupal**.
+
+Hay dos instancias de recuperatorio y en cada una se pueden recuperar todos los parcialitos desaprobados. La primera es durante la cursada; la segunda se toma junto con la primera fecha de final.
+
+Las fechas de los parcialitos, los recuperatorios y las entregas del TP están en el [cronograma](/cronograma).
 
 ## Final
 
-Respecto al cierre de la materia, se presentará una exposición grupal oral sobre lo desarrollado en el Trabajo Práctico.
+Exposición oral grupal sobre el Trabajo Práctico desarrollado durante la cursada.
+
+:::danger Importante
+
+Se recursa la materia si no se aprueban los 4 parcialitos luego de ambas instancias de recuperatorio, o si el grupo no aprueba la instancia de final.
+
+:::

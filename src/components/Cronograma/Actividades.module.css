@@ -1,0 +1,61 @@
+/* ---------- Temas ---------- */
+
+.temas {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.temas li {
+  margin-bottom: 0.25rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.temas li::marker {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.temas li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Parcialitos, recuperatorios y otros hitos ---------- */
+
+.destacado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 0 0 0.65rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--acento) 35%, transparent);
+  border-left: 3px solid var(--acento);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--acento) 9%, transparent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.destacado:last-child {
+  margin-bottom: 0;
+}
+
+.destacadoIcono {
+  flex-shrink: 0;
+  color: var(--acento);
+}
+
+.evaluacion {
+  --acento: var(--ifm-color-primary);
+}
+
+.hito {
+  --acento: #b45309;
+}
+
+[data-theme='dark'] .hito {
+  --acento: #fbbf24;
+}

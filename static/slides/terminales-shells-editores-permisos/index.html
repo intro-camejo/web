@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editores, terminales y shells - Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+
+<!-- 01. portada -->
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="cover-wordmark">Intro Camejo - Introducción al Desarrollo de Software</div>
+    <div class="cover-title-block">
+      <div class="s-title">Editores, terminales y shells</div>
+      <div class="s-sub">Herramientas del entorno de desarrollo</div>
+      <div class="cover-index"><span class="n">Clase 03</span><span class="dot"></span><span class="n">2026</span></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">01</span>
+  </div>
+</section>
+
+<!-- 02. agenda -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Agenda</div>
+    <ul class="agenda-list">
+      <li><span class="idx">.01</span><span class="lbl">Arquitectura del entorno de trabajo</span></li>
+      <li><span class="idx">.02</span><span class="lbl">Editores de texto</span></li>
+      <li><span class="idx">.03</span><span class="lbl">Terminales y shells</span></li>
+      <li><span class="idx">.04</span><span class="lbl">Permisos en el sistema de archivos</span></li>
+      <li><span class="idx">.05</span><span class="lbl">Recursos de consulta</span></li>
+      <li><span class="idx">.06</span><span class="lbl">Síntesis y práctica</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">02</span>
+  </div>
+</section>
+
+<!-- 03. divisoria-seccion -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+    <div class="s-title">Arquitectura del entorno de trabajo</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">03</span>
+  </div>
+</section>
+
+<!-- 04. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.01 - Arquitectura del entorno de trabajo</div>
+    <div class="s-title s-title--md">Definiciones</div>
+    <p class="s-body-text">Al trabajar en una interfaz de línea de comandos intervienen tres componentes independientes que suelen confundirse. El <strong>emulador de terminal</strong> es la aplicación que provee la ventana y la entrada y salida de caracteres. La <strong>shell</strong> es el programa que interpreta los comandos y los ejecuta. El <strong>editor</strong> es una de las aplicaciones que la shell puede lanzar.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">04</span>
+  </div>
+</section>
+
+<!-- 05. diagrama -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.01 - Arquitectura del entorno de trabajo</div>
+    <div class="s-title s-title--md">Relación entre los componentes</div>
+    <div class="mermaid-wrap"><svg id="mmd-capas" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="width:100%;height:auto;" viewBox="0 0 1044.3125 91.69999694824219" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mmd-capas{font-family:verdana,sans-serif;font-size:17px;fill:#16130f;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mmd-capas .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mmd-capas .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mmd-capas .error-icon{fill:#fbfaf7;}#mmd-capas .error-text{fill:#040508;stroke:#040508;}#mmd-capas .edge-thickness-normal{stroke-width:1px;}#mmd-capas .edge-thickness-thick{stroke-width:3.5px;}#mmd-capas .edge-pattern-solid{stroke-dasharray:0;}#mmd-capas .edge-thickness-invisible{stroke-width:0;fill:none;}#mmd-capas .edge-pattern-dashed{stroke-dasharray:3;}#mmd-capas .edge-pattern-dotted{stroke-dasharray:2;}#mmd-capas .marker{fill:#ff5a1f;stroke:#ff5a1f;}#mmd-capas .marker.cross{stroke:#ff5a1f;}#mmd-capas svg{font-family:verdana,sans-serif;font-size:17px;}#mmd-capas p{margin:0;}#mmd-capas .label{font-family:verdana,sans-serif;color:#16130f;}#mmd-capas .cluster-label text{fill:#040508;}#mmd-capas .cluster-label span{color:#040508;}#mmd-capas .cluster-label span p{background-color:transparent;}#mmd-capas .label text,#mmd-capas span{fill:#16130f;color:#16130f;}#mmd-capas .node rect,#mmd-capas .node circle,#mmd-capas .node ellipse,#mmd-capas .node polygon,#mmd-capas .node path{fill:#ffffff;stroke:#16130f;stroke-width:1px;}#mmd-capas .rough-node .label text,#mmd-capas .node .label text,#mmd-capas .image-shape .label,#mmd-capas .icon-shape .label{text-anchor:middle;}#mmd-capas .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mmd-capas .rough-node .label,#mmd-capas .node .label,#mmd-capas .image-shape .label,#mmd-capas .icon-shape .label{text-align:center;}#mmd-capas .node.clickable{cursor:pointer;}#mmd-capas .root .anchor path{fill:#ff5a1f!important;stroke-width:0;stroke:#ff5a1f;}#mmd-capas .arrowheadPath{fill:#0b0b0b;}#mmd-capas .edgePaths .path{stroke:#ff5a1f;stroke-width:1px;}#mmd-capas .flowchart-link{stroke:#ff5a1f;fill:none;}#mmd-capas .edgeLabel{background-color:#fbfaf7;text-align:center;}#mmd-capas .edgeLabel p{background-color:#fbfaf7;}#mmd-capas .edgeLabel rect{opacity:0.5;background-color:#fbfaf7;fill:#fbfaf7;}#mmd-capas .labelBkg{background-color:rgba(251, 250, 247, 0.5);}#mmd-capas .cluster rect{fill:#fbfaf7;stroke:hsl(45, 0%, 87.6470588235%);stroke-width:1px;}#mmd-capas .cluster text{fill:#040508;}#mmd-capas .cluster span{color:#040508;}#mmd-capas .node .collapsed-indicator{fill:hsl(45, 0%, 87.6470588235%);stroke:none;opacity:0.6;}#mmd-capas .node .collapsed-separator{stroke:hsl(45, 0%, 87.6470588235%);stroke-width:0.75px;}#mmd-capas div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:verdana,sans-serif;font-size:12px;background:#fbfaf7;border:1px solid hsl(45, 0%, 87.6470588235%);border-radius:2px;pointer-events:none;z-index:100;}#mmd-capas .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#16130f;}#mmd-capas rect.text{fill:none;stroke-width:0;}#mmd-capas .icon-shape,#mmd-capas .image-shape{background-color:#fbfaf7;text-align:center;}#mmd-capas .icon-shape p,#mmd-capas .image-shape p{background-color:#fbfaf7;padding:2px;}#mmd-capas .icon-shape .label rect,#mmd-capas .image-shape .label rect{opacity:0.5;background-color:#fbfaf7;fill:#fbfaf7;}#mmd-capas .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mmd-capas .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mmd-capas .node .neo-node{stroke:#16130f;}#mmd-capas [data-look="neo"].node rect,#mmd-capas [data-look="neo"].cluster rect,#mmd-capas [data-look="neo"].node polygon{stroke:url(#mmd-capas-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#mmd-capas [data-look="neo"].swimlane.cluster rect{filter:none;}#mmd-capas [data-look="neo"].node path{stroke:url(#mmd-capas-gradient);stroke-width:1px;}#mmd-capas [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#mmd-capas [data-look="neo"].node .neo-line path{stroke:#16130f;filter:none;}#mmd-capas [data-look="neo"].node circle{stroke:url(#mmd-capas-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#mmd-capas [data-look="neo"].node circle .state-start{fill:#000000;}#mmd-capas [data-look="neo"].icon-shape .icon{fill:url(#mmd-capas-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#mmd-capas [data-look="neo"].icon-shape .icon-neo path{stroke:url(#mmd-capas-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#mmd-capas :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker id="mmd-capas_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="mmd-capas_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="mmd-capas_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edgePaths"><path d="M293.406,45.85L307.935,45.85C322.464,45.85,351.521,45.85,379.911,45.85C408.302,45.85,436.026,45.85,449.888,45.85L463.75,45.85" id="mmd-capas-L_A_B_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_B_0" data-points="W3sieCI6MjkzLjQwNjI1LCJ5Ijo0NS44NDk5OTg0NzQxMjEwOTR9LHsieCI6MzgwLjU3ODEyNSwieSI6NDUuODQ5OTk4NDc0MTIxMDk0fSx7IngiOjQ2Ny43NSwieSI6NDUuODQ5OTk4NDc0MTIxMDk0fV0=" data-look="classic" marker-end="url(#mmd-capas_flowchart-v2-pointEnd)"/><path d="M663.313,45.85L673.211,45.85C683.109,45.85,702.906,45.85,722.036,45.85C741.167,45.85,759.63,45.85,768.862,45.85L778.094,45.85" id="mmd-capas-L_B_C_0" class=" edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_C_0" data-points="W3sieCI6NjYzLjMxMjUsInkiOjQ1Ljg0OTk5ODQ3NDEyMTA5NH0seyJ4Ijo3MjIuNzAzMTI1LCJ5Ijo0NS44NDk5OTg0NzQxMjEwOTR9LHsieCI6NzgyLjA5Mzc1LCJ5Ijo0NS44NDk5OTg0NzQxMjEwOTR9XQ==" data-look="classic" marker-end="url(#mmd-capas_flowchart-v2-pointEnd)"/></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(380.578125, 45.849998474121094)"><g class="label" data-id="L_A_B_0" transform="translate(0, -10.5)"><g><rect class="background" style="" x="-52.171875" y="-2" width="104.34375" height="25"/><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">ejecuta</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> una</tspan></tspan></text></g></g></g><g class="edgeLabel" transform="translate(722.703125, 45.849998474121094)"><g class="label" data-id="L_B_C_0" transform="translate(0, -10.5)"><g><rect class="background" style="" x="-24.390625" y="-2" width="48.78125" height="25"/><text y="-10.1" text-anchor="middle" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em" text-anchor="middle"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">lanza</tspan></tspan></text></g></g></g></g><g class="nodes"><g class="node default  " id="mmd-capas-flowchart-A-0" data-look="classic" transform="translate(150.703125, 45.849998474121094)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-142.703125" y="-37.85000038146973" width="285.40625" height="75.70000076293945"/><g class="label" style="" transform="translate(0, -19.850000381469727)"><rect/><g><rect class="background" style="stroke: none"/><text y="-10.1" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Emulador</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> de</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> terminal</tspan></tspan><tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">GNOME</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> Terminal,</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> iTerm2</tspan></tspan></text></g></g></g><g class="node default  " id="mmd-capas-flowchart-B-1" data-look="classic" transform="translate(565.53125, 45.849998474121094)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-97.78125" y="-37.85000038146973" width="195.5625" height="75.70000076293945"/><g class="label" style="" transform="translate(0, -19.850000381469727)"><rect/><g><rect class="background" style="stroke: none"/><text y="-10.1" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Shell</tspan></tspan><tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">bash,</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> zsh,</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> fish</tspan></tspan></text></g></g></g><g class="node default  " id="mmd-capas-flowchart-C-3" data-look="classic" transform="translate(909.203125, 45.849998474121094)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-127.109375" y="-37.85000038146973" width="254.21875" height="75.70000076293945"/><g class="label" style="" transform="translate(0, -19.850000381469727)"><rect/><g><rect class="background" style="stroke: none"/><text y="-10.1" style=""><tspan class="text-outer-tspan row" x="0" y="-0.1em" dy="1.1em"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">Programas</tspan></tspan><tspan class="text-outer-tspan row" x="0" y="1em" dy="1.1em"><tspan font-style="normal" class="text-inner-tspan" font-weight="normal">nano,</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> vim,</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> ls,</tspan><tspan font-style="normal" class="text-inner-tspan" font-weight="normal"> python</tspan></tspan></text></g></g></g></g></g></g><defs><filter id="mmd-capas-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="mmd-capas-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><linearGradient id="mmd-capas-gradient" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#16130f" stop-opacity="1"/><stop offset="100%" stop-color="hsl(-120, 0%, 90%)" stop-opacity="1"/></linearGradient></svg></div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">05</span>
+  </div>
+</section>
+
+<!-- 06. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.01 - Arquitectura del entorno de trabajo</div>
+    <div class="s-title s-title--md">Independencia de las capas</div>
+    <p class="s-body-text">Cada componente es reemplazable sin afectar a los demás: una misma shell puede ejecutarse en distintos emuladores de terminal, y un mismo editor puede invocarse desde distintas shells. El objetivo de esta clase no es el dominio de una herramienta en particular, sino el reconocimiento del conjunto de alternativas disponibles y de los criterios para elegir entre ellas.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">06</span>
+  </div>
+</section>
+
+<!-- 07. divisoria-seccion -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+    <div class="s-title">Editores de texto</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">07</span>
+  </div>
+</section>
+
+<!-- 08. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">Definición y alcance</div>
+    <p class="s-body-text">Un editor de texto opera sobre texto plano, es decir, secuencias de caracteres sin información de formato. Todo código fuente es texto plano. Dado que constituye la herramienta de uso más intensivo en el desarrollo de software, existe una diversidad considerable de implementaciones, sin que ninguna se haya establecido como estándar único.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">08</span>
+  </div>
+</section>
+
+<!-- 09. comparacion -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">Clasificación por interfaz</div>
+    <div class="compare">
+      <div class="side a">
+        <h3>Editores de terminal</h3>
+        <ul>
+          <li>Operan mediante conexión SSH, sin entorno gráfico</li>
+          <li>Están preinstalados en la mayoría de los sistemas Unix</li>
+          <li>Se manejan exclusivamente por teclado</li>
+          <li>Ejemplos: nano, vim, emacs</li>
+        </ul>
+      </div>
+      <div class="side b">
+        <h3>Editores gráficos</h3>
+        <ul>
+          <li>Requieren entorno de escritorio</li>
+          <li>Requieren instalación explícita</li>
+          <li>Integran depurador, control de versiones y terminal</li>
+          <li>Ejemplos: VS Code, Zed, Sublime Text</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">09</span>
+  </div>
+</section>
+
+<!-- 10. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">Editores de terminal</div>
+    <ul class="bullets">
+      <li><span><strong>nano</strong> - interfaz simple, con los atajos visibles en pantalla</span></li>
+      <li><span><strong>vi</strong> - presente en todo sistema Unix desde 1976</span></li>
+      <li><span><strong>vim</strong> - extiende vi con resaltado de sintaxis, undo múltiple y plugins</span></li>
+      <li><span><strong>neovim</strong> - reimplementación moderna de vim; la más adoptada actualmente</span></li>
+      <li><span><strong>emacs</strong> - entorno extensible, no limitado a la edición de texto</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">10</span>
+  </div>
+</section>
+
+<!-- 11. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">nano: operaciones básicas</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code>nano hola.sh
+
+<span class="c1"># Ctrl+O   guardar el archivo (Write Out)</span>
+<span class="c1"># Ctrl+X   cerrar el editor</span>
+<span class="c1"># Ctrl+K   eliminar la línea actual</span>
+<span class="c1">#</span>
+<span class="c1"># En la barra inferior, el símbolo ^ denota la tecla Ctrl</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">11</span>
+  </div>
+</section>
+
+<!-- 12. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">vim: modos de operación</div>
+    <p class="s-body-text">vim distingue entre dos modos de operación. En <strong>modo normal</strong>, que es el modo inicial, las teclas se interpretan como comandos y no insertan texto. En <strong>modo inserción</strong>, al que se accede con <code>i</code>, las teclas insertan texto. La tecla <code>Esc</code> retorna al modo normal. Esta distinción es la principal fuente de dificultad para quien lo utiliza por primera vez.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">12</span>
+  </div>
+</section>
+
+<!-- 13. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">vim: comandos esenciales</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code>vim hola.sh
+
+<span class="c1"># i        pasar a modo inserción</span>
+<span class="c1"># Esc      volver a modo normal</span>
+<span class="c1"># :w       guardar</span>
+<span class="c1"># :q       cerrar el editor</span>
+<span class="c1"># :q!      cerrar descartando las modificaciones</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">13</span>
+  </div>
+</section>
+
+<!-- 14. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">Relación entre vi, vim y neovim</div>
+    <ul class="bullets">
+      <li><span>En las distribuciones actuales, <code>vi</code> suele ser un enlace a <code>vim</code></span></li>
+      <li><span>La verificación se realiza con <code>ls -l $(which vi)</code></span></li>
+      <li><span>Las instalaciones mínimas pueden incluir <code>vim-tiny</code>, con funciones reducidas</span></li>
+      <li><span>Los comandos presentados operan de forma idéntica en las tres versiones</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">14</span>
+  </div>
+</section>
+
+<!-- 15. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.02 - Editores de texto</div>
+    <div class="s-title s-title--md">Editores gráficos</div>
+    <ul class="bullets">
+      <li><span><strong>VS Code</strong> - el de mayor adopción; catálogo extenso de extensiones</span></li>
+      <li><span><strong>Zed</strong> - implementación nativa, orientada al rendimiento</span></li>
+      <li><span><strong>Sublime Text</strong> - liviano, con licencia comercial</span></li>
+      <li><span><strong>JetBrains</strong> - entornos especializados por lenguaje: PyCharm, IntelliJ</span></li>
+      <li><span><strong>Remote - SSH</strong> - extensión que permite editar archivos en un servidor remoto</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">15</span>
+  </div>
+</section>
+
+<!-- 16. divisoria-seccion -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+    <div class="s-title">Terminales y shells</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">16</span>
+  </div>
+</section>
+
+<!-- 17. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 - Terminales y shells</div>
+    <div class="s-title s-title--md">El emulador de terminal</div>
+    <p class="s-body-text">El emulador de terminal gestiona la representación de caracteres, las pestañas, los colores y las operaciones de copiado y pegado. No interpreta los comandos ingresados: los transmite a la shell y muestra el resultado que esta devuelve. La elección del emulador afecta la ergonomía del trabajo, no las operaciones disponibles.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">17</span>
+  </div>
+</section>
+
+<!-- 18. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 - Terminales y shells</div>
+    <div class="s-title s-title--md">Emuladores de terminal</div>
+    <ul class="bullets">
+      <li><span><strong>GNOME Terminal / Konsole</strong> - incluidos en los entornos de escritorio</span></li>
+      <li><span><strong>Alacritty / kitty / WezTerm</strong> - con aceleración por GPU</span></li>
+      <li><span><strong>iTerm2</strong> - de uso predominante en macOS</span></li>
+      <li><span><strong>Windows Terminal</strong> - integrado con WSL</span></li>
+      <li><span><strong>tmux</strong> - multiplexor; divide la sesión y persiste ante desconexiones</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">18</span>
+  </div>
+</section>
+
+<!-- 19. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 - Terminales y shells</div>
+    <div class="s-title s-title--md">La shell como intérprete</div>
+    <p class="s-body-text">La shell lee la línea ingresada, la analiza, localiza el programa correspondiente, lo ejecuta y devuelve el resultado. Constituye además un lenguaje de programación completo, con variables, estructuras condicionales e iterativas. Los archivos con extensión <code>.sh</code> son programas escritos en el lenguaje de la shell.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">19</span>
+  </div>
+</section>
+
+<!-- 20. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 - Terminales y shells</div>
+    <div class="s-title s-title--md">Shells disponibles</div>
+    <ul class="bullets">
+      <li><span><strong>bash</strong> - estándar de facto en Linux desde la década de 1990</span></li>
+      <li><span><strong>zsh</strong> - compatible con bash, con autocompletado extendido</span></li>
+      <li><span><strong>fish</strong> - orientada a la usabilidad, sin compatibilidad con bash</span></li>
+      <li><span><strong>dash</strong> - implementación mínima; ejecuta los scripts del sistema</span></li>
+      <li><span><strong>PowerShell</strong> - propia de Windows; opera sobre objetos en lugar de texto</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">20</span>
+  </div>
+</section>
+
+<!-- 21. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.03 - Terminales y shells</div>
+    <div class="s-title s-title--md">Identificación de la shell activa</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code><span class="c1"># shell configurada para el usuario actual</span>
+echo $SHELL
+
+<span class="c1"># shells instaladas en el sistema</span>
+cat /etc/shells
+
+<span class="c1"># modificación de la shell por defecto</span>
+chsh <span class="c2">-s</span> /bin/zsh</code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">21</span>
+  </div>
+</section>
+
+<!-- 22. divisoria-seccion -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+    <div class="s-title">Permisos en el sistema de archivos</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">22</span>
+  </div>
+</section>
+
+<!-- 23. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">Modelo de permisos de Unix</div>
+    <p class="s-body-text">Unix es un sistema multiusuario: un mismo equipo admite múltiples usuarios simultáneos. Cada archivo registra un usuario propietario, un grupo, y los permisos de lectura, escritura y ejecución correspondientes a tres clases de sujeto. Un archivo creado no recibe permiso de ejecución por defecto, lo que constituye una medida de seguridad deliberada.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">23</span>
+  </div>
+</section>
+
+<!-- 24. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">Ejecución denegada</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code><span class="c3">$</span> nano hola.sh
+<span class="c3">$</span> ./hola.sh
+<span class="c3">bash: ./hola.sh: Permission denied</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">24</span>
+  </div>
+</section>
+
+<!-- 25. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">Estructura de la salida de ls -l</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code><span class="c3">$</span> ls <span class="c2">-l</span> hola.sh
+<span class="c3">-rwxr-xr--  1 alumno alumnos  32 Aug 25 14:02 hola.sh</span>
+
+<span class="c1"># -        tipo de entrada (- archivo, d directorio, l enlace)</span>
+<span class="c1">#  rwx     permisos del usuario propietario  (alumno)</span>
+<span class="c1">#     r-x  permisos del grupo                (alumnos)</span>
+<span class="c1">#        r--  permisos del resto de los usuarios</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">25</span>
+  </div>
+</section>
+
+<!-- 26. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">Los tres bits de permiso</div>
+    <ul class="bullets">
+      <li><span><strong>r</strong> (read, valor 4) - lectura del contenido</span></li>
+      <li><span><strong>w</strong> (write, valor 2) - modificación o eliminación</span></li>
+      <li><span><strong>x</strong> (execute, valor 1) - ejecución como programa</span></li>
+      <li><span>Los valores se suman: <code>rwx</code> = 7, <code>r-x</code> = 5, <code>r--</code> = 4</span></li>
+      <li><span>La terna se repite para usuario, grupo y resto</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">26</span>
+  </div>
+</section>
+
+<!-- 27. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">chmod: notación simbólica y octal</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code><span class="c1"># notación simbólica: agregar ejecución al usuario</span>
+chmod <span class="c2">u+x</span> hola.sh
+
+<span class="c1"># notación simbólica: quitar escritura a grupo y resto</span>
+chmod <span class="c2">go-w</span> hola.sh
+
+<span class="c1"># notación octal: rwx r-x r-x</span>
+chmod <span class="c2">755</span> hola.sh
+
+<span class="c3">$</span> ./hola.sh
+<span class="c3">Hola, mundo</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">27</span>
+  </div>
+</section>
+
+<!-- 28. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">Permisos sobre directorios</div>
+    <ul class="bullets">
+      <li><span>En un directorio, <code>x</code> habilita el acceso, no la ejecución</span></li>
+      <li><span>El bit <code>r</code> sobre un directorio permite únicamente listar los nombres</span></li>
+      <li><span>Sin <code>x</code> en el directorio, los archivos que contiene son inaccesibles</span></li>
+      <li><span>Es la causa más frecuente de error en la interpretación de permisos</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">28</span>
+  </div>
+</section>
+
+<!-- 29. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.04 - Permisos en el sistema de archivos</div>
+    <div class="s-title s-title--md">Riesgos de permisos excesivos</div>
+    <ul class="bullets">
+      <li><span><code>chmod 777</code> otorga control total a cualquier usuario del sistema</span></li>
+      <li><span>Su uso indica, en general, un diagnóstico incorrecto del problema</span></li>
+      <li><span>La aplicación recursiva sobre el sistema de archivos lo deja inutilizable</span></li>
+      <li><span>El criterio aplicable es el de mínimo privilegio necesario</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">29</span>
+  </div>
+</section>
+
+<!-- 30. divisoria-seccion -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+    <div class="s-title">Recursos de consulta</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">30</span>
+  </div>
+</section>
+
+<!-- 31. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 - Recursos de consulta</div>
+    <div class="s-title s-title--md">Sitios oficiales: editores</div>
+    <ul class="bullets">
+      <li><span>nano - <a href="https://nano-editor.org">nano-editor.org</a></span></li>
+      <li><span>vim - <a href="https://www.vim.org">vim.org</a> · neovim - <a href="https://neovim.io">neovim.io</a></span></li>
+      <li><span>emacs - <a href="https://www.gnu.org/software/emacs/">gnu.org/software/emacs</a></span></li>
+      <li><span>VS Code - <a href="https://code.visualstudio.com">code.visualstudio.com</a></span></li>
+      <li><span>Zed - <a href="https://zed.dev">zed.dev</a> · Sublime - <a href="https://www.sublimetext.com">sublimetext.com</a></span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">31</span>
+  </div>
+</section>
+
+<!-- 32. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 - Recursos de consulta</div>
+    <div class="s-title s-title--md">Sitios oficiales: terminales y shells</div>
+    <ul class="bullets">
+      <li><span>Alacritty - <a href="https://alacritty.org">alacritty.org</a> · <a href="https://sw.kovidgoyal.net/kitty/">kitty</a></span></li>
+      <li><span>iTerm2 - <a href="https://iterm2.com">iterm2.com</a></span></li>
+      <li><span>tmux - <a href="https://github.com/tmux/tmux">github.com/tmux/tmux</a></span></li>
+      <li><span>bash - <a href="https://www.gnu.org/software/bash/">gnu.org/software/bash</a> · zsh - <a href="https://www.zsh.org">zsh.org</a></span></li>
+      <li><span>fish - <a href="https://fishshell.com">fishshell.com</a> · Oh My Zsh - <a href="https://ohmyz.sh">ohmyz.sh</a></span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">32</span>
+  </div>
+</section>
+
+<!-- 33. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 - Recursos de consulta</div>
+    <div class="s-title s-title--md">Referencias rápidas</div>
+    <ul class="bullets">
+      <li><span><a href="https://vim.rtorr.com">vim.rtorr.com</a> - comandos de vim, con versión en español</span></li>
+      <li><span><a href="https://devhints.io/linux">devhints.io/linux</a> - comandos de Linux en una página</span></li>
+      <li><span><a href="https://devhints.io/bash">devhints.io/bash</a> - sintaxis de scripting en bash</span></li>
+      <li><span><a href="https://devhints.io/vim">devhints.io/vim</a> y <a href="https://devhints.io/vscode">/vscode</a> - atajos de los editores</span></li>
+      <li><span><a href="https://explainshell.com">explainshell.com</a> - descompone un comando y explica cada opción</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">33</span>
+  </div>
+</section>
+
+<!-- 34. titulo-bullets -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 - Recursos de consulta</div>
+    <div class="s-title s-title--md">Referencias de permisos</div>
+    <ul class="bullets">
+      <li><span><a href="https://chmod-calculator.com">chmod-calculator.com</a> - conversión simbólica y octal</span></li>
+      <li><span><a href="https://linuxize.com/tools/chmod-calculator/">linuxize.com/tools/chmod-calculator</a> - en ambos sentidos</span></li>
+      <li><span><a href="https://explainshell.com">explainshell.com</a> - análisis de comandos como <code>chmod -R 755 .</code></span></li>
+      <li><span><a href="https://linuxcommand.org/tlcl.php">The Linux Command Line</a>, capítulo 9 - el tema completo</span></li>
+      <li><span><code>man chmod</code> y <code>man chown</code> - documentación oficial, disponible sin conexión</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">34</span>
+  </div>
+</section>
+
+<!-- 35. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.05 - Recursos de consulta</div>
+    <div class="s-title s-title--md">Consulta desde la línea de comandos</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code><span class="c1"># documentación completa del comando</span>
+man chmod
+
+<span class="c1"># ejemplos de uso en lugar del manual (requiere instalación)</span>
+tldr chmod
+
+<span class="c1"># equivalente accesible por HTTP, sin instalación previa</span>
+curl cheat.sh/chmod
+
+<span class="c1"># tutorial interactivo de vim</span>
+vimtutor</code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">35</span>
+  </div>
+</section>
+
+<!-- 36. divisoria-seccion -->
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+    <div class="s-title">Síntesis y práctica</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">36</span>
+  </div>
+</section>
+
+<!-- 37. titulo-texto -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 - Síntesis y práctica</div>
+    <div class="s-title s-title--md">Conceptos centrales</div>
+    <p class="s-body-text">Las herramientas presentadas son alternativas entre las cuales corresponde elegir según el contexto de trabajo, y no opciones jerarquizadas por calidad. Dos elementos requieren conocimiento memorizado, dado que un servidor remoto puede no ofrecer otras herramientas: los comandos de salida de vim y la interpretación de la salida de <code>ls -l</code>.</p>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">37</span>
+  </div>
+</section>
+
+<!-- 38. codigo -->
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>.06 - Síntesis y práctica</div>
+    <div class="s-title s-title--md">Ejercicio</div>
+    <div class="code-block">
+      <div class="fname">terminal</div>
+      <pre><code><span class="c1"># 1. Crear saludo.sh con nano e incluir una sentencia echo</span>
+<span class="c1"># 2. Intentar su ejecución mediante ./saludo.sh</span>
+<span class="c1"># 3. Otorgar permiso de ejecución y repetir el intento</span>
+<span class="c1"># 4. Establecer los siguientes permisos:</span>
+<span class="c1">#      propietario: lectura, escritura y ejecución</span>
+<span class="c1">#      grupo:       lectura y ejecución, sin escritura</span>
+<span class="c1">#      resto:       sin permisos</span>
+<span class="c1"># 5. Verificar con ls -l y abrir el archivo con vim</span></code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">38</span>
+  </div>
+</section>
+
+<!-- 39. bibliografia -->
+<section class="slide biblio">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+    <ol>
+      <li>The Linux Command Line - William Shotts <span class="src">(linuxcommand.org)</span></li>
+      <li>The Missing Semester of Your CS Education - MIT <span class="src">(missing.csail.mit.edu)</span></li>
+      <li>Vim Cheat Sheet - vim.rtorr.com <span class="src">(disponible en español)</span></li>
+      <li>Devhints - devhints.io/linux y devhints.io/bash</li>
+      <li>explainshell.com - análisis de comandos por opción</li>
+      <li>chmod-calculator.com - calculadora de permisos</li>
+      <li><code>man ls</code>, <code>man chmod</code>, <code>man bash</code> - páginas de manual del sistema</li>
+    </ol>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">39</span>
+  </div>
+</section>
+
+<!-- 40. cierre -->
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="closing-center">
+      <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+      <div class="s-title">Gracias</div>
+      <div class="closing-links">Próxima clase: scripting en bash</div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">40</span>
+  </div>
+</section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

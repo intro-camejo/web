@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Editores de texto
 
 **Qué son los editores de texto?**

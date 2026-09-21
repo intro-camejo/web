@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingeniería de Software II — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!--
+  Generado a partir de contenido.md con /generar-diapositiva ing-soft-2.
+  Los diagramas mermaid se hornearon a SVG estático inline (mismo estilo que
+  ing-soft-1): sin dependencias de JS ni de red para mostrarse.
+-->
+<main class="deck">
+
+  <!-- 01. portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Ingeniería de Software II</div>
+        <div class="s-sub">De la crisis del software a Scrum, Kanban y GitHub Projects</div>
+        <div class="cover-index"><span class="n">Clase {{completar}}</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- 02. agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Los orígenes del software</span></li>
+        <li><span class="idx">.02</span><span class="lbl">1960s — La escala explota</span></li>
+        <li><span class="idx">.03</span><span class="lbl">1970s — Nace Waterfall</span></li>
+        <li><span class="idx">.04</span><span class="lbl">1980s — Software para todos</span></li>
+        <li><span class="idx">.05</span><span class="lbl">1990s-2001 — El quiebre y la respuesta ágil</span></li>
+        <li><span class="idx">.06</span><span class="lbl">Scrum</span></li>
+        <li><span class="idx">.07</span><span class="lbl">Kanban</span></li>
+        <li><span class="idx">.08</span><span class="lbl">GitHub Projects</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- 03. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">Los orígenes del software</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- 04. diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Los orígenes del software</div>
+      <div class="s-title s-title--md">Línea de tiempo: 1843 &#8594; 1958</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 1180 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1843 Ada Lovelace primer algoritmo, 1946 ENIAC primera computadora, 1948 Manchester Baby nace el software, 1958 se acuña la palabra software">
+          <defs>
+            <marker id="arrow-tl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="20" width="265" height="118" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="132" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="#16130f">1843</text>
+            <text x="132" y="86" text-anchor="middle" font-size="15" fill="#16130f">Ada Lovelace</text>
+            <text x="132" y="110" text-anchor="middle" font-size="15" fill="#6e6a63">primer algoritmo</text>
+
+            <rect x="305" y="20" width="265" height="118" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="437" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="#16130f">1946</text>
+            <text x="437" y="86" text-anchor="middle" font-size="15" fill="#16130f">ENIAC</text>
+            <text x="437" y="110" text-anchor="middle" font-size="15" fill="#6e6a63">primera computadora</text>
+
+            <rect x="610" y="20" width="265" height="118" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="742" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="#16130f">1948</text>
+            <text x="742" y="86" text-anchor="middle" font-size="15" fill="#16130f">Manchester Baby</text>
+            <text x="742" y="110" text-anchor="middle" font-size="15" fill="#6e6a63">nace el software</text>
+
+            <rect x="915" y="20" width="265" height="118" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="1047" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="#16130f">1958</text>
+            <text x="1047" y="86" text-anchor="middle" font-size="15" fill="#16130f">se acuña la palabra</text>
+            <text x="1047" y="110" text-anchor="middle" font-size="15" fill="#6e6a63">«software»</text>
+
+            <line x1="267" y1="79" x2="303" y2="79" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-tl)"/>
+            <line x1="572" y1="79" x2="608" y2="79" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-tl)"/>
+            <line x1="877" y1="79" x2="913" y2="79" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-tl)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- 05. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Los orígenes del software</div>
+      <div class="s-title s-title--md">1843 — El primer algoritmo (sin máquina que lo corra)</div>
+      <ul class="bullets">
+        <li><span>El algoritmo calculaba la secuencia completa de los números de Bernoulli, usando el resultado de cada paso para calcular el siguiente</span></li>
+        <li><span>Para lograrlo, definía una serie de instrucciones que se repetían una y otra vez — lo que hoy llamamos un bucle — además de variables que guardaban resultados intermedios<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Lo escribió Ada Lovelace en 1843, como parte de sus notas sobre el Analytical Engine de Charles Babbage — una computadora mecánica que <strong>nunca llegó a construirse</strong><span class="tag tag-info">Info</span></span></li>
+        <li><span>Es reconocida como la autora del primer programa de la historia — <strong>100 años antes</strong> de que exista una máquina capaz de ejecutarlo</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- 06. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Los orígenes del software</div>
+      <div class="s-title s-title--md">1946 — La primera computadora (todavía sin software)</div>
+      <ul class="bullets">
+        <li><span><strong>ENIAC</strong>, construida entre 1943 y 1945, presentada en público en febrero de 1946</span></li>
+        <li><span>18.000 válvulas, 10.000 capacitores, 6.000 interruptores, 40 gabinetes de 2,7 metros de altura</span></li>
+        <li><span>Programarla significaba <strong>recablearla físicamente</strong> — mover clavijas y switches durante días para cada problema nuevo<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- 07. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Los orígenes del software</div>
+      <div class="s-title s-title--md">1948 — Nace el software</div>
+      <ul class="bullets">
+        <li><span>21 de junio de 1948, Universidad de Manchester: la «Baby» corre el primer programa almacenado en memoria electrónica</span></li>
+        <li><span>17 instrucciones escritas por Tom Kilburn, 52 minutos, 3,5 millones de operaciones</span></li>
+        <li><span>El quiebre conceptual: por primera vez el programa se <strong>guarda y ejecuta</strong>, no se cablea a mano<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- 08. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Los orígenes del software</div>
+      <div class="s-title s-title--md">1958 — Aparece la palabra «software»</div>
+      <ul class="bullets">
+        <li><span>El estadístico John Tukey la usa por primera vez en una publicación (American Mathematical Monthly)</span></li>
+        <li><span>La contrasta explícitamente con «hardware»</span></li>
+        <li><span>El lenguaje tardó <strong>10 años</strong> en ponerse a la altura del concepto<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- 09. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Los orígenes del software</div>
+      <div class="s-title s-title--md">Contexto: los 50s en números</div>
+      <ul class="bullets">
+        <li><span>1955: apenas unas 250 computadoras en funcionamiento en todo el mundo<span class="tag tag-info">Info</span></span></li>
+        <li><span>Usos dominantes: cálculo balístico y militar, censos, y las primeras nóminas y contabilidad empresarial</span></li>
+        <li><span>Programar era escribir en binario o lenguaje ensamblador — FORTRAN (1957) y COBOL (1959) recién estaban naciendo</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- 10. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">1960s — La escala explota</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- 11. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — 1960s — La escala explota</div>
+      <div class="s-title s-title--md">Contexto: los 60s en números</div>
+      <ul class="bullets">
+        <li><span>Hacia 1965, ya había unas 20.000 computadoras en funcionamiento en todo el mundo — 80 veces más que una década antes<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>SABRE, sistemas bancarios y de nómina: el software empieza a tocar la vida cotidiana de millones de personas, aunque sea indirectamente</span></li>
+        <li><span>1969: IBM separa el software del hardware — hasta entonces venía gratis con la máquina<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Nace la industria del software como sector comercial independiente: aparecen las primeras empresas dedicadas solo a vender software</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- 12. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — 1960s — La escala explota</div>
+      <div class="s-title s-title--md">1964-1966 — El problema se vuelve gigante</div>
+      <ul class="bullets">
+        <li><span>El desarrollo de OS/360, el sistema operativo del System/360, se retrasa en relación al cronograma; IBM suma más programadores para recuperar tiempo</span></li>
+        <li><span>El sistema operativo OS/360 llega a tener <strong>más de 1.000 personas</strong> trabajando en simultáneo</span></li>
+        <li><span>Sale en 1966: tarde y con costos varias veces por encima de la estimación<span class="tag tag-danger">Danger</span></span></li>
+        <li><span>En base a esto se publica el libro «The Mythical Man-Month» de Fred Brooks, el propio manager del proyecto</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- 13. imagen-bleed (dos imágenes lado a lado: comparación A vs B) -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs">
+      <img src="img/harry.jpg" alt="Escritorio prolijo, todo en orden">
+      <img src="img/daniel.webp" alt="Escritorio desprolijo, todo enredado">
+    </div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.02 — 1960s — La escala explota</div>
+      <div class="s-title s-title--md">Se empieza a vislumbrar</div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">13</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — 1960s — La escala explota</div>
+      <div class="s-title s-title--md">1968 — Se le pone nombre: «la crisis del software»</div>
+      <ul class="bullets">
+        <li><span>Con el fracaso de OS/360 todavía fresco, un grupo de expertos se reúne en Garmisch, Alemania, en la primera Conferencia de Ingeniería de Software de la OTAN</span></li>
+        <li><span>Acuñan el término «crisis del software»: la industria sabe construir hardware cada vez más potente, pero no sabe construir el software para aprovecharlo — a tiempo, dentro de presupuesto, y que funcione<span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- 15. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">1970s — Nace Waterfall</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- 16. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — 1970s — Nace Waterfall</div>
+      <div class="s-title s-title--md">Contexto: los 70s en números</div>
+      <ul class="bullets">
+        <li><span>A principios de los 70s ya había medio millón de computadoras en funcionamiento en todo el mundo<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Hacia 1979, el gasto en software en los países de la OCDE ya superaba los 51.900 millones de dólares<span class="tag tag-info">Info</span></span></li>
+        <li><span>Aparecen las minicomputadoras — el software empieza a salir de la gran sala de máquinas corporativa</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- 17. diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — 1970s — Nace Waterfall</div>
+      <div class="s-title s-title--md">1970 — La Metodología Waterfall</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 580 436" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cascada secuencial: Requisitos, Diseño, Implementación, Testing, Mantenimiento">
+          <defs>
+            <marker id="arrow-wf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="0" width="300" height="64" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="150" y="38" text-anchor="middle" font-size="16" fill="#16130f">Requisitos</text>
+
+            <rect x="68" y="90" width="300" height="64" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="218" y="128" text-anchor="middle" font-size="16" fill="#16130f">Diseño</text>
+
+            <rect x="136" y="180" width="300" height="64" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="286" y="218" text-anchor="middle" font-size="16" fill="#16130f">Implementación</text>
+
+            <rect x="204" y="270" width="300" height="64" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="354" y="308" text-anchor="middle" font-size="16" fill="#16130f">Testing</text>
+
+            <rect x="272" y="360" width="300" height="64" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="422" y="398" text-anchor="middle" font-size="16" fill="#16130f">Mantenimiento</text>
+
+            <line x1="150" y1="64" x2="214" y2="88" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-wf)"/>
+            <line x1="218" y1="154" x2="282" y2="178" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-wf)"/>
+            <line x1="286" y1="244" x2="350" y2="268" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-wf)"/>
+            <line x1="354" y1="334" x2="418" y2="358" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-wf)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- 18. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — 1970s — Nace Waterfall</div>
+      <div class="s-title s-title--md">El nacimiento de Waterfall</div>
+      <ul class="bullets">
+        <li><span>Winston Royce, ingeniero de TRW, publica «Managing the Development of Large Software Systems»</span></li>
+        <li><span>Define fases secuenciales: requisitos &#8594; diseño &#8594; implementación &#8594; testing &#8594; mantenimiento</span></li>
+        <li><span><strong>La ironía</strong>: el propio paper advertía sobre los riesgos de un enfoque puramente secuencial y recomendaba loops de feedback — la industria se quedó con el diagrama simple y descartó las advertencias<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- 19. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — 1970s — Nace Waterfall</div>
+      <div class="s-title s-title--md">1974 — La crisis sigue viva</div>
+      <ul class="bullets">
+        <li><span>Varias publicaciones describen al software de la industria como poco confiable, mal documentado y demasiado costoso<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>No fue un problema que se resolvió al nombrarlo en 1968 — siguió siendo el estado normal de la industria durante toda la década</span></li>
+        <li><span>El «costo de arreglar» seguía creciendo cuanto más tarde se detectaba un error, exactamente el punto débil de un proceso 100% secuencial</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- 20. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">1980s — Software para todos</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- 21. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — 1980s — Software para todos</div>
+      <div class="s-title s-title--md">Contexto: los 80s en números</div>
+      <ul class="bullets">
+        <li><span>En 1980 se vendían unas 500.000 computadoras personales por año en todo el mundo — hacia 1985 ya eran 3,7 millones por año<span class="tag tag-danger">Danger</span></span></li>
+        <li><span>El mercado global de software crece de ~10.000 millones de dólares (1980) a ~100.000 millones (1990) — <strong>10 veces en una década</strong><span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Aparece el software «de góndola»: VisiCalc, Lotus 1-2-3, WordPerfect, MS-DOS</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- 22. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">1990s-2001 — El quiebre y la respuesta ágil</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- 23. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — 1990s-2001 — El quiebre y la respuesta ágil</div>
+      <div class="s-title s-title--md">Contexto: los 90s en números</div>
+      <ul class="bullets">
+        <li><span>1991-95: la World Wide Web hace que Internet sea utilizable por gente sin formación técnica</span></li>
+        <li><span>Para el año 2000, ya había más de 500 millones de computadoras en funcionamiento en todo el mundo<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- 24. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — 1990s-2001 — El quiebre y la respuesta ágil</div>
+      <div class="s-title s-title--md">1990-95 — Denver International Airport</div>
+      <ul class="bullets">
+        <li><span>Sistema automatizado de manejo de equipaje: contrato original de <strong>193 millones de dólares</strong></span></li>
+        <li><span>Construido y probado como un bloque monolítico, sin entregas incrementales<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Resultado: <strong>16 meses</strong> de atraso, hasta <strong>560 millones de dólares</strong> por encima del presupuesto, 1.1 millones de dólares por día en intereses de deuda<span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- 25. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — 1990s-2001 — El quiebre y la respuesta ágil</div>
+      <div class="s-title s-title--md">1994 — El CHAOS Report</div>
+      <ul class="bullets">
+        <li><span>Relevamiento de 365 empresas y más de 8.000 aplicaciones de software</span></li>
+        <li><span>Solo <strong>16%</strong> de los proyectos terminó a tiempo y dentro de presupuesto<span class="tag tag-danger">Danger</span></span></li>
+        <li><span><strong>53%</strong> quedó «desafiado» (sobrecostos, atrasos, funcionalidad recortada) — <strong>31%</strong> se canceló directamente</span></li>
+        <li><span>Los proyectos que sí se completaban se pasaban, en promedio, <strong>189%</strong> del presupuesto original</span></li>
+        <li><span>Las 3 causas principales: falta de input del usuario, requisitos incompletos y requisitos que cambiaban en el camino — exactamente lo que Waterfall no puede absorber<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- 26. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — 1990s-2001 — El quiebre y la respuesta ágil</div>
+      <div class="s-title s-title--md">2001 — El Manifiesto Ágil</div>
+      <ul class="bullets">
+        <li><span>11-13 de febrero de 2001, Snowbird, Utah: 17 personas de distintas corrientes (XP, Scrum, DSDM, Crystal) se juntan a buscar un terreno común</span></li>
+        <li><span>El resultado: 4 valores, 12 principios<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Individuos e interacciones, por sobre procesos y herramientas</span></li>
+        <li><span>Software funcionando, por sobre documentación exhaustiva</span></li>
+        <li><span>Colaboración con el cliente, por sobre negociación de contratos</span></li>
+        <li><span>Responder al cambio, por sobre seguir un plan</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- 27. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+      <div class="s-title">Scrum</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- 28. diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Scrum</div>
+      <div class="s-title s-title--md">El ciclo del Sprint</div>
+      <div class="mermaid-wrap">
+        <svg viewBox="0 0 1180 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ciclo del Sprint: Sprint Planning, Sprint con Daily Scrum, Sprint Review, Sprint Retrospective, y vuelta al inicio">
+          <defs>
+            <marker id="arrow-sp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#ff5a1f"/>
+            </marker>
+          </defs>
+          <g font-family="'Instrument Sans','Segoe UI',sans-serif">
+            <rect x="0" y="16" width="265" height="104" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="132" y="60" text-anchor="middle" font-size="16" fill="#16130f">Sprint Planning</text>
+            <text x="132" y="84" text-anchor="middle" font-size="14" fill="#6e6a63">máx. 8 h</text>
+
+            <rect x="305" y="16" width="265" height="104" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="437" y="48" text-anchor="middle" font-size="16" fill="#16130f">Sprint</text>
+            <text x="437" y="72" text-anchor="middle" font-size="14" fill="#6e6a63">1-4 semanas</text>
+            <text x="437" y="94" text-anchor="middle" font-size="14" fill="#6e6a63">+ Daily Scrum 15 min/día</text>
+
+            <rect x="610" y="16" width="265" height="104" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="742" y="60" text-anchor="middle" font-size="16" fill="#16130f">Sprint Review</text>
+            <text x="742" y="84" text-anchor="middle" font-size="14" fill="#6e6a63">máx. 4 h</text>
+
+            <rect x="915" y="16" width="265" height="104" rx="10" ry="10" fill="#ffffff" stroke="#16130f" stroke-width="1.5"/>
+            <text x="1047" y="60" text-anchor="middle" font-size="16" fill="#16130f">Sprint Retrospective</text>
+            <text x="1047" y="84" text-anchor="middle" font-size="14" fill="#6e6a63">máx. 3 h</text>
+
+            <line x1="267" y1="68" x2="303" y2="68" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-sp)"/>
+            <line x1="572" y1="68" x2="608" y2="68" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-sp)"/>
+            <line x1="877" y1="68" x2="913" y2="68" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-sp)"/>
+
+            <path d="M1047,120 L1047,176 L132,176 L132,122" fill="none" stroke="#6e6a63" stroke-width="1.5" marker-end="url(#arrow-sp)"/>
+            <text x="590" y="169" text-anchor="middle" font-size="13" fill="#6e6a63">repetir cada Sprint</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- 29. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Scrum</div>
+      <div class="s-title s-title--md">Los 3 artefactos (y su compromiso)</div>
+      <ul class="bullets">
+        <li><span><strong>Product Backlog</strong> — lista viva de todo lo que el producto podría necesitar &#8594; comprometido con el <strong>Product Goal</strong></span></li>
+        <li><span><strong>Sprint Backlog</strong> — lo que el equipo se comprometió a hacer este sprint &#8594; comprometido con el <strong>Sprint Goal</strong></span></li>
+        <li><span><strong>Increment</strong> — lo que quedó realmente terminado &#8594; comprometido con la <strong>Definition of Done</strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- 30. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Scrum</div>
+      <div class="s-title s-title--md">Los 3 roles</div>
+      <ul class="bullets">
+        <li><span><strong>Product Owner</strong> — maximiza el valor del producto; dueño del Product Backlog: decide qué entra y en qué orden<span class="tag tag-info">Info</span></span></li>
+        <li><span><strong>Scrum Master</strong> — líder de servicio; asegura que el framework se respete y saca obstáculos del camino del equipo</span></li>
+        <li><span><strong>Developers</strong> — el equipo que construye el incremento, sin jerarquías internas</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- 31. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Scrum</div>
+      <div class="s-title s-title--md">Los 5 eventos, con números reales</div>
+      <ul class="bullets">
+        <li><span><strong>Sprint</strong> — de 1 a 4 semanas, es el lapso de trabajo. Contiene a las demás.</span></li>
+        <li><span><strong>Sprint Planning</strong> — se arma el Sprint Backlog y el Sprint Goal</span></li>
+        <li><span><strong>Daily Scrum</strong> — 15 minutos, todos los días, mismo horario y lugar — es de los Developers, para los Developers<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>Sprint Review</strong> — se muestra el incremento funcionando, se ajusta el Product Backlog</span></li>
+        <li><span><strong>Sprint Retrospective</strong> — el equipo se mira a sí mismo y define una mejora concreta</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- 32. comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Scrum</div>
+      <div class="s-title s-title--md">Product Owner vs. Project Manager</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Product Owner</h3>
+          <ul>
+            <li>Nace con Scrum, para responder «¿quién decide qué se construye?»</li>
+            <li>Gestiona el <strong>producto</strong>: qué y en qué orden</li>
+            <li>Éxito = valor generado, sin fecha de «fin» natural</li>
+            <li>Adentro del equipo, todos los días</li>
+            <li>Es uno de los 3 roles del framework</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Project Manager</h3>
+          <ul>
+            <li>Gestión de proyectos tradicional (PMI/PMBOK), anterior a Scrum</li>
+            <li>Gestiona el <strong>proyecto</strong>: cronograma, presupuesto, riesgos</li>
+            <li>Éxito = a tiempo, en presupuesto, con el alcance acordado</li>
+            <li>Muchas veces afuera del equipo, coordinando varios a la vez</li>
+            <li><strong>No existe</strong> como rol dentro del framework de Scrum</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- 33. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .07</div>
+      <div class="s-title">Kanban</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- 34. cita -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="quote-wrap">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="quote-text">Todavía recuerdo mi sorpresa al oír que se necesitaban nueve japoneses para hacer el trabajo de un estadounidense.</div>
+        <div class="quote-cite">— Taiichi Ohno</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- 35. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Kanban</div>
+      <div class="s-title s-title--md">1953 — Nace en la fábrica de Toyota</div>
+      <ul class="bullets">
+        <li><span>Taiichi Ohno desarrolla el sistema de tarjetas («kanban» = letrero, en japonés) en el taller de máquinas de Toyota</span></li>
+        <li><span>Inspirado en los supermercados americanos: el cliente toma lo que necesita y el estante se repone según el consumo real<span class="tag tag-info">Info</span></span></li>
+        <li><span>Cambio de sistema <strong>push</strong> (se produce según pronóstico) a sistema <strong>pull</strong> (se produce según demanda real)</span></li>
+        <li><span>Adoptado en todas las plantas de Toyota hacia 1963</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- 36. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Kanban</div>
+      <div class="s-title s-title--md">2004-2005 — Llega al software</div>
+      <ul class="bullets">
+        <li><span>David J. Anderson lo adapta por primera vez en un equipo de Microsoft (mantenimiento de aplicaciones internas)</span></li>
+        <li><span>Estado inicial: backlog de más de 80 solicitudes, lead time típico de ~5 meses, cumplimiento de fechas casi nulo<span class="tag tag-danger">Danger</span></span></li>
+        <li><span>A los 9 meses, sin sumar gente: <strong>155% de mejora de productividad</strong>, lead time bajado a un máximo de 5 semanas, cumplimiento de fechas por encima del <strong>90%</strong><span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Anderson formaliza el método completo en 2010 («Kanban: Successful Evolutionary Change for Your Technology Business»)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- 37. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Kanban</div>
+      <div class="s-title s-title--md">Los componentes centrales</div>
+      <ul class="bullets">
+        <li><span><strong>El tablero</strong> — columnas que representan los pasos del proceso; cada tarjeta avanza de izquierda a derecha</span></li>
+        <li><span><strong>Límites de WIP</strong> (Work In Progress) — topes explícitos a cuántas tareas pueden estar en cada columna a la vez<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>Sistema pull</strong> — se hala trabajo nuevo solo cuando hay una ranura libre bajo el límite</span></li>
+        <li><span><strong>Flujo continuo</strong> — sin sprints ni iteraciones de duración fija; se entrega en cualquier momento</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- 38. comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Kanban</div>
+      <div class="s-title s-title--md">Scrum vs. Kanban</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Scrum</h3>
+          <ul>
+            <li>Roles fijos: Product Owner, Scrum Master, Developers</li>
+            <li>Sprints de duración fija (1-4 semanas)</li>
+            <li>El alcance del sprint se protege de cambios</li>
+            <li>Se mide con <strong>velocity</strong> (story points por sprint)</li>
+            <li>Marco prescriptivo: roles y eventos definidos</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Kanban</h3>
+          <ul>
+            <li>No prescribe roles — se mantienen los títulos actuales</li>
+            <li>Flujo continuo, sin iteraciones de duración fija</li>
+            <li>Se puede repriorizar en cualquier momento</li>
+            <li>Se mide con <strong>lead time / cycle time / throughput</strong></li>
+            <li>Evolutivo: parte del proceso actual y lo mejora</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- 39. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Kanban</div>
+      <div class="s-title s-title--md">¿Cuándo conviene cada una?</div>
+      <ul class="bullets">
+        <li><span><strong>Scrum</strong> — cuando el trabajo se puede planificar en objetivos por iteración y el equipo puede comprometerse a un alcance fijo por 1-4 semanas<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>Kanban</strong> — cuando el trabajo llega de forma impredecible y hay que responder rápido: soporte, mantenimiento, DevOps/SRE<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Regla práctica: <strong>Scrum protege el foco; Kanban protege la capacidad de respuesta</strong> — se elige según la tasa de interrupción del equipo<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- 40. divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .08</div>
+      <div class="s-title">GitHub Projects</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- 41. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.08 — GitHub Projects</div>
+      <div class="s-title s-title--md">Qué es</div>
+      <ul class="bullets">
+        <li><span>Un tablero Kanban integrado directamente al repositorio de GitHub</span></li>
+        <li><span>Cada card puede ser un <strong>Issue</strong> o un <strong>Pull Request</strong> — no hay que duplicar información en otra herramienta<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Se arma con columnas configurables (ej: Backlog &#8594; In Progress &#8594; In Review &#8594; Done)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+  <!-- 42. titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.08 — GitHub Projects</div>
+      <div class="s-title s-title--md">Demo en vivo — Carguemos las notas del parcialito</div>
+      <ul class="bullets">
+        <li><span>Crear el Project desde el repositorio</span></li>
+        <li><span>Cargar issue «Subir notas del 1er examen»</span></li>
+        <li><span>Vincular un issue a una rama y abrir un PR</span></li>
+        <li><span>Ver cómo se mueve la tarjeta entre columnas a medida que avanza el trabajo</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">42</span>
+    </div>
+  </section>
+
+  <!-- 43. bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>Royce, W. W. — «Managing the Development of Large Software Systems» <span class="src">(1970)</span></li>
+        <li>Standish Group — «CHAOS Report» <span class="src">(1994)</span></li>
+        <li>NATO Science Committee — «Software Engineering: Report on a Conference» <span class="src">(Garmisch, 1968)</span></li>
+        <li>Schwaber, K. y Sutherland, J. — «The Scrum Guide» <span class="src">(2020)</span></li>
+        <li>Anderson, D. J. — «Kanban: Successful Evolutionary Change for Your Technology Business» <span class="src">(2010)</span></li>
+        <li>Anderson, D. J. y Dumitriu, D. — «From Worst to Best in 9 Months» <span class="src">(Microsoft, 2005)</span></li>
+        <li>Agile Alliance — «Manifesto for Agile Software Development» <span class="src">(2001)</span></li>
+        <li>Digital.ai — «16th / 17th Annual State of Agile Report» <span class="src">(2022 / 2023)</span></li>
+        <li>Engineering and Technology History Wiki — «Early Popular Computers, 1950-1970» y «Software Industry»</li>
+        <li>Kirkley, J. — Datamation <span class="src">(1974)</span></li>
+        <li>Azhar, A. — «Exponential: Order and Chaos in an Age of Accelerating Technology» <span class="src">(cifras globales de computadoras en uso, 1970s y 2000)</span></li>
+        <li>OECD — cifras de gasto en software de países miembro <span class="src">(1979-1985)</span></li>
+        <li>Dataquest Inc. — estimaciones de ventas globales de computadoras personales <span class="src">(1980-1985)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">43</span>
+    </div>
+  </section>
+
+  <!-- 44. cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">Gracias</div>
+        <div class="closing-links">Próxima clase: Más Docker</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">44</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

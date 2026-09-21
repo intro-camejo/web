@@ -1,0 +1,16 @@
+# Sin esto, `COPY . .` mete node_modules y build del host adentro de la imagen:
+# es lento y pisa lo que instala `npm ci` con binarios compilados para otro SO.
+node_modules
+build
+.docusaurus
+
+# Historial y config de desarrollo: no tienen nada que hacer en la imagen.
+.git
+.github
+.vscode
+.DS_Store
+
+Dockerfile
+docker-compose.yaml
+README.md
+CLAUDE.md

@@ -1,0 +1,1074 @@
+<!-- Guia de ejercicios, con pistas colapsables
+     Publicado en: https://claude.ai/code/artifact/3e51a0ff-45dc-4908-b1e8-c1ced51f3e8b
+     Para actualizar esa pagina: edita este archivo y republicalo sobre esa misma URL. -->
+<title>Práctica - Semana 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600&family=Montserrat:wght@700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+  /* ---------------------------------------------------------------------------
+     Tokens copiados tal cual de web/static/slides/_template/design-tokens.css:
+     mismo sistema de diseno que los mazos de clase. Un artifact tiene que ser
+     autocontenido (no puede linkear el .css ni las fuentes locales del repo),
+     asi que viven aca. Ningun valor fue modificado.
+     Las fuentes salen de Google Fonts, que sirve las mismas tres familias que
+     declara el @font-face del repo.
+     --------------------------------------------------------------------------- */
+  :root {
+    --paper:#ffffff;
+    --ink:#16130f;
+    --muted:#6e6a63;
+    --line:#e7e3dd;
+    --accent:#ff5a1f;
+    --accent-deep:#d5450d;
+    --accent-ink:#ffffff;
+    --media-bg:#f1efe9;
+    --media-line:#d8d3c8;
+    --media-fg:#9a9385;
+
+    --tag-note-bg:#ede0ff;    --tag-note-fg:#5b3a9e;
+    --tag-tip-bg:#dff6e7;     --tag-tip-fg:#1f7a46;
+    --tag-info-bg:#d9f3fa;    --tag-info-fg:#0e6e82;
+    --tag-warning-bg:#fcebc9; --tag-warning-fg:#8a5a0a;
+    --tag-danger-bg:#fbdcdc;  --tag-danger-fg:#a32a2a;
+
+    --f-display:'Montserrat','Century Gothic','Segoe UI',sans-serif;
+    --f-label:'Instrument Sans','Segoe UI','Helvetica Neue',sans-serif;
+    --f-body:'Open Sans','Segoe UI','Helvetica Neue',sans-serif;
+    --f-mono:'Cascadia Code','Consolas','SFMono-Regular',Menlo,monospace;
+
+    --radius-frame:8px;
+    --radius-md:10px;
+    --radius-pill:20px;
+
+    /* el fondo de atras del mazo, reusado aca como escritorio de la hoja */
+    --desk:#e9e6e0;
+    --code-bg:#fbfaf7;
+  }
+
+  * { box-sizing: border-box; }
+
+  /* El mazo es luz proyectada y no tiene variante oscura: estas paginas se
+     quedan en el mismo mundo claro, pintando fondo y color explicitamente
+     para que no tomen prestado el tema del visor. */
+  body {
+    margin: 0;
+    background: var(--desk);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: clamp(0.7rem, 3vw, 2.4rem) clamp(0.4rem, 2vw, 1.5rem) 3rem;
+  }
+
+  .hoja {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-frame);
+    padding: clamp(1.5rem, 5vw, 3.6rem) clamp(1.1rem, 5vw, 3.6rem) clamp(1.2rem, 3vw, 2rem);
+  }
+
+  /* ---------- encabezado ---------- */
+
+  .cover-wordmark {
+    font-family: var(--f-label);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: .02em;
+    color: var(--muted);
+    margin: 0 0 2.2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--f-label);
+    font-weight: 600;
+    font-size: .82rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 .9em;
+    display: flex;
+    align-items: center;
+    gap: .6em;
+  }
+
+  .eyebrow .dot { width:6px; height:6px; border-radius:50%; background:currentColor; flex:0 0 auto; }
+
+  h1, .s-title {
+    font-family: var(--f-display);
+    font-weight: 800;
+    letter-spacing: -.01em;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.06;
+    text-wrap: balance;
+    margin: 0 0 .35em;
+  }
+
+  .lede, .s-sub {
+    font-family: var(--f-label);
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 1.13rem;
+    line-height: 1.55;
+    margin: 0 0 1.8rem;
+    max-width: 40em;
+  }
+
+  /* ---------- chips ---------- */
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--f-label);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: .18em .6em;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .tag-note    { background: var(--tag-note-bg);    color: var(--tag-note-fg); }
+  .tag-tip     { background: var(--tag-tip-bg);     color: var(--tag-tip-fg); }
+  .tag-info    { background: var(--tag-info-bg);    color: var(--tag-info-fg); }
+  .tag-warning { background: var(--tag-warning-bg); color: var(--tag-warning-fg); }
+  .tag-danger  { background: var(--tag-danger-bg);  color: var(--tag-danger-fg); }
+  /* chip neutra para nombrar una feature de bash: compuesta con tokens que ya
+     existen (media-bg + ink + mono), sin inventar un color nuevo */
+  .tag-mono {
+    background: var(--media-bg);
+    color: var(--ink);
+    font-family: var(--f-mono);
+    font-weight: 400;
+    font-size: .74rem;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .facts, .features {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+  }
+
+  .features { margin-bottom: 0; }
+
+  .facts li, .features li {
+    font-family: var(--f-mono);
+    font-size: .76rem;
+    color: var(--ink);
+    background: var(--media-bg);
+    border-radius: 5px;
+    padding: .2em .6em;
+  }
+
+  /* las chips viven en un <ul> pero no son items de lista: sin vineta ni sangria */
+  .facts li::before, .features li::before { content: none; }
+
+  /* ---------- indice (agenda del mazo) ---------- */
+
+  .programa {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 1.3rem 0 1.5rem;
+    margin: 0 0 2.8rem;
+  }
+
+  .programa h2, .consigna h2 {
+    font-family: var(--f-label);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+
+  .programa ol { list-style: none; margin: 0; padding: 0; }
+
+  .programa li {
+    display: grid;
+    grid-template-columns: 2.6em 1fr auto;
+    gap: .8em;
+    align-items: baseline;
+    padding: .7em 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .programa li:first-child { border-top: 1px solid var(--line); }
+  .programa li:last-child { border-bottom: none; }
+
+  .programa .n {
+    font-family: var(--f-mono);
+    color: var(--accent);
+    font-size: .9rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .programa a {
+    font-family: var(--f-label);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .programa a:hover, .programa a:focus-visible {
+    color: var(--accent-deep);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ---------- secciones y puntos ---------- */
+
+  section { margin: 0 0 3rem; }
+
+  .punto-head {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr;
+    gap: 0 1rem;
+    align-items: start;
+    padding-top: 1.3rem;
+    margin: 0 0 1.2rem;
+    border-top: 3px solid var(--accent);
+  }
+
+  .punto-num {
+    font-family: var(--f-mono);
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .punto-head h2, .cierre h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 3.2vw, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+    margin: 0 0 .5rem;
+  }
+
+  h3 {
+    font-family: var(--f-label);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 2.2rem 0 .7rem;
+  }
+
+  p { margin: 0 0 1rem; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  a { color: var(--accent-deep); text-decoration-color: var(--line); text-underline-offset: .15em; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  /* Listas con la vineta naranja del mazo. Los li NO son flex (el dot va
+     absoluto), asi el <code> y el <strong> inline de adentro no se
+     blockifican: es la razon de la regla de formatos.md, respetada sin
+     tener que envolver cada texto en un span. */
+  ul, ol { margin: 0 0 1.2rem; padding: 0; list-style: none; }
+
+  ul li, ol li {
+    position: relative;
+    padding-left: 1.5em;
+    margin: 0 0 .55em;
+  }
+
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: .35em;
+    top: .62em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  ol { counter-reset: item; }
+
+  ol li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--f-mono);
+    font-size: .92em;
+    color: var(--accent);
+  }
+
+  .programa ol li::before, .programa li::before { content: none; }
+  .programa li, .entrega-list li { padding-left: 0; }
+  .entrega-list li::before { content: none; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: .86em;
+    background: var(--media-bg);
+    border-radius: 5px;
+    padding: .1em .35em;
+  }
+
+  /* ---------- bloques de codigo (tema claro del mazo) ---------- */
+
+  .code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 1em 1.2em;
+    margin: 0 0 1.3rem;
+    overflow-x: auto;
+  }
+
+  .code-block .fname {
+    font-family: var(--f-label);
+    font-size: .76rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin: 0 0 .7em;
+  }
+
+  .code-block pre {
+    margin: 0;
+    font-family: var(--f-mono);
+    font-size: .88rem;
+    line-height: 1.65;
+    white-space: pre;
+  }
+
+  .code-block code { background: none; padding: 0; font-size: inherit; }
+
+  /* mismas tres clases que usa el mazo para terminal/shell */
+  .code-block .c1 { color: #8a7f6a; }              /* comentarios */
+  .code-block .c2 { color: var(--accent-deep); }   /* flags, literales, errores */
+  .code-block .c3 { color: #1f7a46; }              /* prompt y salida */
+
+  /* ---------- avisos: chip semantica del mazo + caja ---------- */
+
+  .aviso {
+    background: var(--media-bg);
+    border-left: 3px solid var(--media-line);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1.1em 1.3em .5em;
+    margin: 0 0 1.3rem;
+  }
+
+  .aviso .label {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--f-label);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: .18em .6em;
+    border-radius: 5px;
+    margin: 0 0 .8em;
+    background: var(--paper);
+    color: var(--muted);
+  }
+
+  .aviso--ojo { border-left-color: var(--tag-warning-fg); }
+  .aviso--ojo .label { background: var(--tag-warning-bg); color: var(--tag-warning-fg); }
+
+  .aviso--nuevo { border-left-color: var(--tag-info-fg); }
+  .aviso--nuevo .label { background: var(--tag-info-bg); color: var(--tag-info-fg); }
+
+  .aviso:not(.aviso--ojo):not(.aviso--nuevo) { border-left-color: var(--accent); }
+  .aviso:not(.aviso--ojo):not(.aviso--nuevo) .label { background: var(--tag-note-bg); color: var(--tag-note-fg); }
+
+  .aviso .code-block { background: var(--paper); }
+  .aviso p:last-child { margin-bottom: .6em; }
+
+  /* ---------- tablas (el mazo no define una: armada con sus tokens) ---------- */
+
+  .tabla-wrap { overflow-x: auto; margin: 0 0 1.4rem; }
+
+  table { border-collapse: collapse; width: 100%; min-width: 21rem; }
+
+  th {
+    font-family: var(--f-label);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 1rem .5rem 0;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  td {
+    font-size: .96rem;
+    padding: .6rem 1rem .6rem 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  td:first-child { white-space: nowrap; }
+  td code { background: none; padding: 0; }
+
+  /* ---------- caja de setup / consigna ---------- */
+
+  .setup {
+    background: var(--media-bg);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.6rem .8rem;
+    margin: 0 0 3rem;
+  }
+
+  .setup h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 0 .8rem;
+  }
+
+  .setup .code-block { background: var(--paper); }
+
+  .consigna {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 1.4rem 0 1.5rem;
+    margin: 0 0 2.8rem;
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  @media (min-width: 44rem) { .consigna { grid-template-columns: 1.15fr 1fr; gap: 2.5rem; } }
+
+  .consigna p { font-size: .98rem; margin: 0 0 .7rem; }
+  .consigna p:last-child { margin-bottom: 0; }
+
+  /* ---------- tarjetas de ejercicio ---------- */
+
+  .ej {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    margin: 0 0 1.6rem;
+    overflow: hidden;
+  }
+
+  .ej-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .3rem .8rem;
+    padding: .9rem 1.3rem;
+    background: var(--media-bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ej-num {
+    font-family: var(--f-mono);
+    font-size: .82rem;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .ej-head h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.16rem;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin: 0;
+    flex: 1 1 14rem;
+  }
+
+  .ej-body { padding: 1.3rem 1.3rem .5rem; }
+
+  .rotulo {
+    font-family: var(--f-label);
+    font-size: .74rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 1.6rem 0 .6rem;
+  }
+
+  .ej-body > .rotulo:first-child { margin-top: 0; }
+
+  /* ---------- pista colapsable ---------- */
+
+  details.pista {
+    border-top: 1px solid var(--line);
+    margin: .8rem -1.3rem 0;
+    padding: 0 1.3rem;
+  }
+
+  details.pista > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .6em;
+    padding: .9rem 0;
+    font-family: var(--f-label);
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--tag-tip-fg);
+    user-select: none;
+  }
+
+  details.pista > summary::-webkit-details-marker { display: none; }
+
+  details.pista > summary::before {
+    content: "+";
+    display: inline-grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 5px;
+    background: var(--tag-tip-bg);
+    color: var(--tag-tip-fg);
+    font-family: var(--f-mono);
+    font-size: .85rem;
+    line-height: 1;
+    flex: 0 0 auto;
+  }
+
+  details.pista[open] > summary::before { content: "\2013"; }
+  details.pista > summary:hover { color: var(--accent-deep); }
+
+  .pista-body { padding: 0 0 1rem; }
+  .pista-body p, .pista-body li { font-size: .97rem; }
+  .pista-body > :last-child { margin-bottom: 0; }
+
+  /* ---------- cierre ---------- */
+
+  .cierre {
+    border-top: 3px solid var(--accent);
+    padding-top: 1.6rem;
+    margin-top: 3rem;
+  }
+
+  .cierre h3 {
+    font-family: var(--f-label);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.2rem 0 .8rem;
+  }
+
+  .entrega-list li {
+    display: grid;
+    grid-template-columns: 10.5rem 1fr;
+    gap: .2rem .9rem;
+    padding: .6rem 0;
+    margin: 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .97rem;
+  }
+
+  .entrega-list li:first-child { border-top: 1px solid var(--line); }
+  .entrega-list .archivo { font-family: var(--f-mono); font-size: .88rem; color: var(--accent-deep); }
+
+  /* ---------- footer del mazo ---------- */
+
+  .s-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2.6rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--f-label);
+    font-size: .82rem;
+    color: var(--muted);
+    letter-spacing: .03em;
+  }
+
+  .s-foot>* {
+      text-align: center;
+      width: 100%;
+  }
+
+  .s-foot>*:first-child {
+      text-align: start;
+  }
+
+  .s-foot>*:last-child {
+      text-align: end;
+  }
+
+  .s-foot .logo-mark { height: 40px; width: auto; display: block; opacity: .82; }
+  .s-foot .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+  @media (max-width: 36rem) {
+    .entrega-list li { grid-template-columns: 1fr; }
+    .punto-head { grid-template-columns: 2.4rem 1fr; gap: 0 .7rem; }
+    .punto-num { font-size: 1.2rem; }
+    .programa li { grid-template-columns: 2.2em 1fr; }
+    .programa li .tag { grid-column: 2; justify-self: start; }
+    .ej-head, .ej-body { padding-left: 1rem; padding-right: 1rem; }
+    details.pista { margin-left: -1rem; margin-right: -1rem; padding: 0 1rem; }
+    .s-foot .logo-mark { height: 32px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+ <div class="hoja">
+
+  <p class="eyebrow"><span class="dot"></span><span>Introducción al Desarrollo de Software · Curso Camejo</span></p>
+  <h1>Calculadora en Bash</h1>
+
+  <div class="consigna">
+    <div>
+      <h2>Cómo trabajar</h2>
+      <p>Todo va en un único archivo <code>calc.sh</code>, que tiene permiso de ejecución. Resolvé los ejercicios en orden y probá cada uno en la terminal antes de pasar al siguiente.</p>
+      <p>Las pistas son de consulta: intentá primero, y si no sale, abrilas.</p>
+    </div>
+    <div>
+      <h2>Lo que tenés que usar</h2>
+      <ul class="features">
+        <li>variables</li>
+        <li>$1 $2 $#</li>
+        <li>if / case</li>
+        <li>while</li>
+        <li>read</li>
+        <li>funciones</li>
+        <li>&gt; &gt;&gt; &lt; &gt;&amp;2 |</li>
+        <li>exit</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ EJ 1 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 01</span><h2>Una suma con variables</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <p>Un script que guarde dos números en dos variables y muestre la suma en un mensaje, sin recibir nada de afuera.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh
+<span class="c3">La suma de 7 y 5 es 12</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <ul>
+            <li>Al asignar no van espacios: <code>a=7</code>, nunca <code>a = 7</code>.</li>
+            <li>Para realizar operaciones aritméticas, usá <code>$(( ))</code>.</li>
+            <li>Las comillas dobles reemplazan variables; las simples no.</li>
+          </ul>
+          <p>Probá también <code>echo '$a'</code> y <code>echo "$a + $b"</code> para ver la diferencia.</p>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 2 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 02</span><h2>Los números vienen de afuera</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <p>Que los dos números ya no estén escritos en el script, sino que se pasen al ejecutarlo.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh 7 5
+<span class="c3">12</span>
+<span class="c3">$</span> ./calc.sh 100 23
+<span class="c3">123</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <ul>
+            <li><code>$1</code> y <code>$2</code> son el primer y el segundo valor que recibió el script.</li>
+            <li><code>$#</code> es cuántos recibió, y <code>$0</code> es el nombre del script.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 3 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 03</span><h2>La operación en el medio</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <p>Que la operación se escriba entre los dos números, como en papel, y que el script haga la cuenta que corresponda. Cuatro operaciones: <code>+</code>, <code>-</code>, <code>x</code> y <code>/</code>.</p>
+      <p>Resolvelo <strong>dos veces</strong>: una con <code>if</code> y otra con <code>case</code>, y quedate con la que te parezca más clara.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh 7 + 5
+<span class="c3">12</span>
+<span class="c3">$</span> ./calc.sh 7 - 5
+<span class="c3">2</span>
+<span class="c3">$</span> ./calc.sh 6 x 5
+<span class="c3">30</span>
+<span class="c3">$</span> ./calc.sh 20 / 5
+<span class="c3">4</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <p>Ahora <code>$2</code> es la operación y <code>$3</code> el segundo número.</p>
+          <p><strong>Por qué usamos <code>x</code> y no <code>*</code>:</strong> si alguien escribe <code>./calc.sh 6 * 5</code>, la terminal reemplaza el <code>*</code> por la lista de archivos de la carpeta <em>antes</em> de que tu script lo vea. Probalo para verlo. Para aceptar el asterisco hay que escribirlo entre comillas al invocar (<code>'*'</code>); podés aceptar las dos formas.</p>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 4 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 04</span><h2>Que avise cuando algo está mal</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <p>Controlar tres situaciones:</p>
+      <ol >
+        <li>No recibió exactamente 3 valores: mostrar cómo se usa y terminar.</li>
+        <li>La operación no es ninguna de las cuatro: avisar.</li>
+        <li>División por cero: avisar. Probá primero qué pasa si <em>no</em> lo controlás.</li>
+      </ol>
+      <p>Los tres mensajes tienen que ir a la <strong>salida éstandar de error</strong> (<code>stderr</code>) y el script tiene que terminar con <strong>código de salida 1</strong>. Cuando la cuenta sale bien, el código tiene que ser 0.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh 7
+<span class="c2">Uso: ./calc.sh &lt;numero&gt; &lt;operacion&gt; &lt;numero&gt;
+Operaciones: + - x /</span>
+<span class="c3">$</span> echo $?
+<span class="c3">1</span>
+<span class="c3">$</span> ./calc.sh 7 / 0
+<span class="c2">Error: no se puede dividir por cero</span>
+<span class="c3">$</span> echo $?
+<span class="c3">1</span>
+<span class="c3">$</span> ./calc.sh 7 + 5
+<span class="c3">12</span>
+<span class="c3">$</span> echo $?
+<span class="c3">0</span></code></pre>
+      </div>
+
+      <p class="rotulo">Verificalo así</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh 7 / 0 &gt; salida.txt
+<span class="c2">Error: no se puede dividir por cero</span>
+<span class="c3">$</span> cat salida.txt
+<span class="c3">$</span></code></pre>
+      </div>
+      <p>El error tiene que aparecer en pantalla igual, y <code>salida.txt</code> tiene que quedar vacío. Si el error terminó dentro del archivo, todavía no está bien.</p>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <ul>
+            <li>Para mandar un <code>echo</code> a la salida de error: <code>&gt;&amp;2</code> al final.</li>
+            <li>Para cortar con código de error: <code>exit 1</code>.</li>
+            <li><code>$?</code> guarda el código del último comando que corrió.</li>
+            <li>Para comparar números en un <code>if</code>: <code>-ne</code>, <code>-eq</code>, <code>-gt</code>, <code>-lt</code>.</li>
+          </ul>
+          <p><strong>Extra:</strong> validar que los dos valores sean realmente números se puede con <code>[[ "$1" =~ ^-?[0-9]+$ ]]</code>.</p>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 5 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 05</span><h2>Decimales</h2></div>
+    <div class="ej-body">
+      <p>Probá <code>./calc.sh 10 / 4</code>. Da <code>2</code>, y está mal: la aritmética de Bash sólo trabaja con enteros. Para decimales necesitamos otro programa.</p>
+
+      <div class="aviso aviso--nuevo">
+        <span class="label">Herramienta nueva · bc</span>
+        <p><code>bc</code> es una calculadora que ya viene instalada, y que en vez de recibir la cuenta como argumento la <strong>lee de su entrada</strong>. Así que hay que hacerle llegar el texto de la cuenta:</p>
+        <div class="code-block">
+<pre><code><span class="c3">$</span> echo "10 / 4" | bc -l
+<span class="c3">2.50000000000000000000</span>
+<span class="c3">$</span> echo "scale=2; 10 / 4" | bc
+<span class="c3">2.50</span></code></pre>
+        </div>
+        <p><code>scale=2</code> le dice cuántos decimales usar al dividir. Y ese <code>|</code> del medio es un pipeline: agarra lo que <code>echo</code> iba a mostrar en pantalla y se lo entrega a <code>bc</code> como si alguien lo hubiera tecleado.</p>
+      </div>
+
+      <p class="rotulo">Se pide</p>
+      <p>Que las divisiones —y si querés, todas las operaciones— se calculen con <code>bc</code>, con dos decimales.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh 10 / 4
+<span class="c3">2.50</span>
+<span class="c3">$</span> ./calc.sh 7 + 5
+<span class="c3">12</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <p>Para quedarte con lo que imprimió un pipeline en vez de mostrarlo:</p>
+          <div class="code-block">
+<pre><code>resultado=$(echo "scale=2; $1 / $3" | bc)</code></pre>
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 6 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 06</span><h2>Modo interactivo</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <p>Que al ejecutarlo <strong>sin ningún valor</strong>, en vez de mostrar el mensaje de uso, abra una sesión y vaya pidiendo cuentas una atrás de la otra hasta que le escriban <code>salir</code>. Las operaciones desconocidas avisan pero no cortan la sesión.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh
+<span class="c3">Calculadora. Escribí una cuenta (ej: 7 + 5) o 'salir' para terminar.</span>
+<span class="c3">&gt;</span> 7 + 5
+<span class="c3">12</span>
+<span class="c3">&gt;</span> 100 / 8
+<span class="c3">12.50</span>
+<span class="c3">&gt;</span> 3 z 4
+<span class="c2">Error: operacion desconocida 'z'</span>
+<span class="c3">&gt;</span> salir
+<span class="c3">¡Chau!</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <ul>
+            <li><code>read</code> puede cargar <strong>varias variables de una</strong>: <code>read n1 op n2</code> parte la línea por espacios y te deja los tres pedazos listos.</li>
+            <li>Con <code>-p</code> muestra el prompt: <code>read -p "&gt; " n1 op n2</code>.</li>
+            <li>Para cortar el bucle, <code>break</code>; para saltar al próximo ciclo, <code>continue</code>.</li>
+          </ul>
+          <p>Acá te va a quedar la parte que calcula duplicada entre los argumentos y la sesión interactiva. Es el momento de meterla en una función y llamarla desde los dos lados. Dentro de la función, <code>$1 $2 $3</code> son los argumentos <em>de la función</em>, no los del script.</p>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 7 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 07</span><h2>Historial</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <ol >
+        <li>Que cada cuenta que se hace quede registrada al final de un archivo <code>historial.txt</code>, sin borrar las anteriores.</li>
+        <li>Que <code>./calc.sh --historial</code> muestre ese archivo, y que no explote si todavía no existe.</li>
+      </ol>
+
+      <p class="rotulo">Formato exacto de cada línea</p>
+      <div class="code-block">
+        <p class="fname">historial.txt</p>
+<pre><code>2026-08-25 14:30 7 + 5 = 12
+2026-08-25 14:31 10 / 4 = 2.50</code></pre>
+      </div>
+      <p>Separados por espacios: fecha, hora, primer número, operación, segundo número, <code>=</code>, resultado. <strong>Respetá el formato</strong>, porque en el Ej 09 vamos a procesar este archivo contando columnas.</p>
+
+      <div class="aviso aviso--nuevo">
+        <span class="label">Herramienta nueva · date</span>
+        <p>El comando <code>date</code> imprime la fecha y hora del sistema, y se le puede pedir el formato que uno quiera:</p>
+        <div class="code-block">
+<pre><code><span class="c3">$</span> date '+%Y-%m-%d %H:%M'
+<span class="c3">2026-08-25 14:30</span></code></pre>
+        </div>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <ul>
+            <li>Acordate de la diferencia entre la redirección que <strong>vacía</strong> el archivo y la que <strong>agrega al final</strong>. Probá con la equivocada una vez, para ver qué pasa.</li>
+            <li>Para preguntar si un archivo existe: <code>[ -f historial.txt ]</code>.</li>
+          </ul>
+          <p>La línea completa que armás y redirigís queda parecida a esto:</p>
+          <div class="code-block">
+<pre><code>echo "$(date '+%Y-%m-%d %H:%M') $n1 $op $n2 = $resultado" ...</code></pre>
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 8 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 08</span><h2>Modo lote</h2></div>
+    <div class="ej-body">
+      <p>Armá un archivo <code>operaciones.txt</code> con varias cuentas, alguna línea vacía y algún comentario:</p>
+      <div class="code-block">
+        <p class="fname">operaciones.txt</p>
+<pre><code><span class="c1"># cuentas de prueba</span>
+7 + 5
+100 / 8
+6 x 7
+
+20 - 4</code></pre>
+      </div>
+
+      <p class="rotulo">Se pide</p>
+      <p>Que <code>./calc.sh --lote</code> calcule todas las cuentas que le lleguen por su <strong>entrada</strong>, ignorando las líneas vacías y las que empiezan con <code>#</code>. Tiene que funcionar de las dos formas de abajo, sin cambiar nada entre una y otra.</p>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh --lote &lt; operaciones.txt
+<span class="c3">7 + 5 = 12
+100 / 8 = 12.50
+6 x 7 = 42
+20 - 4 = 16</span>
+<span class="c3">$</span> cat operaciones.txt | ./calc.sh --lote
+<span class="c3">7 + 5 = 12
+...</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <p>La parte más importante de este ejercicio es que <strong>el bucle del Ej 06 no se toca</strong>. Para tu script leer del teclado o leer de un archivo es exactamente lo mismo.</p>
+          <ul>
+            <li><code>read</code> devuelve falso cuando se terminó la entrada, así que <code>while read -r n1 op n2; do ... done</code> corta solo al llegar al final del archivo.</li>
+            <li>Para saltear vacíos y comentarios, un <code>if</code> con <code>continue</code> adentro del bucle. Una línea vacía deja la primera variable vacía.</li>
+          </ul>
+          <p><strong>Variante:</strong> aceptar además el nombre del archivo como valor (<code>./calc.sh --lote operaciones.txt</code>), redirigiendo el archivo al bucle entero con <code>done &lt; "$archivo"</code>.</p>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 9 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 09</span><h2>Estadísticas del historial</h2></div>
+    <div class="ej-body">
+      <p>Ya tenés un <code>historial.txt</code> con muchas líneas. Vamos a sacarle información <strong>sin escribir lógica nueva</strong>: encadenando programas que ya existen.</p>
+
+      <div class="aviso aviso--nuevo">
+        <span class="label">Herramientas nuevas · el kit de siempre</span>
+        <p>Cada uno de estos programas hace una sola cosa, lee de su entrada y escribe en su salida. Encadenados con <code>|</code> resuelven un montón:</p>
+        <div class="tabla-wrap">
+          <table>
+            <thead><tr><th>Comando</th><th>Qué hace</th></tr></thead>
+            <tbody>
+              <tr><td><code>wc -l</code></td><td>cuenta líneas</td></tr>
+              <tr><td><code>cut -d' ' -f4</code></td><td>recorta el campo 4 de cada línea, usando el espacio como separador</td></tr>
+              <tr><td><code>sort</code></td><td>ordena alfabéticamente; <code>sort -n</code> ordena por valor numérico; <code>-r</code> al revés</td></tr>
+              <tr><td><code>uniq -c</code></td><td>junta las líneas repetidas <em>consecutivas</em> y las cuenta</td></tr>
+              <tr><td><code>head -n 3</code> / <code>tail -n 3</code></td><td>las primeras / las últimas 3 líneas</td></tr>
+              <tr><td><code>grep " / "</code></td><td>busca y se queda sólo con las líneas que contienen ese texto; con <code>-c</code> las cuenta</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Un ejemplo armado, el ranking de operaciones:</p>
+        <div class="code-block">
+<pre><code>cut -d' ' -f4 historial.txt | sort | uniq -c | sort -nr</code></pre>
+        </div>
+        <p>Leído de izquierda a derecha: <em>quedate con la columna de la operación → ordenalas → contá cuántas veces aparece cada una → ordená ese conteo de mayor a menor</em>. Cuatro programas simples resolviendo algo que programado a mano te llevaría un rato. Notá que <code>uniq</code> sólo junta repetidos <strong>pegados</strong>: por eso hay que ordenar antes.</p>
+      </div>
+
+      <p class="rotulo">Se pide</p>
+      <p>Que <code>./calc.sh --stats</code> muestre, cada dato usando pipelines:</p>
+      <ol >
+        <li>Cuántas operaciones se hicieron en total.</li>
+        <li>El ranking de operaciones más usadas.</li>
+        <li>Las últimas 3 operaciones.</li>
+        <li>El resultado más grande de todos.</li>
+        <li>Cuántas divisiones se hicieron.</li>
+      </ol>
+
+      <p class="rotulo">Así se tiene que ver</p>
+      <div class="code-block">
+<pre><code><span class="c3">$</span> ./calc.sh --stats
+<span class="c3">Total de operaciones: 27
+
+Operaciones mas usadas:
+     12 +
+      8 /
+      5 x
+      2 -
+
+Ultimas 3 operaciones:
+2026-08-25 14:30 7 + 5 = 12
+2026-08-25 14:31 10 / 4 = 2.50
+2026-08-25 14:33 6 x 7 = 42
+
+Resultado mas grande: 42
+Divisiones hechas: 8</span></code></pre>
+      </div>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <ul>
+            <li>Contá las columnas del formato del Ej 07 para saber qué número va en el <code>-f</code> de <code>cut</code>: la operación es la 4 y el resultado, la 7.</li>
+            <li>Para el resultado más grande: recortá la columna del resultado, ordenala numéricamente y quedate con la última línea.</li>
+            <li><code>wc -l &lt; archivo</code> es más cómodo que <code>wc -l archivo</code> para meterlo en una variable. Probá los dos y mirá la diferencia en la salida.</li>
+            <li><strong>En macOS</strong> <code>wc</code> imprime el número con espacios adelante. Se sacan con otro pipeline: <code>| tr -d ' '</code>.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ EJ 10 ============ -->
+  <article class="ej">
+    <div class="ej-head"><span class="ej-num">Ej 10</span><h2>Ayuda</h2></div>
+    <div class="ej-body">
+      <p class="rotulo">Se pide</p>
+      <p>Que <code>./calc.sh --help</code> explique todos los modos que fuiste agregando: cuenta suelta, interactivo, <code>--lote</code>, <code>--historial</code> y <code>--stats</code>. El mismo texto tiene que salir también cuando alguien usa el script mal.</p>
+
+      <details class="pista">
+        <summary>Pista</summary>
+        <div class="pista-body">
+          <p>Si ya lo escribiste dos veces, ese texto pide una función. Y ojo con dónde va cada cosa: la ayuda pedida a propósito con <code>--help</code> es una salida normal y termina con <code>exit 0</code>; la que sale porque alguien se equivocó es un error, y va como en el Ej 04.</p>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <!-- ============ CIERRE ============ -->
+  <div class="cierre">
+    <h2>Extras</h2>
+    <h3>Si te quedaste con ganas</h3>
+    <ol >
+      <li>Sumá resto (<code>%</code>), potencia (<code>^</code>) y raíz cuadrada (<code>sqrt</code>, con un solo número). <code>bc -l</code> sabe hacer las tres.</li>
+      <li>Memoria: <code>M+</code> guarda el último resultado y <code>MR</code> lo recupera, en un archivo, para que sobreviva entre ejecuciones.</li>
+      <li><code>./calc.sh --tabla 7</code> imprime del 7×1 al 7×10, con un <code>for</code> y <code>seq</code>.</li>
+      <li>Errores en rojo y resultados en verde.</li>
+      <li>Que <code>--stats</code> muestre las estadísticas en pantalla <strong>y</strong> las guarde en <code>reporte.txt</code> al mismo tiempo, con un solo comando. Se hace con <code>tee</code>.</li>
+    </ol>
+  </div>
+
+
+  <footer class="s-foot">
+    <span>Introducción al Desarrollo de Software<br>Curso Camejo</span>
+    <img class="logo-mark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlQAAADiCAYAAACIlFloAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAKe5JREFUeNrsnd1x4zjWhjFdez/am/1upmrYEbQcQdMRWI7AcgS2I7Adge0ILEXQcgRWR2B1BOZU+Wb3pjUJ9HwEAUoUxR+ABCmKfJ4qtt0WRYIgfl4cHBwIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAwfiMLAAAAWmb+MQ7/HZWed/HHksxCUAEAAAxdOPnhv1I8fQkPLzz8ildahUcQHj/078tQbK3JYAQVAABAHwWUFE+T8PhaQzyZIgXWIjy+h+JqQeYjqAAAAI5dRF1oIeXVEEfS4jSu+P21FlcviCsEFQAAwDEJqWn475WBCAr08T3xexAKn8DgHr7+Tf78U9/L5H7z8JgZ3QMQVAAAAC2LKOlIfi2URcrLOSu2FkkBtXQuarZpuDU4exYe9wgrBBUAAEBXxFQsYkYFIqrelNv8Y6LF2jgh2JZCWZ3Utecf8u9vwmSVIMIKQQUAANARISVFzoPItkjJFXdPkZiqs+pOiaRnUe7IHojqvlbrKK0Xf9zxUhFUAAAAbQmpkRY5k4xPl0JZfJYO7iPF0auwszjVQYqyS2JcIagAAACaFlMTLabSIkdapG6cipH5x7vYtX7Ja8+18JFIwXXbgOB61KKQeFYIKgAAAKdCSooWOb03TX2y1kJq5vh+Uy3cYi4z77HvNxVEYiiealSrAc90um2E10rfc8XLR1ABAAC4EDdjLW7S/kkLLTrWDdxTTvX5+n/3kX/TVtRNtHBSFjElml61uPucmR713Vdh52PVjFhEUAEAAAxSTKX9mNZaSC0avO/PxD3/ra1NbxmC6CSyIikBNo/Ej0rzrdj6eD2Gf7/Rokpew7NMzT0O69X5RBYAAMDAxdRU7IchWGkR03TU8fiey8TUXZZ1abIRPcpiJnkQuw7z19GzKMvVU4W03Ibff6ZAVONfZAEAAAxcTKVFhIwwftlSCtbCzOdpGf0bO8Mrnyo/47wLoWJOLRN/kwLsh/5dRlufFtxnGl5btPj8CCoAAIAeiinpS/TYYipWWhiN9VTdKlNM7a8q9AoEmtDTg/Ja53vBPOcf0npVFKYBUVUBpvwAAAAxpbhsWUyJhIBS28mo6br0NOPc4lpJEXS6EVPK30psxJYUWsVMmf6zA6d0AAAYmpiSfkffMsTUrIV7S+GU9JHyEsJOiqkT/XvSpysvlELSoX2lBdQ6Qzg+JM5Tjuvqs+QKwzxmWKoQVAAAAGkRkrWar1kxpe55IeKpvWKUMFLpS67g+5whlu7EdoPk071pQeVn9Z5xj0u9SnAq9q10WdwcwHJ3dOBDBQAAQxFTUqR8a01MKcFyJexiQsWC71RbhvKtQypm1e9CThVmc5vzd0//DAzT9BD5Y7FVDYIKYKAdhxzZftUNdF6DvtYN96rken7OJ8Hgdq9Xo34vp4Ojw+k2z6l3N2sg8rmse7GQ8nLOWmox81d4/K7rqrcnquYf5RHMVdypp5x75dfbXWFlwrfwPp/ZpgZBBTCkDv9ON+YmS7FHhue95vxdxsS5G1gOTwtG/rhRdLdeXIvdmE1Lp75BSkhd59Q9KWCko/lLjuiWouhbKn1SVL2Ff1/q30ep6wV6QPRDZK8CzBNMjwkR+dXiCWPr3imFCUEF0PcOI27wfDIDYKduSEHykPiLFCLnDutdnpCSIufJMDjoTUpQxfg5QikWSxOhAnIGQkU6n6Xu7ycGP48bC5OytE4tn9aPhCn+VJkQNgGgPzwjpgBy60aS89pTV1KQqLAC70JZLEcJsSZFjYyyfmocab3+1LkXPadcubcNkRCHW5hF/la7z1w1JMKtFmOQAgsVQD9G4NOc0S3A0OuGtB4lfQgfK/u6KSEh69mF2PdLlL5O0pdpkbNp8Vh/90tCfAVC7cu3dPjEclAlRdV9ZEmaf8hpvZdUWuoMvkZajDH1h6AC6CVXJZ/Ho+YfYuuQGsfDCcg+6KmYikMPiISAubf4/kTXkXhxR5Zv1FwoC1BgKcBiZABNWTdvHD65TKdcmfcl8hNT+RCn6UHYT/XtizaZN83vc4igAoBWOw1PFC/LVo119hQHDSL0mQexHyLBZqrPSwky+d1leHwXyhIV5Ii4ibALlzAVZotDbMnaQmbqMG9pPxBUAL2iaKpvSZRjGPBAY7ozeLCdWlNTZjMtjFa5Ymwros5E9an3pqbspahab6KjKxHkQlR5OKgjqAD6xp8Fn92TPTBQ0qEtqk2pKRG1zBFSSRGVZWEKtID5O1FX885tkuswrXHIhnvhzkol8xhBhaAC6A150woBgSZhkOxbp2bOAtAq5/IrQ2E0j1bX7X5fCrtXYRc93QXSkfxzlA/SYT0/lpoNo2hBTBt7IB4BhE0A6C8BWQADJb1Io56lVooo6cw9/5AhEt5EHZ8nZfE6P0CeeHo1sERalVxFPL+luCmwUAH0l5XDa+V1SEuyGTrINPG7C+tUcpNiG37PEVVBtDde+1aqW50f6/D+Ln2pWPGHoALoBXkj5b+d3SE9bQHQVZQVJlknnhyU/3PtL/Us7CxT8jt5vluH2BPPi/blVK4AT8KdL5UMCzF4QcWUH8DxMyYLADacJX5flW4ubC6qpGD4bCkcPL23ZhkyjTJQ5mULQutMP4+8Z+DompOdWFcIKgAAgCNmG0gz5snp9eVUmbRWKR8oU+FzG218rCxcSXz9M4jElLQaKefupv2r/MTvLq1Kg9+pAUEFAAB9wU/9v75gkFNk0sq0deiuYq2SYkOKqn82R+IOO/Gt1HTcssE8Slq0vzu87hmCCgAAoB+c7YipuhsgK2718Ryt8pMCSwmfKtaqLLLE07zRXIqfwe3ClcFP+yGoAACgLySnnb43cH1PqI2HHzZ/2VqrZhbXkefe6yNLjAWt5Jar2Fxb/CEXPlb5AQC0hbIMyONP3TknkdaCv4TaLmjVgbSOdFrlFNHvInvxQ6DTvNLpXh84b5M0uersWt/vPBIl6rnlJsTSsvSc8W6TnHTi/W5ZOhRCX8WAV/shqAC63wnLxnlaqXEzW2FUHqcn/zrLStHYt8Iia9R810Aeuk2//fu7EuXBIP3Ed+T7kJ3zY6siRYkomc4LUWX1qIqtNBdxrKN28XeEnjvry3lOnsjf38JnvtzEYJJlaf5xItQU4XVOeVtZPssxcazpRlC1wb//83//2Jz/83///a0L6Qg5DdOyNLju6wEqQZA4fshGJkzrqgPvWjWQdszCtDe9+bAnqkUj9g3f7VKUTzHclny/StryrnnXQB66Tr+pwLjW9x5VfOdX0TYhbWxAq0Tnlai3z9xYH7etpXvLl8Tv7toTJQwfo2Mrjif6Hcm8+hZtJxM/qzr/Jto7b99aNY5Ea5HYVKL2KvEccSiFb6L7IVIGHcIFHyo4BJ7uUOWoT/oivIVi5j08HsLDO2C6rip8Z8LrhJyO8VmX7zoCZRRdQy27HzWUThkr6a2i8Dtcuos78+8O82eccESXli8pnqTPlLRE3WvR86Dfd1KILfU5j6l8edX7AWbdy9eDupEWUaeRRUtZ207FYYKB2uaXP9Qqj4UKuiSy5Gj+OhRVsgG6//m//7bWeIT3HFUUR6Pwu9MwrTNeIaTE1NThFZVFZP5x6nQqTXXsrw6FVHa6lbBoow2JcWnxVvkz/1CWp3gjYDV1J4+7jTBNk22tiqcK5Xdf9Jm/i62/WswiFU5BbhczE9lTiXbsTnOPGnwPCCqAAyMbjEkoVM5bnAo02Tk+D7lUG0EFsUiZlIipuDNbJ8rc2KD8jXWnfO4onWq6yqzcB2I7LZxMt4k1Qm0sLC07zeV5Oh0rh3k0SgiPh01dVwIqnoZbRfmiRNJfWgwFOwJG+VY9JwZuY1E8RfZXxt9eHAiqVUa5QlAhqKDHyEr5Goqq05ZE1UUdMSanKsN0Bg2lbS2K/Xx8g06w7PrgrgN+znkX9xvrRr4ouBLFltJJ5JflxjepbDWaLBdPomzRghKQVyXi6jqy0jS9AGArYFyV6bTYGEVWPWWdUtan3XcW58GDFleXGyd0laZzHSA0ayp4EeW3El9+Tt110RYuE++uCZ+nLwgqgO4Rd06NThdovy2/5mVkg9qMA65qkE8LOrS8BQtzNjVunWlGR3lv9B7iCNnlm/BKh+9FrVVsqsOelHS650bCRK1wW2ih8Fxw5pVobgGA71h0FA1WfH2P55I8HGvhdJrKr5kWW287glsFCU2WBROBV+ntGwzG6rbbgwSndOg641DwNC0Kpg6uccWrArFv6by0FrVKoBQ5II9EtVWfu6IsHynW7H21lPXtsnDQkeVn5B6XFtcvme94/vEqzHwuvYJB0k0FEVhXAKU3i/5KlUVQwbBoWqxcOLiGp8MuwMAHAClhMqtWIvc63P1BQFVxoqZ58jrmoEQUmYiqWYOC4JDvM/k30+fwct+TmrZdJ8Smb/De6raFT4nrVV2I07ToQ1ABNIhcSddIeILwur5w50SJlQpi1rWEyVacLBsob0V16d6B/9F9wWdNWUSSliQ3IROU4HDRNjwUfJa0Fr3qTZhHe+lQ8cySqzFnIn/bmjyWKYF/TTV1Cz5UYIuskH9V+N7XmiOXprY0uHB4rUntThT6wpMjx+j7gnozFcVWLFtRs65sUdsVgoH2Ecqy7ngN5XcTfjtjZ+2C9C/Lztt0GVEbMav8iz9Lv//LzbXmH0sttEy4SYlFBoAIKjgwc5MI7FnoWE9TUS2AoPPptER6nDXq0pIW5s+CYsLAw43cj1Z85YmTUeTAHm97Yk6eQHNZbvPSfEzT4r7Daz2H7+qL2LcA3otsi+E4t1wlhVlx+dgVU7u+U9diwM7jTcGUH7SGDNQZHtJvoErE3yZGtk1MI17wpgfPwuE+ctEgpuAzuym04mXy3x2mOc+KfUyduOvpSSli3nfegRI5JzkCPA7LINtL2W7KMvWScV7ZAHe2E2ZD3f+WauoeLFRwCGG1+vd//k+OzB4OLKiaMHnLmFSjNqO8Q+f47vh6i4K64lteq0jQBEec58n69ruja/oNpDPeeuZkI7qVqLrUzuvJe54mrEpLkT+9+3eJmEq7ITxTRZsBCxUcitkhb65jT9lMP9gIpCmvd9AsnV5Ndbx5y+rHlnvleQX3WR5xnv/YyZO6qFhgTZEX9sKvKHDzAmk+7okptSUSq5ERVNAntAVndcAk2FinlsLOv4Rpv+GyTvmquKLomjYdpMcrMuKs4eubDLrKV+EpMe1nDP7Od7b6USsFX1sa7C2HWmgQVHDYzudwldRmBCp9WF4szh8Tk2qwNDVI+OFIUA0BF35ak1ZTnB2D6lZHny8ivYWNHPid7CxUUD5T72LA8aHaAh8qOJaGL3B1Ux3TymakvpAWtfB7a4s0X4jDWuCgX4Kq6Lp/Gl9FRW2/ayEffm8535diO43mQmDa1PUmkasDz4TaRiotkm4Twk8+//3etG35dkBNEAy18iOo4CDokAU2DZ9LR1+bKblFwsFcNmhTw+/J825404Pj7wMIqi5aqPyD3l1OcdWLA3aqn2GkBcKzY4Fl40IwESqWVb7Qk1sF7efBIcSU5K+hVn6m/OBQTC3OXQtHMXK0kLMx57/k/F5GY9HdodMsG7lqsTjoVigCtVqtXZG371A/rnm9IIr3JMMNKMvQk+MUv1T8Xta7nmW8g4k43Gq+AEEF0BLav8gmDsqTwzAEVkIuvO+msdIBO20aC5zToY2OqjsWKuUk3YWO3O/we8za49F0qlgKx3s9wIxFZFacskPGmRqsqwNTftC2mJIN3TeLUbVsJB9djmWtGr7sv5nugUVMKkSP62t7nX1yZRW5PaDAWyXy54vja0sBdGbxbIFOT9JKvRYqLtS+K4C0QKopvTLODacyDyeym1nliqCCXiJXsNl+J/aXOhP2sZ/OXQkSbRmzuX+WWX4u7DYVnToWhNBl3EZI7zbbJftnWjgceurxR0LAjBt4ryfhM78bilrpw3Wu82isr7Es+c5SlFvWfFHm/pC9YrAtlkOu/ggqsOWhpftIEXUqo6o7vKZN7Kkga08+HeXdxlJwgaCCFsSN30pgTrW6TIqWupudN9WZx1NdXpRW99YSUwt1cp9F0/eyMsjTK1HuT+od8B0MemUzPlTQRWQD9NmxmBLCzhl9UfGzNMSkAlcEBxBqo2i1mIywPf/4Gf7lTYsWv3O5owRl0prdRBp/WJxr68dkspLZL4xNpSxiVwd8C9+HXEERVNA1HkMhdera7ygUNVNhNyUxr/hZZlPPawUHtLMcXVp25h934SHFkxRR0sncpv7IgdChrLLLxO9NRDu3EbVjLURHOfk7TQnChTALdiyveZ3x3qSAfBWH9Z9aDLmCMuUHXeNaO64/JVfYOcCmcQ2KrGMVpv1kw0lMKuguqtO/1uLfq3gVWSeeolADUjAcBun3GFuifQfxqOoy1emQQkPGKPuSSF9WmzATZlOKD+E1r7SAjP20vAOXosXQqxEWKugisnF4DkXLq97EuBb6GrZbzbhsPIhJBV0WU1L8SGfr2wqdcqBFgFx99jkSU93q1KeOrx9U+I6nRdJtqh1aZpz7ZHndqb6m14GS9DL0qoSggi7jh8ebAx8kWzEzMzjHNtAf037QNSE10tN6sqM3nc6Lg+xK68pnLaIuOzPVo6xRi8bqnVrtd+/gStmbaLu7fpbQDBrOfSxUtCrQcWRD/1pTVNk4aa5+/u+/pQ2PPsfGaX6io7QDdEFMxRvmmtSrlRZQctPdf0fhAFQE8aCjT5e0lIydhxFQ+yHODPJsVfJ5Ho/C/Wo59f6aW4U3O/DUKoIKwFJUWQsS7Y/l2XQ1DZ0rmfIqoQNiStYjk+C6UjRIC9SJFlDHsSReRSFPdu4XDdzjUgsUKVSkRUn+/1SLzt+iPCv2mwwKrr3W13MlUO71VjprncYmhM+cioVTOtgjV+AtKwib2GlSxq+pMucvG/8H3dBYNX3WIy1zFsIuLhcxqaAOrqJ/P5fUv2VUz447SKmckr/dDGTmH/fOn0cJzKoi86/Sa88/zoVatVeH3RWXKiK7FFVvDnMiaCUG2hGAhQpaQa6Mk4Eyw+MmPD6Lan4CUxsn9QobIS9swjVUmPYjJhXUociiZFZu1fTXpHBAcfHHaQ8ivqcHRofY286r9W0lUupYlNZaGK8zhKBLP617qiaCCg4rsO6EvbVJYuMPZbsdRpVVKsSkgsNjPh1XJCwWeiqrD/kRpESVtFJ5Laei6H5fDJ8jFlW2ljA1vZdfLh6Fm6m/IGOjZwQVwAFE1UzYT4HZWJxsxYsM1fCPzSHst+KZ8uZ7zGH3UStLm7SO+gUd8GXP3kbacvLc8v2/FnxmPtBToujUoq1clYip2E9r1kAeI6jAHazkssY2/IBnMu2nz+li50ZMKqhKkRiqOxjp3yqt/RAEfsuCd1zhXeYLoIs/VKgKJYSy3pV6XrWIwMSiVdeRHOsUguqglQhSVPBDikSVwTnTLjf1vPnecogBlWn9+dpg59pV0lNb+1vBNIGyBo5KzrEXd2q13mUUvkJZreLjRMcEu7O4Vt1Vm5dUdwSVLUc5aquyEu+ABI5G6sciWohJxYCqSgddt43yc79/LCER7AWIzJub1GCsDQd1kzbqrOazLRNH1fe3rPw9VvYhqBoc/TXWoOpYSn3mh+P86spWDEVMqVq95M+Grus1WH9WvX4jaloq2flftzD1d9HjNqCP/nYIqhYLjw1fOzDqPbYG0nUndHYEz8y0X1u0u7prfIDrBgZ50Pag7GvHSkE6UOa3xqb+VHkzKQdy659jFFX3PQirgaA6ELajP7+B6RzbxunYCruzDk/n/TE0UmMXGz9Du+XrgILqy5ENoLpVtvcd1KPdFxq6m01ol9tWfLrcsezABtgIqraRnVV4yGXw74ll7j/D45vlFNrS8tZOO3Td6dquCvtxTO9J2K/GK7IaHtMKuisBbeC3erdmrEF+gVjolqBSFpruDRaUEFjsiN/5x7PjZ7dt/2U+XTu9v3wmdYwM72/T7p7TnAxMUIWdtCyg77pgeymxIztcuS+c6d5wVRqrW4fWh4cK3zmmXb+riIpVT0QK4ROyOwXXVp62p4DPGsiP0RHV9S6X68tU+yEDft45vP61sF/peeuwzN/qfm8qypzvleCy6adO2QB5YIIqFDJ3hiLEFwYb7uqtSGwbrWjz0bpTf9LCVqFxCuQ2L0fyrqYVR2ernOt5wm7KRebVby4PYedz5xGTqvao2cRa0nYoE9fvtMjf7rvZFQpXZI1bTO9hyd54+NaJL5MSRVVXENb36VL3v94Rd8X+gzbl9LK3K0ERVLkdtG9ZoE0rQJUtSeS136t0mHq68puoNnW4OIL3FD9fFXP7smC/PVvrVBOxd2zz/0wMk7Y6+OkBns1zPO03bbi+j5w57qvn7nYsvm3k8STPtUSVEkPPtcqM9OmqKqry7z910PY8EsDTjH/17HmqjA6uw879SQeYzERukRKe8yDsTbmxpWqlO+9VXnyohHXlrGYn8NRwHl/UCOPwp37GOg3u3GHn2UQj8WKZDrnh843Npsw9YV3S0N856Nw9cbgp4FtRPcZP8hmmBe3OynK11aqg7k2d5Hk1F4XDiKr5x2VKhEhRJazFgxIzrw6E5FiLKruptSr3V3XDZLA/0xHaYUiCSk+vVe3oJ6J8n6QnUd2cuxERYTqTjdtauHWYnRUJwyMe8ccEev+/rPdvuxHyqom8Cq+5CNOytkzLpCFx1/UOLb++SEtH/cCBz6LdyOXJ9+7XfgbVUd46HDwVCaqL8H6PtXxklC/S+IjK4EyXwbSo+mIsItyJqWRf8RZe99xoiq36/U36sllvNstuiT5N+dUp0KWNbthRysYicJxel2IqHRG4jxQ9n63fRpNbbdhOwwx1td+yZoNf1NE8p+pXGxbAxZ6gq+cXI609XkF9ty1nRa4L8j7XNfJ7mnpnQYl1pDuiaj9I5bXRKjk1vfnegIj0tKh6Lswrledl959lfG9sMDBGTA1cUNXBNM5Tl5eMXvZ82kha3zI7EG2dtPVVa9LXzNbnbqgxqYrySVp4qnXwSkylO4z7Fp5nnhISnqjqF6OsPUWd3lMFa9KyRFhWc85W7+l5L31F77ZLKFF1nsqbqX5344znlT5nD0JZhpq0gCrBNP94jcqDfDcyr+W95x/votwCe7k3Jayepyz+FmIKQVULo5UyevVcFwvaY57Y6Aky329KGh6rjqXJqVH9LmyvP0Qr1aykg3/QnYdZpyUtBvOPt4zy8CjaC36ZFhLj3I45+xlkZ/1NFFvoVlab4G6Fg4lV69lYyKr8fhX7flNrUTyF3b1glhd/yHw5TZXH+N1NE+/mTiir0HWLqfN1eXjWeX0tylfCLvZ8wdRzlInAS8RUdfrklF6nwTTu/LSDuifa2WDTqFMK09TnqT7Z0JVZ37o03ZdMt02jOxH9n7Ld7+DnH2W+iddCxQqSncOLFhPrnU5ddXwXInvqYxX5w7S19YoMHjn/SKcl9otZJJ5htSOiVKd5pstBmdio0+HdG9xDitgrfe5yx8qxze8zkW9putHvNu/6nra8LEUchLiKQHT/7qRf32ex65M00iLzSqf7WKKaT7TYTZbBorSroJ1seIyg0kJnHQqdhbCf+rH2RZD+VOG9AlFvmawL7rVvV18pfb7wPVRZNdiGNW9uKaiimFQ9tzRm8ag756J3ONJ5ea07dZu6fXqAZ7rMsQRMNu2T+TNkWRCqDx6lOJp/3Ivy1Xjepn2zS2vSMlLkBD/ayQ83KwzdiHwhTvSU3nVKkBwbpoOIlRZTgYBa9G3Kr4qfxFMV3yO92uxEHGbfPHnP0x6LKZm3nw2fz3aqbNGGr5meHrYtG8OLSZUdaNEFKtbQISI7b+Mcub73pZN4QGoLllkDT552iXg54nJ5I/b9qno5aA2f9QQxhaDK68RszOGzOqJE3i88Pmsh10bFW+t7neTFszpiAm2tkELq0sLHydYi2WYjb2ttmjawsfYxdF6xAFk5zPfTg0Z23j5T4KjeXzoNrqj8ZFxucjvLELCP4vg2ak/mkSxHn0U/Q5qsIoNAF6ZaEVSdFlUzw5GFdOS+dHTPO13xLkUzzq+xU3ZktenJar6lbqhutECUz3Zj4yyut66xESDrvDhWDVHFV2uYW9FsBUid1XiBUFMX553Yc0w900lN4TLTHd+sgfTFVpjAQZ5f7uW5+v+5cBHg9HDvcK3Fp0vBf0hUeB1llWIrGcf81tcH0yN92eHKaRRPd7wrfTw1ucpLO637QoVjqOLjE6dTOmwuWgjWCcdMvsN14MyU38Y9tveK6+6FQd1Z6w57ri0KRdccO0m/ig3kZdbbPCGnvhO3R2OD+i+f6am1qRi1Aix2NB8Z5LlysC/K893rj/Vg4Uvq+oHVdQ5f12Q+3QqX+022J6SehNpGhg2OEVRHL/A8g0oYIJ4AcsVcXIfWIt5p4BhH2VtxF/9cJ6wfq4N3eEr8jBL5LcTWyhTgb3NUwioWUjPeG4IKAACgq8JKWt2kJbVrU/VBQkhhkUJQAQAAHIWw8rSoMpmmbop4KvYJ/ygEFQAAQF/ElfSh9UWzwUCXQu30sUBEIagAAAD6LLDihUlf9E9P2PtexX52gVCLlVZENUdQAQAAgBJbfskZLAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB+Q6R0AAAASPDJ178EQvwKyA8AAAAAOzE1DY9/wuNneIzJDwAAAAB7QfWuBdU1eQEAAABgL6amWky9khcAAAAA9mJqpK1TP9XvYAtO6QBQtyH2wn88/Z+1EL9W5AlQDo9RUAnpMxXgiA4AQ2sA77R53uS4y7nGOHHON8v7+2pqYO9eP3XaRjnfMZxS2FzPN/v73vdfLfKnIJ9kR735/K3Ge/mp0/QcHpOa794veIY3fZ/rckuDTd5UTV/hPb1qZWDvXm/55dB1/dnJ+/ca+fCaU75r1OvCc99UHZfTenXye+/cn7TFOkfIAoBBM9n93dTUHzXKUhT5yhoglvqQI1t5jVv1eS+mDpKdy7hcBOQy0teSefdNd3BeA+kd6/s8hMd7cQd6cGqmbVMOx/nlsFF/IK++OG6Nsa7vz0rU18r3yW65ZjUgAPTDQlWjw9iM7OOfBp1DZLH5qc9/3hdNG8dWeTzkjNhbsFDZWgxyv/MtlUdTw/eSYR2JLIIPKavByO1zRO9nmlitVfBe6+Rl5fSlrUijahaTHetqVjm8LrE8Vqw/yWcr+35hPpRZqCrU66KyLcvApizn5Ymp9fchVSceaI+xUAEMufqPEiP7J/3HM4Mv3urR/0qIX5fhsd79+Ncs/OdG/+e6B1aquHO5t8ijHKRfzy+ZNycJq4Hj5enS/yV6ByfqHUV0scNb63JU1cJzq38uc8rhY+KdXTX4DP5xWGh+LcLjPPxl4SBPJqk64QtAUAEMmLhRXKhOyaRhjMTRNNWYZjXej7qzOfLGNrLsjHSnvUjlW53ObdV8Zx8JjHP9H6+DU3+LlDCyeS9eRqeexaP+OXJvhYuYNSzYmuA+kScVhGD0HZn/ga4Tgag3FY6gAoCjJ7a0fNerela64y1qZP3tyHwjMPKIrSPH7F/xVf980T+XCaHlqjNuqrMX+r0uUs/SFea6M/Yq5GecX7JTX5aIymWD5TC27E6PxxK7s/qxSpr9lCA2HIwhqACgv/ipBjH+WdS5jVNiqUxQLXWneaxMUnnzkhKjdcXOqoXO6EeHhW0sSGwtPF8syqEUbveG59YRrEOJLJ4YiO38PBMDB0EFMMyq74utH1Rg0TB+SZ1b1NnchMep9uc5xjyKpzaSMY1cj8bbEJvLDguqmdj6IXkW3xunxGJROQzv8euu2JJ1EFF4yHId541lnnwaZQzEHE6FI6gA4HhHmYkGdTOFNy6YvhhSBGU/1WEILazWonxq1JRYEHwdZjGMpuRq+FJ1wfoZiZKVqhudDlEhUvlcRWAmLLbxIoDopx5wfBq0qPoX/QrA0eMVBzCMGr27nIbxJfX3pRYSE7H18eloR9aa6Exb46QAmOp8OoJo3LLDLx07X5T4cS0btPDc6/wMj083+6v1Mhk7LIdl9ScwsLJKK5WM7XRVUm+artcFRBbAh0Tdv6mQpq8F7cZYf74QAwVBBdALQVU6ur9LNaxeYnSd5EULhbNhC6rMqQ2REFhTJUI2q8iO5bn8HGE0NfhyQ4JKTjl/WuiO/nq3rOYyKhANXoEwCirUn2W5SJKCK4rFNC7I44br9U4+vGZcy0vU3cuKW/NMcsrCi353k4pCDUEFAJ1ANpDzCo3ioqDT9Aeep3EerTI64TiP9NSokUWl60jB8Ff7YmrDk87zC0NBlce0QITc51y7rP4EFs8g733lKL9s63WSovobT1tXEOORkM3YJ3FjBfXUVPgw91FEUAH0QlDZmP5zp7KEagg/6YCL0h8iNzSC1/M8/ZovJCKLykpst/KYHc9j5VpO5g1O6Rmm61MgNvGyKi9kWOa8S99h/cnjUQuqibKU1d5guEa6fv2WI4Z0+qJFACeWaTwrGIjFf9fXFggqAOg7O1NZIsdvZqXPKfKH6Lugii1Uf+fkUSC2PiMdF1Sf/CPJc2lBMvVDWuoy6mUIxpSoivyQWsgDaan8JNM91cLlsntC+pP8+Sa204k2aYzzcJ1TpmKr1xFOhSOoAMCeZENYth1Jlj+ExVRB1Oj6wsypt0sCZCy2Pjq3otiPZVKz47SJp9RzKvkhdU3Yxw72E+Vg37k8lmJorsu0hciMfNPihQDXojjmVp+mwhFUAJBLbLYPRLFviB79701d/NAiwmSZv68b7qU4qmmxaIQdi8dVyfONajohx4Lg7wafxyYY66Ex9UOKrah/WojWNgRLoK1AvhZWXczzpc5jGzE6MawT8WDkyKbCEVQAYE9i/7Miq9Gnd93gyvMfUx1ZspMuIhZd33PESFfxE3lUMHURraTytUitIKg2m1ML0azT99eEiO46KT+kXH5YlKO2A5o+6XRJUXjZk3YjLkMzvbl3Xpl+1kLyCKbC3UNgT4DhVPfkVFZZBx77Tp1ljG6F2DitF4oFPyXCss4R9p81mkeehch5SYlUW663o/6mHMJ3NhF+6X4ZjaaJ4o64KPJ4nF9ecYDVwjAKTT1DvGGwvO9FzwZiZTskfK9ZJxBUAHBUjeLKYHXP960FIClujDu8pFhIRhpfZqQni2nOd9rKo7XB0u9kp27ZaUci4ColXpvgefs8RxNw8Wm/DOyJliCR/0U+brcHeob7/giLnYGT6UBsdESLIRBUAGDNmWGjKFLhEvycDs/XJv50szJNdGRPGRePBdlDtnUhaohvU+e2xVdzkfMrGc/HsOOU4jRadfYqNjF9mgiEKDvBT2+Jd3dzPE7Cv+JNtcuslAnRklkOr7UoCw7wEAv9bju4VVNygGI0EEi0G2VlKLkNDZslA8DxjIfCjvnTPxlRkbPO9fS5/5iPHD990+fniKbN9d7V6qwoPW+Jv78VpOVn4rxX/d07/Xv895/ZU3+bz00Of1+sxZ9lpi3+3tQwj571+d8y3kvZ8V59P8Dkc5QeBc9SJy9N05d7T79EEBrceyevs8rhe+JadwXfLTtezcvQ5ryH3Wvsff6aU0YrpiuZt6XvJ/7+pPzdRHn4jxaoJu/+obj+AwAct6Camje2yRF+LGxyO733nIb+wUDgvRZ0FN/yR89NCaqdTtzQspCVr4Ud4k/93NN6fmKlgupNd2yeYcfaMUG105GbiK/3bLERlTP/QILK67Cgei3+fpwmKfg3fxtXKJvekFrk3+iUAKCmsEs6u0tW5tNLOyvdKnwfINmRb1gPdfsTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACox/8LMAD+qNZsKmCdpgAAAABJRU5ErkJggg==" alt="FIUBA">
+    <span class="num">Semana 2 - Bash</span>
+  </footer>
+ </div>
+</div>

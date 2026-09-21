@@ -1,17 +1,27 @@
 # Diapos
 
-* [Intro a Materia](https://drive.google.com/file/d/1h9Idj_m2O_5nPmxEvvzDJQ_05al8dZOq/view?usp=sharing)
-* [Intro a Linux](https://drive.google.com/file/d/1zyT04d0Gi8jv3NtcYZBfYZFBkAgCGhM0/view?usp=sharing)
-* [Intro a Terminal](https://drive.google.com/file/d/1oXzxisj_iC_AjlONNUDGmyLBeB5upjDt/view?usp=drive_link)
-* [FileSystem](https://drive.google.com/file/d/169BwslyyKv5c6GwNjuL2MN-GTuYhXG2W/view?usp=drive_link)
-* [Editores de Texto](https://drive.google.com/file/d/1dJPt64u4kg-0NM7OKxjSoX-_qTE8vgSt/view?usp=drive_link)
-* [Intro a Regex](https://drive.google.com/file/d/1X2K3l9ZL2OGgRJyZE9mKKE-t41t-3vyl/view?usp=drive_link)
-* [Ingeniería de Software](https://drive.google.com/file/d/1VfmVSmWNm2uFhN0REiI12LBg6RGrbkYA/view?usp=sharing)
-* [Etapas de la Ingeniería de Software](https://drive.google.com/file/d/1nV3FjmzQLB93a0gr1cuVi76vT2iVJ3BK/view?usp=drive_link)
-* [Intro a Git](https://drive.google.com/file/d/1K6mVSddY0L9o80gSF_XR-Mu9abbmXz2U/view?usp=sharing)
-* [SSH para Github](https://drive.google.com/file/d/10_Kc5wv1eIahixzIe4rMjVW3HcA1gR2d/view?usp=sharing)
-* [Github: ramas y merge conflicts](https://canva.link/presentacion-git2-1c26)
-* [Docker](https://drive.google.com/file/d/1FSG-wXa_jFv0w4ptc_4WjRy-46Hc5BP1/view?usp=drive_link)
-* [Docker 2](https://drive.google.com/drive/folders/1fEuDoGiwLVe-1my2dUsDwEjxjlP4-tVI?usp=sharing)
-* [SQL 1](https://drive.google.com/file/d/1F4_mCr5bYC9GdQ6y_6WyjKkwAEdekM0P/view?usp=drive_link)
-* [Backend](https://drive.google.com/file/d/1esuZZjUGdfFQPnE_FgErFoKDTqfeojKC/view?usp=sharing)
+## Semana 1
+
+* [Presentación de la materia](pathname:///slides/01-presentacion-materia/index.html)
+* [Intro a Linux](pathname:///slides/intro-linux/index.html)
+* [Intro a Terminal](pathname:///slides/intro-terminal/index.html)
+* [Filesystem](pathname:///slides/filesystem/index.html)
+* [Bash](pathname:///slides/bash/index.html)
+
+
+## Semana 2
+
+* [Bash Parte 2](pathname:///slides/bash-parte-2/index.html)
+* [Terminales/Shells/Editores/Permisos](pathname:///slides/terminales-shells-editores-permisos/index.html)
+* [Enunciado Calculadora en Bash](pathname:///slides/bash-calculadora/enunciado.html)
+* [Regex](pathname:///slides/regex/index.html)
+
+## Semana 3
+
+* [Ingeniería de Software - Parte 1](pathname:///slides/ing-soft-1/index.html)
+* [Intro a Git](pathname:///slides/intro-git/index.html)
+
+## Semana 4
+
+* [Ingeniería de Software - Parte 2](pathname:///slides/ing-soft-2/index.html)
+* [Intro a Docker](pathname:///slides/intro-docker/index.html)

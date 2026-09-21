@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Terminal</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+    <div class="cover-title-block">
+      <div class="s-title">La Terminal</div>
+      <div class="s-sub">Introducción a la línea de comandos</div>
+      <div class="cover-index"><span class="n">Clase 02</span><span class="dot"></span><span class="n">2026</span></div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">01</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Agenda</div>
+    <ul class="agenda-list">
+      <li><span class="idx">.01</span><span class="lbl">Conceptos básicos</span></li>
+      <li><span class="idx">.02</span><span class="lbl">Comandos esenciales</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">02</span>
+  </div>
+</section>
+
+<section class="slide slide-split slide-split--reverse">
+  <div class="split-media">
+    <img src="img/coding.gif" alt="coding.gif">
+  </div>
+  <div class="split-copy on-accent">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Sección 01</div>
+      <div class="s-title">¿Qué es una terminal?</div>
+      <p class="s-body-text">Es una interfaz de texto para comunicarse con la computadora. En lugar de hacer clic, escribimos comandos. También se la conoce como consola, shell o línea de comandos.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 01 — Conceptos básicos</div>
+    <div class="s-title s-title--md">Un poco de historia</div>
+    <div class="cols2">
+      <div class="col-media">
+        <img src="img/teletype.jpg" alt="teletype.jpg">
+      </div>
+      <p class="s-body-text">En los años 60-70, las computadoras no tenían pantalla gráfica. Se interactuaba mediante teletypes (terminales físicas con teclado e impresora). Con el tiempo, fueron reemplazados por pantallas con texto. Las terminales modernas son emuladores de aquellas físicas.</p>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">04</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 01 — Conceptos básicos</div>
+    <div class="s-title s-title--md">Shell vs Terminal</div>
+    <ul class="bullets">
+      <li><span><strong>Terminal</strong>: el programa que muestra la ventana con texto (ej: GNOME Terminal, iTerm2, Windows Terminal).</span></li>
+      <li><span><strong>Shell</strong>: el intérprete que entiende los comandos (ej: Bash, Zsh, Fish).</span></li>
+      <li><span>La terminal es el "envoltorio", el shell es el "cerebro".</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">05</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 01 — Conceptos básicos</div>
+    <div class="s-title s-title--md">¿Para qué sirve?</div>
+    <ul class="bullets">
+      <li><span>Automatizar tareas repetitivas.</span></li>
+      <li><span>Administrar servidores remotos (la mayoría no tienen interfaz gráfica).</span></li>
+      <li><span>Instalar y gestionar software.</span></li>
+      <li><span>Trabajar con Git y control de versiones.</span></li>
+      <li><span>Compilar y ejecutar programas.</span></li>
+      <li><span>Es <strong>mucho más rápida</strong> que la interfaz gráfica para muchas tareas.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">06</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 01 — Conceptos básicos</div>
+    <div class="s-title s-title--md">¿Por qué aprenderla?</div>
+    <div class="cols2">
+      <p class="s-body-text">En la carrera la van a usar <strong>constantemente</strong>. En el mundo laboral es una herramienta esencial, ya que les da <strong>control total</strong> sobre la computadora. Todo desarrollador competente la usa a diario.</p>
+      <div class="col-media">
+        <img src="img/control.jpg" alt="control.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">07</span>
+  </div>
+</section>
+
+<section class="slide on-accent">
+  <div class="s-pad" style="justify-content:center;">
+    <div class="eyebrow"><span class="dot"></span>Sección 02</div>
+    <div class="s-title">Comandos esenciales</div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">08</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 02 — Comandos esenciales</div>
+    <div class="s-title s-title--md">10 comandos esenciales (1/2)</div>
+    <ul class="bullets">
+      <li><span><strong>pwd</strong> — Muestra en qué directorio estás</span></li>
+      <li><span><strong>ls</strong> — Lista archivos y carpetas</span></li>
+      <li><span><strong>cd</strong> — Cambia de directorio</span></li>
+      <li><span><strong>mkdir</strong> — Crea un directorio nuevo</span></li>
+      <li><span><strong>touch</strong> — Crea un archivo vacío</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">09</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 02 — Comandos esenciales</div>
+    <div class="s-title s-title--md">10 comandos esenciales (2/2)</div>
+    <ul class="bullets">
+      <li><span><strong>cat</strong> — Muestra el contenido de un archivo</span></li>
+      <li><span><strong>cp</strong> — Copia archivos o carpetas</span></li>
+      <li><span><strong>mv</strong> — Mueve o renombra archivos</span></li>
+      <li><span><strong>rm</strong> — Elimina archivos o carpetas</span></li>
+      <li><span><strong>man</strong> — Muestra el manual de un comando</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">10</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 02 — Comandos esenciales</div>
+    <div class="s-title s-title--md">¡Vamos a probarlos!</div>
+    <div class="code-block">
+      <div class="fname">bash</div>
+      <pre><code>pwd
+mkdir <span class="c2">mi-carpeta</span>
+cd <span class="c2">mi-carpeta</span>
+touch <span class="c2">archivo.txt</span>
+ls
+cat <span class="c2">archivo.txt</span>
+echo <span class="c2">"Hola FIUBA!"</span> > <span class="c2">archivo.txt</span>
+cat <span class="c2">archivo.txt</span>
+cp <span class="c2">archivo.txt copia.txt</span>
+ls
+mv <span class="c2">copia.txt renombrado.txt</span>
+ls
+rm <span class="c2">renombrado.txt</span>
+ls</code></pre>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">11</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Sección 02 — Comandos esenciales</div>
+    <div class="s-title s-title--md">Tips útiles</div>
+    <ul class="bullets">
+      <li><span><strong>Tab</strong>: autocompleta nombres de archivos y comandos.</span></li>
+      <li><span><strong>Flecha arriba/abajo</strong>: navega el historial de comandos.</span></li>
+      <li><span><strong>Ctrl + C</strong>: cancela la ejecución actual.</span></li>
+      <li><span><strong>Ctrl + L</strong>: limpia la pantalla (o escribir <code>clear</code>).</span></li>
+      <li><span><strong>--help</strong>: casi todos los comandos aceptan esta flag para ver ayuda.</span></li>
+    </ul>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">12</span>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="s-pad">
+    <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+    <div class="s-title s-title--md">Fuentes</div>
+    <ol>
+      <li>GNU Bash Reference Manual <span class="src">(gnu.org)</span></li>
+      <li>The Linux Command Line — William Shotts <span class="src">(linuxcommand.org)</span></li>
+      <li>Ubuntu — The Linux command line for beginners <span class="src">(ubuntu.com)</span></li>
+      <li>Teletipo <span class="src">(Wikipedia)</span></li>
+      <li>Emulador de terminal <span class="src">(Wikipedia)</span></li>
+    </ol>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">13</span>
+  </div>
+</section>
+
+<section class="slide on-accent">
+  <div class="s-pad">
+    <div class="closing-center">
+      <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+      <div class="s-title">Gracias</div>
+      <div class="closing-links">Nos vemos en la próxima clase</div>
+    </div>
+  </div>
+  <div class="s-foot">
+    <span>Intro Camejo</span>
+    <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+    <span class="num">14</span>
+  </div>
+</section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

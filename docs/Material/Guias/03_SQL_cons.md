@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Guía 3 - SQL
 
 ## Introducción

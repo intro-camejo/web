@@ -11,7 +11,12 @@
     <script>
       window.CMS_MANUAL_INIT = true;
     </script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script
+      src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"
+      integrity="sha384-in6eHztHveqQ7uMZ1fDaKlDmacQLFuLH2wWrFTiymyuS8zQ5bixwL8U3AeRi8h/L"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
       var isLocal = document.location.hostname === "localhost" || document.location.hostname === "127.0.0.1";
 
@@ -82,12 +87,7 @@
                       allow_add: true,
                       fields: [
                         { label: "Nombre", name: "name", widget: "string" },
-                        {
-                          label: "Fotos",
-                          name: "pictures",
-                          widget: "list",
-                          field: { label: "Foto", name: "foto", widget: "image" },
-                        },
+                        { label: "Foto", name: "picture", widget: "image", required: false },
                       ],
                     },
                   ],
@@ -123,8 +123,14 @@
                               widget: "list",
                               fields: [
                                 { label: "Nombre", name: "name", widget: "string" },
-                                { label: "Color de fondo", name: "bg", widget: "string", required: false, hint: "ej: #0070a7" },
-                                { label: "Color de texto", name: "color", widget: "string", required: false, hint: "ej: #f7f7f7" },
+                                {
+                                  label: "Destacar", name: "tipo", widget: "select", required: false,
+                                  hint: "Deja vacio para un tema normal",
+                                  options: [
+                                    { label: "Evaluacion (parcialito / recuperatorio)", value: "evaluacion" },
+                                    { label: "Hito (entrega, presentacion)", value: "hito" },
+                                  ],
+                                },
                               ],
                             },
                           ],
@@ -141,8 +147,14 @@
                               widget: "list",
                               fields: [
                                 { label: "Nombre", name: "name", widget: "string" },
-                                { label: "Color de fondo", name: "bg", widget: "string", required: false, hint: "ej: #0070a7" },
-                                { label: "Color de texto", name: "color", widget: "string", required: false, hint: "ej: #f7f7f7" },
+                                {
+                                  label: "Destacar", name: "tipo", widget: "select", required: false,
+                                  hint: "Deja vacio para un tema normal",
+                                  options: [
+                                    { label: "Evaluacion (parcialito / recuperatorio)", value: "evaluacion" },
+                                    { label: "Hito (entrega, presentacion)", value: "hito" },
+                                  ],
+                                },
                               ],
                             },
                           ],

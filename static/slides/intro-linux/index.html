@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a Linux</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<main class="deck">
+  <!-- Slide 01: portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Introducción a Linux</div>
+        <div class="s-sub"></div>
+        <div class="cover-index"><span class="n">Clase</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- Slide 02: agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Les suena?</span></li>
+        <li><span class="idx">.02</span><span class="lbl">TODOS LO USAN</span></li>
+        <li><span class="idx">.03</span><span class="lbl">UNIX</span></li>
+        <li><span class="idx">.04</span><span class="lbl">GNU</span></li>
+        <li><span class="idx">.05</span><span class="lbl">POR QUÉ LE DEDICAMOS TIEMPO DE CLASE?</span></li>
+        <li><span class="idx">.06</span><span class="lbl">OPCIONES DE INSTALACIÓN</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- Slide 03: divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección 1</div>
+      <div class="s-title">Les suena?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- Slide 04: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Les suena?</div>
+      <ul class="bullets" style="font-size: 1.5em; margin-top: 1.5em;">
+        <li><span>Qué es lo primero que piensan?</span></li>
+        <li><span>Lo usan?</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- Slide 05: divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección 2</div>
+      <div class="s-title">TODOS LO USAN</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- Slide 06: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">TODOS LO USAN</div>
+      <ul class="bullets">
+        <li><span>Las 500 supercomputadoras más potentes del mundo usan Linux (100% desde 2017)</span></li>
+        <li><span>~90% de la infraestructura de nube pública corre Linux: 92% de las VMs de Google Cloud, 84% de las instancias EC2 de AWS, 62% de las VMs de Azure.</span></li>
+        <li><span>Solo en 2025, más de 5.200 desarrolladores de +1.780 organizaciones contribuyeron al kernel.</span></li>
+        <li><span>El sistema operativo Android está basado en el kernel de Linux (>70% de los celulares del mundo).</span></li>
+        <li><span>Los vehículos autónomos utilizan Linux.</span></li>
+        <li><span>El sistema operativo Chrome OS de Google está construido sobre Linux.</span></li>
+        <li><span>El 92% de los servidores con SO conocido son Unix-like.</span></li>
+        <li><span>~4,5% de Desktop a nivel global... y más del 10% en EEUU (subiendo rápidamente)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- Slide 07: hasta-6-imagenes -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">USOS CURIOSOS</div>
+      <div class="grid-imgs">
+        <div class="cell"><div class="ph"><img src="img/Pewdiepie_head_shot.jpg" alt="PewDiePie"></div><div class="cap"><strong>PewDiePie</strong><br/>Se pasó a Linux</div></div>
+        <div class="cell"><div class="ph"><img src="img/Steam_icon_logo.png" alt="Steam Deck"></div><div class="cap"><strong>Steam Deck</strong><br/>Valve metió Linux en una consola</div></div>
+        <div class="cell"><div class="ph"><img src="img/Red_Star_OS-Desktop.png" alt="Red Star OS"></div><div class="cap"><strong>Red Star OS</strong><br/>La distro de Corea del Norte</div></div>
+        <div class="cell"><div class="ph"><img src="img/Mars_Helicopter_Ingenuity.png" alt="Ingenuity"></div><div class="cap"><strong>Ingenuity</strong><br/>Voló Linux en Marte</div></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- Slide 08: imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">QUÉ ES?</div>
+      <div class="cols2">
+        <p class="s-body-text">No es un sistema operativo, es un <strong>kernel</strong>.</p>
+        <div class="col-media"><img src="img/nerd-dog-nerd.gif" alt="Nerd Dog"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- Slide 09: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">¿Qué es un sistema operativo?</div>
+      <p class="s-body-text">El software que gestiona los recursos:</p>
+      <ul class="bullets">
+        <li><span>Reparte la CPU entre los procesos</span></li>
+        <li><span>Administra la memoria y el disco</span></li>
+        <li><span>Habla con el hardware (placa de video, wifi, teclado)</span></li>
+        <li><span>Les da una interfaz para usar todo eso</span></li>
+      </ul>
+      <p class="s-body-text">Windows, macOS, Android y Ubuntu son sistemas operativos.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- Slide 10: titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">¿Y el kernel?</div>
+      <p class="s-body-text">Es el <strong>núcleo</strong> del sistema operativo: la única parte que le habla directo al hardware.</p>
+      <div class="stack" style="display: flex; flex-direction: column; gap: 8px; margin-top: 1em;">
+        <div style="border: 2px solid #64748b; border-radius: 8px; padding: 8px;">Sus programas (Chrome, VS Code, la terminal)</div>
+        <div style="border: 2px solid #64748b; border-radius: 8px; padding: 8px;">Librerías y herramientas del sistema (GNU, etc.)</div>
+        <div style="border: 2px solid #22c55e; border-radius: 8px; padding: 8px; color: #22c55e; font-weight: bold;">KERNEL — procesos, memoria, drivers, archivos</div>
+        <div style="border: 2px solid #64748b; border-radius: 8px; padding: 8px;">Hardware</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- Slide 11: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">Entonces...</div>
+      <ul class="bullets">
+        <li><span><strong>Linux</strong> es solo el kernel: por sí solo no les da ni una terminal.</span></li>
+        <li><span>Un kernel + herramientas + interfaz = un sistema operativo usable.</span></li>
+        <li><span>Esa combinación es lo que van a instalar.</span></li>
+        <li><span>Por eso se suele hablar de <strong>GNU/Linux</strong>.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- Slide 12: titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">Entran en escena las famosas "distros"</div>
+      <p class="s-body-text">Están implementadas sobre el kernel de Linux, cada una tiene su propio enfoque y filosofía.</p>
+      <p class="s-body-text">Nombramos algunas?</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- Slide 13: imagen-full -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">Familia de Sistemas Operativos</div>
+      <div class="cols2 cols2--single">
+        <div class="col-media"><img src="img/os-family-tree.png" alt="Familia de Sistemas Operativos"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- Slide 14: imagen-full -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>TODOS LO USAN</div>
+      <div class="s-title s-title--md">Resumen Histórico</div>
+      <div class="cols2 cols2--single">
+        <div class="col-media"><img src="img/github-avatar.png" alt="Resumen Histórico"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- Slide 15: seccion-imagen -->
+  <section class="slide slide-split">
+    <div class="split-media"><img src="img/Ken_Thompson_and_Dennis_Ritchie.jpg" alt="Ken Thompson and Dennis Ritchie"></div>
+    <div class="split-copy on-accent">
+      <div class="s-pad">
+        <div class="eyebrow"><span class="dot"></span>Sección 3</div>
+        <div class="s-title">UNIX</div>
+      </div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">15</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 16: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>UNIX</div>
+      <div class="s-title s-title--md">UNIX</div>
+      <ul class="bullets">
+        <li><span>Desarrollado en Bell Labs (AT&T)</span></li>
+        <li><span>Ken Thompson y Dennis Ritchie</span></li>
+        <li><span>C fue creado para implementar Unix</span></li>
+        <li><span>Inspirado en Multics</span></li>
+        <li><span>Define un universo "Unix-like"</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- Slide 17: seccion-imagen -->
+  <section class="slide slide-split">
+    <div class="split-media"><img src="img/stallman.jpg" alt="Richard Stallman"></div>
+    <div class="split-copy on-accent">
+      <div class="s-pad">
+        <div class="eyebrow"><span class="dot"></span>Sección 4</div>
+        <div class="s-title">GNU</div>
+      </div>
+      <div class="s-foot">
+        <span>Intro Camejo</span>
+        <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+        <span class="num">17</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 18: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>GNU</div>
+      <div class="s-title s-title--md">GNU</div>
+      <ul class="bullets">
+        <li><span>GNU Project comenzado por Richard Stallman</span></li>
+        <li><span>Es un acrónimo recursivo (<strong>G</strong>NU's <strong>N</strong>ot <strong>U</strong>nix)</span></li>
+        <li><span>Introduce el concepto de Copyleft</span></li>
+        <li><span>Introduce la GNU General Public License</span></li>
+        <li><span>Uno de sus objetivos originales era implementar un Unix-like abierto, pero nunca llegaron a terminar el kernel.</span></li>
+        <li><span>Implementó herramientas como:<br>
+        - GCC, GNU-Emacs, GIMP<br>
+        - BASH, GDB, entre otros.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- Slide 19: imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>GNU</div>
+      <div class="s-title s-title--md">LLEGAMOS A LINUX</div>
+      <div class="cols2">
+        <div>
+          <ul class="bullets">
+            <li><span>Proyecto personal del finlandés Linus Torvalds (1991)</span></li>
+            <li><span>Ya había flotando SOs Unix-Like, pero ninguno "free" y compatible con los Intel 386.</span></li>
+            <li><span>Utiliza GNU General Public License</span></li>
+            <li><span>Combinado con componentes de GNU, genera un sistema operativo funcional.</span></li>
+          </ul>
+        </div>
+        <div class="col-media"><img src="img/Linus-Torvalds-2012.jpg" alt="Linus Torvalds"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- Slide 20: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>GNU</div>
+      <div class="s-title s-title--md">¿Qué significa "Unix-like"?</div>
+      <p class="s-body-text">Un sistema que se comporta como Unix, aunque no comparta una línea de su código.</p>
+      <ul class="bullets">
+        <li><span>Siguen un estándar, <strong>POSIX</strong> (IEEE 1003), que define:<br>
+        - las llamadas al sistema, el shell y los permisos<br>
+        - las herramientas de siempre: ls, grep, cd, chmod...</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- Slide 21: divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección 5</div>
+      <div class="s-title">POR QUÉ LE DEDICAMOS TIEMPO DE CLASE?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- Slide 22: titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>POR QUÉ LE DEDICAMOS TIEMPO DE CLASE?</div>
+      <div class="s-title s-title--md">POR QUÉ LE DEDICAMOS TIEMPO DE CLASE?</div>
+      <ul class="bullets">
+        <li><span>Para poder seguir la cursada van a necesitar Linux o macOS.</span></li>
+        <li><span>A lo largo de la carrera lo van a necesitar.</span></li>
+        <li><span>Van a tener una vida profesional más feliz y competitiva.</span></li>
+        <li><span>Mucho más rápido, simple y robusto.</span></li>
+        <li><span>Cada vez más usado, hace años que no tengo que recurrir a otro sistema operativo.</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- Slide 23: divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección 6</div>
+      <div class="s-title">OPCIONES DE INSTALACIÓN</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- Slide 24: titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>OPCIONES DE INSTALACIÓN</div>
+      <div class="s-title s-title--md">OPCIONES DE INSTALACIÓN</div>
+      <ol style="font-size: 1.2em; line-height: 1.6;">
+        <li><span><strong>Instalar el SO</strong></span></li>
+        <li><span><strong>Windows Subsystem for Linux (WSL2)</strong></span></li>
+        <li><span><strong>Máquina Virtual (VM)</strong></span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- Slide 25: comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>OPCIONES DE INSTALACIÓN</div>
+      <div class="s-title s-title--md">INSTALARLO NATIVAMENTE <span class="tag tag-tip">RECOMENDADO</span></div>
+      <div class="compare">
+        <div class="side a">
+          <h3>PROS</h3>
+          <ul>
+            <li><span>Instalable en prácticamente cualquier computadora.</span></li>
+            <li><span>Mejor performance que en las otras opciones (Pueden revivir una compu vieja)</span></li>
+            <li><span>Un sistema operativo completo, van a tener un entorno cómodo.</span></li>
+            <li><span>Les aseguro que les va a venir 10/10 para la carrera y la vida.</span></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>CONTRAS</h3>
+          <ul>
+            <li><span>Más invasivo que las otras opciones.</span></li>
+            <li><span>Requiere reemplazar el sistema operativo o realizar una partición de disco (esto es simple).</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- Slide 26: comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>OPCIONES DE INSTALACIÓN</div>
+      <div class="s-title s-title--md">WSL <span class="tag tag-info">ACEPTABLE</span></div>
+      <div class="compare">
+        <div class="side a">
+          <h3>PROS</h3>
+          <ul>
+            <li><span>Mucho más performante que una máquina virtual.</span></li>
+            <li><span>Pueden abrir una terminal de Linux desde Windows.</span></li>
+            <li><span>Instalación relativamente simple.</span></li>
+            <li><span>Pueden correr Docker fácilmente.</span></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>CONTRAS</h3>
+          <ul>
+            <li><span>Demandante en hardware.</span></li>
+            <li><span>Requiere W11 o una versión actualizada de W10.</span></li>
+            <li><span>Siguen estando en Windows.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- Slide 27: comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>OPCIONES DE INSTALACIÓN</div>
+      <div class="s-title s-title--md">MÁQUINA VIRTUAL (VM) <span class="tag tag-danger">NO RECOMENDADO</span></div>
+      <div class="compare">
+        <div class="side a">
+          <h3>PROS</h3>
+          <ul>
+            <li><span>Opción menos invasiva.</span></li>
+            <li><span>La más fácil de instalar.</span></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>CONTRAS</h3>
+          <ul>
+            <li><span>Demandante en hardware.</span></li>
+            <li><span>No es la solución más performante.</span></li>
+            <li><span>No van a estar cómodos para trabajar.</span></li>
+            <li><span>Siguen estando en Windows.</span></li>
+            <li><span>Muchas muchas, muchas, muchas otras cosas...</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- Slide 28: titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>OPCIONES DE INSTALACIÓN</div>
+      <div class="s-title s-title--md">TAREA</div>
+      <p class="s-body-text">Para la próxima clase traten de tener una de las opciones funcionando!</p>
+      <p class="s-body-text">Vuelvo a repetir, si tienen <strong>macOS</strong> van a poder seguir las clases perfectamente.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- Slide 29: cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">GRACIAS!</div>
+        <div class="closing-links">La seguimos por Slack</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- Slide 30: bibliografia -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <div class="s-title s-title--md">Fuentes</div>
+      <ol>
+        <li><span>IEEE Std 1003.1 (POSIX) <span class="src">(https://standards.ieee.org/ieee/1003.1/7700/)</span></span></li>
+        <li><span>POSIX — The Open Group Base Specifications Issue 8 <span class="src">(https://pubs.opengroup.org/onlinepubs/9799919799/)</span></span></li>
+        <li><span>Unix-like — Wikipedia <span class="src">(https://es.wikipedia.org/wiki/Unix-like)</span></span></li>
+        <li><span>Microsoft — ¿Qué es WSL? <span class="src">(https://learn.microsoft.com/es-es/windows/wsl/about)</span></span></li>
+        <li><span>Núcleo (informática) — Wikipedia <span class="src">(https://es.wikipedia.org/wiki/N%C3%BAcleo_(inform%C3%A1tica))</span></span></li>
+        <li><span>GNU — Linux y el sistema GNU <span class="src">(https://www.gnu.org/gnu/linux-and-gnu.es.html)</span></span></li>
+        <li><span>TOP500 — Lista de junio 2026 <span class="src">(https://www.top500.org/lists/top500/2026/06/)</span></span></li>
+        <li><span>Cloud Provider Linux Usage Breakdown (2026) <span class="src">(https://commandlinux.com/statistics/cloud-provider-linux-usage-breakdown/)</span></span></li>
+        <li><span>Linux Foundation — Kernel Development Report <span class="src">(https://www.linuxfoundation.org/blog/blog/linux-kernel-report-more-contributors-than-ever)</span></span></li>
+        <li><span>W3Techs — Linux Web Server Market Share <span class="src">(https://fosspost.org/linux-web-server-market-share/)</span></span></li>
+        <li><span>StatCounter — Linux supera el 10% en EEUU <span class="src">(https://linuxiac.com/linux-desktop-market-share-surpasses-10-in-north-america/)</span></span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

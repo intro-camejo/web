@@ -3,8 +3,15 @@
 
 Página para colgar material relacionado a la materia, cualquier issue/PR es super bienvenido!
 
+### Requisitos
 
-Para levantarlo local :
+Node.js 24.19.0 LTS (la versión está fijada en `.nvmrc`):
+
+```sh
+nvm use
+```
+
+Para levantarlo local:
 
 ```sh
 npm install
@@ -14,12 +21,14 @@ npm install
 npm run start
 ```
 
+Queda en http://localhost:3000/
+
 ---
 #### Panel de administracion (CMS)
 
-El sitio incluye un panel en `/admin/` basado en [Decap CMS](https://decapcms.org/) para crear y editar blog posts y material de catedra desde el navegador.
+El sitio incluye un panel en `/admin/` basado en [Decap CMS](https://decapcms.org/) para crear y editar contenido desde el navegador.
 
-En produccion: https://intro-camejo.github.io/web/admin/
+En produccion: https://www.intro-camejo.com.ar/admin/
 
 **Probarlo localmente:**
 
@@ -29,19 +38,15 @@ Ademas de levantar el sitio con `npm run start`, en otra terminal correr:
 npx decap-server
 ```
 
-Y agregar `local_backend: true` al inicio de `static/admin/config.yml`. Esto hace que el CMS lea y escriba archivos locales en vez de usar GitHub.
+El panel detecta solo que está en `localhost` y usa el backend local, así que no hay que tocar ninguna config.
 
-Ir a http://localhost:3000/web/admin/
-
-> **Importante:** no commitear `local_backend: true` — es solo para desarrollo local.
+Ir a http://localhost:3000/admin/
 
 ---
 #### Levantarlo en un container :
 
 ```sh
-docker-compose up --build
+docker compose up --build
 ```
------
-#### Notificaciones:
-* Todos los commits en main generan una notificación en el canal de slack.
-* Para evitar que llegue este mensaje, el pr/commit debe terminar con "-silent"
+
+Queda en http://localhost:3000/
