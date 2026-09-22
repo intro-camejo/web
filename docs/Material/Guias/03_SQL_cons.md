@@ -167,4 +167,4 @@ Se pide mostrar, en cada caso:
 
 ## Respuestas
 
-Recomendamos que primero intentes resolver los ejercicios por tu cuenta. Luego, si necesitas ayuda, podés consultar el [**archivo de respuestas**](03_SQL_resp.md).
+Recomendamos que primero intentes resolver los ejercicios por tu cuenta. Luego, si necesitas ayuda, podés consultar el [**archivo de respuestas**](./Respuestas/03_SQL_resp.md).
