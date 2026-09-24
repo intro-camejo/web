@@ -1070,7 +1070,7 @@ psql <span class="c2">-U</span> postgres <span class="c2">-d</span> suramericano
     apellido <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
     pais <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
     deporte <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
-    localidad <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>)
+    prueba <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>)
 );</code></pre>
       </div>
       <p class="s-body-text">¿Qué problemas tiene? ¿Puede un deportista no tener nombre? ¿Dos deportistas con el mismo <code>id</code>?</p>
@@ -1117,13 +1117,13 @@ psql <span class="c2">-U</span> postgres <span class="c2">-d</span> suramericano
     apellido <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
     pais <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
     deporte <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
-    localidad <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>)
+    prueba <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>)
 );</code></pre>
       </div>
       <ul class="bullets">
         <li><span><code>NOT NULL</code> → la columna es <strong>obligatoria</strong></span></li>
         <li><span><code>PRIMARY KEY</code> → el identificador de cada fila</span></li>
-        <li><span><code>localidad</code> queda opcional: puede ser <code>NULL</code></span></li>
+        <li><span><code>prueba</code> queda opcional: puede ser <code>NULL</code></span></li>
       </ul>
     </div>
     <div class="s-foot">
