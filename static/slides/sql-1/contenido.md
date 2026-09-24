@@ -475,6 +475,8 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: suramericanos
 
+volumes:
+  pgdata:
 ```
 
 Variables de entorno disponibles: https://hub.docker.com/_/postgres#environment-variables
