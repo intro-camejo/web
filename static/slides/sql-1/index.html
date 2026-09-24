@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a SQL — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!-- Generado a partir de contenido.md con /generar-diapositiva sql-1. -->
+<main class="deck">
+
+  <!-- portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Introducción a SQL</div>
+        <div class="s-sub">Bases de datos relacionales y sentencias básicas</div>
+        <div class="cover-index"><span class="n">Clase SQL 1</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">¿Qué es una base de datos?</span></li>
+        <li><span class="idx">.02</span><span class="lbl">SQL</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Comandos básicos</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Manos a la obra: levantando Postgres</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Práctica: Juegos Suramericanos Santa Fe 2026</span></li>
+        <li><span class="idx">.06</span><span class="lbl">Cierre</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">¿Qué es una base de datos?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- imagen-bleed -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs"><img src="img/cuaderno.jpg" alt="Cuaderno de apuntes de Análisis Matemático, escrito a mano"></div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Es una base de datos?</div>
+      <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- imagen-bleed -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs"><img src="img/planilla-excel.png" alt="Planilla de Excel con una lista de alumnos: legajo, nombre, apellido, nota"></div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Es una base de datos?</div>
+      <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- imagen-bleed -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs"><img src="img/tickets-cajon.jpg" alt="Pila desordenada de tickets y facturas en un cajón"></div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Es una base de datos?</div>
+      <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- imagen-bleed -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs"><img src="img/fichero-biblioteca.webp" alt="Fichero de biblioteca con fichas ordenadas alfabéticamente"></div> 
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Es una base de datos?</div>
+      <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- imagen-bleed -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs"><img src="img/contactos-celular.webp" alt="Lista de contactos del celular"></div> 
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Es una base de datos?</div>
+      <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- imagen-bleed -->
+  <section class="slide slide-bleed">
+    <div class="bleed-imgs"><img src="img/archivo-csv.png" alt="Archivo CSV abierto en un editor de texto"></div>
+    <div class="bleed-copy">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Es una base de datos?</div>
+      <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Repasemos</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Sí</h3>
+          <ul>
+            <li>Planilla de Excel: columnas definidas, se puede ordenar y filtrar</li>
+            <li>Fichero de biblioteca: ordenado, se busca rápido</li>
+            <li>Contactos del celular: cada contacto con los mismos campos, buscador</li>
+            <li>Un CSV: sí, <strong>si se usa bien</strong> (mismas columnas en todas las filas, una fila por registro)</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>No</h3>
+          <ul>
+            <li>El cuaderno: tiene información, pero no está organizada ni facilita buscar</li>
+            <li>Los tickets en el cajón: son datos, pero amontonados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Qué tienen en común las que sí?</div>
+      <ul class="bullets">
+        <li><span>La información está <strong>organizada</strong> de una forma que se conoce de antemano</span></li>
+        <li><span>Gracias a eso se puede <strong>buscar, recuperar y modificar</strong> fácilmente</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Base de Datos</div>
+      <ul class="bullets">
+        <li><span><strong>Almacenamiento organizado</strong> de información</span></li>
+        <li><span>Facilitan la <strong>búsqueda, recuperación y gestión</strong> de datos</span></li>
+        <li><span>Son esenciales para las aplicaciones web</span></li>
+        <li><span>No todo conjunto de datos es una base de datos<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Las partes de una base de datos</div>
+      <div class="cols2">
+        <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 276px; background-color: transparent;" viewBox="0 0 276 470" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#my-svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg span{fill:#333;color:#333;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node polygon,#my-svg .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg .node.clickable{cursor:pointer;}#my-svg .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePaths .path{stroke:#333333;stroke-width:1px;}#my-svg .flowchart-link{stroke:#333333;fill:none;}#my-svg .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#my-svg .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#my-svg .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#my-svg .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#my-svg .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#my-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#my-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#my-svg rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#my-svg .icon-shape .label rect,#my-svg .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#my-svg .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker id="my-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="my-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edgePaths"><path d="M138,110L138,116.167C138,122.333,138,134.667,138,146.333C138,158,138,169,138,174.5L138,180" id="my-svg-L_C_M_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_M_0" data-points="W3sieCI6MTM4LCJ5IjoxMTB9LHsieCI6MTM4LCJ5IjoxNDd9LHsieCI6MTM4LCJ5IjoxODR9XQ==" data-look="classic" marker-end="url(#my-svg_flowchart-v2-pointEnd)"/><path d="M138,286L138,292.167C138,298.333,138,310.667,138,322.333C138,334,138,345,138,350.5L138,356" id="my-svg-L_M_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_M_D_0" data-points="W3sieCI6MTM4LCJ5IjoyODZ9LHsieCI6MTM4LCJ5IjozMjN9LHsieCI6MTM4LCJ5IjozNjB9XQ==" data-look="classic" marker-end="url(#my-svg_flowchart-v2-pointEnd)"/></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(138, 147)"><g class="label" data-id="L_C_M_0" transform="translate(-48.921875, -12)"><foreignObject width="97.84375" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>consultas SQL</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(138, 323)"><g class="label" data-id="L_M_D_0" transform="translate(-45.625, -12)"><foreignObject width="91.25" height="24"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>lee y escribe</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="my-svg-flowchart-C-0" data-look="classic" transform="translate(138, 59)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-130" y="-51" width="260" height="102"/><g class="label" style="" transform="translate(-100, -36)"><rect/><foreignObject width="200" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Gestor / Cliente<br />DBeaver, pgAdmin, terminal</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-M-1" data-look="classic" transform="translate(138, 235)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-130" y="-51" width="260" height="102"/><g class="label" style="" transform="translate(-100, -36)"><rect/><foreignObject width="200" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Motor<br />PostgreSQL, MySQL, SQL Server</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-D-3" data-look="classic" transform="translate(138, 411)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-130" y="-51" width="260" height="102"/><g class="label" style="" transform="translate(-100, -36)"><rect/><foreignObject width="200" height="72"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="nodeLabel"><p>Base de datos<br />tablas, vistas, índices → archivos</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="my-svg-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+        <div>
+      <ul class="bullets">
+        <li><span><strong>Base de datos:</strong> la información propiamente dicha (al final, son archivos)</span></li>
+        <li><span><strong>Motor:</strong> el encargado de guardar y trabajar con esa información</span></li>
+        <li><span><strong>Gestor/Cliente:</strong> la interfaz que nos ayuda a hablar con el motor</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Motores más usados</div>
+      <ul class="bullets">
+        <li><span><strong>PostgreSQL</strong> — open source, potente y flexible. Es la base de datos más usada según la encuesta de Stack Overflow 2025: la usa el <strong>55,6 %</strong> de los desarrolladores<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>MySQL</strong> — open source, hoy mantenida por Oracle. Segunda en la misma encuesta (<strong>40,5 %</strong>). Es la base de WordPress, que a su vez está detrás de gran parte de los sitios web.</span></li>
+        <li><span><strong>SQL Server</strong> — de Microsoft; la usan empresas que ya pagan licencias de Microsoft</span></li>
+      </ul>
+      <p class="s-body-text">¿Cuál vamos a usar nosotros? <strong>PostgreSQL</strong>.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Gestor de bases de datos</div>
+      <ul class="bullets">
+        <li><span><strong>DBeaver</strong> — multiplataforma: funciona con PostgreSQL, MySQL, SQL Server y otros motores. Interfaz amigable</span></li>
+        <li><span><strong>pgAdmin</strong> — pensado específicamente para PostgreSQL</span></li>
+        <li><span><strong>MySQL Workbench</strong> — pensado específicamente para MySQL</span></li>
+        <li><span><strong>Clientes de terminal</strong> — cada motor trae el suyo: <code>psql</code> (PostgreSQL), <code>mysql</code> (MySQL), <code>sqlcmd</code> (SQL Server)<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Por qué surgieron?</div>
+      <ul class="bullets">
+        <li><span><strong>Volumen:</strong> ¿cuánto ocupa guardar nombre y apellido de <strong>todos los argentinos</strong>? ~20 bytes × 46 millones ≈ 1 GB, solo de nombres</span></li>
+        <li><span><strong>Búsqueda:</strong> y encontrar a una persona entre 46 millones... ¿leyendo de a una?</span></li>
+        <li><span><strong>Muchos usuarios a la vez:</strong> un banco no puede tener un solo empleado mirando el libro de cuentas</span></li>
+        <li><span><strong>Consistencia:</strong> si dos cajeros modifican la misma cuenta al mismo tiempo, ¿cuál gana?</span></li>
+      </ul>
+      <p class="s-body-text">Los archivos sueltos no resolvían nada de esto.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Antes de las bases de datos: el papel</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/papel-archivo.jpeg" alt="Archivo de oficina con libros contables y fichas en cajones"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Libros contables, fichas y carpetas guardadas en cajones y estanterías</span></li>
+        <li><span>Para encontrar un dato había que ir hasta el archivo y buscarlo a mano</span></li>
+        <li><span>Copiar, ordenar o cruzar información llevaba días</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">1890: tarjetas perforadas</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/tarjeta-perforada.webp" alt="Tarjeta perforada con columnas de agujeros"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Cada tarjeta es <strong>un registro</strong>: una persona, una venta, un empleado</span></li>
+        <li><span>Los datos se codifican con <strong>agujeros</strong> en posiciones fijas: la posición del agujero indica el valor</span></li>
+        <li><span>Una máquina lee las tarjetas haciendo pasar corriente por los agujeros, y cuenta o clasifica automáticamente</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">1890: tarjetas perforadas</div>
+      <ul class="bullets">
+        <li><span>Herman Hollerith las usó para procesar el <strong>censo de EE.UU. de 1890</strong>. Su empresa terminaría siendo <strong>IBM</strong></span></li>
+        <li><span>Para buscar un registro había que pasar <strong>todo el mazo</strong> por la máquina</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Años 50: cintas magnéticas</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/cinta-magnetica.jpg" alt="Carrete de cinta magnética de computadora"></div> 
+        <div>
+      <ul class="bullets">
+        <li><span>Los datos se graban <strong>uno detrás de otro</strong> sobre una cinta magnetizada</span></li>
+        <li><span>Se leen <strong>en orden</strong>, de principio a fin: para encontrar un registro había que recorrer toda la cinta</span></li>
+        <li><span>Para modificar un dato, en general había que <strong>reescribir la cinta entera</strong> en otra cinta</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Años 60: las primeras bases de datos</div>
+      <ul class="bullets">
+        <li><span>Aparecen los <strong>discos</strong>: se puede saltar directo a cualquier parte de los datos</span></li>
+        <li><span>Surgen las primeras bases de datos (por ejemplo, IMS de IBM, usada en el <strong>programa Apolo</strong>)</span></li>
+        <li><span>Para consultar, el programa tenía que indicar <strong>el camino</strong>: ir de registro en registro siguiendo los enlaces entre ellos</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">Años 70 y 80: la revolución relacional</div>
+      <ul class="bullets">
+        <li><span><strong>1970 — Edgar F. Codd</strong> (IBM) publica el <strong>modelo relacional</strong>: los datos se guardan en <strong>tablas</strong>, y uno pide <em>qué</em> quiere, no <em>cómo</em> buscarlo</span></li>
+        <li><span><strong>1974 — System R</strong> (IBM) e <strong>Ingres</strong> (Berkeley): los primeros prototipos relacionales. Nace SQL.</span></li>
+        <li><span><strong>1979 — Oracle</strong> lanza la primera base de datos relacional comercial con SQL</span></li>
+        <li><span><strong>1986 — SQL se vuelve estándar</strong> (ANSI): el mismo lenguaje sirve para distintos motores</span></li>
+        <li><span><strong>1986 — Postgres</strong> nace en Berkeley como sucesor de Ingres</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Qué es una base de datos relacional?</div>
+      <ul class="bullets">
+        <li><span>Organiza los datos en <strong>tablas</strong>: filas y columnas</span></li>
+        <li><span>Cada tabla guarda <strong>un tipo de cosa</strong>: deportistas, sedes, deportes...</span></li>
+        <li><span>Cada fila se identifica de forma <strong>única</strong> (con un <code>id</code>)</span></li>
+        <li><span>Las tablas se pueden <strong>vincular</strong> entre sí <em>(lo vemos la clase que viene)</em></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- titulo-texto + tabla (como salida de psql) -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es una base de datos?</div>
+      <div class="s-title s-title--md">¿Por qué se llama <em>relacional</em>?</div>
+      <p class="s-body-text">Codd se basó en la matemática: a una tabla la llamó <strong>relación</strong>, porque cada fila <strong>relaciona</strong> valores que van juntos.</p>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">tabla deportistas</div>
+        <pre><code><span class="c3"> nombre  | apellido |   país    | deporte
+---------+----------+-----------+---------
+ Pascual | Di Tella | Argentina | Esgrima</span></code></pre>
+      </div>
+      <p class="s-body-text">Esta fila dice: <em>"Pascual" va con "Di Tella", con "Argentina" y con "Esgrima"</em>. Esa combinación <strong>es</strong> la relación.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">SQL</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- titulo-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — SQL</div>
+      <div class="s-title s-title--md">¿Qué es SQL?</div>
+      <p class="s-body-text"><strong>Structured Query Language</strong> — Lenguaje de Consultas Estructurado.</p>
+      <p class="s-body-text">Es el lenguaje <strong>estándar</strong> para gestionar bases de datos relacionales. Nos da un estándar para hablarle a una base de datos.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — SQL</div>
+      <div class="s-title s-title--md">¿Qué nos permite hacer?</div>
+      <ul class="bullets">
+        <li><span>Crear y modificar bases de datos</span></li>
+        <li><span>Definir la estructura de las tablas</span></li>
+        <li><span>Insertar, modificar y eliminar datos</span></li>
+        <li><span><strong>Consultar información de manera eficiente</strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+      <p class="s-body-text">Como con Git: hay comandos que se usan una vez por proyecto y otros que se usan cotidianamente.</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — SQL</div>
+      <div class="s-title s-title--md">Un poco de historia de SQL</div>
+      <ul class="bullets">
+        <li><span><strong>1974:</strong> Donald Chamberlin y Raymond Boyce (IBM) lo diseñan para System R. Se llamaba <strong>SEQUEL</strong></span></li>
+        <li><span>Se le cambia el nombre a <strong>SQL</strong> por un problema de marca registrada</span></li>
+        <li><span><strong>1986:</strong> se vuelve estándar ANSI</span></li>
+        <li><span><strong>Hoy:</strong> el estándar se sigue actualizando, y casi todo lo que está hecho sigue usando SQL</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — SQL</div>
+      <div class="s-title s-title--md">SQL está en todos lados</div>
+      <ul class="bullets">
+        <li><span><strong>SIU Guaraní</strong> — el sistema de inscripciones de la facultad funciona sobre PostgreSQL</span></li>
+        <li><span><strong>Instagram</strong> — nació y creció sobre PostgreSQL</span></li>
+        <li><span><strong>Facebook, YouTube y Wikipedia</strong> — usan MySQL (o su derivado MariaDB) a escala enorme</span></li>
+        <li><span><strong>Chrome y Firefox</strong> — el historial y los marcadores del navegador están en SQLite</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — SQL</div>
+      <div class="s-title s-title--md">SQL vs PostgreSQL</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>SQL</h3>
+          <ul>
+            <li>Es el <strong>lenguaje</strong></li>
+            <li>Lo estándar funciona en cualquier motor</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>PostgreSQL</h3>
+          <ul>
+            <li>Es el <strong>motor</strong></li>
+            <li>Agrega sintaxis propia que puede no funcionar en otros motores</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">Comandos básicos</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Crear y borrar una base de datos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">CREATE</span> <span class="tok-kw">DATABASE</span> suramericanos;
+
+<span class="tok-kw">DROP</span> <span class="tok-kw">DATABASE</span> suramericanos;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Toda sentencia termina con <strong>punto y coma</strong> <code>;</code></span></li>
+        <li><span><code>CREATE DATABASE</code> se utiliza muy pocas veces (una por proyecto)</span></li>
+        <li><span><code>DROP DATABASE</code> borra la base <strong>con todas sus tablas</strong><span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Tablas</div>
+      <p class="s-body-text">Una tabla es una <strong>matriz de doble entrada</strong>:</p>
+      <ul class="bullets">
+        <li><span><strong>Columnas:</strong> los atributos (nombre, apellido, ciudad...)</span></li>
+        <li><span><strong>Filas:</strong> los datos. Cada fila es un <strong>registro</strong> (<em>record</em>)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Crear una tabla</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">CREATE</span> <span class="tok-kw">TABLE</span> clientes (
+    id <span class="tok-kw">INT</span>,
+    nombre <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
+    apellido <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>)
+);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>CREATE TABLE</code> → palabras reservadas</span></li>
+        <li><span><code>clientes</code> → nombre de la tabla (en general en <strong>plural</strong>)</span></li>
+        <li><span>Entre paréntesis: <code>nombre_columna TIPO</code>, separadas por coma</span></li>
+        <li><span>Esto crea la <strong>estructura</strong>: todavía no hay datos</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Tipos de datos</div>
+      <ul class="bullets">
+        <li><span><strong>Números enteros:</strong> <code>INT</code> (o <code>INTEGER</code>), <code>SMALLINT</code>, <code>BIGINT</code> para valores muy grandes</span></li>
+        <li><span><strong>Números con decimales:</strong> <code>DECIMAL(10, 2)</code> para valores exactos como precios; <code>REAL</code> para aproximados</span></li>
+        <li><span><strong>Texto:</strong> <code>VARCHAR(50)</code> → hasta 50 caracteres (<em>variable character</em>); <code>CHAR(3)</code> → largo fijo (ej. código de país <code>ARG</code>); <code>TEXT</code> → sin límite</span></li>
+        <li><span><strong>Booleanos:</strong> <code>BOOLEAN</code></span></li>
+        <li><span><strong>Fechas y horas:</strong> <code>DATE</code> (<code>'2026-09-12'</code>), <code>TIME</code>, <code>TIMESTAMP</code> (fecha + hora)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Insertar datos: <code>INSERT</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> clientes (id, nombre, apellido)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">1</span>, <span class="tok-str">'Juan'</span>, <span class="tok-str">'Pérez'</span>);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Inserta una <strong>fila nueva</strong> en la tabla</span></li>
+        <li><span>Entre paréntesis indicamos <strong>qué columnas</strong> llenamos y <strong>en qué orden</strong></span></li>
+        <li><span>Se pueden omitir columnas que acepten nulos</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Borrar filas: <code>DELETE</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">DELETE</span> <span class="tok-kw">FROM</span> clientes <span class="tok-kw">WHERE</span> id = <span class="tok-num">1</span>;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Borra <strong>todas</strong> las filas que cumplan la condición del <code>WHERE</code></span></li>
+        <li><span>La fila no queda vacía: <strong>deja de existir</strong></span></li>
+        <li><span><code>WHERE nombre = 'Santiago'</code> → ¿cuántos Santiagos hay? Los borra a todos</span></li>
+        <li><span>No hay Ctrl+Z en SQL<span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Modificar filas: <code>UPDATE</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">UPDATE</span> clientes
+<span class="tok-kw">SET</span> apellido = <span class="tok-str">'García'</span>
+<span class="tok-kw">WHERE</span> id = <span class="tok-num">2</span>;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Se lee casi en castellano: <em>"modificá clientes, poné apellido García donde el id sea 2"</em></span></li>
+        <li><span><code>SET</code> dice <strong>qué</strong> cambia, <code>WHERE</code> dice <strong>a quién</strong></span></li>
+        <li><span>Si nos olvidamos del <code>WHERE</code>... <strong>todas</strong> las filas pasan a llamarse García<span class="tag tag-danger">Danger</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Comandos básicos</div>
+      <div class="s-title s-title--md">Consultar: <code>SELECT</code></div>
+      <p class="s-body-text">El comando más usado. Tiene tres partes:</p>
+      <ul class="bullets">
+        <li><span><strong><code>SELECT</code></strong> → qué columnas quiero ver</span></li>
+        <li><span><strong><code>FROM</code></strong> → de qué tabla(s)</span></li>
+        <li><span><strong><code>WHERE</code></strong> → cómo filtro (opcional)</span></li>
+      </ul>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">SELECT</span> * <span class="tok-kw">FROM</span> clientes;
+
+<span class="tok-kw">SELECT</span> nombre, apellido <span class="tok-kw">FROM</span> clientes <span class="tok-kw">WHERE</span> ciudad = <span class="tok-str">'Madrid'</span>;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>*</code> es un comodín: "todas las columnas"</span></li>
+        <li><span>La lógica del <code>WHERE</code> es la misma en <code>SELECT</code>, <code>UPDATE</code> y <code>DELETE</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Manos a la obra: levantando Postgres</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">42</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Manos a la obra: levantando Postgres</div>
+      <div class="s-title s-title--md">Opciones para trabajar con PostgreSQL</div>
+      <ul class="bullets">
+        <li><span><strong>En línea:</strong> un entorno de SQL en el navegador, sin instalar nada</span></li>
+        <li><span><strong>Docker + terminal:</strong> PostgreSQL en un contenedor, y consultas con <code>psql</code></span></li>
+        <li><span><strong>Docker + gestor gráfico:</strong> el mismo contenedor, y consultas desde DBeaver</span></li>
+      </ul>
+      <p class="s-body-text">La opción en línea sirve para practicar, pero <strong>no alcanza para el TP final</strong><span class="tag tag-warning">Warning</span></p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">43</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Manos a la obra: levantando Postgres</div>
+      <div class="s-title s-title--md">¿Por qué Postgres en Docker?</div>
+      <ul class="bullets">
+        <li><span>Cada proyecto puede usar una <strong>versión distinta</strong> de Postgres, y conviven sin conflicto en distintos puertos</span></li>
+        <li><span><strong>Mismo entorno para todo el equipo:</strong> misma versión y misma configuración</span></li>
+        <li><span><strong>La configuración queda en un archivo</strong> (<code>docker-compose.yml</code>) que se versiona con Git junto al proyecto</span></li>
+        <li><span><strong>Configuración inicial automática:</strong> el usuario, la contraseña y la base se crean solos al levantar el contenedor<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">44</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Manos a la obra: levantando Postgres</div>
+      <div class="s-title s-title--md">El <code>docker-compose.yml</code></div>
+      <div class="code-block">
+        <div class="fname">yaml — docker-compose.yml</div>
+        <pre><code><span class="tok-kw">services</span>:
+  <span class="tok-kw">postgres</span>:
+    <span class="tok-kw">image</span>: postgres:18
+    <span class="tok-kw">ports</span>:
+      - <span class="tok-str">"5432:5432"</span>
+    <span class="tok-kw">volumes</span>:
+      - pgdata:/var/lib/postgresql
+    <span class="tok-kw">environment</span>:
+      <span class="tok-kw">POSTGRES_USER</span>: postgres
+      <span class="tok-kw">POSTGRES_PASSWORD</span>: postgres
+      <span class="tok-kw">POSTGRES_DB</span>: suramericanos
+
+<span class="tok-kw">volumes</span>:
+  <span class="tok-kw">pgdata</span>:</code></pre>
+      </div>
+      <p class="s-body-text">Variables de entorno disponibles: <a href="https://hub.docker.com/_/postgres#environment-variables" target="_blank" rel="noopener">https://hub.docker.com/_/postgres#environment-variables</a></p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">45</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Manos a la obra: levantando Postgres</div>
+      <div class="s-title s-title--md">Levantarlo y entrar por terminal</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>docker compose up <span class="c2">-d</span>
+docker ps
+docker exec <span class="c2">-it</span> &lt;container&gt; bash
+psql <span class="c2">-U</span> postgres <span class="c2">-d</span> suramericanos</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal — o directo, sin pasar por bash</div>
+        <pre><code>docker exec <span class="c2">-it</span> &lt;container&gt; psql <span class="c2">-U</span> postgres <span class="c2">-d</span> suramericanos</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Podemos usar el <strong>nombre</strong> del contenedor en vez del ID (el ID cambia)<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>¿Y la contraseña? Dentro del contenedor, la imagen confía en las conexiones locales y no la pide. Desde afuera (por ejemplo, DBeaver) sí la pide<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">46</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Manos a la obra: levantando Postgres</div>
+      <div class="s-title s-title--md">Comandos útiles de <code>psql</code></div>
+      <ul class="bullets">
+        <li><span><code>\l</code> — lista las bases de datos</span></li>
+        <li><span><code>\c suramericanos</code> — se conecta a una base</span></li>
+        <li><span><code>\dt</code> — lista las tablas</span></li>
+        <li><span><code>\d deportistas</code> — describe una tabla</span></li>
+        <li><span><code>\q</code> — sale</span></li>
+      </ul>
+      <p class="s-body-text">En la terminal, <strong>sin <code>;</code> la sentencia no se ejecuta</strong><span class="tag tag-warning">Warning</span></p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">47</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">Práctica: Juegos Suramericanos Santa Fe 2026</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">48</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Están pasando ahora</div>
+      <ul class="bullets">
+        <li><span><strong>12 al 26 de septiembre de 2026</strong>, organizados por la provincia de Santa Fe</span></li>
+        <li><span><strong>Sedes principales:</strong> Rosario (35 disciplinas y la ceremonia inaugural), Santa Fe y Rafaela</span></li>
+        <li><span><strong>Subsedes:</strong> Paraná (softbol), Mar del Plata (surf) y CABA (bolos)</span></li>
+        <li><span><strong>43 deportes</strong>, y Argentina compite con <strong>658 atletas</strong></span></li>
+      </ul>
+      <p class="s-body-text">¿Cómo guardarían toda esta información?<span class="tag tag-info">Info</span></p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">49</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Diseñemos las tablas</div>
+      <p class="s-body-text">¿Qué <strong>tablas</strong> necesitamos? ¿Qué <strong>columnas</strong> tiene cada una?</p>
+      <div class="compare">
+        <div class="side a">
+          <h3>Deportistas</h3>
+          <ul>
+            <li>nombre, apellido</li>
+            <li>país, deporte</li>
+            <li>prueba (ej. sable individual)</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Sedes</h3>
+          <ul>
+            <li>ciudad, provincia</li>
+            <li>cantidad de disciplinas</li>
+            <li><em>qué deportista compite en qué sede y qué medallas gana → la clase que viene (relaciones)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">50</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">¿Cómo identificamos cada fila?</div>
+      <ul class="bullets">
+        <li><span>¿El apellido? Pascual e Isabel Di Tella son dos medallistas distintos</span></li>
+        <li><span>¿El nombre y apellido? Puede haber dos deportistas que se llamen igual</span></li>
+        <li><span>Casi nunca los datos "del problema" garantizan ser únicos</span></li>
+        <li><span><strong>Siempre</strong> vamos a necesitar identificar unívocamente cada registro</span></li>
+        <li><span>Estándar: agregar una columna <strong><code>id</code></strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">51</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">¿Qué es una clave primaria?</div>
+      <p class="s-body-text">La <strong>primary key (PK)</strong> es el atributo que elegimos para <strong>identificar unívocamente</strong> a cada fila de una tabla. Si conocemos el valor de la PK, conocemos <strong>exactamente una fila</strong>, sin ambigüedad.</p>
+      <ul class="bullets">
+        <li><span>En la vida real ya las usamos: el <strong>CUIL</strong> de una persona, el <strong>legajo</strong> en FIUBA, la <strong>patente</strong> de un auto</span></li>
+        <li><span>Buscamos al alumno con legajo 112233 → hay uno solo</span></li>
+        <li><span>Buscamos al alumno que se llama Santiago → ¿cuál de todos?</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">52</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">¿Qué tiene que cumplir una PK?</div>
+      <ul class="bullets">
+        <li><span><strong>Única:</strong> no puede haber dos filas con el mismo valor</span></li>
+        <li><span><strong>Obligatoria:</strong> ninguna fila puede no tenerla (nunca <code>NULL</code>)</span></li>
+        <li><span><strong>Estable:</strong> no debería cambiar con el tiempo — otras tablas la van a usar para referirse a esa fila<span class="tag tag-warning">Warning</span></span></li>
+        <li><span><strong>Una sola por tabla:</strong> puede haber muchos datos únicos, pero <strong>uno solo</strong> es <em>el</em> identificador</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">53</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Clave natural vs clave artificial</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Natural</h3>
+          <ul>
+            <li>Un dato <strong>del problema</strong> que ya es único: CUIL, patente, legajo</li>
+            <li>Tiene significado propio</li>
+            <li>Riesgo: ¿y si cambia? ¿y si aparece un repetido? ¿y si alguien no lo tiene?</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Artificial (<code>id</code>)</h3>
+          <ul>
+            <li>Un número que <strong>inventamos</strong> solo para identificar</li>
+            <li>No significa nada fuera de la base</li>
+            <li>Nunca cambia y nunca se repite → <strong>la opción más usada</strong><span class="tag tag-tip">Tip</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">54</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Primera versión</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">CREATE</span> <span class="tok-kw">TABLE</span> deportistas (
+    id <span class="tok-kw">INT</span>,
+    nombre <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
+    apellido <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
+    pais <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
+    deporte <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>),
+    prueba <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>)
+);</code></pre>
+      </div>
+      <p class="s-body-text">¿Qué problemas tiene? ¿Puede un deportista no tener nombre? ¿Dos deportistas con el mismo <code>id</code>?</p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">55</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">¿Qué es una constraint?</div>
+      <p class="s-body-text">Una <strong>restricción</strong> que le ponemos a una columna (o a la tabla) y que <strong>el motor hace cumplir</strong>:</p>
+      <ul class="bullets">
+        <li><span>Si un <code>INSERT</code> o <code>UPDATE</code> la viola, el motor <strong>rechaza la operación</strong> y devuelve un error</span></li>
+        <li><span>Protegen la <strong>integridad</strong> de los datos: nada inválido entra a la tabla</span></li>
+        <li><span>SQL no adivina qué columnas deben ser únicas u obligatorias: <strong>se lo tenemos que decir</strong><span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Las que vemos hoy: <code>NOT NULL</code>, <code>UNIQUE</code>, <code>PRIMARY KEY</code>. La clase que viene: <code>FOREIGN KEY</code> (para vincular tablas)<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">56</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Agregando constraints: <code>NOT NULL</code> y <code>PRIMARY KEY</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">DROP</span> <span class="tok-kw">TABLE</span> deportistas;
+
+<span class="tok-kw">CREATE</span> <span class="tok-kw">TABLE</span> deportistas (
+    id <span class="tok-kw">INT</span> <span class="tok-kw">PRIMARY</span> <span class="tok-kw">KEY</span>,
+    nombre <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    apellido <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    pais <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    deporte <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    prueba <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>)
+);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>NOT NULL</code> → la columna es <strong>obligatoria</strong></span></li>
+        <li><span><code>PRIMARY KEY</code> → el identificador de cada fila</span></li>
+        <li><span><code>prueba</code> queda opcional: puede ser <code>NULL</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">57</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md"><code>UNIQUE</code></div>
+      <p class="s-body-text">El valor <strong>no se puede repetir</strong> entre filas, pero no es el identificador de la tabla:</p>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">CREATE</span> <span class="tok-kw">TABLE</span> usuarios (
+    id <span class="tok-kw">INT</span> <span class="tok-kw">PRIMARY</span> <span class="tok-kw">KEY</span>,
+    email <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>) <span class="tok-kw">UNIQUE</span> <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    nombre <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>
+);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Dos usuarios no pueden tener el mismo email...</span></li>
+        <li><span>...pero a cada fila la identificamos por su <code>id</code></span></li>
+        <li><span>Una tabla puede tener <strong>varias</strong> columnas <code>UNIQUE</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">58</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md"><code>UNIQUE</code> vs <code>PRIMARY KEY</code></div>
+      <div class="compare">
+        <div class="side a">
+          <h3>UNIQUE</h3>
+          <ul>
+            <li>El valor no se puede repetir entre filas</li>
+            <li>Acepta <code>NULL</code> (salvo que le agreguemos <code>NOT NULL</code>)</li>
+            <li>Una tabla puede tener varias</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>PRIMARY KEY</h3>
+          <ul>
+            <li>Es <code>UNIQUE</code> + <code>NOT NULL</code></li>
+            <li>Es <strong>el</strong> identificador de la fila: la usan otras tablas para referenciarla</li>
+            <li><strong>Una sola por tabla</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">59</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Otra forma de escribirlas</div>
+      <p class="s-body-text">Las constraints también se pueden declarar al final, <strong>con nombre propio</strong>:</p>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">CREATE</span> <span class="tok-kw">TABLE</span> usuarios (
+    id <span class="tok-kw">INT</span>,
+    email <span class="tok-kw">VARCHAR</span>(<span class="tok-num">100</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    nombre <span class="tok-kw">VARCHAR</span>(<span class="tok-num">50</span>) <span class="tok-kw">NOT</span> <span class="tok-kw">NULL</span>,
+    <span class="tok-kw">CONSTRAINT</span> pk_usuarios <span class="tok-kw">PRIMARY</span> <span class="tok-kw">KEY</span> (id),
+    <span class="tok-kw">CONSTRAINT</span> email_unico <span class="tok-kw">UNIQUE</span> (email)
+);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Hay muchas formas de escribir lo mismo: busquen la sintaxis <strong>de su motor</strong><span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Si no les ponemos nombre, Postgres genera uno automáticamente (ej. <code>deportistas_pkey</code>)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">60</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Insertemos deportistas</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte, prueba)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">1</span>, <span class="tok-str">'Pascual'</span>, <span class="tok-str">'Di Tella'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Esgrima'</span>, <span class="tok-str">'Sable individual'</span>);
+
+<span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte, prueba)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">2</span>, <span class="tok-str">'Macarena'</span>, <span class="tok-str">'Ceballos'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Natación'</span>, <span class="tok-str">'100 metros pecho'</span>);
+
+<span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte, prueba)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">3</span>, <span class="tok-str">'Julieta'</span>, <span class="tok-str">'Lucas'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Gimnasia'</span>, <span class="tok-str">'All around'</span>);</code></pre>
+      </div>
+      <p class="s-body-text">¿Qué pasa si insertamos dos veces con <code>id = 1</code>?<span class="tag tag-info">Info</span></p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">61</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Constraints en acción</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">psql</div>
+        <pre><code><span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">1</span>, <span class="tok-str">'Pascual'</span>, <span class="tok-str">'Di Tella'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Esgrima'</span>);
+<span class="c3">ERROR: duplicate key value violates unique constraint "deportistas_pkey"
+DETAIL: Key (id)=(1) already exists.</span></code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">psql</div>
+        <pre><code><span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, apellido, pais, deporte)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">7</span>, <span class="tok-str">'Kalejman'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Ciclismo'</span>);
+<span class="c3">ERROR: null value in column "nombre" of relation "deportistas"
+violates not-null constraint</span></code></pre>
+      </div>
+      <p class="s-body-text">Los errores dicen <strong>qué constraint</strong> se violó y <strong>con qué valor</strong><span class="tag tag-tip">Tip</span></p>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">62</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Completemos la delegación</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte, prueba)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">4</span>, <span class="tok-str">'Micaela'</span>, <span class="tok-str">'Levaggi'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Atletismo'</span>, <span class="tok-str">'1500 metros'</span>);
+
+<span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte, prueba)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">5</span>, <span class="tok-str">'Alejo'</span>, <span class="tok-str">'Suter'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Escalada'</span>, <span class="tok-str">'Boulder'</span>);
+
+<span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> deportistas (id, nombre, apellido, pais, deporte, prueba)
+<span class="tok-kw">VALUES</span> (<span class="tok-num">6</span>, <span class="tok-str">'Lucía'</span>, <span class="tok-str">'Falasca'</span>, <span class="tok-str">'Argentina'</span>, <span class="tok-str">'Vela'</span>, <span class="tok-str">'ILCA 6'</span>);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Por ahora el <code>id</code> lo incrementamos <strong>a mano</strong> — luego veremos cómo hacerlo automático<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">63</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Juegos Suramericanos Santa Fe 2026</div>
+      <div class="s-title s-title--md">Algunas consultas</div>
+      <div class="code-block">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">SELECT</span> * <span class="tok-kw">FROM</span> deportistas;
+
+<span class="tok-kw">SELECT</span> nombre, apellido <span class="tok-kw">FROM</span> deportistas <span class="tok-kw">WHERE</span> deporte = <span class="tok-str">'Esgrima'</span>;
+
+<span class="tok-kw">SELECT</span> nombre, apellido, prueba <span class="tok-kw">FROM</span> deportistas <span class="tok-kw">WHERE</span> deporte = <span class="tok-str">'Natación'</span>;</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">64</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+      <div class="s-title">Cierre</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">65</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Cierre</div>
+      <div class="s-title s-title--md">Para la clase que viene</div>
+      <ul class="bullets">
+        <li><span><strong>Relacionar tablas:</strong> qué deportista compite en qué sede y qué medallas ganó, sin repetir su información</span></li>
+        <li><span>IDs automáticos (sin tener que incrementarlos a mano)</span></li>
+        <li><span>Consultas más complejas, ordenar resultados</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">66</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Cierre</div>
+      <div class="s-title s-title--md">Tarea</div>
+      <ul class="bullets">
+        <li><span>Levantar Postgres con el <code>docker-compose.yml</code> (lo subimos al Slack)</span></li>
+        <li><span>Replicar la clase: crear <code>deportistas</code>, insertar, actualizar, consultar</span></li>
+        <li><span>Crear la tabla <strong><code>sedes</code></strong> y cargar las 6 sedes de los Juegos</span></li>
+        <li><span>Si no llegan con Docker: practicar en un playground online</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">67</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Cierre</div>
+      <div class="s-title s-title--md">¿Dónde consultar dudas?</div>
+      <ul class="bullets">
+        <li><span><strong>W3Schools — SQL Tutorial:</strong> <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">https://www.w3schools.com/sql/</a> — bien explicado, buenos ejemplos y se puede probar online<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>W3Schools — PostgreSQL Tutorial:</strong> <a href="https://www.w3schools.com/postgresql" target="_blank" rel="noopener">https://www.w3schools.com/postgresql</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">68</span>
+    </div>
+  </section>
+
+  <!-- bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>SQL Tutorial — W3Schools <span class="src">(<a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">w3schools.com/sql</a>)</span></li>
+        <li>PostgreSQL Tutorial — W3Schools <span class="src">(<a href="https://www.w3schools.com/postgresql/" target="_blank" rel="noopener">w3schools.com/postgresql</a>)</span></li>
+        <li>Imagen oficial de Postgres — variables de entorno <span class="src">(<a href="https://hub.docker.com/_/postgres" target="_blank" rel="noopener">hub.docker.com/_/postgres</a>)</span></li>
+        <li>Documentación de PostgreSQL <span class="src">(<a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener">postgresql.org/docs</a>)</span></li>
+        <li>E. F. Codd — <em>A Relational Model of Data for Large Shared Data Banks</em> <span class="src">(Communications of the ACM, 1970)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">69</span>
+    </div>
+  </section>
+
+  <!-- cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">¡Gracias!</div>
+        <div class="closing-links">La seguimos por Slack</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">70</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

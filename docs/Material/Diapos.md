@@ -25,3 +25,7 @@
 
 * [Ingeniería de Software - Parte 2](pathname:///slides/ing-soft-2/index.html)
 * [Intro a Docker](pathname:///slides/intro-docker/index.html)
+
+## Semana 6
+
+* [Introducción a SQL](pathname:///slides/sql-1/index.html)
