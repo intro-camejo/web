@@ -1,5 +1,5 @@
 ---
-sidebar_class_name: hidden
+draft: false
 ---
 
 # Guía 3 - SQL (Respuestas)
