@@ -32,3 +32,8 @@
 .fake-link {
   cursor: pointer;
 }
+
+.theme-doc-sidebar-item-link.hidden,
+.theme-doc-sidebar-item-category.hidden {
+  display: none !important;
+}
