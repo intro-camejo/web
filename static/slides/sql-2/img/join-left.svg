@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="Instrument Sans, Open Sans, Segoe UI, Helvetica, Arial, sans-serif">
-<defs>
-  <clipPath id="cA"><circle cx="300" cy="270" r="185"/></clipPath>
-  <clipPath id="cB"><circle cx="500" cy="270" r="185"/></clipPath>
-  <mask id="notB"><rect width="800" height="520" fill="white"/><circle cx="500" cy="270" r="185" fill="black"/></mask>
-  <mask id="notA"><rect width="800" height="520" fill="white"/><circle cx="300" cy="270" r="185" fill="black"/></mask>
-</defs><g opacity="0.85"><circle cx="300" cy="270" r="185" fill="#ff5a1f"/></g><circle cx="300" cy="270" r="185" fill="none" stroke="#16130f" stroke-width="4"/><circle cx="500" cy="270" r="185" fill="none" stroke="#16130f" stroke-width="4"/><text x="205" y="62" text-anchor="middle" font-size="34" font-weight="700" fill="#16130f">juegos</text><text x="595" y="62" text-anchor="middle" font-size="34" font-weight="700" fill="#16130f">publicadoras</text><text x="205" y="235" text-anchor="middle" font-size="22" fill="#16130f">Hollow Knight</text><text x="205" y="275" text-anchor="middle" font-size="22" fill="#16130f">Celeste</text><text x="205" y="315" text-anchor="middle" font-size="22" fill="#16130f">Undertale</text><text x="400" y="215" text-anchor="middle" font-size="22" fill="#16130f">Zelda</text><text x="400" y="255" text-anchor="middle" font-size="22" fill="#16130f">GTA V</text><text x="400" y="295" text-anchor="middle" font-size="22" fill="#16130f">Portal 2</text><text x="400" y="335" text-anchor="middle" font-size="22" fill="#16130f">…</text><text x="600" y="275" text-anchor="middle" font-size="22" fill="#16130f">Paradox</text>
-</svg>
