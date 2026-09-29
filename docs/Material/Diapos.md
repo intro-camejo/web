@@ -29,3 +29,7 @@
 ## Semana 6
 
 * [Introducción a SQL](pathname:///slides/sql-1/index.html)
+
+## Semana 7
+
+* [SQL - JOINs](pathname:///slides/sql-2/index.html)
