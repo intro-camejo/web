@@ -785,7 +785,7 @@ WHERE p.pais IN ('Suecia', 'Polonia');
  Paradox Interactive | NULL
 ```
 
-Con JOIN tenemos **una fila por juego**. Para tener **una fila por publicadora** (¡y que Paradox cuente 0!) hay que **agrupar**: `GROUP BY` {tag:info}
+Para tener **una fila por publicadora** (¡y Paradox con 0!) hay que **agrupar**: `GROUP BY`, con Gonza {tag:info}
 
 ---
 
@@ -803,4 +803,4 @@ Con JOIN tenemos **una fila por juego**. Para tener **una fila por publicadora**
 
 <!-- slide: tipo=cierre -->
 # ¡Gracias!
-## Ahora: GROUP BY, con el mismo dataset
+## Ahora Gonza con GROUP BY, con el mismo dataset
