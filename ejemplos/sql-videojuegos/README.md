@@ -16,9 +16,9 @@ Todo está en un solo archivo, [`dataset.sql`](./dataset.sql): crea las tablas y
 
 ### Opción B: consola de la página
 
-En [https://www.intro-camejo.com.ar/sql/](https://www.intro-camejo.com.ar/sql/) el dataset ya está cargado. Corre **SQLite** en el navegador (no Postgres): alcanza para los ejemplos de las diapos. Los botones los dejan escritos y los ejecutan.
+En [https://www.intro-camejo.com.ar/sql-juegos/](https://www.intro-camejo.com.ar/sql-juegos/) el dataset ya está cargado. Corre **SQLite** en el navegador (no Postgres): alcanza para los ejemplos de las diapos. Los botones los dejan escritos y los ejecutan.
 
-La página lee `static/sql/dataset.sql`. Tiene que quedar **idéntico** a este `dataset.sql`.
+La página lee `static/sql-juegos/dataset.sql`. Tiene que quedar **idéntico** a este `dataset.sql`.
 
 ### Opción C: Postgres en Docker + `psql`
 
