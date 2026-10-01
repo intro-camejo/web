@@ -415,14 +415,6 @@ WHERE j.id IS NULL;
 
 ---
 
-## Ojo: el Venn es una analogía
-
-- Un JOIN no devuelve "elementos" de A o de B: devuelve **pares** (fila de A, fila de B)
-- Si una publicadora tiene 6 juegos, aparece en **6 filas** del resultado
-- El Venn sirve para pensar **qué filas sobreviven**, no **cuántas** salen {tag:warning}
-
----
-
 # Más de dos tablas
 
 ---
