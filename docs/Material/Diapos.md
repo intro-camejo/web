@@ -32,4 +32,4 @@
 
 ## Semana 7
 
-* [SQL - JOINs](pathname:///slides/sql-2/index.html)
+* [JOINs & GROUP BY](pathname:///slides/sql-2/index.html)
