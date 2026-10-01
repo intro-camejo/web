@@ -65,6 +65,11 @@ SELECT titulo, publicadora_id
 FROM juegos
 WHERE genero_id = 2;   -- 2 = Plataformas
 ```
+
+---
+
+## Resultado
+
 ```
        titulo        | publicadora_id
 ---------------------+----------------
@@ -224,6 +229,11 @@ SELECT j.titulo, p.nombre
 FROM juegos j, publicadoras p
 WHERE j.publicadora_id = p.id AND j.genero_id = 2;
 ```
+
+---
+
+## Resultado
+
 ```
        titulo        |     nombre
 ---------------------+-----------------
@@ -265,6 +275,11 @@ FROM juegos j
 INNER JOIN publicadoras p ON j.publicadora_id = p.id
 WHERE j.genero_id = 2;   -- 2 = Plataformas
 ```
+
+---
+
+## Resultado
+
 ```
        titulo        |     nombre
 ---------------------+-----------------
@@ -310,6 +325,11 @@ FROM juegos j
 LEFT JOIN publicadoras p ON j.publicadora_id = p.id
 WHERE j.genero_id = 2;   -- 2 = Plataformas
 ```
+
+---
+
+## Resultado
+
 ```
        titulo        |     nombre
 ---------------------+-----------------
@@ -354,6 +374,11 @@ FROM publicadoras p
 LEFT JOIN juegos j ON j.publicadora_id = p.id
 WHERE j.id IS NULL;
 ```
+
+---
+
+## Resultado
+
 ```
         nombre
 ---------------------
@@ -407,6 +432,11 @@ JOIN generos g ON g.id = j.genero_id
 LEFT JOIN publicadoras p ON p.id = j.publicadora_id
 WHERE g.nombre = 'Plataformas';
 ```
+
+---
+
+## Resultado
+
 ```
        titulo        |   genero    |   publicadora
 ---------------------+-------------+-----------------
@@ -494,11 +524,17 @@ FROM generos g
 LEFT JOIN juegos j ON j.genero_id = g.id
 WHERE j.id IS NULL;
 ```
+
+---
+
+## Resultado
+
 ```
    nombre
 ------------
  Estrategia
 ```
+
 
 ---
 
@@ -519,6 +555,11 @@ WHERE j.id IS NULL;
 ```sql
 SELECT COUNT(*) FROM juegos;
 ```
+
+---
+
+## Resultado
+
 ```
  count
 -------
@@ -537,6 +578,11 @@ SELECT fabricante, COUNT(*)
 FROM plataformas
 GROUP BY fabricante;
 ```
+
+---
+
+## Resultado
+
 ```
  fabricante | count
 ------------+-------
@@ -561,6 +607,11 @@ JOIN publicadoras p ON j.publicadora_id = p.id
 WHERE p.pais = 'Estados Unidos'
 GROUP BY p.nombre;
 ```
+
+---
+
+## Resultado
+
 ```
      nombre      | count
 -----------------+-------
