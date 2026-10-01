@@ -596,23 +596,6 @@ GROUP BY p.nombre;
 
 ---
 
-## La regla del `SELECT`
-
-```sql
-SELECT fabricante, nombre, COUNT(*)
-FROM plataformas
-GROUP BY fabricante;
-```
-```
-ERROR: column "plataformas.nombre" must appear in the GROUP BY clause or be used in an aggregate function
-```
-
-- Cada columna del `SELECT` va en el `GROUP BY` o dentro de una **agregación**
-- Hay **una fila por grupo**: ¿qué `nombre` mostraría de las 4 plataformas de Sony? {tag:tip}
-- Filtrar **grupos** (`HAVING`) y más: lo sigue Gonza {tag:info}
-
----
-
 # Cierre
 
 ---

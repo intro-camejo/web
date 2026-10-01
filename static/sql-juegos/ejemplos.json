@@ -51,12 +51,6 @@
         "id": "join-group",
         "label": "JOIN + GROUP BY",
         "sql": "SELECT p.nombre, COUNT(*)\nFROM juegos j\nJOIN publicadoras p ON j.publicadora_id = p.id\nWHERE p.pais = 'Estados Unidos'\nGROUP BY p.nombre;"
-      },
-      {
-        "id": "regla",
-        "label": "Regla del SELECT",
-        "nota": "En PostgreSQL esta consulta es un error: nombre tiene que estar en el GROUP BY o dentro de una agregación. SQLite la acepta y elige un nombre cualquiera de cada grupo.",
-        "sql": "SELECT fabricante, nombre, COUNT(*)\nFROM plataformas\nGROUP BY fabricante;"
       }
     ]
   },
