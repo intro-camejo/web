@@ -1,0 +1,107 @@
+[
+  {
+    "grupo": "De las diapos",
+    "items": [
+      {
+        "id": "problema",
+        "label": "El problema",
+        "sql": "SELECT titulo, publicadora_id\nFROM juegos\nWHERE genero_id = 2;   -- 2 = Plataformas"
+      },
+      {
+        "id": "coma",
+        "label": "Producto cartesiano",
+        "sql": "SELECT j.titulo, p.nombre\nFROM juegos j, publicadoras p\nWHERE j.publicadora_id = p.id AND j.genero_id = 2;"
+      },
+      {
+        "id": "inner",
+        "label": "INNER JOIN",
+        "sql": "SELECT j.titulo, p.nombre\nFROM juegos j\nINNER JOIN publicadoras p ON j.publicadora_id = p.id\nWHERE j.genero_id = 2;   -- 2 = Plataformas"
+      },
+      {
+        "id": "left",
+        "label": "LEFT JOIN",
+        "sql": "SELECT j.titulo, p.nombre\nFROM juegos j\nLEFT JOIN publicadoras p ON j.publicadora_id = p.id\nWHERE j.genero_id = 2;   -- 2 = Plataformas"
+      },
+      {
+        "id": "anti",
+        "label": "Anti-join",
+        "sql": "SELECT p.nombre\nFROM publicadoras p\nLEFT JOIN juegos j ON j.publicadora_id = p.id\nWHERE j.id IS NULL;"
+      },
+      {
+        "id": "tres",
+        "label": "Tres tablas",
+        "sql": "SELECT j.titulo, g.nombre AS genero, p.nombre AS publicadora\nFROM juegos j\nJOIN generos g ON g.id = j.genero_id\nLEFT JOIN publicadoras p ON p.id = j.publicadora_id\nWHERE g.nombre = 'Plataformas';"
+      },
+      {
+        "id": "count",
+        "label": "COUNT(*)",
+        "sql": "SELECT COUNT(*) FROM juegos;"
+      },
+      {
+        "id": "fabricante",
+        "label": "GROUP BY fabricante",
+        "sql": "SELECT fabricante, COUNT(*)\nFROM plataformas\nGROUP BY fabricante;"
+      },
+      {
+        "id": "join-group",
+        "label": "JOIN + GROUP BY",
+        "sql": "SELECT p.nombre, COUNT(*)\nFROM juegos j\nJOIN publicadoras p ON j.publicadora_id = p.id\nWHERE p.pais = 'Estados Unidos'\nGROUP BY p.nombre;"
+      }
+    ]
+  },
+  {
+    "grupo": "Ejercicios",
+    "items": [
+      {
+        "id": "ej1",
+        "label": "1 · juego y género",
+        "sql": "SELECT j.titulo, g.nombre AS genero\nFROM juegos j\nJOIN generos g ON g.id = j.genero_id;"
+      },
+      {
+        "id": "ej2",
+        "label": "2 · juegos y publicadora",
+        "sql": "SELECT j.titulo, p.nombre AS publicadora\nFROM juegos j\nLEFT JOIN publicadoras p ON p.id = j.publicadora_id;"
+      },
+      {
+        "id": "ej3",
+        "label": "3 · géneros sin juegos",
+        "sql": "SELECT g.nombre\nFROM generos g\nLEFT JOIN juegos j ON j.genero_id = g.id\nWHERE j.id IS NULL;"
+      }
+    ]
+  },
+  {
+    "grupo": "Tablas",
+    "items": [
+      {
+        "id": "publicadoras",
+        "label": "publicadoras",
+        "sql": "SELECT * FROM publicadoras;"
+      },
+      {
+        "id": "generos",
+        "label": "generos",
+        "sql": "SELECT * FROM generos;"
+      },
+      {
+        "id": "plataformas",
+        "label": "plataformas",
+        "sql": "SELECT * FROM plataformas;"
+      },
+      {
+        "id": "juegos",
+        "label": "juegos",
+        "sql": "SELECT * FROM juegos;"
+      },
+      {
+        "id": "juegos-plataformas",
+        "label": "juegos_plataformas",
+        "sql": "SELECT * FROM juegos_plataformas;"
+      },
+      {
+        "id": "ventas",
+        "label": "ventas",
+        "sql": "SELECT * FROM ventas;"
+      }
+    ]
+  }
+]

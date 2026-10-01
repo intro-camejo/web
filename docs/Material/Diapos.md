@@ -29,3 +29,8 @@
 ## Semana 6
 
 * [Introducción a SQL](pathname:///slides/sql-1/index.html)
+
+## Semana 7
+
+* [JOINs & GROUP BY](pathname:///slides/sql-2/index.html)
+* [Consola SQL (videojuegos)](pathname:///sql-juegos/index.html)
