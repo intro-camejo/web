@@ -58,40 +58,24 @@ CREATE TABLE juegos (
 
 ---
 
-## La FK se hace cumplir
-
-```sql
-INSERT INTO juegos (titulo, anio, precio, publicadora_id, genero_id)
-VALUES ('Juego trucho', 2026, 10, 99, 1);
-```
-```
-ERROR: insert or update on table "juegos" violates foreign key constraint "juegos_publicadora_id_fkey"
-DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".
-```
-
-- No podemos apuntar a una publicadora que **no existe** {tag:tip}
-- Es la misma idea que `NOT NULL` o `UNIQUE`: el motor protege la **integridad**
-
----
-
 ## El problema de hoy
 
 ```sql
-SELECT titulo, anio, publicadora_id
+SELECT titulo, publicadora_id
 FROM juegos
-WHERE anio = 2023;
+WHERE genero_id = 2;   -- 2 = Plataformas
 ```
 ```
-                  titulo                   | anio | publicadora_id
--------------------------------------------+------+----------------
- The Legend of Zelda: Tears of the Kingdom | 2023 |              1
- EA Sports FC 24                           | 2023 |              2
- Resident Evil 4                           | 2023 |              6
- Street Fighter 6                          | 2023 |              6
- Counter-Strike 2                          | 2023 |              7
+       titulo        | publicadora_id
+---------------------+----------------
+ Super Mario Odyssey |              1
+ It Takes Two        |              2
+ Rayman Legends      |              3
+ Hollow Knight       |           NULL
+ Celeste             |           NULL
 ```
 
-¿Quién es la publicadora `6`? Los datos están **repartidos** en varias tablas: hay que **juntarlos** con `JOIN`.
+¿Quién es la publicadora `3`? Los datos están **repartidos** en varias tablas: hay que **juntarlos** con `JOIN`.
 
 ---
 
@@ -287,19 +271,16 @@ WHERE p.pais = 'Japón' AND pl.lanzamiento >= 2017;
 ## Producto cartesiano + filtro
 
 ```sql
-SELECT j.titulo, p.nombre AS publicadora
+SELECT j.titulo, p.nombre
 FROM juegos j, publicadoras p
-WHERE j.publicadora_id = p.id AND j.anio = 2023
-ORDER BY j.titulo;
+WHERE j.publicadora_id = p.id AND j.genero_id = 2;
 ```
 ```
-                  titulo                   |   publicadora
--------------------------------------------+-----------------
- Counter-Strike 2                          | Valve
- EA Sports FC 24                           | Electronic Arts
- Resident Evil 4                           | Capcom
- Street Fighter 6                          | Capcom
- The Legend of Zelda: Tears of the Kingdom | Nintendo
+       titulo        |     nombre
+---------------------+-----------------
+ Super Mario Odyssey | Nintendo
+ It Takes Two        | Electronic Arts
+ Rayman Legends      | Ubisoft
 ```
 
 - La coma es un producto cartesiano; el `WHERE` se queda con los pares que **coinciden**. Mezcla "cómo junto" con "qué filtro" {tag:warning}
@@ -321,60 +302,29 @@ ORDER BY j.titulo;
 ## `INNER JOIN` en SQL
 
 ```sql
-SELECT j.titulo, p.nombre AS publicadora
-FROM juegos j
-INNER JOIN publicadoras p ON j.publicadora_id = p.id
-WHERE j.anio = 2023 ORDER BY j.titulo;
-```
-```
-                  titulo                   |   publicadora
--------------------------------------------+-----------------
- Counter-Strike 2                          | Valve
- EA Sports FC 24                           | Electronic Arts
- Resident Evil 4                           | Capcom
- Street Fighter 6                          | Capcom
- The Legend of Zelda: Tears of the Kingdom | Nintendo
-```
-
-- `ON` dice **cómo se relacionan** las tablas; `WHERE` sigue filtrando. Mismas filas que con la coma {tag:tip}
-
----
-
-## Alias de tablas
-
-- `juegos j` es lo mismo que `juegos AS j`: un **apodo** para la tabla dentro de la consulta
-- `p.nombre AS publicadora` le pone nombre a la **columna** del resultado
-- Si una columna existe en las dos tablas (`id`, `nombre`), hay que decir **de cuál**:
-
-```sql
-SELECT id, titulo, nombre
-FROM juegos
-JOIN publicadoras ON publicadora_id = publicadoras.id;
-```
-```
-ERROR: column reference "id" is ambiguous
-```
-
----
-
-## ¿Y los juegos de plataformas?
-
-```sql
-SELECT j.titulo, p.nombre AS publicadora
+SELECT j.titulo, p.nombre
 FROM juegos j
 INNER JOIN publicadoras p ON j.publicadora_id = p.id
 WHERE j.genero_id = 2;   -- 2 = Plataformas
 ```
 ```
-       titulo        |   publicadora
+       titulo        |     nombre
 ---------------------+-----------------
  Super Mario Odyssey | Nintendo
  It Takes Two        | Electronic Arts
  Rayman Legends      | Ubisoft
 ```
 
-- Hay **5** juegos de plataformas... ¿dónde están Hollow Knight y Celeste? {tag:warning}
-- Su `publicadora_id` es `NULL`: no tienen pareja, e `INNER JOIN` los descarta
+- `ON` dice **cómo se relacionan** las tablas; `WHERE` sigue filtrando. Mismas filas que con la coma {tag:tip}
+- Hollow Knight y Celeste (`NULL`) **no aparecen**: no tienen pareja {tag:warning}
+
+---
+
+## Alias de tablas
+
+- `juegos j` es lo mismo que `juegos AS j`: un **apodo** para la tabla dentro de la consulta
+- Si una columna existe en las dos tablas (`id`, `nombre`), hay que decir **de cuál**: `j.id`, `p.nombre`
+- Sin el prefijo, Postgres responde `column reference "id" is ambiguous` {tag:warning}
 
 ---
 
@@ -397,19 +347,19 @@ WHERE j.genero_id = 2;   -- 2 = Plataformas
 ## `LEFT JOIN` en SQL
 
 ```sql
-SELECT j.titulo, p.nombre AS publicadora
+SELECT j.titulo, p.nombre
 FROM juegos j
 LEFT JOIN publicadoras p ON j.publicadora_id = p.id
 WHERE j.genero_id = 2;   -- 2 = Plataformas
 ```
 ```
-       titulo        |   publicadora
+       titulo        |     nombre
 ---------------------+-----------------
  Super Mario Odyssey | Nintendo
  It Takes Two        | Electronic Arts
  Rayman Legends      | Ubisoft
- Celeste             | NULL
  Hollow Knight       | NULL
+ Celeste             | NULL
 ```
 
 - Cambiamos **una sola palabra** y aparecen los indies {tag:tip}
@@ -427,27 +377,6 @@ WHERE j.genero_id = 2;   -- 2 = Plataformas
 
 ---
 
-## `RIGHT JOIN` en SQL
-
-```sql
-SELECT j.titulo, p.nombre AS publicadora
-FROM juegos j
-RIGHT JOIN publicadoras p ON j.publicadora_id = p.id
-WHERE p.pais IN ('Suecia', 'Polonia');
-```
-```
-          titulo          |     publicadora
---------------------------+---------------------
- The Witcher 3: Wild Hunt | CD Projekt
- Cyberpunk 2077           | CD Projekt
- Minecraft                | Mojang Studios
- NULL                     | Paradox Interactive
-```
-
-- Paradox no tiene juegos, pero aparece igual: las columnas de `juegos` vienen en `NULL`
-
----
-
 <!-- slide: tipo=imagen-texto -->
 ## Anti-join: los que **no** tienen pareja
 
@@ -462,15 +391,15 @@ WHERE p.pais IN ('Suecia', 'Polonia');
 ## Anti-join en SQL
 
 ```sql
-SELECT p.nombre, p.pais
+SELECT p.nombre
 FROM publicadoras p
 LEFT JOIN juegos j ON j.publicadora_id = p.id
 WHERE j.id IS NULL;
 ```
 ```
-       nombre        |  pais
----------------------+--------
- Paradox Interactive | Suecia
+        nombre
+---------------------
+ Paradox Interactive
 ```
 
 - Preguntamos por la **PK** de la derecha (`j.id`): en una fila real nunca es `NULL` {tag:tip}
@@ -486,28 +415,6 @@ WHERE j.id IS NULL;
 - **Todo** de los dos lados: A ∪ B
 - Las filas con pareja salen juntas; las que no tienen pareja (de cualquier lado) salen con `NULL` del otro
 - Sobre todo `juegos` con `publicadoras`: **29 filas** = 25 con pareja + 3 juegos sin publicadora + 1 publicadora sin juegos
-
----
-
-## `FULL OUTER JOIN`: los que quedaron sin pareja
-
-```sql
-SELECT j.titulo, p.nombre AS publicadora
-FROM juegos j
-FULL OUTER JOIN publicadoras p ON j.publicadora_id = p.id
-WHERE j.id IS NULL OR p.id IS NULL;
-```
-```
-    titulo     |     publicadora
----------------+---------------------
- Hollow Knight | NULL
- Celeste       | NULL
- Undertale     | NULL
- NULL          | Paradox Interactive
-```
-
-- Es el anti-join **de los dos lados** a la vez: (A − B) ∪ (B − A)
-- Sirve para **auditar** datos: ¿qué quedó colgado de cada lado? {tag:tip}
 
 ---
 
@@ -564,28 +471,6 @@ WHERE g.nombre = 'Plataformas';
 
 ---
 
-## Relación N:M: la tabla intermedia
-
-```sql
-SELECT j.titulo, pl.nombre AS plataforma
-FROM juegos j
-JOIN juegos_plataformas jp ON jp.juego_id = j.id
-JOIN plataformas pl ON pl.id = jp.plataforma_id
-WHERE j.titulo = 'Hollow Knight';
-```
-```
-    titulo     |   plataforma
----------------+-----------------
- Hollow Knight | PC
- Hollow Knight | PlayStation 4
- Hollow Knight | Xbox One
- Hollow Knight | Nintendo Switch
-```
-
-- `juegos_plataformas` solo guarda **pares de FKs**: hay que pasar por el medio → **dos** JOINs
-
----
-
 <!-- slide: tipo=comparacion -->
 ## `ON` vs `USING`
 
@@ -601,43 +486,10 @@ WHERE j.titulo = 'Hollow Knight';
 
 ---
 
-## `USING` en SQL
+## Otras formas de usar un JOIN
 
-```sql
-SELECT juego_id, plataforma_id, region, unidades
-FROM juegos_plataformas
-JOIN ventas USING (juego_id, plataforma_id)
-WHERE juego_id = 26;   -- Hollow Knight
-```
-```
- juego_id | plataforma_id | region  | unidades
-----------+---------------+---------+----------
-       26 |             1 | Europa  |  2500000
-       26 |            10 | América |  2000000
-```
-
-- Con `ON` sería: `ON v.juego_id = jp.juego_id AND v.plataforma_id = jp.plataforma_id`
-
----
-
-## Self-join: una tabla consigo misma
-
-```sql
-SELECT a.titulo AS juego, b.titulo AS otro_de_la_misma_publicadora
-FROM juegos a
-JOIN juegos b ON a.publicadora_id = b.publicadora_id AND a.id < b.id
-WHERE a.publicadora_id = 4;   -- Rockstar Games
-```
-```
-             juego             | otro_de_la_misma_publicadora
--------------------------------+------------------------------
- Grand Theft Auto: San Andreas | Grand Theft Auto V
- Grand Theft Auto: San Andreas | Red Dead Redemption 2
- Grand Theft Auto V            | Red Dead Redemption 2
-```
-
-- La misma tabla aparece **dos veces**, con alias distintos: acá los alias son **obligatorios**
-- `a.id < b.id` evita (A, A) y los pares repetidos al revés. Caso típico: `empleados.jefe_id` {tag:info}
+- **Relación N:M**: una tabla intermedia (`juegos_plataformas`) guarda **pares de FKs**; se pasa por el medio con **dos** JOINs
+- **Self-join**: una tabla contra **sí misma**, con alias distintos. Ej.: `empleados.jefe_id` apunta a otro empleado {tag:info}
 
 ---
 
@@ -645,21 +497,13 @@ WHERE a.publicadora_id = 4;   -- Rockstar Games
 
 ---
 
-## Ejercicios (1/2)
+## Ejercicios
 
 - **1.** Listar cada juego con el nombre de su **género**
 - **2.** Listar **todos** los juegos con el nombre de su publicadora, incluidos los que no tienen
-- **3.** ¿Qué **plataformas** no tienen ningún juego cargado?
+- **3.** ¿Qué **géneros** no tienen ningún juego cargado?
 
 Usen el dataset en DB Fiddle (PostgreSQL 17) {tag:tip}
-
----
-
-## Ejercicios (2/2)
-
-- **4.** ¿Qué **géneros** no tienen juegos?
-- **5.** Títulos disponibles en **PC** de publicadoras de **Estados Unidos** (con el nombre de la publicadora)
-- **6. Desafío:** **todas** las publicadoras, cada una con sus juegos de metacritic **≥ 95**. Las que no tengan ninguno también tienen que aparecer {tag:warning}
 
 ---
 
@@ -692,25 +536,7 @@ LEFT JOIN publicadoras p ON p.id = j.publicadora_id;
 
 ---
 
-## Solución 3 — plataformas sin juegos
-
-```sql
-SELECT pl.nombre
-FROM plataformas pl
-LEFT JOIN juegos_plataformas jp ON jp.plataforma_id = pl.id
-WHERE jp.juego_id IS NULL;
-```
-```
-  nombre
------------
- Dreamcast
-```
-
-- Anti-join contra la tabla **intermedia**: no hace falta llegar hasta `juegos`
-
----
-
-## Solución 4 — géneros sin juegos
+## Solución 3 — géneros sin juegos
 
 ```sql
 SELECT g.nombre
@@ -726,32 +552,70 @@ WHERE j.id IS NULL;
 
 ---
 
-## Solución 5 — en PC y de Estados Unidos
-
-```sql
-SELECT j.titulo, p.nombre AS publicadora
-FROM juegos j
-JOIN publicadoras p ON p.id = j.publicadora_id
-JOIN juegos_plataformas jp ON jp.juego_id = j.id
-JOIN plataformas pl ON pl.id = jp.plataforma_id
-WHERE pl.nombre = 'PC' AND p.pais = 'Estados Unidos';
-```
-
-- **4 tablas, 3 JOINs** → 10 filas (EA, Rockstar y Valve)
-- Acá sí va `INNER`: un juego sin publicadora nunca es "de Estados Unidos" {tag:tip}
+# Adelanto: GROUP BY
 
 ---
 
-## Solución 6 — el desafío
+## ¿Cuántos juegos tiene cada publicadora?
+
+- Hasta ahora, cada fila del resultado venía de **una fila** de una tabla (o de un par de filas unidas)
+- Una pregunta de **resumen** pide otra cosa: **una fila por grupo**. Por publicadora, por plataforma, por año...
+- Para eso hay que **agrupar** filas y **resumir** cada grupo con una cuenta, una suma, un promedio... {tag:info}
+
+---
+
+## Funciones de agregación
 
 ```sql
-SELECT p.nombre AS publicadora, j.titulo, j.metacritic
-FROM publicadoras p
-LEFT JOIN juegos j ON j.publicadora_id = p.id AND j.metacritic >= 95;
+SELECT COUNT(*) FROM juegos;
+```
+```
+ count
+-------
+    28
 ```
 
-- El filtro va en el **`ON`**: así las publicadoras sin juegos de 95+ siguen apareciendo, con `NULL` → **14 filas**
-- Si lo ponemos en el `WHERE`, las filas con `NULL` no pasan el filtro y el `LEFT` se comporta como un `INNER` → **9 filas**: desaparecen Ubisoft, CD Projekt, Capcom, Mojang y Paradox {tag:danger}
+- Una **agregación** resume **muchas filas en un solo valor**: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
+- Sin `GROUP BY`, todas las filas son **un único grupo**: el resultado es **una sola fila** {tag:note}
+
+---
+
+## `GROUP BY`: una fila por grupo
+
+```sql
+SELECT fabricante, COUNT(*)
+FROM plataformas
+GROUP BY fabricante;
+```
+```
+ fabricante | count
+------------+-------
+ Microsoft  |     3
+ Nintendo   |     2
+ Sega       |     1
+ Sony       |     4
+ Varios     |     1
+```
+
+- `GROUP BY` junta las filas con el **mismo fabricante** en un grupo, y `COUNT(*)` cuenta **cada** grupo
+- El orden de los grupos **no está garantizado**: para ordenarlos hay que pedir `ORDER BY` {tag:note}
+
+---
+
+## La regla del `SELECT`
+
+```sql
+SELECT fabricante, nombre, COUNT(*)
+FROM plataformas
+GROUP BY fabricante;
+```
+```
+ERROR: column "plataformas.nombre" must appear in the GROUP BY clause or be used in an aggregate function
+```
+
+- Cada columna del `SELECT` va en el `GROUP BY` o dentro de una **agregación**
+- Hay **una fila por grupo**: ¿qué `nombre` mostraría de las 4 plataformas de Sony? {tag:tip}
+- Filtrar **grupos** (`HAVING`) y más: lo sigue Gonza {tag:info}
 
 ---
 
@@ -765,27 +629,7 @@ LEFT JOIN juegos j ON j.publicadora_id = p.id AND j.metacritic >= 95;
 - `INNER` = intersección · `LEFT`/`RIGHT` = un lado completo · `FULL` = todo · `CROSS` = todas contra todas
 - **Anti-join**: `LEFT JOIN` + `WHERE <PK de la derecha> IS NULL`
 - Alias para escribir menos y para **desambiguar** columnas
-
----
-
-## ¿Y si queremos saber cuántos juegos tiene cada publicadora?
-
-```sql
-SELECT p.nombre AS publicadora, j.titulo
-FROM publicadoras p
-LEFT JOIN juegos j ON j.publicadora_id = p.id
-WHERE p.pais IN ('Suecia', 'Polonia');
-```
-```
-     publicadora     |          titulo
----------------------+--------------------------
- CD Projekt          | The Witcher 3: Wild Hunt
- CD Projekt          | Cyberpunk 2077
- Mojang Studios      | Minecraft
- Paradox Interactive | NULL
-```
-
-Para tener **una fila por publicadora** (¡y Paradox con 0!) hay que **agrupar**: `GROUP BY`, con Gonza {tag:info}
+- `GROUP BY` agrupa filas y las **agregaciones** (`COUNT`, `SUM`...) resumen cada grupo
 
 ---
 

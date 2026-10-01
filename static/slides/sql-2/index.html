@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- Generado a partir de contenido.md siguiendo _template/formatos.md (mismo esquema que /generar-diapositiva sql-2).
-     Las tablas de resultados son la salida real de psql (PostgreSQL 17) sobre ejemplos/sql-videojuegos/dataset.sql. -->
+     Los resultados se verificaron contra ejemplos/sql-videojuegos/dataset.sql; en Postgres el orden de las filas puede variar. -->
 <main class="deck">
 
   <!-- portada -->
@@ -41,7 +41,8 @@
         <li><span class="idx">.06</span><span class="lbl">Más de dos tablas</span></li>
         <li><span class="idx">.07</span><span class="lbl">Ejercicios</span></li>
         <li><span class="idx">.08</span><span class="lbl">Soluciones</span></li>
-        <li><span class="idx">.09</span><span class="lbl">Cierre</span></li>
+        <li><span class="idx">.09</span><span class="lbl">Adelanto: GROUP BY</span></li>
+        <li><span class="idx">.10</span><span class="lbl">Cierre</span></li>
       </ul>
     </div>
     <div class="s-foot">
@@ -147,56 +148,29 @@
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.01 — Dónde quedamos</div>
-      <div class="s-title s-title--md">La FK se hace cumplir</div>
+      <div class="s-title s-title--md">El problema de hoy</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">INSERT</span> <span class="tok-kw">INTO</span> juegos (titulo, anio, precio, publicadora_id, genero_id)
-<span class="tok-kw">VALUES</span> (<span class="tok-str">'Juego trucho'</span>, <span class="tok-num">2026</span>, <span class="tok-num">10</span>, <span class="tok-num">99</span>, <span class="tok-num">1</span>);</code></pre>
+        <pre><code><span class="tok-kw">SELECT</span> titulo, publicadora_id
+<span class="tok-kw">FROM</span> juegos
+<span class="tok-kw">WHERE</span> genero_id = <span class="tok-num">2</span>;   <span class="tok-com">-- 2 = Plataformas</span></code></pre>
       </div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">resultado</div>
-        <pre><code><span class="c3">ERROR: insert or update on table "juegos" violates foreign key constraint "juegos_publicadora_id_fkey"
-DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span></code></pre>
+        <pre><code><span class="c3">       titulo        | publicadora_id
+---------------------+----------------
+ Super Mario Odyssey |              1
+ It Takes Two        |              2
+ Rayman Legends      |              3
+ Hollow Knight       |           NULL
+ Celeste             |           NULL</span></code></pre>
       </div>
-      <ul class="bullets">
-        <li><span>No podemos apuntar a una publicadora que <strong>no existe</strong><span class="tag tag-tip">Tip</span></span></li>
-        <li><span>Es la misma idea que <code>NOT NULL</code> o <code>UNIQUE</code>: el motor protege la <strong>integridad</strong></span></li>
-      </ul>
+      <p class="s-body-text">¿Quién es la publicadora <code>3</code>? Los datos están <strong>repartidos</strong> en varias tablas: hay que <strong>juntarlos</strong> con <code>JOIN</code>.</p>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
       <span class="num">07</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.01 — Dónde quedamos</div>
-      <div class="s-title s-title--md">El problema de hoy</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> titulo, anio, publicadora_id
-<span class="tok-kw">FROM</span> juegos
-<span class="tok-kw">WHERE</span> anio = <span class="tok-num">2023</span>;</code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">                  titulo                   | anio | publicadora_id
--------------------------------------------+------+----------------
- The Legend of Zelda: Tears of the Kingdom | 2023 |              1
- EA Sports FC 24                           | 2023 |              2
- Resident Evil 4                           | 2023 |              6
- Street Fighter 6                          | 2023 |              6
- Counter-Strike 2                          | 2023 |              7</span></code></pre>
-      </div>
-      <p class="s-body-text">¿Quién es la publicadora <code>6</code>? Los datos están <strong>repartidos</strong> en varias tablas: hay que <strong>juntarlos</strong> con <code>JOIN</code>.</p>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">08</span>
     </div>
   </section>
 
@@ -209,7 +183,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">09</span>
+      <span class="num">08</span>
     </div>
   </section>
 
@@ -228,7 +202,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">10</span>
+      <span class="num">09</span>
     </div>
   </section>
 
@@ -251,7 +225,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">11</span>
+      <span class="num">10</span>
     </div>
   </section>
 
@@ -274,7 +248,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">12</span>
+      <span class="num">11</span>
     </div>
   </section>
 
@@ -297,7 +271,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">13</span>
+      <span class="num">12</span>
     </div>
   </section>
 
@@ -320,7 +294,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">14</span>
+      <span class="num">13</span>
     </div>
   </section>
 
@@ -351,7 +325,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">15</span>
+      <span class="num">14</span>
     </div>
   </section>
 
@@ -364,7 +338,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">16</span>
+      <span class="num">15</span>
     </div>
   </section>
 
@@ -378,7 +352,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">17</span>
+      <span class="num">16</span>
     </div>
   </section>
 
@@ -398,7 +372,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">18</span>
+      <span class="num">17</span>
     </div>
   </section>
 
@@ -417,7 +391,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">19</span>
+      <span class="num">18</span>
     </div>
   </section>
 
@@ -436,7 +410,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">20</span>
+      <span class="num">19</span>
     </div>
   </section>
 
@@ -449,7 +423,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">21</span>
+      <span class="num">20</span>
     </div>
   </section>
 
@@ -480,7 +454,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">22</span>
+      <span class="num">21</span>
     </div>
   </section>
 
@@ -499,7 +473,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">23</span>
+      <span class="num">22</span>
     </div>
   </section>
 
@@ -510,20 +484,17 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
       <div class="s-title s-title--md">Producto cartesiano + filtro</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
+        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre
 <span class="tok-kw">FROM</span> juegos j, publicadoras p
-<span class="tok-kw">WHERE</span> j.publicadora_id = p.id <span class="tok-kw">AND</span> j.anio = <span class="tok-num">2023</span>
-<span class="tok-kw">ORDER</span> <span class="tok-kw">BY</span> j.titulo;</code></pre>
+<span class="tok-kw">WHERE</span> j.publicadora_id = p.id <span class="tok-kw">AND</span> j.genero_id = <span class="tok-num">2</span>;</code></pre>
       </div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">resultado</div>
-        <pre><code><span class="c3">                  titulo                   |   publicadora
--------------------------------------------+-----------------
- Counter-Strike 2                          | Valve
- EA Sports FC 24                           | Electronic Arts
- Resident Evil 4                           | Capcom
- Street Fighter 6                          | Capcom
- The Legend of Zelda: Tears of the Kingdom | Nintendo</span></code></pre>
+        <pre><code><span class="c3">       titulo        |     nombre
+---------------------+-----------------
+ Super Mario Odyssey | Nintendo
+ It Takes Two        | Electronic Arts
+ Rayman Legends      | Ubisoft</span></code></pre>
       </div>
       <ul class="bullets">
         <li><span>La coma es un producto cartesiano; el <code>WHERE</code> se queda con los pares que <strong>coinciden</strong>. Mezcla "cómo junto" con "qué filtro"<span class="tag tag-warning">Warning</span></span></li>
@@ -532,7 +503,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">24</span>
+      <span class="num">23</span>
     </div>
   </section>
 
@@ -556,7 +527,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">25</span>
+      <span class="num">24</span>
     </div>
   </section>
 
@@ -567,89 +538,46 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
       <div class="s-title s-title--md"><code>INNER JOIN</code> en SQL</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
-<span class="tok-kw">FROM</span> juegos j
-<span class="tok-kw">INNER</span> <span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> j.publicadora_id = p.id
-<span class="tok-kw">WHERE</span> j.anio = <span class="tok-num">2023</span> <span class="tok-kw">ORDER</span> <span class="tok-kw">BY</span> j.titulo;</code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">                  titulo                   |   publicadora
--------------------------------------------+-----------------
- Counter-Strike 2                          | Valve
- EA Sports FC 24                           | Electronic Arts
- Resident Evil 4                           | Capcom
- Street Fighter 6                          | Capcom
- The Legend of Zelda: Tears of the Kingdom | Nintendo</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span><code>ON</code> dice <strong>cómo se relacionan</strong> las tablas; <code>WHERE</code> sigue filtrando. Mismas filas que con la coma<span class="tag tag-tip">Tip</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">26</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
-      <div class="s-title s-title--md">Alias de tablas</div>
-      <ul class="bullets">
-        <li><span><code>juegos j</code> es lo mismo que <code>juegos AS j</code>: un <strong>apodo</strong> para la tabla dentro de la consulta</span></li>
-        <li><span><code>p.nombre AS publicadora</code> le pone nombre a la <strong>columna</strong> del resultado</span></li>
-        <li><span>Si una columna existe en las dos tablas (<code>id</code>, <code>nombre</code>), hay que decir <strong>de cuál</strong>:</span></li>
-      </ul>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> id, titulo, nombre
-<span class="tok-kw">FROM</span> juegos
-<span class="tok-kw">JOIN</span> publicadoras <span class="tok-kw">ON</span> publicadora_id = publicadoras.id;</code></pre>
-      </div>
-      <div class="code-block">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">ERROR: column reference "id" is ambiguous</span></code></pre>
-      </div>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">27</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
-      <div class="s-title s-title--md">¿Y los juegos de plataformas?</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
+        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre
 <span class="tok-kw">FROM</span> juegos j
 <span class="tok-kw">INNER</span> <span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> j.publicadora_id = p.id
 <span class="tok-kw">WHERE</span> j.genero_id = <span class="tok-num">2</span>;   <span class="tok-com">-- 2 = Plataformas</span></code></pre>
       </div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">resultado</div>
-        <pre><code><span class="c3">       titulo        |   publicadora
+        <pre><code><span class="c3">       titulo        |     nombre
 ---------------------+-----------------
  Super Mario Odyssey | Nintendo
  It Takes Two        | Electronic Arts
  Rayman Legends      | Ubisoft</span></code></pre>
       </div>
       <ul class="bullets">
-        <li><span>Hay <strong>5</strong> juegos de plataformas... ¿dónde están Hollow Knight y Celeste?<span class="tag tag-warning">Warning</span></span></li>
-        <li><span>Su <code>publicadora_id</code> es <code>NULL</code>: no tienen pareja, e <code>INNER JOIN</code> los descarta</span></li>
+        <li><span><code>ON</code> dice <strong>cómo se relacionan</strong> las tablas; <code>WHERE</code> sigue filtrando. Mismas filas que con la coma<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Hollow Knight y Celeste (<code>NULL</code>) <strong>no aparecen</strong>: no tienen pareja<span class="tag tag-warning">Warning</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">28</span>
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
+      <div class="s-title s-title--md">Alias de tablas</div>
+      <ul class="bullets">
+        <li><span><code>juegos j</code> es lo mismo que <code>juegos AS j</code>: un <strong>apodo</strong> para la tabla dentro de la consulta</span></li>
+        <li><span>Si una columna existe en las dos tablas (<code>id</code>, <code>nombre</code>), hay que decir <strong>de cuál</strong>: <code>j.id</code>, <code>p.nombre</code></span></li>
+        <li><span>Sin el prefijo, Postgres responde <code>column reference "id" is ambiguous</code><span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
     </div>
   </section>
 
@@ -662,7 +590,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">29</span>
+      <span class="num">27</span>
     </div>
   </section>
 
@@ -686,7 +614,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">30</span>
+      <span class="num">28</span>
     </div>
   </section>
 
@@ -697,20 +625,20 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
       <div class="s-title s-title--md"><code>LEFT JOIN</code> en SQL</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
+        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre
 <span class="tok-kw">FROM</span> juegos j
 <span class="tok-kw">LEFT</span> <span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> j.publicadora_id = p.id
 <span class="tok-kw">WHERE</span> j.genero_id = <span class="tok-num">2</span>;   <span class="tok-com">-- 2 = Plataformas</span></code></pre>
       </div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">resultado</div>
-        <pre><code><span class="c3">       titulo        |   publicadora
+        <pre><code><span class="c3">       titulo        |     nombre
 ---------------------+-----------------
  Super Mario Odyssey | Nintendo
  It Takes Two        | Electronic Arts
  Rayman Legends      | Ubisoft
- Celeste             | NULL
- Hollow Knight       | NULL</span></code></pre>
+ Hollow Knight       | NULL
+ Celeste             | NULL</span></code></pre>
       </div>
       <ul class="bullets">
         <li><span>Cambiamos <strong>una sola palabra</strong> y aparecen los indies<span class="tag tag-tip">Tip</span></span></li>
@@ -719,7 +647,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">31</span>
+      <span class="num">29</span>
     </div>
   </section>
 
@@ -742,39 +670,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">32</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.05 — OUTER JOINs: LEFT, RIGHT y FULL</div>
-      <div class="s-title s-title--md"><code>RIGHT JOIN</code> en SQL</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
-<span class="tok-kw">FROM</span> juegos j
-<span class="tok-kw">RIGHT</span> <span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> j.publicadora_id = p.id
-<span class="tok-kw">WHERE</span> p.pais <span class="tok-kw">IN</span> (<span class="tok-str">'Suecia'</span>, <span class="tok-str">'Polonia'</span>);</code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">          titulo          |     publicadora
---------------------------+---------------------
- The Witcher 3: Wild Hunt | CD Projekt
- Cyberpunk 2077           | CD Projekt
- Minecraft                | Mojang Studios
- NULL                     | Paradox Interactive</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span>Paradox no tiene juegos, pero aparece igual: las columnas de <code>juegos</code> vienen en <code>NULL</code></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">33</span>
+      <span class="num">30</span>
     </div>
   </section>
 
@@ -797,7 +693,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">34</span>
+      <span class="num">31</span>
     </div>
   </section>
 
@@ -808,16 +704,16 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
       <div class="s-title s-title--md">Anti-join en SQL</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> p.nombre, p.pais
+        <pre><code><span class="tok-kw">SELECT</span> p.nombre
 <span class="tok-kw">FROM</span> publicadoras p
 <span class="tok-kw">LEFT</span> <span class="tok-kw">JOIN</span> juegos j <span class="tok-kw">ON</span> j.publicadora_id = p.id
 <span class="tok-kw">WHERE</span> j.id <span class="tok-kw">IS</span> <span class="tok-kw">NULL</span>;</code></pre>
       </div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">resultado</div>
-        <pre><code><span class="c3">       nombre        |  pais
----------------------+--------
- Paradox Interactive | Suecia</span></code></pre>
+        <pre><code><span class="c3">        nombre
+---------------------
+ Paradox Interactive</span></code></pre>
       </div>
       <ul class="bullets">
         <li><span>Preguntamos por la <strong>PK</strong> de la derecha (<code>j.id</code>): en una fila real nunca es <code>NULL</code><span class="tag tag-tip">Tip</span></span></li>
@@ -827,7 +723,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">35</span>
+      <span class="num">32</span>
     </div>
   </section>
 
@@ -850,40 +746,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">36</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.05 — OUTER JOINs: LEFT, RIGHT y FULL</div>
-      <div class="s-title s-title--md"><code>FULL OUTER JOIN</code>: los que quedaron sin pareja</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
-<span class="tok-kw">FROM</span> juegos j
-<span class="tok-kw">FULL</span> <span class="tok-kw">OUTER</span> <span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> j.publicadora_id = p.id
-<span class="tok-kw">WHERE</span> j.id <span class="tok-kw">IS</span> <span class="tok-kw">NULL</span> <span class="tok-kw">OR</span> p.id <span class="tok-kw">IS</span> <span class="tok-kw">NULL</span>;</code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">    titulo     |     publicadora
----------------+---------------------
- Hollow Knight | NULL
- Celeste       | NULL
- Undertale     | NULL
- NULL          | Paradox Interactive</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span>Es el anti-join <strong>de los dos lados</strong> a la vez: (A − B) ∪ (B − A)</span></li>
-        <li><span>Sirve para <strong>auditar</strong> datos: ¿qué quedó colgado de cada lado?<span class="tag tag-tip">Tip</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">37</span>
+      <span class="num">33</span>
     </div>
   </section>
 
@@ -901,7 +764,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">38</span>
+      <span class="num">34</span>
     </div>
   </section>
 
@@ -919,7 +782,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">39</span>
+      <span class="num">35</span>
     </div>
   </section>
 
@@ -937,7 +800,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">40</span>
+      <span class="num">36</span>
     </div>
   </section>
 
@@ -950,7 +813,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">41</span>
+      <span class="num">37</span>
     </div>
   </section>
 
@@ -984,40 +847,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">42</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.06 — Más de dos tablas</div>
-      <div class="s-title s-title--md">Relación N:M: la tabla intermedia</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, pl.nombre <span class="tok-kw">AS</span> plataforma
-<span class="tok-kw">FROM</span> juegos j
-<span class="tok-kw">JOIN</span> juegos_plataformas jp <span class="tok-kw">ON</span> jp.juego_id = j.id
-<span class="tok-kw">JOIN</span> plataformas pl <span class="tok-kw">ON</span> pl.id = jp.plataforma_id
-<span class="tok-kw">WHERE</span> j.titulo = <span class="tok-str">'Hollow Knight'</span>;</code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">    titulo     |   plataforma
----------------+-----------------
- Hollow Knight | PC
- Hollow Knight | PlayStation 4
- Hollow Knight | Xbox One
- Hollow Knight | Nintendo Switch</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span><code>juegos_plataformas</code> solo guarda <strong>pares de FKs</strong>: hay que pasar por el medio → <strong>dos</strong> JOINs</span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">43</span>
+      <span class="num">38</span>
     </div>
   </section>
 
@@ -1048,69 +878,24 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">44</span>
+      <span class="num">39</span>
     </div>
   </section>
 
-  <!-- codigo -->
+  <!-- titulo-bullets -->
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.06 — Más de dos tablas</div>
-      <div class="s-title s-title--md"><code>USING</code> en SQL</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> juego_id, plataforma_id, region, unidades
-<span class="tok-kw">FROM</span> juegos_plataformas
-<span class="tok-kw">JOIN</span> ventas <span class="tok-kw">USING</span> (juego_id, plataforma_id)
-<span class="tok-kw">WHERE</span> juego_id = <span class="tok-num">26</span>;   <span class="tok-com">-- Hollow Knight</span></code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3"> juego_id | plataforma_id | region  | unidades
-----------+---------------+---------+----------
-       26 |             1 | Europa  |  2500000
-       26 |            10 | América |  2000000</span></code></pre>
-      </div>
+      <div class="s-title s-title--md">Otras formas de usar un JOIN</div>
       <ul class="bullets">
-        <li><span>Con <code>ON</code> sería: <code>ON v.juego_id = jp.juego_id AND v.plataforma_id = jp.plataforma_id</code></span></li>
+        <li><span><strong>Relación N:M</strong>: una tabla intermedia (<code>juegos_plataformas</code>) guarda <strong>pares de FKs</strong>; se pasa por el medio con <strong>dos</strong> JOINs</span></li>
+        <li><span><strong>Self-join</strong>: una tabla contra <strong>sí misma</strong>, con alias distintos. Ej.: <code>empleados.jefe_id</code> apunta a otro empleado<span class="tag tag-info">Info</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">45</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.06 — Más de dos tablas</div>
-      <div class="s-title s-title--md">Self-join: una tabla consigo misma</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> a.titulo <span class="tok-kw">AS</span> juego, b.titulo <span class="tok-kw">AS</span> otro_de_la_misma_publicadora
-<span class="tok-kw">FROM</span> juegos a
-<span class="tok-kw">JOIN</span> juegos b <span class="tok-kw">ON</span> a.publicadora_id = b.publicadora_id <span class="tok-kw">AND</span> a.id &lt; b.id
-<span class="tok-kw">WHERE</span> a.publicadora_id = <span class="tok-num">4</span>;   <span class="tok-com">-- Rockstar Games</span></code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">             juego             | otro_de_la_misma_publicadora
--------------------------------+------------------------------
- Grand Theft Auto: San Andreas | Grand Theft Auto V
- Grand Theft Auto: San Andreas | Red Dead Redemption 2
- Grand Theft Auto V            | Red Dead Redemption 2</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span>La misma tabla aparece <strong>dos veces</strong>, con alias distintos: acá los alias son <strong>obligatorios</strong></span></li>
-        <li><span><code>a.id &lt; b.id</code> evita (A, A) y los pares repetidos al revés. Caso típico: <code>empleados.jefe_id</code><span class="tag tag-info">Info</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">46</span>
+      <span class="num">40</span>
     </div>
   </section>
 
@@ -1123,7 +908,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">47</span>
+      <span class="num">41</span>
     </div>
   </section>
 
@@ -1131,36 +916,18 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.07 — Ejercicios</div>
-      <div class="s-title s-title--md">Ejercicios (1/2)</div>
+      <div class="s-title s-title--md">Ejercicios</div>
       <ul class="bullets">
         <li><span><strong>1.</strong> Listar cada juego con el nombre de su <strong>género</strong></span></li>
         <li><span><strong>2.</strong> Listar <strong>todos</strong> los juegos con el nombre de su publicadora, incluidos los que no tienen</span></li>
-        <li><span><strong>3.</strong> ¿Qué <strong>plataformas</strong> no tienen ningún juego cargado?</span></li>
+        <li><span><strong>3.</strong> ¿Qué <strong>géneros</strong> no tienen ningún juego cargado?</span></li>
       </ul>
       <p class="s-body-text">Usen el dataset en DB Fiddle (PostgreSQL 17)<span class="tag tag-tip">Tip</span></p>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">48</span>
-    </div>
-  </section>
-
-  <!-- titulo-bullets -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.07 — Ejercicios</div>
-      <div class="s-title s-title--md">Ejercicios (2/2)</div>
-      <ul class="bullets">
-        <li><span><strong>4.</strong> ¿Qué <strong>géneros</strong> no tienen juegos?</span></li>
-        <li><span><strong>5.</strong> Títulos disponibles en <strong>PC</strong> de publicadoras de <strong>Estados Unidos</strong> (con el nombre de la publicadora)</span></li>
-        <li><span><strong>6. Desafío:</strong> <strong>todas</strong> las publicadoras, cada una con sus juegos de metacritic <strong>≥ 95</strong>. Las que no tengan ninguno también tienen que aparecer<span class="tag tag-warning">Warning</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">49</span>
+      <span class="num">42</span>
     </div>
   </section>
 
@@ -1173,7 +940,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">50</span>
+      <span class="num">43</span>
     </div>
   </section>
 
@@ -1195,7 +962,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">51</span>
+      <span class="num">44</span>
     </div>
   </section>
 
@@ -1218,7 +985,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">52</span>
+      <span class="num">45</span>
     </div>
   </section>
 
@@ -1226,36 +993,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.08 — Soluciones</div>
-      <div class="s-title s-title--md">Solución 3 — plataformas sin juegos</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> pl.nombre
-<span class="tok-kw">FROM</span> plataformas pl
-<span class="tok-kw">LEFT</span> <span class="tok-kw">JOIN</span> juegos_plataformas jp <span class="tok-kw">ON</span> jp.plataforma_id = pl.id
-<span class="tok-kw">WHERE</span> jp.juego_id <span class="tok-kw">IS</span> <span class="tok-kw">NULL</span>;</code></pre>
-      </div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3">  nombre
------------
- Dreamcast</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span>Anti-join contra la tabla <strong>intermedia</strong>: no hace falta llegar hasta <code>juegos</code></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">53</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.08 — Soluciones</div>
-      <div class="s-title s-title--md">Solución 4 — géneros sin juegos</div>
+      <div class="s-title s-title--md">Solución 3 — géneros sin juegos</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
         <pre><code><span class="tok-kw">SELECT</span> g.nombre
@@ -1273,56 +1011,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">54</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.08 — Soluciones</div>
-      <div class="s-title s-title--md">Solución 5 — en PC y de Estados Unidos</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre <span class="tok-kw">AS</span> publicadora
-<span class="tok-kw">FROM</span> juegos j
-<span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> p.id = j.publicadora_id
-<span class="tok-kw">JOIN</span> juegos_plataformas jp <span class="tok-kw">ON</span> jp.juego_id = j.id
-<span class="tok-kw">JOIN</span> plataformas pl <span class="tok-kw">ON</span> pl.id = jp.plataforma_id
-<span class="tok-kw">WHERE</span> pl.nombre = <span class="tok-str">'PC'</span> <span class="tok-kw">AND</span> p.pais = <span class="tok-str">'Estados Unidos'</span>;</code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span><strong>4 tablas, 3 JOINs</strong> → 10 filas (EA, Rockstar y Valve)</span></li>
-        <li><span>Acá sí va <code>INNER</code>: un juego sin publicadora nunca es "de Estados Unidos"<span class="tag tag-tip">Tip</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">55</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.08 — Soluciones</div>
-      <div class="s-title s-title--md">Solución 6 — el desafío</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> p.nombre <span class="tok-kw">AS</span> publicadora, j.titulo, j.metacritic
-<span class="tok-kw">FROM</span> publicadoras p
-<span class="tok-kw">LEFT</span> <span class="tok-kw">JOIN</span> juegos j <span class="tok-kw">ON</span> j.publicadora_id = p.id <span class="tok-kw">AND</span> j.metacritic &gt;= <span class="tok-num">95</span>;</code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span>El filtro va en el <strong><code>ON</code></strong>: así las publicadoras sin juegos de 95+ siguen apareciendo, con <code>NULL</code> → <strong>14 filas</strong></span></li>
-        <li><span>Si lo ponemos en el <code>WHERE</code>, las filas con <code>NULL</code> no pasan el filtro y el <code>LEFT</code> se comporta como un <code>INNER</code> → <strong>9 filas</strong>: desaparecen Ubisoft, CD Projekt, Capcom, Mojang y Paradox<span class="tag tag-danger">Danger</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">56</span>
+      <span class="num">46</span>
     </div>
   </section>
 
@@ -1330,61 +1019,151 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
   <section class="slide on-accent">
     <div class="s-pad" style="justify-content:center;">
       <div class="eyebrow"><span class="dot"></span>Sección .09</div>
-      <div class="s-title">Cierre</div>
+      <div class="s-title">Adelanto: GROUP BY</div>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">57</span>
+      <span class="num">47</span>
     </div>
   </section>
 
   <!-- titulo-bullets -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.09 — Cierre</div>
-      <div class="s-title s-title--md">Resumen</div>
+      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="s-title s-title--md">¿Cuántos juegos tiene cada publicadora?</div>
       <ul class="bullets">
-        <li><span><code>JOIN</code> combina filas de dos tablas según una condición (<code>ON</code>)</span></li>
-        <li><span><code>INNER</code> = intersección · <code>LEFT</code>/<code>RIGHT</code> = un lado completo · <code>FULL</code> = todo · <code>CROSS</code> = todas contra todas</span></li>
-        <li><span><strong>Anti-join</strong>: <code>LEFT JOIN</code> + <code>WHERE &lt;PK de la derecha&gt; IS NULL</code></span></li>
-        <li><span>Alias para escribir menos y para <strong>desambiguar</strong> columnas</span></li>
+        <li><span>Hasta ahora, cada fila del resultado venía de <strong>una fila</strong> de una tabla (o de un par de filas unidas)</span></li>
+        <li><span>Una pregunta de <strong>resumen</strong> pide otra cosa: <strong>una fila por grupo</strong>. Por publicadora, por plataforma, por año...</span></li>
+        <li><span>Para eso hay que <strong>agrupar</strong> filas y <strong>resumir</strong> cada grupo con una cuenta, una suma, un promedio...<span class="tag tag-info">Info</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">58</span>
+      <span class="num">48</span>
     </div>
   </section>
 
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.09 — Cierre</div>
-      <div class="s-title s-title--md">¿Y si queremos saber cuántos juegos tiene cada publicadora?</div>
+      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="s-title s-title--md">Funciones de agregación</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> p.nombre <span class="tok-kw">AS</span> publicadora, j.titulo
-<span class="tok-kw">FROM</span> publicadoras p
-<span class="tok-kw">LEFT</span> <span class="tok-kw">JOIN</span> juegos j <span class="tok-kw">ON</span> j.publicadora_id = p.id
-<span class="tok-kw">WHERE</span> p.pais <span class="tok-kw">IN</span> (<span class="tok-str">'Suecia'</span>, <span class="tok-str">'Polonia'</span>);</code></pre>
+        <pre><code><span class="tok-kw">SELECT</span> <span class="tok-fn">COUNT</span>(*) <span class="tok-kw">FROM</span> juegos;</code></pre>
       </div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">resultado</div>
-        <pre><code><span class="c3">     publicadora     |          titulo
----------------------+--------------------------
- CD Projekt          | The Witcher 3: Wild Hunt
- CD Projekt          | Cyberpunk 2077
- Mojang Studios      | Minecraft
- Paradox Interactive | NULL</span></code></pre>
+        <pre><code><span class="c3"> count
+-------
+    28</span></code></pre>
       </div>
-      <p class="s-body-text">Para tener <strong>una fila por publicadora</strong> (¡y Paradox con 0!) hay que <strong>agrupar</strong>: <code>GROUP BY</code>, con Gonza<span class="tag tag-info">Info</span></p>
+      <ul class="bullets">
+        <li><span>Una <strong>agregación</strong> resume <strong>muchas filas en un solo valor</strong>: <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code></span></li>
+        <li><span>Sin <code>GROUP BY</code>, todas las filas son <strong>un único grupo</strong>: el resultado es <strong>una sola fila</strong><span class="tag tag-note">Note</span></span></li>
+      </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">59</span>
+      <span class="num">49</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="s-title s-title--md"><code>GROUP BY</code>: una fila por grupo</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">SELECT</span> fabricante, <span class="tok-fn">COUNT</span>(*)
+<span class="tok-kw">FROM</span> plataformas
+<span class="tok-kw">GROUP BY</span> fabricante;</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">resultado</div>
+        <pre><code><span class="c3"> fabricante | count
+------------+-------
+ Microsoft  |     3
+ Nintendo   |     2
+ Sega       |     1
+ Sony       |     4
+ Varios     |     1</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>GROUP BY</code> junta las filas con el <strong>mismo fabricante</strong> en un grupo, y <code>COUNT(*)</code> cuenta <strong>cada</strong> grupo</span></li>
+        <li><span>El orden de los grupos <strong>no está garantizado</strong>: para ordenarlos hay que pedir <code>ORDER BY</code><span class="tag tag-note">Note</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">50</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="s-title s-title--md">La regla del <code>SELECT</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">SELECT</span> fabricante, nombre, <span class="tok-fn">COUNT</span>(*)
+<span class="tok-kw">FROM</span> plataformas
+<span class="tok-kw">GROUP BY</span> fabricante;</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">resultado</div>
+        <pre><code><span class="c3">ERROR: column "plataformas.nombre" must appear in the GROUP BY clause or be used in an aggregate function</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Cada columna del <code>SELECT</code> va en el <code>GROUP BY</code> o dentro de una <strong>agregación</strong></span></li>
+        <li><span>Hay <strong>una fila por grupo</strong>: ¿qué <code>nombre</code> mostraría de las 4 plataformas de Sony?<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Filtrar <strong>grupos</strong> (<code>HAVING</code>) y más: lo sigue Gonza<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">51</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .10</div>
+      <div class="s-title">Cierre</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">52</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.10 — Cierre</div>
+      <div class="s-title s-title--md">Resumen</div>
+      <ul class="bullets">
+        <li><span><code>JOIN</code> combina filas de dos tablas según una condición (<code>ON</code>)</span></li>
+        <li><span><code>INNER</code> = intersección · <code>LEFT</code>/<code>RIGHT</code> = un lado completo · <code>FULL</code> = todo · <code>CROSS</code> = todas contra todas</span></li>
+        <li><span><strong>Anti-join</strong>: <code>LEFT JOIN</code> + <code>WHERE &lt;PK de la derecha&gt; IS NULL</code></span></li>
+        <li><span>Alias para escribir menos y para <strong>desambiguar</strong> columnas</span></li>
+        <li><span><code>GROUP BY</code> agrupa filas y las <strong>agregaciones</strong> (<code>COUNT</code>, <code>SUM</code>...) resumen cada grupo</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">53</span>
     </div>
   </section>
 
@@ -1404,7 +1183,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">60</span>
+      <span class="num">54</span>
     </div>
   </section>
 
@@ -1420,7 +1199,7 @@ DETAIL: Key (publicadora_id)=(99) is not present in table "publicadoras".</span>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">61</span>
+      <span class="num">55</span>
     </div>
   </section>
 
