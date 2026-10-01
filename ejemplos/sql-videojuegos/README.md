@@ -14,7 +14,13 @@ Todo está en un solo archivo, [`dataset.sql`](./dataset.sql): crea las tablas y
 2. Pegá todo el contenido de `dataset.sql` en la solapa **Schema SQL**.
 3. Escribí las consultas en **Query SQL** y dale a **Run**.
 
-### Opción B: Postgres en Docker + `psql`
+### Opción B: consola de la página
+
+En [https://www.intro-camejo.com.ar/sql/](https://www.intro-camejo.com.ar/sql/) el dataset ya está cargado. Corre **SQLite** en el navegador (no Postgres): alcanza para los ejemplos de las diapos. Los botones los dejan escritos y los ejecutan.
+
+La página lee `static/sql/dataset.sql`. Tiene que quedar **idéntico** a este `dataset.sql`.
+
+### Opción C: Postgres en Docker + `psql`
 
 Con el `docker-compose.yml` de la clase de Introducción a SQL levantado:
 

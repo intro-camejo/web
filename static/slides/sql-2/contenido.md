@@ -205,6 +205,7 @@ Cada flecha va de la **clave foránea** a la tabla que referencia.
 
 ## Cómo cargarlo
 
+- **En clase**: la consola SQL (https://www.intro-camejo.com.ar/sql/) trae el dataset ya cargado y corre en el navegador
 - Archivo: `ejemplos/sql-videojuegos/dataset.sql` en el repo de la materia
 - **DB Fiddle** (https://www.db-fiddle.com/): elegir **PostgreSQL 17**, pegar el archivo entero en *Schema SQL* y consultar en *Query SQL*
 - **Postgres en Docker** (el `docker-compose.yml` de la clase pasada): `psql -U postgres -d <base> -f dataset.sql`
@@ -474,7 +475,7 @@ WHERE g.nombre = 'Plataformas';
 - **2.** Listar **todos** los juegos con el nombre de su publicadora, incluidos los que no tienen
 - **3.** ¿Qué **géneros** no tienen ningún juego cargado?
 
-Usen el dataset en DB Fiddle (PostgreSQL 17) {tag:tip}
+Corran las consultas en la consola SQL (https://www.intro-camejo.com.ar/sql/) o en DB Fiddle (PostgreSQL 17) {tag:tip}
 
 ---
 
