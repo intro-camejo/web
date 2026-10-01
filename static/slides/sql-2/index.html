@@ -41,7 +41,7 @@
         <li><span class="idx">.06</span><span class="lbl">Más de dos tablas</span></li>
         <li><span class="idx">.07</span><span class="lbl">Ejercicios</span></li>
         <li><span class="idx">.08</span><span class="lbl">Soluciones</span></li>
-        <li><span class="idx">.09</span><span class="lbl">Adelanto: GROUP BY</span></li>
+        <li><span class="idx">.09</span><span class="lbl">GROUP BY</span></li>
         <li><span class="idx">.10</span><span class="lbl">Cierre</span></li>
       </ul>
     </div>
@@ -1019,7 +1019,7 @@
   <section class="slide on-accent">
     <div class="s-pad" style="justify-content:center;">
       <div class="eyebrow"><span class="dot"></span>Sección .09</div>
-      <div class="s-title">Adelanto: GROUP BY</div>
+      <div class="s-title">GROUP BY</div>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
@@ -1031,7 +1031,7 @@
   <!-- titulo-bullets -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="eyebrow"><span class="dot"></span>.09 — GROUP BY</div>
       <div class="s-title s-title--md">¿Cuántos juegos tiene cada publicadora?</div>
       <ul class="bullets">
         <li><span>Hasta ahora, cada fila del resultado venía de <strong>una fila</strong> de una tabla (o de un par de filas unidas)</span></li>
@@ -1049,7 +1049,7 @@
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="eyebrow"><span class="dot"></span>.09 — GROUP BY</div>
       <div class="s-title s-title--md">Funciones de agregación</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
@@ -1076,7 +1076,7 @@
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="eyebrow"><span class="dot"></span>.09 — GROUP BY</div>
       <div class="s-title s-title--md"><code>GROUP BY</code>: una fila por grupo</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
@@ -1109,7 +1109,40 @@
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.09 — Adelanto: GROUP BY</div>
+      <div class="eyebrow"><span class="dot"></span>.09 — GROUP BY</div>
+      <div class="s-title s-title--md"><code>GROUP BY</code> con un <code>JOIN</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">sql</div>
+        <pre><code><span class="tok-kw">SELECT</span> p.nombre, <span class="tok-fn">COUNT</span>(*)
+<span class="tok-kw">FROM</span> juegos j
+<span class="tok-kw">JOIN</span> publicadoras p <span class="tok-kw">ON</span> j.publicadora_id = p.id
+<span class="tok-kw">WHERE</span> p.pais = <span class="tok-str">'Estados Unidos'</span>
+<span class="tok-kw">GROUP BY</span> p.nombre;</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">resultado</div>
+        <pre><code><span class="c3">     nombre      | count
+-----------------+-------
+ Electronic Arts |     4
+ Rockstar Games  |     3
+ Valve           |     3</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Primero se hace el <code>JOIN</code> y <strong>después</strong> se agrupa</span></li>
+        <li><span>El <code>WHERE</code> filtra las filas <strong>antes</strong> de agrupar</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">51</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.09 — GROUP BY</div>
       <div class="s-title s-title--md">La regla del <code>SELECT</code></div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
@@ -1130,7 +1163,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">51</span>
+      <span class="num">52</span>
     </div>
   </section>
 
@@ -1143,7 +1176,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">52</span>
+      <span class="num">53</span>
     </div>
   </section>
 
@@ -1163,7 +1196,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">53</span>
+      <span class="num">54</span>
     </div>
   </section>
 
@@ -1183,7 +1216,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">54</span>
+      <span class="num">55</span>
     </div>
   </section>
 
@@ -1199,7 +1232,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">55</span>
+      <span class="num">56</span>
     </div>
   </section>
 

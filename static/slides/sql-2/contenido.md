@@ -552,7 +552,7 @@ WHERE j.id IS NULL;
 
 ---
 
-# Adelanto: GROUP BY
+# GROUP BY
 
 ---
 
@@ -599,6 +599,28 @@ GROUP BY fabricante;
 
 - `GROUP BY` junta las filas con el **mismo fabricante** en un grupo, y `COUNT(*)` cuenta **cada** grupo
 - El orden de los grupos **no está garantizado**: para ordenarlos hay que pedir `ORDER BY` {tag:note}
+
+---
+
+## `GROUP BY` con un `JOIN`
+
+```sql
+SELECT p.nombre, COUNT(*)
+FROM juegos j
+JOIN publicadoras p ON j.publicadora_id = p.id
+WHERE p.pais = 'Estados Unidos'
+GROUP BY p.nombre;
+```
+```
+     nombre      | count
+-----------------+-------
+ Electronic Arts |     4
+ Rockstar Games  |     3
+ Valve           |     3
+```
+
+- Primero se hace el `JOIN` y **después** se agrupa
+- El `WHERE` filtra las filas **antes** de agrupar
 
 ---
 
