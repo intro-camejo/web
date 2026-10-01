@@ -49,7 +49,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
       padding: 0.75rem 1.25rem 0.35rem;
     }
 
@@ -73,7 +74,7 @@
       border-radius: 0.55rem;
     }
 
-    #reset {
+    #reset, #toggle-ejemplos {
       background: var(--paper);
       color: var(--ink);
       border: 2px solid var(--line);
@@ -81,7 +82,16 @@
       white-space: nowrap;
     }
 
-    #reset:hover { border-color: var(--accent); color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+
+    #reset:hover, #toggle-ejemplos:hover { border-color: var(--accent); color: var(--accent); }
+
+    #toggle-ejemplos[aria-expanded="true"] {
+      border-color: var(--accent);
+      background: var(--chip-on);
+      color: var(--accent);
+      font-weight: 700;
+    }
 
     .banner {
       margin: 0.35rem 1.25rem 0.6rem;
@@ -98,6 +108,8 @@
       flex-direction: column;
       gap: 0.45rem;
     }
+
+    #examples[hidden] { display: none; }
 
     .grupo {
       display: flex;
@@ -273,6 +285,7 @@
 
     @media (max-width: 960px) {
       body { height: auto; overflow: auto; }
+      .header-actions { width: 100%; }
       .workspace { grid-template-columns: 1fr; }
       textarea { min-height: 14rem; }
       #results { max-height: 70vh; }
@@ -283,12 +296,15 @@
   <header>
     <div>
       <h1>Consola SQL · videojuegos</h1>
-      <p class="sub">Dataset de la clase ya cargado. Los botones son los ejemplos de <a href="/slides/sql-2/index.html">JOINs &amp; GROUP BY</a>.</p>
+      <p class="sub">Dataset de la clase ya cargado. Las consultas de <a href="/slides/sql-2/index.html">JOINs &amp; GROUP BY</a> están en Ejemplos.</p>
     </div>
-    <button id="reset" type="button">Recargar datos</button>
+    <div class="header-actions">
+      <button id="toggle-ejemplos" type="button" aria-expanded="false" aria-controls="examples">Ejemplos</button>
+      <button id="reset" type="button">Recargar datos</button>
+    </div>
   </header>
   <p class="banner">SQLite en el navegador, no PostgreSQL. Sin <code>ORDER BY</code> el orden de las filas puede cambiar. <code>RIGHT JOIN</code> y <code>FULL OUTER JOIN</code> funcionan.</p>
-  <div id="examples"></div>
+  <div id="examples" hidden></div>
   <div class="workspace">
     <section class="panel" aria-label="Consulta">
       <div class="panel-bar"><h2>Consulta</h2></div>
@@ -409,15 +425,18 @@
           boton.setAttribute("aria-pressed", "false");
           boton.addEventListener("click", () => elegir(item, boton));
           fila.append(boton);
-          if (item.id === "inner") {
-            sqlInput.value = item.sql;
-            boton.setAttribute("aria-pressed", "true");
-          }
         }
         examplesEl.append(fila);
       }
     }
 
+    document.getElementById("toggle-ejemplos").addEventListener("click", () => {
+      const abierto = examplesEl.hidden;
+      examplesEl.hidden = !abierto;
+      const boton = document.getElementById("toggle-ejemplos");
+      boton.setAttribute("aria-expanded", String(abierto));
+      boton.textContent = abierto ? "Ocultar ejemplos" : "Ejemplos";
+    });
     document.getElementById("run").addEventListener("click", ejecutar);
     document.getElementById("reset").addEventListener("click", () => {
       try {
@@ -453,7 +472,7 @@
       datasetSql = dataset;
       armarBotones(grupos);
       cargarDatos();
-      ejecutar();
+      results.innerHTML = '<p class="vacio">Escribí una consulta o abrí Ejemplos.</p>';
     }).catch((error) => {
       results.innerHTML = '<p class="error">' + escapeHtml(error.message || error) + "</p>";
     });
