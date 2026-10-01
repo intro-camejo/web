@@ -8,13 +8,8 @@
         "sql": "SELECT titulo, publicadora_id\nFROM juegos\nWHERE genero_id = 2;   -- 2 = Plataformas"
       },
       {
-        "id": "cross",
-        "label": "CROSS JOIN",
-        "sql": "SELECT p.nombre AS publicadora, pl.nombre AS plataforma\nFROM publicadoras p\nCROSS JOIN plataformas pl\nWHERE p.pais = 'Japón' AND pl.lanzamiento >= 2017;"
-      },
-      {
         "id": "coma",
-        "label": "Coma + WHERE",
+        "label": "Producto cartesiano",
         "sql": "SELECT j.titulo, p.nombre\nFROM juegos j, publicadoras p\nWHERE j.publicadora_id = p.id AND j.genero_id = 2;"
       },
       {

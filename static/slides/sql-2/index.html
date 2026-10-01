@@ -536,57 +536,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
-      <div class="s-title s-title--md"><code>CROSS JOIN</code>: el producto cartesiano</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">sql</div>
-        <pre><code><span class="tok-kw">SELECT</span> p.nombre <span class="tok-kw">AS</span> publicadora, pl.nombre <span class="tok-kw">AS</span> plataforma
-<span class="tok-kw">FROM</span> publicadoras p
-<span class="tok-kw">CROSS</span> <span class="tok-kw">JOIN</span> plataformas pl
-<span class="tok-kw">WHERE</span> p.pais = <span class="tok-str">'Japón'</span> <span class="tok-kw">AND</span> pl.lanzamiento &gt;= <span class="tok-num">2017</span>;</code></pre>
-      </div>
-      <div class="code-block">
-        <div class="fname">resultado</div>
-        <pre><code><span class="c3"> publicadora |   plataforma
--------------+-----------------
- Nintendo    | PlayStation 5
- Capcom      | PlayStation 5
- Nintendo    | Xbox Series X|S
- Capcom      | Xbox Series X|S
- Nintendo    | Nintendo Switch
- Capcom      | Nintendo Switch</span></code></pre>
-      </div>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">21</span>
-    </div>
-  </section>
-
-  <!-- titulo-bullets -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
-      <div class="s-title s-title--md">Sin filtro, explota</div>
-      <ul class="bullets">
-        <li><span>Recién: 2 publicadoras × 3 plataformas = 6 filas. Pero <code>juegos CROSS JOIN publicadoras</code> → 28 × 9 = <strong>252 filas</strong></span></li>
-        <li><span>La mayoría no tiene sentido: "Minecraft — Nintendo", "Celeste — Capcom"...</span></li>
-        <li><span>Solo nos sirven los pares donde <code>juegos.publicadora_id = publicadoras.id</code></span></li>
-        <li><span>Con tablas de miles de filas, el producto cartesiano es <strong>enorme</strong><span class="tag tag-warning">Warning</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">22</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
-      <div class="s-title s-title--md">Producto cartesiano + filtro</div>
+      <div class="s-title s-title--md">La coma es el producto cartesiano</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">sql</div>
         <pre><code><span class="tok-kw">SELECT</span> j.titulo, p.nombre
@@ -602,13 +552,32 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
  Rayman Legends      | Ubisoft</span></code></pre>
       </div>
       <ul class="bullets">
-        <li><span>La coma es un producto cartesiano; el <code>WHERE</code> se queda con los pares que <strong>coinciden</strong>. Mezcla "cómo junto" con "qué filtro"<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>La coma entre las tablas <strong>es</strong> el producto cartesiano. El <code>WHERE</code> se queda con los pares que <strong>coinciden</strong><span class="tag tag-tip">Tip</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">23</span>
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Del producto cartesiano al INNER JOIN</div>
+      <div class="s-title s-title--md">Sin filtro, explota</div>
+      <ul class="bullets">
+        <li><span>Sin el <code>WHERE</code>, <code>FROM juegos, publicadoras</code> arma 28 × 9 = <strong>252 filas</strong></span></li>
+        <li><span>La mayoría no tiene sentido: "Minecraft — Nintendo", "Celeste — Capcom"...</span></li>
+        <li><span>Solo nos sirven los pares donde <code>juegos.publicadora_id = publicadoras.id</code></span></li>
+        <li><span>Con tablas de miles de filas, el producto cartesiano es <strong>enorme</strong><span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
     </div>
   </section>
 
@@ -632,7 +601,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">24</span>
+      <span class="num">23</span>
     </div>
   </section>
 
@@ -664,7 +633,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">25</span>
+      <span class="num">24</span>
     </div>
   </section>
 
@@ -682,7 +651,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">26</span>
+      <span class="num">25</span>
     </div>
   </section>
 
@@ -695,7 +664,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">27</span>
+      <span class="num">26</span>
     </div>
   </section>
 
@@ -719,7 +688,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">28</span>
+      <span class="num">27</span>
     </div>
   </section>
 
@@ -752,7 +721,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">29</span>
+      <span class="num">28</span>
     </div>
   </section>
 
@@ -775,7 +744,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">30</span>
+      <span class="num">29</span>
     </div>
   </section>
 
@@ -798,7 +767,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">31</span>
+      <span class="num">30</span>
     </div>
   </section>
 
@@ -828,7 +797,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">32</span>
+      <span class="num">31</span>
     </div>
   </section>
 
@@ -851,7 +820,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">33</span>
+      <span class="num">32</span>
     </div>
   </section>
 
@@ -861,7 +830,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="eyebrow"><span class="dot"></span>.05 — OUTER JOINs: LEFT, RIGHT y FULL</div>
       <div class="s-title s-title--md">Resumen visual (1/2)</div>
       <div class="grid-imgs cols-3">
-        <div class="cell"><div class="ph"><img src="img/producto-cartesiano.svg" alt=""></div><div class="cap">CROSS JOIN — todas contra todas</div></div>
+        <div class="cell"><div class="ph"><img src="img/producto-cartesiano.svg" alt=""></div><div class="cap">Producto cartesiano — todas contra todas</div></div>
         <div class="cell"><div class="ph"><img src="img/join-inner.svg" alt=""></div><div class="cap">INNER JOIN — solo los que tienen pareja</div></div>
         <div class="cell"><div class="ph"><img src="img/join-left.svg" alt=""></div><div class="cap">LEFT JOIN — toda la izquierda</div></div>
       </div>
@@ -869,7 +838,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">34</span>
+      <span class="num">33</span>
     </div>
   </section>
 
@@ -887,7 +856,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">35</span>
+      <span class="num">34</span>
     </div>
   </section>
 
@@ -900,7 +869,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">36</span>
+      <span class="num">35</span>
     </div>
   </section>
 
@@ -934,7 +903,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">37</span>
+      <span class="num">36</span>
     </div>
   </section>
 
@@ -965,7 +934,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">38</span>
+      <span class="num">37</span>
     </div>
   </section>
 
@@ -982,7 +951,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">39</span>
+      <span class="num">38</span>
     </div>
   </section>
 
@@ -995,7 +964,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">40</span>
+      <span class="num">39</span>
     </div>
   </section>
 
@@ -1014,7 +983,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">41</span>
+      <span class="num">40</span>
     </div>
   </section>
 
@@ -1027,7 +996,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">42</span>
+      <span class="num">41</span>
     </div>
   </section>
 
@@ -1049,7 +1018,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">43</span>
+      <span class="num">42</span>
     </div>
   </section>
 
@@ -1072,7 +1041,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">44</span>
+      <span class="num">43</span>
     </div>
   </section>
 
@@ -1098,7 +1067,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">45</span>
+      <span class="num">44</span>
     </div>
   </section>
 
@@ -1111,7 +1080,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">46</span>
+      <span class="num">45</span>
     </div>
   </section>
 
@@ -1129,7 +1098,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">47</span>
+      <span class="num">46</span>
     </div>
   </section>
 
@@ -1156,7 +1125,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">48</span>
+      <span class="num">47</span>
     </div>
   </section>
 
@@ -1189,7 +1158,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">49</span>
+      <span class="num">48</span>
     </div>
   </section>
 
@@ -1222,7 +1191,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">50</span>
+      <span class="num">49</span>
     </div>
   </section>
 
@@ -1235,7 +1204,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">51</span>
+      <span class="num">50</span>
     </div>
   </section>
 
@@ -1246,7 +1215,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="s-title s-title--md">Resumen</div>
       <ul class="bullets">
         <li><span><code>JOIN</code> combina filas de dos tablas según una condición (<code>ON</code>)</span></li>
-        <li><span><code>INNER</code> = intersección · <code>LEFT</code>/<code>RIGHT</code> = un lado completo · <code>FULL</code> = todo · <code>CROSS</code> = todas contra todas</span></li>
+        <li><span><code>INNER</code> = intersección · <code>LEFT</code>/<code>RIGHT</code> = un lado completo · <code>FULL</code> = todo · la coma = todas contra todas</span></li>
         <li><span><strong>Anti-join</strong>: <code>LEFT JOIN</code> + <code>WHERE &lt;PK de la derecha&gt; IS NULL</code></span></li>
         <li><span>Alias para escribir menos y para <strong>desambiguar</strong> columnas</span></li>
         <li><span><code>GROUP BY</code> agrupa filas y las <strong>agregaciones</strong> (<code>COUNT</code>, <code>SUM</code>...) resumen cada grupo</span></li>
@@ -1255,7 +1224,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">52</span>
+      <span class="num">51</span>
     </div>
   </section>
 
@@ -1275,7 +1244,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">53</span>
+      <span class="num">52</span>
     </div>
   </section>
 
@@ -1294,7 +1263,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">54</span>
+      <span class="num">53</span>
     </div>
   </section>
 

@@ -217,38 +217,7 @@ Cada flecha va de la **clave foránea** a la tabla que referencia.
 
 ---
 
-## `CROSS JOIN`: el producto cartesiano
-
-```sql
-SELECT p.nombre AS publicadora, pl.nombre AS plataforma
-FROM publicadoras p
-CROSS JOIN plataformas pl
-WHERE p.pais = 'Japón' AND pl.lanzamiento >= 2017;
-```
-```
- publicadora |   plataforma
--------------+-----------------
- Nintendo    | PlayStation 5
- Capcom      | PlayStation 5
- Nintendo    | Xbox Series X|S
- Capcom      | Xbox Series X|S
- Nintendo    | Nintendo Switch
- Capcom      | Nintendo Switch
-```
-
-
----
-
-## Sin filtro, explota
-
-- Recién: 2 publicadoras × 3 plataformas = 6 filas. Pero `juegos CROSS JOIN publicadoras` → 28 × 9 = **252 filas**
-- La mayoría no tiene sentido: "Minecraft — Nintendo", "Celeste — Capcom"...
-- Solo nos sirven los pares donde `juegos.publicadora_id = publicadoras.id`
-- Con tablas de miles de filas, el producto cartesiano es **enorme** {tag:warning}
-
----
-
-## Producto cartesiano + filtro
+## La coma es el producto cartesiano
 
 ```sql
 SELECT j.titulo, p.nombre
@@ -263,7 +232,16 @@ WHERE j.publicadora_id = p.id AND j.genero_id = 2;
  Rayman Legends      | Ubisoft
 ```
 
-- La coma es un producto cartesiano; el `WHERE` se queda con los pares que **coinciden**. Mezcla "cómo junto" con "qué filtro" {tag:warning}
+- La coma entre las tablas **es** el producto cartesiano. El `WHERE` se queda con los pares que **coinciden** {tag:tip}
+
+---
+
+## Sin filtro, explota
+
+- Sin el `WHERE`, `FROM juegos, publicadoras` arma 28 × 9 = **252 filas**
+- La mayoría no tiene sentido: "Minecraft — Nintendo", "Celeste — Capcom"...
+- Solo nos sirven los pares donde `juegos.publicadora_id = publicadoras.id`
+- Con tablas de miles de filas, el producto cartesiano es **enorme** {tag:warning}
 
 ---
 
@@ -401,7 +379,7 @@ WHERE j.id IS NULL;
 <!-- slide: tipo=hasta-6-imagenes -->
 ## Resumen visual (1/2)
 
-![CROSS JOIN — todas contra todas](img/producto-cartesiano.svg)
+![Producto cartesiano — todas contra todas](img/producto-cartesiano.svg)
 ![INNER JOIN — solo los que tienen pareja](img/join-inner.svg)
 ![LEFT JOIN — toda la izquierda](img/join-left.svg)
 
@@ -603,7 +581,7 @@ GROUP BY p.nombre;
 ## Resumen
 
 - `JOIN` combina filas de dos tablas según una condición (`ON`)
-- `INNER` = intersección · `LEFT`/`RIGHT` = un lado completo · `FULL` = todo · `CROSS` = todas contra todas
+- `INNER` = intersección · `LEFT`/`RIGHT` = un lado completo · `FULL` = todo · la coma = todas contra todas
 - **Anti-join**: `LEFT JOIN` + `WHERE <PK de la derecha> IS NULL`
 - Alias para escribir menos y para **desambiguar** columnas
 - `GROUP BY` agrupa filas y las **agregaciones** (`COUNT`, `SUM`...) resumen cada grupo
