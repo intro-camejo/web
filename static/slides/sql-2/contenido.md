@@ -159,49 +159,28 @@ Ejemplo: **A** = los juegos que tengo yo, **B** = los que tiene mi amiga.
 ## El modelo
 
 ```mermaid
-erDiagram
-  direction LR
-  publicadoras |o--o{ juegos : "publica"
-  generos ||--o{ juegos : "clasifica"
-  juegos ||--o{ juegos_plataformas : ""
-  plataformas ||--o{ juegos_plataformas : ""
-  juegos_plataformas ||--o{ ventas : ""
-  publicadoras {
-    int id PK
-    text nombre
-    text pais
-    int fundacion
-  }
-  juegos {
-    int id PK
-    text titulo
-    int anio
-    numeric precio
-    int publicadora_id FK "NULL = indie"
-    int genero_id FK
-    int metacritic
-  }
-  generos {
-    int id PK
-    text nombre
-  }
-  plataformas {
-    int id PK
-    text nombre
-    text fabricante
-    int lanzamiento
-  }
-  juegos_plataformas {
-    int juego_id PK,FK
-    int plataforma_id PK,FK
-  }
-  ventas {
-    int juego_id PK,FK
-    int plataforma_id PK,FK
-    text region PK
-    int unidades
-  }
+%%{init: {"flowchart": {"nodeSpacing": 30, "rankSpacing": 60, "padding": 14}}}%%
+graph LR
+  ventas["<b>ventas</b><br/>juego_id, plataforma_id,<br/>region, unidades"]
+  jp["<b>juegos_plataformas</b><br/>juego_id,<br/>plataforma_id"]
+  plataformas["<b>plataformas</b><br/>id, nombre,<br/>fabricante, lanzamiento"]
+  juegos["<b>juegos</b><br/>id, titulo, anio,<br/>precio, metacritic,<br/>publicadora_id, genero_id"]
+  publicadoras["<b>publicadoras</b><br/>id, nombre,<br/>pais, fundacion"]
+  generos["<b>generos</b><br/>id, nombre"]
+  ventas --> jp
+  jp --> juegos
+  jp --> plataformas
+  juegos --> publicadoras
+  juegos --> generos
+  style ventas rx:10,ry:10
+  style jp rx:10,ry:10
+  style plataformas rx:10,ry:10
+  style juegos rx:10,ry:10
+  style publicadoras rx:10,ry:10
+  style generos rx:10,ry:10
 ```
+
+Cada flecha va de la **clave foránea** a la tabla que referencia.
 
 ---
 
