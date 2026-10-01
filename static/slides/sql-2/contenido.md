@@ -642,3 +642,5 @@ ERROR: column "plataformas.nombre" must appear in the GROUP BY clause or be used
 <!-- slide: tipo=cierre -->
 # ¡Gracias!
 ## Ahora Gonza con GROUP BY, con el mismo dataset
+
+Referencia para practicar: https://www.w3schools.com/sql/sql_exercises.asp
