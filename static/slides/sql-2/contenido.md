@@ -473,6 +473,33 @@ WHERE g.nombre = 'Plataformas';
 
 ---
 
+## N:M: pasar por la tabla intermedia
+
+```sql
+SELECT j.titulo, pl.nombre
+FROM juegos j
+JOIN juegos_plataformas jp ON jp.juego_id = j.id
+JOIN plataformas pl ON pl.id = jp.plataforma_id
+WHERE j.titulo = 'Hollow Knight';
+```
+
+---
+
+## Resultado
+
+```
+     titulo    |      nombre
+---------------+-----------------
+ Hollow Knight | PC
+ Hollow Knight | PlayStation 4
+ Hollow Knight | Xbox One
+ Hollow Knight | Nintendo Switch
+```
+
+- Una fila por cada **par** (juego, plataforma) de la tabla intermedia {tag:info}
+
+---
+
 # Ejercicios
 
 ---
