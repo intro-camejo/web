@@ -34,3 +34,7 @@
 
 * [JOINs & GROUP BY](pathname:///slides/sql-2/index.html)
 * [Consola SQL (videojuegos)](pathname:///sql-juegos/index.html)
+
+## Charla
+
+* [Incertidumbre](pathname:///slides/incertidumbre/index.html)
