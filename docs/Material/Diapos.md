@@ -37,4 +37,4 @@
 
 ## Charla
 
-* [Incertidumbre](pathname:///slides/incertidumbre/index.html)
+* [Incertidumbre en épocas de AI](pathname:///slides/incertidumbre/index.html)

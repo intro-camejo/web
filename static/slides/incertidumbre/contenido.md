@@ -1,5 +1,5 @@
 <!-- slide: tipo=portada -->
-# Incertidumbre
+# Incertidumbre en épocas de AI
 La IA cambia el panorama. Programar sigue siendo decirle a la computadora qué hacer.
 
 ---
