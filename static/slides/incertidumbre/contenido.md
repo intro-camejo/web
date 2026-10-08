@@ -17,7 +17,7 @@ La IA cambia el panorama. Programar sigue siendo decirle a la computadora qué h
 
 ## Entonces, ¿qué hacemos acá?
 
-Si programar ya lo hace una máquina, esta materia parece al pedo. Antes de contestar eso hay que ponerse de acuerdo en qué es programar.
+Esas dos frases son la pregunta de hoy. Al final de la clase las contestamos.
 
 ---
 
