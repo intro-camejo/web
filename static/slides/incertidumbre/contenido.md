@@ -15,9 +15,9 @@ La IA cambia el panorama. Programar sigue siendo decirle a la computadora qué h
 
 ---
 
-## Entonces, ¿qué hacemos acá?
+## ¿Qué hacemos acá?
 
-Esas dos frases son la pregunta de hoy. Al final de la clase las contestamos.
+Al final de la clase lo contestamos.
 
 ---
 
