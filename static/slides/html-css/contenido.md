@@ -118,7 +118,7 @@ Clase HTML y CSS — 2026
 - `<html>`: raíz del documento
 - `<head>`: metadatos (por ejemplo, el título de la pestaña)
 - `<body>`: el contenido visible de la página
-- `<footer>`: pie de página (opcional)
+- `<footer>` y `<header>` no van acá: van **dentro** del `<body>` (los vemos en tags semánticos)
 
 ---
 
