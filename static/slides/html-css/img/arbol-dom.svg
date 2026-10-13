@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="120 14 780 622" font-family="ui-monospace, Menlo, Consolas, monospace" font-weight="700">
+<rect x="120" y="14" width="780" height="622" fill="#fff"/>
+<line x1="420" y1="76.0" x2="200" y2="134.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="420" y1="76.0" x2="580" y2="134.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="580" y1="186.0" x2="340" y2="244.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="580" y1="186.0" x2="560" y2="244.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="580" y1="186.0" x2="820" y2="244.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="340" y1="296.0" x2="340" y2="354.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="560" y1="296.0" x2="480" y2="354.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="560" y1="296.0" x2="640" y2="354.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="820" y1="296.0" x2="820" y2="354.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="640" y1="406.0" x2="560" y2="464.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="640" y1="406.0" x2="720" y2="464.0" stroke="#1a1a1a" stroke-width="3"/>
+<line x1="720" y1="516.0" x2="720" y2="574.0" stroke="#1a1a1a" stroke-width="3"/>
+<rect x="360.0" y="24.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="420" y="58" font-size="24" text-anchor="middle" fill="#1a1a1a">html</text>
+<rect x="140.0" y="134.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="200" y="168" font-size="24" text-anchor="middle" fill="#1a1a1a">head</text>
+<rect x="520.0" y="134.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="580" y="168" font-size="24" text-anchor="middle" fill="#1a1a1a">body</text>
+<rect x="280.0" y="244.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="340" y="278" font-size="24" text-anchor="middle" fill="#1a1a1a">header</text>
+<rect x="500.0" y="244.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="560" y="278" font-size="24" text-anchor="middle" fill="#1a1a1a">main</text>
+<rect x="760.0" y="244.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="820" y="278" font-size="24" text-anchor="middle" fill="#1a1a1a">footer</text>
+<rect x="280.0" y="354.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="340" y="388" font-size="24" text-anchor="middle" fill="#1a1a1a">p</text>
+<rect x="420.0" y="354.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="480" y="388" font-size="24" text-anchor="middle" fill="#1a1a1a">h1</text>
+<rect x="580.0" y="354.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="640" y="388" font-size="24" text-anchor="middle" fill="#1a1a1a">div</text>
+<rect x="760.0" y="354.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="820" y="388" font-size="24" text-anchor="middle" fill="#1a1a1a">p</text>
+<rect x="500.0" y="464.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="560" y="498" font-size="24" text-anchor="middle" fill="#1a1a1a">p</text>
+<rect x="660.0" y="464.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+<text x="720" y="498" font-size="24" text-anchor="middle" fill="#1a1a1a">div</text>
+<rect x="660.0" y="574.0" width="120" height="52" rx="26.0" fill="#fff" stroke="#1a9e4b" stroke-width="5"/>
+<text x="720" y="608" font-size="24" text-anchor="middle" fill="#1a1a1a">p</text>
+</svg>

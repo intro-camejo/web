@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="170 50 660 420" font-family="Helvetica, Arial, sans-serif" font-weight="700">
+  <rect x="170" y="50" width="660" height="420" fill="#2e3a78"/>
+  <rect x="200" y="80" width="600" height="360" fill="#4ccdf4"/>
+  <text x="240" y="118" fill="#fff" font-size="22">MARGIN</text>
+  <rect x="240" y="130" width="520" height="280" fill="#333a66"/>
+  <text x="278" y="166" fill="#fff" font-size="22">BORDER</text>
+  <rect x="280" y="178" width="440" height="202" fill="#4171ad"/>
+  <text x="325" y="212" fill="#fff" font-size="22">PADDING</text>
+  <rect x="325" y="228" width="350" height="120" fill="#ffa653"/>
+  <text x="500" y="296" fill="#fff" font-size="26" text-anchor="middle">CONTENT</text>
+  <line x1="330" y1="336" x2="462" y2="336" stroke="#ff7a2e" stroke-width="2"/>
+  <line x1="538" y1="336" x2="664" y2="336" stroke="#ff7a2e" stroke-width="2"/>
+  <text x="500" y="342" fill="#ff7a2e" font-size="16" text-anchor="middle">WIDTH</text>
+  <line x1="664" y1="236" x2="664" y2="244" stroke="#ff7a2e" stroke-width="2"/>
+  <line x1="664" y1="324" x2="664" y2="342" stroke="#ff7a2e" stroke-width="2"/>
+  <text x="0" y="0" fill="#ff7a2e" font-size="16" text-anchor="middle" transform="translate(658 284) rotate(90)">HEIGHT</text>
+</svg>
