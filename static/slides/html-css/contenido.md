@@ -347,6 +347,21 @@ p          { color: green; }
 
 ---
 
+## Los cuatro lados
+
+```css
+.caja {
+  padding: 10px;              /* los 4 lados iguales */
+  margin-top: 20px;           /* solo arriba */
+  border-left: 3px solid red; /* solo la izquierda */
+}
+```
+
+- Padding, border y margin tienen cada uno **cuatro lados**: `top`, `right`, `bottom`, `left`
+- Sin lado (`padding`) se aplica a los cuatro; con lado (`margin-top`), solo a ese
+
+---
+
 ## ¿Cómo se acomodan los elementos?
 
 ```html

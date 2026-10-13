@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Helvetica, Arial, sans-serif" font-weight="700">
-  <rect width="1000" height="520" fill="#2e3a78"/>
-  <text x="500" y="48" fill="#fff" font-size="24" text-anchor="middle">TOP</text>
-  <text x="500" y="494" fill="#fff" font-size="24" text-anchor="middle">BOTTOM</text>
-  <text x="120" y="268" fill="#fff" font-size="24" text-anchor="middle">LEFT</text>
-  <text x="880" y="268" fill="#fff" font-size="24" text-anchor="middle">RIGHT</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="170 50 660 420" font-family="Helvetica, Arial, sans-serif" font-weight="700">
+  <rect x="170" y="50" width="660" height="420" fill="#2e3a78"/>
   <rect x="200" y="80" width="600" height="360" fill="#4ccdf4"/>
   <text x="240" y="118" fill="#fff" font-size="22">MARGIN</text>
   <rect x="240" y="130" width="520" height="280" fill="#333a66"/>
