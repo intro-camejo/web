@@ -568,19 +568,42 @@
       <div class="s-title s-title--md">La cascada: ¿de qué color queda?</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">css</div>
-        <pre><code><span class="tok-kw">p</span>          { color: <span class="tok-str">green</span>; }
+        <pre><code><span class="tok-kw">#intro</span>     { color: <span class="tok-str">red</span>; }    <span class="tok-com">/* gana esta, aunque esté primera */</span>
 <span class="tok-kw">.destacado</span> { color: <span class="tok-str">blue</span>; }
-<span class="tok-kw">#intro</span>     { color: <span class="tok-str">red</span>; }    <span class="tok-com">/* gana esta */</span></code></pre>
+<span class="tok-kw">p</span>          { color: <span class="tok-str">green</span>; }</code></pre>
       </div>
       <ul class="bullets">
         <li><span>Las tres reglas apuntan al mismo <code>&lt;p id="intro" class="destacado"&gt;</code></span></li>
-        <li><span>Queda <strong>rojo</strong>: la regla por <code>id</code> es la más específica</span></li>
+        <li><span>Queda <strong>rojo</strong>: la regla por <code>id</code> es la más específica, sin importar dónde esté</span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
       <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Empate: gana la de más abajo</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.destacado</span>  { color: <span class="tok-str">blue</span>; }
+<span class="tok-kw">.importante</span> { color: <span class="tok-str">orange</span>; }  <span class="tok-com">/* gana esta: es la última */</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>El elemento tiene dos clases: <code>&lt;p class="destacado importante"&gt;</code></span></li>
+        <li><span>Las dos reglas son por clase: tienen la <strong>misma especificidad</strong></span></li>
+        <li><span>Desempata el orden: gana la que está <strong>más abajo</strong> y queda <strong>naranja</strong></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
     </div>
   </section>
 
@@ -599,7 +622,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">29</span>
+      <span class="num">30</span>
     </div>
   </section>
 
@@ -617,7 +640,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">30</span>
+      <span class="num">31</span>
     </div>
   </section>
 
@@ -635,7 +658,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">31</span>
+      <span class="num">32</span>
     </div>
   </section>
 
@@ -654,39 +677,6 @@
         <li><span>El <code>.css</code> vive en su propio archivo y se vincula desde el <code>&lt;head&gt;</code></span></li>
         <li><span>Un mismo archivo de estilos sirve para <strong>todas</strong> las páginas del sitio</span></li>
       </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">32</span>
-    </div>
-  </section>
-
-  <!-- comparacion -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
-      <div class="s-title s-title--md">Block vs. inline</div>
-      <div class="compare">
-        <div class="side a">
-          <h3>Block</h3>
-          <ul>
-            <li>Ocupa <strong>todo el ancho</strong> disponible</li>
-            <li>Arranca en una <strong>línea nueva</strong></li>
-            <li>Respeta <code>width</code>, <code>height</code>, <code>margin</code> y <code>padding</code></li>
-            <li>Ej: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;ul&gt;</code></li>
-          </ul>
-        </div>
-        <div class="side b">
-          <h3>Inline</h3>
-          <ul>
-            <li>Ocupa <strong>solo lo que mide</strong> su contenido</li>
-            <li>Se acomoda <strong>en la misma línea</strong> que el texto</li>
-            <li>Ignora <code>width</code> y <code>height</code></li>
-            <li>Ej: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code></li>
-          </ul>
-        </div>
-      </div>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
@@ -720,6 +710,64 @@
     </div>
   </section>
 
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">¿Cómo se acomodan los elementos?</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">h1</span>&gt;Un título&lt;/<span class="tok-kw">h1</span>&gt;
+&lt;<span class="tok-kw">p</span>&gt;Un párrafo con &lt;<span class="tok-kw">strong</span>&gt;negrita&lt;/<span class="tok-kw">strong</span>&gt; y un &lt;<span class="tok-kw">a</span> href=<span class="tok-str">"#"</span>&gt;link&lt;/<span class="tok-kw">a</span>&gt;.&lt;/<span class="tok-kw">p</span>&gt;
+&lt;<span class="tok-kw">div</span>&gt;Una caja&lt;/<span class="tok-kw">div</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Cada elemento tiene un <code>display</code> que dice cómo se ubica en la página</span></li>
+        <li><span><code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code> y <code>&lt;div&gt;</code> son <strong>block</strong>: cada uno arranca en su propia línea</span></li>
+        <li><span><code>&lt;strong&gt;</code> y <code>&lt;a&gt;</code> son <strong>inline</strong>: van dentro del texto, sin cortarlo</span></li>
+        <li><span>Se puede cambiar con CSS: <code>display: block;</code> o <code>display: inline;</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Block vs. inline</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Block</h3>
+          <ul>
+            <li>Ocupa <strong>todo el ancho</strong> disponible</li>
+            <li>Arranca en una <strong>línea nueva</strong></li>
+            <li>Respeta <code>width</code>, <code>height</code>, <code>margin</code> y <code>padding</code></li>
+            <li>Ej: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;ul&gt;</code></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Inline</h3>
+          <ul>
+            <li>Ocupa <strong>solo lo que mide</strong> su contenido</li>
+            <li>Se acomoda <strong>en la misma línea</strong> que el texto</li>
+            <li>Ignora <code>width</code> y <code>height</code></li>
+            <li>Ej: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
   <!-- divisoria-seccion -->
   <section class="slide on-accent">
     <div class="s-pad" style="justify-content:center;">
@@ -729,7 +777,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">35</span>
+      <span class="num">37</span>
     </div>
   </section>
 
@@ -749,7 +797,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">36</span>
+      <span class="num">38</span>
     </div>
   </section>
 
@@ -767,7 +815,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">37</span>
+      <span class="num">39</span>
     </div>
   </section>
 
@@ -785,7 +833,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">38</span>
+      <span class="num">40</span>
     </div>
   </section>
 
@@ -801,7 +849,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">39</span>
+      <span class="num">41</span>
     </div>
   </section>
 

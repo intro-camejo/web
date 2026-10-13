@@ -273,13 +273,26 @@ p            { color: red; }       /* por tipo de elemento */
 ## La cascada: ¿de qué color queda?
 
 ```css
-p          { color: green; }
+#intro     { color: red; }    /* gana esta, aunque esté primera */
 .destacado { color: blue; }
-#intro     { color: red; }    /* gana esta */
+p          { color: green; }
 ```
 
 - Las tres reglas apuntan al mismo `<p id="intro" class="destacado">`
-- Queda **rojo**: la regla por `id` es la más específica
+- Queda **rojo**: la regla por `id` es la más específica, sin importar dónde esté
+
+---
+
+## Empate: gana la de más abajo
+
+```css
+.destacado  { color: blue; }
+.importante { color: orange; }  /* gana esta: es la última */
+```
+
+- El elemento tiene dos clases: `<p class="destacado importante">`
+- Las dos reglas son por clase: tienen la **misma especificidad**
+- Desempata el orden: gana la que está **más abajo** y queda **naranja**
 
 ---
 
@@ -321,6 +334,34 @@ p          { color: green; }
 
 ---
 
+<!-- slide: tipo=imagen-texto -->
+## El modelo de caja (box model)
+
+![Modelo de caja: content, padding, border y margin](img/box-model.png)
+
+- Todo elemento HTML es una **caja** rectangular
+- **Content:** el contenido real
+- **Padding:** espacio interior
+- **Border:** el borde
+- **Margin:** espacio exterior
+
+---
+
+## ¿Cómo se acomodan los elementos?
+
+```html
+<h1>Un título</h1>
+<p>Un párrafo con <strong>negrita</strong> y un <a href="#">link</a>.</p>
+<div>Una caja</div>
+```
+
+- Cada elemento tiene un `display` que dice cómo se ubica en la página
+- `<h1>`, `<p>` y `<div>` son **block**: cada uno arranca en su propia línea
+- `<strong>` y `<a>` son **inline**: van dentro del texto, sin cortarlo
+- Se puede cambiar con CSS: `display: block;` o `display: inline;`
+
+---
+
 <!-- slide: tipo=comparacion -->
 ## Block vs. inline
 
@@ -335,19 +376,6 @@ p          { color: green; }
 - Se acomoda **en la misma línea** que el texto
 - Ignora `width` y `height`
 - Ej: `<span>`, `<a>`, `<strong>`, `<em>`
-
----
-
-<!-- slide: tipo=imagen-texto -->
-## El modelo de caja (box model)
-
-![Modelo de caja: content, padding, border y margin](img/box-model.png)
-
-- Todo elemento HTML es una **caja** rectangular
-- **Content:** el contenido real
-- **Padding:** espacio interior
-- **Border:** el borde
-- **Margin:** espacio exterior
 
 ---
 
