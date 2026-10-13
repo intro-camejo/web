@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML &amp; CSS — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!-- Generado a partir de contenido.md con /generar-diapositiva html-css. -->
+<main class="deck">
+
+  <!-- portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">HTML &amp; CSS</div>
+        <div class="s-sub">Dándole forma a la web</div>
+        <div class="cover-index"><span class="n">Clase HTML y CSS</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">Un poco de historia</span></li>
+        <li><span class="idx">.02</span><span class="lbl">HTML</span></li>
+        <li><span class="idx">.03</span><span class="lbl">CSS</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Práctica</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">Un poco de historia</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Un poco de historia</div>
+      <div class="s-title s-title--md">HTML: el origen</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/tim-berners-lee.png" alt="Sir Tim Berners-Lee"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><strong>Tim Berners-Lee</strong>, CERN, <strong>1989</strong> (como Manu Camejo)</span></li>
+        <li><span>Hipertexto para compartir artículos científicos</span></li>
+        <li><span>Conectar información <strong>descentralizada</strong>: nace la Web</span></li>
+        <li><span>18 tags al principio (hoy ~140); primera página en <strong>1991</strong></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — Un poco de historia</div>
+      <div class="s-title s-title--md">CSS: el diseño</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/hakon-wium-lie.jpg" alt="Håkon Wium Lie"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><strong>Håkon Wium Lie</strong> y <strong>Bert Bos</strong>, <strong>1994</strong></span></li>
+        <li><span>Ordenar el caos visual de la web primitiva</span></li>
+        <li><span>Un <strong>estándar</strong> para darle estilo a las páginas</span></li>
+        <li><span><strong>Separar estructura (HTML) de apariencia (CSS)</strong></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">HTML</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">¿Qué es HTML?</div>
+      <ul class="bullets">
+        <li><span>Es el <strong>esqueleto</strong> de una página web</span></li>
+        <li><span><strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage (lenguaje de marcado de hipertexto)</span></li>
+        <li><span>Un lenguaje de marcado para estructurar y presentar contenido en un navegador</span></li>
+        <li><span>Está basado en <strong>etiquetas (tags)</strong> que el navegador interpreta y les da sentido</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">¿Para qué sirve HTML?</div>
+      <ul class="bullets">
+        <li><span>Organizar los elementos de nuestra web</span></li>
+        <li><span>Darle formato a nuestro contenido</span></li>
+        <li><span>Crear formularios</span></li>
+        <li><span>Mostrar contenido multimedia</span></li>
+        <li><span>Hacer accesible nuestra web</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">¿Qué es un tag?</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">p</span>&gt;Hola FIUBA&lt;/<span class="tok-kw">p</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Marcadores que <strong>envuelven</strong> contenido para definir su tipo y propósito</span></li>
+        <li><span>Tienen <strong>apertura</strong> <code>&lt;p&gt;</code>, <strong>contenido</strong> y <strong>cierre</strong> <code>&lt;/p&gt;</code></span></li>
+        <li><span>Algunos no tienen cierre: <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Atributos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">a</span> href=<span class="tok-str">"https://www.uba.ar"</span>&gt;UBA&lt;/<span class="tok-kw">a</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Información extra que va <strong>dentro del tag de apertura</strong>: <code>atributo="valor"</code></span></li>
+        <li><span><code>href</code>: el link al que apunta un <code>&lt;a&gt;</code></span></li>
+        <li><span><code>src</code>: la ruta de la imagen de un <code>&lt;img&gt;</code></span></li>
+        <li><span><code>id</code>: identificador del tag, <strong>debe ser único</strong></span></li>
+        <li><span><code>style</code>: estilos que le agregamos al tag</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Imágenes y el atributo alt</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">img</span> src=<span class="tok-str">"img/gato.jpg"</span> alt=<span class="tok-str">"Un gato naranja durmiendo sobre un teclado"</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>alt</code> describe la imagen para quien <strong>no la ve</strong>: los lectores de pantalla lo leen en voz alta</span></li>
+        <li><span>También se muestra si la imagen <strong>no carga</strong></span></li>
+        <li><span>Si la imagen es solo decorativa, va vacío: <code>alt=""</code></span></li>
+        <li><span>Toda <code>&lt;img&gt;</code> lleva <code>alt</code><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Estructura básica de un archivo HTML</div>
+      <div class="code-block">
+        <div class="fname">index.html</div>
+        <pre><code>&lt;!<span class="tok-kw">DOCTYPE</span> html&gt;
+&lt;<span class="tok-kw">html</span>&gt;
+  &lt;<span class="tok-kw">head</span>&gt;
+    &lt;<span class="tok-kw">title</span>&gt;Mi primera página&lt;/<span class="tok-kw">title</span>&gt;
+  &lt;/<span class="tok-kw">head</span>&gt;
+  &lt;<span class="tok-kw">body</span>&gt;
+    &lt;<span class="tok-kw">h1</span>&gt;Hola FIUBA&lt;/<span class="tok-kw">h1</span>&gt;
+    &lt;<span class="tok-kw">p</span>&gt;Esto es un párrafo.&lt;/<span class="tok-kw">p</span>&gt;
+  &lt;/<span class="tok-kw">body</span>&gt;
+&lt;/<span class="tok-kw">html</span>&gt;</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Estructura básica: qué es cada parte</div>
+      <ul class="bullets">
+        <li><span><code>&lt;!DOCTYPE html&gt;</code>: declaración del tipo de documento</span></li>
+        <li><span><code>&lt;html&gt;</code>: raíz del documento</span></li>
+        <li><span><code>&lt;head&gt;</code>: metadatos (por ejemplo, el título de la pestaña)</span></li>
+        <li><span><code>&lt;body&gt;</code>: el contenido visible de la página</span></li>
+        <li><span><code>&lt;footer&gt;</code>: pie de página (opcional)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Tags básicos — parte 1</div>
+      <ul class="bullets">
+        <li><span><code>&lt;h1&gt;</code>: título</span></li>
+        <li><span><code>&lt;h2&gt;</code>: título, pero más chico</span></li>
+        <li><span><code>&lt;h3&gt;</code>: título, pero más más chico</span></li>
+        <li><span><code>&lt;p&gt;</code>: párrafo</span></li>
+        <li><span><code>&lt;a&gt;</code>: link</span></li>
+        <li><span><code>&lt;img&gt;</code>: imagen</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Tags básicos — parte 2</div>
+      <ul class="bullets">
+        <li><span><code>&lt;ul&gt;</code>: lista no ordenada · <code>&lt;ol&gt;</code>: lista ordenada · <code>&lt;li&gt;</code>: elemento de lista</span></li>
+        <li><span><code>&lt;strong&gt;</code> o <code>&lt;b&gt;</code>: negrita</span></li>
+        <li><span><code>&lt;em&gt;</code> o <code>&lt;i&gt;</code>: cursiva</span></li>
+        <li><span><code>&lt;u&gt;</code>: subrayado</span></li>
+        <li><span><code>&lt;br&gt;</code>: salto de línea</span></li>
+        <li><span><code>&lt;hr&gt;</code>: línea horizontal</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Tags básicos — parte 3</div>
+      <ul class="bullets">
+        <li><span><code>&lt;div&gt;</code>: una división o sección del documento</span></li>
+        <li><span><code>&lt;span&gt;</code>: un fragmento inline, para darle estilo a una parte de un texto</span></li>
+        <li><span><code>&lt;table&gt;</code>: una tabla</span></li>
+        <li><span><code>&lt;tr&gt;</code>: una fila de la tabla</span></li>
+        <li><span><code>&lt;td&gt;</code>: una celda de la tabla</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Formularios</div>
+      <div class="code-block">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">form</span>&gt;
+  &lt;<span class="tok-kw">label</span> for=<span class="tok-str">"nombre"</span>&gt;Nombre&lt;/<span class="tok-kw">label</span>&gt;
+  &lt;<span class="tok-kw">input</span> type=<span class="tok-str">"text"</span> id=<span class="tok-str">"nombre"</span> name=<span class="tok-str">"nombre"</span>&gt;
+  &lt;<span class="tok-kw">button</span> type=<span class="tok-str">"submit"</span>&gt;Enviar&lt;/<span class="tok-kw">button</span>&gt;
+&lt;/<span class="tok-kw">form</span>&gt;</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Formularios: qué es cada parte</div>
+      <ul class="bullets">
+        <li><span><code>&lt;form&gt;</code>: agrupa los campos que se envían juntos</span></li>
+        <li><span><code>&lt;input&gt;</code>: un campo; el <code>type</code> dice cuál (<code>text</code>, <code>email</code>, <code>password</code>, <code>checkbox</code>...)</span></li>
+        <li><span><code>&lt;label&gt;</code>: el texto del campo; su <code>for</code> apunta al <code>id</code> del input</span></li>
+        <li><span><code>&lt;button&gt;</code>: el botón que envía el formulario</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Tags semánticos</div>
+      <ul class="bullets">
+        <li><span><code>&lt;header&gt;</code>: el encabezado (logo, título, menú)</span></li>
+        <li><span><code>&lt;nav&gt;</code>: la navegación</span></li>
+        <li><span><code>&lt;main&gt;</code>: el contenido principal, uno solo por página</span></li>
+        <li><span><code>&lt;section&gt;</code> / <code>&lt;article&gt;</code>: una sección / un contenido que se sostiene solo (ej: una noticia)</span></li>
+        <li><span><code>&lt;footer&gt;</code>: el pie de página</span></li>
+        <li><span>Se ven igual que un <code>&lt;div&gt;</code>, pero le dicen al navegador, a Google y a los lectores de pantalla <strong>qué es</strong> cada parte<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Identificadores y clases</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">h1</span> id=<span class="tok-str">"titulo-principal"</span>&gt;Intro Camejo&lt;/<span class="tok-kw">h1</span>&gt;
+&lt;<span class="tok-kw">p</span> class=<span class="tok-str">"destacado"</span>&gt;HTML&lt;/<span class="tok-kw">p</span>&gt;
+&lt;<span class="tok-kw">p</span> class=<span class="tok-str">"destacado"</span>&gt;CSS&lt;/<span class="tok-kw">p</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Ambos son <strong>atributos</strong> de nuestros tags</span></li>
+        <li><span><code>id</code> identifica <strong>unívocamente</strong> a un tag dentro del documento</span></li>
+        <li><span><code>class</code> <strong>agrupa</strong> tags que son similares</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Jerarquía: el árbol DOM</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/arbol-dom.png" alt="Árbol DOM: body con header, main y footer; main contiene h1 y div con más elementos anidados"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Los tags se <strong>anidan</strong> como contenedores, uno dentro de otro</span></li>
+        <li><span><strong>Padre:</strong> el contenedor</span></li>
+        <li><span><strong>Hijo:</strong> el elemento anidado</span></li>
+        <li><span>El navegador arma con eso un <strong>árbol</strong>: el DOM</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">A laburar…</div>
+      <ul class="bullets">
+        <li><span>Crear un archivo HTML que diga <strong>"Graphic design is my passion"</strong></span></li>
+        <li><span>Agregarle la lista del súper</span></li>
+        <li><span>¡Cuidado con los tags! Que no sobren ni falten aperturas o cierres<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">CSS</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">¿Qué es CSS?</div>
+      <ul class="bullets">
+        <li><span>Define la <strong>presentación</strong> de un documento HTML</span></li>
+        <li><span><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets (hojas de estilo en cascada)</span></li>
+        <li><span>Separa la estructura (HTML) del estilo (CSS)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">¿Para qué sirve CSS?</div>
+      <ul class="bullets">
+        <li><span>Personalizar la apariencia de una página web</span></li>
+        <li><span>Hacer las páginas más atractivas y fáciles de usar</span></li>
+        <li><span>Crear diseños <strong>responsivos</strong> que se adapten a distintos dispositivos</span></li>
+        <li><span>Mejorar la accesibilidad</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Anatomía de una regla CSS</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">p</span> {
+  color: <span class="tok-str">blue</span>;
+  font-size: <span class="tok-num">16px</span>;
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Selector</strong> (<code>p</code>): el elemento HTML que queremos afectar</span></li>
+        <li><span><strong>Propiedad</strong> (<code>color</code>): el aspecto visual que vamos a modificar</span></li>
+        <li><span><strong>Valor</strong> (<code>blue</code>): el dato concreto del cambio</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Selectores</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">p</span>            { color: <span class="tok-str">red</span>; }    <span class="tok-com">/* por tipo de elemento */</span>
+<span class="tok-kw">#mi-elemento</span> { color: <span class="tok-str">green</span>; }  <span class="tok-com">/* por id */</span>
+<span class="tok-kw">.mi-clase</span>    { color: <span class="tok-str">blue</span>; }   <span class="tok-com">/* por clase */</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Por <strong>tipo</strong>: <code>p</code>, <code>h1</code>, <code>div</code></span></li>
+        <li><span>Por <strong>id</strong>: <code>#mi-elemento</code></span></li>
+        <li><span>Por <strong>clase</strong>: <code>.mi-clase</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">La cascada: ¿de qué color queda?</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">p</span>          { color: <span class="tok-str">green</span>; }
+<span class="tok-kw">.destacado</span> { color: <span class="tok-str">blue</span>; }
+<span class="tok-kw">#intro</span>     { color: <span class="tok-str">red</span>; }    <span class="tok-com">/* gana esta */</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Las tres reglas apuntan al mismo <code>&lt;p id="intro" class="destacado"&gt;</code></span></li>
+        <li><span>Queda <strong>rojo</strong>: la regla por <code>id</code> es la más específica</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Las reglas de la cascada</div>
+      <ul class="bullets">
+        <li><span><strong>Especificidad:</strong> si dos reglas chocan, gana la más específica: <code>#id</code> &gt; <code>.clase</code> &gt; <code>tag</code></span></li>
+        <li><span><strong>Orden:</strong> a igual especificidad, gana la <strong>última</strong> que aparece</span></li>
+        <li><span><strong>Herencia:</strong> algunas propiedades pasan de padre a hijo (<code>color</code>, <code>font-family</code>), otras no (<code>margin</code>, <code>border</code>)</span></li>
+        <li><span>Si un estilo "no te toma", casi siempre es la cascada<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Propiedades y valores</div>
+      <ul class="bullets">
+        <li><span><strong>Propiedades:</strong> <code>color</code>, <code>font-size</code>, <code>background-color</code>, <code>margin</code>, <code>padding</code>, etc.</span></li>
+        <li><span><strong>Colores:</strong> por nombre (<code>red</code>), hexadecimal (<code>#ff6600</code>), RGB (<code>rgb(255, 102, 0)</code>)</span></li>
+        <li><span><strong>Unidades de medida:</strong> <code>px</code>, <code>em</code>, <code>rem</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Cómo incorporar CSS a HTML</div>
+      <ul class="bullets">
+        <li><span><strong>Estilo en línea:</strong> dentro del tag, con el atributo <code>style</code><span class="tag tag-danger">Danger</span></span></li>
+        <li><span><strong>Hoja de estilos interna:</strong> dentro de un <code>&lt;style&gt;</code> en el <code>&lt;head&gt;</code><span class="tag tag-warning">Warning</span></span></li>
+        <li><span><strong>Hoja de estilos externa:</strong> un archivo <code>.css</code> vinculado al HTML<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Hoja de estilos externa</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">head</span>&gt;
+  &lt;<span class="tok-kw">link</span> rel=<span class="tok-str">"stylesheet"</span> href=<span class="tok-str">"estilos.css"</span>&gt;
+&lt;/<span class="tok-kw">head</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>El <code>.css</code> vive en su propio archivo y se vincula desde el <code>&lt;head&gt;</code></span></li>
+        <li><span>Un mismo archivo de estilos sirve para <strong>todas</strong> las páginas del sitio</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">Block vs. inline</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Block</h3>
+          <ul>
+            <li>Ocupa <strong>todo el ancho</strong> disponible</li>
+            <li>Arranca en una <strong>línea nueva</strong></li>
+            <li>Respeta <code>width</code>, <code>height</code>, <code>margin</code> y <code>padding</code></li>
+            <li>Ej: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;ul&gt;</code></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Inline</h3>
+          <ul>
+            <li>Ocupa <strong>solo lo que mide</strong> su contenido</li>
+            <li>Se acomoda <strong>en la misma línea</strong> que el texto</li>
+            <li>Ignora <code>width</code> y <code>height</code></li>
+            <li>Ej: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — CSS</div>
+      <div class="s-title s-title--md">El modelo de caja (box model)</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/box-model.png" alt="Modelo de caja: content, padding, border y margin"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Todo elemento HTML es una <strong>caja</strong> rectangular</span></li>
+        <li><span><strong>Content:</strong> el contenido real</span></li>
+        <li><span><strong>Padding:</strong> espacio interior</span></li>
+        <li><span><strong>Border:</strong> el borde</span></li>
+        <li><span><strong>Margin:</strong> espacio exterior</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Práctica</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Práctica</div>
+      <div class="s-title s-title--md">Herramientas de desarrollo (DevTools)</div>
+      <ul class="bullets">
+        <li><span>Se abren con <strong>F12</strong>, o clic derecho → <strong>Inspeccionar</strong></span></li>
+        <li><span><strong>Elements:</strong> el árbol DOM de la página, en vivo</span></li>
+        <li><span><strong>Styles:</strong> las reglas CSS de cada elemento; las tachadas son las que <strong>perdieron en la cascada</strong></span></li>
+        <li><span><strong>Computed:</strong> el box model del elemento con sus medidas reales</span></li>
+        <li><span>Lo que cambiás ahí es <strong>temporal</strong>: se pierde al recargar<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Práctica</div>
+      <div class="s-title s-title--md">¿Dudas? Muchas. Vamos a hacer unos ejercicios</div>
+      <ul class="bullets">
+        <li><span>Entrar a <strong>promiedos.com.ar</strong> e <strong>inspeccionar</strong> (F12)</span></li>
+        <li><span>Jugar con los estilos de la página desde el inspector</span></li>
+        <li><span>Darle estilo a nuestra página de "Graphic design is my passion"</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>MDN — Conceptos básicos de HTML <span class="src">(<a href="https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/HTML_basics" target="_blank" rel="noopener">developer.mozilla.org</a>)</span></li>
+        <li>MDN — Conceptos básicos de CSS <span class="src">(<a href="https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank" rel="noopener">developer.mozilla.org</a>)</span></li>
+        <li>HTML Tutorial — W3Schools <span class="src">(<a href="https://www.w3schools.com/html/default.asp" target="_blank" rel="noopener">w3schools.com/html</a>)</span></li>
+        <li>CSS Tutorial — W3Schools <span class="src">(<a href="https://www.w3schools.com/css/default.asp" target="_blank" rel="noopener">w3schools.com/css</a>)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">¡Gracias!</div>
+        <div class="closing-links">La seguimos por Slack</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
