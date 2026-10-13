@@ -14,7 +14,7 @@ Clase HTML y CSS — 2026
 
 ![Sir Tim Berners-Lee](img/tim-berners-lee.png)
 
-- **Tim Berners-Lee**, CERN, **1989** (como Manu Camejo)
+- **Tim Berners-Lee**, CERN, **1989**
 - Hipertexto para compartir artículos científicos
 - Conectar información **descentralizada**: nace la Web
 - 18 tags al principio (hoy ~140); primera página en **1991**
