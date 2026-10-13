@@ -337,7 +337,7 @@ p          { color: green; }
 <!-- slide: tipo=imagen-texto -->
 ## El modelo de caja (box model)
 
-![Modelo de caja: content, padding, border y margin](img/box-model.png)
+![Modelo de caja: content, padding, border y margin](img/box-model.svg)
 
 - Todo elemento HTML es una **caja** rectangular
 - **Content:** el contenido real
