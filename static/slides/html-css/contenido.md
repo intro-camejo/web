@@ -200,15 +200,35 @@ Clase HTML y CSS — 2026
 
 ---
 
+## Del HTML al árbol
+
+```html
+<html>
+  <head>...</head>
+  <body>
+    <header><p>Logo</p></header>
+    <main>
+      <h1>Título</h1>
+      <div>
+        <p>Hola</p>
+        <div><p>¿Quién es mi padre?</p></div>
+      </div>
+    </main>
+    <footer><p>Contacto</p></footer>
+  </body>
+</html>
+```
+
+---
+
 <!-- slide: tipo=imagen-texto -->
 ## Jerarquía: el árbol DOM
 
-![Árbol DOM: body con header, main y footer; main contiene h1 y div con más elementos anidados](img/arbol-dom.png)
+![Árbol DOM: html con head y body; body con header, main y footer; el p más profundo resaltado en verde](img/arbol-dom.svg)
 
-- Los tags se **anidan** como contenedores, uno dentro de otro
-- **Padre:** el contenedor
-- **Hijo:** el elemento anidado
-- El navegador arma con eso un **árbol**: el DOM
+- **Padre:** el contenedor. **Hijo:** lo anidado
+- `<header>` cuelga de `<body>`: no es `<head>`
+- El `<p>` verde: padre `div`, abuelo `div`... hasta `<html>`
 
 ---
 

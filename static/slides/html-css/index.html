@@ -420,19 +420,48 @@
     </div>
   </section>
 
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
+      <div class="s-title s-title--md">Del HTML al árbol</div>
+      <div class="code-block">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">html</span>&gt;
+  &lt;<span class="tok-kw">head</span>&gt;...&lt;/<span class="tok-kw">head</span>&gt;
+  &lt;<span class="tok-kw">body</span>&gt;
+    &lt;<span class="tok-kw">header</span>&gt;&lt;<span class="tok-kw">p</span>&gt;Logo&lt;/<span class="tok-kw">p</span>&gt;&lt;/<span class="tok-kw">header</span>&gt;
+    &lt;<span class="tok-kw">main</span>&gt;
+      &lt;<span class="tok-kw">h1</span>&gt;Título&lt;/<span class="tok-kw">h1</span>&gt;
+      &lt;<span class="tok-kw">div</span>&gt;
+        &lt;<span class="tok-kw">p</span>&gt;Hola&lt;/<span class="tok-kw">p</span>&gt;
+        &lt;<span class="tok-kw">div</span>&gt;&lt;<span class="tok-kw">p</span>&gt;¿Quién es mi padre?&lt;/<span class="tok-kw">p</span>&gt;&lt;/<span class="tok-kw">div</span>&gt;
+      &lt;/<span class="tok-kw">div</span>&gt;
+    &lt;/<span class="tok-kw">main</span>&gt;
+    &lt;<span class="tok-kw">footer</span>&gt;&lt;<span class="tok-kw">p</span>&gt;Contacto&lt;/<span class="tok-kw">p</span>&gt;&lt;/<span class="tok-kw">footer</span>&gt;
+  &lt;/<span class="tok-kw">body</span>&gt;
+&lt;/<span class="tok-kw">html</span>&gt;</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
   <!-- imagen-texto -->
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.02 — HTML</div>
       <div class="s-title s-title--md">Jerarquía: el árbol DOM</div>
       <div class="cols2">
-        <div class="col-media"><img src="img/arbol-dom.png" alt="Árbol DOM: body con header, main y footer; main contiene h1 y div con más elementos anidados"></div>
+        <div class="col-media"><img src="img/arbol-dom.svg" alt="Árbol DOM: html con head y body; body con header, main y footer; el p más profundo resaltado en verde"></div>
         <div>
       <ul class="bullets">
-        <li><span>Los tags se <strong>anidan</strong> como contenedores, uno dentro de otro</span></li>
-        <li><span><strong>Padre:</strong> el contenedor</span></li>
-        <li><span><strong>Hijo:</strong> el elemento anidado</span></li>
-        <li><span>El navegador arma con eso un <strong>árbol</strong>: el DOM</span></li>
+        <li><span><strong>Padre:</strong> el contenedor. <strong>Hijo:</strong> lo anidado</span></li>
+        <li><span><code>&lt;header&gt;</code> cuelga de <code>&lt;body&gt;</code>: no es <code>&lt;head&gt;</code></span></li>
+        <li><span>El <code>&lt;p&gt;</code> verde: padre <code>div</code>, abuelo <code>div</code>... hasta <code>&lt;html&gt;</code></span></li>
       </ul>
         </div>
       </div>
@@ -440,7 +469,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">21</span>
+      <span class="num">22</span>
     </div>
   </section>
 
@@ -458,7 +487,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">22</span>
+      <span class="num">23</span>
     </div>
   </section>
 
@@ -471,7 +500,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">23</span>
+      <span class="num">24</span>
     </div>
   </section>
 
@@ -489,7 +518,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">24</span>
+      <span class="num">25</span>
     </div>
   </section>
 
@@ -508,7 +537,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">25</span>
+      <span class="num">26</span>
     </div>
   </section>
 
@@ -533,7 +562,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">26</span>
+      <span class="num">27</span>
     </div>
   </section>
 
@@ -557,7 +586,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">27</span>
+      <span class="num">28</span>
     </div>
   </section>
 
@@ -580,7 +609,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">28</span>
+      <span class="num">29</span>
     </div>
   </section>
 
@@ -603,7 +632,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">29</span>
+      <span class="num">30</span>
     </div>
   </section>
 
@@ -622,7 +651,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">30</span>
+      <span class="num">31</span>
     </div>
   </section>
 
@@ -640,7 +669,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">31</span>
+      <span class="num">32</span>
     </div>
   </section>
 
@@ -658,7 +687,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">32</span>
+      <span class="num">33</span>
     </div>
   </section>
 
@@ -681,7 +710,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">33</span>
+      <span class="num">34</span>
     </div>
   </section>
 
@@ -706,7 +735,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">34</span>
+      <span class="num">35</span>
     </div>
   </section>
 
@@ -731,7 +760,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">35</span>
+      <span class="num">36</span>
     </div>
   </section>
 
@@ -756,7 +785,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">36</span>
+      <span class="num">37</span>
     </div>
   </section>
 
@@ -789,7 +818,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">37</span>
+      <span class="num">38</span>
     </div>
   </section>
 
@@ -802,7 +831,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">38</span>
+      <span class="num">39</span>
     </div>
   </section>
 
@@ -822,7 +851,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">39</span>
+      <span class="num">40</span>
     </div>
   </section>
 
@@ -840,7 +869,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">40</span>
+      <span class="num">41</span>
     </div>
   </section>
 
@@ -858,7 +887,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">41</span>
+      <span class="num">42</span>
     </div>
   </section>
 
@@ -874,7 +903,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">42</span>
+      <span class="num">43</span>
     </div>
   </section>
 
