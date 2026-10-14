@@ -70,7 +70,7 @@ src/
   css/            # Global CSS styles
 docs/
   Material/       # Course materials (Apuntes, Guias, Clases)
-static/           # Static assets (img/, files/, admin/)
+static/           # Static assets (img/, files/)
 .github/
   workflows/      # GitHub Actions
 ```
@@ -82,7 +82,6 @@ static/           # Static assets (img/, files/, admin/)
 - `.npmrc` / `.nvmrc` - Install hardening and pinned Node version
 - `tsconfig.json` - TypeScript configuration
 - `babel.config.js` - Babel configuration for Docusaurus
-- `static/admin/index.html` - Decap CMS panel; its config is inline in `CMS.init`
 
 ## Common Tasks
 
