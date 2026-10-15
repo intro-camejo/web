@@ -145,7 +145,7 @@ El TP se evalúa en una **instancia de presentación final**, donde el grupo pre
 
 ## Fechas de presentación
 
-Las presentaciones coinciden con los primeros cuatro llamados a examen final del período **[completar período del cuatrimestre]**. El quinto llamado de ese período queda reservado para el recuperatorio.
+Las presentaciones coinciden con los primeros cuatro llamados a examen final del **segundo cuatrimestre 2026**. El quinto llamado de ese período queda reservado para el recuperatorio.
 
 | Instancia | Fecha |
 |---|---|
