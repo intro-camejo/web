@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 290" font-family="Helvetica, Arial, sans-serif" font-weight="700">
+  <text x="100" y="40" fill="#2e3a78" font-size="22" text-anchor="middle" font-family="Menlo, Consolas, monospace">stretch</text>
+  <rect x="20" y="60" width="160" height="210" rx="8" fill="#e8ecf8" stroke="#2e3a78" stroke-width="2"/>
+  <rect x="32" y="68" width="40" height="194" rx="6" fill="#ffa653"/>
+  <rect x="80" y="68" width="40" height="194" rx="6" fill="#ffa653"/>
+  <rect x="128" y="68" width="40" height="194" rx="6" fill="#ffa653"/>
+  <text x="290" y="40" fill="#2e3a78" font-size="22" text-anchor="middle" font-family="Menlo, Consolas, monospace">flex-start</text>
+  <rect x="210" y="60" width="160" height="210" rx="8" fill="#e8ecf8" stroke="#2e3a78" stroke-width="2"/>
+  <rect x="222" y="68" width="40" height="60" rx="6" fill="#ffa653"/>
+  <rect x="270" y="68" width="40" height="100" rx="6" fill="#ffa653"/>
+  <rect x="318" y="68" width="40" height="45" rx="6" fill="#ffa653"/>
+  <text x="480" y="40" fill="#2e3a78" font-size="22" text-anchor="middle" font-family="Menlo, Consolas, monospace">center</text>
+  <rect x="400" y="60" width="160" height="210" rx="8" fill="#e8ecf8" stroke="#2e3a78" stroke-width="2"/>
+  <rect x="412" y="135.0" width="40" height="60" rx="6" fill="#ffa653"/>
+  <rect x="460" y="115.0" width="40" height="100" rx="6" fill="#ffa653"/>
+  <rect x="508" y="142.5" width="40" height="45" rx="6" fill="#ffa653"/>
+  <text x="670" y="40" fill="#2e3a78" font-size="22" text-anchor="middle" font-family="Menlo, Consolas, monospace">flex-end</text>
+  <rect x="590" y="60" width="160" height="210" rx="8" fill="#e8ecf8" stroke="#2e3a78" stroke-width="2"/>
+  <rect x="602" y="202" width="40" height="60" rx="6" fill="#ffa653"/>
+  <rect x="650" y="162" width="40" height="100" rx="6" fill="#ffa653"/>
+  <rect x="698" y="217" width="40" height="45" rx="6" fill="#ffa653"/>
+</svg>

@@ -39,6 +39,10 @@
 
 * [HTML y CSS](pathname:///slides/html-css/index.html)
 
+## Semana 10
+
+* [Flexbox, Grid, variables y funciones](pathname:///slides/css-layout/index.html)
+
 ## Charla
 
 * [Incertidumbre en épocas de AI](pathname:///slides/incertidumbre/index.html)
