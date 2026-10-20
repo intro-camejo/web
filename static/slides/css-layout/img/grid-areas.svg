@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 420" font-family="Menlo, Consolas, monospace" font-weight="700">
+  <rect x="40" y="40" width="532" height="70" rx="8" fill="#2e3a78"/>
+  <rect x="40" y="122" width="160" height="196" rx="8" fill="#4171ad"/>
+  <rect x="212" y="122" width="360" height="196" rx="8" fill="#ffa653"/>
+  <rect x="40" y="330" width="532" height="50" rx="8" fill="#2e3a78"/>
+  <g fill="#fff" font-size="24" text-anchor="middle">
+    <text x="306" y="83">header</text>
+    <text x="120" y="228">nav</text>
+    <text x="392" y="228">main</text>
+    <text x="306" y="363">footer</text>
+  </g>
+</svg>

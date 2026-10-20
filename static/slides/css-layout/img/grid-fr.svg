@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" font-family="Helvetica, Arial, sans-serif" font-weight="700">
+  <text x="107" y="38" fill="#2e3a78" font-size="26" text-anchor="middle">1fr</text>
+  <text x="320" y="38" fill="#ff7a2e" font-size="26" text-anchor="middle">2fr</text>
+  <text x="533" y="38" fill="#2e3a78" font-size="26" text-anchor="middle">1fr</text>
+  <rect x="40" y="56" width="134" height="86" rx="8" fill="#4171ad"/>
+  <rect x="186" y="56" width="268" height="86" rx="8" fill="#ffa653"/>
+  <rect x="466" y="56" width="134" height="86" rx="8" fill="#4171ad"/>
+  <rect x="40" y="154" width="134" height="86" rx="8" fill="#4171ad"/>
+  <rect x="186" y="154" width="268" height="86" rx="8" fill="#ffa653"/>
+  <rect x="466" y="154" width="134" height="86" rx="8" fill="#4171ad"/>
+</svg>

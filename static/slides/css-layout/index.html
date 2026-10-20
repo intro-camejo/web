@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS: layout, variables y funciones — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!-- Generado a partir de contenido.md con /generar-diapositiva css-layout. -->
+<main class="deck">
+
+  <!-- portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">CSS: layout, variables y funciones</div>
+        <div class="s-sub">Flexbox, Grid y cómo dejar de repetirnos</div>
+        <div class="cover-index"><span class="n">Clase Flexbox, Grid y variables</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">El problema del layout</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Flexbox</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Grid</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Variables y funciones</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Práctica</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">El problema del layout</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — El problema del layout</div>
+      <div class="s-title s-title--md">¿Cómo ponemos cosas una al lado de la otra?</div>
+      <ul class="bullets">
+        <li><span>Por defecto las cajas se <strong>apilan</strong> una abajo de la otra</span></li>
+        <li><span>Antes se resolvía con tablas, <code>float</code> y <code>position</code>: hacks difíciles de mantener<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Hoy CSS trae dos sistemas pensados para esto: <strong>Flexbox</strong> y <strong>Grid</strong></span></li>
+        <li><span>Los dos se activan con <code>display</code>: <code>display: flex;</code> o <code>display: grid;</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — El problema del layout</div>
+      <div class="s-title s-title--md">Contenedor e ítems</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">div</span> class=<span class="tok-str">"contenedor"</span>&gt;        <span class="tok-com">&lt;!-- padre: acá va el display --&gt;</span>
+  &lt;<span class="tok-kw">div</span>&gt;Uno&lt;/<span class="tok-kw">div</span>&gt;                <span class="tok-com">&lt;!-- ítem --&gt;</span>
+  &lt;<span class="tok-kw">div</span>&gt;Dos &lt;<span class="tok-kw">span</span>&gt;!&lt;/<span class="tok-kw">span</span>&gt;&lt;/<span class="tok-kw">div</span>&gt; <span class="tok-com">&lt;!-- ítem; el span NO es ítem --&gt;</span>
+&lt;/<span class="tok-kw">div</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>El layout se define en el <strong>padre</strong>: el <strong>contenedor</strong></span></li>
+        <li><span>Sus <strong>hijos directos</strong> son los <strong>ítems</strong> que se acomodan</span></li>
+        <li><span>Los nietos no: siguen con su <code>display</code> de siempre<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Flexbox</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">display: flex</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.menu</span> {
+  display: <span class="tok-str">flex</span>;
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Aplicado a un <code>&lt;nav class="menu"&gt;</code> con tres <code>&lt;a&gt;</code> adentro</span></li>
+        <li><span>Los hijos pasan a ponerse <strong>en fila</strong>, uno al lado del otro</span></li>
+        <li><span>Cada ítem mide lo que mide su contenido</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">Los dos ejes</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/flex-ejes.svg" alt="Contenedor flex con tres ítems: una flecha horizontal marca el eje principal y una vertical el eje cruzado"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><strong>Eje principal:</strong> la dirección en la que se acomodan los ítems</span></li>
+        <li><span><strong>Eje cruzado:</strong> el perpendicular</span></li>
+        <li><span><code>justify-content</code> alinea sobre el <strong>principal</strong></span></li>
+        <li><span><code>align-items</code> alinea sobre el <strong>cruzado</strong></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">flex-direction</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.contenedor</span> {
+  display: <span class="tok-str">flex</span>;
+  flex-direction: <span class="tok-str">column</span>; <span class="tok-com">/* row | row-reverse | column | column-reverse */</span>
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>row</code>: en fila (<strong>por defecto</strong>) · <code>column</code>: en columna</span></li>
+        <li><span>Con <code>column</code> <strong>se rotan los ejes</strong>: el principal pasa a ser el vertical<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">justify-content: el eje principal</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/justify-content.svg" alt="Cinco contenedores flex con tres ítems cada uno, distribuidos con flex-start, center, flex-end, space-between y space-evenly"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><code>flex-start</code>: todos al principio (<strong>por defecto</strong>)</span></li>
+        <li><span><code>center</code>: todos al medio</span></li>
+        <li><span><code>flex-end</code>: todos al final</span></li>
+        <li><span><code>space-between</code>: el espacio libre va <strong>entre</strong> los ítems</span></li>
+        <li><span><code>space-evenly</code>: el mismo espacio entre ítems y en los bordes</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">align-items: el eje cruzado</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/align-items.svg" alt="Cuatro contenedores flex con ítems alineados con stretch, flex-start, center y flex-end"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><code>stretch</code>: se estiran al alto del contenedor (<strong>por defecto</strong>)</span></li>
+        <li><span><code>flex-start</code> / <code>center</code> / <code>flex-end</code>: arriba, al medio, abajo</span></li>
+        <li><span>Centrar en los dos ejes: <code>justify-content: center</code> + <code>align-items: center</code><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">Centrar un div (el meme)</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.contenedor</span> {
+  display: <span class="tok-str">flex</span>;
+  justify-content: <span class="tok-str">center</span>;
+  align-items: <span class="tok-str">center</span>;
+  height: <span class="tok-num">100vh</span>;
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Tres líneas y listo · <code>100vh</code>: todo el alto de la ventana (<em>viewport height</em>)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">gap y flex-wrap</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.galeria</span> {
+  display: <span class="tok-str">flex</span>;
+  flex-wrap: <span class="tok-str">wrap</span>; <span class="tok-com">/* si no entran, bajan a otra línea */</span>
+  gap: <span class="tok-num">16px</span>;       <span class="tok-com">/* espacio entre ítems */</span>
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>gap</code>: separa los ítems sin tener que andar poniendo <code>margin</code></span></li>
+        <li><span>Sin <code>wrap</code>, flex mete todo en <strong>una sola línea</strong> y achica los ítems</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">Propiedades de los ítems</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.buscador</span>  { flex-grow: <span class="tok-num">1</span>; }       <span class="tok-com">/* ocupa todo el espacio que sobra */</span>
+<span class="tok-kw">.logo</span>      { flex-shrink: <span class="tok-num">0</span>; }     <span class="tok-com">/* nunca se achica */</span>
+<span class="tok-kw">.destacado</span> { align-self: <span class="tok-str">center</span>; } <span class="tok-com">/* su propio align-items */</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>flex-grow</code>: cuánto <strong>crece</strong> para llenar el espacio libre</span></li>
+        <li><span><code>flex-shrink</code>: cuánto se <strong>achica</strong> si falta espacio</span></li>
+        <li><span>Estas van en el <strong>hijo</strong>, no en el contenedor<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Flexbox</div>
+      <div class="s-title s-title--md">Ejemplo: una barra de navegación</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.navbar</span> {
+  display: <span class="tok-str">flex</span>;
+  justify-content: <span class="tok-str">space-between</span>; <span class="tok-com">/* logo | links */</span>
+  align-items: <span class="tok-str">center</span>;
+}
+<span class="tok-kw">.navbar .links</span> { display: <span class="tok-str">flex</span>; gap: <span class="tok-num">24px</span>; }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Flex dentro de flex: un ítem también puede ser contenedor<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">Grid</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">display: grid</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.grilla</span> {
+  display: <span class="tok-str">grid</span>;
+  grid-template-columns: <span class="tok-num">200px</span> <span class="tok-num">200px</span> <span class="tok-num">200px</span>;
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Definimos las <strong>columnas</strong> (y si queremos, las filas) en el contenedor</span></li>
+        <li><span>Los hijos ocupan las celdas en orden; cuando se llenan, se arma una <strong>fila nueva</strong> sola</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">La unidad fr</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/grid-fr.svg" alt="Grilla de tres columnas 1fr 2fr 1fr: la columna del medio mide el doble que las de los costados"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><code>fr</code> es una <strong>fracción</strong> del espacio disponible</span></li>
+        <li><span><code>1fr 2fr 1fr</code>: la del medio mide el doble que las otras</span></li>
+        <li><span>Se mezcla con medidas fijas: <code>250px 1fr</code> = barra lateral fija y el resto para el contenido<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">repeat()</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.galeria</span> {
+  display: <span class="tok-str">grid</span>;
+  grid-template-columns: <span class="tok-fn">repeat</span>(<span class="tok-num">3</span>, <span class="tok-num">1fr</span>);
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>repeat(3, 1fr)</code> es lo mismo que <code>1fr 1fr 1fr</code></span></li>
+        <li><span>Evita repetir a mano cuando son muchas columnas iguales</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">Una grilla responsive con minmax()</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.responsive</span> {
+  display: <span class="tok-str">grid</span>;
+  grid-template-columns: <span class="tok-fn">repeat</span>(<span class="tok-str">auto-fit</span>, <span class="tok-fn">minmax</span>(<span class="tok-num">200px</span>, <span class="tok-num">1fr</span>));
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>minmax(200px, 1fr)</code>: cada columna mide <strong>por lo menos</strong> 200px</span></li>
+        <li><span><code>auto-fit</code>: entran tantas columnas como quepan, responsive sin más código<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">Ubicar ítems con las líneas</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/grid-lineas.svg" alt="Grilla de tres columnas con sus cuatro líneas numeradas del 1 al 4 y un ítem que va de la línea 1 a la 3"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Las líneas de la grilla se numeran <strong>desde 1</strong></span></li>
+        <li><span><code>grid-column: 1 / 3</code>: de la línea 1 a la 3, ocupa dos columnas</span></li>
+        <li><span><code>grid-column: span 2</code>: ocupa dos columnas desde donde le toque</span></li>
+        <li><span>Lo mismo para filas con <code>grid-row</code></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">grid-template-areas</div>
+      <div class="code-block">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.pagina</span> {
+  display: <span class="tok-str">grid</span>;
+  grid-template-columns: <span class="tok-num">200px</span> <span class="tok-num">1fr</span>;
+  grid-template-areas:
+    <span class="tok-str">"header header"</span>
+    <span class="tok-str">"nav    main"</span>
+    <span class="tok-str">"footer footer"</span>;
+}</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">Las áreas, dibujadas</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/grid-areas.svg" alt="Layout de página en grilla: header arriba ocupando todo el ancho, nav angosto a la izquierda, main a la derecha y footer abajo de todo"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Le ponemos <strong>nombre</strong> a cada zona y "dibujamos" el layout con texto</span></li>
+        <li><span>Cada string es una <strong>fila</strong>; repetir un nombre estira la zona</span></li>
+        <li><span>Ideal para el esqueleto de la página con los <strong>tags semánticos</strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">Cada hijo, a su área</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">header</span> { grid-area: <span class="tok-str">header</span>; }
+<span class="tok-kw">nav</span>    { grid-area: <span class="tok-str">nav</span>; }
+<span class="tok-kw">main</span>   { grid-area: <span class="tok-str">main</span>; }
+<span class="tok-kw">footer</span> { grid-area: <span class="tok-str">footer</span>; }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Cada hijo dice en qué zona va con <code>grid-area</code></span></li>
+        <li><span>El nombre va <strong>sin comillas</strong> acá: las comillas son solo para el dibujo</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">Flexbox vs. Grid</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Flexbox</h3>
+          <ul>
+            <li><strong>Una dimensión:</strong> fila <strong>o</strong> columna</li>
+            <li>El <strong>contenido</strong> define el tamaño de cada ítem</li>
+            <li>Ideal para componentes: navbars, botones, centrar cosas</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Grid</h3>
+          <ul>
+            <li><strong>Dos dimensiones:</strong> filas <strong>y</strong> columnas</li>
+            <li>El <strong>contenedor</strong> define la estructura</li>
+            <li>Ideal para el layout de la página, galerías, dashboards</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Grid</div>
+      <div class="s-title s-title--md">No compiten: se combinan</div>
+      <ul class="bullets">
+        <li><span><strong>Grid</strong> para el esqueleto de la página: header, nav, main, footer</span></li>
+        <li><span><strong>Flex</strong> adentro de cada parte: la navbar, una tarjeta, una fila de botones</span></li>
+        <li><span>En DevTools, el chip <code>flex</code> o <code>grid</code> al lado del elemento dibuja los ejes y las líneas<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Variables y funciones</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Repetir valores es un problema</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.boton</span>  { background-color: <span class="tok-num">#ff5a1f</span>; }
+<span class="tok-kw">.titulo</span> { color: <span class="tok-num">#ff5a1f</span>; }
+<span class="tok-kw">.alerta</span> { border: <span class="tok-num">2px</span> <span class="tok-str">solid</span> <span class="tok-num">#ff5a1f</span>; }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Si cambia el color de la marca, hay que buscarlo y cambiarlo <strong>en todos lados</strong></span></li>
+        <li><span>Es fácil que quede un <code>#ff5b1f</code> perdido por ahí<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Variables CSS (custom properties)</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">:root</span> { --color-principal: <span class="tok-num">#ff5a1f</span>; }
+<span class="tok-kw">.boton</span> {
+  background-color: <span class="tok-fn">var</span>(--color-principal);
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Se declaran con <strong>dos guiones</strong> adelante: <code>--nombre: valor;</code></span></li>
+        <li><span>Se usan con <code>var(--nombre)</code></span></li>
+        <li><span><code>:root</code> es el <code>&lt;html&gt;</code>: lo que se declara ahí está disponible en <strong>toda</strong> la página</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Las variables respetan la cascada</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.tarjeta</span> { --color-principal: <span class="tok-num">#1f7a46</span>; } <span class="tok-com">/* la pisa solo acá */</span>
+<span class="tok-kw">.boton</span> {
+  color: <span class="tok-fn">var</span>(--color-acento, <span class="tok-str">black</span>); <span class="tok-com">/* si no existe: black */</span>
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Las variables se <strong>heredan</strong>: todo lo que está dentro de <code>.tarjeta</code> ve el verde</span></li>
+        <li><span>El segundo argumento de <code>var()</code> es un <strong>valor por defecto</strong></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Ejemplo: modo oscuro</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">:root</span>   { --fondo: <span class="tok-str">white</span>;   --texto: <span class="tok-num">#222222</span>; }
+<span class="tok-kw">.oscuro</span> { --fondo: <span class="tok-num">#121212</span>; --texto: <span class="tok-num">#eeeeee</span>; }
+<span class="tok-kw">body</span>    { background-color: <span class="tok-fn">var</span>(--fondo); color: <span class="tok-fn">var</span>(--texto); }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Con <code>&lt;body class="oscuro"&gt;</code> cambia <strong>toda</strong> la página sin tocar ninguna otra regla</span></li>
+        <li><span>La web de la materia (Docusaurus) lo hace así: <code>--ifm-color-primary</code><span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Funciones en CSS</div>
+      <ul class="bullets">
+        <li><span>Una función recibe <strong>argumentos</strong> y devuelve un <strong>valor</strong>: <code>nombre(argumentos)</code></span></li>
+        <li><span>Se usan como valor de una propiedad</span></li>
+        <li><span>Algunas ya aparecieron hoy: <code>var()</code>, <code>repeat()</code>, <code>minmax()</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">calc()</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.contenido</span> {
+  width: <span class="tok-fn">calc</span>(<span class="tok-num">100%</span> - <span class="tok-num">250px</span>);          <span class="tok-com">/* todo menos la barra lateral */</span>
+  padding: <span class="tok-fn">calc</span>(<span class="tok-fn">var</span>(--espacio) * <span class="tok-num">2</span>);
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Hace cuentas <strong>mezclando unidades</strong>: <code>%</code> con <code>px</code>, <code>rem</code> con <code>vw</code>...</span></li>
+        <li><span>Se combina con variables</span></li>
+        <li><span>Los espacios alrededor de <code>+</code> y <code>-</code> son <strong>obligatorios</strong><span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">min(), max() y clamp()</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">.contenedor</span> { width: <span class="tok-fn">min</span>(<span class="tok-num">90%</span>, <span class="tok-num">1200px</span>); }
+<span class="tok-kw">.titulo</span>     { font-size: <span class="tok-fn">clamp</span>(<span class="tok-num">1.5rem</span>, <span class="tok-num">4vw</span>, <span class="tok-num">3rem</span>); }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>min()</code> / <code>max()</code>: el más chico / el más grande; acá <strong>nunca pasa</strong> de 1200px</span></li>
+        <li><span><code>clamp(mín, ideal, máx)</code>: usa el ideal, pero sin salirse de los extremos</span></li>
+        <li><span>Texto que se adapta al ancho de la pantalla (<code>4vw</code> = 4% del ancho)<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Funciones de color</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code><span class="tok-kw">:root</span> {
+  --naranja: <span class="tok-fn">rgb</span>(<span class="tok-num">255</span> <span class="tok-num">90</span> <span class="tok-num">31</span>);
+  --naranja-suave: <span class="tok-fn">rgb</span>(<span class="tok-num">255</span> <span class="tok-num">90</span> <span class="tok-num">31</span> / <span class="tok-num">0.2</span>);  <span class="tok-com">/* 20% de opacidad */</span>
+  --naranja-oscuro: <span class="tok-fn">color-mix</span>(<span class="tok-str">in</span> <span class="tok-str">srgb</span>, <span class="tok-fn">var</span>(--naranja), <span class="tok-str">black</span> <span class="tok-num">20%</span>);
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>rgb()</code> y <code>hsl()</code> arman un color; después de la <code>/</code> va la <strong>opacidad</strong></span></li>
+        <li><span><code>color-mix()</code> mezcla dos colores: toda la paleta sale de <strong>una sola</strong> variable</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Variables y funciones</div>
+      <div class="s-title s-title--md">Resumen de funciones</div>
+      <ul class="bullets">
+        <li><span><code>var()</code>: leer una variable</span></li>
+        <li><span><code>calc()</code>: hacer cuentas</span></li>
+        <li><span><code>min()</code> / <code>max()</code> / <code>clamp()</code>: acotar valores</span></li>
+        <li><span><code>repeat()</code> / <code>minmax()</code>: armar las columnas de una grilla</span></li>
+        <li><span><code>rgb()</code> / <code>hsl()</code> / <code>color-mix()</code>: colores</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">Práctica</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica</div>
+      <div class="s-title s-title--md">A laburar…</div>
+      <ul class="bullets">
+        <li><span>Armar desde cero una <strong>página de perfil</strong>: foto, nombre, links y una galería de proyectos</span></li>
+        <li><span>El esqueleto con <code>grid-template-areas</code>: header, nav, main y footer</span></li>
+        <li><span>La navbar con flexbox y la galería con <code>repeat(auto-fit, minmax(...))</code></span></li>
+        <li><span>Todos los colores y espacios en variables dentro de <code>:root</code><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica</div>
+      <div class="s-title s-title--md">Para practicar jugando</div>
+      <ul class="bullets">
+        <li><span><strong>Flexbox Froggy</strong> — flexboxfroggy.com</span></li>
+        <li><span><strong>Grid Garden</strong> — cssgridgarden.com</span></li>
+        <li><span><strong>Flexbox Defense</strong> — flexboxdefense.com</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>MDN — Conceptos básicos de Flexbox <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank" rel="noopener">developer.mozilla.org</a>)</span></li>
+        <li>MDN — Conceptos básicos de Grid Layout <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout" target="_blank" rel="noopener">developer.mozilla.org</a>)</span></li>
+        <li>MDN — Propiedades personalizadas (variables) <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/CSS/Using_CSS_custom_properties" target="_blank" rel="noopener">developer.mozilla.org</a>)</span></li>
+        <li>CSS-Tricks — A Complete Guide to Flexbox <span class="src">(<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox" target="_blank" rel="noopener">css-tricks.com</a>)</span></li>
+        <li>CSS-Tricks — A Complete Guide to CSS Grid <span class="src">(<a href="https://css-tricks.com/snippets/css/complete-guide-grid" target="_blank" rel="noopener">css-tricks.com</a>)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">¡Gracias!</div>
+        <div class="closing-links">La seguimos por Slack</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
