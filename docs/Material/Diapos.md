@@ -43,7 +43,6 @@
 
 * [Flexbox, Grid, variables y funciones](pathname:///slides/css-layout/index.html)
 * [JavaScript y DOM](pathname:///slides/javascript/index.html)
-* [Consola JavaScript](pathname:///js-consola/index.html)
 
 ## Charla
 
