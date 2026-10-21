@@ -13,8 +13,42 @@ Clase JavaScript — 2026
 
 - **HTML** dice qué hay en la página, **CSS** dice cómo se ve y **JavaScript** dice qué **hace**
 - Es un lenguaje de programación de verdad: variables, condiciones, ciclos, funciones
-- Nació en 1995 en Netscape (en 10 días 😅). Hoy el estándar se llama **ECMAScript** {tag:info}
-- No tiene nada que ver con Java: el nombre fue marketing {tag:note}
+- Corre en **todos** los navegadores sin instalar nada: por eso es *el* lenguaje de la web {tag:info}
+
+---
+
+## Un poco de historia: 10 días de 1995
+
+- **Brendan Eich** lo crea en **Netscape** en 1995, en unos **10 días**, para darle vida a las páginas del navegador
+- Se llamó **Mocha**, después **LiveScript** y al final **JavaScript**
+- El último nombre salió de un acuerdo de Netscape con **Sun Microsystems** para aprovechar la fama de Java {tag:note}
+
+---
+
+<!-- slide: tipo=comparacion -->
+## Java es a JavaScript lo que auto a alfombra
+
+### Java
+- Sun (James Gosling), 1995
+- Se **compila** a bytecode y corre en la **JVM**
+- Tipado **estático**: `int precio = 20;`
+- Orientado a objetos con **clases**
+
+### JavaScript
+- Netscape (Brendan Eich), 1995
+- Lo **interpreta** el navegador (hoy con compilación JIT)
+- Tipado **dinámico**: `let precio = 20;`
+- Objetos basados en **prototipos** (`class` llegó después)
+
+---
+
+## De la guerra de navegadores a ECMAScript
+
+- 1996: Microsoft copia el lenguaje como **JScript** en Internet Explorer, y cada navegador hace lo suyo
+- 1997: se estandariza en **Ecma** como **ECMAScript** (ECMA-262). La marca "JavaScript" hoy es de **Oracle**
+- 2009: **ES5**, y nace **Node.js**: JS también fuera del navegador
+- 2015: **ES6/ES2015**, el gran cambio: `let`/`const`, flechas, `class`, módulos, promesas. Desde ahí sale **una versión por año**
+- Hoy: el lenguaje más usado en la encuesta de Stack Overflow 2026 (62% de los respondentes) {tag:info}
 
 ---
 
