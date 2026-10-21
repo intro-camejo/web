@@ -265,7 +265,8 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
       </div>
       <ul class="bullets">
         <li><span>Usen <code>const</code> por defecto y <code>let</code> solo si el valor cambia</span></li>
-        <li><span><code>var</code> es la forma vieja: la van a ver en código antiguo, no la usen<span class="tag tag-note">Nota</span></span></li>
+        <li><span><code>let</code> y <code>const</code> viven <strong>dentro de las llaves</strong> <code>{ }</code> donde se declaran (scope de bloque)</span></li>
+        <li><span><code>var</code> es la forma vieja: ignora las llaves y la van a ver en código antiguo. No la usen<span class="tag tag-note">Nota</span></span></li>
         <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=let-const" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=let-const</a></span></li>
       </ul>
     </div>
@@ -280,7 +281,7 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
-      <div class="s-title s-title--md">Tipos</div>
+      <div class="s-title s-title--md">Tipos: dinámico y débil</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
         <pre><code><span class="tok-kw">typeof</span> <span class="tok-str">"hola"</span>       <span class="tok-com">// "string"</span>
@@ -291,7 +292,9 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
 <span class="tok-kw">typeof</span> <span class="tok-kw">null</span>         <span class="tok-com">// "object"  (un error histórico)</span></code></pre>
       </div>
       <ul class="bullets">
-        <li><span>Las variables <strong>no tienen tipo</strong>: lo tienen los valores</span></li>
+        <li><span><strong>Dinámico</strong>: las variables no tienen tipo, lo tienen los valores (<code>let x = 42; x = "Hola";</code> es válido)</span></li>
+        <li><span><strong>Débil</strong>: si mezclás tipos, JS convierte solo en vez de dar error (coerción, en la próxima)</span></li>
+        <li><span>Simples (<code>number</code>, <code>string</code>, <code>boolean</code>), vacíos (<code>undefined</code>, <code>null</code>) y compuestos (objetos, arrays)<span class="tag tag-info">Info</span></span></li>
         <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=tipos" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=tipos</a></span></li>
       </ul>
     </div>
@@ -366,13 +369,13 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">`${producto} cuest
 }
 
 <span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">3</span>; i++) { console.<span class="tok-fn">log</span>(i); }
-
 <span class="tok-kw">for</span> (<span class="tok-kw">const</span> nombre <span class="tok-kw">of</span> [<span class="tok-str">"Home"</span>, <span class="tok-str">"Nosotros"</span>, <span class="tok-str">"Productos"</span>]) {
   console.<span class="tok-fn">log</span>(nombre);
 }</code></pre>
       </div>
       <ul class="bullets">
         <li><span><code>for...of</code> recorre los elementos de un array (o de una lista del DOM)<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>El <code>if</code> acepta cualquier valor: <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code> y <code>NaN</code> cuentan como <code>false</code> (<em>falsy</em>)<span class="tag tag-warning">Warning</span></span></li>
         <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=if" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=if</a> · <a href="https://www.intro-camejo.com.ar/js-consola/?ej=for" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=for</a></span></li>
       </ul>
     </div>
@@ -400,6 +403,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-fn">conIva</span>(<span
       </div>
       <ul class="bullets">
         <li><span>Las dos formas hacen lo mismo. La flecha es más corta y es la que vamos a usar en los eventos</span></li>
+        <li><span>Una <code>function</code> declarada se puede llamar <strong>antes</strong> de la línea donde está (<em>hoisting</em>); una guardada en <code>const</code>, no</span></li>
         <li><span>Una función es un <strong>valor</strong>: se puede guardar en una variable o pasar a otra función<span class="tag tag-info">Info</span></span></li>
         <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=funciones" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=funciones</a></span></li>
       </ul>
@@ -462,6 +466,34 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     </div>
   </section>
 
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Imperativo vs declarativo</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-com">// Imperativo: el CÓMO, paso a paso</span>
+<span class="tok-kw">const</span> pares = [];
+<span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = <span class="tok-num">0</span>; i &lt; numeros.length; i++) {
+  <span class="tok-kw">if</span> (numeros[i] % <span class="tok-num">2</span> === <span class="tok-num">0</span>) pares.<span class="tok-fn">push</span>(numeros[i] * <span class="tok-num">2</span>);
+}
+
+<span class="tok-com">// Declarativo: el QUÉ</span>
+<span class="tok-kw">const</span> resultado = numeros.<span class="tok-fn">filter</span>(n =&gt; n % <span class="tok-num">2</span> === <span class="tok-num">0</span>).<span class="tok-fn">map</span>(n =&gt; n * <span class="tok-num">2</span>);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Mismo resultado: duplicar los pares de <code>[1, 2, 3, 4, 5, 6]</code> → <code>[4, 8, 12]</code></span></li>
+        <li><span>El declarativo se lee como la consigna y <strong>no modifica</strong> el array original<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
   <!-- divisoria-seccion -->
   <section class="slide on-accent">
     <div class="s-pad" style="justify-content:center;">
@@ -471,7 +503,7 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">21</span>
+      <span class="num">22</span>
     </div>
   </section>
 
@@ -488,7 +520,7 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">22</span>
+      <span class="num">23</span>
     </div>
   </section>
 
@@ -513,7 +545,7 @@ console.<span class="tok-fn">log</span>(cards.length);</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">23</span>
+      <span class="num">24</span>
     </div>
   </section>
 
@@ -538,7 +570,7 @@ card.innerHTML = <span class="tok-str">"&lt;p class='card-name'&gt;Agotado&lt;/p
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">24</span>
+      <span class="num">25</span>
     </div>
   </section>
 
@@ -563,7 +595,7 @@ card.style.display = <span class="tok-str">"none"</span>;             <span clas
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">25</span>
+      <span class="num">26</span>
     </div>
   </section>
 
@@ -588,7 +620,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">26</span>
+      <span class="num">27</span>
     </div>
   </section>
 
@@ -613,7 +645,7 @@ card.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"<
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">27</span>
+      <span class="num">28</span>
     </div>
   </section>
 
@@ -641,7 +673,7 @@ formulario.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"s
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">28</span>
+      <span class="num">29</span>
     </div>
   </section>
 
@@ -654,7 +686,7 @@ formulario.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"s
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">29</span>
+      <span class="num">30</span>
     </div>
   </section>
 
@@ -678,7 +710,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);      
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">30</span>
+      <span class="num">31</span>
     </div>
   </section>
 
@@ -705,7 +737,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);      
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">31</span>
+      <span class="num">32</span>
     </div>
   </section>
 
@@ -718,7 +750,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);      
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">32</span>
+      <span class="num">33</span>
     </div>
   </section>
 
@@ -742,7 +774,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);      
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">33</span>
+      <span class="num">34</span>
     </div>
   </section>
 
@@ -765,7 +797,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);      
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">34</span>
+      <span class="num">35</span>
     </div>
   </section>
 
@@ -788,7 +820,7 @@ body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">35</span>
+      <span class="num">36</span>
     </div>
   </section>
 
@@ -801,7 +833,7 @@ body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">36</span>
+      <span class="num">37</span>
     </div>
   </section>
 
@@ -822,7 +854,7 @@ body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">37</span>
+      <span class="num">38</span>
     </div>
   </section>
 
@@ -844,7 +876,7 @@ body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">38</span>
+      <span class="num">39</span>
     </div>
   </section>
 
@@ -864,7 +896,7 @@ body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">39</span>
+      <span class="num">40</span>
     </div>
   </section>
 
@@ -877,7 +909,7 @@ body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">40</span>
+      <span class="num">41</span>
     </div>
   </section>
 
@@ -903,7 +935,7 @@ Campera Animal Print   (x7)</span></code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">41</span>
+      <span class="num">42</span>
     </div>
   </section>
 
@@ -931,7 +963,7 @@ Campera Animal Print   (x7)</span></code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">42</span>
+      <span class="num">43</span>
     </div>
   </section>
 
@@ -960,7 +992,7 @@ lista.innerHTML = <span class="tok-str">""</span>;   <span class="tok-com">// ch
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">43</span>
+      <span class="num">44</span>
     </div>
   </section>
 
@@ -987,7 +1019,7 @@ titulo.textContent = <span class="tok-str">`Productos (${document.querySelectorA
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">44</span>
+      <span class="num">45</span>
     </div>
   </section>
 
@@ -1018,7 +1050,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".navba
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">45</span>
+      <span class="num">46</span>
     </div>
   </section>
 
@@ -1045,7 +1077,7 @@ buscador.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"inp
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">46</span>
+      <span class="num">47</span>
     </div>
   </section>
 
@@ -1071,7 +1103,7 @@ botonModo.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"cl
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">47</span>
+      <span class="num">48</span>
     </div>
   </section>
 
@@ -1100,7 +1132,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">48</span>
+      <span class="num">49</span>
     </div>
   </section>
 
@@ -1127,7 +1159,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">49</span>
+      <span class="num">50</span>
     </div>
   </section>
 
@@ -1151,7 +1183,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">50</span>
+      <span class="num">51</span>
     </div>
   </section>
 
@@ -1164,7 +1196,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">51</span>
+      <span class="num">52</span>
     </div>
   </section>
 
@@ -1184,7 +1216,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">52</span>
+      <span class="num">53</span>
     </div>
   </section>
 
@@ -1204,7 +1236,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">53</span>
+      <span class="num">54</span>
     </div>
   </section>
 
@@ -1220,7 +1252,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">54</span>
+      <span class="num">55</span>
     </div>
   </section>
 

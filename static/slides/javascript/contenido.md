@@ -110,12 +110,13 @@ nombre = "Fort";          // TypeError
 ```
 
 - Usen `const` por defecto y `let` solo si el valor cambia
-- `var` es la forma vieja: la van a ver en código antiguo, no la usen {tag:note}
+- `let` y `const` viven **dentro de las llaves** `{ }` donde se declaran (scope de bloque)
+- `var` es la forma vieja: ignora las llaves y la van a ver en código antiguo. No la usen {tag:note}
 - Probalo: https://www.intro-camejo.com.ar/js-consola/?ej=let-const
 
 ---
 
-## Tipos
+## Tipos: dinámico y débil
 
 ```js
 typeof "hola"       // "string"
@@ -126,7 +127,9 @@ typeof [1, 2]       // "object"  (los arrays son objetos)
 typeof null         // "object"  (un error histórico)
 ```
 
-- Las variables **no tienen tipo**: lo tienen los valores
+- **Dinámico**: las variables no tienen tipo, lo tienen los valores (`let x = 42; x = "Hola";` es válido)
+- **Débil**: si mezclás tipos, JS convierte solo en vez de dar error (coerción, en la próxima)
+- Simples (`number`, `string`, `boolean`), vacíos (`undefined`, `null`) y compuestos (objetos, arrays) {tag:info}
 - Probalo: https://www.intro-camejo.com.ar/js-consola/?ej=tipos
 
 ---
@@ -171,13 +174,13 @@ if (precio > 15) {
 }
 
 for (let i = 0; i < 3; i++) { console.log(i); }
-
 for (const nombre of ["Home", "Nosotros", "Productos"]) {
   console.log(nombre);
 }
 ```
 
 - `for...of` recorre los elementos de un array (o de una lista del DOM) {tag:tip}
+- El `if` acepta cualquier valor: `0`, `""`, `null`, `undefined` y `NaN` cuentan como `false` (*falsy*) {tag:warning}
 - Probalo: https://www.intro-camejo.com.ar/js-consola/?ej=if · https://www.intro-camejo.com.ar/js-consola/?ej=for
 
 ---
@@ -195,6 +198,7 @@ console.log(conIva(20), conDescuento(20));
 ```
 
 - Las dos formas hacen lo mismo. La flecha es más corta y es la que vamos a usar en los eventos
+- Una `function` declarada se puede llamar **antes** de la línea donde está (*hoisting*); una guardada en `const`, no
 - Una función es un **valor**: se puede guardar en una variable o pasar a otra función {tag:info}
 - Probalo: https://www.intro-camejo.com.ar/js-consola/?ej=funciones
 
@@ -228,6 +232,24 @@ const total = precios.reduce((a, b) => a + b, 0);    // 47
 - `map` **transforma** cada elemento y `filter` **se queda** con los que cumplen la condición
 - Ninguno modifica el array original: los dos devuelven uno nuevo {tag:tip}
 - Probalo: https://www.intro-camejo.com.ar/js-consola/?ej=map-filter
+
+---
+
+## Imperativo vs declarativo
+
+```js
+// Imperativo: el CÓMO, paso a paso
+const pares = [];
+for (let i = 0; i < numeros.length; i++) {
+  if (numeros[i] % 2 === 0) pares.push(numeros[i] * 2);
+}
+
+// Declarativo: el QUÉ
+const resultado = numeros.filter(n => n % 2 === 0).map(n => n * 2);
+```
+
+- Mismo resultado: duplicar los pares de `[1, 2, 3, 4, 5, 6]` → `[4, 8, 12]`
+- El declarativo se lee como la consigna y **no modifica** el array original {tag:tip}
 
 ---
 
