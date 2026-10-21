@@ -1,0 +1,126 @@
+[
+  {
+    "grupo": "Sintaxis",
+    "items": [
+      {
+        "id": "hola",
+        "label": "Hola, consola",
+        "js": "console.log(\"Hola, mundo\");\nconsole.log(2 + 3);\nconsole.log(\"El resultado es\", 10 * 4);"
+      },
+      {
+        "id": "let-const",
+        "label": "let y const",
+        "js": "let stock = 5;\nstock = stock - 1;        // let se puede reasignar\nconsole.log(\"Quedan\", stock);\n\nconst nombre = \"Campera Animal Print\";\nconsole.log(nombre);\nnombre = \"Otra cosa\";    // const NO: esto tira error\n",
+        "nota": "La última línea falla a propósito: miren el error en la consola."
+      },
+      {
+        "id": "tipos",
+        "label": "Tipos",
+        "js": "console.log(typeof 20);              // number\nconsole.log(typeof \"Precio: $20\");   // string\nconsole.log(typeof true);            // boolean\nconsole.log(typeof undefined);       // undefined\nconsole.log(typeof null);            // object (¡un error histórico!)\nconsole.log(typeof [1, 2, 3]);       // object\nconsole.log(typeof { nombre: \"Ricky\" });"
+      },
+      {
+        "id": "igualdad",
+        "label": "== vs ===",
+        "js": "console.log(20 == \"20\");    // true: convierte el string a número\nconsole.log(20 === \"20\");   // false: distinto tipo\nconsole.log(0 == false);     // true  😬\nconsole.log(0 === false);    // false\nconsole.log(\"5\" + 3);        // \"53\": + con un string concatena\nconsole.log(\"5\" - 3);        // 2: - convierte a número"
+      },
+      {
+        "id": "template",
+        "label": "Template strings",
+        "js": "const producto = \"Campera Animal Print\";\nconst precio = 20;\nconst cantidad = 3;\n\nconsole.log(\"Llevás \" + cantidad + \" \" + producto + \" por $\" + precio * cantidad);\nconsole.log(`Llevás ${cantidad} ${producto} por $${precio * cantidad}`);"
+      },
+      {
+        "id": "if",
+        "label": "if / else",
+        "js": "const precio = 20;\n\nif (precio > 100) {\n  console.log(\"Caro\");\n} else if (precio > 15) {\n  console.log(\"Normal\");\n} else {\n  console.log(\"Oferta\");\n}\n\n// operador ternario: un if que devuelve un valor\nconst etiqueta = precio === 0 ? \"Gratis\" : `$${precio}`;\nconsole.log(etiqueta);"
+      },
+      {
+        "id": "for",
+        "label": "for / for...of",
+        "js": "for (let i = 1; i <= 3; i++) {\n  console.log(\"Vuelta\", i);\n}\n\nconst talles = [\"S\", \"M\", \"L\", \"XL\"];\nfor (const talle of talles) {\n  console.log(`Talle ${talle}`);\n}"
+      },
+      {
+        "id": "funciones",
+        "label": "Funciones",
+        "js": "function conIva(precio) {\n  return precio * 1.21;\n}\n\nconst conDescuento = (precio, porcentaje) => precio * (1 - porcentaje / 100);\n\nconst doble = n => n * 2;   // un parámetro y una expresión: sin paréntesis ni return\n\nconsole.log(conIva(20));\nconsole.log(conDescuento(20, 10));\nconsole.log(doble(21));"
+      },
+      {
+        "id": "arrays",
+        "label": "Arrays",
+        "js": "const carrito = [\"Campera\", \"Lentes\"];\ncarrito.push(\"Remera\");\nconsole.log(carrito);\nconsole.log(carrito.length);\nconsole.log(carrito[0]);\nconsole.log(carrito.includes(\"Lentes\"));"
+      },
+      {
+        "id": "objetos",
+        "label": "Objetos",
+        "js": "const producto = {\n  nombre: \"Campera Animal Print\",\n  precio: 20,\n  talles: [\"M\", \"L\"],\n};\n\nconsole.log(producto.nombre);\nconsole.log(producto[\"precio\"]);\nproducto.precio = 25;\nproducto.stock = 3;   // se pueden agregar propiedades\nconsole.log(producto);"
+      },
+      {
+        "id": "map-filter",
+        "label": "map / filter",
+        "js": "const productos = [\n  { nombre: \"Campera Animal Print\", precio: 20 },\n  { nombre: \"Lentes de sol\", precio: 15 },\n  { nombre: \"Remera Bailando 2008\", precio: 12 },\n];\n\nconst nombres = productos.map(p => p.nombre);\nconsole.log(nombres);\n\nconst baratos = productos.filter(p => p.precio < 16);\nconsole.log(baratos);\n\nconst total = productos.reduce((suma, p) => suma + p.precio, 0);\nconsole.log(\"Total:\", total);"
+      }
+    ]
+  },
+  {
+    "grupo": "DOM",
+    "items": [
+      {
+        "id": "dom-select",
+        "label": "querySelector",
+        "html": "<div class=\"navbar\">\n  <a href=\"#\" class=\"active\">Home</a>\n  <a href=\"#\">Nosotros</a>\n  <a href=\"#\">Productos</a>\n</div>\n<div class=\"container\">\n  <h1>Listado</h1>\n  <div class=\"card-list\">\n    <div class=\"card\"><p class=\"card-name\">Campera Animal Print</p><p class=\"card-price\">Precio: $20</p></div>\n    <div class=\"card\"><p class=\"card-name\">Lentes de sol</p><p class=\"card-price\">Precio: $15</p></div>\n    <div class=\"card\"><p class=\"card-name\">Remera Bailando 2008</p><p class=\"card-price\">Precio: $12</p></div>\n  </div>\n</div>\n<style>\n  .navbar{display:flex;gap:4px;border-bottom:1px solid}.navbar a{padding:8px;color:black;text-decoration:none}\n  .navbar a.active{background:#2a0308;color:white}\n  body{background:#f8ebbe}.card-list{display:flex;gap:8px}.card{border:3px solid;border-radius:10px;padding:6px}\n  .card-name{font-weight:bold;margin:4px 0}.card-price{font-size:14px;margin:4px 0}\n  .seleccionada{background:#2a0308;color:white}\n</style>",
+        "js": "const titulo = document.querySelector(\"h1\");\nconsole.log(titulo.textContent);\n\nconst cards = document.querySelectorAll(\".card\");\nconsole.log(cards.length, \"productos\");\n\nconst primera = document.querySelector(\".card .card-name\");\nconsole.log(primera.textContent);"
+      },
+      {
+        "id": "dom-cambiar",
+        "label": "textContent / style",
+        "html": "<div class=\"navbar\">\n  <a href=\"#\" class=\"active\">Home</a>\n  <a href=\"#\">Nosotros</a>\n  <a href=\"#\">Productos</a>\n</div>\n<div class=\"container\">\n  <h1>Listado</h1>\n  <div class=\"card-list\">\n    <div class=\"card\"><p class=\"card-name\">Campera Animal Print</p><p class=\"card-price\">Precio: $20</p></div>\n    <div class=\"card\"><p class=\"card-name\">Lentes de sol</p><p class=\"card-price\">Precio: $15</p></div>\n    <div class=\"card\"><p class=\"card-name\">Remera Bailando 2008</p><p class=\"card-price\">Precio: $12</p></div>\n  </div>\n</div>\n<style>\n  .navbar{display:flex;gap:4px;border-bottom:1px solid}.navbar a{padding:8px;color:black;text-decoration:none}\n  .navbar a.active{background:#2a0308;color:white}\n  body{background:#f8ebbe}.card-list{display:flex;gap:8px}.card{border:3px solid;border-radius:10px;padding:6px}\n  .card-name{font-weight:bold;margin:4px 0}.card-price{font-size:14px;margin:4px 0}\n  .seleccionada{background:#2a0308;color:white}\n</style>",
+        "js": "const titulo = document.querySelector(\"h1\");\ntitulo.textContent = \"Productos\";\ntitulo.style.color = \"#924f1b\";\n\nfor (const precio of document.querySelectorAll(\".card-price\")) {\n  precio.textContent += \" USD\";\n}"
+      },
+      {
+        "id": "dom-classlist",
+        "label": "classList",
+        "html": "<div class=\"navbar\">\n  <a href=\"#\" class=\"active\">Home</a>\n  <a href=\"#\">Nosotros</a>\n  <a href=\"#\">Productos</a>\n</div>\n<div class=\"container\">\n  <h1>Listado</h1>\n  <div class=\"card-list\">\n    <div class=\"card\"><p class=\"card-name\">Campera Animal Print</p><p class=\"card-price\">Precio: $20</p></div>\n    <div class=\"card\"><p class=\"card-name\">Lentes de sol</p><p class=\"card-price\">Precio: $15</p></div>\n    <div class=\"card\"><p class=\"card-name\">Remera Bailando 2008</p><p class=\"card-price\">Precio: $12</p></div>\n  </div>\n</div>\n<style>\n  .navbar{display:flex;gap:4px;border-bottom:1px solid}.navbar a{padding:8px;color:black;text-decoration:none}\n  .navbar a.active{background:#2a0308;color:white}\n  body{background:#f8ebbe}.card-list{display:flex;gap:8px}.card{border:3px solid;border-radius:10px;padding:6px}\n  .card-name{font-weight:bold;margin:4px 0}.card-price{font-size:14px;margin:4px 0}\n  .seleccionada{background:#2a0308;color:white}\n</style>",
+        "js": "const card = document.querySelector(\".card\");\ncard.classList.add(\"seleccionada\");\nconsole.log(card.classList.contains(\"seleccionada\"));\n\n// toggle: si la tiene la saca, si no la pone\ndocument.querySelectorAll(\".card\")[2].classList.toggle(\"seleccionada\");"
+      },
+      {
+        "id": "dom-crear",
+        "label": "createElement",
+        "html": "<div class=\"navbar\">\n  <a href=\"#\" class=\"active\">Home</a>\n  <a href=\"#\">Nosotros</a>\n  <a href=\"#\">Productos</a>\n</div>\n<div class=\"container\">\n  <h1>Listado</h1>\n  <div class=\"card-list\">\n    <div class=\"card\"><p class=\"card-name\">Campera Animal Print</p><p class=\"card-price\">Precio: $20</p></div>\n    <div class=\"card\"><p class=\"card-name\">Lentes de sol</p><p class=\"card-price\">Precio: $15</p></div>\n    <div class=\"card\"><p class=\"card-name\">Remera Bailando 2008</p><p class=\"card-price\">Precio: $12</p></div>\n  </div>\n</div>\n<style>\n  .navbar{display:flex;gap:4px;border-bottom:1px solid}.navbar a{padding:8px;color:black;text-decoration:none}\n  .navbar a.active{background:#2a0308;color:white}\n  body{background:#f8ebbe}.card-list{display:flex;gap:8px}.card{border:3px solid;border-radius:10px;padding:6px}\n  .card-name{font-weight:bold;margin:4px 0}.card-price{font-size:14px;margin:4px 0}\n  .seleccionada{background:#2a0308;color:white}\n</style>",
+        "js": "const card = document.createElement(\"div\");\ncard.className = \"card\";\n\nconst nombre = document.createElement(\"p\");\nnombre.className = \"card-name\";\nnombre.textContent = \"Gorra Ricky Fort\";\n\ncard.append(nombre);\ndocument.querySelector(\".card-list\").append(card);"
+      },
+      {
+        "id": "dom-click",
+        "label": "click",
+        "html": "<div class=\"navbar\">\n  <a href=\"#\" class=\"active\">Home</a>\n  <a href=\"#\">Nosotros</a>\n  <a href=\"#\">Productos</a>\n</div>\n<div class=\"container\">\n  <h1>Listado</h1>\n  <div class=\"card-list\">\n    <div class=\"card\"><p class=\"card-name\">Campera Animal Print</p><p class=\"card-price\">Precio: $20</p></div>\n    <div class=\"card\"><p class=\"card-name\">Lentes de sol</p><p class=\"card-price\">Precio: $15</p></div>\n    <div class=\"card\"><p class=\"card-name\">Remera Bailando 2008</p><p class=\"card-price\">Precio: $12</p></div>\n  </div>\n</div>\n<style>\n  .navbar{display:flex;gap:4px;border-bottom:1px solid}.navbar a{padding:8px;color:black;text-decoration:none}\n  .navbar a.active{background:#2a0308;color:white}\n  body{background:#f8ebbe}.card-list{display:flex;gap:8px}.card{border:3px solid;border-radius:10px;padding:6px}\n  .card-name{font-weight:bold;margin:4px 0}.card-price{font-size:14px;margin:4px 0}\n  .seleccionada{background:#2a0308;color:white}\n</style>",
+        "js": "const cards = document.querySelectorAll(\".card\");\n\nfor (const card of cards) {\n  card.addEventListener(\"click\", () => {\n    card.classList.toggle(\"seleccionada\");\n    console.log(\"Click en\", card.querySelector(\".card-name\").textContent);\n  });\n}\nconsole.log(\"Hagan click en las cards →\");"
+      },
+      {
+        "id": "dom-input",
+        "label": "input",
+        "html": "<label>Buscar: <input id=\"buscador\" placeholder=\"escribí algo\"></label>\n<p id=\"eco\"></p>",
+        "js": "const buscador = document.querySelector(\"#buscador\");\nconst eco = document.querySelector(\"#eco\");\n\nbuscador.addEventListener(\"input\", () => {\n  eco.textContent = `Estás buscando: ${buscador.value}`;\n});"
+      },
+      {
+        "id": "dom-submit",
+        "label": "submit",
+        "html": "<form id=\"suscripcion\">\n  <input name=\"email\" type=\"email\" placeholder=\"tu@mail.com\" required>\n  <button>Suscribirme</button>\n</form>",
+        "js": "const form = document.querySelector(\"#suscripcion\");\n\nform.addEventListener(\"submit\", (evento) => {\n  evento.preventDefault();   // sin esto, la página se recarga\n  const email = form.email.value;\n  console.log(\"Suscripto:\", email);\n  form.reset();\n});"
+      }
+    ]
+  },
+  {
+    "grupo": "Asincronismo",
+    "items": [
+      {
+        "id": "timeout",
+        "label": "setTimeout",
+        "js": "console.log(\"1. Antes\");\n\nsetTimeout(() => {\n  console.log(\"3. Un segundo después\");\n}, 1000);\n\nconsole.log(\"2. Después (¡pero se imprime antes que el 3!)\");"
+      },
+      {
+        "id": "fetch",
+        "label": "fetch (dólar blue)",
+        "js": "async function precioEnPesos(dolares) {\n  const respuesta = await fetch(\"https://dolarapi.com/v1/dolares/blue\");\n  const dolar = await respuesta.json();\n  console.log(\"Dólar blue, venta:\", dolar.venta);\n  return dolares * dolar.venta;\n}\n\nconsole.log(\"Pidiendo la cotización...\");\nprecioEnPesos(20).then(pesos => {\n  console.log(`La campera de $20 USD sale $${pesos} pesos`);\n});",
+        "nota": "Necesita internet: le pide la cotización a dolarapi.com."
+      }
+    ]
+  }
+]

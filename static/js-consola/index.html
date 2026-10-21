@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consola JavaScript · Intro Camejo</title>
+  <style>
+    :root {
+      --bg: #eef3f8;
+      --paper: #ffffff;
+      --ink: #1c2834;
+      --muted: #4d6073;
+      --line: #d3deea;
+      --accent: #1565c0;
+      --accent-ink: #ffffff;
+      --chip: #f4f8fc;
+      --chip-on: #e3f0ff;
+      --chip-line: #b9d2ee;
+      --note-bg: #fff8e8;
+      --note-ink: #6b4e12;
+      --null: #9a6700;
+      --danger-bg: #fff1f0;
+      --danger: #9b1c1c;
+      --ok: #0d6b45;
+      --head: #e7f0fa;
+      --zebra: #f6f9fc;
+      --shadow: 0 1px 2px rgba(28, 40, 52, 0.06), 0 8px 24px rgba(28, 40, 52, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      font-size: clamp(18px, 1.65vw, 24px);
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Segoe UI", "Liberation Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.35;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      padding: 0.75rem 1.25rem 0.35rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+    }
+
+    .sub {
+      margin: 0.15rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .sub a { color: var(--accent); }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border-radius: 0.55rem;
+    }
+
+    #reset, #toggle-ejemplos {
+      background: var(--paper);
+      color: var(--ink);
+      border: 2px solid var(--line);
+      padding: 0.45rem 0.9rem;
+      white-space: nowrap;
+    }
+
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+
+    #reset:hover, #toggle-ejemplos:hover { border-color: var(--accent); color: var(--accent); }
+
+    #toggle-ejemplos[aria-expanded="true"] {
+      border-color: var(--accent);
+      background: var(--chip-on);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    #examples {
+      padding: 0 1.25rem 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    #examples[hidden] { display: none; }
+
+    .grupo {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .grupo-nombre {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 7.2rem;
+    }
+
+    .chip {
+      background: var(--chip);
+      color: var(--ink);
+      border: 2px solid var(--line);
+      padding: 0.32rem 0.7rem;
+      font-size: 0.92rem;
+    }
+
+    .chip:hover { border-color: var(--chip-line); background: var(--chip-on); }
+
+    .chip[aria-pressed="true"] {
+      background: var(--chip-on);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .workspace {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: 0.9rem;
+      padding: 0 1.25rem 1rem;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 0.8rem;
+      box-shadow: var(--shadow);
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-bar h2 {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    textarea {
+      flex: 1;
+      width: 100%;
+      resize: none;
+      border: 0;
+      margin: 0;
+      padding: 0.8rem 0.9rem;
+      background: #fffdf8;
+      color: var(--ink);
+      font-family: "Liberation Mono", "Cascadia Mono", "Courier New", monospace;
+      font-size: 1.12rem;
+      line-height: 1.45;
+    }
+
+    textarea:focus { outline: none; }
+
+    .note {
+      margin: 0 0.8rem;
+      padding: 0.45rem 0.7rem;
+      background: var(--note-bg);
+      color: var(--note-ink);
+      border-radius: 0.45rem;
+      font-size: 0.86rem;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.65rem 0.8rem 0.75rem;
+    }
+
+    #run {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border: 0;
+      padding: 0.5rem 1.15rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    #run:hover { filter: brightness(1.08); }
+
+    #hint { color: var(--muted); font-size: 0.82rem; }
+
+    #results {
+      overflow: auto;
+      padding: 0.7rem 0.8rem 0.9rem;
+    }
+
+    .vacio, .error, .ok {
+      margin: 0.4rem 0;
+      font-size: 1.05rem;
+    }
+
+    .error {
+      background: var(--danger-bg);
+      color: var(--danger);
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.5rem;
+      white-space: pre-wrap;
+    }
+
+    .ok { color: var(--ok); font-weight: 700; }
+
+    .resultado + .resultado { margin-top: 1.1rem; }
+
+    .meta {
+      margin: 0 0 0.4rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.02rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.38rem 0.65rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: var(--head);
+      font-size: 0.92rem;
+    }
+
+    tbody tr:nth-child(even) { background: var(--zebra); }
+
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .null {
+      color: var(--null);
+      font-weight: 700;
+      font-size: 0.86em;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 960px) {
+      body { height: auto; overflow: auto; }
+      .header-actions { width: 100%; }
+      .workspace { grid-template-columns: 1fr; }
+      textarea { min-height: 14rem; }
+      #results { max-height: 70vh; }
+    }
+  
+    .workspace { grid-template-columns: 1fr 1fr; }
+    #salida-panel { display: grid; grid-template-rows: auto minmax(0, 1.4fr) auto minmax(0, 1fr); }
+    #salida-panel.sin-pagina { grid-template-rows: auto minmax(0, 1fr); }
+    #salida-panel.sin-pagina .pagina { display: none; }
+    iframe#pagina { width: 100%; height: 100%; border: 0; background: #fff; border-bottom-left-radius: .8rem; border-bottom-right-radius: .8rem; }
+    #consola { overflow: auto; padding: .5rem .8rem .8rem; font-family: "Liberation Mono", "Cascadia Mono", "Courier New", monospace; font-size: 1.02rem; }
+    .linea { padding: .22rem 0; border-bottom: 1px solid var(--line); white-space: pre-wrap; word-break: break-word; }
+    .linea.warn { background: var(--note-bg); color: var(--note-ink); }
+    .linea.error { background: var(--danger-bg); color: var(--danger); margin: 0; padding: .3rem .4rem; border-radius: 0; }
+    .linea .t-num { color: #0e6e82; } .linea .t-str { color: #1f7a46; } .linea .t-otro { color: var(--null); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Consola JavaScript</h1>
+      <p class="sub">Escribí JavaScript y ejecutalo acá mismo, sin instalar nada. Los ejemplos de la clase de <a href="/slides/javascript/index.html">JavaScript y DOM</a> están en Ejemplos.</p>
+    </div>
+    <div class="header-actions">
+      <button id="toggle-ejemplos" type="button" aria-expanded="false" aria-controls="examples">Ejemplos</button>
+      <button id="reset" type="button">Limpiar</button>
+    </div>
+  </header>
+  <div id="examples" hidden></div>
+  <div class="workspace">
+    <section class="panel" aria-label="Código">
+      <div class="panel-bar"><h2>Código</h2></div>
+      <textarea id="codigo" spellcheck="false" aria-label="Código JavaScript"></textarea>
+      <p class="note" id="note" hidden></p>
+      <div class="actions">
+        <button id="run" type="button">Ejecutar</button>
+        <span id="hint">Ctrl + Enter</span>
+      </div>
+    </section>
+    <section class="panel sin-pagina" id="salida-panel" aria-label="Salida">
+      <div class="panel-bar pagina"><h2>Página</h2></div>
+      <iframe id="pagina" class="pagina" title="Página del ejemplo" sandbox="allow-scripts allow-modals allow-forms"></iframe>
+      <div class="panel-bar"><h2>Consola</h2></div>
+      <div id="consola"><p class="vacio">Escribí código o abrí Ejemplos. Lo que pase por <code>console.log</code> aparece acá.</p></div>
+    </section>
+  </div>
+  <script>
+    const codigo = document.getElementById("codigo");
+    const consola = document.getElementById("consola");
+    const note = document.getElementById("note");
+    const examplesEl = document.getElementById("examples");
+    const panel = document.getElementById("salida-panel");
+    const iframe = document.getElementById("pagina");
+    let htmlActual = "";
+    let corrida = 0;
+
+    function escapeHtml(value) {
+      return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+    }
+
+    // Código que corre DENTRO del iframe: redirige console.* y los errores a esta página.
+    function puente(id) {
+      return `<script>(function(){
+  var ID = ${id};
+  function fmt(v, prof) {
+    prof = prof || 0;
+    if (v === null) return {t:"otro", s:"null"};
+    if (v === undefined) return {t:"otro", s:"undefined"};
+    if (typeof v === "string") return {t: prof ? "str" : "plano", s: prof ? JSON.stringify(v) : v};
+    if (typeof v === "number" || typeof v === "boolean" || typeof v === "bigint") return {t:"num", s:String(v)};
+    if (typeof v === "function") return {t:"otro", s:"ƒ " + (v.name || "anónima") + "()"};
+    if (typeof Element !== "undefined" && v instanceof Element) {
+      var s = "<" + v.tagName.toLowerCase() + (v.id ? "#" + v.id : "") + (v.className && typeof v.className === "string" ? "." + v.className.trim().split(/\\s+/).join(".") : "") + ">";
+      return {t:"otro", s:s};
+    }
+    if (typeof NodeList !== "undefined" && (v instanceof NodeList || v instanceof HTMLCollection)) {
+      return {t:"otro", s:"NodeList(" + v.length + ") [" + Array.prototype.map.call(v, function(x){return fmt(x,1).s;}).join(", ") + "]"};
+    }
+    if (prof > 2) return {t:"otro", s: Array.isArray(v) ? "[…]" : "{…}"};
+    if (Array.isArray(v)) return {t:"plano", s:"[" + v.map(function(x){return fmt(x, prof+1).s;}).join(", ") + "]"};
+    if (v instanceof Error) return {t:"plano", s: v.name + ": " + v.message};
+    if (v instanceof Promise) return {t:"otro", s:"Promise {…}"};
+    try {
+      var ks = Object.keys(v);
+      return {t:"plano", s:"{ " + ks.map(function(k){return k + ": " + fmt(v[k], prof+1).s;}).join(", ") + (ks.length ? " }" : "}")};
+    } catch (e) { return {t:"plano", s:String(v)}; }
+  }
+  function enviar(nivel, args) {
+    var partes = Array.prototype.map.call(args, function(a){ return fmt(a); });
+    parent.postMessage({ consolaJs: ID, nivel: nivel, partes: partes }, "*");
+  }
+  ["log","info","warn","error","table"].forEach(function(n){
+    console[n] = function(){ enviar(n === "info" || n === "table" ? "log" : n, arguments); };
+  });
+  window.addEventListener("error", function(e){ enviar("error", [e.message]); });
+  window.addEventListener("unhandledrejection", function(e){ enviar("error", ["Promesa rechazada: " + (e.reason && e.reason.message || e.reason)]); });
+})();<\/script>`;
+    }
+
+    function pintar(msg) {
+      if (msg.consolaJs !== corrida) return;
+      const vacio = consola.querySelector(".vacio");
+      if (vacio) vacio.remove();
+      const linea = document.createElement("div");
+      linea.className = "linea " + (msg.nivel === "log" ? "" : msg.nivel);
+      linea.innerHTML = msg.partes.map((p) => '<span class="t-' + p.t + '">' + escapeHtml(p.s) + "</span>").join(" ");
+      consola.append(linea);
+      consola.scrollTop = consola.scrollHeight;
+    }
+
+    window.addEventListener("message", (e) => { if (e.data && "consolaJs" in e.data) pintar(e.data); });
+
+    function ejecutar() {
+      corrida += 1;
+      consola.innerHTML = "";
+      const js = codigo.value.replaceAll("<\/script", "<\\/script");
+      const cuerpo = htmlActual || "";
+      // Cada ejecución arranca con una página nueva: las variables no quedan de la corrida anterior.
+      iframe.srcdoc = "<!DOCTYPE html><html lang=\"es\"><head><meta charset=\"utf-8\">" + puente(corrida) +
+        "<style>body{font-family:system-ui,sans-serif;font-size:18px;margin:12px}</style></head><body>" + cuerpo +
+        "<script>" + js + "\n<\/script></body></html>";
+      setTimeout(() => {
+        if (!consola.children.length) consola.innerHTML = '<p class="vacio">(no se imprimió nada en la consola: miren la página)</p>';
+      }, 1500);
+    }
+
+    function elegir(item, boton) {
+      document.querySelectorAll(".chip").forEach((chip) => chip.setAttribute("aria-pressed", "false"));
+      if (boton) boton.setAttribute("aria-pressed", "true");
+      codigo.value = item.js;
+      htmlActual = item.html || "";
+      panel.classList.toggle("sin-pagina", !htmlActual);
+      note.hidden = !item.nota;
+      note.textContent = item.nota || "";
+      history.replaceState(null, "", "?ej=" + encodeURIComponent(item.id));
+      ejecutar();
+    }
+
+    function armarBotones(grupos) {
+      examplesEl.replaceChildren();
+      const botones = {};
+      for (const grupo of grupos) {
+        const fila = document.createElement("div");
+        fila.className = "grupo";
+        const nombre = document.createElement("span");
+        nombre.className = "grupo-nombre";
+        nombre.textContent = grupo.grupo;
+        fila.append(nombre);
+        for (const item of grupo.items) {
+          const boton = document.createElement("button");
+          boton.type = "button";
+          boton.className = "chip";
+          boton.textContent = item.label;
+          boton.setAttribute("aria-pressed", "false");
+          boton.addEventListener("click", () => elegir(item, boton));
+          botones[item.id] = [item, boton];
+          fila.append(boton);
+        }
+        examplesEl.append(fila);
+      }
+      return botones;
+    }
+
+    function abrirEjemplos(abierto) {
+      examplesEl.hidden = !abierto;
+      const boton = document.getElementById("toggle-ejemplos");
+      boton.setAttribute("aria-expanded", String(abierto));
+      boton.textContent = abierto ? "Ocultar ejemplos" : "Ejemplos";
+    }
+
+    document.getElementById("toggle-ejemplos").addEventListener("click", () => abrirEjemplos(examplesEl.hidden));
+    document.getElementById("run").addEventListener("click", ejecutar);
+    document.getElementById("reset").addEventListener("click", () => {
+      codigo.value = ""; htmlActual = ""; panel.classList.add("sin-pagina"); note.hidden = true;
+      history.replaceState(null, "", location.pathname);
+      consola.innerHTML = '<p class="vacio">Escribí código o abrí Ejemplos.</p>';
+    });
+    codigo.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") { event.preventDefault(); ejecutar(); }
+      if (event.key === "Tab") {
+        event.preventDefault();
+        const i = codigo.selectionStart;
+        codigo.setRangeText("  ", i, codigo.selectionEnd, "end");
+      }
+    });
+
+    fetch("ejemplos.json").then((r) => {
+      if (!r.ok) throw new Error("No se pudo leer ejemplos.json");
+      return r.json();
+    }).then((grupos) => {
+      const botones = armarBotones(grupos);
+      const pedido = new URLSearchParams(location.search).get("ej");
+      if (pedido && botones[pedido]) {
+        abrirEjemplos(true);
+        elegir(...botones[pedido]);
+      }
+    }).catch((error) => {
+      consola.innerHTML = '<p class="error">' + escapeHtml(error.message || error) + "</p>";
+    });
+  </script>
+</body>
+</html>

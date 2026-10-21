@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript y el DOM — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!-- Generado a partir de contenido.md siguiendo _template/formatos.md (mismo esquema que sql-2 y html-css).
+     Las salidas de consola y las soluciones se verificaron en Chrome headless (consola /js-consola y la página real de ricky-fort-merch). -->
+<main class="deck">
+
+  <!-- portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">JavaScript y el DOM</div>
+        <div class="s-sub">Del HTML estático a páginas que reaccionan</div>
+        <div class="cover-index"><span class="n">Clase JavaScript</span><span class="dot"></span><span class="n">2026</span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">¿Qué es JavaScript?</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Sintaxis en 20 minutos</span></li>
+        <li><span class="idx">.03</span><span class="lbl">El DOM</span></li>
+        <li><span class="idx">.04</span><span class="lbl">Asincronismo (adelanto)</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Práctica: Ricky Fort Merch</span></li>
+        <li><span class="idx">.06</span><span class="lbl">Ejercicios</span></li>
+        <li><span class="idx">.07</span><span class="lbl">Soluciones</span></li>
+        <li><span class="idx">.08</span><span class="lbl">Cierre</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">¿Qué es JavaScript?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">El tercer lenguaje de la web</div>
+      <ul class="bullets">
+        <li><span><strong>HTML</strong> dice qué hay en la página, <strong>CSS</strong> dice cómo se ve y <strong>JavaScript</strong> dice qué <strong>hace</strong></span></li>
+        <li><span>Es un lenguaje de programación de verdad: variables, condiciones, ciclos, funciones</span></li>
+        <li><span>Nació en 1995 en Netscape (en 10 días 😅). Hoy el estándar se llama <strong>ECMAScript</strong><span class="tag tag-info">Info</span></span></li>
+        <li><span>No tiene nada que ver con Java: el nombre fue marketing<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">¿Dónde corre?</div>
+      <ul class="bullets">
+        <li><span>En el <strong>navegador</strong>: cada pestaña tiene su motor (V8 en Chrome, SpiderMonkey en Firefox)</span></li>
+        <li><span>En el <strong>servidor</strong> o la terminal, con <strong>Node.js</strong>: el mismo lenguaje sin página</span></li>
+        <li><span>Hoy nos quedamos en el navegador: JS que <strong>lee y modifica la página</strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">Cargar un script: <code>&lt;script&gt;</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">head</span>&gt;
+  &lt;<span class="tok-kw">link</span> <span class="tok-fn">rel</span>=<span class="tok-str">"stylesheet"</span> <span class="tok-fn">href</span>=<span class="tok-str">"style.css"</span>&gt;
+  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span> defer&gt;&lt;/<span class="tok-kw">script</span>&gt;
+&lt;/<span class="tok-kw">head</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>src</code> apunta a un archivo <code>.js</code> aparte, igual que el CSS con <code>&lt;link&gt;</code></span></li>
+        <li><span><code>defer</code>: el script se ejecuta <strong>cuando el HTML ya terminó de cargarse</strong></span></li>
+        <li><span>Sin <code>defer</code> (en el <code>&lt;head&gt;</code>), el script corre antes de que existan los elementos y <code>querySelector</code> devuelve <code>null</code><span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">La consola y las DevTools</div>
+      <ul class="bullets">
+        <li><span><strong>F12</strong> (o click derecho → Inspeccionar) → pestaña <strong>Console</strong></span></li>
+        <li><span>Ahí aparecen los <code>console.log</code> y los <strong>errores</strong> (en rojo, con archivo y línea)</span></li>
+        <li><span>También se puede escribir JS directo y probarlo sobre la página abierta<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>La pestaña <strong>Elements</strong> muestra el DOM <strong>en vivo</strong>: lo que cambie JS se ve ahí</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">Consola JavaScript de la materia</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/consola-js.png" alt="Consola JavaScript con un ejemplo de click"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>Todos los ejemplos de hoy están en <a href="https://www.intro-camejo.com.ar/js-consola/" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/</a></span></li>
+        <li><span><strong>Cero instalación</strong>: se abre en el navegador, se edita y se corre con Ctrl+Enter</span></li>
+        <li><span>Los ejemplos de DOM traen una mini página para tocar</span></li>
+        <li><span>Cada slide tiene el link a su ejemplo<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Sintaxis en 20 minutos</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Variables: <code>let</code> y <code>const</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> nombre = <span class="tok-str">"Ricky"</span>;   <span class="tok-com">// no se puede reasignar</span>
+<span class="tok-kw">let</span> visitas = <span class="tok-num">0</span>;          <span class="tok-com">// sí se puede</span>
+visitas = visitas + <span class="tok-num">1</span>;
+nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// TypeError</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Usen <code>const</code> por defecto y <code>let</code> solo si el valor cambia</span></li>
+        <li><span><code>var</code> es la forma vieja: la van a ver en código antiguo, no la usen<span class="tag tag-note">Nota</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=let-const" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=let-const</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Tipos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">typeof</span> <span class="tok-str">"hola"</span>       <span class="tok-com">// "string"</span>
+<span class="tok-kw">typeof</span> <span class="tok-num">20</span>           <span class="tok-com">// "number"  (enteros y decimales son lo mismo)</span>
+<span class="tok-kw">typeof</span> <span class="tok-kw">true</span>         <span class="tok-com">// "boolean"</span>
+<span class="tok-kw">typeof</span> <span class="tok-kw">undefined</span>    <span class="tok-com">// "undefined"</span>
+<span class="tok-kw">typeof</span> [<span class="tok-num">1</span>, <span class="tok-num">2</span>]       <span class="tok-com">// "object"  (los arrays son objetos)</span>
+<span class="tok-kw">typeof</span> <span class="tok-kw">null</span>         <span class="tok-com">// "object"  (un error histórico)</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Las variables <strong>no tienen tipo</strong>: lo tienen los valores</span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=tipos" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=tipos</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Operadores y <code>===</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-num">2</span> + <span class="tok-num">3</span> * <span class="tok-num">4</span>        <span class="tok-com">// 14</span>
+<span class="tok-str">"20"</span> + <span class="tok-num">1</span>         <span class="tok-com">// "201"  (concatena)</span>
+<span class="tok-str">"20"</span> - <span class="tok-num">1</span>         <span class="tok-com">// 19     (convierte)</span>
+<span class="tok-str">"1"</span> == <span class="tok-num">1</span>         <span class="tok-com">// true   (convierte antes de comparar)</span>
+<span class="tok-str">"1"</span> === <span class="tok-num">1</span>        <span class="tok-com">// false  (tipo y valor)</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Usen <strong>siempre</strong> <code>===</code> y <code>!==</code><span class="tag tag-warning">Warning</span></span></li>
+        <li><span><code>&amp;&amp;</code>, <code>||</code> y <code>!</code> como en cualquier lenguaje</span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=igualdad" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=igualdad</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Template strings</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> producto = <span class="tok-str">"Campera Animal Print"</span>;
+<span class="tok-kw">const</span> precio = <span class="tok-num">20</span>;
+console.<span class="tok-fn">log</span>(<span class="tok-str">`${producto} cuesta $${precio}`</span>);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Van con <strong>backticks</strong> (<code>) y meten expresiones con </code>${...}`</span></li>
+        <li><span>Pueden ocupar varias líneas: ideales para armar HTML<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=template" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=template</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md"><code>if</code> y <code>for</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">if</span> (precio &gt; <span class="tok-num">15</span>) {
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"caro"</span>);
+} <span class="tok-kw">else</span> {
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"barato"</span>);
+}
+
+<span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">3</span>; i++) { console.<span class="tok-fn">log</span>(i); }
+
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> nombre <span class="tok-kw">of</span> [<span class="tok-str">"Home"</span>, <span class="tok-str">"Nosotros"</span>, <span class="tok-str">"Productos"</span>]) {
+  console.<span class="tok-fn">log</span>(nombre);
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>for...of</code> recorre los elementos de un array (o de una lista del DOM)<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=if" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=if</a> · <a href="https://www.intro-camejo.com.ar/js-consola/?ej=for" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=for</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Funciones y arrow functions</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">function</span> <span class="tok-fn">conIva</span>(precio) {
+  <span class="tok-kw">return</span> precio * <span class="tok-num">1.21</span>;
+}
+
+<span class="tok-kw">const</span> conDescuento = (precio) =&gt; precio * <span class="tok-num">0.9</span>;
+
+console.<span class="tok-fn">log</span>(<span class="tok-fn">conIva</span>(<span class="tok-num">20</span>), <span class="tok-fn">conDescuento</span>(<span class="tok-num">20</span>));</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Las dos formas hacen lo mismo. La flecha es más corta y es la que vamos a usar en los eventos</span></li>
+        <li><span>Una función es un <strong>valor</strong>: se puede guardar en una variable o pasar a otra función<span class="tag tag-info">Info</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=funciones" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=funciones</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Arrays y objetos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> productos = [
+  { nombre: <span class="tok-str">"Campera Animal Print"</span>, precio: <span class="tok-num">20</span> },
+  { nombre: <span class="tok-str">"Lentes de sol"</span>, precio: <span class="tok-num">15</span> },
+];
+productos.<span class="tok-fn">push</span>({ nombre: <span class="tok-str">"Remera"</span>, precio: <span class="tok-num">12</span> });
+console.<span class="tok-fn">log</span>(productos.length, productos[<span class="tok-num">0</span>].nombre);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Array</strong>: lista ordenada que arranca en el índice 0. <strong>Objeto</strong>: pares <code>clave: valor</code></span></li>
+        <li><span>Es la misma forma que tiene un JSON<span class="tag tag-info">Info</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=arrays" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=arrays</a> · <a href="https://www.intro-camejo.com.ar/js-consola/?ej=objetos" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=objetos</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md"><code>map</code> y <code>filter</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> precios = productos.<span class="tok-fn">map</span>(p =&gt; p.precio);        <span class="tok-com">// [20, 15, 12]</span>
+<span class="tok-kw">const</span> baratos = productos.<span class="tok-fn">filter</span>(p =&gt; p.precio &lt; <span class="tok-num">18</span>); <span class="tok-com">// 2 productos</span>
+<span class="tok-kw">const</span> total = precios.<span class="tok-fn">reduce</span>((a, b) =&gt; a + b, <span class="tok-num">0</span>);    <span class="tok-com">// 47</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>map</code> <strong>transforma</strong> cada elemento y <code>filter</code> <strong>se queda</strong> con los que cumplen la condición</span></li>
+        <li><span>Ninguno modifica el array original: los dos devuelven uno nuevo<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=map-filter" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=map-filter</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">El DOM</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md">La página es un árbol</div>
+      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 1048.5px; background-color: transparent;" viewBox="4 4 1048.5 524" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg .label{font-family:Open Sans,Segoe UI,sans-serif;color:#333;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg span{fill:#333;color:#333;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node polygon,#my-svg .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg .node.clickable{cursor:pointer;}#my-svg .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePaths .path{stroke:#333333;stroke-width:1px;}#my-svg .flowchart-link{stroke:#333333;fill:none;}#my-svg .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#my-svg .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#my-svg .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#my-svg .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#my-svg .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#my-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Open Sans,Segoe UI,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#my-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#my-svg rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#my-svg .icon-shape .label rect,#my-svg .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#my-svg .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g><marker id="my-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="my-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edges edgePaths"><path d="M381.5,60L381.5,96" id="my-svg-L_doc_html_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_doc_html_0" data-points="W3sieCI6MzgxLjUsInkiOjYwfSx7IngiOjM4MS41LCJ5IjoxMDB9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M359.5,148L359.5,160.92893218813452Q359.5,168 352.4289321881345,168L292.5710678118655,168Q285.5,168 285.5,175.07106781186548L285.5,184" id="my-svg-L_html_head_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_head_0" data-points="W3sieCI6MzU5LjUsInkiOjE0OH0seyJ4IjozNTkuNSwieSI6MTY4fSx7IngiOjI4NS41LCJ5IjoxNjh9LHsieCI6Mjg1LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M403.5,148L403.5,160.92893218813452Q403.5,168 410.5710678118655,168L470.4289321881345,168Q477.5,168 477.5,175.07106781186548L477.5,184" id="my-svg-L_html_body_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_body_0" data-points="W3sieCI6NDAzLjUsInkiOjE0OH0seyJ4Ijo0MDMuNSwieSI6MTY4fSx7IngiOjQ3Ny41LCJ5IjoxNjh9LHsieCI6NDc3LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M455.5,236L455.5,248.92893218813452Q455.5,256 448.4289321881345,256L276.0710678118655,256Q269,256 269,263.0710678118655L269,272" id="my-svg-L_body_nav_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 213.1717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_nav_0" data-points="W3sieCI6NDU1LjUsInkiOjIzNn0seyJ4Ijo0NTUuNSwieSI6MjU2fSx7IngiOjI2OSwieSI6MjU2fSx7IngiOjI2OSwieSI6Mjc2fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M499.5,236L499.5,248.92893218813452Q499.5,256 506.5710678118655,256L747.4289321881345,256Q754.5,256 754.5,263.0710678118655L754.5,272" id="my-svg-L_body_cont_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 281.6717529296875 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_cont_0" data-points="W3sieCI6NDk5LjUsInkiOjIzNn0seyJ4Ijo0OTkuNSwieSI6MjU2fSx7IngiOjc1NC41LCJ5IjoyNTZ9LHsieCI6NzU0LjUsInkiOjI3Nn1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M236,324L236,336.9289321881345Q236,344 228.92893218813452,344L95.07106781186548,344Q88,344 88,351.0710678118655L88,360" id="my-svg-L_nav_a1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 174.6717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a1_0" data-points="W3sieCI6MjM2LCJ5IjozMjR9LHsieCI6MjM2LCJ5IjozNDR9LHsieCI6ODgsInkiOjM0NH0seyJ4Ijo4OCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M269,324L269,338.5Q269,344 274.5,344L274.5,344Q280,344 280,349.5L280,360" id="my-svg-L_nav_a2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 38.85557556152344 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a2_0" data-points="W3sieCI6MjY5LCJ5IjozMjR9LHsieCI6MjY5LCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M302,324L302,336.9289321881345Q302,344 309.0710678118655,344L464.9289321881345,344Q472,344 472,351.0710678118655L472,360" id="my-svg-L_nav_a3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 196.67169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a3_0" data-points="W3sieCI6MzAyLCJ5IjozMjR9LHsieCI6MzAyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M732.5,324L732.5,336.9289321881345Q732.5,344 725.4289321881345,344L671.0710678118655,344Q664,344 664,351.0710678118655L664,360" id="my-svg-L_cont_h1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 95.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_h1_0" data-points="W3sieCI6NzMyLjUsInkiOjMyNH0seyJ4Ijo3MzIuNSwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M776.5,324L776.5,336.9289321881345Q776.5,344 783.5710678118655,344L848.9289321881345,344Q856,344 856,351.0710678118655L856,360" id="my-svg-L_cont_list_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 106.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_list_0" data-points="W3sieCI6Nzc2LjUsInkiOjMyNH0seyJ4Ijo3NzYuNSwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M823,412L823,424.9289321881345Q823,432 815.9289321881345,432L591.5710678118655,432Q584.5,432 584.5,439.0710678118655L584.5,468" id="my-svg-L_list_c1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 285.17169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c1_0" data-points="W3sieCI6ODIzLCJ5Ijo0MTJ9LHsieCI6ODIzLCJ5Ijo0MzJ9LHsieCI6NTg0LjUsInkiOjQzMn0seyJ4Ijo1ODQuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M856,412L856,444.9289321881345Q856,452 848.9289321881345,452L783.5710678118655,452Q776.5,452 776.5,459.0710678118655L776.5,468" id="my-svg-L_list_c2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c2_0" data-points="W3sieCI6ODU2LCJ5Ijo0MTJ9LHsieCI6ODU2LCJ5Ijo0NTJ9LHsieCI6Nzc2LjUsInkiOjQ1Mn0seyJ4Ijo3NzYuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M889,412L889,424.9289321881345Q889,432 896.0710678118655,432L961.4289321881345,432Q968.5,432 968.5,439.0710678118655L968.5,468" id="my-svg-L_list_c3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c3_0" data-points="W3sieCI6ODg5LCJ5Ijo0MTJ9LHsieCI6ODg5LCJ5Ijo0MzJ9LHsieCI6OTY4LjUsInkiOjQzMn0seyJ4Ijo5NjguNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/></g><g class="edgeLabels"/><g class="nodes"><g class="node default" id="my-svg-flowchart-doc-0" data-look="neo" transform="translate(381.5, 36)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>document</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-html-1" data-look="neo" transform="translate(381.5, 124)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>html</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-head-3" data-look="neo" transform="translate(285.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>head</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-body-5" data-look="neo" transform="translate(477.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>body</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-nav-7" data-look="neo" transform="translate(269, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.navbar</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-cont-9" data-look="neo" transform="translate(754.5, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.container</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a1-11" data-look="neo" transform="translate(88, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a2-12" data-look="neo" transform="translate(280, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a3-13" data-look="neo" transform="translate(472, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a.active</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-h1-15" data-look="neo" transform="translate(664, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>h1</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-list-17" data-look="neo" transform="translate(856, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card-list</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c1-19" data-look="neo" transform="translate(584.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c2-20" data-look="neo" transform="translate(776.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c3-21" data-look="neo" transform="translate(968.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>...</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="my-svg-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+      <ul class="bullets">
+        <li><span>El navegador convierte el HTML en objetos: el <strong>DOM</strong> (Document Object Model). JS los ve en <code>document</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md">Buscar elementos: <code>querySelector</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> titulo = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">"h1"</span>);            <span class="tok-com">// el primero</span>
+<span class="tok-kw">const</span> cards = document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card"</span>);       <span class="tok-com">// todos (NodeList)</span>
+<span class="tok-kw">const</span> activo = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".navbar a.active"</span>);
+console.<span class="tok-fn">log</span>(cards.length);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Usan <strong>los mismos selectores que CSS</strong><span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Si no encuentra nada, <code>querySelector</code> devuelve <code>null</code></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-select" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-select</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md">Cambiar contenido: <code>textContent</code> e <code>innerHTML</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>titulo.textContent = <span class="tok-str">"Productos"</span>;
+<span class="tok-kw">const</span> card = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card"</span>);
+card.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-price"</span>).textContent = <span class="tok-str">"Precio: $25"</span>;
+card.innerHTML = <span class="tok-str">"&lt;p class='card-name'&gt;Agotado&lt;/p&gt;"</span>;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>textContent</code> cambia <strong>texto</strong> y <code>innerHTML</code> interpreta <strong>HTML</strong></span></li>
+        <li><span>Nunca metan en <code>innerHTML</code> texto que escribió un usuario: abre la puerta a inyectar código (XSS)<span class="tag tag-danger">Danger</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-cambiar" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-cambiar</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md">Clases y estilos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>card.classList.<span class="tok-fn">add</span>(<span class="tok-str">"seleccionada"</span>);
+card.classList.<span class="tok-fn">remove</span>(<span class="tok-str">"seleccionada"</span>);
+card.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"seleccionada"</span>);   <span class="tok-com">// pone o saca</span>
+card.classList.<span class="tok-fn">contains</span>(<span class="tok-str">"seleccionada"</span>); <span class="tok-com">// true / false</span>
+card.style.display = <span class="tok-str">"none"</span>;             <span class="tok-com">// estilo inline</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Prefieran <code>classList</code> y dejen el estilo en el CSS. <code>style</code> sirve para casos puntuales<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-classlist" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-classlist</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md">Crear elementos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> card = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"div"</span>);
+card.className = <span class="tok-str">"card"</span>;
+card.innerHTML = <span class="tok-str">`&lt;p class="card-name"&gt;Lentes de sol&lt;/p&gt;`</span>;
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-list"</span>).<span class="tok-fn">append</span>(card);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>createElement</code> crea el nodo y <code>append</code> lo cuelga del árbol: <strong>recién ahí se ve</strong></span></li>
+        <li><span>También existen <code>prepend</code>, <code>before</code>, <code>after</code> y <code>remove</code></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-crear" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-crear</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md">Eventos: <code>addEventListener</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> card = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card"</span>);
+card.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, () =&gt; {
+  card.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"seleccionada"</span>);
+});</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>"Cuando pase <strong>esto</strong>, ejecutá <strong>esta función</strong>"</span></li>
+        <li><span>La función se ejecuta <strong>cada vez</strong> que ocurre el evento, no cuando se escribe</span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-click" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-click</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="s-title s-title--md"><code>input</code> y <code>submit</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>buscador.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"input"</span>, () =&gt; {
+  console.<span class="tok-fn">log</span>(buscador.value);       <span class="tok-com">// en cada tecla</span>
+});
+
+formulario.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"submit"</span>, (evento) =&gt; {
+  evento.<span class="tok-fn">preventDefault</span>();           <span class="tok-com">// que no recargue la página</span>
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"enviado"</span>);
+});</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>evento.preventDefault()</code> cancela lo que el navegador haría solo (recargar, seguir un link)<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-input" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-input</a> · <a href="https://www.intro-camejo.com.ar/js-consola/?ej=dom-submit" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=dom-submit</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">Asincronismo (adelanto)</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Asincronismo (adelanto)</div>
+      <div class="s-title s-title--md">No todo pasa en orden</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>console.<span class="tok-fn">log</span>(<span class="tok-str">"1"</span>);
+<span class="tok-fn">setTimeout</span>(() =&gt; console.<span class="tok-fn">log</span>(<span class="tok-str">"2"</span>), <span class="tok-num">1000</span>);
+console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);          <span class="tok-com">// imprime 1, 3, 2</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Hay cosas que <strong>tardan</strong> (un timer, un pedido a un servidor), y JS <strong>no se queda esperando</strong></span></li>
+        <li><span>Les deja una función para "cuando termine" y sigue con lo demás</span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=timeout" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=timeout</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — Asincronismo (adelanto)</div>
+      <div class="s-title s-title--md"><code>fetch</code>: pedirle datos a una API</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">async</span> <span class="tok-kw">function</span> <span class="tok-fn">dolarBlue</span>() {
+  <span class="tok-kw">const</span> respuesta = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(<span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>);
+  <span class="tok-kw">const</span> dolar = <span class="tok-kw">await</span> respuesta.<span class="tok-fn">json</span>();
+  console.<span class="tok-fn">log</span>(<span class="tok-str">`US$20 = $${20 * dolar.venta}`</span>);
+}
+<span class="tok-fn">dolarBlue</span>();</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>await</code> espera la respuesta <strong>sin congelar</strong> la página</span></li>
+        <li><span>Lo vemos a fondo el <strong>martes</strong>: JS en el navegador y consumo de una API pública<span class="tag tag-info">Info</span></span></li>
+        <li><span>Probalo: <a href="https://www.intro-camejo.com.ar/js-consola/?ej=fetch" target="_blank" rel="noopener">https://www.intro-camejo.com.ar/js-consola/?ej=fetch</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">Práctica: Ricky Fort Merch</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Ricky Fort Merch</div>
+      <div class="s-title s-title--md">La página de Manu</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/ricky-original.png" alt="Listado de Ricky Fort Merch"></div>
+        <div>
+      <ul class="bullets">
+        <li><span><code>listado.html</code> + <code>style.css</code> del repo <strong>ricky-fort-merch</strong></span></li>
+        <li><span><code>.navbar</code> con 3 links y <code>.card-list</code> con 7 <code>.card</code> (todas iguales)</span></li>
+        <li><span>Cada card tiene <code>.card-img</code>, <code>.card-name</code> y <code>.card-price</code></span></li>
+        <li><span>Hoy la hacemos <strong>reaccionar</strong> sin tocar el HTML</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Ricky Fort Merch</div>
+      <div class="s-title s-title--md">Preparación</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">link</span> <span class="tok-fn">rel</span>=<span class="tok-str">"stylesheet"</span> <span class="tok-fn">href</span>=<span class="tok-str">"style.css"</span>&gt;
+&lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span> defer&gt;&lt;/<span class="tok-kw">script</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Hagan una <strong>copia propia</strong> de <code>listado.html</code> y <code>style.css</code> y creen un <code>app.js</code> vacío al lado</span></li>
+        <li><span>Agreguen el <code>&lt;script&gt;</code> en el <code>&lt;head&gt;</code> y abran la página con las DevTools abiertas</span></li>
+        <li><span>Cada ejercicio <strong>se suma</strong> al anterior en el mismo <code>app.js</code><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Práctica: Ricky Fort Merch</div>
+      <div class="s-title s-title--md">CSS que vamos a necesitar</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">css</div>
+        <pre><code>.card.seleccionada { <span class="tok-fn">background-color</span>: var(--color-terciario); <span class="tok-fn">color</span>: white; }
+body.oscuro { <span class="tok-fn">--color-primary</span>: <span class="tok-num">#1a0205</span>; <span class="tok-fn">color</span>: white; }
+body.oscuro .navbar a { <span class="tok-fn">color</span>: white; }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Al final de <code>style.css</code>. Usan las variables que ya define la página en <code>:root</code></span></li>
+        <li><span>JS <strong>solo pone y saca clases</strong>. Cómo se ven lo sigue decidiendo el CSS<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+      <div class="s-title">Ejercicios</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Ejercicios</div>
+      <div class="s-title s-title--md">Ejercicios 1 a 3</div>
+      <ul class="bullets">
+        <li><span><strong>1.</strong> <strong>Consola</strong>: con <code>querySelectorAll</code>, imprimí cuántas cards hay y el nombre de cada una</span></li>
+        <li><span><strong>2.</strong> <strong>Datos en un array</strong>: armá un array <code>productos</code> con 8 objetos <code>{ nombre, precio }</code> (inventen) y generá las cards con <code>createElement</code>. La foto: reusen el <code>src</code> de la primera <code>.card-img</code></span></li>
+        <li><span><strong>3.</strong> <strong>Título</strong>: que el <code>h1</code> diga <code>Productos (8)</code>, contando las cards del DOM</span></li>
+      </ul>
+      <ul class="bullets">
+        <li><span>Mantengan las clases <code>card</code>, <code>card-img</code>, <code>card-name</code> y <code>card-price</code> para que el CSS siga funcionando<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Ejercicios</div>
+      <div class="s-title s-title--md">Ejercicios 4 a 7</div>
+      <ul class="bullets">
+        <li><span><strong>4.</strong> <strong>Seleccionar</strong>: click en una card → <code>toggle</code> de la clase <code>seleccionada</code></span></li>
+        <li><span><strong>5.</strong> <strong>Carrito</strong>: agregá <code>🛒 0</code> a la navbar y un botón "Agregar al carrito" en cada card que sume 1</span></li>
+        <li><span><strong>6.</strong> <strong>Buscador</strong>: un <code>&lt;input&gt;</code> antes de <code>.card-list</code> que oculte las cards cuyo nombre no contiene lo escrito (sin importar mayúsculas)</span></li>
+        <li><span><strong>7.</strong> <strong>Modo oscuro</strong>: un link 🌙 en la navbar que haga <code>toggle</code> de <code>oscuro</code> en el <code>body</code></span></li>
+      </ul>
+      <ul class="bullets">
+        <li><span>En el 5, el click del botón también llega a la card: busquen <code>stopPropagation</code><span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Ejercicios</div>
+      <div class="s-title s-title--md">Desafío y bonus</div>
+      <ul class="bullets">
+        <li><span><strong>8.</strong> <strong>Desafío</strong>: debajo de la lista, mostrá <code>Seleccionaste N productos: $X</code> sumando los precios de las cards seleccionadas (<code>filter</code> + <code>reduce</code>)</span></li>
+        <li><span><strong>9.</strong> <strong>Bonus asincrónico</strong>: con <code>fetch</code> a <a href="https://dolarapi.com/v1/dolares/blue" target="_blank" rel="noopener">https://dolarapi.com/v1/dolares/blue</a>, mostrá cada precio también en pesos: <code>Precio: US$20 (≈ $31.300)</code></span></li>
+      </ul>
+      <ul class="bullets">
+        <li><span>El 9 es adelanto del martes: si no sale, no pasa nada<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .07</div>
+      <div class="s-title">Soluciones</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 1</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> cards = document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card"</span>);
+console.<span class="tok-fn">log</span>(<span class="tok-str">`Hay ${cards.length} productos`</span>);
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> card <span class="tok-kw">of</span> cards) {
+  console.<span class="tok-fn">log</span>(card.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-name"</span>).textContent);
+}</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="fname">consola</div>
+        <pre><code><span class="c3">Hay 7 productos
+Campera Animal Print   (x7)</span></code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 2: los datos</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> IMG = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-img"</span>).src;  <span class="tok-com">// la única foto 😅</span>
+
+<span class="tok-kw">const</span> productos = [
+  { nombre: <span class="tok-str">"Campera Animal Print"</span>, precio: <span class="tok-num">20</span> },
+  { nombre: <span class="tok-str">"Lentes de sol dorados"</span>, precio: <span class="tok-num">15</span> },
+  { nombre: <span class="tok-str">"Remera Miameee"</span>, precio: <span class="tok-num">12</span> },
+  { nombre: <span class="tok-str">"Cadena de oro (de lata)"</span>, precio: <span class="tok-num">8</span> },
+  { nombre: <span class="tok-str">"Bata de seda"</span>, precio: <span class="tok-num">35</span> },
+  { nombre: <span class="tok-str">"Gorra Comandante"</span>, precio: <span class="tok-num">10</span> },
+  { nombre: <span class="tok-str">"Taza Muy Bien"</span>, precio: <span class="tok-num">6</span> },
+  { nombre: <span class="tok-str">"Pañuelo de lentejuelas"</span>, precio: <span class="tok-num">9</span> },
+];</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 2: el render</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> lista = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-list"</span>);
+lista.innerHTML = <span class="tok-str">""</span>;   <span class="tok-com">// chau a las 7 camperas repetidas</span>
+
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> producto <span class="tok-kw">of</span> productos) {
+  <span class="tok-kw">const</span> card = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"div"</span>);
+  card.className = <span class="tok-str">"card"</span>;
+  card.innerHTML = <span class="tok-str">`
+    &lt;img class="card-img" src="${IMG}"&gt;
+    &lt;hr&gt;
+    &lt;p class="card-name"&gt;${producto.nombre}&lt;/p&gt;
+    &lt;p class="card-price"&gt;Precio: $${producto.precio}&lt;/p&gt;`</span>;
+  lista.<span class="tok-fn">append</span>(card);
+}</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Soluciones 3 y 4</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> titulo = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".container h1"</span>);
+titulo.textContent = <span class="tok-str">`Productos (${document.querySelectorAll(".card").length})`</span>;
+
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> card <span class="tok-kw">of</span> document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card"</span>)) {
+  card.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, () =&gt; {
+    card.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"seleccionada"</span>);
+  });
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Los listeners van <strong>después</strong> del render: si se regeneran las cards, se pierden<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 5</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> contador = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"a"</span>);
+contador.href = <span class="tok-str">"#"</span>;
+contador.textContent = <span class="tok-str">"🛒 0"</span>;
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".navbar"</span>).<span class="tok-fn">append</span>(contador);
+<span class="tok-kw">let</span> enCarrito = <span class="tok-num">0</span>;
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> card <span class="tok-kw">of</span> document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card"</span>)) {
+  <span class="tok-kw">const</span> boton = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"button"</span>);
+  boton.textContent = <span class="tok-str">"Agregar al carrito"</span>;
+  boton.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, (evento) =&gt; {
+    evento.<span class="tok-fn">stopPropagation</span>();   <span class="tok-com">// que no seleccione la card</span>
+    enCarrito++;
+    contador.textContent = <span class="tok-str">`🛒 ${enCarrito}`</span>;
+  });
+  card.<span class="tok-fn">append</span>(boton);
+}</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">42</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 6</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> buscador = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"input"</span>);
+buscador.placeholder = <span class="tok-str">"Buscar producto..."</span>;
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-list"</span>).<span class="tok-fn">before</span>(buscador);
+
+buscador.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"input"</span>, () =&gt; {
+  <span class="tok-kw">const</span> texto = buscador.value.<span class="tok-fn">toLowerCase</span>();
+  <span class="tok-kw">for</span> (<span class="tok-kw">const</span> card <span class="tok-kw">of</span> document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card"</span>)) {
+    <span class="tok-kw">const</span> nombre = card.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-name"</span>).textContent.<span class="tok-fn">toLowerCase</span>();
+    card.style.display = nombre.<span class="tok-fn">includes</span>(texto) ? <span class="tok-str">""</span> : <span class="tok-str">"none"</span>;
+  }
+});</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">43</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 7</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> botonModo = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"a"</span>);
+botonModo.href = <span class="tok-str">"#"</span>;
+botonModo.textContent = <span class="tok-str">"🌙"</span>;
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".navbar"</span>).<span class="tok-fn">append</span>(botonModo);
+
+botonModo.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, (evento) =&gt; {
+  evento.<span class="tok-fn">preventDefault</span>();   <span class="tok-com">// es un &lt;a&gt;: que no navegue</span>
+  document.body.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"oscuro"</span>);
+  botonModo.textContent = document.body.classList.<span class="tok-fn">contains</span>(<span class="tok-str">"oscuro"</span>) ? <span class="tok-str">"☀️"</span> : <span class="tok-str">"🌙"</span>;
+});</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">44</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 8 (desafío)</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> total = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"p"</span>);
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-list"</span>).<span class="tok-fn">after</span>(total);
+
+<span class="tok-kw">function</span> <span class="tok-fn">actualizarTotal</span>() {
+  <span class="tok-kw">const</span> nombres = [...document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card.seleccionada .card-name"</span>)]
+    .<span class="tok-fn">map</span>(p =&gt; p.textContent);
+  <span class="tok-kw">const</span> suma = productos
+    .<span class="tok-fn">filter</span>(p =&gt; nombres.<span class="tok-fn">includes</span>(p.nombre))
+    .<span class="tok-fn">reduce</span>((acumulado, p) =&gt; acumulado + p.precio, <span class="tok-num">0</span>);
+  total.textContent = <span class="tok-str">`Seleccionaste ${nombres.length} productos: $${suma}`</span>;
+}
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-list"</span>).<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, actualizarTotal);
+<span class="tok-fn">actualizarTotal</span>();</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">45</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Solución 9 (bonus)</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">async</span> <span class="tok-kw">function</span> <span class="tok-fn">mostrarEnPesos</span>() {
+  <span class="tok-kw">const</span> respuesta = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(<span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>);
+  <span class="tok-kw">const</span> dolar = <span class="tok-kw">await</span> respuesta.<span class="tok-fn">json</span>();
+  <span class="tok-kw">const</span> precios = document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card-price"</span>);
+  productos.<span class="tok-fn">forEach</span>((producto, i) =&gt; {
+    <span class="tok-kw">const</span> pesos = Math.<span class="tok-fn">round</span>(producto.precio * dolar.venta);
+    precios[i].textContent =
+      <span class="tok-str">`Precio: US$${producto.precio} (≈ $${pesos.toLocaleString("es-AR")})`</span>;
+  });
+}
+<span class="tok-fn">mostrarEnPesos</span>();</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">46</span>
+    </div>
+  </section>
+
+  <!-- imagen-texto -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.07 — Soluciones</div>
+      <div class="s-title s-title--md">Así queda</div>
+      <div class="cols2">
+        <div class="col-media"><img src="img/ricky-final.png" alt="Ricky Fort Merch con 8 productos, carrito, buscador y modo oscuro"></div>
+        <div>
+      <ul class="bullets">
+        <li><span>8 productos generados desde un array</span></li>
+        <li><span>Título con contador, cards seleccionables y carrito</span></li>
+        <li><span>Buscador y modo oscuro</span></li>
+        <li><span><strong>Sin tocar una línea</strong> del HTML original</span></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">47</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .08</div>
+      <div class="s-title">Cierre</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">48</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.08 — Cierre</div>
+      <div class="s-title s-title--md">Resumen</div>
+      <ul class="bullets">
+        <li><span>JS se carga con <code>&lt;script src defer&gt;</code> y se depura en la <strong>consola</strong></span></li>
+        <li><span><code>const</code>/<code>let</code>, <code>===</code>, template strings, funciones flecha, arrays de objetos, <code>map</code>/<code>filter</code></span></li>
+        <li><span>DOM: <code>querySelector</code> → cambiar (<code>textContent</code>, <code>classList</code>) → crear (<code>createElement</code> + <code>append</code>)</span></li>
+        <li><span>Eventos: <code>addEventListener</code> con <code>click</code>, <code>input</code> y <code>submit</code></span></li>
+        <li><span><strong>Martes 27/10</strong>: JS en el navegador y consumo de una API pública. Traigan el ejercicio 9 andando<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">49</span>
+    </div>
+  </section>
+
+  <!-- bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>MDN — JavaScript first steps <span class="src">(<a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Learn/JavaScript/First_steps</a>)</span></li>
+        <li>MDN — Introducción al DOM <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction</a>)</span></li>
+        <li>MDN — Introducción a los eventos <span class="src">(<a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events</a>)</span></li>
+        <li>MDN — Array.prototype.map <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map</a>)</span></li>
+        <li>MDN — Usando Fetch <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch</a>)</span></li>
+        <li>javascript.info — The Modern JavaScript Tutorial <span class="src">(<a href="https://es.javascript.info/" target="_blank" rel="noopener">es.javascript.info</a>)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">50</span>
+    </div>
+  </section>
+
+  <!-- cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">¡Gracias!</div>
+        <div class="closing-links"></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">51</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
