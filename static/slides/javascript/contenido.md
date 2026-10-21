@@ -1,7 +1,7 @@
 <!-- slide: tipo=portada -->
 # JavaScript y el DOM
 Del HTML estático a páginas que reaccionan
-Clase JavaScript — 2026
+Clase JavaScript — 2C 2026
 
 ---
 
