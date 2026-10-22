@@ -482,7 +482,7 @@ formulario.addEventListener("submit", (evento) => {
 
 ## Resumen
 
-- JS se depura en la **consola** (F12)
+- JS se debugea en la **consola** (F12)
 - `const`/`let`, `===`, funciones flecha, arrays de objetos, `map`/`filter`
 - Asincronismo: como el **lavarropas**, `setTimeout` y `fetch` no frenan el resto; `.then`/`await` = el pitido
 - JS se carga con `<script>` al final del `<body>`
