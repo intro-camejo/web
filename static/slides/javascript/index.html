@@ -177,15 +177,14 @@
       <div class="s-title s-title--md">Cargar un script: <code>&lt;script&gt;</code></div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">html</div>
-        <pre><code>&lt;<span class="tok-kw">head</span>&gt;
-  &lt;<span class="tok-kw">link</span> <span class="tok-fn">rel</span>=<span class="tok-str">"stylesheet"</span> <span class="tok-fn">href</span>=<span class="tok-str">"style.css"</span>&gt;
-  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span> defer&gt;&lt;/<span class="tok-kw">script</span>&gt;
-&lt;/<span class="tok-kw">head</span>&gt;</code></pre>
+        <pre><code>&lt;<span class="tok-kw">body</span>&gt;
+  ...todo el contenido de la página...
+  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span>&gt;&lt;/<span class="tok-kw">script</span>&gt;
+&lt;/<span class="tok-kw">body</span>&gt;</code></pre>
       </div>
       <ul class="bullets">
         <li><span><code>src</code> apunta a un archivo <code>.js</code> aparte, igual que el CSS con <code>&lt;link&gt;</code></span></li>
-        <li><span><code>defer</code>: el script se ejecuta <strong>cuando el HTML ya terminó de cargarse</strong></span></li>
-        <li><span>Sin <code>defer</code> (en el <code>&lt;head&gt;</code>), el script corre antes de que existan los elementos y <code>querySelector</code> devuelve <code>null</code><span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Va <strong>al final del <code>&lt;body&gt;</code></strong>: así corre cuando la página ya está armada<span class="tag tag-warning">Warning</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
@@ -785,12 +784,12 @@ console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);      
       <div class="s-title s-title--md">Preparación</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">html</div>
-        <pre><code>&lt;<span class="tok-kw">link</span> <span class="tok-fn">rel</span>=<span class="tok-str">"stylesheet"</span> <span class="tok-fn">href</span>=<span class="tok-str">"style.css"</span>&gt;
-&lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span> defer&gt;&lt;/<span class="tok-kw">script</span>&gt;</code></pre>
+        <pre><code>  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span>&gt;&lt;/<span class="tok-kw">script</span>&gt;
+&lt;/<span class="tok-kw">body</span>&gt;</code></pre>
       </div>
       <ul class="bullets">
         <li><span>Hagan una <strong>copia propia</strong> de <code>listado.html</code> y <code>style.css</code> y creen un <code>app.js</code> vacío al lado</span></li>
-        <li><span>Agreguen el <code>&lt;script&gt;</code> en el <code>&lt;head&gt;</code> y abran la página con las DevTools abiertas</span></li>
+        <li><span>Agreguen el <code>&lt;script&gt;</code> justo antes de <code>&lt;/body&gt;</code> y abran la página con las DevTools abiertas</span></li>
         <li><span>Cada ejercicio <strong>se suma</strong> al anterior en el mismo <code>app.js</code><span class="tag tag-tip">Tip</span></span></li>
       </ul>
     </div>
@@ -1206,7 +1205,7 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
       <div class="eyebrow"><span class="dot"></span>.08 — Cierre</div>
       <div class="s-title s-title--md">Resumen</div>
       <ul class="bullets">
-        <li><span>JS se carga con <code>&lt;script src defer&gt;</code> y se depura en la <strong>consola</strong></span></li>
+        <li><span>JS se carga con <code>&lt;script&gt;</code> al final del <code>&lt;body&gt;</code> y se depura en la <strong>consola</strong></span></li>
         <li><span><code>const</code>/<code>let</code>, <code>===</code>, template strings, funciones flecha, arrays de objetos, <code>map</code>/<code>filter</code></span></li>
         <li><span>DOM: <code>querySelector</code> → cambiar (<code>textContent</code>, <code>classList</code>) → crear (<code>createElement</code> + <code>append</code>)</span></li>
         <li><span>Eventos: <code>addEventListener</code> con <code>click</code>, <code>input</code> y <code>submit</code></span></li>

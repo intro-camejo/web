@@ -63,15 +63,14 @@ Clase JavaScript — 2C 2026
 ## Cargar un script: `<script>`
 
 ```html
-<head>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
-</head>
+<body>
+  ...todo el contenido de la página...
+  <script src="app.js"></script>
+</body>
 ```
 
 - `src` apunta a un archivo `.js` aparte, igual que el CSS con `<link>`
-- `defer`: el script se ejecuta **cuando el HTML ya terminó de cargarse**
-- Sin `defer` (en el `<head>`), el script corre antes de que existan los elementos y `querySelector` devuelve `null` {tag:warning}
+- Va **al final del `<body>`**: así corre cuando la página ya está armada {tag:warning}
 
 ---
 
@@ -423,12 +422,12 @@ dolarBlue();
 ## Preparación
 
 ```html
-<link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
+  <script src="app.js"></script>
+</body>
 ```
 
 - Hagan una **copia propia** de `listado.html` y `style.css` y creen un `app.js` vacío al lado
-- Agreguen el `<script>` en el `<head>` y abran la página con las DevTools abiertas
+- Agreguen el `<script>` justo antes de `</body>` y abran la página con las DevTools abiertas
 - Cada ejercicio **se suma** al anterior en el mismo `app.js` {tag:tip}
 
 ---
@@ -669,7 +668,7 @@ mostrarEnPesos();
 
 ## Resumen
 
-- JS se carga con `<script src defer>` y se depura en la **consola**
+- JS se carga con `<script>` al final del `<body>` y se depura en la **consola**
 - `const`/`let`, `===`, template strings, funciones flecha, arrays de objetos, `map`/`filter`
 - DOM: `querySelector` → cambiar (`textContent`, `classList`) → crear (`createElement` + `append`)
 - Eventos: `addEventListener` con `click`, `input` y `submit`
