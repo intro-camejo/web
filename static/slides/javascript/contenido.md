@@ -145,7 +145,7 @@ for (const nombre of ["Home", "Nosotros", "Productos"]) {
 
 - `for...of` recorre los elementos de un array {tag:tip}
 - El `if` acepta cualquier valor: `0`, `""`, `null`, `undefined` y `NaN` cuentan como `false` (*falsy*) {tag:warning}
-- Probalo: [if ↗](https://livecodes.io/?js=const%20precio%20%3D%2020%3B%0A%0Aif%20%28precio%20%3E%20100%29%20%7B%0A%20%20console.log%28%22Caro%22%29%3B%0A%7D%20else%20if%20%28precio%20%3E%2015%29%20%7B%0A%20%20console.log%28%22Normal%22%29%3B%0A%7D%20else%20%7B%0A%20%20console.log%28%22Oferta%22%29%3B%0A%7D%0A%0A%2F%2F%20operador%20ternario%3A%20un%20if%20que%20devuelve%20un%20valor%0Aconst%20etiqueta%20%3D%20precio%20%3D%3D%3D%200%20%3F%20%22Gratis%22%20%3A%20%22%24%22%20%2B%20precio%3B%0Aconsole.log%28etiqueta%29%3B&active=script&console=open) · [for ↗](https://livecodes.io/?js=for%20%28let%20i%20%3D%201%3B%20i%20%3C%3D%203%3B%20i%2B%2B%29%20%7B%0A%20%20console.log%28%22Vuelta%22%2C%20i%29%3B%0A%7D%0A%0Aconst%20talles%20%3D%20%5B%22S%22%2C%20%22M%22%2C%20%22L%22%2C%20%22XL%22%5D%3B%0Afor%20%28const%20talle%20of%20talles%29%20%7B%0A%20%20console.log%28%22Talle%20%22%20%2B%20talle%29%3B%0A%7D&active=script&console=open)
+- Abrir en sandbox: [if ↗](https://livecodes.io/?js=const%20precio%20%3D%2020%3B%0A%0Aif%20%28precio%20%3E%20100%29%20%7B%0A%20%20console.log%28%22Caro%22%29%3B%0A%7D%20else%20if%20%28precio%20%3E%2015%29%20%7B%0A%20%20console.log%28%22Normal%22%29%3B%0A%7D%20else%20%7B%0A%20%20console.log%28%22Oferta%22%29%3B%0A%7D%0A%0A%2F%2F%20operador%20ternario%3A%20un%20if%20que%20devuelve%20un%20valor%0Aconst%20etiqueta%20%3D%20precio%20%3D%3D%3D%200%20%3F%20%22Gratis%22%20%3A%20%22%24%22%20%2B%20precio%3B%0Aconsole.log%28etiqueta%29%3B&active=script&console=open) · [for ↗](https://livecodes.io/?js=for%20%28let%20i%20%3D%201%3B%20i%20%3C%3D%203%3B%20i%2B%2B%29%20%7B%0A%20%20console.log%28%22Vuelta%22%2C%20i%29%3B%0A%7D%0A%0Aconst%20talles%20%3D%20%5B%22S%22%2C%20%22M%22%2C%20%22L%22%2C%20%22XL%22%5D%3B%0Afor%20%28const%20talle%20of%20talles%29%20%7B%0A%20%20console.log%28%22Talle%20%22%20%2B%20talle%29%3B%0A%7D&active=script&console=open)
 
 ---
 
@@ -181,7 +181,7 @@ console.log(productos.length, productos[0].nombre);
 
 - **Array**: lista ordenada que arranca en el índice 0. **Objeto**: pares `clave: valor`
 - Es la misma forma que tiene un JSON {tag:info}
-- Probalo: [arrays ↗](https://livecodes.io/?js=const%20carrito%20%3D%20%5B%22Campera%22%2C%20%22Lentes%22%5D%3B%0Acarrito.push%28%22Remera%22%29%3B%0Aconsole.log%28carrito%29%3B%0Aconsole.log%28carrito.length%29%3B%0Aconsole.log%28carrito%5B0%5D%29%3B%0Aconsole.log%28carrito.includes%28%22Lentes%22%29%29%3B&active=script&console=open) · [objetos ↗](https://livecodes.io/?js=const%20producto%20%3D%20%7B%0A%20%20nombre%3A%20%22Campera%20Animal%20Print%22%2C%0A%20%20precio%3A%2020%2C%0A%20%20talles%3A%20%5B%22M%22%2C%20%22L%22%5D%2C%0A%7D%3B%0A%0Aconsole.log%28producto.nombre%29%3B%0Aconsole.log%28producto%5B%22precio%22%5D%29%3B%0Aproducto.precio%20%3D%2025%3B%0Aproducto.stock%20%3D%203%3B%20%20%20%2F%2F%20se%20pueden%20agregar%20propiedades%0Aconsole.log%28producto%29%3B&active=script&console=open)
+- Abrir en sandbox: [arrays ↗](https://livecodes.io/?js=const%20carrito%20%3D%20%5B%22Campera%22%2C%20%22Lentes%22%5D%3B%0Acarrito.push%28%22Remera%22%29%3B%0Aconsole.log%28carrito%29%3B%0Aconsole.log%28carrito.length%29%3B%0Aconsole.log%28carrito%5B0%5D%29%3B%0Aconsole.log%28carrito.includes%28%22Lentes%22%29%29%3B&active=script&console=open) · [objetos ↗](https://livecodes.io/?js=const%20producto%20%3D%20%7B%0A%20%20nombre%3A%20%22Campera%20Animal%20Print%22%2C%0A%20%20precio%3A%2020%2C%0A%20%20talles%3A%20%5B%22M%22%2C%20%22L%22%5D%2C%0A%7D%3B%0A%0Aconsole.log%28producto.nombre%29%3B%0Aconsole.log%28producto%5B%22precio%22%5D%29%3B%0Aproducto.precio%20%3D%2025%3B%0Aproducto.stock%20%3D%203%3B%20%20%20%2F%2F%20se%20pueden%20agregar%20propiedades%0Aconsole.log%28producto%29%3B&active=script&console=open)
 
 ---
 
@@ -221,34 +221,122 @@ const resultado = numeros.filter(n => n % 2 === 0).map(n => n * 2);
 
 ---
 
-## No todo pasa en orden
+## El lavarropas
 
-```js
-console.log("1");
-setTimeout(() => console.log("2"), 1000);
-console.log("3");          // imprime 1, 3, 2
+```mermaid
+%%{init: {"themeVariables": {"fontSize": "20px", "noteFontSize": "20px", "messageFontSize": "20px", "actorFontSize": "20px"}}}%%
+sequenceDiagram
+  participant V as 🧍 Vos
+  participant L as 🧺 Lavarropas
+  V->>L: Lo ponés a lavar
+  Note over V: Cocinás, estudiás, mirás una serie...
+  Note over L: Lava (1 hora)
+  L-->>V: 🔔 ¡Piiip! Terminó
+  Note over V: Recién ahí tendés la ropa
 ```
 
-- Hay cosas que **tardan** (un timer, un pedido a un servidor), y JS **no se queda esperando**
-- Les deja una función para "cuando termine" y sigue con lo demás
-- [Abrir en sandbox ↗](https://livecodes.io/?js=console.log%28%221.%20Antes%22%29%3B%0A%0AsetTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20console.log%28%223.%20Un%20segundo%20despu%C3%A9s%22%29%3B%0A%7D%2C%201000%29%3B%0A%0Aconsole.log%28%222.%20Despu%C3%A9s%20%28%C2%A1pero%20se%20imprime%20antes%20que%20el%203%21%29%22%29%3B&active=script&console=open)
+- **Sincrónico**: te quedás 1 hora mirando el lavarropas sin hacer nada
+- **Asincrónico**: lo ponés, seguís con tu vida y cuando **suena el pitido** tendés la ropa {tag:tip}
 
 ---
 
-## `fetch`: pedirle datos a una API
+## Adiviná el orden
 
 ```js
+console.log("1");
+setTimeout(() => console.log("2"), 2000);
+console.log("3");
+```
+
+- ¿Qué se imprime primero? **Voten**: ¿1, 2, 3? ¿1, 3, 2? ¿2, 1, 3?
+- `setTimeout` es como poner el lavarropas: "dentro de 2 segundos, hacé esto"
+- [Abrir en sandbox ↗](https://livecodes.io/?js=console.log%28%221%22%29%3B%0AsetTimeout%28%28%29%20%3D%3E%20console.log%28%222%22%29%2C%202000%29%3B%0Aconsole.log%28%223%22%29%3B&active=script&console=open)
+
+---
+
+## Respuesta: 1, 3, 2
+
+```mermaid
+%%{init: {"themeVariables": {"fontSize": "20px", "noteFontSize": "20px", "messageFontSize": "20px", "actorFontSize": "20px"}}}%%
+sequenceDiagram
+  participant JS as 🧍 JavaScript
+  participant T as ⏲️ Timer
+  Note over JS: console.log("1")
+  JS->>T: setTimeout: avisame en 2 s
+  Note over JS: console.log("3") (no espera)
+  Note over T: 2 segundos...
+  T-->>JS: 🔔 ¡Piiip!
+  Note over JS: console.log("2")
+```
+
+- JS **no se queda mirando el lavarropas**: sigue con la línea siguiente
+
+---
+
+## `fetch`: mandar a lavar al servidor
+
+```mermaid
+%%{init: {"themeVariables": {"fontSize": "20px", "noteFontSize": "20px", "messageFontSize": "20px", "actorFontSize": "20px"}}}%%
+sequenceDiagram
+  participant N as 🌐 Navegador
+  participant A as 🏦 dolarapi.com
+  N->>A: fetch: ¿cuánto está el dólar?
+  Note over N: Recibe una promesa 🎟️ y sigue
+  Note over A: Busca la cotización
+  A-->>N: Respuesta con los datos
+  Note over N: .then: recién ahí usa los datos
+```
+
+- `fetch` le pide datos a otra computadora: **tarda**, como el lavarropas
+- Una **promesa** es el ticket: "algo va a llegar, te aviso" {tag:info}
+
+---
+
+## `fetch` en dos pasos
+
+```js
+fetch("https://dolarapi.com/v1/dolares/blue")
+  .then(r => r.json())
+  .then(datos => console.log(datos));
+```
+
+- `r.json()` convierte la respuesta en un objeto. Primero miren **todo** lo que llega
+- Después elijan el dato: `datos.venta`
+- [Ver el objeto entero ↗](https://livecodes.io/?js=fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%0A%20%20.then%28r%20%3D%3E%20r.json%28%29%29%0A%20%20.then%28datos%20%3D%3E%20console.log%28datos%29%29%3B&active=script&console=open) · [Solo la venta ↗](https://livecodes.io/?js=fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%0A%20%20.then%28r%20%3D%3E%20r.json%28%29%29%0A%20%20.then%28datos%20%3D%3E%20console.log%28%22Venta%3A%20%24%22%20%2B%20datos.venta%29%29%3B&active=script&console=open)
+
+---
+
+<!-- slide: tipo=comparacion -->
+## `async`/`await`: lo mismo, más prolijo
+
+### Con `.then`
+```js
+const url = "https://dolarapi.com/v1/dolares/blue";
+fetch(url)
+  .then(r => r.json())
+  .then(datos => console.log("Venta: $" + datos.venta));
+```
+- Cada paso va adentro de un `.then`
+
+### Con `async`/`await`
+```js
+const url = "https://dolarapi.com/v1/dolares/blue";
 async function dolarBlue() {
-  const respuesta = await fetch("https://dolarapi.com/v1/dolares/blue");
-  const dolar = await respuesta.json();
-  console.log("US$20 = $" + 20 * dolar.venta);
+  const r = await fetch(url);
+  const datos = await r.json();
+  console.log("Venta: $" + datos.venta);
 }
 dolarBlue();
 ```
+- `await` = **esperar el pitido antes de tender**
+- Solo se puede usar dentro de una función `async`
 
-- `await` espera la respuesta **sin congelar** la página
+---
+
+## Para el martes
+
 - Lo vemos a fondo el **martes**: JS en el navegador y consumo de una API pública {tag:info}
-- [Abrir en sandbox ↗](https://livecodes.io/?js=%2F%2F%20Necesita%20internet%3A%20le%20pide%20la%20cotizaci%C3%B3n%20a%20dolarapi.com.%0Aasync%20function%20precioEnPesos%28dolares%29%20%7B%0A%20%20const%20respuesta%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20dolar%20%3D%20await%20respuesta.json%28%29%3B%0A%20%20console.log%28%22D%C3%B3lar%20blue%2C%20venta%3A%22%2C%20dolar.venta%29%3B%0A%20%20return%20dolares%20%2A%20dolar.venta%3B%0A%7D%0A%0Aconsole.log%28%22Pidiendo%20la%20cotizaci%C3%B3n...%22%29%3B%0AprecioEnPesos%2820%29.then%28pesos%20%3D%3E%20%7B%0A%20%20console.log%28%22La%20campera%20de%20%2420%20USD%20sale%20%24%22%20%2B%20pesos%20%2B%20%22%20pesos%22%29%3B%0A%7D%29%3B&active=script&console=open)
+- [Abrir en sandbox ↗](https://livecodes.io/?js=async%20function%20dolarBlue%28%29%20%7B%0A%20%20const%20r%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20datos%20%3D%20await%20r.json%28%29%3B%0A%20%20console.log%28%22Venta%3A%20%24%22%20%2B%20datos.venta%29%3B%0A%7D%0AdolarBlue%28%29%3B&active=script&console=open)
 
 ---
 
@@ -378,7 +466,7 @@ formulario.addEventListener("submit", (evento) => {
 ```
 
 - `evento.preventDefault()` cancela lo que el navegador haría solo (recargar, seguir un link) {tag:warning}
-- Probalo: [input ↗](https://livecodes.io/?html=%3Clabel%3EBuscar%3A%20%3Cinput%20id%3D%22buscador%22%20placeholder%3D%22escrib%C3%AD%20algo%22%3E%3C%2Flabel%3E%0A%3Cp%20id%3D%22eco%22%3E%3C%2Fp%3E&js=const%20buscador%20%3D%20document.querySelector%28%22%23buscador%22%29%3B%0Aconst%20eco%20%3D%20document.querySelector%28%22%23eco%22%29%3B%0A%0Abuscador.addEventListener%28%22input%22%2C%20%28%29%20%3D%3E%20%7B%0A%20%20eco.textContent%20%3D%20%22Est%C3%A1s%20buscando%3A%20%22%20%2B%20buscador.value%3B%0A%7D%29%3B&active=script&console=open) · [submit ↗](https://livecodes.io/?html=%3Cform%20id%3D%22suscripcion%22%3E%0A%20%20%3Cinput%20name%3D%22email%22%20type%3D%22email%22%20placeholder%3D%22tu%40mail.com%22%20required%3E%0A%20%20%3Cbutton%3ESuscribirme%3C%2Fbutton%3E%0A%3C%2Fform%3E&js=const%20form%20%3D%20document.querySelector%28%22%23suscripcion%22%29%3B%0A%0Aform.addEventListener%28%22submit%22%2C%20%28evento%29%20%3D%3E%20%7B%0A%20%20evento.preventDefault%28%29%3B%20%20%20%2F%2F%20sin%20esto%2C%20la%20p%C3%A1gina%20se%20recarga%0A%20%20const%20email%20%3D%20form.email.value%3B%0A%20%20console.log%28%22Suscripto%3A%22%2C%20email%29%3B%0A%20%20form.reset%28%29%3B%0A%7D%29%3B&active=script&console=open)
+- Abrir en sandbox: [input ↗](https://livecodes.io/?html=%3Clabel%3EBuscar%3A%20%3Cinput%20id%3D%22buscador%22%20placeholder%3D%22escrib%C3%AD%20algo%22%3E%3C%2Flabel%3E%0A%3Cp%20id%3D%22eco%22%3E%3C%2Fp%3E&js=const%20buscador%20%3D%20document.querySelector%28%22%23buscador%22%29%3B%0Aconst%20eco%20%3D%20document.querySelector%28%22%23eco%22%29%3B%0A%0Abuscador.addEventListener%28%22input%22%2C%20%28%29%20%3D%3E%20%7B%0A%20%20eco.textContent%20%3D%20%22Est%C3%A1s%20buscando%3A%20%22%20%2B%20buscador.value%3B%0A%7D%29%3B&active=script&console=open) · [submit ↗](https://livecodes.io/?html=%3Cform%20id%3D%22suscripcion%22%3E%0A%20%20%3Cinput%20name%3D%22email%22%20type%3D%22email%22%20placeholder%3D%22tu%40mail.com%22%20required%3E%0A%20%20%3Cbutton%3ESuscribirme%3C%2Fbutton%3E%0A%3C%2Fform%3E&js=const%20form%20%3D%20document.querySelector%28%22%23suscripcion%22%29%3B%0A%0Aform.addEventListener%28%22submit%22%2C%20%28evento%29%20%3D%3E%20%7B%0A%20%20evento.preventDefault%28%29%3B%20%20%20%2F%2F%20sin%20esto%2C%20la%20p%C3%A1gina%20se%20recarga%0A%20%20const%20email%20%3D%20form.email.value%3B%0A%20%20console.log%28%22Suscripto%3A%22%2C%20email%29%3B%0A%20%20form.reset%28%29%3B%0A%7D%29%3B&active=script&console=open)
 
 ---
 
@@ -652,7 +740,7 @@ mostrarEnPesos();
 
 - JS se depura en la **consola** (F12)
 - `const`/`let`, `===`, funciones flecha, arrays de objetos, `map`/`filter`
-- Asincronismo: `setTimeout` y `fetch` no frenan el resto del código
+- Asincronismo: como el **lavarropas**, `setTimeout` y `fetch` no frenan el resto; `.then`/`await` = el pitido
 - JS se carga con `<script>` al final del `<body>`
 - DOM: `querySelector` → cambiar (`textContent`, `classList`) → crear (`createElement` + `append`)
 - Eventos: `addEventListener` con `click`, `input` y `submit`
