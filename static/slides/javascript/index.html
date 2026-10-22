@@ -35,8 +35,8 @@
       <ul class="agenda-list">
         <li><span class="idx">.01</span><span class="lbl">¿Qué es JavaScript?</span></li>
         <li><span class="idx">.02</span><span class="lbl">Sintaxis en 20 minutos</span></li>
-        <li><span class="idx">.03</span><span class="lbl">El DOM</span></li>
-        <li><span class="idx">.04</span><span class="lbl">Asincronismo (adelanto)</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Asincronismo (adelanto)</span></li>
+        <li><span class="idx">.04</span><span class="lbl">El DOM</span></li>
         <li><span class="idx">.05</span><span class="lbl">Práctica: Ricky Fort Merch</span></li>
         <li><span class="idx">.06</span><span class="lbl">Ejercicios</span></li>
         <li><span class="idx">.07</span><span class="lbl">Soluciones</span></li>
@@ -160,37 +160,13 @@
       <ul class="bullets">
         <li><span>En el <strong>navegador</strong>: cada pestaña tiene su motor (V8 en Chrome, SpiderMonkey en Firefox)</span></li>
         <li><span>En el <strong>servidor</strong> o la terminal, con <strong>Node.js</strong>: el mismo lenguaje sin página</span></li>
-        <li><span>Hoy nos quedamos en el navegador: JS que <strong>lee y modifica la página</strong><span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Hoy nos quedamos en el navegador: primero el lenguaje, al final JS que <strong>lee y modifica la página</strong><span class="tag tag-tip">Tip</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
       <span class="num">08</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
-      <div class="s-title s-title--md">Cargar un script: <code>&lt;script&gt;</code></div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">html</div>
-        <pre><code>&lt;<span class="tok-kw">body</span>&gt;
-  ...todo el contenido de la página...
-  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span>&gt;&lt;/<span class="tok-kw">script</span>&gt;
-&lt;/<span class="tok-kw">body</span>&gt;</code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span><code>src</code> apunta a un archivo <code>.js</code> aparte, igual que el CSS con <code>&lt;link&gt;</code></span></li>
-        <li><span>Va <strong>al final del <code>&lt;body&gt;</code></strong>: así corre cuando la página ya está armada<span class="tag tag-warning">Warning</span></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">09</span>
     </div>
   </section>
 
@@ -202,14 +178,13 @@
       <ul class="bullets">
         <li><span><strong>F12</strong> (o click derecho → Inspeccionar) → pestaña <strong>Console</strong></span></li>
         <li><span>Ahí aparecen los <code>console.log</code> y los <strong>errores</strong> (en rojo, con archivo y línea)</span></li>
-        <li><span>También se puede escribir JS directo y probarlo sobre la página abierta<span class="tag tag-tip">Tip</span></span></li>
-        <li><span>La pestaña <strong>Elements</strong> muestra el DOM <strong>en vivo</strong>: lo que cambie JS se ve ahí</span></li>
+        <li><span>También se puede escribir JS directo y probarlo ahí<span class="tag tag-tip">Tip</span></span></li>
       </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">10</span>
+      <span class="num">09</span>
     </div>
   </section>
 
@@ -225,7 +200,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">11</span>
+      <span class="num">10</span>
     </div>
   </section>
 
@@ -238,7 +213,7 @@
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">12</span>
+      <span class="num">11</span>
     </div>
   </section>
 
@@ -264,7 +239,7 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">13</span>
+      <span class="num">12</span>
     </div>
   </section>
 
@@ -292,7 +267,7 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">14</span>
+      <span class="num">13</span>
     </div>
   </section>
 
@@ -318,7 +293,7 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">15</span>
+      <span class="num">14</span>
     </div>
   </section>
 
@@ -341,7 +316,7 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
 }</code></pre>
       </div>
       <ul class="bullets">
-        <li><span><code>for...of</code> recorre los elementos de un array (o de una lista del DOM)<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><code>for...of</code> recorre los elementos de un array<span class="tag tag-tip">Tip</span></span></li>
         <li><span>El <code>if</code> acepta cualquier valor: <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code> y <code>NaN</code> cuentan como <code>false</code> (<em>falsy</em>)<span class="tag tag-warning">Warning</span></span></li>
         <li><span>Probalo: <a href="https://livecodes.io/?js=const%20precio%20%3D%2020%3B%0A%0Aif%20%28precio%20%3E%20100%29%20%7B%0A%20%20console.log%28%22Caro%22%29%3B%0A%7D%20else%20if%20%28precio%20%3E%2015%29%20%7B%0A%20%20console.log%28%22Normal%22%29%3B%0A%7D%20else%20%7B%0A%20%20console.log%28%22Oferta%22%29%3B%0A%7D%0A%0A%2F%2F%20operador%20ternario%3A%20un%20if%20que%20devuelve%20un%20valor%0Aconst%20etiqueta%20%3D%20precio%20%3D%3D%3D%200%20%3F%20%22Gratis%22%20%3A%20%22%24%22%20%2B%20precio%3B%0Aconsole.log%28etiqueta%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">if ↗</a> · <a href="https://livecodes.io/?js=for%20%28let%20i%20%3D%201%3B%20i%20%3C%3D%203%3B%20i%2B%2B%29%20%7B%0A%20%20console.log%28%22Vuelta%22%2C%20i%29%3B%0A%7D%0A%0Aconst%20talles%20%3D%20%5B%22S%22%2C%20%22M%22%2C%20%22L%22%2C%20%22XL%22%5D%3B%0Afor%20%28const%20talle%20of%20talles%29%20%7B%0A%20%20console.log%28%22Talle%20%22%20%2B%20talle%29%3B%0A%7D&amp;active=script&amp;console=open" target="_blank" rel="noopener">for ↗</a></span></li>
       </ul>
@@ -349,7 +324,7 @@ nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// 
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">16</span>
+      <span class="num">15</span>
     </div>
   </section>
 
@@ -378,7 +353,7 @@ console.<span class="tok-fn">log</span>(<span class="tok-fn">conIva</span>(<span
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">17</span>
+      <span class="num">16</span>
     </div>
   </section>
 
@@ -405,7 +380,7 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">18</span>
+      <span class="num">17</span>
     </div>
   </section>
 
@@ -429,7 +404,7 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">19</span>
+      <span class="num">18</span>
     </div>
   </section>
 
@@ -457,7 +432,7 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">20</span>
+      <span class="num">19</span>
     </div>
   </section>
 
@@ -465,7 +440,31 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
   <section class="slide on-accent">
     <div class="s-pad" style="justify-content:center;">
       <div class="eyebrow"><span class="dot"></span>Sección .03</div>
-      <div class="s-title">El DOM</div>
+      <div class="s-title">Asincronismo (adelanto)</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo (adelanto)</div>
+      <div class="s-title s-title--md">No todo pasa en orden</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>console.<span class="tok-fn">log</span>(<span class="tok-str">"1"</span>);
+<span class="tok-fn">setTimeout</span>(() =&gt; console.<span class="tok-fn">log</span>(<span class="tok-str">"2"</span>), <span class="tok-num">1000</span>);
+console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);          <span class="tok-com">// imprime 1, 3, 2</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Hay cosas que <strong>tardan</strong> (un timer, un pedido a un servidor), y JS <strong>no se queda esperando</strong></span></li>
+        <li><span>Les deja una función para "cuando termine" y sigue con lo demás</span></li>
+        <li><span>Probalo: <a href="https://livecodes.io/?js=console.log%28%221.%20Antes%22%29%3B%0A%0AsetTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20console.log%28%223.%20Un%20segundo%20despu%C3%A9s%22%29%3B%0A%7D%2C%201000%29%3B%0A%0Aconsole.log%28%222.%20Despu%C3%A9s%20%28%C2%A1pero%20se%20imprime%20antes%20que%20el%203%21%29%22%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">abrir en LiveCodes ↗</a></span></li>
+      </ul>
     </div>
     <div class="s-foot">
       <span>Intro Camejo</span>
@@ -474,14 +473,24 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     </div>
   </section>
 
-  <!-- diagrama -->
+  <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
-      <div class="s-title s-title--md">La página es un árbol</div>
-      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 1048.5px; background-color: transparent;" viewBox="4 4 1048.5 524" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg .label{font-family:Open Sans,Segoe UI,sans-serif;color:#333;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg span{fill:#333;color:#333;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node polygon,#my-svg .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg .node.clickable{cursor:pointer;}#my-svg .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePaths .path{stroke:#333333;stroke-width:1px;}#my-svg .flowchart-link{stroke:#333333;fill:none;}#my-svg .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#my-svg .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#my-svg .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#my-svg .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#my-svg .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#my-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Open Sans,Segoe UI,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#my-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#my-svg rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#my-svg .icon-shape .label rect,#my-svg .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#my-svg .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g><marker id="my-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="my-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edges edgePaths"><path d="M381.5,60L381.5,96" id="my-svg-L_doc_html_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_doc_html_0" data-points="W3sieCI6MzgxLjUsInkiOjYwfSx7IngiOjM4MS41LCJ5IjoxMDB9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M359.5,148L359.5,160.92893218813452Q359.5,168 352.4289321881345,168L292.5710678118655,168Q285.5,168 285.5,175.07106781186548L285.5,184" id="my-svg-L_html_head_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_head_0" data-points="W3sieCI6MzU5LjUsInkiOjE0OH0seyJ4IjozNTkuNSwieSI6MTY4fSx7IngiOjI4NS41LCJ5IjoxNjh9LHsieCI6Mjg1LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M403.5,148L403.5,160.92893218813452Q403.5,168 410.5710678118655,168L470.4289321881345,168Q477.5,168 477.5,175.07106781186548L477.5,184" id="my-svg-L_html_body_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_body_0" data-points="W3sieCI6NDAzLjUsInkiOjE0OH0seyJ4Ijo0MDMuNSwieSI6MTY4fSx7IngiOjQ3Ny41LCJ5IjoxNjh9LHsieCI6NDc3LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M455.5,236L455.5,248.92893218813452Q455.5,256 448.4289321881345,256L276.0710678118655,256Q269,256 269,263.0710678118655L269,272" id="my-svg-L_body_nav_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 213.1717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_nav_0" data-points="W3sieCI6NDU1LjUsInkiOjIzNn0seyJ4Ijo0NTUuNSwieSI6MjU2fSx7IngiOjI2OSwieSI6MjU2fSx7IngiOjI2OSwieSI6Mjc2fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M499.5,236L499.5,248.92893218813452Q499.5,256 506.5710678118655,256L747.4289321881345,256Q754.5,256 754.5,263.0710678118655L754.5,272" id="my-svg-L_body_cont_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 281.6717529296875 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_cont_0" data-points="W3sieCI6NDk5LjUsInkiOjIzNn0seyJ4Ijo0OTkuNSwieSI6MjU2fSx7IngiOjc1NC41LCJ5IjoyNTZ9LHsieCI6NzU0LjUsInkiOjI3Nn1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M236,324L236,336.9289321881345Q236,344 228.92893218813452,344L95.07106781186548,344Q88,344 88,351.0710678118655L88,360" id="my-svg-L_nav_a1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 174.6717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a1_0" data-points="W3sieCI6MjM2LCJ5IjozMjR9LHsieCI6MjM2LCJ5IjozNDR9LHsieCI6ODgsInkiOjM0NH0seyJ4Ijo4OCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M269,324L269,338.5Q269,344 274.5,344L274.5,344Q280,344 280,349.5L280,360" id="my-svg-L_nav_a2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 38.85557556152344 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a2_0" data-points="W3sieCI6MjY5LCJ5IjozMjR9LHsieCI6MjY5LCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M302,324L302,336.9289321881345Q302,344 309.0710678118655,344L464.9289321881345,344Q472,344 472,351.0710678118655L472,360" id="my-svg-L_nav_a3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 196.67169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a3_0" data-points="W3sieCI6MzAyLCJ5IjozMjR9LHsieCI6MzAyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M732.5,324L732.5,336.9289321881345Q732.5,344 725.4289321881345,344L671.0710678118655,344Q664,344 664,351.0710678118655L664,360" id="my-svg-L_cont_h1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 95.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_h1_0" data-points="W3sieCI6NzMyLjUsInkiOjMyNH0seyJ4Ijo3MzIuNSwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M776.5,324L776.5,336.9289321881345Q776.5,344 783.5710678118655,344L848.9289321881345,344Q856,344 856,351.0710678118655L856,360" id="my-svg-L_cont_list_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 106.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_list_0" data-points="W3sieCI6Nzc2LjUsInkiOjMyNH0seyJ4Ijo3NzYuNSwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M823,412L823,424.9289321881345Q823,432 815.9289321881345,432L591.5710678118655,432Q584.5,432 584.5,439.0710678118655L584.5,468" id="my-svg-L_list_c1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 285.17169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c1_0" data-points="W3sieCI6ODIzLCJ5Ijo0MTJ9LHsieCI6ODIzLCJ5Ijo0MzJ9LHsieCI6NTg0LjUsInkiOjQzMn0seyJ4Ijo1ODQuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M856,412L856,444.9289321881345Q856,452 848.9289321881345,452L783.5710678118655,452Q776.5,452 776.5,459.0710678118655L776.5,468" id="my-svg-L_list_c2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c2_0" data-points="W3sieCI6ODU2LCJ5Ijo0MTJ9LHsieCI6ODU2LCJ5Ijo0NTJ9LHsieCI6Nzc2LjUsInkiOjQ1Mn0seyJ4Ijo3NzYuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M889,412L889,424.9289321881345Q889,432 896.0710678118655,432L961.4289321881345,432Q968.5,432 968.5,439.0710678118655L968.5,468" id="my-svg-L_list_c3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c3_0" data-points="W3sieCI6ODg5LCJ5Ijo0MTJ9LHsieCI6ODg5LCJ5Ijo0MzJ9LHsieCI6OTY4LjUsInkiOjQzMn0seyJ4Ijo5NjguNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/></g><g class="edgeLabels"/><g class="nodes"><g class="node default" id="my-svg-flowchart-doc-0" data-look="neo" transform="translate(381.5, 36)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>document</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-html-1" data-look="neo" transform="translate(381.5, 124)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>html</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-head-3" data-look="neo" transform="translate(285.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>head</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-body-5" data-look="neo" transform="translate(477.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>body</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-nav-7" data-look="neo" transform="translate(269, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.navbar</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-cont-9" data-look="neo" transform="translate(754.5, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.container</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a1-11" data-look="neo" transform="translate(88, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a2-12" data-look="neo" transform="translate(280, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a3-13" data-look="neo" transform="translate(472, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a.active</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-h1-15" data-look="neo" transform="translate(664, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>h1</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-list-17" data-look="neo" transform="translate(856, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card-list</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c1-19" data-look="neo" transform="translate(584.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c2-20" data-look="neo" transform="translate(776.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c3-21" data-look="neo" transform="translate(968.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>...</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="my-svg-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo (adelanto)</div>
+      <div class="s-title s-title--md"><code>fetch</code>: pedirle datos a una API</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">async</span> <span class="tok-kw">function</span> <span class="tok-fn">dolarBlue</span>() {
+  <span class="tok-kw">const</span> respuesta = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(<span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>);
+  <span class="tok-kw">const</span> dolar = <span class="tok-kw">await</span> respuesta.<span class="tok-fn">json</span>();
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"US$20 = $"</span> + <span class="tok-num">20</span> * dolar.venta);
+}
+<span class="tok-fn">dolarBlue</span>();</code></pre>
+      </div>
       <ul class="bullets">
-        <li><span>El navegador convierte el HTML en objetos: el <strong>DOM</strong> (Document Object Model). JS los ve en <code>document</code></span></li>
+        <li><span><code>await</code> espera la respuesta <strong>sin congelar</strong> la página</span></li>
+        <li><span>Lo vemos a fondo el <strong>martes</strong>: JS en el navegador y consumo de una API pública<span class="tag tag-info">Info</span></span></li>
+        <li><span>Probalo: <a href="https://livecodes.io/?js=%2F%2F%20Necesita%20internet%3A%20le%20pide%20la%20cotizaci%C3%B3n%20a%20dolarapi.com.%0Aasync%20function%20precioEnPesos%28dolares%29%20%7B%0A%20%20const%20respuesta%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20dolar%20%3D%20await%20respuesta.json%28%29%3B%0A%20%20console.log%28%22D%C3%B3lar%20blue%2C%20venta%3A%22%2C%20dolar.venta%29%3B%0A%20%20return%20dolares%20%2A%20dolar.venta%3B%0A%7D%0A%0Aconsole.log%28%22Pidiendo%20la%20cotizaci%C3%B3n...%22%29%3B%0AprecioEnPesos%2820%29.then%28pesos%20%3D%3E%20%7B%0A%20%20console.log%28%22La%20campera%20de%20%2420%20USD%20sale%20%24%22%20%2B%20pesos%20%2B%20%22%20pesos%22%29%3B%0A%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">abrir en LiveCodes ↗</a></span></li>
       </ul>
     </div>
     <div class="s-foot">
@@ -491,10 +500,64 @@ console.<span class="tok-fn">log</span>(productos.length, productos[<span class=
     </div>
   </section>
 
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">El DOM</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Cargar un script: <code>&lt;script&gt;</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">body</span>&gt;
+  ...todo el contenido de la página...
+  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span>&gt;&lt;/<span class="tok-kw">script</span>&gt;
+&lt;/<span class="tok-kw">body</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>src</code> apunta a un archivo <code>.js</code> aparte, igual que el CSS con <code>&lt;link&gt;</code></span></li>
+        <li><span>Va <strong>al final del <code>&lt;body&gt;</code></strong>: así corre cuando la página ya está armada<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">La página es un árbol</div>
+      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 1048.5px; background-color: transparent;" viewBox="4 4 1048.5 524" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg .label{font-family:Open Sans,Segoe UI,sans-serif;color:#333;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg span{fill:#333;color:#333;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node polygon,#my-svg .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg .node.clickable{cursor:pointer;}#my-svg .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePaths .path{stroke:#333333;stroke-width:1px;}#my-svg .flowchart-link{stroke:#333333;fill:none;}#my-svg .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#my-svg .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#my-svg .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#my-svg .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#my-svg .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#my-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Open Sans,Segoe UI,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#my-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#my-svg rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#my-svg .icon-shape .label rect,#my-svg .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#my-svg .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g><marker id="my-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="my-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edges edgePaths"><path d="M381.5,60L381.5,96" id="my-svg-L_doc_html_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_doc_html_0" data-points="W3sieCI6MzgxLjUsInkiOjYwfSx7IngiOjM4MS41LCJ5IjoxMDB9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M359.5,148L359.5,160.92893218813452Q359.5,168 352.4289321881345,168L292.5710678118655,168Q285.5,168 285.5,175.07106781186548L285.5,184" id="my-svg-L_html_head_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_head_0" data-points="W3sieCI6MzU5LjUsInkiOjE0OH0seyJ4IjozNTkuNSwieSI6MTY4fSx7IngiOjI4NS41LCJ5IjoxNjh9LHsieCI6Mjg1LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M403.5,148L403.5,160.92893218813452Q403.5,168 410.5710678118655,168L470.4289321881345,168Q477.5,168 477.5,175.07106781186548L477.5,184" id="my-svg-L_html_body_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_body_0" data-points="W3sieCI6NDAzLjUsInkiOjE0OH0seyJ4Ijo0MDMuNSwieSI6MTY4fSx7IngiOjQ3Ny41LCJ5IjoxNjh9LHsieCI6NDc3LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M455.5,236L455.5,248.92893218813452Q455.5,256 448.4289321881345,256L276.0710678118655,256Q269,256 269,263.0710678118655L269,272" id="my-svg-L_body_nav_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 213.1717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_nav_0" data-points="W3sieCI6NDU1LjUsInkiOjIzNn0seyJ4Ijo0NTUuNSwieSI6MjU2fSx7IngiOjI2OSwieSI6MjU2fSx7IngiOjI2OSwieSI6Mjc2fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M499.5,236L499.5,248.92893218813452Q499.5,256 506.5710678118655,256L747.4289321881345,256Q754.5,256 754.5,263.0710678118655L754.5,272" id="my-svg-L_body_cont_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 281.6717529296875 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_cont_0" data-points="W3sieCI6NDk5LjUsInkiOjIzNn0seyJ4Ijo0OTkuNSwieSI6MjU2fSx7IngiOjc1NC41LCJ5IjoyNTZ9LHsieCI6NzU0LjUsInkiOjI3Nn1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M236,324L236,336.9289321881345Q236,344 228.92893218813452,344L95.07106781186548,344Q88,344 88,351.0710678118655L88,360" id="my-svg-L_nav_a1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 174.6717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a1_0" data-points="W3sieCI6MjM2LCJ5IjozMjR9LHsieCI6MjM2LCJ5IjozNDR9LHsieCI6ODgsInkiOjM0NH0seyJ4Ijo4OCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M269,324L269,338.5Q269,344 274.5,344L274.5,344Q280,344 280,349.5L280,360" id="my-svg-L_nav_a2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 38.85557556152344 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a2_0" data-points="W3sieCI6MjY5LCJ5IjozMjR9LHsieCI6MjY5LCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M302,324L302,336.9289321881345Q302,344 309.0710678118655,344L464.9289321881345,344Q472,344 472,351.0710678118655L472,360" id="my-svg-L_nav_a3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 196.67169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a3_0" data-points="W3sieCI6MzAyLCJ5IjozMjR9LHsieCI6MzAyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M732.5,324L732.5,336.9289321881345Q732.5,344 725.4289321881345,344L671.0710678118655,344Q664,344 664,351.0710678118655L664,360" id="my-svg-L_cont_h1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 95.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_h1_0" data-points="W3sieCI6NzMyLjUsInkiOjMyNH0seyJ4Ijo3MzIuNSwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M776.5,324L776.5,336.9289321881345Q776.5,344 783.5710678118655,344L848.9289321881345,344Q856,344 856,351.0710678118655L856,360" id="my-svg-L_cont_list_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 106.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_list_0" data-points="W3sieCI6Nzc2LjUsInkiOjMyNH0seyJ4Ijo3NzYuNSwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M823,412L823,424.9289321881345Q823,432 815.9289321881345,432L591.5710678118655,432Q584.5,432 584.5,439.0710678118655L584.5,468" id="my-svg-L_list_c1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 285.17169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c1_0" data-points="W3sieCI6ODIzLCJ5Ijo0MTJ9LHsieCI6ODIzLCJ5Ijo0MzJ9LHsieCI6NTg0LjUsInkiOjQzMn0seyJ4Ijo1ODQuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M856,412L856,444.9289321881345Q856,452 848.9289321881345,452L783.5710678118655,452Q776.5,452 776.5,459.0710678118655L776.5,468" id="my-svg-L_list_c2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c2_0" data-points="W3sieCI6ODU2LCJ5Ijo0MTJ9LHsieCI6ODU2LCJ5Ijo0NTJ9LHsieCI6Nzc2LjUsInkiOjQ1Mn0seyJ4Ijo3NzYuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M889,412L889,424.9289321881345Q889,432 896.0710678118655,432L961.4289321881345,432Q968.5,432 968.5,439.0710678118655L968.5,468" id="my-svg-L_list_c3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c3_0" data-points="W3sieCI6ODg5LCJ5Ijo0MTJ9LHsieCI6ODg5LCJ5Ijo0MzJ9LHsieCI6OTY4LjUsInkiOjQzMn0seyJ4Ijo5NjguNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/></g><g class="edgeLabels"/><g class="nodes"><g class="node default" id="my-svg-flowchart-doc-0" data-look="neo" transform="translate(381.5, 36)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>document</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-html-1" data-look="neo" transform="translate(381.5, 124)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>html</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-head-3" data-look="neo" transform="translate(285.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>head</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-body-5" data-look="neo" transform="translate(477.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>body</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-nav-7" data-look="neo" transform="translate(269, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.navbar</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-cont-9" data-look="neo" transform="translate(754.5, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.container</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a1-11" data-look="neo" transform="translate(88, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a2-12" data-look="neo" transform="translate(280, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a3-13" data-look="neo" transform="translate(472, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a.active</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-h1-15" data-look="neo" transform="translate(664, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>h1</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-list-17" data-look="neo" transform="translate(856, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card-list</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c1-19" data-look="neo" transform="translate(584.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c2-20" data-look="neo" transform="translate(776.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c3-21" data-look="neo" transform="translate(968.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>...</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="my-svg-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+      <ul class="bullets">
+        <li><span>El navegador convierte el HTML en objetos: el <strong>DOM</strong> (Document Object Model). JS los ve en <code>document</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
       <div class="s-title s-title--md">Buscar elementos: <code>querySelector</code></div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
@@ -512,14 +575,14 @@ console.<span class="tok-fn">log</span>(cards.length);</code></pre>
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">23</span>
+      <span class="num">26</span>
     </div>
   </section>
 
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
       <div class="s-title s-title--md">Cambiar contenido: <code>textContent</code> e <code>innerHTML</code></div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
@@ -537,14 +600,14 @@ card.innerHTML = <span class="tok-str">"&lt;p class='card-name'&gt;Agotado&lt;/p
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">24</span>
+      <span class="num">27</span>
     </div>
   </section>
 
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
       <div class="s-title s-title--md">Clases y estilos</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
@@ -562,14 +625,14 @@ card.style.display = <span class="tok-str">"none"</span>;             <span clas
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">25</span>
+      <span class="num">28</span>
     </div>
   </section>
 
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
       <div class="s-title s-title--md">Crear elementos</div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
@@ -587,14 +650,14 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">26</span>
+      <span class="num">29</span>
     </div>
   </section>
 
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
       <div class="s-title s-title--md">Eventos: <code>addEventListener</code></div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
@@ -612,14 +675,14 @@ card.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"<
     <div class="s-foot">
       <span>Intro Camejo</span>
       <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">27</span>
+      <span class="num">30</span>
     </div>
   </section>
 
   <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.03 — El DOM</div>
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
       <div class="s-title s-title--md"><code>input</code> y <code>submit</code></div>
       <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
         <div class="fname">js</div>
@@ -635,70 +698,6 @@ formulario.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"s
       <ul class="bullets">
         <li><span><code>evento.preventDefault()</code> cancela lo que el navegador haría solo (recargar, seguir un link)<span class="tag tag-warning">Warning</span></span></li>
         <li><span>Probalo: <a href="https://livecodes.io/?html=%3Clabel%3EBuscar%3A%20%3Cinput%20id%3D%22buscador%22%20placeholder%3D%22escrib%C3%AD%20algo%22%3E%3C%2Flabel%3E%0A%3Cp%20id%3D%22eco%22%3E%3C%2Fp%3E&amp;js=const%20buscador%20%3D%20document.querySelector%28%22%23buscador%22%29%3B%0Aconst%20eco%20%3D%20document.querySelector%28%22%23eco%22%29%3B%0A%0Abuscador.addEventListener%28%22input%22%2C%20%28%29%20%3D%3E%20%7B%0A%20%20eco.textContent%20%3D%20%22Est%C3%A1s%20buscando%3A%20%22%20%2B%20buscador.value%3B%0A%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">input ↗</a> · <a href="https://livecodes.io/?html=%3Cform%20id%3D%22suscripcion%22%3E%0A%20%20%3Cinput%20name%3D%22email%22%20type%3D%22email%22%20placeholder%3D%22tu%40mail.com%22%20required%3E%0A%20%20%3Cbutton%3ESuscribirme%3C%2Fbutton%3E%0A%3C%2Fform%3E&amp;js=const%20form%20%3D%20document.querySelector%28%22%23suscripcion%22%29%3B%0A%0Aform.addEventListener%28%22submit%22%2C%20%28evento%29%20%3D%3E%20%7B%0A%20%20evento.preventDefault%28%29%3B%20%20%20%2F%2F%20sin%20esto%2C%20la%20p%C3%A1gina%20se%20recarga%0A%20%20const%20email%20%3D%20form.email.value%3B%0A%20%20console.log%28%22Suscripto%3A%22%2C%20email%29%3B%0A%20%20form.reset%28%29%3B%0A%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">submit ↗</a></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">28</span>
-    </div>
-  </section>
-
-  <!-- divisoria-seccion -->
-  <section class="slide on-accent">
-    <div class="s-pad" style="justify-content:center;">
-      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
-      <div class="s-title">Asincronismo (adelanto)</div>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">29</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.04 — Asincronismo (adelanto)</div>
-      <div class="s-title s-title--md">No todo pasa en orden</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">js</div>
-        <pre><code>console.<span class="tok-fn">log</span>(<span class="tok-str">"1"</span>);
-<span class="tok-fn">setTimeout</span>(() =&gt; console.<span class="tok-fn">log</span>(<span class="tok-str">"2"</span>), <span class="tok-num">1000</span>);
-console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);          <span class="tok-com">// imprime 1, 3, 2</span></code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span>Hay cosas que <strong>tardan</strong> (un timer, un pedido a un servidor), y JS <strong>no se queda esperando</strong></span></li>
-        <li><span>Les deja una función para "cuando termine" y sigue con lo demás</span></li>
-        <li><span>Probalo: <a href="https://livecodes.io/?js=console.log%28%221.%20Antes%22%29%3B%0A%0AsetTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20console.log%28%223.%20Un%20segundo%20despu%C3%A9s%22%29%3B%0A%7D%2C%201000%29%3B%0A%0Aconsole.log%28%222.%20Despu%C3%A9s%20%28%C2%A1pero%20se%20imprime%20antes%20que%20el%203%21%29%22%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">abrir en LiveCodes ↗</a></span></li>
-      </ul>
-    </div>
-    <div class="s-foot">
-      <span>Intro Camejo</span>
-      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
-      <span class="num">30</span>
-    </div>
-  </section>
-
-  <!-- codigo -->
-  <section class="slide">
-    <div class="s-pad">
-      <div class="eyebrow"><span class="dot"></span>.04 — Asincronismo (adelanto)</div>
-      <div class="s-title s-title--md"><code>fetch</code>: pedirle datos a una API</div>
-      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
-        <div class="fname">js</div>
-        <pre><code><span class="tok-kw">async</span> <span class="tok-kw">function</span> <span class="tok-fn">dolarBlue</span>() {
-  <span class="tok-kw">const</span> respuesta = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(<span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>);
-  <span class="tok-kw">const</span> dolar = <span class="tok-kw">await</span> respuesta.<span class="tok-fn">json</span>();
-  console.<span class="tok-fn">log</span>(<span class="tok-str">"US$20 = $"</span> + <span class="tok-num">20</span> * dolar.venta);
-}
-<span class="tok-fn">dolarBlue</span>();</code></pre>
-      </div>
-      <ul class="bullets">
-        <li><span><code>await</code> espera la respuesta <strong>sin congelar</strong> la página</span></li>
-        <li><span>Lo vemos a fondo el <strong>martes</strong>: JS en el navegador y consumo de una API pública<span class="tag tag-info">Info</span></span></li>
-        <li><span>Probalo: <a href="https://livecodes.io/?js=%2F%2F%20Necesita%20internet%3A%20le%20pide%20la%20cotizaci%C3%B3n%20a%20dolarapi.com.%0Aasync%20function%20precioEnPesos%28dolares%29%20%7B%0A%20%20const%20respuesta%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20dolar%20%3D%20await%20respuesta.json%28%29%3B%0A%20%20console.log%28%22D%C3%B3lar%20blue%2C%20venta%3A%22%2C%20dolar.venta%29%3B%0A%20%20return%20dolares%20%2A%20dolar.venta%3B%0A%7D%0A%0Aconsole.log%28%22Pidiendo%20la%20cotizaci%C3%B3n...%22%29%3B%0AprecioEnPesos%2820%29.then%28pesos%20%3D%3E%20%7B%0A%20%20console.log%28%22La%20campera%20de%20%2420%20USD%20sale%20%24%22%20%2B%20pesos%20%2B%20%22%20pesos%22%29%3B%0A%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">abrir en LiveCodes ↗</a></span></li>
       </ul>
     </div>
     <div class="s-foot">
@@ -1176,8 +1175,10 @@ document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-
       <div class="eyebrow"><span class="dot"></span>.08 — Cierre</div>
       <div class="s-title s-title--md">Resumen</div>
       <ul class="bullets">
-        <li><span>JS se carga con <code>&lt;script&gt;</code> al final del <code>&lt;body&gt;</code> y se depura en la <strong>consola</strong></span></li>
+        <li><span>JS se depura en la <strong>consola</strong> (F12)</span></li>
         <li><span><code>const</code>/<code>let</code>, <code>===</code>, funciones flecha, arrays de objetos, <code>map</code>/<code>filter</code></span></li>
+        <li><span>Asincronismo: <code>setTimeout</code> y <code>fetch</code> no frenan el resto del código</span></li>
+        <li><span>JS se carga con <code>&lt;script&gt;</code> al final del <code>&lt;body&gt;</code></span></li>
         <li><span>DOM: <code>querySelector</code> → cambiar (<code>textContent</code>, <code>classList</code>) → crear (<code>createElement</code> + <code>append</code>)</span></li>
         <li><span>Eventos: <code>addEventListener</code> con <code>click</code>, <code>input</code> y <code>submit</code></span></li>
         <li><span><strong>Martes 27/10</strong>: JS en el navegador y consumo de una API pública. Traigan el ejercicio 9 andando<span class="tag tag-info">Info</span></span></li>

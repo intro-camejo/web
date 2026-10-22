@@ -56,21 +56,7 @@ Clase JavaScript — 2C 2026
 
 - En el **navegador**: cada pestaña tiene su motor (V8 en Chrome, SpiderMonkey en Firefox)
 - En el **servidor** o la terminal, con **Node.js**: el mismo lenguaje sin página
-- Hoy nos quedamos en el navegador: JS que **lee y modifica la página** {tag:tip}
-
----
-
-## Cargar un script: `<script>`
-
-```html
-<body>
-  ...todo el contenido de la página...
-  <script src="app.js"></script>
-</body>
-```
-
-- `src` apunta a un archivo `.js` aparte, igual que el CSS con `<link>`
-- Va **al final del `<body>`**: así corre cuando la página ya está armada {tag:warning}
+- Hoy nos quedamos en el navegador: primero el lenguaje, al final JS que **lee y modifica la página** {tag:tip}
 
 ---
 
@@ -78,8 +64,7 @@ Clase JavaScript — 2C 2026
 
 - **F12** (o click derecho → Inspeccionar) → pestaña **Console**
 - Ahí aparecen los `console.log` y los **errores** (en rojo, con archivo y línea)
-- También se puede escribir JS directo y probarlo sobre la página abierta {tag:tip}
-- La pestaña **Elements** muestra el DOM **en vivo**: lo que cambie JS se ve ahí
+- También se puede escribir JS directo y probarlo ahí {tag:tip}
 
 ---
 
@@ -158,7 +143,7 @@ for (const nombre of ["Home", "Nosotros", "Productos"]) {
 }
 ```
 
-- `for...of` recorre los elementos de un array (o de una lista del DOM) {tag:tip}
+- `for...of` recorre los elementos de un array {tag:tip}
 - El `if` acepta cualquier valor: `0`, `""`, `null`, `undefined` y `NaN` cuentan como `false` (*falsy*) {tag:warning}
 - Probalo: [if ↗](https://livecodes.io/?js=const%20precio%20%3D%2020%3B%0A%0Aif%20%28precio%20%3E%20100%29%20%7B%0A%20%20console.log%28%22Caro%22%29%3B%0A%7D%20else%20if%20%28precio%20%3E%2015%29%20%7B%0A%20%20console.log%28%22Normal%22%29%3B%0A%7D%20else%20%7B%0A%20%20console.log%28%22Oferta%22%29%3B%0A%7D%0A%0A%2F%2F%20operador%20ternario%3A%20un%20if%20que%20devuelve%20un%20valor%0Aconst%20etiqueta%20%3D%20precio%20%3D%3D%3D%200%20%3F%20%22Gratis%22%20%3A%20%22%24%22%20%2B%20precio%3B%0Aconsole.log%28etiqueta%29%3B&active=script&console=open) · [for ↗](https://livecodes.io/?js=for%20%28let%20i%20%3D%201%3B%20i%20%3C%3D%203%3B%20i%2B%2B%29%20%7B%0A%20%20console.log%28%22Vuelta%22%2C%20i%29%3B%0A%7D%0A%0Aconst%20talles%20%3D%20%5B%22S%22%2C%20%22M%22%2C%20%22L%22%2C%20%22XL%22%5D%3B%0Afor%20%28const%20talle%20of%20talles%29%20%7B%0A%20%20console.log%28%22Talle%20%22%20%2B%20talle%29%3B%0A%7D&active=script&console=open)
 
@@ -232,7 +217,56 @@ const resultado = numeros.filter(n => n % 2 === 0).map(n => n * 2);
 
 ---
 
+# Asincronismo (adelanto)
+
+---
+
+## No todo pasa en orden
+
+```js
+console.log("1");
+setTimeout(() => console.log("2"), 1000);
+console.log("3");          // imprime 1, 3, 2
+```
+
+- Hay cosas que **tardan** (un timer, un pedido a un servidor), y JS **no se queda esperando**
+- Les deja una función para "cuando termine" y sigue con lo demás
+- Probalo: [abrir en LiveCodes ↗](https://livecodes.io/?js=console.log%28%221.%20Antes%22%29%3B%0A%0AsetTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20console.log%28%223.%20Un%20segundo%20despu%C3%A9s%22%29%3B%0A%7D%2C%201000%29%3B%0A%0Aconsole.log%28%222.%20Despu%C3%A9s%20%28%C2%A1pero%20se%20imprime%20antes%20que%20el%203%21%29%22%29%3B&active=script&console=open)
+
+---
+
+## `fetch`: pedirle datos a una API
+
+```js
+async function dolarBlue() {
+  const respuesta = await fetch("https://dolarapi.com/v1/dolares/blue");
+  const dolar = await respuesta.json();
+  console.log("US$20 = $" + 20 * dolar.venta);
+}
+dolarBlue();
+```
+
+- `await` espera la respuesta **sin congelar** la página
+- Lo vemos a fondo el **martes**: JS en el navegador y consumo de una API pública {tag:info}
+- Probalo: [abrir en LiveCodes ↗](https://livecodes.io/?js=%2F%2F%20Necesita%20internet%3A%20le%20pide%20la%20cotizaci%C3%B3n%20a%20dolarapi.com.%0Aasync%20function%20precioEnPesos%28dolares%29%20%7B%0A%20%20const%20respuesta%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20dolar%20%3D%20await%20respuesta.json%28%29%3B%0A%20%20console.log%28%22D%C3%B3lar%20blue%2C%20venta%3A%22%2C%20dolar.venta%29%3B%0A%20%20return%20dolares%20%2A%20dolar.venta%3B%0A%7D%0A%0Aconsole.log%28%22Pidiendo%20la%20cotizaci%C3%B3n...%22%29%3B%0AprecioEnPesos%2820%29.then%28pesos%20%3D%3E%20%7B%0A%20%20console.log%28%22La%20campera%20de%20%2420%20USD%20sale%20%24%22%20%2B%20pesos%20%2B%20%22%20pesos%22%29%3B%0A%7D%29%3B&active=script&console=open)
+
+---
+
 # El DOM
+
+---
+
+## Cargar un script: `<script>`
+
+```html
+<body>
+  ...todo el contenido de la página...
+  <script src="app.js"></script>
+</body>
+```
+
+- `src` apunta a un archivo `.js` aparte, igual que el CSS con `<link>`
+- Va **al final del `<body>`**: así corre cuando la página ya está armada {tag:warning}
 
 ---
 
@@ -345,41 +379,6 @@ formulario.addEventListener("submit", (evento) => {
 
 - `evento.preventDefault()` cancela lo que el navegador haría solo (recargar, seguir un link) {tag:warning}
 - Probalo: [input ↗](https://livecodes.io/?html=%3Clabel%3EBuscar%3A%20%3Cinput%20id%3D%22buscador%22%20placeholder%3D%22escrib%C3%AD%20algo%22%3E%3C%2Flabel%3E%0A%3Cp%20id%3D%22eco%22%3E%3C%2Fp%3E&js=const%20buscador%20%3D%20document.querySelector%28%22%23buscador%22%29%3B%0Aconst%20eco%20%3D%20document.querySelector%28%22%23eco%22%29%3B%0A%0Abuscador.addEventListener%28%22input%22%2C%20%28%29%20%3D%3E%20%7B%0A%20%20eco.textContent%20%3D%20%22Est%C3%A1s%20buscando%3A%20%22%20%2B%20buscador.value%3B%0A%7D%29%3B&active=script&console=open) · [submit ↗](https://livecodes.io/?html=%3Cform%20id%3D%22suscripcion%22%3E%0A%20%20%3Cinput%20name%3D%22email%22%20type%3D%22email%22%20placeholder%3D%22tu%40mail.com%22%20required%3E%0A%20%20%3Cbutton%3ESuscribirme%3C%2Fbutton%3E%0A%3C%2Fform%3E&js=const%20form%20%3D%20document.querySelector%28%22%23suscripcion%22%29%3B%0A%0Aform.addEventListener%28%22submit%22%2C%20%28evento%29%20%3D%3E%20%7B%0A%20%20evento.preventDefault%28%29%3B%20%20%20%2F%2F%20sin%20esto%2C%20la%20p%C3%A1gina%20se%20recarga%0A%20%20const%20email%20%3D%20form.email.value%3B%0A%20%20console.log%28%22Suscripto%3A%22%2C%20email%29%3B%0A%20%20form.reset%28%29%3B%0A%7D%29%3B&active=script&console=open)
-
----
-
-# Asincronismo (adelanto)
-
----
-
-## No todo pasa en orden
-
-```js
-console.log("1");
-setTimeout(() => console.log("2"), 1000);
-console.log("3");          // imprime 1, 3, 2
-```
-
-- Hay cosas que **tardan** (un timer, un pedido a un servidor), y JS **no se queda esperando**
-- Les deja una función para "cuando termine" y sigue con lo demás
-- Probalo: [abrir en LiveCodes ↗](https://livecodes.io/?js=console.log%28%221.%20Antes%22%29%3B%0A%0AsetTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20console.log%28%223.%20Un%20segundo%20despu%C3%A9s%22%29%3B%0A%7D%2C%201000%29%3B%0A%0Aconsole.log%28%222.%20Despu%C3%A9s%20%28%C2%A1pero%20se%20imprime%20antes%20que%20el%203%21%29%22%29%3B&active=script&console=open)
-
----
-
-## `fetch`: pedirle datos a una API
-
-```js
-async function dolarBlue() {
-  const respuesta = await fetch("https://dolarapi.com/v1/dolares/blue");
-  const dolar = await respuesta.json();
-  console.log("US$20 = $" + 20 * dolar.venta);
-}
-dolarBlue();
-```
-
-- `await` espera la respuesta **sin congelar** la página
-- Lo vemos a fondo el **martes**: JS en el navegador y consumo de una API pública {tag:info}
-- Probalo: [abrir en LiveCodes ↗](https://livecodes.io/?js=%2F%2F%20Necesita%20internet%3A%20le%20pide%20la%20cotizaci%C3%B3n%20a%20dolarapi.com.%0Aasync%20function%20precioEnPesos%28dolares%29%20%7B%0A%20%20const%20respuesta%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20dolar%20%3D%20await%20respuesta.json%28%29%3B%0A%20%20console.log%28%22D%C3%B3lar%20blue%2C%20venta%3A%22%2C%20dolar.venta%29%3B%0A%20%20return%20dolares%20%2A%20dolar.venta%3B%0A%7D%0A%0Aconsole.log%28%22Pidiendo%20la%20cotizaci%C3%B3n...%22%29%3B%0AprecioEnPesos%2820%29.then%28pesos%20%3D%3E%20%7B%0A%20%20console.log%28%22La%20campera%20de%20%2420%20USD%20sale%20%24%22%20%2B%20pesos%20%2B%20%22%20pesos%22%29%3B%0A%7D%29%3B&active=script&console=open)
 
 ---
 
@@ -651,8 +650,10 @@ mostrarEnPesos();
 
 ## Resumen
 
-- JS se carga con `<script>` al final del `<body>` y se depura en la **consola**
+- JS se depura en la **consola** (F12)
 - `const`/`let`, `===`, funciones flecha, arrays de objetos, `map`/`filter`
+- Asincronismo: `setTimeout` y `fetch` no frenan el resto del código
+- JS se carga con `<script>` al final del `<body>`
 - DOM: `querySelector` → cambiar (`textContent`, `classList`) → crear (`createElement` + `append`)
 - Eventos: `addEventListener` con `click`, `input` y `submit`
 - **Martes 27/10**: JS en el navegador y consumo de una API pública. Traigan el ejercicio 9 andando {tag:info}
