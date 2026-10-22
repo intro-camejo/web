@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript y el DOM — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!-- Generado a partir de contenido.md siguiendo _template/formatos.md (mismo esquema que sql-2 y html-css).
+     Las salidas de consola y las soluciones se verificaron en Chrome headless (ejemplos en LiveCodes y la página real de ricky-fort-merch). -->
+<main class="deck">
+
+  <!-- portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">JavaScript y el DOM</div>
+        <div class="s-sub">Del HTML estático a páginas que reaccionan</div>
+        <div class="cover-index"><span class="n">Clase JavaScript — 2C 2026</span><span class="dot"></span><span class="n"></span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">¿Qué es JavaScript?</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Sintaxis en 20 minutos</span></li>
+        <li><span class="idx">.03</span><span class="lbl">Asincronismo</span></li>
+        <li><span class="idx">.04</span><span class="lbl">El DOM</span></li>
+        <li><span class="idx">.05</span><span class="lbl">Cierre</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">¿Qué es JavaScript?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">El tercer lenguaje de la web</div>
+      <ul class="bullets">
+        <li><span><strong>HTML</strong> dice qué hay en la página, <strong>CSS</strong> dice cómo se ve y <strong>JavaScript</strong> dice qué <strong>hace</strong></span></li>
+        <li><span>Es un lenguaje de programación de verdad: variables, condiciones, ciclos, funciones</span></li>
+        <li><span>Corre en <strong>todos</strong> los navegadores sin instalar nada: por eso es <em>el</em> lenguaje de la web<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">Un poco de historia: 10 días de 1995</div>
+      <ul class="bullets">
+        <li><span><strong>Brendan Eich</strong> lo crea en <strong>Netscape</strong> en 1995, en unos <strong>10 días</strong>, para darle vida a las páginas del navegador</span></li>
+        <li><span>Se llamó <strong>Mocha</strong>, después <strong>LiveScript</strong> y al final <strong>JavaScript</strong></span></li>
+        <li><span>El último nombre salió de un acuerdo de Netscape con <strong>Sun Microsystems</strong> para aprovechar la fama de Java<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">Más allá del nombre, Java y JavaScript no se relacionan</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Java</h3>
+          <ul>
+            <li>Sun (James Gosling), 1995</li>
+            <li>Se <strong>compila</strong> a bytecode y corre en la <strong>JVM</strong></li>
+            <li>Tipado <strong>estático</strong>: <code>int precio = 20;</code></li>
+            <li>Orientado a objetos con <strong>clases</strong></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>JavaScript</h3>
+          <ul>
+            <li>Netscape (Brendan Eich), 1995</li>
+            <li>Lo <strong>interpreta</strong> el navegador (hoy con compilación JIT)</li>
+            <li>Tipado <strong>dinámico</strong>: <code>let precio = 20;</code></li>
+            <li>Objetos basados en <strong>prototipos</strong> (<code>class</code> llegó después)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">De la guerra de navegadores a ECMAScript</div>
+      <ul class="bullets">
+        <li><span>1996: Microsoft copia el lenguaje como <strong>JScript</strong> en Internet Explorer, y cada navegador hace lo suyo</span></li>
+        <li><span>1997: se estandariza en <strong>Ecma</strong> como <strong>ECMAScript</strong> (ECMA-262). La marca "JavaScript" hoy es de <strong>Oracle</strong></span></li>
+        <li><span>2009: <strong>ES5</strong>, y nace <strong>Node.js</strong>: JS también fuera del navegador</span></li>
+        <li><span>2015: <strong>ES6/ES2015</strong>, el gran cambio: <code>let</code>/<code>const</code>, flechas, <code>class</code>, módulos, promesas. Desde ahí sale <strong>una versión por año</strong></span></li>
+        <li><span>Hoy: el lenguaje más usado en la encuesta de Stack Overflow 2026 (62% de los respondentes)<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">¿Dónde corre?</div>
+      <ul class="bullets">
+        <li><span>En el <strong>navegador</strong>: cada pestaña tiene su motor (V8 en Chrome, SpiderMonkey en Firefox)</span></li>
+        <li><span>En el <strong>servidor</strong> o la terminal, con <strong>Node.js</strong>: el mismo lenguaje sin página</span></li>
+        <li><span>Hoy nos quedamos en el navegador: primero el lenguaje, al final JS que <strong>lee y modifica la página</strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">La consola y las DevTools</div>
+      <ul class="bullets">
+        <li><span><strong>F12</strong> (o click derecho → Inspeccionar) → pestaña <strong>Console</strong></span></li>
+        <li><span>Ahí aparecen los <code>console.log</code> y los <strong>errores</strong> (en rojo, con archivo y línea)</span></li>
+        <li><span>También se puede escribir JS directo y probarlo ahí<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es JavaScript?</div>
+      <div class="s-title s-title--md">Playground</div>
+      <ul class="bullets">
+        <li><span><a href="https://livecodes.io" target="_blank" rel="noopener">https://livecodes.io</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Sintaxis en 20 minutos</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Variables: <code>let</code> y <code>const</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> nombre = <span class="tok-str">"Ricky"</span>;   <span class="tok-com">// no se puede reasignar</span>
+<span class="tok-kw">let</span> visitas = <span class="tok-num">0</span>;          <span class="tok-com">// sí se puede</span>
+visitas = visitas + <span class="tok-num">1</span>;
+nombre = <span class="tok-str">"Fort"</span>;          <span class="tok-com">// TypeError</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Usen <code>const</code> por defecto y <code>let</code> solo si el valor cambia</span></li>
+        <li><span><code>let</code> y <code>const</code> viven <strong>dentro de las llaves</strong> <code>{ }</code> donde se declaran (scope de bloque)</span></li>
+        <li><span><code>var</code> es la forma vieja: ignora las llaves y la van a ver en código antiguo. No la usen<span class="tag tag-note">Nota</span></span></li>
+        <li><span><a href="https://livecodes.io/?js=%2F%2F%20La%20%C3%BAltima%20l%C3%ADnea%20falla%20a%20prop%C3%B3sito%3A%20miren%20el%20error%20en%20la%20consola.%0Alet%20stock%20%3D%205%3B%0Astock%20%3D%20stock%20-%201%3B%20%20%20%20%20%20%20%20%2F%2F%20let%20se%20puede%20reasignar%0Aconsole.log%28%22Quedan%22%2C%20stock%29%3B%0A%0Aconst%20nombre%20%3D%20%22Campera%20Animal%20Print%22%3B%0Aconsole.log%28nombre%29%3B%0Anombre%20%3D%20%22Otra%20cosa%22%3B%20%20%20%20%2F%2F%20const%20NO%3A%20esto%20tira%20error%0A&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Tipos: dinámico y débil</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">typeof</span> <span class="tok-str">"hola"</span>       <span class="tok-com">// "string"</span>
+<span class="tok-kw">typeof</span> <span class="tok-num">20</span>           <span class="tok-com">// "number"  (enteros y decimales son lo mismo)</span>
+<span class="tok-kw">typeof</span> <span class="tok-kw">true</span>         <span class="tok-com">// "boolean"</span>
+<span class="tok-kw">typeof</span> <span class="tok-kw">undefined</span>    <span class="tok-com">// "undefined"</span>
+<span class="tok-kw">typeof</span> [<span class="tok-num">1</span>, <span class="tok-num">2</span>]       <span class="tok-com">// "object"  (los arrays son objetos)</span>
+<span class="tok-kw">typeof</span> <span class="tok-kw">null</span>         <span class="tok-com">// "object"  (un error histórico)</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Dinámico</strong>: las variables no tienen tipo, lo tienen los valores (<code>let x = 42; x = "Hola";</code> es válido)</span></li>
+        <li><span><strong>Débil</strong>: si mezclás tipos, JS convierte solo en vez de dar error (coerción, en la próxima)</span></li>
+        <li><span>Simples (<code>number</code>, <code>string</code>, <code>boolean</code>), vacíos (<code>undefined</code>, <code>null</code>) y compuestos (objetos, arrays)<span class="tag tag-info">Info</span></span></li>
+        <li><span><a href="https://livecodes.io/?js=console.log%28typeof%2020%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20number%0Aconsole.log%28typeof%20%22Precio%3A%20%2420%22%29%3B%20%20%20%2F%2F%20string%0Aconsole.log%28typeof%20true%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20boolean%0Aconsole.log%28typeof%20undefined%29%3B%20%20%20%20%20%20%20%2F%2F%20undefined%0Aconsole.log%28typeof%20null%29%3B%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20object%20%28%C2%A1un%20error%20hist%C3%B3rico%21%29%0Aconsole.log%28typeof%20%5B1%2C%202%2C%203%5D%29%3B%20%20%20%20%20%20%20%2F%2F%20object%0Aconsole.log%28typeof%20%7B%20nombre%3A%20%22Ricky%22%20%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Operadores y <code>===</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-num">2</span> + <span class="tok-num">3</span> * <span class="tok-num">4</span>        <span class="tok-com">// 14</span>
+<span class="tok-str">"20"</span> + <span class="tok-num">1</span>         <span class="tok-com">// "201"  (concatena)</span>
+<span class="tok-str">"20"</span> - <span class="tok-num">1</span>         <span class="tok-com">// 19     (convierte)</span>
+<span class="tok-str">"1"</span> == <span class="tok-num">1</span>         <span class="tok-com">// true   (convierte antes de comparar)</span>
+<span class="tok-str">"1"</span> === <span class="tok-num">1</span>        <span class="tok-com">// false  (tipo y valor)</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Usen <strong>siempre</strong> <code>===</code> y <code>!==</code><span class="tag tag-warning">Warning</span></span></li>
+        <li><span><code>&amp;&amp;</code>, <code>||</code> y <code>!</code> como en cualquier lenguaje</span></li>
+        <li><span><a href="https://livecodes.io/?js=console.log%2820%20%3D%3D%20%2220%22%29%3B%20%20%20%20%2F%2F%20true%3A%20convierte%20el%20string%20a%20n%C3%BAmero%0Aconsole.log%2820%20%3D%3D%3D%20%2220%22%29%3B%20%20%20%2F%2F%20false%3A%20distinto%20tipo%0Aconsole.log%280%20%3D%3D%20false%29%3B%20%20%20%20%20%2F%2F%20true%20%20%F0%9F%98%AC%0Aconsole.log%280%20%3D%3D%3D%20false%29%3B%20%20%20%20%2F%2F%20false%0Aconsole.log%28%225%22%20%2B%203%29%3B%20%20%20%20%20%20%20%20%2F%2F%20%2253%22%3A%20%2B%20con%20un%20string%20concatena%0Aconsole.log%28%225%22%20-%203%29%3B%20%20%20%20%20%20%20%20%2F%2F%202%3A%20-%20convierte%20a%20n%C3%BAmero&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md"><code>if</code> y <code>for</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">if</span> (precio &gt; <span class="tok-num">15</span>) {
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"caro"</span>);
+} <span class="tok-kw">else</span> {
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"barato"</span>);
+}
+
+<span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">3</span>; i++) { console.<span class="tok-fn">log</span>(i); }
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> nombre <span class="tok-kw">of</span> [<span class="tok-str">"Home"</span>, <span class="tok-str">"Nosotros"</span>, <span class="tok-str">"Productos"</span>]) {
+  console.<span class="tok-fn">log</span>(nombre);
+}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>for...of</code> recorre los elementos de un array<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>El <code>if</code> acepta cualquier valor: <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code> y <code>NaN</code> cuentan como <code>false</code> (<em>falsy</em>)<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Abrir en sandbox: <a href="https://livecodes.io/?js=const%20precio%20%3D%2020%3B%0A%0Aif%20%28precio%20%3E%20100%29%20%7B%0A%20%20console.log%28%22Caro%22%29%3B%0A%7D%20else%20if%20%28precio%20%3E%2015%29%20%7B%0A%20%20console.log%28%22Normal%22%29%3B%0A%7D%20else%20%7B%0A%20%20console.log%28%22Oferta%22%29%3B%0A%7D%0A%0A%2F%2F%20operador%20ternario%3A%20un%20if%20que%20devuelve%20un%20valor%0Aconst%20etiqueta%20%3D%20precio%20%3D%3D%3D%200%20%3F%20%22Gratis%22%20%3A%20%22%24%22%20%2B%20precio%3B%0Aconsole.log%28etiqueta%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">if ↗</a> · <a href="https://livecodes.io/?js=for%20%28let%20i%20%3D%201%3B%20i%20%3C%3D%203%3B%20i%2B%2B%29%20%7B%0A%20%20console.log%28%22Vuelta%22%2C%20i%29%3B%0A%7D%0A%0Aconst%20talles%20%3D%20%5B%22S%22%2C%20%22M%22%2C%20%22L%22%2C%20%22XL%22%5D%3B%0Afor%20%28const%20talle%20of%20talles%29%20%7B%0A%20%20console.log%28%22Talle%20%22%20%2B%20talle%29%3B%0A%7D&amp;active=script&amp;console=open" target="_blank" rel="noopener">for ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Funciones y arrow functions</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">function</span> <span class="tok-fn">conIva</span>(precio) {
+  <span class="tok-kw">return</span> precio * <span class="tok-num">1.21</span>;
+}
+
+<span class="tok-kw">const</span> conDescuento = (precio) =&gt; precio * <span class="tok-num">0.9</span>;
+
+console.<span class="tok-fn">log</span>(<span class="tok-fn">conIva</span>(<span class="tok-num">20</span>), <span class="tok-fn">conDescuento</span>(<span class="tok-num">20</span>));</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Las dos formas hacen lo mismo. La flecha es más corta y es la que vamos a usar en los eventos</span></li>
+        <li><span>Una <code>function</code> declarada se puede llamar <strong>antes</strong> de la línea donde está (<em>hoisting</em>); una guardada en <code>const</code>, no</span></li>
+        <li><span>Una función es un <strong>valor</strong>: se puede guardar en una variable o pasar a otra función<span class="tag tag-info">Info</span></span></li>
+        <li><span><a href="https://livecodes.io/?js=function%20conIva%28precio%29%20%7B%0A%20%20return%20precio%20%2A%201.21%3B%0A%7D%0A%0Aconst%20conDescuento%20%3D%20%28precio%2C%20porcentaje%29%20%3D%3E%20precio%20%2A%20%281%20-%20porcentaje%20%2F%20100%29%3B%0A%0Aconst%20doble%20%3D%20n%20%3D%3E%20n%20%2A%202%3B%20%20%20%2F%2F%20un%20par%C3%A1metro%20y%20una%20expresi%C3%B3n%3A%20sin%20par%C3%A9ntesis%20ni%20return%0A%0Aconsole.log%28conIva%2820%29%29%3B%0Aconsole.log%28conDescuento%2820%2C%2010%29%29%3B%0Aconsole.log%28doble%2821%29%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Arrays y objetos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> productos = [
+  { nombre: <span class="tok-str">"Campera Animal Print"</span>, precio: <span class="tok-num">20</span> },
+  { nombre: <span class="tok-str">"Lentes de sol"</span>, precio: <span class="tok-num">15</span> },
+];
+productos.<span class="tok-fn">push</span>({ nombre: <span class="tok-str">"Remera"</span>, precio: <span class="tok-num">12</span> });
+console.<span class="tok-fn">log</span>(productos.length, productos[<span class="tok-num">0</span>].nombre);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Array</strong>: lista ordenada que arranca en el índice 0. <strong>Objeto</strong>: pares <code>clave: valor</code></span></li>
+        <li><span>Es la misma forma que tiene un JSON<span class="tag tag-info">Info</span></span></li>
+        <li><span>Abrir en sandbox: <a href="https://livecodes.io/?js=const%20carrito%20%3D%20%5B%22Campera%22%2C%20%22Lentes%22%5D%3B%0Acarrito.push%28%22Remera%22%29%3B%0Aconsole.log%28carrito%29%3B%0Aconsole.log%28carrito.length%29%3B%0Aconsole.log%28carrito%5B0%5D%29%3B%0Aconsole.log%28carrito.includes%28%22Lentes%22%29%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">arrays ↗</a> · <a href="https://livecodes.io/?js=const%20producto%20%3D%20%7B%0A%20%20nombre%3A%20%22Campera%20Animal%20Print%22%2C%0A%20%20precio%3A%2020%2C%0A%20%20talles%3A%20%5B%22M%22%2C%20%22L%22%5D%2C%0A%7D%3B%0A%0Aconsole.log%28producto.nombre%29%3B%0Aconsole.log%28producto%5B%22precio%22%5D%29%3B%0Aproducto.precio%20%3D%2025%3B%0Aproducto.stock%20%3D%203%3B%20%20%20%2F%2F%20se%20pueden%20agregar%20propiedades%0Aconsole.log%28producto%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">objetos ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md"><code>map</code> y <code>filter</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> precios = productos.<span class="tok-fn">map</span>(p =&gt; p.precio);        <span class="tok-com">// [20, 15, 12]</span>
+<span class="tok-kw">const</span> baratos = productos.<span class="tok-fn">filter</span>(p =&gt; p.precio &lt; <span class="tok-num">18</span>); <span class="tok-com">// 2 productos</span>
+<span class="tok-kw">const</span> total = precios.<span class="tok-fn">reduce</span>((a, b) =&gt; a + b, <span class="tok-num">0</span>);    <span class="tok-com">// 47</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>map</code> <strong>transforma</strong> cada elemento y <code>filter</code> <strong>se queda</strong> con los que cumplen la condición</span></li>
+        <li><span>Ninguno modifica el array original: los dos devuelven uno nuevo<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><a href="https://livecodes.io/?js=const%20productos%20%3D%20%5B%0A%20%20%7B%20nombre%3A%20%22Campera%20Animal%20Print%22%2C%20precio%3A%2020%20%7D%2C%0A%20%20%7B%20nombre%3A%20%22Lentes%20de%20sol%22%2C%20precio%3A%2015%20%7D%2C%0A%20%20%7B%20nombre%3A%20%22Remera%20Bailando%202008%22%2C%20precio%3A%2012%20%7D%2C%0A%5D%3B%0A%0Aconst%20nombres%20%3D%20productos.map%28p%20%3D%3E%20p.nombre%29%3B%0Aconsole.log%28nombres%29%3B%0A%0Aconst%20baratos%20%3D%20productos.filter%28p%20%3D%3E%20p.precio%20%3C%2016%29%3B%0Aconsole.log%28baratos%29%3B%0A%0Aconst%20total%20%3D%20productos.reduce%28%28suma%2C%20p%29%20%3D%3E%20suma%20%2B%20p.precio%2C%200%29%3B%0Aconsole.log%28%22Total%3A%22%2C%20total%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Sintaxis en 20 minutos</div>
+      <div class="s-title s-title--md">Imperativo vs declarativo</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-com">// Imperativo: el CÓMO, paso a paso</span>
+<span class="tok-kw">const</span> pares = [];
+<span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = <span class="tok-num">0</span>; i &lt; numeros.length; i++) {
+  <span class="tok-kw">if</span> (numeros[i] % <span class="tok-num">2</span> === <span class="tok-num">0</span>) pares.<span class="tok-fn">push</span>(numeros[i] * <span class="tok-num">2</span>);
+}
+
+<span class="tok-com">// Declarativo: el QUÉ</span>
+<span class="tok-kw">const</span> resultado = numeros.<span class="tok-fn">filter</span>(n =&gt; n % <span class="tok-num">2</span> === <span class="tok-num">0</span>).<span class="tok-fn">map</span>(n =&gt; n * <span class="tok-num">2</span>);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Mismo resultado: duplicar los pares de <code>[1, 2, 3, 4, 5, 6]</code> → <code>[4, 8, 12]</code></span></li>
+        <li><span>El declarativo se lee como la consigna y <strong>no modifica</strong> el array original<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">Asincronismo</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md">El lavarropas</div>
+      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 518px; background-color: transparent;" viewBox="-117 -10 518 491" role="graphics-document document" aria-roledescription="sequence"><g><rect x="201" y="362" fill="#eaeaea" stroke="#666" width="150" height="78" name="L" rx="6" ry="6" class="actor actor-bottom" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="276" y="401" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="276" dy="0">🧺 Lavarropas</tspan></text></g><g><rect x="0" y="362" fill="#eaeaea" stroke="#666" width="150" height="78" name="V" rx="6" ry="6" class="actor actor-bottom" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="75" y="401" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="75" dy="0">🧍 Vos</tspan></text></g><g><line id="actor1" x1="276" y1="78" x2="276" y2="362" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="L" data-et="life-line" data-id="L"/><g id="root-1" data-look="neo" data-et="participant" data-type="participant" data-id="L"><rect x="201" y="0" fill="#eaeaea" stroke="#666" width="150" height="78" name="L" rx="6" ry="6" class="actor actor-top" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="276" y="39" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="276" dy="0">🧺 Lavarropas</tspan></text></g></g><g><line id="actor0" x1="75" y1="78" x2="75" y2="362" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="V" data-et="life-line" data-id="V"/><g id="root-0" data-look="neo" data-et="participant" data-type="participant" data-id="V"><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="78" name="V" rx="6" ry="6" class="actor actor-top" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="75" y="39" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="75" dy="0">🧍 Vos</tspan></text></g></g><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;}#my-svg p{margin:0;}#my-svg .actor{stroke:#9370DB;fill:#ECECFF;stroke-width:1;}#my-svg rect.actor.outer-path[data-look="neo"]{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg rect.note[data-look="neo"]{stroke:#aaaa33;fill:#fff5ad;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg text.actor&gt;tspan{fill:black;stroke:none;}#my-svg .actor-line{stroke:#9370DB;}#my-svg .innerArc{stroke-width:1.5;stroke-dasharray:none;}#my-svg .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#my-svg .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#my-svg [id$="-arrowhead"] path{fill:#333;stroke:#333;}#my-svg .sequenceNumber{fill:white;}#my-svg [id$="-sequencenumber"]{fill:#333;}#my-svg [id$="-crosshead"] path{fill:#333;stroke:#333;}#my-svg .messageText{fill:#333;stroke:none;}#my-svg .labelBox{stroke:#9370DB;fill:#ECECFF;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg .labelText,#my-svg .labelText&gt;tspan{fill:black;stroke:none;}#my-svg .loopText,#my-svg .loopText&gt;tspan{fill:black;stroke:none;}#my-svg .sectionTitle,#my-svg .sectionTitle&gt;tspan{fill:black;stroke:none;}#my-svg .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:#9370DB;fill:#9370DB;}#my-svg .note{stroke:#aaaa33;fill:#fff5ad;}#my-svg .noteText,#my-svg .noteText&gt;tspan{fill:black;stroke:none;}#my-svg .activation0{fill:#f4f4f4;stroke:#666;}#my-svg .activation1{fill:#f4f4f4;stroke:#666;}#my-svg .activation2{fill:#f4f4f4;stroke:#666;}#my-svg .actorPopupMenu{position:absolute;}#my-svg .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#my-svg .actor-man circle,#my-svg line{fill:#ECECFF;stroke-width:2px;}#my-svg g rect.rect{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));stroke:#9370DB;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g/><defs><symbol id="my-svg-computer" width="24" height="24"><path transform="scale(.5)" d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z"/></symbol></defs><defs><symbol id="my-svg-database" fill-rule="evenodd" clip-rule="evenodd"><path transform="scale(.5)" d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z"/></symbol></defs><defs><symbol id="my-svg-clock" width="24" height="24"><path transform="scale(.5)" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"/></symbol></defs><defs><marker id="my-svg-arrowhead" refX="7.9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M -1 0 L 10 5 L 0 10 z"/></marker></defs><defs><marker id="my-svg-crosshead" markerWidth="15" markerHeight="8" orient="auto" refX="4" refY="4.5"><path fill="none" stroke="#000000" stroke-width="1pt" d="M 1,2 L 6,7 M 6,2 L 1,7" style="stroke-dasharray: 0, 0;"/></marker></defs><defs><marker id="my-svg-filled-head" refX="15.5" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"/></marker></defs><defs><marker id="my-svg-sequencenumber" refX="15" refY="15" markerWidth="60" markerHeight="40" orient="auto"><circle cx="15" cy="15" r="6"/></marker></defs><defs><marker id="my-svg-solidTopArrowHead" refX="7.9" refY="7.25" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 10 8 L 0 8 z"/></marker></defs><defs><marker id="my-svg-solidBottomArrowHead" refX="7.9" refY="0.75" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 10 0 L 0 8 z"/></marker></defs><defs><marker id="my-svg-stickTopArrowHead" refX="7.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 7 7" stroke="black" stroke-width="1.5" fill="none"/></marker></defs><defs><marker id="my-svg-stickBottomArrowHead" refX="7.5" refY="0" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 7 L 7 0" stroke="black" stroke-width="1.5" fill="none"/></marker></defs><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#FFFFFF"/></filter></defs><g data-et="note" data-id="i1"><rect x="-67" y="142" fill="#EDF2AE" stroke="#666" width="284" height="42" class="note" data-look="neo"/><text x="75" y="147" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">Cocinás, estudiás, mirás una serie...</tspan></text></g><g data-et="note" data-id="i2"><rect x="201" y="194" fill="#EDF2AE" stroke="#666" width="150" height="42" class="note" data-look="neo"/><text x="276" y="199" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="276">Lava (1 hora)</tspan></text></g><g data-et="note" data-id="i4"><rect x="-28.5" y="300" fill="#EDF2AE" stroke="#666" width="207" height="42" class="note" data-look="neo"/><text x="75" y="305" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">Recién ahí tendés la ropa</tspan></text></g><text x="173" y="93" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;">Lo ponés a lavar</text><line x1="76" y1="132" x2="269" y2="132" class="messageLine0" data-et="message" data-id="i0" data-from="V" data-to="L" stroke-width="2" stroke="none" marker-end="url(#my-svg-arrowhead)" style="fill: none;"/><text x="179" y="251" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;">🔔 ¡Piiip! Terminó</text><line x1="275" y1="290" x2="82" y2="290" class="messageLine1" data-et="message" data-id="i3" data-from="L" data-to="V" stroke-width="2" stroke="none" marker-end="url(#my-svg-arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"/></svg></div>
+      <ul class="bullets">
+        <li><span><strong>Sincrónico</strong>: te quedás 1 hora mirando el lavarropas sin hacer nada</span></li>
+        <li><span><strong>Asincrónico</strong>: lo ponés, seguís con tu vida y cuando <strong>suena el pitido</strong> tendés la ropa<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md">Adiviná el orden</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>console.<span class="tok-fn">log</span>(<span class="tok-str">"1"</span>);
+<span class="tok-fn">setTimeout</span>(() =&gt; console.<span class="tok-fn">log</span>(<span class="tok-str">"2"</span>), <span class="tok-num">2000</span>);
+console.<span class="tok-fn">log</span>(<span class="tok-str">"3"</span>);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>¿Qué se imprime primero? <strong>Voten</strong>: ¿1, 2, 3? ¿1, 3, 2? ¿2, 1, 3?</span></li>
+        <li><span><code>setTimeout</code> es como poner el lavarropas: "dentro de 2 segundos, hacé esto"</span></li>
+        <li><span><a href="https://livecodes.io/?js=console.log%28%221%22%29%3B%0AsetTimeout%28%28%29%20%3D%3E%20console.log%28%222%22%29%2C%202000%29%3B%0Aconsole.log%28%223%22%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md">Respuesta: 1, 3, 2</div>
+      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 559px; background-color: transparent;" viewBox="-87 -10 559 543" role="graphics-document document" aria-roledescription="sequence"><g><rect x="272" y="414" fill="#eaeaea" stroke="#666" width="150" height="78" name="T" rx="6" ry="6" class="actor actor-bottom" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="347" y="453" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="347" dy="0">⏲️ Timer</tspan></text></g><g><rect x="0" y="414" fill="#eaeaea" stroke="#666" width="150" height="78" name="JS" rx="6" ry="6" class="actor actor-bottom" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="75" y="453" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="75" dy="0">🧍 JavaScript</tspan></text></g><g><line id="actor1" x1="347" y1="78" x2="347" y2="414" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="T" data-et="life-line" data-id="T"/><g id="root-1" data-look="neo" data-et="participant" data-type="participant" data-id="T"><rect x="272" y="0" fill="#eaeaea" stroke="#666" width="150" height="78" name="T" rx="6" ry="6" class="actor actor-top" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="347" y="39" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="347" dy="0">⏲️ Timer</tspan></text></g></g><g><line id="actor0" x1="75" y1="78" x2="75" y2="414" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="JS" data-et="life-line" data-id="JS"/><g id="root-0" data-look="neo" data-et="participant" data-type="participant" data-id="JS"><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="78" name="JS" rx="6" ry="6" class="actor actor-top" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="75" y="39" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="75" dy="0">🧍 JavaScript</tspan></text></g></g><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;}#my-svg p{margin:0;}#my-svg .actor{stroke:#9370DB;fill:#ECECFF;stroke-width:1;}#my-svg rect.actor.outer-path[data-look="neo"]{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg rect.note[data-look="neo"]{stroke:#aaaa33;fill:#fff5ad;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg text.actor&gt;tspan{fill:black;stroke:none;}#my-svg .actor-line{stroke:#9370DB;}#my-svg .innerArc{stroke-width:1.5;stroke-dasharray:none;}#my-svg .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#my-svg .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#my-svg [id$="-arrowhead"] path{fill:#333;stroke:#333;}#my-svg .sequenceNumber{fill:white;}#my-svg [id$="-sequencenumber"]{fill:#333;}#my-svg [id$="-crosshead"] path{fill:#333;stroke:#333;}#my-svg .messageText{fill:#333;stroke:none;}#my-svg .labelBox{stroke:#9370DB;fill:#ECECFF;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg .labelText,#my-svg .labelText&gt;tspan{fill:black;stroke:none;}#my-svg .loopText,#my-svg .loopText&gt;tspan{fill:black;stroke:none;}#my-svg .sectionTitle,#my-svg .sectionTitle&gt;tspan{fill:black;stroke:none;}#my-svg .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:#9370DB;fill:#9370DB;}#my-svg .note{stroke:#aaaa33;fill:#fff5ad;}#my-svg .noteText,#my-svg .noteText&gt;tspan{fill:black;stroke:none;}#my-svg .activation0{fill:#f4f4f4;stroke:#666;}#my-svg .activation1{fill:#f4f4f4;stroke:#666;}#my-svg .activation2{fill:#f4f4f4;stroke:#666;}#my-svg .actorPopupMenu{position:absolute;}#my-svg .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#my-svg .actor-man circle,#my-svg line{fill:#ECECFF;stroke-width:2px;}#my-svg g rect.rect{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));stroke:#9370DB;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g/><defs><symbol id="my-svg-computer" width="24" height="24"><path transform="scale(.5)" d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z"/></symbol></defs><defs><symbol id="my-svg-database" fill-rule="evenodd" clip-rule="evenodd"><path transform="scale(.5)" d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z"/></symbol></defs><defs><symbol id="my-svg-clock" width="24" height="24"><path transform="scale(.5)" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"/></symbol></defs><defs><marker id="my-svg-arrowhead" refX="7.9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M -1 0 L 10 5 L 0 10 z"/></marker></defs><defs><marker id="my-svg-crosshead" markerWidth="15" markerHeight="8" orient="auto" refX="4" refY="4.5"><path fill="none" stroke="#000000" stroke-width="1pt" d="M 1,2 L 6,7 M 6,2 L 1,7" style="stroke-dasharray: 0, 0;"/></marker></defs><defs><marker id="my-svg-filled-head" refX="15.5" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"/></marker></defs><defs><marker id="my-svg-sequencenumber" refX="15" refY="15" markerWidth="60" markerHeight="40" orient="auto"><circle cx="15" cy="15" r="6"/></marker></defs><defs><marker id="my-svg-solidTopArrowHead" refX="7.9" refY="7.25" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 10 8 L 0 8 z"/></marker></defs><defs><marker id="my-svg-solidBottomArrowHead" refX="7.9" refY="0.75" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 10 0 L 0 8 z"/></marker></defs><defs><marker id="my-svg-stickTopArrowHead" refX="7.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 7 7" stroke="black" stroke-width="1.5" fill="none"/></marker></defs><defs><marker id="my-svg-stickBottomArrowHead" refX="7.5" refY="0" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 7 L 7 0" stroke="black" stroke-width="1.5" fill="none"/></marker></defs><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#FFFFFF"/></filter></defs><g data-et="note" data-id="i0"><rect x="0" y="88" fill="#EDF2AE" stroke="#666" width="150" height="42" class="note" data-look="neo"/><text x="75" y="93" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">console.log("1")</tspan></text></g><g data-et="note" data-id="i2"><rect x="-37" y="194" fill="#EDF2AE" stroke="#666" width="224" height="42" class="note" data-look="neo"/><text x="75" y="199" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">console.log("3") (no espera)</tspan></text></g><g data-et="note" data-id="i3"><rect x="272" y="246" fill="#EDF2AE" stroke="#666" width="150" height="42" class="note" data-look="neo"/><text x="347" y="251" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="347">2 segundos...</tspan></text></g><g data-et="note" data-id="i5"><rect x="0" y="352" fill="#EDF2AE" stroke="#666" width="150" height="42" class="note" data-look="neo"/><text x="75" y="357" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">console.log("2")</tspan></text></g><text x="208" y="145" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;">setTimeout: avisame en 2 s</text><line x1="76" y1="184" x2="340" y2="184" class="messageLine0" data-et="message" data-id="i1" data-from="JS" data-to="T" stroke-width="2" stroke="none" marker-end="url(#my-svg-arrowhead)" style="fill: none;"/><text x="214" y="303" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;">🔔 ¡Piiip!</text><line x1="346" y1="342" x2="82" y2="342" class="messageLine1" data-et="message" data-id="i4" data-from="T" data-to="JS" stroke-width="2" stroke="none" marker-end="url(#my-svg-arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"/></svg></div>
+      <ul class="bullets">
+        <li><span>JS <strong>no se queda mirando el lavarropas</strong>: sigue con la línea siguiente</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md"><code>fetch</code>: mandar a lavar al servidor</div>
+      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 583px; background-color: transparent;" viewBox="-101 -10 583 491" role="graphics-document document" aria-roledescription="sequence"><g><rect x="277" y="362" fill="#eaeaea" stroke="#666" width="150" height="78" name="A" rx="6" ry="6" class="actor actor-bottom" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="352" y="401" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="352" dy="0">🏦 dolarapi.com</tspan></text></g><g><rect x="0" y="362" fill="#eaeaea" stroke="#666" width="150" height="78" name="N" rx="6" ry="6" class="actor actor-bottom" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="75" y="401" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="75" dy="0">🌐 Navegador</tspan></text></g><g><line id="actor1" x1="352" y1="78" x2="352" y2="362" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="A" data-et="life-line" data-id="A"/><g id="root-1" data-look="neo" data-et="participant" data-type="participant" data-id="A"><rect x="277" y="0" fill="#eaeaea" stroke="#666" width="150" height="78" name="A" rx="6" ry="6" class="actor actor-top" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="352" y="39" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="352" dy="0">🏦 dolarapi.com</tspan></text></g></g><g><line id="actor0" x1="75" y1="78" x2="75" y2="362" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="N" data-et="life-line" data-id="N"/><g id="root-0" data-look="neo" data-et="participant" data-type="participant" data-id="N"><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="78" name="N" rx="6" ry="6" class="actor actor-top" data-look="neo" filter="url(#my-svg-drop-shadow)"/><text x="75" y="39" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400; font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif;"><tspan x="75" dy="0">🌐 Navegador</tspan></text></g></g><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;}#my-svg p{margin:0;}#my-svg .actor{stroke:#9370DB;fill:#ECECFF;stroke-width:1;}#my-svg rect.actor.outer-path[data-look="neo"]{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg rect.note[data-look="neo"]{stroke:#aaaa33;fill:#fff5ad;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg text.actor&gt;tspan{fill:black;stroke:none;}#my-svg .actor-line{stroke:#9370DB;}#my-svg .innerArc{stroke-width:1.5;stroke-dasharray:none;}#my-svg .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#my-svg .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#my-svg [id$="-arrowhead"] path{fill:#333;stroke:#333;}#my-svg .sequenceNumber{fill:white;}#my-svg [id$="-sequencenumber"]{fill:#333;}#my-svg [id$="-crosshead"] path{fill:#333;stroke:#333;}#my-svg .messageText{fill:#333;stroke:none;}#my-svg .labelBox{stroke:#9370DB;fill:#ECECFF;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg .labelText,#my-svg .labelText&gt;tspan{fill:black;stroke:none;}#my-svg .loopText,#my-svg .loopText&gt;tspan{fill:black;stroke:none;}#my-svg .sectionTitle,#my-svg .sectionTitle&gt;tspan{fill:black;stroke:none;}#my-svg .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:#9370DB;fill:#9370DB;}#my-svg .note{stroke:#aaaa33;fill:#fff5ad;}#my-svg .noteText,#my-svg .noteText&gt;tspan{fill:black;stroke:none;}#my-svg .activation0{fill:#f4f4f4;stroke:#666;}#my-svg .activation1{fill:#f4f4f4;stroke:#666;}#my-svg .activation2{fill:#f4f4f4;stroke:#666;}#my-svg .actorPopupMenu{position:absolute;}#my-svg .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#my-svg .actor-man circle,#my-svg line{fill:#ECECFF;stroke-width:2px;}#my-svg g rect.rect{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));stroke:#9370DB;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g/><defs><symbol id="my-svg-computer" width="24" height="24"><path transform="scale(.5)" d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z"/></symbol></defs><defs><symbol id="my-svg-database" fill-rule="evenodd" clip-rule="evenodd"><path transform="scale(.5)" d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z"/></symbol></defs><defs><symbol id="my-svg-clock" width="24" height="24"><path transform="scale(.5)" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"/></symbol></defs><defs><marker id="my-svg-arrowhead" refX="7.9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M -1 0 L 10 5 L 0 10 z"/></marker></defs><defs><marker id="my-svg-crosshead" markerWidth="15" markerHeight="8" orient="auto" refX="4" refY="4.5"><path fill="none" stroke="#000000" stroke-width="1pt" d="M 1,2 L 6,7 M 6,2 L 1,7" style="stroke-dasharray: 0, 0;"/></marker></defs><defs><marker id="my-svg-filled-head" refX="15.5" refY="7" markerWidth="20" markerHeight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"/></marker></defs><defs><marker id="my-svg-sequencenumber" refX="15" refY="15" markerWidth="60" markerHeight="40" orient="auto"><circle cx="15" cy="15" r="6"/></marker></defs><defs><marker id="my-svg-solidTopArrowHead" refX="7.9" refY="7.25" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 10 8 L 0 8 z"/></marker></defs><defs><marker id="my-svg-solidBottomArrowHead" refX="7.9" refY="0.75" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 10 0 L 0 8 z"/></marker></defs><defs><marker id="my-svg-stickTopArrowHead" refX="7.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 0 L 7 7" stroke="black" stroke-width="1.5" fill="none"/></marker></defs><defs><marker id="my-svg-stickBottomArrowHead" refX="7.5" refY="0" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 0 7 L 7 0" stroke="black" stroke-width="1.5" fill="none"/></marker></defs><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#FFFFFF"/></filter></defs><g data-et="note" data-id="i1"><rect x="-51" y="142" fill="#EDF2AE" stroke="#666" width="252" height="42" class="note" data-look="neo"/><text x="75" y="147" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">Recibe una promesa 🎟️ y sigue</tspan></text></g><g data-et="note" data-id="i2"><rect x="272" y="194" fill="#EDF2AE" stroke="#666" width="160" height="42" class="note" data-look="neo"/><text x="352" y="199" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="352">Busca la cotización</tspan></text></g><g data-et="note" data-id="i4"><rect x="-46" y="300" fill="#EDF2AE" stroke="#666" width="242" height="42" class="note" data-look="neo"/><text x="75" y="305" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;"><tspan x="75">.then: recién ahí usa los datos</tspan></text></g><text x="211" y="93" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;">fetch: ¿cuánto está el dólar?</text><line x1="76" y1="132" x2="345" y2="132" class="messageLine0" data-et="message" data-id="i0" data-from="N" data-to="A" stroke-width="2" stroke="none" marker-end="url(#my-svg-arrowhead)" style="fill: none;"/><text x="217" y="251" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-family: &quot;Open Sans&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 16px; font-weight: 400;">Respuesta con los datos</text><line x1="351" y1="290" x2="82" y2="290" class="messageLine1" data-et="message" data-id="i3" data-from="A" data-to="N" stroke-width="2" stroke="none" marker-end="url(#my-svg-arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"/></svg></div>
+      <ul class="bullets">
+        <li><span><code>fetch</code> le pide datos a otra computadora: <strong>tarda</strong>, como el lavarropas</span></li>
+        <li><span>Una <strong>promesa</strong> es el ticket: "algo va a llegar, te aviso"<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md"><code>fetch</code> en dos pasos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-fn">fetch</span>(<span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>)
+  .<span class="tok-fn">then</span>(r =&gt; r.<span class="tok-fn">json</span>())
+  .<span class="tok-fn">then</span>(datos =&gt; console.<span class="tok-fn">log</span>(datos));</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>r.json()</code> convierte la respuesta en un objeto. Primero miren <strong>todo</strong> lo que llega</span></li>
+        <li><span>Después elijan el dato: <code>datos.venta</code></span></li>
+        <li><span><a href="https://livecodes.io/?js=fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%0A%20%20.then%28r%20%3D%3E%20r.json%28%29%29%0A%20%20.then%28datos%20%3D%3E%20console.log%28datos%29%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Ver el objeto entero ↗</a> · <a href="https://livecodes.io/?js=fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%0A%20%20.then%28r%20%3D%3E%20r.json%28%29%29%0A%20%20.then%28datos%20%3D%3E%20console.log%28%22Venta%3A%20%24%22%20%2B%20datos.venta%29%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Solo la venta ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md"><code>async</code>/<code>await</code>: lo mismo, más prolijo</div>
+      <div class="compare">
+        <div class="side a" style="min-width:0;font-size:1.25em">
+          <h3>Con <code>.then</code></h3><div style="font-size:.8em;min-width:0">      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> url = <span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>;
+<span class="tok-fn">fetch</span>(url)
+  .<span class="tok-fn">then</span>(r =&gt; r.<span class="tok-fn">json</span>())
+  .<span class="tok-fn">then</span>(datos =&gt; console.<span class="tok-fn">log</span>(<span class="tok-str">"Venta: $"</span> + datos.venta));</code></pre>
+      </div></div>
+          <ul>
+            <li>Cada paso va adentro de un <code>.then</code></li>
+          </ul>
+        </div>
+        <div class="side b" style="min-width:0;font-size:1.25em">
+          <h3>Con <code>async</code>/<code>await</code></h3><div style="font-size:.8em;min-width:0">      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> url = <span class="tok-str">"https://dolarapi.com/v1/dolares/blue"</span>;
+<span class="tok-kw">async</span> <span class="tok-kw">function</span> <span class="tok-fn">dolarBlue</span>() {
+  <span class="tok-kw">const</span> r = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(url);
+  <span class="tok-kw">const</span> datos = <span class="tok-kw">await</span> r.<span class="tok-fn">json</span>();
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"Venta: $"</span> + datos.venta);
+}
+<span class="tok-fn">dolarBlue</span>();</code></pre>
+      </div></div>
+          <ul>
+            <li><code>await</code> = <strong>esperar el pitido antes de tender</strong></li>
+            <li>Solo se puede usar dentro de una función <code>async</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — Asincronismo</div>
+      <div class="s-title s-title--md">Para el martes</div>
+      <ul class="bullets">
+        <li><span>Lo vemos a fondo el <strong>martes</strong>: JS en el navegador y consumo de una API pública<span class="tag tag-info">Info</span></span></li>
+        <li><span><a href="https://livecodes.io/?js=async%20function%20dolarBlue%28%29%20%7B%0A%20%20const%20r%20%3D%20await%20fetch%28%22https%3A%2F%2Fdolarapi.com%2Fv1%2Fdolares%2Fblue%22%29%3B%0A%20%20const%20datos%20%3D%20await%20r.json%28%29%3B%0A%20%20console.log%28%22Venta%3A%20%24%22%20%2B%20datos.venta%29%3B%0A%7D%0AdolarBlue%28%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">El DOM</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Cargar un script: <code>&lt;script&gt;</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">html</div>
+        <pre><code>&lt;<span class="tok-kw">body</span>&gt;
+  ...todo el contenido de la página...
+  &lt;<span class="tok-kw">script</span> <span class="tok-fn">src</span>=<span class="tok-str">"app.js"</span>&gt;&lt;/<span class="tok-kw">script</span>&gt;
+&lt;/<span class="tok-kw">body</span>&gt;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>src</code> apunta a un archivo <code>.js</code> aparte, igual que el CSS con <code>&lt;link&gt;</code></span></li>
+        <li><span>Va <strong>al final del <code>&lt;body&gt;</code></strong>: así corre cuando la página ya está armada<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">La página es un árbol</div>
+      <div class="mermaid-wrap"><svg id="my-svg" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 1048.5px; background-color: transparent;" viewBox="4 4 1048.5 524" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#my-svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#333333;stroke:#333333;}#my-svg .marker.cross{stroke:#333333;}#my-svg svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg .label{font-family:Open Sans,Segoe UI,sans-serif;color:#333;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg span{fill:#333;color:#333;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node polygon,#my-svg .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg .node.clickable{cursor:pointer;}#my-svg .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePaths .path{stroke:#333333;stroke-width:1px;}#my-svg .flowchart-link{stroke:#333333;fill:none;}#my-svg .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#my-svg .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#my-svg .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#my-svg .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#my-svg .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#my-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Open Sans,Segoe UI,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#my-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#my-svg rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#my-svg .icon-shape .label rect,#my-svg .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#my-svg .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#my-svg .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#my-svg .node .neo-node{stroke:#9370DB;}#my-svg [data-look="neo"].node rect,#my-svg [data-look="neo"].cluster rect,#my-svg [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].swimlane.cluster rect{filter:none;}#my-svg [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#my-svg [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#my-svg [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].node circle .state-start{fill:#000000;}#my-svg [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#my-svg :root{--mermaid-font-family:Open Sans,Segoe UI,sans-serif;}</style><g><marker id="my-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="my-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="my-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edges edgePaths"><path d="M381.5,60L381.5,96" id="my-svg-L_doc_html_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 32 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_doc_html_0" data-points="W3sieCI6MzgxLjUsInkiOjYwfSx7IngiOjM4MS41LCJ5IjoxMDB9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M359.5,148L359.5,160.92893218813452Q359.5,168 352.4289321881345,168L292.5710678118655,168Q285.5,168 285.5,175.07106781186548L285.5,184" id="my-svg-L_html_head_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_head_0" data-points="W3sieCI6MzU5LjUsInkiOjE0OH0seyJ4IjozNTkuNSwieSI6MTY4fSx7IngiOjI4NS41LCJ5IjoxNjh9LHsieCI6Mjg1LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M403.5,148L403.5,160.92893218813452Q403.5,168 410.5710678118655,168L470.4289321881345,168Q477.5,168 477.5,175.07106781186548L477.5,184" id="my-svg-L_html_body_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 100.67170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_html_body_0" data-points="W3sieCI6NDAzLjUsInkiOjE0OH0seyJ4Ijo0MDMuNSwieSI6MTY4fSx7IngiOjQ3Ny41LCJ5IjoxNjh9LHsieCI6NDc3LjUsInkiOjE4OH1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M455.5,236L455.5,248.92893218813452Q455.5,256 448.4289321881345,256L276.0710678118655,256Q269,256 269,263.0710678118655L269,272" id="my-svg-L_body_nav_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 213.1717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_nav_0" data-points="W3sieCI6NDU1LjUsInkiOjIzNn0seyJ4Ijo0NTUuNSwieSI6MjU2fSx7IngiOjI2OSwieSI6MjU2fSx7IngiOjI2OSwieSI6Mjc2fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M499.5,236L499.5,248.92893218813452Q499.5,256 506.5710678118655,256L747.4289321881345,256Q754.5,256 754.5,263.0710678118655L754.5,272" id="my-svg-L_body_cont_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 281.6717529296875 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_body_cont_0" data-points="W3sieCI6NDk5LjUsInkiOjIzNn0seyJ4Ijo0OTkuNSwieSI6MjU2fSx7IngiOjc1NC41LCJ5IjoyNTZ9LHsieCI6NzU0LjUsInkiOjI3Nn1d" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M236,324L236,336.9289321881345Q236,344 228.92893218813452,344L95.07106781186548,344Q88,344 88,351.0710678118655L88,360" id="my-svg-L_nav_a1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 174.6717071533203 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a1_0" data-points="W3sieCI6MjM2LCJ5IjozMjR9LHsieCI6MjM2LCJ5IjozNDR9LHsieCI6ODgsInkiOjM0NH0seyJ4Ijo4OCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M269,324L269,338.5Q269,344 274.5,344L274.5,344Q280,344 280,349.5L280,360" id="my-svg-L_nav_a2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 38.85557556152344 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a2_0" data-points="W3sieCI6MjY5LCJ5IjozMjR9LHsieCI6MjY5LCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNDR9LHsieCI6MjgwLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M302,324L302,336.9289321881345Q302,344 309.0710678118655,344L464.9289321881345,344Q472,344 472,351.0710678118655L472,360" id="my-svg-L_nav_a3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 196.67169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_nav_a3_0" data-points="W3sieCI6MzAyLCJ5IjozMjR9LHsieCI6MzAyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNDR9LHsieCI6NDcyLCJ5IjozNjR9XQ==" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M732.5,324L732.5,336.9289321881345Q732.5,344 725.4289321881345,344L671.0710678118655,344Q664,344 664,351.0710678118655L664,360" id="my-svg-L_cont_h1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 95.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_h1_0" data-points="W3sieCI6NzMyLjUsInkiOjMyNH0seyJ4Ijo3MzIuNSwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzQ0fSx7IngiOjY2NCwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M776.5,324L776.5,336.9289321881345Q776.5,344 783.5710678118655,344L848.9289321881345,344Q856,344 856,351.0710678118655L856,360" id="my-svg-L_cont_list_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 106.17170715332031 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_cont_list_0" data-points="W3sieCI6Nzc2LjUsInkiOjMyNH0seyJ4Ijo3NzYuNSwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzQ0fSx7IngiOjg1NiwieSI6MzY0fV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M823,412L823,424.9289321881345Q823,432 815.9289321881345,432L591.5710678118655,432Q584.5,432 584.5,439.0710678118655L584.5,468" id="my-svg-L_list_c1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 285.17169189453125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c1_0" data-points="W3sieCI6ODIzLCJ5Ijo0MTJ9LHsieCI6ODIzLCJ5Ijo0MzJ9LHsieCI6NTg0LjUsInkiOjQzMn0seyJ4Ijo1ODQuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M856,412L856,444.9289321881345Q856,452 848.9289321881345,452L783.5710678118655,452Q776.5,452 776.5,459.0710678118655L776.5,468" id="my-svg-L_list_c2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c2_0" data-points="W3sieCI6ODU2LCJ5Ijo0MTJ9LHsieCI6ODU2LCJ5Ijo0NTJ9LHsieCI6Nzc2LjUsInkiOjQ1Mn0seyJ4Ijo3NzYuNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/><path d="M889,412L889,424.9289321881345Q889,432 896.0710678118655,432L961.4289321881345,432Q968.5,432 968.5,439.0710678118655L968.5,468" id="my-svg-L_list_c3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 126.17172241210938 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_list_c3_0" data-points="W3sieCI6ODg5LCJ5Ijo0MTJ9LHsieCI6ODg5LCJ5Ijo0MzJ9LHsieCI6OTY4LjUsInkiOjQzMn0seyJ4Ijo5NjguNSwieSI6NDcyfV0=" data-look="neo" marker-end="url(#my-svg_flowchart-v2-pointEnd-margin)"/></g><g class="edgeLabels"/><g class="nodes"><g class="node default" id="my-svg-flowchart-doc-0" data-look="neo" transform="translate(381.5, 36)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>document</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-html-1" data-look="neo" transform="translate(381.5, 124)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>html</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-head-3" data-look="neo" transform="translate(285.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>head</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-body-5" data-look="neo" transform="translate(477.5, 212)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>body</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-nav-7" data-look="neo" transform="translate(269, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.navbar</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-cont-9" data-look="neo" transform="translate(754.5, 300)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.container</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a1-11" data-look="neo" transform="translate(88, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a2-12" data-look="neo" transform="translate(280, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-a3-13" data-look="neo" transform="translate(472, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>a.active</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-h1-15" data-look="neo" transform="translate(664, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>h1</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-list-17" data-look="neo" transform="translate(856, 388)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card-list</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c1-19" data-look="neo" transform="translate(584.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c2-20" data-look="neo" transform="translate(776.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>div.card</p></span></div></foreignObject></g></g><g class="node default" id="my-svg-flowchart-c3-21" data-look="neo" transform="translate(968.5, 496)"><rect class="basic label-container" style="" x="-76" y="-24" width="152" height="48"/><g class="label" style="" transform="translate(-60, -12)"><rect/><foreignObject width="120" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>...</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="my-svg-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="my-svg-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+      <ul class="bullets">
+        <li><span>El navegador convierte el HTML en objetos: el <strong>DOM</strong> (Document Object Model). JS los ve en <code>document</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Buscar elementos: <code>querySelector</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> titulo = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">"h1"</span>);            <span class="tok-com">// el primero</span>
+<span class="tok-kw">const</span> cards = document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".card"</span>);       <span class="tok-com">// todos (NodeList)</span>
+<span class="tok-kw">const</span> activo = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".navbar a.active"</span>);
+console.<span class="tok-fn">log</span>(cards.length);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Usan <strong>los mismos selectores que CSS</strong><span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Si no encuentra nada, <code>querySelector</code> devuelve <code>null</code></span></li>
+        <li><span><a href="https://livecodes.io/?html=%3Cdiv%20class%3D%22navbar%22%3E%0A%20%20%3Ca%20href%3D%22%23%22%20class%3D%22active%22%3EHome%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3ENosotros%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3EProductos%3C%2Fa%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22container%22%3E%0A%20%20%3Ch1%3EListado%3C%2Fh1%3E%0A%20%20%3Cdiv%20class%3D%22card-list%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ECampera%20Animal%20Print%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2420%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ELentes%20de%20sol%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2415%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ERemera%20Bailando%202008%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2412%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E&amp;css=.navbar%7Bdisplay%3Aflex%3Bgap%3A4px%3Bborder-bottom%3A1px%20solid%7D.navbar%20a%7Bpadding%3A8px%3Bcolor%3Ablack%3Btext-decoration%3Anone%7D%0A%20%20.navbar%20a.active%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D%0A%20%20body%7Bbackground%3A%23f8ebbe%7D.card-list%7Bdisplay%3Aflex%3Bgap%3A8px%7D.card%7Bborder%3A3px%20solid%3Bborder-radius%3A10px%3Bpadding%3A6px%7D%0A%20%20.card-name%7Bfont-weight%3Abold%3Bmargin%3A4px%200%7D.card-price%7Bfont-size%3A14px%3Bmargin%3A4px%200%7D%0A%20%20.seleccionada%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D&amp;js=const%20titulo%20%3D%20document.querySelector%28%22h1%22%29%3B%0Aconsole.log%28titulo.textContent%29%3B%0A%0Aconst%20cards%20%3D%20document.querySelectorAll%28%22.card%22%29%3B%0Aconsole.log%28cards.length%2C%20%22productos%22%29%3B%0A%0Aconst%20primera%20%3D%20document.querySelector%28%22.card%20.card-name%22%29%3B%0Aconsole.log%28primera.textContent%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Cambiar contenido: <code>textContent</code> e <code>innerHTML</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>titulo.textContent = <span class="tok-str">"Productos"</span>;
+<span class="tok-kw">const</span> card = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card"</span>);
+card.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-price"</span>).textContent = <span class="tok-str">"Precio: $25"</span>;
+card.innerHTML = <span class="tok-str">"&lt;p class='card-name'&gt;Agotado&lt;/p&gt;"</span>;</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>textContent</code> cambia <strong>texto</strong> y <code>innerHTML</code> interpreta <strong>HTML</strong></span></li>
+        <li><span>Nunca metan en <code>innerHTML</code> texto que escribió un usuario: abre la puerta a inyectar código (XSS)<span class="tag tag-danger">Danger</span></span></li>
+        <li><span><a href="https://livecodes.io/?html=%3Cdiv%20class%3D%22navbar%22%3E%0A%20%20%3Ca%20href%3D%22%23%22%20class%3D%22active%22%3EHome%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3ENosotros%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3EProductos%3C%2Fa%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22container%22%3E%0A%20%20%3Ch1%3EListado%3C%2Fh1%3E%0A%20%20%3Cdiv%20class%3D%22card-list%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ECampera%20Animal%20Print%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2420%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ELentes%20de%20sol%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2415%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ERemera%20Bailando%202008%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2412%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E&amp;css=.navbar%7Bdisplay%3Aflex%3Bgap%3A4px%3Bborder-bottom%3A1px%20solid%7D.navbar%20a%7Bpadding%3A8px%3Bcolor%3Ablack%3Btext-decoration%3Anone%7D%0A%20%20.navbar%20a.active%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D%0A%20%20body%7Bbackground%3A%23f8ebbe%7D.card-list%7Bdisplay%3Aflex%3Bgap%3A8px%7D.card%7Bborder%3A3px%20solid%3Bborder-radius%3A10px%3Bpadding%3A6px%7D%0A%20%20.card-name%7Bfont-weight%3Abold%3Bmargin%3A4px%200%7D.card-price%7Bfont-size%3A14px%3Bmargin%3A4px%200%7D%0A%20%20.seleccionada%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D&amp;js=const%20titulo%20%3D%20document.querySelector%28%22h1%22%29%3B%0Atitulo.textContent%20%3D%20%22Productos%22%3B%0Atitulo.style.color%20%3D%20%22%23924f1b%22%3B%0A%0Afor%20%28const%20precio%20of%20document.querySelectorAll%28%22.card-price%22%29%29%20%7B%0A%20%20precio.textContent%20%2B%3D%20%22%20USD%22%3B%0A%7D&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Clases y estilos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>card.classList.<span class="tok-fn">add</span>(<span class="tok-str">"seleccionada"</span>);
+card.classList.<span class="tok-fn">remove</span>(<span class="tok-str">"seleccionada"</span>);
+card.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"seleccionada"</span>);   <span class="tok-com">// pone o saca</span>
+card.classList.<span class="tok-fn">contains</span>(<span class="tok-str">"seleccionada"</span>); <span class="tok-com">// true / false</span>
+card.style.display = <span class="tok-str">"none"</span>;             <span class="tok-com">// estilo inline</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Prefieran <code>classList</code> y dejen el estilo en el CSS. <code>style</code> sirve para casos puntuales<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><a href="https://livecodes.io/?html=%3Cdiv%20class%3D%22navbar%22%3E%0A%20%20%3Ca%20href%3D%22%23%22%20class%3D%22active%22%3EHome%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3ENosotros%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3EProductos%3C%2Fa%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22container%22%3E%0A%20%20%3Ch1%3EListado%3C%2Fh1%3E%0A%20%20%3Cdiv%20class%3D%22card-list%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ECampera%20Animal%20Print%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2420%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ELentes%20de%20sol%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2415%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ERemera%20Bailando%202008%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2412%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E&amp;css=.navbar%7Bdisplay%3Aflex%3Bgap%3A4px%3Bborder-bottom%3A1px%20solid%7D.navbar%20a%7Bpadding%3A8px%3Bcolor%3Ablack%3Btext-decoration%3Anone%7D%0A%20%20.navbar%20a.active%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D%0A%20%20body%7Bbackground%3A%23f8ebbe%7D.card-list%7Bdisplay%3Aflex%3Bgap%3A8px%7D.card%7Bborder%3A3px%20solid%3Bborder-radius%3A10px%3Bpadding%3A6px%7D%0A%20%20.card-name%7Bfont-weight%3Abold%3Bmargin%3A4px%200%7D.card-price%7Bfont-size%3A14px%3Bmargin%3A4px%200%7D%0A%20%20.seleccionada%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D&amp;js=const%20card%20%3D%20document.querySelector%28%22.card%22%29%3B%0Acard.classList.add%28%22seleccionada%22%29%3B%0Aconsole.log%28card.classList.contains%28%22seleccionada%22%29%29%3B%0A%0A%2F%2F%20toggle%3A%20si%20la%20tiene%20la%20saca%2C%20si%20no%20la%20pone%0Adocument.querySelectorAll%28%22.card%22%29%5B2%5D.classList.toggle%28%22seleccionada%22%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Crear elementos</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> card = document.<span class="tok-fn">createElement</span>(<span class="tok-str">"div"</span>);
+card.className = <span class="tok-str">"card"</span>;
+card.innerHTML = <span class="tok-str">'&lt;p class="card-name"&gt;Lentes de sol&lt;/p&gt;'</span>;
+document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card-list"</span>).<span class="tok-fn">append</span>(card);</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>createElement</code> crea el nodo y <code>append</code> lo cuelga del árbol: <strong>recién ahí se ve</strong></span></li>
+        <li><span>También existen <code>prepend</code>, <code>before</code>, <code>after</code> y <code>remove</code></span></li>
+        <li><span><a href="https://livecodes.io/?html=%3Cdiv%20class%3D%22navbar%22%3E%0A%20%20%3Ca%20href%3D%22%23%22%20class%3D%22active%22%3EHome%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3ENosotros%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3EProductos%3C%2Fa%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22container%22%3E%0A%20%20%3Ch1%3EListado%3C%2Fh1%3E%0A%20%20%3Cdiv%20class%3D%22card-list%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ECampera%20Animal%20Print%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2420%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ELentes%20de%20sol%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2415%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ERemera%20Bailando%202008%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2412%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E&amp;css=.navbar%7Bdisplay%3Aflex%3Bgap%3A4px%3Bborder-bottom%3A1px%20solid%7D.navbar%20a%7Bpadding%3A8px%3Bcolor%3Ablack%3Btext-decoration%3Anone%7D%0A%20%20.navbar%20a.active%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D%0A%20%20body%7Bbackground%3A%23f8ebbe%7D.card-list%7Bdisplay%3Aflex%3Bgap%3A8px%7D.card%7Bborder%3A3px%20solid%3Bborder-radius%3A10px%3Bpadding%3A6px%7D%0A%20%20.card-name%7Bfont-weight%3Abold%3Bmargin%3A4px%200%7D.card-price%7Bfont-size%3A14px%3Bmargin%3A4px%200%7D%0A%20%20.seleccionada%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D&amp;js=const%20card%20%3D%20document.createElement%28%22div%22%29%3B%0Acard.className%20%3D%20%22card%22%3B%0A%0Aconst%20nombre%20%3D%20document.createElement%28%22p%22%29%3B%0Anombre.className%20%3D%20%22card-name%22%3B%0Anombre.textContent%20%3D%20%22Gorra%20Ricky%20Fort%22%3B%0A%0Acard.append%28nombre%29%3B%0Adocument.querySelector%28%22.card-list%22%29.append%28card%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Eventos: <code>addEventListener</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> card = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".card"</span>);
+card.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, () =&gt; {
+  card.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"seleccionada"</span>);
+});</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>"Cuando pase <strong>esto</strong>, ejecutá <strong>esta función</strong>"</span></li>
+        <li><span>La función se ejecuta <strong>cada vez</strong> que ocurre el evento, no cuando se escribe</span></li>
+        <li><span><a href="https://livecodes.io/?html=%3Cdiv%20class%3D%22navbar%22%3E%0A%20%20%3Ca%20href%3D%22%23%22%20class%3D%22active%22%3EHome%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3ENosotros%3C%2Fa%3E%0A%20%20%3Ca%20href%3D%22%23%22%3EProductos%3C%2Fa%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22container%22%3E%0A%20%20%3Ch1%3EListado%3C%2Fh1%3E%0A%20%20%3Cdiv%20class%3D%22card-list%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ECampera%20Animal%20Print%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2420%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ELentes%20de%20sol%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2415%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20class%3D%22card%22%3E%3Cp%20class%3D%22card-name%22%3ERemera%20Bailando%202008%3C%2Fp%3E%3Cp%20class%3D%22card-price%22%3EPrecio%3A%20%2412%3C%2Fp%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E&amp;css=.navbar%7Bdisplay%3Aflex%3Bgap%3A4px%3Bborder-bottom%3A1px%20solid%7D.navbar%20a%7Bpadding%3A8px%3Bcolor%3Ablack%3Btext-decoration%3Anone%7D%0A%20%20.navbar%20a.active%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D%0A%20%20body%7Bbackground%3A%23f8ebbe%7D.card-list%7Bdisplay%3Aflex%3Bgap%3A8px%7D.card%7Bborder%3A3px%20solid%3Bborder-radius%3A10px%3Bpadding%3A6px%7D%0A%20%20.card-name%7Bfont-weight%3Abold%3Bmargin%3A4px%200%7D.card-price%7Bfont-size%3A14px%3Bmargin%3A4px%200%7D%0A%20%20.seleccionada%7Bbackground%3A%232a0308%3Bcolor%3Awhite%7D&amp;js=const%20cards%20%3D%20document.querySelectorAll%28%22.card%22%29%3B%0A%0Afor%20%28const%20card%20of%20cards%29%20%7B%0A%20%20card.addEventListener%28%22click%22%2C%20%28%29%20%3D%3E%20%7B%0A%20%20%20%20card.classList.toggle%28%22seleccionada%22%29%3B%0A%20%20%20%20console.log%28%22Click%20en%22%2C%20card.querySelector%28%22.card-name%22%29.textContent%29%3B%0A%20%20%7D%29%3B%0A%7D%0Aconsole.log%28%22Hagan%20click%20en%20las%20cards%20%E2%86%92%22%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">Abrir en sandbox ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md"><code>input</code> y <code>submit</code></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>buscador.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"input"</span>, () =&gt; {
+  console.<span class="tok-fn">log</span>(buscador.value);       <span class="tok-com">// en cada tecla</span>
+});
+
+formulario.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"submit"</span>, (evento) =&gt; {
+  evento.<span class="tok-fn">preventDefault</span>();           <span class="tok-com">// que no recargue la página</span>
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"enviado"</span>);
+});</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>evento.preventDefault()</code> cancela lo que el navegador haría solo (recargar, seguir un link)<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Abrir en sandbox: <a href="https://livecodes.io/?html=%3Clabel%3EBuscar%3A%20%3Cinput%20id%3D%22buscador%22%20placeholder%3D%22escrib%C3%AD%20algo%22%3E%3C%2Flabel%3E%0A%3Cp%20id%3D%22eco%22%3E%3C%2Fp%3E&amp;js=const%20buscador%20%3D%20document.querySelector%28%22%23buscador%22%29%3B%0Aconst%20eco%20%3D%20document.querySelector%28%22%23eco%22%29%3B%0A%0Abuscador.addEventListener%28%22input%22%2C%20%28%29%20%3D%3E%20%7B%0A%20%20eco.textContent%20%3D%20%22Est%C3%A1s%20buscando%3A%20%22%20%2B%20buscador.value%3B%0A%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">input ↗</a> · <a href="https://livecodes.io/?html=%3Cform%20id%3D%22suscripcion%22%3E%0A%20%20%3Cinput%20name%3D%22email%22%20type%3D%22email%22%20placeholder%3D%22tu%40mail.com%22%20required%3E%0A%20%20%3Cbutton%3ESuscribirme%3C%2Fbutton%3E%0A%3C%2Fform%3E&amp;js=const%20form%20%3D%20document.querySelector%28%22%23suscripcion%22%29%3B%0A%0Aform.addEventListener%28%22submit%22%2C%20%28evento%29%20%3D%3E%20%7B%0A%20%20evento.preventDefault%28%29%3B%20%20%20%2F%2F%20sin%20esto%2C%20la%20p%C3%A1gina%20se%20recarga%0A%20%20const%20email%20%3D%20form.email.value%3B%0A%20%20console.log%28%22Suscripto%3A%22%2C%20email%29%3B%0A%20%20form.reset%28%29%3B%0A%7D%29%3B&amp;active=script&amp;console=open" target="_blank" rel="noopener">submit ↗</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — El DOM</div>
+      <div class="s-title s-title--md">Vamos a trabajar en la página de Manu</div>
+      <ul class="bullets">
+        <li><span><a href="https://github.com/intro-camejo/ricky-fort-merch" target="_blank" rel="noopener">https://github.com/intro-camejo/ricky-fort-merch</a></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">Cierre</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — Cierre</div>
+      <div class="s-title s-title--md">Resumen</div>
+      <ul class="bullets">
+        <li><span>JS se debugea en la <strong>consola</strong> (F12)</span></li>
+        <li><span><code>const</code>/<code>let</code>, <code>===</code>, funciones flecha, arrays de objetos, <code>map</code>/<code>filter</code></span></li>
+        <li><span>Asincronismo: como el <strong>lavarropas</strong>, <code>setTimeout</code> y <code>fetch</code> no frenan el resto; <code>.then</code>/<code>await</code> = el pitido</span></li>
+        <li><span>JS se carga con <code>&lt;script&gt;</code> al final del <code>&lt;body&gt;</code></span></li>
+        <li><span>DOM: <code>querySelector</code> → cambiar (<code>textContent</code>, <code>classList</code>) → crear (<code>createElement</code> + <code>append</code>)</span></li>
+        <li><span>Eventos: <code>addEventListener</code> con <code>click</code>, <code>input</code> y <code>submit</code></span></li>
+        <li><span><strong>Martes 27/10</strong>: JS en el navegador y consumo de una API pública<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>MDN — JavaScript first steps <span class="src">(<a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Learn/JavaScript/First_steps</a>)</span></li>
+        <li>MDN — Introducción al DOM <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction</a>)</span></li>
+        <li>MDN — Introducción a los eventos <span class="src">(<a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events</a>)</span></li>
+        <li>MDN — Array.prototype.map <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map</a>)</span></li>
+        <li>MDN — Usando Fetch <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch</a>)</span></li>
+        <li>javascript.info — The Modern JavaScript Tutorial <span class="src">(<a href="https://es.javascript.info/" target="_blank" rel="noopener">es.javascript.info</a>)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">¡Gracias!</div>
+        <div class="closing-links">Para practicar: <a href="https://livecodes.io/" target="_blank" rel="noopener">https://livecodes.io/</a></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>
