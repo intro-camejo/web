@@ -296,6 +296,17 @@ code{
 .biblio a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.15em;}
 .biblio a:hover{text-decoration-color:var(--accent);}
 
+/* Notas al pie de una slide: la llamada va como superíndice (en el título o en
+   un bullet) y el texto queda abajo de todo, pegado al footer. Para citar la
+   fuente de una slide puntual sin sumarle un bullet. */
+.fn-ref{font-family:var(--f-label);font-size:.45em;font-weight:600;color:var(--accent);vertical-align:super;line-height:0;margin-left:.15em;}
+.bullets .fn-ref{font-size:.6em;}
+.s-notes{margin-top:auto;padding-top:1em;border-top:1px solid var(--line);font-family:var(--f-label);font-size:clamp(.85rem,1.1vw,1rem);line-height:1.5;color:var(--muted);}
+.s-notes p{margin:0;}
+.s-notes sup{color:var(--accent);font-weight:600;margin-right:.35em;}
+.s-notes a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.15em;}
+.s-notes a:hover{text-decoration-color:var(--accent);}
+
 .cover-wordmark{font-family:var(--f-label);font-weight:600;font-size:1rem;letter-spacing:.02em;margin-bottom:auto;}
 .cover-title-block{margin-top:auto;}
 .cover-index{display:flex;align-items:center;gap:.7em;margin-top:1.6em;}

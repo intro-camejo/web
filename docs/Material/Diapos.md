@@ -44,6 +44,10 @@
 * [Flexbox, Grid, variables y funciones](pathname:///slides/css-layout/index.html)
 * [JavaScript y DOM](pathname:///slides/javascript/index.html)
 
+## Semana 11
+
+* [Backend](pathname:///slides/backend/index.html)
+
 ## Charla
 
 * [Incertidumbre en épocas de AI](pathname:///slides/incertidumbre/index.html)
