@@ -1,0 +1,1641 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backend — Intro Camejo</title>
+<link rel="stylesheet" href="../_template/design-tokens.css">
+</head>
+<body>
+<!-- Generado a partir de contenido.md siguiendo _template/formatos.md. -->
+<main class="deck">
+  <!-- portada -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="cover-wordmark">Intro Camejo — Introducción al Desarrollo de Software</div>
+      <div class="cover-title-block">
+        <div class="s-title">Backend</div>
+        <div class="s-sub">HTTP, cliente-servidor y nuestro primer servidor con Express</div>
+        <div class="cover-index"><span class="n">Clase Backend — 2C 2026</span><span class="dot"></span><span class="n"></span></div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">01</span>
+    </div>
+  </section>
+
+  <!-- agenda -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Agenda</div>
+      <ul class="agenda-list">
+        <li><span class="idx">.01</span><span class="lbl">¿Qué es el backend?</span></li>
+        <li><span class="idx">.02</span><span class="lbl">Cliente-servidor</span></li>
+        <li><span class="idx">.03</span><span class="lbl">HTTP</span></li>
+        <li><span class="idx">.04</span><span class="lbl">HTTP en vivo</span></li>
+        <li><span class="idx">.05</span><span class="lbl">APIs REST</span></li>
+        <li><span class="idx">.06</span><span class="lbl">Nuestro propio servidor</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">02</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .01</div>
+      <div class="s-title">¿Qué es el backend?</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">03</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es el backend?</div>
+      <div class="s-title s-title--md">Lo que el usuario no ve</div>
+      <ul class="bullets">
+        <li><span>El <strong>frontend</strong> es la parte del sistema con la que interactúa el usuario: la interfaz (UI, UX, interactividad)</span></li>
+        <li><span>Casi siempre es visual, pero no siempre: una herramienta de terminal también tiene su frontend</span></li>
+        <li><span>El <strong>backend</strong> procesa los datos, aplica la <strong>lógica de negocio</strong> y arma una respuesta</span></li>
+        <li><span>No solo responde pedidos: también hace tareas propias (ej. borrar archivos viejos una vez por día)<span class="tag tag-info">Info</span></span></li>
+        <li><span>Dato: se le dice <strong>full stack</strong> a quien programa las dos partes<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">04</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.01 — ¿Qué es el backend?</div>
+      <div class="s-title s-title--md">¿Dónde corre cada uno?</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>Frontend</h3>
+          <ul>
+            <li>En el dispositivo del usuario</li>
+            <li>Navegador, app de celular, programa de escritorio</li>
+            <li>Su código se descarga en el dispositivo: cualquiera puede verlo con F12 y alterarlo, así que no podemos confiar en lo que envíe</li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Backend</h3>
+          <ul>
+            <li>En un servidor de la organización (propio o en la nube)</li>
+            <li>Un programa que queda corriendo esperando pedidos</li>
+            <li>Ahí viven los datos y las reglas de negocio (precios, permisos, stock): el usuario no puede verlas ni saltearlas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">05</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .02</div>
+      <div class="s-title">Cliente-servidor</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">06</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Cliente-servidor</div>
+      <div class="s-title s-title--md">Dos actores</div>
+      <ul class="bullets">
+        <li><span>Un <strong>actor</strong> puede ser cualquier cosa: una persona, un programa, una computadora, una tele</span></li>
+        <li><span>El <strong>cliente</strong> quiere algo y se lo <strong>pide</strong> al servidor</span></li>
+        <li><span>El <strong>servidor</strong> recibe el pedido y le <strong>responde</strong> al cliente</span></li>
+        <li><span>Normalmente <strong>muchos clientes</strong> se conectan a <strong>un mismo servidor</strong><span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">07</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Cliente-servidor</div>
+      <div class="s-title s-title--md">El modelo</div>
+      <div class="mermaid-wrap"><svg id="mm1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 836.906px; background-color: transparent;" viewBox="4 4 836.90625 199" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mm1{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mm1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mm1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mm1 .error-icon{fill:#552222;}#mm1 .error-text{fill:#552222;stroke:#552222;}#mm1 .edge-thickness-normal{stroke-width:1px;}#mm1 .edge-thickness-thick{stroke-width:3.5px;}#mm1 .edge-pattern-solid{stroke-dasharray:0;}#mm1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mm1 .edge-pattern-dashed{stroke-dasharray:3;}#mm1 .edge-pattern-dotted{stroke-dasharray:2;}#mm1 .marker{fill:#333333;stroke:#333333;}#mm1 .marker.cross{stroke:#333333;}#mm1 svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;}#mm1 p{margin:0;}#mm1 .label{font-family:Open Sans,Segoe UI,sans-serif;color:#333;}#mm1 .cluster-label text{fill:#333;}#mm1 .cluster-label span{color:#333;}#mm1 .cluster-label span p{background-color:transparent;}#mm1 .label text,#mm1 span{fill:#333;color:#333;}#mm1 .node rect,#mm1 .node circle,#mm1 .node ellipse,#mm1 .node polygon,#mm1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mm1 .rough-node .label text,#mm1 .node .label text,#mm1 .image-shape .label,#mm1 .icon-shape .label{text-anchor:middle;}#mm1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mm1 .rough-node .label,#mm1 .node .label,#mm1 .image-shape .label,#mm1 .icon-shape .label{text-align:center;}#mm1 .node.clickable{cursor:pointer;}#mm1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mm1 .arrowheadPath{fill:#333333;}#mm1 .edgePaths .path{stroke:#333333;stroke-width:1px;}#mm1 .flowchart-link{stroke:#333333;fill:none;}#mm1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mm1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mm1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mm1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mm1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mm1 .cluster text{fill:#333;}#mm1 .cluster span{color:#333;}#mm1 .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#mm1 .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#mm1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Open Sans,Segoe UI,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mm1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mm1 rect.text{fill:none;stroke-width:0;}#mm1 .icon-shape,#mm1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mm1 .icon-shape p,#mm1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mm1 .icon-shape .label rect,#mm1 .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mm1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mm1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mm1 .node .neo-node{stroke:#9370DB;}#mm1 [data-look="neo"].node rect,#mm1 [data-look="neo"].cluster rect,#mm1 [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm1 [data-look="neo"].swimlane.cluster rect{filter:none;}#mm1 [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#mm1 [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm1 [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#mm1 [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm1 [data-look="neo"].node circle .state-start{fill:#000000;}#mm1 [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm1 [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><style>/* Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans) OpenSans-Italic[wdth,wght].ttf: Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+
+
+
+
+
+
+
+
+
+
+</style><style>/* Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans) OpenSans-Italic[wdth,wght].ttf: Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+
+
+
+
+
+
+
+
+
+
+</style><g><marker id="mm1_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="mm1_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="mm1_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edges edgePaths"><path d="M164,98.33333333333331L176.92893218813452,98.33333333333331Q184,98.33333333333331 184,91.26226552146784L184,85.57106781186545Q184,78.49999999999997 191.07106781186548,78.49999999999997L309.3820571881345,78.49999999999997Q316.453125,78.49999999999997 316.453125,85.57106781186545L316.453125,91.26226552146784Q316.453125,98.33333333333331 323.5241928118655,98.33333333333331L332.453125,98.33333333333331" id="mm1-L_C1_S_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 193.46316528320312 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_C1_S_0" data-points="W3sieCI6MTY0LCJ5Ijo5OC4zMzMzMzMzMzMzMzMzMX0seyJ4IjoxODQsInkiOjk4LjMzMzMzMzMzMzMzMzMxfSx7IngiOjE4NCwieSI6NzguNDk5OTk5OTk5OTk5OTd9LHsieCI6MzE2LjQ1MzEyNSwieSI6NzguNDk5OTk5OTk5OTk5OTd9LHsieCI6MzE2LjQ1MzEyNSwieSI6OTguMzMzMzMzMzMzMzMzMzF9LHsieCI6MzM2LjQ1MzEyNSwieSI6OTguMzMzMzMzMzMzMzMzMzF9XQ==" data-look="neo" marker-end="url(#mm1_flowchart-v2-pointEnd-margin)"/><path d="M680.90625,58.66666666666664L667.9773178118655,58.66666666666664Q660.90625,58.66666666666664 660.90625,65.73773447853212L660.90625,71.4289321881345Q660.90625,78.49999999999997 653.8351821881345,78.49999999999997L535.5241928118655,78.49999999999997Q528.453125,78.49999999999997 528.453125,85.57106781186545L528.453125,93.52893218813449Q528.453125,100.59999999999997 521.3820571881345,100.59999999999997L492.453125,100.59999999999997" id="mm1-L_C2_S_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 215.72991943359375 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_C2_S_0" data-points="W3sieCI6NjgwLjkwNjI1LCJ5Ijo1OC42NjY2NjY2NjY2NjY2NH0seyJ4Ijo2NjAuOTA2MjUsInkiOjU4LjY2NjY2NjY2NjY2NjY0fSx7IngiOjY2MC45MDYyNSwieSI6NzguNDk5OTk5OTk5OTk5OTd9LHsieCI6NTI4LjQ1MzEyNSwieSI6NzguNDk5OTk5OTk5OTk5OTd9LHsieCI6NTI4LjQ1MzEyNSwieSI6MTAwLjU5OTk5OTk5OTk5OTk3fSx7IngiOjQ4OC40NTMxMjUsInkiOjEwMC41OTk5OTk5OTk5OTk5N31d" data-look="neo" marker-end="url(#mm1_flowchart-v2-pointEnd-margin)"/><path d="M680.90625,160.66666666666663L667.9773178118655,160.66666666666663Q660.90625,160.66666666666663 660.90625,167.7377344785321L660.90625,173.4289321881345Q660.90625,180.49999999999997 653.8351821881345,180.49999999999997L515.5241928118655,180.49999999999997Q508.453125,180.49999999999997 508.453125,173.4289321881345L508.453125,121.27106781186545Q508.453125,114.19999999999997 501.3820571881345,114.19999999999997L492.453125,114.19999999999997" id="mm1-L_C3_S_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 259.9299011230469 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_C3_S_0" data-points="W3sieCI6NjgwLjkwNjI1LCJ5IjoxNjAuNjY2NjY2NjY2NjY2NjN9LHsieCI6NjYwLjkwNjI1LCJ5IjoxNjAuNjY2NjY2NjY2NjY2NjN9LHsieCI6NjYwLjkwNjI1LCJ5IjoxODAuNDk5OTk5OTk5OTk5OTd9LHsieCI6NTA4LjQ1MzEyNSwieSI6MTgwLjQ5OTk5OTk5OTk5OTk3fSx7IngiOjUwOC40NTMxMjUsInkiOjExNC4xOTk5OTk5OTk5OTk5N30seyJ4Ijo0ODguNDUzMTI1LCJ5IjoxMTQuMTk5OTk5OTk5OTk5OTd9XQ==" data-look="neo" marker-end="url(#mm1_flowchart-v2-pointEnd-margin)"/><path d="M336.453125,109.66666666666664L323.5241928118655,109.66666666666664Q316.453125,109.66666666666664 316.453125,116.73773447853212L316.453125,122.4289321881345Q316.453125,129.49999999999997 309.3820571881345,129.49999999999997L191.07106781186548,129.49999999999997Q184,129.49999999999997 184,122.4289321881345L184,116.73773447853212Q184,109.66666666666664 176.92893218813452,109.66666666666664L168,109.66666666666664" id="mm1-L_S_C1_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 193.4631805419922 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_S_C1_0" data-points="W3sieCI6MzM2LjQ1MzEyNSwieSI6MTA5LjY2NjY2NjY2NjY2NjY0fSx7IngiOjMxNi40NTMxMjUsInkiOjEwOS42NjY2NjY2NjY2NjY2NH0seyJ4IjozMTYuNDUzMTI1LCJ5IjoxMjkuNDk5OTk5OTk5OTk5OTd9LHsieCI6MTg0LCJ5IjoxMjkuNDk5OTk5OTk5OTk5OTd9LHsieCI6MTg0LCJ5IjoxMDkuNjY2NjY2NjY2NjY2NjR9LHsieCI6MTY0LCJ5IjoxMDkuNjY2NjY2NjY2NjY2NjR9XQ==" data-look="neo" marker-end="url(#mm1_flowchart-v2-pointEnd-margin)"/><path d="M488.453125,93.79999999999997L501.3820571881345,93.79999999999997Q508.453125,93.79999999999997 508.453125,86.7289321881345L508.453125,34.571067811865476Q508.453125,27.5 515.5241928118655,27.5L653.8351821881345,27.5Q660.90625,27.5 660.90625,34.571067811865476L660.90625,40.26226552146784Q660.90625,47.333333333333314 667.9773178118655,47.333333333333314L676.90625,47.333333333333314" id="mm1-L_S_C2_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 259.929931640625 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_S_C2_0" data-points="W3sieCI6NDg4LjQ1MzEyNSwieSI6OTMuNzk5OTk5OTk5OTk5OTd9LHsieCI6NTA4LjQ1MzEyNSwieSI6OTMuNzk5OTk5OTk5OTk5OTd9LHsieCI6NTA4LjQ1MzEyNSwieSI6MjcuNX0seyJ4Ijo2NjAuOTA2MjUsInkiOjI3LjV9LHsieCI6NjYwLjkwNjI1LCJ5Ijo0Ny4zMzMzMzMzMzMzMzMzMTR9LHsieCI6NjgwLjkwNjI1LCJ5Ijo0Ny4zMzMzMzMzMzMzMzMzMTR9XQ==" data-look="neo" marker-end="url(#mm1_flowchart-v2-pointEnd-margin)"/><path d="M488.453125,107.39999999999998L521.3820571881345,107.39999999999998Q528.453125,107.39999999999998 528.453125,114.47106781186545L528.453125,122.4289321881345Q528.453125,129.49999999999997 535.5241928118655,129.49999999999997L653.8351821881345,129.49999999999997Q660.90625,129.49999999999997 660.90625,136.57106781186545L660.90625,142.26226552146784Q660.90625,149.33333333333331 667.9773178118655,149.33333333333331L676.90625,149.33333333333331" id="mm1-L_S_C3_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 215.7299041748047 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_S_C3_0" data-points="W3sieCI6NDg4LjQ1MzEyNSwieSI6MTA3LjM5OTk5OTk5OTk5OTk4fSx7IngiOjUyOC40NTMxMjUsInkiOjEwNy4zOTk5OTk5OTk5OTk5OH0seyJ4Ijo1MjguNDUzMTI1LCJ5IjoxMjkuNDk5OTk5OTk5OTk5OTd9LHsieCI6NjYwLjkwNjI1LCJ5IjoxMjkuNDk5OTk5OTk5OTk5OTd9LHsieCI6NjYwLjkwNjI1LCJ5IjoxNDkuMzMzMzMzMzMzMzMzMzF9LHsieCI6NjgwLjkwNjI1LCJ5IjoxNDkuMzMzMzMzMzMzMzMzMzF9XQ==" data-look="neo" marker-end="url(#mm1_flowchart-v2-pointEnd-margin)"/></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(250.2265625, 77.99999999999997)"><g class="label" data-id="L_C1_S_0" transform="translate(-32.515625, -15)"><foreignObject width="65.03125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>pedido</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(594.6796875, 77.99999999999997)"><g class="label" data-id="L_C2_S_0" transform="translate(-32.515625, -15)"><foreignObject width="65.03125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>pedido</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(594.6796875, 179.99999999999997)"><g class="label" data-id="L_C3_S_0" transform="translate(-32.515625, -15)"><foreignObject width="65.03125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>pedido</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(250.2265625, 128.99999999999997)"><g class="label" data-id="L_S_C1_0" transform="translate(-46.2265625, -15)"><foreignObject width="92.453125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>respuesta</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(594.6796875, 27)"><g class="label" data-id="L_S_C2_0" transform="translate(-46.2265625, -15)"><foreignObject width="92.453125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>respuesta</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(594.6796875, 128.99999999999997)"><g class="label" data-id="L_S_C3_0" transform="translate(-46.2265625, -15)"><foreignObject width="92.453125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>respuesta</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="mm1-flowchart-C1-0" data-look="neo" transform="translate(88, 103.99999999999997)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-27" width="152" height="54"/><g class="label" style="" transform="translate(-60, -15)"><rect/><foreignObject width="120" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Cliente 1</p></span></div></foreignObject></g></g><g class="node default" id="mm1-flowchart-S-1" data-look="neo" transform="translate(412.453125, 103.99999999999997)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-27" width="152" height="54"/><g class="label" style="" transform="translate(-60, -15)"><rect/><foreignObject width="120" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Servidor</p></span></div></foreignObject></g></g><g class="node default" id="mm1-flowchart-C2-2" data-look="neo" transform="translate(756.90625, 52.99999999999997)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-27" width="152" height="54"/><g class="label" style="" transform="translate(-60, -15)"><rect/><foreignObject width="120" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Cliente 2</p></span></div></foreignObject></g></g><g class="node default" id="mm1-flowchart-C3-4" data-look="neo" transform="translate(756.90625, 154.99999999999997)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-27" width="152" height="54"/><g class="label" style="" transform="translate(-60, -15)"><rect/><foreignObject width="120" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: nowrap; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Cliente 3</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mm1-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="mm1-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">08</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Cliente-servidor</div>
+      <div class="s-title s-title--md">Ya lo usamos</div>
+      <ul class="bullets">
+        <li><span><strong>Docker</strong>: levantamos un servidor de Minecraft y los amigos se conectaban con el juego (el cliente)</span></li>
+        <li><span><strong>PokeAPI</strong>: un servidor en algún lugar del mundo; el cliente era nuestro JS con <code>fetch</code> o el navegador</span></li>
+        <li><span>De ahora en más, cuando digamos "cliente" hablamos de <strong>este</strong> cliente, no del de un negocio<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">09</span>
+    </div>
+  </section>
+
+  <!-- diagrama -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.02 — Cliente-servidor</div>
+      <div class="s-title s-title--md">Ser cliente o servidor depende del punto de vista</div>
+      <div class="mermaid-wrap"><svg id="mm2" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="flowchart" style="max-width: 956.281px; background-color: transparent;" viewBox="4 4 956.28125 130" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mm2{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mm2 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mm2 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mm2 .error-icon{fill:#552222;}#mm2 .error-text{fill:#552222;stroke:#552222;}#mm2 .edge-thickness-normal{stroke-width:1px;}#mm2 .edge-thickness-thick{stroke-width:3.5px;}#mm2 .edge-pattern-solid{stroke-dasharray:0;}#mm2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mm2 .edge-pattern-dashed{stroke-dasharray:3;}#mm2 .edge-pattern-dotted{stroke-dasharray:2;}#mm2 .marker{fill:#333333;stroke:#333333;}#mm2 .marker.cross{stroke:#333333;}#mm2 svg{font-family:Open Sans,Segoe UI,sans-serif;font-size:20px;}#mm2 p{margin:0;}#mm2 .label{font-family:Open Sans,Segoe UI,sans-serif;color:#333;}#mm2 .cluster-label text{fill:#333;}#mm2 .cluster-label span{color:#333;}#mm2 .cluster-label span p{background-color:transparent;}#mm2 .label text,#mm2 span{fill:#333;color:#333;}#mm2 .node rect,#mm2 .node circle,#mm2 .node ellipse,#mm2 .node polygon,#mm2 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mm2 .rough-node .label text,#mm2 .node .label text,#mm2 .image-shape .label,#mm2 .icon-shape .label{text-anchor:middle;}#mm2 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mm2 .rough-node .label,#mm2 .node .label,#mm2 .image-shape .label,#mm2 .icon-shape .label{text-align:center;}#mm2 .node.clickable{cursor:pointer;}#mm2 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mm2 .arrowheadPath{fill:#333333;}#mm2 .edgePaths .path{stroke:#333333;stroke-width:1px;}#mm2 .flowchart-link{stroke:#333333;fill:none;}#mm2 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mm2 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mm2 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mm2 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mm2 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mm2 .cluster text{fill:#333;}#mm2 .cluster span{color:#333;}#mm2 .node .collapsed-indicator{fill:#aaaa33;stroke:none;opacity:0.6;}#mm2 .node .collapsed-separator{stroke:#aaaa33;stroke-width:0.75px;}#mm2 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Open Sans,Segoe UI,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mm2 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mm2 rect.text{fill:none;stroke-width:0;}#mm2 .icon-shape,#mm2 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mm2 .icon-shape p,#mm2 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mm2 .icon-shape .label rect,#mm2 .image-shape .label rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mm2 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mm2 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mm2 .node .neo-node{stroke:#9370DB;}#mm2 [data-look="neo"].node rect,#mm2 [data-look="neo"].cluster rect,#mm2 [data-look="neo"].node polygon{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm2 [data-look="neo"].swimlane.cluster rect{filter:none;}#mm2 [data-look="neo"].node path{stroke:#9370DB;stroke-width:1px;}#mm2 [data-look="neo"].node .outer-path{filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm2 [data-look="neo"].node .neo-line path{stroke:#9370DB;filter:none;}#mm2 [data-look="neo"].node circle{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm2 [data-look="neo"].node circle .state-start{fill:#000000;}#mm2 [data-look="neo"].icon-shape .icon{fill:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm2 [data-look="neo"].icon-shape .icon-neo path{stroke:#9370DB;filter:drop-shadow(1px 2px 2px rgba(185, 185, 185, 1));}#mm2 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><style>/* Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans) OpenSans-Italic[wdth,wght].ttf: Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+
+
+
+
+
+
+
+
+
+
+</style><style>/* Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans) OpenSans-Italic[wdth,wght].ttf: Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+
+
+
+
+
+
+
+
+
+
+</style><g><marker id="mm2_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"/></marker><marker id="mm2_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="mm2_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><g class="root"><g class="clusters"/><g class="edges edgePaths"><path d="M164,69L364.28125,69" id="mm2-L_J_M_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 196.28125 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_J_M_0" data-points="W3sieCI6MTY0LCJ5Ijo2OX0seyJ4IjozNjguMjgxMjUsInkiOjY5fV0=" data-look="neo" marker-end="url(#mm2_flowchart-v2-pointEnd-margin)"/><path d="M520.28125,69L796.28125,69" id="mm2-L_M_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 272 4; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_M_A_0" data-points="W3sieCI6NTIwLjI4MTI1LCJ5Ijo2OX0seyJ4Ijo4MDAuMjgxMjUsInkiOjY5fV0=" data-look="neo" marker-end="url(#mm2_flowchart-v2-pointEnd-margin)"/></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(266.140625, 68.5)"><g class="label" data-id="L_J_M_0" transform="translate(-62.140625, -15)"><foreignObject width="124.28125" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;"><span class="edgeLabel"><p>quiero entrar</p></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(660.28125, 68.5)"><g class="label" data-id="L_M_A_0" transform="translate(-100, -30)"><foreignObject width="200" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="labelBkg" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;"><span class="edgeLabel"><p>¿esta cuenta es válida?</p></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="mm2-flowchart-J-0" data-look="neo" transform="translate(88, 69)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-57" width="152" height="114"/><g class="label" style="" transform="translate(-60, -45)"><rect/><foreignObject width="120" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Compus con Minecraft</p></span></div></foreignObject></g></g><g class="node default" id="mm2-flowchart-M-1" data-look="neo" transform="translate(444.28125, 69)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-42" width="152" height="84"/><g class="label" style="" transform="translate(-60, -30)"><rect/><foreignObject width="120" height="60"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Servidor Minecraft</p></span></div></foreignObject></g></g><g class="node default" id="mm2-flowchart-A-3" data-look="neo" transform="translate(876.28125, 69)"><rect class="basic label-container" style="rx:10 !important;ry:10 !important" x="-76" y="-57" width="152" height="114"/><g class="label" style="" transform="translate(-60, -45)"><rect/><foreignObject width="120" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 120px; text-align: center; width: 120px;"><span class="nodeLabel"><p>Servidor de cuentas de Microsoft</p></span></div></foreignObject></g></g></g></g></g><defs><filter id="mm2-drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="mm2-drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs></svg></div>
+      <ul class="bullets">
+        <li><span>Cuando un jugador se conecta, el servidor de Minecraft le pregunta a Microsoft si la cuenta es legítima</span></li>
+        <li><span>Para los jugadores, el servidor de Minecraft es <strong>servidor</strong></span></li>
+        <li><span>Para el servidor de cuentas, el mismo programa es <strong>cliente</strong><span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">10</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .03</div>
+      <div class="s-title">HTTP</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">11</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Un protocolo<sup class="fn-ref">1</sup></div>
+      <ul class="bullets">
+        <li><span><strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol: el mismo "hipertexto" de HTML</span></li>
+        <li><span>Un <strong>protocolo</strong> es un conjunto de reglas para que dos actores se entiendan</span></li>
+        <li><span>Esta clase tiene uno implícito: hablamos en <strong>castellano</strong>, en voz alta, de a uno por vez. Si empiezo a hablar en japonés, nadie me entiende<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>HTTP define cómo son los mensajes que viajan en las flechas del diagrama: de ida y de vuelta</span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Overview" target="_blank" rel="noopener">Generalidades del protocolo HTTP</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">12</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Un poco de historia<sup class="fn-ref">1</sup></div>
+      <ul class="bullets">
+        <li><span>Nace junto con HTML en el <strong>CERN</strong> (1989–1991), de la mano de <strong>Tim Berners-Lee</strong></span></li>
+        <li><span>La idea: compartir documentos científicos por la red. Las primeras versiones eran <strong>muy</strong> simples</span></li>
+        <li><span><strong>HTTP/1.1</strong> (1997): texto plano, legible por humanos. Es el que vamos a mirar</span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Evolution_of_HTTP" target="_blank" rel="noopener">Evolución del protocolo HTTP</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">13</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Request y response</div>
+      <ul class="bullets">
+        <li><span>Hay dos tipos de mensaje: el pedido (<strong>request</strong>) y la respuesta (<strong>response</strong>)</span></li>
+        <li><span>Relación <strong>uno a uno</strong>: toda request tiene su response, aunque sea un error</span></li>
+        <li><span>Sin request <strong>no hay</strong> response: el servidor no le habla al cliente por iniciativa propia<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">14</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Anatomía de una request<sup class="fn-ref">1</sup></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">GET</span> / <span class="tok-kw">HTTP/1.1</span>
+<span class="tok-fn">Host</span>: developer.mozilla.org
+<span class="tok-fn">Accept-Language</span>: fr</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Primera línea</strong>: método, path y versión del protocolo</span></li>
+        <li><span><strong>Headers</strong>: metadata, uno por línea (<code>Nombre: valor</code>)</span></li>
+        <li><span>Una línea vacía y después, opcionalmente, el <strong>body</strong> (el contenido)<span class="tag tag-info">Info</span></span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Messages" target="_blank" rel="noopener">Mensajes HTTP</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">15</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Los métodos: qué queremos hacer<sup class="fn-ref">1</sup></div>
+      <ul class="bullets">
+        <li><span><strong>GET</strong> → obtener un recurso. Es el más común: el navegador lo usa cada vez que entramos a una página</span></li>
+        <li><span><strong>POST</strong> → crear un recurso nuevo, con los datos en el body</span></li>
+        <li><span><strong>PUT</strong> → reemplazar un recurso <strong>completo</strong> por el que mandamos</span></li>
+        <li><span><strong>PATCH</strong> → modificar <strong>solo algunos campos</strong> de un recurso</span></li>
+        <li><span><strong>DELETE</strong> → eliminar un recurso</span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods" target="_blank" rel="noopener">Métodos de petición HTTP</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">16</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">El path<sup class="fn-ref">1</sup></div>
+      <ul class="bullets">
+        <li><span>Qué <strong>recurso</strong> queremos: una página, un archivo, un producto</span></li>
+        <li><span>Jerárquico, como el filesystem de Linux: <code>/</code> es la raíz</span></li>
+        <li><span><code>/productos</code> → <code>/productos/ropa</code> → <code>/productos/ropa/campera-animal-print</code></span></li>
+        <li><span>La estructura la diseña quien arma el servidor; hay convenciones que vamos a ver con REST<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL" target="_blank" rel="noopener">¿Qué es una URL?</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">17</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Los headers<sup class="fn-ref">1</sup></div>
+      <ul class="bullets">
+        <li><span>Como la metadata de un archivo (autor, fecha, dueño): información <strong>sobre</strong> el mensaje, no el contenido</span></li>
+        <li><span><code>Accept-Language: fr</code> → "si tenés la página en francés, prefiero esa"</span></li>
+        <li><span>El servidor puede <strong>usarlos o ignorarlos</strong>: depende 100% de él</span></li>
+        <li><span>Hay headers estándar, pero también podemos inventar los nuestros<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers" target="_blank" rel="noopener">Cabeceras HTTP</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">18</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Ejemplo: la tienda de Ricky Fort</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">GET</span> /productos/campera-animal-print <span class="tok-kw">HTTP/1.1</span>
+<span class="tok-fn">Host</span>: rickyfortmerch.com.ar</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">POST</span> /productos/campera-animal-print/resenas <span class="tok-kw">HTTP/1.1</span>
+<span class="tok-fn">Host</span>: rickyfortmerch.com.ar
+<span class="tok-fn">Content-Type</span>: application/json
+
+{ <span class="tok-str">"estrellas"</span>: <span class="tok-num">5</span>, <span class="tok-str">"texto"</span>: <span class="tok-str">"Me queda pintada"</span> }</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>El GET trae la campera con sus reseñas; el POST agrega una reseña nueva, que viaja en el <strong>body</strong><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">19</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Anatomía de una response<sup class="fn-ref">1</sup></div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">HTTP/1.1</span> <span class="tok-num">200</span> OK
+<span class="tok-fn">Content-Type</span>: text/html; charset=utf-8
+<span class="tok-fn">Date</span>: Thu, 29 Oct 2026 19:00:00 GMT
+
+&lt;!doctype html&gt;
+&lt;html&gt;...</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Primera línea</strong>: versión, <strong>status code</strong> y <strong>status message</strong></span></li>
+        <li><span>Después, igual que la request: headers, línea vacía y body</span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Messages" target="_blank" rel="noopener">Mensajes HTTP</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">20</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Status codes por familia<sup class="fn-ref">1</sup></div>
+      <ul class="bullets">
+        <li><span><strong>1xx</strong> informativos: respuestas provisionales</span></li>
+        <li><span><strong>2xx</strong> éxito: la request se procesó correctamente</span></li>
+        <li><span><strong>3xx</strong> redirección: el recurso está en otra ubicación</span></li>
+        <li><span><strong>4xx</strong> error del <strong>cliente</strong>: la request es inválida o no puede atenderse</span></li>
+        <li><span><strong>5xx</strong> error del <strong>servidor</strong>: la request era válida, pero el servidor falló al procesarla<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+
+      <div class="s-notes">
+        <p><sup>1</sup>MDN — <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status" target="_blank" rel="noopener">Códigos de estado</a></p>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">21</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.03 — HTTP</div>
+      <div class="s-title s-title--md">Los más frecuentes</div>
+      <ul class="bullets">
+        <li><span><strong>200 OK</strong>: la request se completó con éxito. Es el código más común</span></li>
+        <li><span><strong>201 Created</strong>: se creó un recurso nuevo (la reseña de la campera)<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><strong>301 / 302</strong>: el recurso se movió; el header <code>Location</code> indica la nueva ubicación</span></li>
+        <li><span><strong>404 Not Found</strong>: el recurso solicitado no existe</span></li>
+        <li><span><strong>500 Internal Server Error</strong>: error genérico del servidor (ej. no pudo acceder a la base de datos)</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">22</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .04</div>
+      <div class="s-title">HTTP en vivo</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">23</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">¿Quién arma estos mensajes?</div>
+      <ul class="bullets">
+        <li><span>Depende de qué tan abstraídos estemos, como alto y bajo nivel en programación</span></li>
+        <li><span>En el <strong>navegador</strong>, los arma el navegador</span></li>
+        <li><span>En nuestro código, una <strong>biblioteca</strong> (<code>fetch</code>)</span></li>
+        <li><span>En la terminal, <strong>curl</strong></span></li>
+        <li><span>O <strong>nosotros, a mano</strong><span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">24</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">DevTools: pestaña Network</div>
+      <ul class="bullets">
+        <li><span><strong>F12</strong> → <strong>Network</strong> → recargar la página: cada fila es una request</span></li>
+        <li><span>Columnas clave: <strong>Status</strong>, <strong>Method</strong>, <strong>Type</strong>, <strong>Size</strong> y <strong>Time</strong></span></li>
+        <li><span>Filtros: <strong>Doc</strong> para el HTML y <strong>Fetch/XHR</strong> para las llamadas a APIs</span></li>
+        <li><span>Click en una fila: <strong>Headers</strong> (request y response), <strong>Preview/Response</strong> (el body) y <strong>Timing</strong></span></li>
+        <li><span><strong>Preserve log</strong> conserva el historial al cambiar de página; <strong>Disable cache</strong> obliga a pedir todo de nuevo</span></li>
+        <li><span>Click derecho → <strong>Copy as cURL</strong>: la misma request, lista para pegar en la terminal<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">25</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">Una página son muchas requests</div>
+      <ul class="bullets">
+        <li><span>El navegador pide el HTML con un <strong>GET</strong></span></li>
+        <li><span>A medida que lo lee, encuentra <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code> e <code>&lt;img&gt;</code></span></li>
+        <li><span>Por cada uno arma <strong>otra request</strong></span></li>
+        <li><span>Si ya lo tenía guardado, usa la <strong>caché</strong> y no lo vuelve a pedir<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">26</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">curl: un cliente HTTP en la terminal</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>curl google.com           <span class="c1"># solo el body</span>
+curl <span class="c2">-v</span> google.com        <span class="c1"># verbose: request (&gt;) y response (&lt;)</span>
+curl <span class="c2">-L</span> <span class="c2">-v</span> google.com     <span class="c1"># sigue el Location (L de Location)</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Con <code>-v</code>, las líneas <code>&gt;</code> son lo que mandamos y las <code>&lt;</code> lo que nos responden. Las <code>*</code> las ignoramos<span class="tag tag-info">Info</span></span></li>
+        <li><span><code>google.com</code> responde <strong>301</strong> hacia <code>www.google.com</code>: curl no lo sigue salvo que le pidamos <code>-L</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">27</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">curl: método y headers</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>curl <span class="c2">-X</span> POST localhost:3000/test           <span class="c1"># otro método</span>
+curl <span class="c2">-H</span> <span class="c2">"User-Agent: Google Chrome"</span> google.com   <span class="c1"># header propio</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>-X</code> cambia el método (por defecto usa <strong>GET</strong>)</span></li>
+        <li><span><code>-H</code> agrega o pisa un header</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">28</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">HTTP a mano</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>nc google.com 80</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">GET</span> / <span class="tok-kw">HTTP/1.1</span>
+<span class="tok-fn">Host</span>: www.google.com
+<span class="tok-fn">Accept</span>: text/plain</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Abrimos una conexión con Google en el puerto <strong>80</strong> (el de HTTP) y escribimos el mensaje nosotros. Dos enters y responde</span></li>
+        <li><span>Si nos salimos del protocolo: <strong>400 Bad Request</strong></span></li>
+        <li><span>Pedimos <code>text/plain</code> y nos mandó HTML igual: el header se puede ignorar<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">29</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.04 — HTTP en vivo</div>
+      <div class="s-title s-title--md">¿Para qué nos sirve todo esto?</div>
+      <ul class="bullets">
+        <li><span>Para <strong>debuggear</strong>: ¿llegó la request? ¿con qué headers? ¿qué status volvió?</span></li>
+        <li><span>Va a ser clave cuando armen una API o un front que hable con un servidor</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">30</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .05</div>
+      <div class="s-title">APIs REST</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">31</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">¿Qué es una API?</div>
+      <ul class="bullets">
+        <li><span><strong>API</strong> (<em>Application Programming Interface</em>): el contrato que define cómo un programa le pide cosas a otro</span></li>
+        <li><span>En una <strong>API web</strong>, ese contrato son requests HTTP: qué paths existen, con qué métodos y qué devuelven</span></li>
+        <li><span>El cliente suele ser otro programa (nuestro JS con <code>fetch</code>, una app de celular) y la respuesta son <strong>datos</strong>, generalmente en <strong>JSON</strong>, no una página</span></li>
+        <li><span>Ejemplo: la web de la tienda de Ricky Fort pide <code>GET /productos</code> y con el JSON que recibe arma el catálogo<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">32</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">¿Qué es REST?</div>
+      <ul class="bullets">
+        <li><span><strong>REST</strong> (<em>Representational State Transfer</em>) es un <strong>estilo de arquitectura</strong> para diseñar APIs web</span></li>
+        <li><span>No es un protocolo ni una biblioteca: es un conjunto de <strong>convenciones</strong> sobre cómo usar HTTP</span></li>
+        <li><span>Lo propuso Roy Fielding en el año 2000, uno de los autores de la especificación de HTTP</span></li>
+        <li><span>Una API que respeta estas convenciones se llama <strong>RESTful</strong><span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">33</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Qué propone REST: recursos y métodos</div>
+      <ul class="bullets">
+        <li><span><strong>Recursos</strong>: la API se organiza en torno a <em>cosas</em> (productos, usuarios, reseñas), nombradas con <strong>sustantivos</strong></span></li>
+        <li><span><strong>Cada recurso tiene su URL</strong>: <code>/productos</code> es la colección y <code>/productos/campera-animal-print</code> es un elemento</span></li>
+        <li><span><strong>La acción la indica el método</strong>, no el path: GET obtiene, POST crea, PUT y PATCH modifican, DELETE elimina</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">34</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Qué propone REST: respuestas y estado</div>
+      <ul class="bullets">
+        <li><span><strong>El status code dice qué pasó</strong>: 201 si se creó, 404 si no existe, 400 si los datos son inválidos</span></li>
+        <li><span><strong>Sin estado</strong> (<em>stateless</em>): cada request trae todo lo necesario; el servidor no recuerda las anteriores</span></li>
+        <li><span>El recurso viaja en una <strong>representación</strong>, casi siempre JSON (lo indica el header <code>Content-Type</code>)<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">35</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Colección y elemento</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">GET</span>    /productos                        <span class="tok-com">→ lista todos los productos</span>
+<span class="tok-kw">POST</span>   /productos                        <span class="tok-com">→ crea un producto nuevo</span>
+<span class="tok-kw">GET</span>    /productos/campera-animal-print   <span class="tok-com">→ obtiene ese producto</span>
+<span class="tok-kw">PUT</span>    /productos/campera-animal-print   <span class="tok-com">→ lo reemplaza completo</span>
+<span class="tok-kw">PATCH</span>  /productos/campera-animal-print   <span class="tok-com">→ modifica algunos campos</span>
+<span class="tok-kw">DELETE</span> /productos/campera-animal-print   <span class="tok-com">→ lo elimina</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Con solo <strong>dos paths</strong> y los métodos cubrimos todo el <strong>CRUD</strong>: <em>Create</em>, <em>Read</em>, <em>Update</em>, <em>Delete</em><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">36</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Recursos relacionados y filtros</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">GET</span>  /productos/campera-animal-print/resenas  <span class="tok-com">→ sus reseñas</span>
+<span class="tok-kw">POST</span> /productos/campera-animal-print/resenas  <span class="tok-com">→ publica una reseña</span>
+<span class="tok-kw">GET</span>  /productos?categoria=ropa&amp;orden=precio   <span class="tok-com">→ filtra y ordena</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Un recurso que pertenece a otro se <strong>anida</strong> en el path: la reseña es <em>de</em> un producto</span></li>
+        <li><span>Los filtros, el orden y la paginación van en la <strong>query string</strong> (después del <code>?</code>), no en el path</span></li>
+        <li><span>El POST de la reseña es el mismo que vimos en el ejemplo de la tienda<span class="tag tag-note">Nota</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">37</span>
+    </div>
+  </section>
+
+  <!-- comparacion -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Verbos en el path vs. métodos</div>
+      <div class="compare">
+        <div class="side a">
+          <h3>No es REST</h3>
+          <ul>
+            <li><code>GET /obtenerProductos</code></li>
+            <li><code>POST /crearProducto</code></li>
+            <li><code>POST /actualizarProducto?id=campera-animal-print</code></li>
+            <li><code>GET /borrarProducto?id=campera-animal-print</code></li>
+          </ul>
+        </div>
+        <div class="side b">
+          <h3>Es REST</h3>
+          <ul>
+            <li><code>GET /productos</code></li>
+            <li><code>POST /productos</code></li>
+            <li><code>PATCH /productos/campera-animal-print</code></li>
+            <li><code>DELETE /productos/campera-animal-print</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">38</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Un GET no debe modificar nada</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">GET</span> /borrarProducto?id=campera-animal-print <span class="tok-kw">HTTP/1.1</span>
+<span class="tok-fn">Host</span>: rickyfortmerch.com.ar</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>GET es un método <strong>seguro</strong>: por definición solo lee</span></li>
+        <li><span>Navegadores, buscadores y previsualizaciones de links hacen GET <strong>sin que nadie lo pida</strong>: si un GET borra, cualquiera de ellos puede borrar el catálogo<span class="tag tag-danger">Danger</span></span></li>
+        <li><span>Para eliminar está <strong>DELETE</strong>: <code>DELETE /productos/campera-animal-print</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">39</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">El status code tiene que decir la verdad</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">HTTP/1.1</span> <span class="tok-num">200</span> OK
+<span class="tok-fn">Content-Type</span>: application/json
+
+{<span class="tok-str">"error"</span>: <span class="tok-str">"El producto no existe"</span>}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>El body dice que hubo un error, pero el status dice que salió todo bien</span></li>
+        <li><span><code>fetch</code>, las DevTools y cualquier cliente miran <strong>primero el status</strong>: van a tratarlo como un éxito</span></li>
+        <li><span>Lo correcto es responder <strong>404 Not Found</strong>, con ese mismo body si queremos dar más detalle<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">40</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Todo por POST a un solo endpoint</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">http</div>
+        <pre><code><span class="tok-kw">POST</span> /api <span class="tok-kw">HTTP/1.1</span>
+<span class="tok-fn">Host</span>: rickyfortmerch.com.ar
+<span class="tok-fn">Content-Type</span>: application/json
+
+{<span class="tok-str">"accion"</span>: <span class="tok-str">"eliminar"</span>, <span class="tok-str">"producto"</span>: <span class="tok-str">"campera-animal-print"</span>}</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><strong>Esto no es REST</strong>: la acción viaja escondida en el body y el path es siempre el mismo</span></li>
+        <li><span>Desde afuera no se puede saber qué hace cada request: las DevTools, los logs y la caché dejan de ser útiles<span class="tag tag-danger">Danger</span></span></li>
+        <li><span>Lo correcto es que el método y el path digan la acción: <code>DELETE /productos/campera-animal-print</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">41</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">¿Cuáles son REST?</div>
+      <ul class="bullets">
+        <li><span><strong>1.</strong> <code>GET /productos/campera-animal-print</code></span></li>
+        <li><span><strong>2.</strong> <code>GET /productos/eliminar/campera-animal-print</code></span></li>
+        <li><span><strong>3.</strong> <code>POST /productos/campera-animal-print/resenas</code></span></li>
+        <li><span><strong>4.</strong> <code>POST /getResenas</code></span></li>
+        <li><span><strong>5.</strong> <code>DELETE /productos/campera-animal-print/resenas/7</code></span></li>
+        <li><span><strong>6.</strong> <code>PUT /productos/campera-animal-print</code> que responde <code>200 OK</code> con <code>{"error": "datos inválidos"}</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">42</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">Respuestas</div>
+      <ul class="bullets">
+        <li><span><strong>1.</strong> <strong>Sí</strong>: obtiene un elemento de la colección</span></li>
+        <li><span><strong>2.</strong> <strong>No</strong>: el verbo está en el path y un GET no debe borrar. Lo correcto: <code>DELETE /productos/campera-animal-print</code></span></li>
+        <li><span><strong>3.</strong> <strong>Sí</strong>: crea una reseña dentro del producto</span></li>
+        <li><span><strong>4.</strong> <strong>No</strong>: lectura con POST y verbo en el path. Lo correcto: <code>GET /productos/campera-animal-print/resenas</code></span></li>
+        <li><span><strong>5.</strong> <strong>Sí</strong>: elimina la reseña 7 de ese producto</span></li>
+        <li><span><strong>6.</strong> <strong>No</strong>: el path y el método están bien, pero el status miente. Lo correcto: <strong>400 Bad Request</strong></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">43</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.05 — APIs REST</div>
+      <div class="s-title s-title--md">REST es una convención</div>
+      <ul class="bullets">
+        <li><span>Nada obliga a seguirla: Express (y HTTP) aceptan cualquier path con cualquier método</span></li>
+        <li><span>Pero vuelve a la API <strong>predecible</strong>: si conozco <code>/productos</code>, puedo adivinar cómo funciona <code>/usuarios</code></span></li>
+        <li><span>Quien la consume aprovecha lo que ya sabe de HTTP: métodos, status codes y headers</span></li>
+        <li><span>Es la convención que vamos a seguir al armar nuestra propia API con Express<span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">44</span>
+    </div>
+  </section>
+
+  <!-- divisoria-seccion -->
+  <section class="slide on-accent">
+    <div class="s-pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="dot"></span>Sección .06</div>
+      <div class="s-title">Nuestro propio servidor</div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">45</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">¿Con qué lenguaje?</div>
+      <ul class="bullets">
+        <li><span>Un servidor HTTP se puede escribir en casi cualquier lenguaje: Python, C, Rust, Java, Elixir...</span></li>
+        <li><span>Usamos <strong>JavaScript</strong>, que ya conocemos del front: un lenguaje menos que aprender</span></li>
+        <li><span><a href="https://nodejs.org" target="_blank" rel="noopener"><strong>Node.js</strong></a> es un <em>runtime</em>: ejecuta JS fuera del navegador</span></li>
+        <li><span><a href="https://expressjs.com" target="_blank" rel="noopener"><strong>Express</strong></a> es un framework web para Node: minimalista y no opinionado<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">46</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Arrancar un proyecto</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>mkdir api &amp;&amp; cd api
+npm init <span class="c2">-y</span>               <span class="c1"># como git init, pero para Node</span>
+npm install express       <span class="c1"># agrega una dependencia</span></code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>npm</code> es el administrador de paquetes de Node (las bibliotecas de JS se llaman <strong>paquetes</strong>)</span></li>
+        <li><span><code>npm init</code> crea el <code>package.json</code>, que marca la <strong>raíz</strong> del proyecto</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">47</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Qué aparece en la carpeta</div>
+      <ul class="bullets">
+        <li><span><code>package.json</code>: nombre, versión, <code>main</code> y <strong>dependencies</strong> (<code>express</code>)</span></li>
+        <li><span><code>node_modules/</code>: el código de las dependencias</span></li>
+        <li><span><code>package-lock.json</code>: las versiones <strong>exactas</strong> que se instalaron</span></li>
+        <li><span>Quien clone el repo corre <code>npm install</code> y obtiene lo mismo<span class="tag tag-tip">Tip</span></span></li>
+        <li><span><code>node_modules/</code> va al <strong><code>.gitignore</code></strong>: pesa mucho y se regenera<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">48</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Hola mundo</div>
+      <div class="code-block">
+        <div class="fname">js</div>
+        <pre><code><span class="tok-kw">const</span> express = <span class="tok-fn">require</span>(<span class="tok-str">"express"</span>);
+<span class="tok-kw">const</span> app = <span class="tok-fn">express</span>();
+<span class="tok-kw">const</span> port = <span class="tok-num">3000</span>;
+
+app.<span class="tok-fn">get</span>(<span class="tok-str">"/"</span>, (req, res) =&gt; {
+  res.<span class="tok-fn">send</span>(<span class="tok-str">"Hello World!\n"</span>);
+});
+
+app.<span class="tok-fn">listen</span>(port, () =&gt; {
+  console.<span class="tok-fn">log</span>(<span class="tok-str">`Escuchando en el puerto ${port}`</span>);
+});</code></pre>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">49</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Línea por línea</div>
+      <ul class="bullets">
+        <li><span><code>express()</code> crea la aplicación</span></li>
+        <li><span><code>app.get("/", handler)</code> <strong>declara</strong> una ruta: GET a la raíz. No ejecuta nada en el momento</span></li>
+        <li><span>El <strong>handler</strong> recibe <code>req</code> (los datos de la request) y <code>res</code> (donde armamos la response)</span></li>
+        <li><span><code>app.listen</code> abre el puerto y llama a la función cuando ya está escuchando</span></li>
+        <li><span>El programa <strong>no termina</strong>: se queda esperando requests. Se corta con <strong>Ctrl+C</strong><span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">50</span>
+    </div>
+  </section>
+
+  <!-- titulo-bullets -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">¿Qué es el puerto?</div>
+      <ul class="bullets">
+        <li><span>Una máquina puede tener muchos servidores a la vez: el <strong>puerto</strong> identifica a cuál le hablamos</span></li>
+        <li><span><strong>80</strong> es el puerto por defecto de HTTP (el que usamos con <code>nc</code>) y <strong>443</strong> el de <strong>HTTPS</strong> (HTTP + encriptación)</span></li>
+        <li><span>Por eso <code>google.com</code> no lleva puerto, pero <code>localhost:3000</code> sí</span></li>
+        <li><span>Los puertos bajos son privilegiados: para desarrollar usamos <strong>3000</strong>, <strong>8000</strong>, etc.<span class="tag tag-tip">Tip</span></span></li>
+        <li><span>Si el puerto ya está ocupado, el servidor no arranca (<code>EADDRINUSE</code>)<span class="tag tag-warning">Warning</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">51</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Correrlo y probarlo</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>node index.js
+curl <span class="c2">-v</span> localhost:3000</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>También desde el navegador: <code>http://localhost:3000</code></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">52</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Reiniciar en cada cambio</div>
+      <ul class="bullets">
+        <li><span>Node lee el archivo <strong>una vez</strong> al arrancar: si cambiamos el código, hay que reiniciar</span></li>
+        <li><span>Para no hacerlo a mano: <strong>nodemon</strong>, que reinicia solo cuando detecta cambios</span></li>
+      </ul>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>npm install <span class="c2">--save-dev</span> nodemon   <span class="c1"># solo para desarrollo</span>
+npx nodemon index.js</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>--save-dev</code> lo guarda en <code>devDependencies</code>: no hace falta para correr en producción</span></li>
+        <li><span><code>npx</code> ejecuta un programa que viene dentro de un paquete</span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">53</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Agregar rutas</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>app.<span class="tok-fn">get</span>(<span class="tok-str">"/test"</span>, (req, res) =&gt; {
+  res.<span class="tok-fn">send</span>(<span class="tok-str">"test\n"</span>);
+});
+
+app.<span class="tok-fn">post</span>(<span class="tok-str">"/test"</span>, (req, res) =&gt; {
+  res.<span class="tok-fn">send</span>(<span class="tok-str">"test creado\n"</span>);
+});</code></pre>
+      </div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">terminal</div>
+        <pre><code>curl localhost:3000/test
+curl <span class="c2">-X</span> POST localhost:3000/test</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span>Mismo path y distinto método: son dos <strong>endpoints</strong> distintos<span class="tag tag-info">Info</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">54</span>
+    </div>
+  </section>
+
+  <!-- codigo -->
+  <section class="slide">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>.06 — Nuestro propio servidor</div>
+      <div class="s-title s-title--md">Controlar la response</div>
+      <div class="code-block" style="flex:0 1 auto;min-height:0;margin-bottom:.6em;">
+        <div class="fname">js</div>
+        <pre><code>app.<span class="tok-fn">post</span>(<span class="tok-str">"/test"</span>, (req, res) =&gt; {
+  res.<span class="tok-fn">status</span>(<span class="tok-num">201</span>).<span class="tok-fn">set</span>(<span class="tok-str">"Hola"</span>, <span class="tok-str">"mundo"</span>).<span class="tok-fn">send</span>(<span class="tok-str">"test creado\n"</span>);
+});</code></pre>
+      </div>
+      <ul class="bullets">
+        <li><span><code>res.status()</code> cambia el status code: un POST que crea debería dar <strong>201</strong></span></li>
+        <li><span><code>res.set()</code> agrega un header propio</span></li>
+        <li><span>Con <code>curl -v</code> vemos el <code>201 Created</code> y el header <code>Hola: mundo</code><span class="tag tag-tip">Tip</span></span></li>
+      </ul>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">55</span>
+    </div>
+  </section>
+
+  <!-- bibliografia -->
+  <section class="slide biblio">
+    <div class="s-pad">
+      <div class="eyebrow"><span class="dot"></span>Bibliografía</div>
+      <ol>
+        <li>MDN — Generalidades del protocolo HTTP <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Overview" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/HTTP/Guides/Overview</a>)</span></li>
+        <li>MDN — Métodos de petición HTTP <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods</a>)</span></li>
+        <li>MDN — Códigos de estado de respuesta HTTP <span class="src">(<a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Web/HTTP/Reference/Status</a>)</span></li>
+        <li>MDN — REST <span class="src">(<a href="https://developer.mozilla.org/es/docs/Glossary/REST" target="_blank" rel="noopener">developer.mozilla.org/es/docs/Glossary/REST</a>)</span></li>
+        <li>Express — Getting started <span class="src">(<a href="https://expressjs.com/en/starter/installing.html" target="_blank" rel="noopener">expressjs.com/en/starter/installing.html</a>)</span></li>
+        <li>Express — Basic routing <span class="src">(<a href="https://expressjs.com/en/starter/basic-routing.html" target="_blank" rel="noopener">expressjs.com/en/starter/basic-routing.html</a>)</span></li>
+        <li>Node.js — Download <span class="src">(<a href="https://nodejs.org/en/download" target="_blank" rel="noopener">nodejs.org/en/download</a>)</span></li>
+        <li>curl — Manual <span class="src">(<a href="https://curl.se/docs/manual.html" target="_blank" rel="noopener">curl.se/docs/manual.html</a>)</span></li>
+      </ol>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">56</span>
+    </div>
+  </section>
+
+  <!-- cierre -->
+  <section class="slide on-accent">
+    <div class="s-pad">
+      <div class="closing-center">
+        <div class="eyebrow"><span class="dot"></span>Fin de la clase</div>
+        <div class="s-title">¡Gracias!</div>
+        <div class="closing-links">Próxima clase: armamos nuestra propia API</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <span>Intro Camejo</span>
+      <img class="logo-mark" src="../_template/assets/logo_fiuba.png" alt="FIUBA">
+      <span class="num">57</span>
+    </div>
+  </section>
+
+</main>
+<script src="../_template/nav.js"></script>
+</body>
+</html>

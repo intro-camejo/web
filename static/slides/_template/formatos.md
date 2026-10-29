@@ -49,6 +49,19 @@ de cada sección puede ser un comentario de metadata:
   mismas cinco categorías que usan los admonitions de Docusaurus
   (`:::note`, `:::tip`, etc.), así el vocabulario es consistente entre el
   material escrito y las slides.
+- Las **notas al pie** usan la sintaxis estándar de markdown: la llamada
+  `[^1]` va al final del título o de un bullet, y la definición
+  `[^1]: texto` va en su propia línea al final de la slide. Sirven para
+  citar la fuente de una slide puntual (ej. la página de MDN) sin sumarle un
+  bullet. La numeración es por slide, arranca en 1 en cada una. Se generan
+  así (la llamada en el título o bullet, las notas al final del `.s-pad`):
+  ```html
+  <div class="s-title s-title--md">{{título}}<sup class="fn-ref">1</sup></div>
+  ...
+  <div class="s-notes">
+    <p><sup>1</sup>{{texto de la nota, con links}}</p>
+  </div>
+  ```
 - Las imágenes se referencian como archivos locales relativos a la carpeta
   de la clase: `![](img/git-status.png)`. Claude copia lo que encuentre en
   la carpeta `img/` del profesor tal cual, no las reprocesa.
