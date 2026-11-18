@@ -97,6 +97,11 @@ const config = {
             label: 'Notas',
           },
           {
+            to:"/modelos-de-parcial",
+            position: 'left',
+            label: 'Modelos de parcial',
+          },
+          {
             href: 'https://forms.gle/eNntd1kjymuCZKmE7',
             label: 'Buzón de quejas',
             position: 'right',
