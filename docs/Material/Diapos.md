@@ -48,6 +48,10 @@
 
 * [Backend](pathname:///slides/backend/index.html)
 
+## Semana 15
+
+* [Discutamos un poco](pathname:///slides/discutamos-un-poco/index.html)
+
 ## Charla
 
 * [Incertidumbre en épocas de AI](pathname:///slides/incertidumbre/index.html)
