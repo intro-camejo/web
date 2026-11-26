@@ -86,11 +86,9 @@ app.post("/api/foto", upload.single("foto"), (req, res) => {
 ## La economía hoy y qué sigue importando
 
 - La IA ya hace en minutos lo que antes llevaba días, y el mercado se está acomodando
-- Nadie tiene la bola de cristal: es normal tener dudas {tag:note}
-- *The Last Economy*[^1]: la inteligencia deja de ser escasa. Un cambio de etapa, no el fin del mundo
+- Nadie tiene la bola de cristal: es normal tener dudas
+- Es una revolución parecida a la **Revolución Industrial**: cambia cómo se trabaja, no hace desaparecer el trabajo
 - Cambian las herramientas, no el oficio de resolver problemas
-
-[^1]: Mostaque, E. (2025). *The Last Economy: A Guide to the Age of Intelligent Economics*. Intelligent Internet. ISBN 978-1-0369-3411-8.
 
 ---
 
