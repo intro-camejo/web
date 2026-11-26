@@ -464,7 +464,7 @@ code{
 <span class="tok-kw">const</span> datos = <span class="tok-kw">await</span> respuesta.<span class="tok-fn">json</span>();</code></pre>
       </div>
       <ul class="bullets">
-        <li><span>Es un <strong>POST</strong> como cualquier API: Groq, Gemini u OpenRouter tienen capa gratis</span></li>
+        <li><span>Es un <strong>POST</strong> como cualquier API: Groq, Gemini u OpenRouter tienen tier gratis</span></li>
         <li><span>La key va en <code>.env</code>: nunca en git ni en el frontend<span class="tag tag-danger">Danger</span></span></li>
       </ul>
     </div>
@@ -515,16 +515,24 @@ code{
     </div>
   </section>
 
-  <!-- titulo-bullets -->
+  <!-- codigo -->
   <section class="slide">
     <div class="s-pad">
       <div class="eyebrow"><span class="dot"></span>Extras</div>
       <div class="s-title s-title--md">Subida de imágenes: URL vs. Multer</div>
+      <div class="code-block">
+        <div class="fname">js · index.js (Express)</div>
+        <pre><code><span class="tok-kw">const</span> multer = <span class="tok-fn">require</span>(<span class="tok-str">"multer"</span>);
+<span class="tok-kw">const</span> upload = <span class="tok-fn">multer</span>({ dest: <span class="tok-str">"uploads/"</span> });
+
+app.<span class="tok-fn">post</span>(<span class="tok-str">"/api/foto"</span>, upload.<span class="tok-fn">single</span>(<span class="tok-str">"foto"</span>), (req, res) =&gt; {
+  res.<span class="tok-fn">json</span>({ archivo: req.file.filename });
+});</code></pre>
+      </div>
       <ul class="bullets">
         <li><span>En clase vimos lo fácil: guardar la <strong>URL</strong> de la imagen. Para el TP alcanza</span></li>
-        <li><span>Con Node y Express, <strong>Multer</strong> sube archivos de verdad, y con un prompt sale rapidísimo</span></li>
-        <li><span>Usala si más o menos entendés qué hace, o si de verdad la necesitás</span></li>
-        <li><span>No metan magia que no puedan explicar en el coloquio<span class="tag tag-warning">Warning</span></span></li>
+        <li><span>Con <strong>Multer</strong> subís el archivo de verdad: el input se llama <code>foto</code>, se guarda en <code>uploads/</code> y te llega en <code>req.file</code></span></li>
+        <li><span>Se arma rapidísimo con un prompt, pero no metan magia que no puedan explicar en el coloquio<span class="tag tag-warning">Warning</span></span></li>
       </ul>
     </div>
     <div class="s-foot">

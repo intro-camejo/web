@@ -29,7 +29,7 @@ const respuesta = await fetch("https://api.groq.com/openai/v1/chat/completions",
 const datos = await respuesta.json();
 ```
 
-- Es un **POST** como cualquier API: Groq, Gemini u OpenRouter tienen capa gratis
+- Es un **POST** como cualquier API: Groq, Gemini u OpenRouter tienen tier gratis
 - La key va en `.env`: nunca en git ni en el frontend {tag:danger}
 
 ---
@@ -56,13 +56,21 @@ const datos = await respuesta.json();
 
 ---
 
-<!-- slide: tipo=titulo-bullets seccion="Extras" -->
+<!-- slide: tipo=codigo seccion="Extras" -->
 ## Subida de imágenes: URL vs. Multer
 
+```js
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+
+app.post("/api/foto", upload.single("foto"), (req, res) => {
+  res.json({ archivo: req.file.filename });
+});
+```
+
 - En clase vimos lo fácil: guardar la **URL** de la imagen. Para el TP alcanza
-- Con Node y Express, **Multer** sube archivos de verdad, y con un prompt sale rapidísimo
-- Usala si más o menos entendés qué hace, o si de verdad la necesitás
-- No metan magia que no puedan explicar en el coloquio {tag:warning}
+- Con **Multer** subís el archivo de verdad: el input se llama `foto`, se guarda en `uploads/` y te llega en `req.file`
+- Se arma rapidísimo con un prompt, pero no metan magia que no puedan explicar en el coloquio {tag:warning}
 
 ---
 
