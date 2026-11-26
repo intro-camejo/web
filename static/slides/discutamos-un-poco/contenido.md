@@ -60,16 +60,24 @@ const datos = await respuesta.json();
 ## Subida de imágenes: URL vs. Multer
 
 ```js
+// Cliente · js en el navegador
+const input = document.querySelector("#foto");
+const datos = new FormData();
+datos.append("foto", input.files[0]);
+fetch("/api/foto", { method: "POST", body: datos });
+```
+
+```js
+// Backend · index.js (Express + Multer)
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
-
 app.post("/api/foto", upload.single("foto"), (req, res) => {
   res.json({ archivo: req.file.filename });
 });
 ```
 
-- En clase vimos lo fácil: guardar la **URL** de la imagen. Para el TP alcanza
-- Con **Multer** subís el archivo de verdad: el input se llama `foto`, se guarda en `uploads/` y te llega en `req.file`
+- En el HTML va un `<input type="file" id="foto">`, y `"foto"` coincide con `upload.single` {tag:tip}
+- Para el TP, guardar la **URL** de la imagen alcanza. Multer sube el archivo de verdad
 - Se arma rapidísimo con un prompt, pero no metan magia que no puedan explicar en el coloquio {tag:warning}
 
 ---
